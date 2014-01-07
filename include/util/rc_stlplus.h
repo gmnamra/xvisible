@@ -51,8 +51,25 @@
 #include <iterator>
 #include <rc_types.h>
 #include <sstream>
+#include <file_system.hpp>
 
 using namespace std;
+
+
+#define fileokandwritable(a) ( ! ( (a).empty() || ! is_present ((a)) || \
+! is_file ((a)) || ! file_writable ((a)) || \
+! is_full_path ((a)) ) )
+
+#define fileokandreadable(a) ( ! ( (a).empty() || ! is_present ((a)) || \
+! is_file ((a)) || ! file_readable ((a)) || \
+! is_full_path ((a)) ) )
+
+#define dirokandwritable(a) ( ! ( (a).empty() || ! folder_exists ((a)) || \
+! folder_writable ((a)) || ! is_full_path ((a))))
+
+#define dirokandreadable(a) ( ! ( (a).empty() || ! folder_exists ((a)) || \
+! folder_readable ((a)) || ! is_full_path ((a))))
+
 
 template <typename Array>
 double vectorSum(Array a, long count) { // Array can be a pointer or an iterator
