@@ -44,7 +44,7 @@
 		C22DD0531314D3EF00801DE4 /* ut_stats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2A30F21357A0046570D /* ut_stats.cpp */; };
 		C22DD0541314D3EF00801DE4 /* ut_systeminfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2A40F21357A0046570D /* ut_systeminfo.cpp */; };
 		C22DD05E1314D4AC00801DE4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA26D0F21357A0046570D /* main.cpp */; };
-		C22DD15F1315752600801DE4 /* vf.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8D07F2C80486CC7A007CD1D0 /* vf.framework */; };
+		C22DD15F1315752600801DE4 /* vf_d.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8D07F2C80486CC7A007CD1D0 /* vf_d.framework */; };
 		C22DD1A113157D8800801DE4 /* svn_version.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DD1A013157D8800801DE4 /* svn_version.h */; };
 		C22DD25D13159B0C00801DE4 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAED60F421FE2003CC197 /* Carbon.framework */; };
 		C22DD3D61316364400801DE4 /* rc_cubic_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E310F21135D0046570D /* rc_cubic_generators.cpp */; };
@@ -52,7 +52,7 @@
 		C22DD3E41316377900801DE4 /* rc_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E350F21135D0046570D /* rc_draw.cpp */; };
 		C22DD3E51316377900801DE4 /* rc_def_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E340F21135D0046570D /* rc_def_generators.cpp */; };
 		C22DD3E61316377B00801DE4 /* rc_affinewindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E2F0F21135D0046570D /* rc_affinewindow.cpp */; };
-		C23FCF33131F528F00C1FF5A /* vf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D07F2C80486CC7A007CD1D0 /* vf.framework */; };
+		C23FCF33131F528F00C1FF5A /* vf_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D07F2C80486CC7A007CD1D0 /* vf_d.framework */; };
 		C23FD0AD132005E300C1FF5A /* ut_thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2A50F21357A0046570D /* ut_thread.cpp */; };
 		C23FD0B0132005F400C1FF5A /* ut_timestamp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2A70F21357A0046570D /* ut_timestamp.cpp */; };
 		C23FD0B31320060500C1FF5A /* ut_security.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA29D0F21357A0046570D /* ut_security.cpp */; };
@@ -1065,7 +1065,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C22DD15F1315752600801DE4 /* vf.framework in CopyFiles */,
+				C22DD15F1315752600801DE4 /* vf_d.framework in CopyFiles */,
 				C22DCF841314D2EA00801DE4 /* gtest.framework in CopyFiles */,
 				C22DCCBA1314BC3100801DE4 /* ASC_DCAM_DEV.framework in CopyFiles */,
 			);
@@ -1075,7 +1075,7 @@
 
 /* Begin PBXFileReference section */
 		089C1667FE841158C02AAC07 /* English.lproj */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = folder; name = English.lproj; path = resources/Visible/English.lproj; sourceTree = "<group>"; };
-		8D07F2C80486CC7A007CD1D0 /* vf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = vf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D07F2C80486CC7A007CD1D0 /* vf_d.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = vf_d.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C212523C130D96FE00B6C967 /* rc_dcam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_dcam.cpp; sourceTree = "<group>"; };
 		C21B5581130B38B3001E8521 /* rc_dcam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_dcam.h; sourceTree = "<group>"; };
 		C21B56F9130B54B0001E8521 /* rc_capture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_capture.cpp; sourceTree = "<group>"; };
@@ -1090,7 +1090,7 @@
 		C22DD24813159A2C00801DE4 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		C23FD2421321A4CB00C1FF5A /* rc_pixel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rc_pixel.hpp; sourceTree = "<group>"; };
 		C2444EB618407047004E7AA4 /* rc_stlplus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_stlplus.h; sourceTree = "<group>"; };
-		C24B8D0C183E62D30010E3C2 /* libvf32_vf.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libvf32_vf.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C24B8D0C183E62D30010E3C2 /* libvf32_dvf.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libvf32_dvf.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C24B8D0F183E62D30010E3C2 /* vf-Info copy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "vf-Info copy.plist"; sourceTree = "<group>"; };
 		C24EA7F91842B85400E88B0A /* libpmk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpmk.xcodeproj; path = "3rdparty/libpmk-2.5/libpmk/libpmk.xcodeproj"; sourceTree = "<group>"; };
 		C24EA96D1842FD0D00E88B0A /* batch_convert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = batch_convert.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1602,7 +1602,7 @@
 		C2EC91B20F37755700E49E22 /* rc_dcam_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_dcam_main.cpp; sourceTree = "<group>"; };
 		C2EC91B30F37755700E49E22 /* rc_movie_generator_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_movie_generator_main.cpp; sourceTree = "<group>"; };
 		C2EC91B40F37755700E49E22 /* rc_qtime_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_qtime_main.cpp; sourceTree = "<group>"; };
-		C2EC9C74183E692A00AC3300 /* vBina32.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vBina32.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2EC9C74183E692A00AC3300 /* vBina32.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vBina32.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2EC9C79183E692A00AC3300 /* vf-Info copy 2.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "vf-Info copy 2.plist"; sourceTree = "<group>"; };
 		C2EC9C80183E69F500AC3300 /* visimatch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = visimatch.cpp; path = src/vsigmatch/visimatch.cpp; sourceTree = "<group>"; };
 		C2EC9C81183E69F500AC3300 /* convertMatrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = convertMatrix.cpp; path = src/vsigmatch/convertMatrix.cpp; sourceTree = "<group>"; };
@@ -1754,7 +1754,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C23FCF33131F528F00C1FF5A /* vf.framework in Frameworks */,
+				C23FCF33131F528F00C1FF5A /* vf_d.framework in Frameworks */,
 				C22DCE8E1314C18200801DE4 /* gtest.framework in Frameworks */,
 				C22DCCB71314BC3100801DE4 /* ASC_DCAM_DEV.framework in Frameworks */,
 				C22DCCB81314BC3100801DE4 /* QuickTime.framework in Frameworks */,
@@ -1814,10 +1814,10 @@
 		034768DDFF38A45A11DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D07F2C80486CC7A007CD1D0 /* vf.framework */,
+				8D07F2C80486CC7A007CD1D0 /* vf_d.framework */,
 				C22DCCBE1314BC3100801DE4 /* coreUT.app */,
-				C24B8D0C183E62D30010E3C2 /* libvf32_vf.a */,
-				C2EC9C74183E692A00AC3300 /* vBina32.framework */,
+				C24B8D0C183E62D30010E3C2 /* libvf32_dvf.a */,
+				C2EC9C74183E692A00AC3300 /* vBina32.app */,
 				C24EA96D1842FD0D00E88B0A /* batch_convert.app */,
 			);
 			name = Products;
@@ -3362,7 +3362,7 @@
 			name = vf;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = vf;
-			productReference = 8D07F2C80486CC7A007CD1D0 /* vf.framework */;
+			productReference = 8D07F2C80486CC7A007CD1D0 /* vf_d.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C22DCCAB1314BC3100801DE4 /* coreUT */ = {
@@ -3400,7 +3400,7 @@
 			name = libvf32;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = vf;
-			productReference = C24B8D0C183E62D30010E3C2 /* libvf32_vf.a */;
+			productReference = C24B8D0C183E62D30010E3C2 /* libvf32_dvf.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		C24EA7FF1842FD0D00E88B0A /* batchconvert */ = {
@@ -3438,7 +3438,7 @@
 			name = vsigmatch;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = vf;
-			productReference = C2EC9C74183E692A00AC3300 /* vBina32.framework */;
+			productReference = C2EC9C74183E692A00AC3300 /* vBina32.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -3452,6 +3452,7 @@
 			};
 			buildConfigurationList = 4FADC24608B4156D00ABE55E /* Build configuration list for PBXProject "vf" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -4377,7 +4378,7 @@
 				OpenCV = "$(SRCROOT)/frameworks/OpenCV.framework";
 				PRODUCT_NAME = vf_d;
 				RFY_DLL_EXPORT = "";
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = macosx10.6;
 				SKIP_INSTALL = NO;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = static;
 				VALID_ARCHS = i386;
@@ -4443,7 +4444,7 @@
 				OpenCV = "$(SRCROOT)/frameworks/OpenCV.framework";
 				PRODUCT_NAME = vf;
 				RFY_DLL_EXPORT = "";
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = macosx10.6;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = static;
 				STRIP_STYLE = debugging;
 				VALID_ARCHS = i386;
@@ -4461,10 +4462,11 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-mmacosx-version-min=10.5";
 				PREBINDING = NO;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = macosx10.6;
 				VALID_ARCHS = i386;
 			};
 			name = Debug;
@@ -4478,9 +4480,10 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				OTHER_CFLAGS = "-mmacosx-version-min=10.5";
 				PREBINDING = NO;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = macosx10.6;
 				VALID_ARCHS = i386;
 			};
 			name = Release;
