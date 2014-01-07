@@ -1,0 +1,114 @@
+
+This file includes issues/tricks/shortcommings of blitz++
+
+Stenciles:
+
+Stencil implementation seems to be in flux. I found that ot was
+necesarry to include the following.
+
+For 0.7, it seems that the following includes is necessary:
+
+#include <blitz/array-old.h>
+#include <blitz/array/stencils.h>
+
+
+BZ_USING_NAMESPACE(blitz)
+
+BZ_DECLARE_STENCIL4(test,Ax,Ay, curlA,divA)
+    curlA = curl(Ax,Ay);
+    divA = div(Ax,Ay);
+BZ_STENCIL_END
+
+Then the following is an example of using it:
+
+  {
+    Array<float,2> Ax (5), Ay(5), divA (5);
+    Array<TinyVector<float,2>,2> curlA (5, 5);
+    const int N = 5;
+
+    Array<float,1> cx(N), cy(N);
+    float h = 1.0 / (N-1);
+
+    cx = h * (i-N/2);
+    cy = h * (i-N/2);
+
+    Ax = cos(cx(i)) + cos(cy(j)) ;
+    Ay = sin(cx(i)) + sin(cy(j)) ;
+
+    cout << cx << endl;
+    cout << cy << endl;
+
+
+    cout << Ax << endl;
+    cout << Ay << endl;
+
+    applyStencil(test(), Ax, Ay, curlA, divA);
+
+    cout << curlA << endl;
+    cout << divA << endl;
+
+  }
+
+Another example would be a peak detection stencil:
+
+BZ_DECLARE_STENCIL2(Peak3b3, A, B)
+  B = ((A > A(-1,-1) ) && (A > A(0, -1)) && (A > A(1, -1)) && (A > A(-1,0)) && (A > A(1, 0)) && (A  > A(-1, 1)) && (A > A(0, 1)) &&  (A > A(1, 1))) ? A : 0;
+BZ_END_STENCIL
+
+
+Blitz indexes are int (rcInt32). Passing rcUint32 causses template issues.
+
+
+Here is an example of smoothing a velocity field
+
+#if 0
+  for (rcInt32 j = 1; j < dimension.y()-1; j++)
+    {
+      for (rcInt32 i = 1; i < dimension.x()-1; i++)
+	{
+	  if (withinStructures (mStructureMap, searchSize, rcIPair (i, j)))
+	    continue;
+
+	  TinyVector<int,2> index (i, j);
+	  TinyVector<int,2> indexx (i+1, j);
+	  TinyVector<int,2> indexy (i, j+1);
+	  rcbVector2F& c = field(index);
+	  rcbVector2F& cx = field(indexx);
+	  rcbVector2F& cy = field(indexy);
+	  c[0] += c[0] + cx[0] + cy[0];
+	  c[1] += c[1] + cx[1] + cy[1];
+	  c[0] *= recip_4;
+	  c[1] *= recip_4;
+	}
+    }
+#endif	  
+  //  cout << field << endl;
+  //  applyStencil (test(), field, curlf);
+  //  cout << curlf << endl;
+
+
+
+BZ_DECLARE_STENCIL2(test,A, curlf)
+    curlf = curl2D(A);
+BZ_STENCIL_END
+
+BZ_DECLARE_STENCIL2(rcDiv,A, divf)
+    divf = div2D(A);
+BZ_STENCIL_END
+
+const double recip_9 = 0.111111111111111111111111111111111111111111111;
+
+BZ_DECLARE_STENCIL_OPERATOR1(Smooth2D4, A)
+  return (*A) 
+    + (A.shift(-1,0) + A.shift(1,0) + A.shift(-1,1) + A.shift(1,1))
+    + (A.shift(-2,0) + A.shift(2,0) + A.shift(-2,1) + A.shift(2,1));
+BZ_END_STENCIL_OPERATOR
+
+BZ_DECLARE_STENCIL_OPERATOR1(Smooth2D4n, A)
+  return Smooth2D4(A) * recip_9;
+BZ_END_STENCIL_OPERATOR
+
+BZ_DECLARE_STENCIL2(rcSmooth,A, smoothf)
+    smoothf = Smooth2D4n(A);
+BZ_STENCIL_END
+

@@ -1,0 +1,98 @@
+
+<!--
+
+    Reify Experiment Markup Language 1.0 DTD
+
+    Copyright (c) 2003 Reify Corporation. All rights reserved.
+
+-->
+
+<!--================== Imported Names ====================================-->
+
+<!ENTITY % Character "#PCDATA">
+    <!-- a single character, as per section 2.2 of [XML] -->
+
+<!ENTITY % Number "#PCDATA">
+    <!-- one or more digits -->
+
+<!ENTITY % Text "#PCDATA">
+    <!-- used for titles etc. -->
+
+<!ENTITY % Timestamp "%Text;">
+
+<!ENTITY % Settings "(setting-category)*">
+
+<!ENTITY % Namevaluepair "(name,value)">
+
+<!ENTITY % Track-value-type "video|scalar|position|graphics|unknown"> 
+
+<!--================ Document Structure ==================================-->
+
+<!ELEMENT experiment ((version?), %Settings;, experiment-data)>
+<!ELEMENT version (%Number;)>
+
+<!--================ Common Elements ==================================-->
+
+<!ELEMENT name (%Text;)>
+<!ELEMENT descr (%Text;)>
+
+<!--================ Application Settings ==================================-->
+
+<!ELEMENT setting-category (name, descr, (setting)*)>
+<!ELEMENT value (%Text;)>
+<!ELEMENT setting (%Namevaluepair;)*>
+
+<!--================ Measurement Data ==================================-->
+
+<!ELEMENT experiment-data ((group)*, (track)*, (tm)*, (v)*)>
+
+<!--================ Group Structure ==================================-->
+<!--
+    At least one group must exist.
+    All track elements must refer to a group with group-id attribute. 
+-->
+<!ELEMENT group (name,descr)>
+<!ATTLIST group
+  g        CDATA          #REQUIRED
+  >
+
+<!--================ Time Structure ==================================-->
+<!--
+    All track elements must refer to a time with time-id attribute. 
+-->
+<!ELEMENT tm (%Timestamp;)>
+<!ATTLIST tm
+  t        CDATA          #REQUIRED
+  >
+
+<!--================ Track Structure ==================================-->
+
+<!ELEMENT type (%Text;)>
+<!ELEMENT exp-min (%Number;)>
+<!ELEMENT exp-max (%Number;)>
+<!ELEMENT sz-lim (%Number;)>
+<!ELEMENT disp-frm (%Text;)>
+<!ELEMENT start (%Timestamp;)>
+<!ELEMENT arect (%Text;)>     <!-- TODO: specify format [x y w h] -->
+<!ELEMENT vtype (%Text;)>        <!-- Text much match %Track-value-type; --> 
+<!ELEMENT tver (%Number;)>
+
+<!ELEMENT track (type,vtype,name,descr,sz-lim,disp-frm,start?,arect,exp-min?,exp-max?,tver?)>
+<!--
+    All track elements must refer to a group with group-id attribute. 
+-->
+<!ATTLIST track
+  i        CDATA          #REQUIRED
+  g        CDATA          #REQUIRED
+>
+
+<!--================ Track Values ==================================-->
+
+<!ELEMENT v (#PCDATA)>
+<!--
+    All track-value elements must refer to a track with track-id attribute. 
+-->
+<!ATTLIST v
+  i            CDATA          #REQUIRED
+  t            CDATA          #REQUIRED
+>

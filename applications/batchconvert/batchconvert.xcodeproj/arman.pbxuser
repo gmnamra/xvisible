@@ -1,0 +1,323 @@
+// !$*UTF8*$!
+{
+	08FB7793FE84155DC02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = C2A341BC0F782B67001AB5CD /* batchconvert */;
+		activeTarget = 8DD76F740486A8DE00D96B5E /* batchconvert */;
+		addToTargets = (
+			8DD76F740486A8DE00D96B5E /* batchconvert */,
+		);
+		breakpoints = (
+			C2D7D3050F79587A00C9DC0A /* bcnvrt_main.cpp:676 */,
+			C2D7D3130F795C4500C9DC0A /* bcnvrt_main.cpp:457 */,
+			C293C7B40F797F1800B62A70 /* bcnvrt_main.cpp:779 */,
+			C293C7C70F797FC400B62A70 /* bcnvrt_main.cpp:308 */,
+			C293C7DA0F79807800B62A70 /* rc_movieconverter.cpp:916 */,
+			C293C7E70F79810F00B62A70 /* rc_movieconverter.cpp:1024 */,
+			C2FA86D70F79A09E00142659 /* bcnvrt_main.cpp:761 */,
+		);
+		codeSenseManager = C2A341C20F782B86001AB5CD /* Code sense */;
+		executables = (
+			C2A341BC0F782B67001AB5CD /* batchconvert */,
+		);
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					217,
+					20,
+					99,
+					99,
+					10,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXErrorsWarningsDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXErrorsWarningsDataSource_LocationID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					300,
+					505,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXErrorsWarningsDataSource_TypeID,
+					PBXErrorsWarningsDataSource_MessageID,
+					PBXErrorsWarningsDataSource_LocationID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					364,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					324,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 264284135;
+			PBXWorkspaceStateSaveDate = 264284135;
+		};
+		sourceControlManager = C2A341C10F782B86001AB5CD /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	8DD76F740486A8DE00D96B5E /* batchconvert */ = {
+		activeExec = 0;
+		executables = (
+			C2A341BC0F782B67001AB5CD /* batchconvert */,
+		);
+	};
+	C272F6CF0F7952D1008F1DCD /* bcnvrt_main.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = bcnvrt_main.cpp;
+		path = /Users/arman/WorkingCopies/placeVisible/visible/src/support/bcnvrt_main.cpp;
+		sourceTree = "<group>";
+	};
+	C293C7B40F797F1800B62A70 /* bcnvrt_main.cpp:779 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = C272F6CF0F7952D1008F1DCD /* bcnvrt_main.cpp */;
+		functionName = "main(int argc, char** argv)";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 779;
+		modificationTime = 259641407.999633;
+		state = 0;
+	};
+	C293C7C70F797FC400B62A70 /* bcnvrt_main.cpp:308 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = C272F6CF0F7952D1008F1DCD /* bcnvrt_main.cpp */;
+		functionName = "rfConvertMovie(const std::string& movieFile, rcMovieConverterError& error, const float& frameInterval, rcUint32 firstIndex, rcUint32 frameCount, rcUint32 offset, rcUint32 period, bool reversePixels, const std::string& outputFile, bool progressUpdates, bool dstIsReify )";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 308;
+		modificationTime = 259641408.013715;
+		state = 0;
+	};
+	C293C7D80F79807800B62A70 /* rc_movieconverter.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = rc_movieconverter.cpp;
+		path = /Users/arman/WorkingCopies/placeVisible/visible/src/visual/code/rc_movieconverter.cpp;
+		sourceTree = "<absolute>";
+	};
+	C293C7DA0F79807800B62A70 /* rc_movieconverter.cpp:916 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = C293C7D80F79807800B62A70 /* rc_movieconverter.cpp */;
+		functionName = "rcMovieConverterToQT::createQTMovie( rcVideoCache* inputCache, const std::string& outputFile )";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 916;
+		location = vf;
+		modificationTime = 259641407.706541;
+		state = 1;
+	};
+	C293C7E50F79810F00B62A70 /* rc_movieconverter.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = rc_movieconverter.cpp;
+		path = /Users/arman/WorkingCopies/placeVisible/visible/src/visual/code/rc_movieconverter.cpp;
+		sourceTree = "<group>";
+	};
+	C293C7E70F79810F00B62A70 /* rc_movieconverter.cpp:1024 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = C293C7E50F79810F00B62A70 /* rc_movieconverter.cpp */;
+		functionName = "rcMovieConverterToQT::addVideoSamplesToMedia(Media theMedia, rcVideoCache& cache, rcUint32 firstIndex, rcUint32 frameCount, rcUint32 offset, rcUint32 period, const rcRect& movieSize )";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 1024;
+		location = vf;
+		modificationTime = 259641407.706851;
+		state = 1;
+	};
+	C2A341BC0F782B67001AB5CD /* batchconvert */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+			YES,
+			NO,
+			NO,
+		);
+		argumentStrings = (
+			"-r 0.067 -s /Users/Shared/Movies/_c_zQu2MW/ -d /Users/Shared/Movies/out.rfymov",
+			"-s /Users/Shared/Movies/out.rfymov -d /Users/Shared/Movies/out.mov",
+			"-s /Users/Shared/Movies/Final.mov -d /Users/Shared/Movies/Final.rfymov",
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+			"PBXLSLaunchAction-1" = {
+				PBXLSLaunchAction = 1;
+				PBXLSLaunchStartAction = 0;
+				PBXLSLaunchStdioStyle = 2;
+				PBXLSLaunchStyle = 0;
+				class = PBXGDB_LaunchConfig;
+				commandLineArgs = (
+				);
+				displayName = GDB;
+				environment = {
+				};
+				identifier = com.apple.Xcode.launch.GDBMI_Config;
+				remoteHostInfo = "";
+				startActionInfo = "";
+			};
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = batchconvert;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+			"pixelFormat-OSType-rcMovieConverterToQT::addVideoSamplesToMedia" = 5;
+		};
+	};
+	C2A341C10F782B86001AB5CD /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryName = reify;
+		};
+	};
+	C2A341C20F782B86001AB5CD /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	C2A341D10F782C26001AB5CD /* bcnvrt_main.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1038, 16650}}";
+			sepNavSelRange = "{33644, 0}";
+			sepNavVisRange = "{22180, 861}";
+			sepNavWindowFrame = "{{119, 50}, {1100, 952}}";
+		};
+	};
+	C2D7D3050F79587A00C9DC0A /* bcnvrt_main.cpp:676 */ = {
+		isa = PBXSymbolicBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 1;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		hitCount = 1;
+		ignoreCount = 0;
+		location = batchconvert;
+		modificationTime = 259632801.648725;
+		state = 1;
+		symbolName = "bcnvrt_main.cpp:676";
+	};
+	C2D7D3130F795C4500C9DC0A /* bcnvrt_main.cpp:457 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = C2A341D10F782C26001AB5CD /* bcnvrt_main.cpp */;
+		functionName = "main(int argc, char** argv)";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 457;
+		modificationTime = 259641407.990688;
+		state = 0;
+	};
+	C2FA86D70F79A09E00142659 /* bcnvrt_main.cpp:761 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = C272F6CF0F7952D1008F1DCD /* bcnvrt_main.cpp */;
+		functionName = "main(int argc, char** argv)";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 761;
+		modificationTime = 259641408.303947;
+		state = 0;
+	};
+}

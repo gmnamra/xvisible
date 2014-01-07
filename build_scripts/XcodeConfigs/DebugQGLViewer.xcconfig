@@ -1,0 +1,32 @@
+//
+//  QGLViewer.xcconfig
+//  vf
+//
+//  Created by arman on 2/9/09.
+//  Copyright 2009 Reify Corp. All rights reserved.
+//
+
+PRODUCT_NAME = QGLViewer
+
+// Pull in the general settings
+#include "boostXcodeConfigs/subconfig/General.xcconfig"
+
+// Leopard or later
+#include "boostXcodeConfigs/subconfig/LeopardOrLater.xcconfig"
+
+// Debug settings
+#include "boostXcodeConfigs/subconfig/Debug.xcconfig"
+
+#include "Qt4.xcconfig"
+
+// Need QGL settings from qmake 
+OTHER_CPLUSCPLUSFLAGS = ${OTHER_CPLUSCPLUSFLAGS} -pipe -Os -Wall -W -fPIC -DQT_NO_DEBUG -DQT_XML_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED
+
+OBJROOT = .obj
+
+GCC_DYNAMIC_NO_PIC = NO
+
+GCC_TREAT_WARNINGS_AS_ERRORS = NO
+
+// Merge settings
+#include "boostXcodeConfigs/subconfig/GTMMerge.xcconfig"

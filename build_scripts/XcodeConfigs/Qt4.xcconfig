@@ -1,0 +1,13 @@
+//
+//  Qt4.xcconfig
+//  vf
+//
+//  Created by arman on 2/9/09.
+//  Copyright 2009 Reify Corp. All rights reserved.
+//
+
+ HEADER_SEARCH_PATHS = /Library/Frameworks/QtCore.framework/Versions/4/Headers /usr/include/QtCore /Library/Frameworks/QtGui.framework/Versions/4/Headers /usr/include/QtGui /Library/Frameworks/QtOpenGL.framework/Versions/4/Headers /usr/include/QtOpenGL /Library/Frameworks/QtXml.framework/Versions/4/Headers /usr/include/QtXml /Library/Frameworks/Qt3Support.framework/Versions/4/Headers /usr/include/Qt3Support /System/Library/Frameworks/OpenGL.framework/Versions/A/Headers /System/Library/Frameworks/AGL.framework/Headers /usr/local/include /System/Library/Frameworks/CarbonCore.framework/Headers 
+
+
+ LIBRARY_SEARCH_PATHS = /Library/Frameworks /System/Library/Frameworks/
+

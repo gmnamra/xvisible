@@ -1,0 +1,212 @@
+TvSigMatch
+v6
+r1
+cCheck dependencies
+cCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/visimatch.o /Users/arman/wcs/visible_1.0_dev/applications/src/vsigmatch/visimatch.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/debug.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/debug.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/cli_parser.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/cli_parser.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/dprintf.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/dprintf.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/error_handler.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/error_handler.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+
+N/SDKs/MacOSX10.5.sdk/SDKSettings.plist
+c0000000048A3988A0000000000000485
+t1218680970
+s1157
+
+N/SDKs/MacOSX10.5.sdk/System/Library/CoreServices/SystemVersion.plist
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/cli_parser.cpp
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/debug.cpp
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/dprintf.cpp
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/error_handler.cpp
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/cli_parser.o
+t2
+s0
+
+N/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/debug.o
+t2
+s0
+
+N/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/dprintf.o
+t2
+s0
+
+N/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/error_handler.o
+t2
+s0
+
+N/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/visimatch.o
+t2
+s0
+
+N/Users/arman/wcs/visible_1.0_dev/applications/src/vsigmatch/visimatch.cpp
+c00000000000000000000000000000000
+t2
+s0
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciesfdd844ced23db841^5d8c55ced23db841^---0#1#1#--18"Check dependencies36"B971EF6B-5A82-4E6E-AD43-DC7769AFCC75-
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/cli_parser.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/cli_parser.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s406704846.338578
+e406704846.364048
+r0
+xCompileC
+xbuild/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/cli_parser.o
+x/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/cli_parser.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oclang: [0;1;31merror: [0m[1mno such file or directory: '/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/cli_parser.cpp'[0m
+oclang: [0;1;31merror: [0m[1mno input files[0m
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection84"Compile /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/cli_parser.cpp240"[1mCompileC[0m build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/cli_parser.o [1m/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/cli_parser.cpp[0m normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler64cb56ced23db841^5caf5dced23db841^-316"clang: [0;1;31merror: [0m[1mno such file or directory: '/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/cli_parser.cpp'[0mclang: [0;1;31merror: [0m[1mno input files[0mCommand /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang failed with exit code 11(21%IDEActivityLogMessage2@124"Command /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang failed with exit code 1-406704846#18446744073709551615#0#-2#--20"Apple LLVM 5.0 Error--0#0#1#-19%DVTDocumentLocation3@92"file://localhost/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/cli_parser.cpp0038c021dfffdf42^3217"[1mCompileC[0m build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/cli_parser.o [1m/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/cli_parser.cpp[0m normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/arman/wcs/visible_1.0_dev/applications/sigMatch    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=263 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DRFY_DLL -isysroot /SDKs/MacOSX10.5.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.5 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-generated-files.hmap -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-own-target-headers.hmap -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-all-target-headers.hmap -iquote /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-project-headers.hmap -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/Release/include -I../../include -I../../include/analysis -I../../include/baseUI -I../../include/mpeg2 -I../../include/stlplus -I../../include/util -I../../include/visiCore -I../../include/visigmatch -I../../include/visual -I../../include/visUI -I/System/Library/Frameworks/CarbonCore.framework/Headers -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/DerivedSources/i386 -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/DerivedSources -F/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/Release -F/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/../build/Release -F/Users/arman/wcs/visible_1.0_dev/build/Debug -MMD -MT dependencies -MF /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/cli_parser.d --serialize-diagnostics /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/cli_parser.dia -c /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/cli_parser.cpp -o /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/cli_parser.o36"CBDC0CE0-1204-456E-ABFA-505BEB1821D2-
+b5FFA6305-6355-4D71-A36A-32BC628133BA
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/debug.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/debug.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s406704846.338137
+e406704846.364055
+r0
+xCompileC
+xbuild/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/debug.o
+x/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/debug.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oclang: [0;1;31merror: [0m[1mno such file or directory: '/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/debug.cpp'[0m
+oclang: [0;1;31merror: [0m[1mno input files[0m
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection79"Compile /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/debug.cpp230"[1mCompileC[0m build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/debug.o [1m/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/debug.cpp[0m normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler9bc656ced23db841^5fb25dced23db841^-311"clang: [0;1;31merror: [0m[1mno such file or directory: '/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/debug.cpp'[0mclang: [0;1;31merror: [0m[1mno input files[0mCommand /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang failed with exit code 11(21%IDEActivityLogMessage2@124"Command /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang failed with exit code 1-406704846#18446744073709551615#0#-2#--20"Apple LLVM 5.0 Error--0#0#1#-19%DVTDocumentLocation3@87"file://localhost/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/debug.cpp0038c021dfffdf42^3187"[1mCompileC[0m build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/debug.o [1m/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/debug.cpp[0m normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/arman/wcs/visible_1.0_dev/applications/sigMatch    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=263 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DRFY_DLL -isysroot /SDKs/MacOSX10.5.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.5 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-generated-files.hmap -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-own-target-headers.hmap -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-all-target-headers.hmap -iquote /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-project-headers.hmap -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/Release/include -I../../include -I../../include/analysis -I../../include/baseUI -I../../include/mpeg2 -I../../include/stlplus -I../../include/util -I../../include/visiCore -I../../include/visigmatch -I../../include/visual -I../../include/visUI -I/System/Library/Frameworks/CarbonCore.framework/Headers -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/DerivedSources/i386 -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/DerivedSources -F/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/Release -F/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/../build/Release -F/Users/arman/wcs/visible_1.0_dev/build/Debug -MMD -MT dependencies -MF /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/debug.d --serialize-diagnostics /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/debug.dia -c /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/debug.cpp -o /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/debug.o36"F13EB573-7846-4D15-850F-ED29ADCD3CEC-
+b5FFA6305-6355-4D71-A36A-32BC628133BA
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/dprintf.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/dprintf.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s406704846.339092
+e406704846.364058
+r0
+xCompileC
+xbuild/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/dprintf.o
+x/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/dprintf.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oclang: [0;1;31merror: [0m[1mno such file or directory: '/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/dprintf.cpp'[0m
+oclang: [0;1;31merror: [0m[1mno input files[0m
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"Compile /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/dprintf.cpp234"[1mCompileC[0m build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/dprintf.o [1m/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/dprintf.cpp[0m normal i386 c++ com.apple.compilers.llvm.clang.1_0.compilerb4e356ced23db841^314268ced23db841^-313"clang: [0;1;31merror: [0m[1mno such file or directory: '/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/dprintf.cpp'[0mclang: [0;1;31merror: [0m[1mno input files[0mCommand /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang failed with exit code 11(21%IDEActivityLogMessage2@124"Command /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang failed with exit code 1-406704846#18446744073709551615#0#-2#--20"Apple LLVM 5.0 Error--0#0#1#-19%DVTDocumentLocation3@89"file://localhost/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/dprintf.cpp0038c021dfffdf42^3199"[1mCompileC[0m build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/dprintf.o [1m/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/dprintf.cpp[0m normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/arman/wcs/visible_1.0_dev/applications/sigMatch    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=263 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DRFY_DLL -isysroot /SDKs/MacOSX10.5.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.5 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-generated-files.hmap -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-own-target-headers.hmap -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-all-target-headers.hmap -iquote /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-project-headers.hmap -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/Release/include -I../../include -I../../include/analysis -I../../include/baseUI -I../../include/mpeg2 -I../../include/stlplus -I../../include/util -I../../include/visiCore -I../../include/visigmatch -I../../include/visual -I../../include/visUI -I/System/Library/Frameworks/CarbonCore.framework/Headers -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/DerivedSources/i386 -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/DerivedSources -F/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/Release -F/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/../build/Release -F/Users/arman/wcs/visible_1.0_dev/build/Debug -MMD -MT dependencies -MF /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/dprintf.d --serialize-diagnostics /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/dprintf.dia -c /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/dprintf.cpp -o /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/dprintf.o36"EE4E7B2B-7185-42B9-A291-F7BB7A1381AD-
+b5FFA6305-6355-4D71-A36A-32BC628133BA
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/error_handler.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/error_handler.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s406704846.403509
+e406704846.414237
+r0
+xCompileC
+xbuild/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/error_handler.o
+x/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/error_handler.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oclang: [0;1;31merror: [0m[1mno such file or directory: '/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/error_handler.cpp'[0m
+oclang: [0;1;31merror: [0m[1mno input files[0m
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection87"Compile /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/error_handler.cpp246"[1mCompileC[0m build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/error_handler.o [1m/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/error_handler.cpp[0m normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler5a6867ced23db841^793e6fced23db841^-319"clang: [0;1;31merror: [0m[1mno such file or directory: '/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/error_handler.cpp'[0mclang: [0;1;31merror: [0m[1mno input files[0mCommand /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang failed with exit code 11(21%IDEActivityLogMessage2@124"Command /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang failed with exit code 1-406704846#18446744073709551615#0#-2#--20"Apple LLVM 5.0 Error--0#0#1#-19%DVTDocumentLocation3@95"file://localhost/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/error_handler.cpp0038c021dfffdf42^3235"[1mCompileC[0m build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/error_handler.o [1m/Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/error_handler.cpp[0m normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/arman/wcs/visible_1.0_dev/applications/sigMatch    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=263 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DRFY_DLL -isysroot /SDKs/MacOSX10.5.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.5 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-generated-files.hmap -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-own-target-headers.hmap -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-all-target-headers.hmap -iquote /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-project-headers.hmap -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/Release/include -I../../include -I../../include/analysis -I../../include/baseUI -I../../include/mpeg2 -I../../include/stlplus -I../../include/util -I../../include/visiCore -I../../include/visigmatch -I../../include/visual -I../../include/visUI -I/System/Library/Frameworks/CarbonCore.framework/Headers -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/DerivedSources/i386 -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/DerivedSources -F/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/Release -F/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/../build/Release -F/Users/arman/wcs/visible_1.0_dev/build/Debug -MMD -MT dependencies -MF /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/error_handler.d --serialize-diagnostics /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/error_handler.dia -c /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/error_handler.cpp -o /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/error_handler.o36"96FBEAB0-096C-427D-956D-0BD1188646B2-
+b5FFA6305-6355-4D71-A36A-32BC628133BA
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/exceptions.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/exceptions.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/file_system.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/file_system.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/fileio.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/fileio.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/inf.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/inf.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/ini_manager.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/ini_manager.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/iostreamio.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/iostreamio.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/library_manager.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/library_manager.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/multiio.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/multiio.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/os_fixes.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/os_fixes.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/persistent.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/persistent.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/stlplus.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/stlplus.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/string_arithmetic.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/string_arithmetic.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/string_utilities.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/string_utilities.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/string_vectorio.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/string_vectorio.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/stringio.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/stringio.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/subprocesses.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/subprocesses.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/tcp.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/tcp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/textio.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/textio.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/time.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/time.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/timer.o /Users/arman/wcs/visible_1.0_dev/applications/include/stlplus/timer.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/visimatch.o /Users/arman/wcs/visible_1.0_dev/applications/src/vsigmatch/visimatch.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s406704846.337975
+e406704846.364052
+r0
+xCompileC
+xbuild/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/visimatch.o
+x/Users/arman/wcs/visible_1.0_dev/applications/src/vsigmatch/visimatch.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oclang: [0;1;31merror: [0m[1mno such file or directory: '/Users/arman/wcs/visible_1.0_dev/applications/src/vsigmatch/visimatch.cpp'[0m
+oclang: [0;1;31merror: [0m[1mno input files[0m
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"Compile /Users/arman/wcs/visible_1.0_dev/applications/src/vsigmatch/visimatch.cpp236"[1mCompileC[0m build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/visimatch.o [1m/Users/arman/wcs/visible_1.0_dev/applications/src/vsigmatch/visimatch.cpp[0m normal i386 c++ com.apple.compilers.llvm.clang.1_0.compilerf2b256ced23db841^afb35dced23db841^-313"clang: [0;1;31merror: [0m[1mno such file or directory: '/Users/arman/wcs/visible_1.0_dev/applications/src/vsigmatch/visimatch.cpp'[0mclang: [0;1;31merror: [0m[1mno input files[0mCommand /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang failed with exit code 11(21%IDEActivityLogMessage2@124"Command /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang failed with exit code 1-406704846#18446744073709551615#0#-2#--20"Apple LLVM 5.0 Error--0#0#1#-19%DVTDocumentLocation3@89"file://localhost/Users/arman/wcs/visible_1.0_dev/applications/src/vsigmatch/visimatch.cpp0054102f71f3df42^3207"[1mCompileC[0m build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/visimatch.o [1m/Users/arman/wcs/visible_1.0_dev/applications/src/vsigmatch/visimatch.cpp[0m normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/arman/wcs/visible_1.0_dev/applications/sigMatch    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=263 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DRFY_DLL -isysroot /SDKs/MacOSX10.5.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.5 -g -fvisibility=hidden -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-generated-files.hmap -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-own-target-headers.hmap -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-all-target-headers.hmap -iquote /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/vSigMatch-project-headers.hmap -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/Release/include -I../../include -I../../include/analysis -I../../include/baseUI -I../../include/mpeg2 -I../../include/stlplus -I../../include/util -I../../include/visiCore -I../../include/visigmatch -I../../include/visual -I../../include/visUI -I/System/Library/Frameworks/CarbonCore.framework/Headers -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/DerivedSources/i386 -I/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/DerivedSources -F/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/Release -F/Users/arman/wcs/visible_1.0_dev/applications/sigMatch/../build/Release -F/Users/arman/wcs/visible_1.0_dev/build/Debug -MMD -MT dependencies -MF /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/visimatch.d --serialize-diagnostics /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/visimatch.dia -c /Users/arman/wcs/visible_1.0_dev/applications/src/vsigmatch/visimatch.cpp -o /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/vSigMatch.build/Release/vSigMatch.build/Objects-normal/i386/visimatch.o36"1B844283-8A18-487C-BA57-05842B9C4B27-
+b5FFA6305-6355-4D71-A36A-32BC628133BA
+
+CLd /Users/arman/wcs/visible_1.0_dev/applications/sigMatch/build/Release/vSigMatch normal i386
+r0
+

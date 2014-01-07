@@ -1,0 +1,46 @@
+/******************************************************************************
+*   Copyright (c) 2003 Reify Corp. All Rights reserved.
+*   $Id: rc_settingwidget.h 7179 2011-02-05 22:25:05Z arman $
+*
+*   Setting widget base class
+*
+******************************************************************************/
+
+#ifndef _rcSETTINGWIDGET_H_
+#define _rcSETTINGWIDGET_H_
+
+#include <rc_setting.h>
+
+#include <qwidget.h>
+#include <qlabel.h>
+#include <qlayout.h>
+//Added by qt3to4:
+#include <Q3BoxLayout>
+
+// Setting widget base class
+class rcSettingWidget : public QWidget
+{
+    Q_OBJECT
+
+public:
+    rcSettingWidget( QWidget *parent,
+                     const rcSettingInfo& setting,
+                     bool createTopLayout = true );
+    virtual ~rcSettingWidget();
+
+public slots:
+    // Update widget visibility/editability state based on setting state
+    void updateWidgetState();
+    
+signals:
+
+protected:
+    rcSettingInfo	mSetting;      // Setting bound to this widget
+    Q3BoxLayout*     mTopLayout;    // Top level widget layout
+    QLabel*         mDisplayLabel; // Display label
+private:
+   
+};
+
+#endif // _rcSETTINGWIDGET_H_
+

@@ -1,0 +1,41 @@
+//
+//  DebugVFut.xcconfig
+//  vf
+//
+//  Created by arman on 2/12/09.
+//  Copyright 2009 Reify Corp. All rights reserved.
+//
+
+// Pull in the general settings
+#include "boostXcodeConfigs/subconfig/General.xcconfig"
+
+// Leopard or later
+#include "boostXcodeConfigs/subconfig/LeopardOrLater.xcconfig"
+
+// Debug settings
+#include "boostXcodeConfigs/subconfig/Debug.xcconfig"
+
+HEADER_SEARCH_PATHS = . /Library/Frameworks/QtCore.framework/Versions/4/Headers /usr/include/QtCore /Library/Frameworks/QtGui.framework/Versions/4/Headers /usr/include/QtGui /Library/Frameworks/QtOpenGL.framework/Versions/4/Headers /usr/include/QtOpenGL /System/Library/Frameworks/OpenGL.framework/Versions/A/Headers /System/Library/Frameworks/AGL.framework/Headers /usr/local/include /System/Library/Frameworks/CarbonCore.framework/Headers $(SRCROOT)/../include/util $(SRCROOT)/../include/visual $(SRCROOT)/../include/analysis $(SRCROOT)/../include/stlplus $(SRCROOT)/../include/baseUI $(SRCROOT)/../test/include 
+
+
+//  Bundles should not have their external symbols stripped.
+STRIP_STYLE = non-global
+
+// Bundles need to be position independent
+GCC_DYNAMIC_NO_PIC = NO
+
+// Do not treat warnings as errors
+
+GCC_TREAT_WARNINGS_AS_ERRORS = NO
+
+// CPLusTest is in Developer area. Setup buildtime framework path
+FRAMEWORK_SEARCH_PATHS = /Developer/Library/Frameworks /System/Library/Frameworks/ $(SRCROOT)/../frameworks
+
+// CPLusTest is in Developer area. Setup runtime search path 
+LD_RUNPATH_SEARCH_PATHS = /Developer/Library/Frameworks /System/Library/Frameworks/
+
+// OTHER_LDFLAGS = $(OTHER_LDFLAGS) -framework CPlusTest -framework vf -framework QuickTime -framework CoreServices -framework Carbon
+
+// Merge settings
+#include "boostXcodeConfigs/subconfig/GTMMerge.xcconfig"
+

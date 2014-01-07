@@ -1,0 +1,7 @@
+This is an application to generate encrypted license files which are tied to a specific host.
+
+It needs two things for input:
+
+1. Encrypted host info string produced by rfyhostinfo executable.
+2. License expiration date.
+

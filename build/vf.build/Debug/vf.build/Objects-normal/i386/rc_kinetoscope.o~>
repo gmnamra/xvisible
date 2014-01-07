@@ -1,0 +1,4 @@
+/Users/arman/wcs/visible_1.0_dev/include/visual/rc_graphics.h: In member function 'rcVisualSegment& rcVisualSegment::operator+=(const rc2Fvector&)':
+/Users/arman/wcs/visible_1.0_dev/include/visual/rc_graphics.h:63: warning: no return statement in function returning non-void
+/Users/arman/wcs/visible_1.0_dev/include/analysis/rc_visualcell.h: In member function 'float rcVisualFunction::minSqDisplacement() const':
+/Users/arman/wcs/visible_1.0_dev/include/analysis/rc_visualcell.h:500: warning: control reaches end of non-void function

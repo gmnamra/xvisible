@@ -1,0 +1,40 @@
+//
+//  QGLut.xcconfig
+//  vf
+//
+//  Created by arman on 2/10/09.
+//  Copyright 2009 Reify Corp. All rights reserved.
+//
+
+PRODUCT_NAME = utQGLViewer
+
+// Pull in the general settings
+#include "boostXcodeConfigs/subconfig/General.xcconfig"
+
+// Leopard or later
+#include "boostXcodeConfigs/subconfig/LeopardOrLater.xcconfig"
+
+// Debug settings
+#include "boostXcodeConfigs/subconfig/Debug.xcconfig"
+
+#include "Qt4.xcconfig"
+
+// HEADER_SEARCH_PATHS = ${HEADER_SEARCH_PATHS} ../
+
+// Need QGL settings from qmake 
+OTHER_CPLUSCPLUSFLAGS = ${OTHER_CPLUSCPLUSFLAGS} -pipe -Os -Wall -W -fPIC -DQT_NO_DEBUG -DQT_XML_LIB -DQT_OPENGL_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED
+
+OTHER_LDFLAGS = ${OTHER_LDFLAGS} -headerpad_max_install_names -single_module -dynamiclib -L/Library/Frameworks -F/Library/Frameworks -lz -lm
+
+INSTALL_PATH  = 
+
+OBJROOT = .obj
+
+GCC_DYNAMIC_NO_PIC = NO
+
+GCC_TREAT_WARNINGS_AS_ERRORS = NO
+
+
+// Merge settings
+#include "boostXcodeConfigs/subconfig/GTMMerge.xcconfig"
+

@@ -1,0 +1,50 @@
+{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset77 LucidaGrande-Bold;\f1\fnil\fcharset77 LucidaGrande;\f2\fswiss\fcharset77 Helvetica;
+}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww20420\viewh15800\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj
+
+\f0\b\fs24 \cf0 Registering Your Macs - how to extract Mac Serial numbers
+\f1\b0 \
+\
+The "ASC_DCAM_DEV.framework" and "ASC DCAM DEV Carbon.lib" requires a developer unlock Key to utilize any IIDC/DCAM cameras. Otherwise the routines "ASCDCAMGetListOfCameras()" or "ASCDCAMOpenACamera()" will fail to find any cameras and return -128 errors.\
+\
+For the "ASC_DCAM_DEV.framework" you are allowed to designate up to five (5) Macs that can be used for development work and then use any IIDC/DCAM camera with them.\
+\
+To Register a Mac simply transfer the supplied "Register Mac SN" application to the Mac you want to register and then double click on on it.\
+\
+If successful, the following alert will appear:\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+
+\f2 \cf0 {{\NeXTGraphic Export Mac_SN.jpg \width8280 \height3400
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+
+\f1 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj
+\cf0 \
+The same information is also placed in the console.log file of "Console.App", as shown below:\
+\
+-------------- Registering Mac START\
+0000003065D66028\
+-------------- Registering Mac END\
+\
+The 16 digit "0000003065D66028" is the unique identifier for this Mac and is what you send to us at "support@outcastsoft.com". If your registering multiple Macs, then simply run the "Export Mac SN" application on each Mac, collect the unique identifier for them and then e-mail all of them to us in one shot. After we receive them, we will e-mail you a stuffit file containing the "ASC_DCAM_DEV" unlock file. You must place the "ASC_DCAM_DEV" into\
+\
+/Library/Application Support/\
+\
+on the boot Volume of the Macs you registered, as shown below.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+
+\f2 \cf0 {{\NeXTGraphic UnlockKeyPath.jpg \width16360 \height1840
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+
+\f1 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qj
+\cf0 \
+\
+}

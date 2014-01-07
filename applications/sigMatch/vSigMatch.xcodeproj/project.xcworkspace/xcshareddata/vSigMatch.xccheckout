@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>14DE72E0-0F2F-42FF-BA05-CEF8B776B340</string>
+	<key>IDESourceControlProjectName</key>
+	<string>vSigMatch</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AA17937F-897A-43DC-8500-62ED5486DBB6</key>
+		<string>http://reify.serveftp.net/svn/reify/trunk/tags/03_2010_tag</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>applications/sigMatch/vSigMatch.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AA17937F-897A-43DC-8500-62ED5486DBB6</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>AA17937F-897A-43DC-8500-62ED5486DBB6</key>
+		<string>http://reify.serveftp.net/svn/reify</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>http://reify.serveftp.net/svn/reify/trunk/tags/03_2010_tag/applications/sigMatch/vSigMatch.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AA17937F-897A-43DC-8500-62ED5486DBB6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AA17937F-897A-43DC-8500-62ED5486DBB6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>visible_1</string>
+		</dict>
+	</array>
+</dict>
+</plist>
