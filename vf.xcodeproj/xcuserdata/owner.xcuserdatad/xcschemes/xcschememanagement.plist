@@ -34,11 +34,6 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>vf_release.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
 		<key>vsigmatch.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
