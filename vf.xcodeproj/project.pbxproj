@@ -44,7 +44,7 @@
 		C22DD0531314D3EF00801DE4 /* ut_stats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2A30F21357A0046570D /* ut_stats.cpp */; };
 		C22DD0541314D3EF00801DE4 /* ut_systeminfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2A40F21357A0046570D /* ut_systeminfo.cpp */; };
 		C22DD05E1314D4AC00801DE4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA26D0F21357A0046570D /* main.cpp */; };
-		C22DD15F1315752600801DE4 /* vf_d.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8D07F2C80486CC7A007CD1D0 /* vf_d.framework */; };
+		C22DD15F1315752600801DE4 /* vfi386_d.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8D07F2C80486CC7A007CD1D0 /* vfi386_d.framework */; };
 		C22DD1A113157D8800801DE4 /* svn_version.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DD1A013157D8800801DE4 /* svn_version.h */; };
 		C22DD25D13159B0C00801DE4 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAED60F421FE2003CC197 /* Carbon.framework */; };
 		C22DD3D61316364400801DE4 /* rc_cubic_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E310F21135D0046570D /* rc_cubic_generators.cpp */; };
@@ -52,7 +52,7 @@
 		C22DD3E41316377900801DE4 /* rc_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E350F21135D0046570D /* rc_draw.cpp */; };
 		C22DD3E51316377900801DE4 /* rc_def_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E340F21135D0046570D /* rc_def_generators.cpp */; };
 		C22DD3E61316377B00801DE4 /* rc_affinewindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E2F0F21135D0046570D /* rc_affinewindow.cpp */; };
-		C23FCF33131F528F00C1FF5A /* vf_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D07F2C80486CC7A007CD1D0 /* vf_d.framework */; };
+		C23FCF33131F528F00C1FF5A /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D07F2C80486CC7A007CD1D0 /* vfi386_d.framework */; };
 		C23FD0AD132005E300C1FF5A /* ut_thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2A50F21357A0046570D /* ut_thread.cpp */; };
 		C23FD0B0132005F400C1FF5A /* ut_timestamp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2A70F21357A0046570D /* ut_timestamp.cpp */; };
 		C23FD0B31320060500C1FF5A /* ut_security.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA29D0F21357A0046570D /* ut_security.cpp */; };
@@ -1111,7 +1111,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C22DD15F1315752600801DE4 /* vf_d.framework in CopyFiles */,
+				C22DD15F1315752600801DE4 /* vfi386_d.framework in CopyFiles */,
 				C22DCF841314D2EA00801DE4 /* gtest.framework in CopyFiles */,
 				C22DCCBA1314BC3100801DE4 /* ASC_DCAM_DEV.framework in CopyFiles */,
 			);
@@ -1121,7 +1121,7 @@
 
 /* Begin PBXFileReference section */
 		089C1667FE841158C02AAC07 /* English.lproj */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = folder; name = English.lproj; path = resources/Visible/English.lproj; sourceTree = "<group>"; };
-		8D07F2C80486CC7A007CD1D0 /* vf_d.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = vf_d.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D07F2C80486CC7A007CD1D0 /* vfi386_d.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = vfi386_d.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C212523C130D96FE00B6C967 /* rc_dcam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_dcam.cpp; sourceTree = "<group>"; };
 		C21B5581130B38B3001E8521 /* rc_dcam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_dcam.h; sourceTree = "<group>"; };
 		C21B56F9130B54B0001E8521 /* rc_capture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_capture.cpp; sourceTree = "<group>"; };
@@ -1800,7 +1800,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C23FCF33131F528F00C1FF5A /* vf_d.framework in Frameworks */,
+				C23FCF33131F528F00C1FF5A /* vfi386_d.framework in Frameworks */,
 				C22DCE8E1314C18200801DE4 /* gtest.framework in Frameworks */,
 				C22DCCB71314BC3100801DE4 /* ASC_DCAM_DEV.framework in Frameworks */,
 				C22DCCB81314BC3100801DE4 /* QuickTime.framework in Frameworks */,
@@ -1860,7 +1860,7 @@
 		034768DDFF38A45A11DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D07F2C80486CC7A007CD1D0 /* vf_d.framework */,
+				8D07F2C80486CC7A007CD1D0 /* vfi386_d.framework */,
 				C22DCCBE1314BC3100801DE4 /* coreUT.app */,
 				C24B8D0C183E62D30010E3C2 /* libvf32_dvf.a */,
 				C2EC9C74183E692A00AC3300 /* vBina32.app */,
@@ -3408,7 +3408,7 @@
 			name = vf;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = vf;
-			productReference = 8D07F2C80486CC7A007CD1D0 /* vf_d.framework */;
+			productReference = 8D07F2C80486CC7A007CD1D0 /* vfi386_d.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		C22DCCAB1314BC3100801DE4 /* coreUT */ = {
@@ -4426,6 +4426,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = "";
@@ -4465,7 +4466,7 @@
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OpenCV = "$(SRCROOT)/frameworks/OpenCV.framework";
-				PRODUCT_NAME = vf_d;
+				PRODUCT_NAME = vfi386_d;
 				RFY_DLL_EXPORT = "";
 				SDKROOT = macosx10.6;
 				SKIP_INSTALL = NO;
@@ -4480,7 +4481,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
@@ -4498,8 +4499,8 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_MODEL_TUNING = "";
-				GCC_OBJC_CALL_CXX_CDTORS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OBJC_CALL_CXX_CDTORS = "";
+				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PFE_FILE_C_DIALECTS = "c c++";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/build_scripts/vf_Prefix.pch";
@@ -4524,17 +4525,18 @@
 				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				MACH_O_TYPE = mh_dylib;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OpenCV = "$(SRCROOT)/frameworks/OpenCV.framework";
-				PRODUCT_NAME = vf;
+				PRODUCT_NAME = vfi386;
 				RFY_DLL_EXPORT = "";
 				SDKROOT = macosx10.6;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = static;
 				STRIP_STYLE = debugging;
 				VALID_ARCHS = i386;
 				WRAPPER_EXTENSION = framework;
+				ZERO_LINK = YES;
 			};
 			name = Release;
 		};
@@ -4564,6 +4566,7 @@
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
 				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_MODEL_TUNING = G5;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
