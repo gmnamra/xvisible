@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8D07F2BC0486CC7A007CD1D0"
-               BuildableName = "vf_d.framework"
+               BuildableName = "vfi386_d.framework"
                BlueprintName = "vf"
                ReferencedContainer = "container:vf.xcodeproj">
             </BuildableReference>
