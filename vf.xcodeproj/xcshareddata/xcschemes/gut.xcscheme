@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8D07F2BC0486CC7A007CD1D0"
-               BuildableName = "vfi386_d.framework"
-               BlueprintName = "vf"
+               BlueprintIdentifier = "C2B8E97A187DD7880060D961"
+               BuildableName = "gut"
+               BlueprintName = "gut"
                ReferencedContainer = "container:vf.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,6 +29,15 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C2B8E97A187DD7880060D961"
+            BuildableName = "gut"
+            BlueprintName = "gut"
+            ReferencedContainer = "container:vf.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -39,6 +48,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C2B8E97A187DD7880060D961"
+            BuildableName = "gut"
+            BlueprintName = "gut"
+            ReferencedContainer = "container:vf.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -48,6 +66,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C2B8E97A187DD7880060D961"
+            BuildableName = "gut"
+            BlueprintName = "gut"
+            ReferencedContainer = "container:vf.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

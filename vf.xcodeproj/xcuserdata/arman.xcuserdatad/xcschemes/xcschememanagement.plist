@@ -4,37 +4,24 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Doxygen.xcscheme</key>
+		<key>Doxygen.xcscheme_^#shared#^_</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
-		<key>coreUT.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>libpmk.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
-		<key>libvf32.xcscheme</key>
+		<key>libvf32.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>vf.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
-		<key>vsigmatch copy.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
-		</dict>
-		<key>vsigmatch.xcscheme</key>
+		<key>vsigmatch.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>5</integer>
@@ -73,6 +60,11 @@
 			<true/>
 		</dict>
 		<key>C2ADE3DD18427C5B00BDA932</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C2B8E992187DDC2B0060D961</key>
 		<dict>
 			<key>primary</key>
 			<true/>
