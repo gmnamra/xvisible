@@ -38,6 +38,17 @@
 #include <iostream>
 #include <algorithm>
 #include <cctype>
+#include <string>
+
+bool insensitive_case_compare (const std::string& str1, const std::string& str2)
+{
+    for(unsigned int i=0; i<str1.length(); i++){
+        if(toupper(str1[i]) != toupper(str2[i]))
+            return false;
+    }
+    return true;
+}
+
 
 // Generic method to load frames from a rcFrameGrabber
 int rcEngineImpl::loadFrames( rcFrameGrabber& grabber, rcFrameGrabberError& error )
@@ -148,7 +159,7 @@ int rcEngineImpl::loadFrames( rcFrameGrabber& grabber, rcFrameGrabberError& erro
 			_fileImages.push_back( image );
                     
 			rcVideoWriter* videoWriter;
-			videoWriter = _videoWriter.load ();
+			videoWriter = _videoWriter.getValue(videoWriter);
 			if (videoWriter != 0)
 				videoWriter->writeValue( curTimeStamp, rcRect(), &image );
 
@@ -385,7 +396,7 @@ int rcEngineImpl::loadMovie( const std::string& movieFile, rcFrameGrabberError& 
 		std::string fileExt = rfStripPath( movieFile );
 		fileExt = rfGetExtension (fileExt);
 
-		if ( rfNocaseEqual (fileExt, reifyMovieExt ) )
+		if ( insensitive_case_compare (fileExt, reifyMovieExt ) )
 		{
 			rmAssert(_videoCacheP == 0);
 			double physMem(rfSystemRam ());
@@ -397,7 +408,7 @@ int rcEngineImpl::loadMovie( const std::string& movieFile, rcFrameGrabberError& 
 			cerr << "Video cache size " << physMem/(1024*1024) << " MB" << endl;
 			grabber = new rcReifyMovieGrabber(*_videoCacheP);
 		}
-		else if (rfNocaseEqual (fileExt, stkMovieExt) )
+		else if (insensitive_case_compare(fileExt, stkMovieExt) )
 		{
 	// Get a TIFF Importer
 			TIFFImageIO t_importer;

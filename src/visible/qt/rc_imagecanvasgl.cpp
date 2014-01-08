@@ -2388,14 +2388,7 @@ bool rcImageCanvasGL::getToolTipText( const QPoint& mousePoint, QString& text )
 		    tip.sprintf("\nDistance      %.2f pel",
 				val );
 		  }
-		} else if ( semanticType == eWriterBodyState ) {
-		  if ( getTrackValue( track, cursorTime, pos, val ) ) {
-		    char valueBuf[ 32 ];
-		    rfVisualFunctionStateName ( static_cast<rcVisualFunction::State>(val),
-						valueBuf, rmDim(valueBuf));
-		    tip.sprintf("\n %s", valueBuf );
-		  }
-		}
+		} 
 		text += tip;
             }
         }

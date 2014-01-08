@@ -105,7 +105,7 @@ SOURCES = $${SOURCES_DIR}/src/visible/qt/rc_about.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_numericchoicesettingwidget.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_trackrender.cpp
 
-INCLUDEPATH =   $${INCLUDE_DIR}/include/util  $${INCLUDE_DIR}/include/visual  $${INCLUDE_DIR}/include/analysis  $${INCLUDE_DIR}/include/stlplus  $${INCLUDE_DIR}/include/test  $${INCLUDE_DIR}/include/baseUI  $${INCLUDE_DIR}/include/visUI  $${INCLUDE_DIR}/include/visiCore $${INCLUDE_DIR}/boost/
+INCLUDEPATH =   $${INCLUDE_DIR}/include/util  $${INCLUDE_DIR}/include/visual  $${INCLUDE_DIR}/include/analysis  $${INCLUDE_DIR}/include/stlplus  $${INCLUDE_DIR}/include/test  $${INCLUDE_DIR}/include/baseUI  $${INCLUDE_DIR}/include/visUI  $${INCLUDE_DIR}/include/visiCore $${INCLUDE_DIR}/usr/local/boost/include
 
 QT += opengl xml
 

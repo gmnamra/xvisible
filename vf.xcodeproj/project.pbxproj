@@ -786,6 +786,9 @@
 		C2B16F39130E3A7900C8050C /* ASC_DCAM_DEV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B16F36130E3A7900C8050C /* ASC_DCAM_DEV.framework */; };
 		C2B60C9A184AB4DA00683D11 /* histogram.h in Headers */ = {isa = PBXBuildFile; fileRef = C2B60C99184AB4DA00683D11 /* histogram.h */; };
 		C2B60C9D184AB53700683D11 /* histogram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2B60C9B184AB4F300683D11 /* histogram.cpp */; };
+		C2B8E970187D03380060D961 /* rc_lattice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB00F21135D0046570D /* rc_lattice.cpp */; };
+		C2B8E971187D033A0060D961 /* rc_lattice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB00F21135D0046570D /* rc_lattice.cpp */; };
+		C2B8E972187D033C0060D961 /* rc_lattice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB00F21135D0046570D /* rc_lattice.cpp */; };
 		C2EC976F0F37838200E49E22 /* avevar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D8B0F21135D0046570D /* avevar.cpp */; };
 		C2EC97700F37838200E49E22 /* blitz.txt in Resources */ = {isa = PBXBuildFile; fileRef = C26F9D8C0F21135D0046570D /* blitz.txt */; };
 		C2EC977B0F37838200E49E22 /* rc_analyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D970F21135D0046570D /* rc_analyzer.cpp */; };
@@ -1867,6 +1870,7 @@
 				C24EA96D1842FD0D00E88B0A /* batch_convert.app */,
 			);
 			name = Products;
+			path = build;
 			sourceTree = "<group>";
 		};
 		0867D691FE84028FC02AAC07 /* vf */ = {
@@ -3897,6 +3901,7 @@
 				C2EC980B0F37839900E49E22 /* tif_open.c in Sources */,
 				EBD7A620187C94C90052C9A4 /* exceptions.cpp in Sources */,
 				EBD7A640187C95230052C9A4 /* string_utilities.cpp in Sources */,
+				C2B8E970187D03380060D961 /* rc_lattice.cpp in Sources */,
 				C2EC980C0F37839900E49E22 /* tif_packbits.c in Sources */,
 				C2EC980D0F37839900E49E22 /* tif_predict.c in Sources */,
 				C2EC980E0F37839900E49E22 /* tif_print.c in Sources */,
@@ -4021,6 +4026,7 @@
 				EBD7A63B187C95150052C9A4 /* tcp.cpp in Sources */,
 				EBD7A619187C94B20052C9A4 /* cli_parser.cpp in Sources */,
 				C24B8CB5183E62D30010E3C2 /* rc_moreip.cpp in Sources */,
+				C2B8E971187D033A0060D961 /* rc_lattice.cpp in Sources */,
 				C24B8CB6183E62D30010E3C2 /* rc_muscletracker.cpp in Sources */,
 				C24B8CB7183E62D30010E3C2 /* rc_pmcorr.cpp in Sources */,
 				C24B8CB8183E62D30010E3C2 /* rc_point_corr.cpp in Sources */,
@@ -4365,6 +4371,7 @@
 				C2EC9C5B183E692A00AC3300 /* tif_version.c in Sources */,
 				C2EC9C5C183E692A00AC3300 /* tif_warning.c in Sources */,
 				C2EC9C5D183E692A00AC3300 /* tif_write.c in Sources */,
+				C2B8E972187D033C0060D961 /* rc_lattice.cpp in Sources */,
 				C2EC9C5E183E692A00AC3300 /* tiff_aux.c in Sources */,
 				C2EC9C61183E692A00AC3300 /* rc_cubic_generators.cpp in Sources */,
 				C2EC9C62183E692A00AC3300 /* rc_affine.cpp in Sources */,

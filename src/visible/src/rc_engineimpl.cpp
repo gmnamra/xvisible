@@ -944,7 +944,7 @@ void rcEngineImpl::processCapturedData(rcEngineFocusData* focus,
       lastMovieUpdateTime = now;
       // Write video frame
       rcVideoWriter* temp;
-      if (_videoWriter.load() != 0) {
+      if (_videoWriter.getValue(temp) != 0) {
 				if (_observer->acceptingImageBlits()) {
 					_observer->notifyBlitData(&window);
 				}
@@ -1069,7 +1069,7 @@ void rcEngineImpl::createSharedWriters()
   if (_inputMode != eCmd)
     {
       rcVideoWriter* temp;
-      if ( _videoWriter.load () == 0) {
+      if ( _videoWriter.getValue(temp) == 0) {
 				_videoWriter = _writerManager->createVideoWriter( _writerGroup,
 																												 eWriterVideo,
 																												 _writerSizeLimit,
@@ -1115,9 +1115,10 @@ void rcEngineImpl::createCameraPreviewWriters()
 void rcEngineImpl::flushSharedWriters()
 {
   // Writer for displaying video
-  rcVideoWriter* videoWriter = _videoWriter.load ();
-  if (videoWriter != 0)
-    videoWriter->flush();
+    rcVideoWriter* videoWriter;    
+    videoWriter = _videoWriter.getValue (videoWriter);
+    if (videoWriter != 0)
+        videoWriter->flush();
 }
 
 void rcEngineImpl::createGraphicsWriters()

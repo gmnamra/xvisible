@@ -133,7 +133,7 @@ static void _exhaustiveImageFind (const rcWindow& moving, const rcWindow& fixed,
 	int32 maxX (-1), maxY(-1);
 	rc2Fvector interp;
 	vector<float> score (9);
-	rcPair<bool> edge;
+	bitset<4> edge;
 	double maxScore (0.0);
 	rsCorrParams cp;
 	rcIPair step (1,0);
@@ -204,8 +204,8 @@ static void _exhaustiveImageFind (const rcWindow& moving, const rcWindow& fixed,
 	{
 		peaks.resize (1);
 		rcFindList::iterator tmp = peaks.begin();
-		tmp->location().x(maxX + cpad);
-		tmp->location().y( maxY + cpad);
+		rc2Fvector loc (maxX + cpad, maxY + cpad);
+		tmp->interpolated (loc);
 		tmp->score ( (uint16) (mQuantz * maxScore) );
 	}
 	else
@@ -221,53 +221,33 @@ static void _exhaustiveImageFind (const rcWindow& moving, const rcWindow& fixed,
 
 	for (uint32 i = 0; i < peaks.size(); i++, lTr++)
 	{
-			// Correct to be wrt cspace
-			// 0 --> basespace.width() -1 ==> 2 --> basesace.width() - 3  ==> 0 --> cspace.width() - 1
+	// Correct to be wrt cspace
+	// 0 --> basespace.width() -1 ==> 2 --> basesace.width() - 3  ==> 0 --> cspace.width() - 1
 	  int32 maxX = lTr->interpolated().x() - cpad;
 	  int32 maxY = lTr->interpolated().y() - cpad;
-	  lTr->interpolated().x(maxX);
-	  lTr->interpolated().y(maxY);
+          rc2Fvector position (maxX, maxY);
+          int16 maxScore = lTr->score ();
 
-		if (maxX < 0 || maxY <0 || maxX > (cspace.width() - 1)  || maxY > (cspace.height() - 1))
-		{
-		  lTr->score (0);
-			continue;
-		}
+	  edge[0] = maxX < 0; edge[1] = maxX > (cspace.width() - 1);
+	  edge[2] = maxY < 0; edge[3] = maxY > (cspace.height() - 1);
+	  lTr->edges (edge);
 
-			// With zero padding the neighbours could get interpolated, but we might be able
-			// to peak outside!
-		edge.y() = !(maxY > 0 && maxY < (cspace.height() - 1));
-		edge.x() = !(maxX > 0 && maxX < (cspace.width() - 1));
-		//		lTr->edge = edge;
-
-		if (!edge.x() && !edge.y())
-		{
-			score[0] = cspace.getPixel (maxX-1,maxY-1)/ (float) mQuantz;
-			score[1] = cspace.getPixel(maxX, maxY-1)/ (float) mQuantz;
-			score[2] = cspace.getPixel(maxX+1, maxY-1)/ (float) mQuantz;
-			score[3] = cspace.getPixel(maxX-1, maxY)/ (float) mQuantz;
-			score[4] = cspace.getPixel(maxX, maxY)/ (float) mQuantz;
-			score[5] = cspace.getPixel(maxX+1, maxY)/ (float) mQuantz;
-			score[6] = cspace.getPixel(maxX-1, maxY+1)/ (float) mQuantz;
-			score[7] = cspace.getPixel(maxX, maxY+1)/ (float) mQuantz;
-			score[8] = cspace.getPixel(maxX+1, maxY+1)/ (float) mQuantz;
-
-#ifdef FINDEBUG
-			rfPRINT_STL_ELEMENTS (score);
-#endif
-
-			float xInterpolatedPeakValue (0.0f), yInterpolatedPeakValue (0.0f);
-			interp = rc2Fvector (parabolicFit (score [3], score [4], score [5], &xInterpolatedPeakValue),
-								 parabolicFit (score[1], score [4], score [7], &yInterpolatedPeakValue));
-			lTr->score (std::max (xInterpolatedPeakValue, yInterpolatedPeakValue));
-			lTr->interpolated() = interp + rc2Fvector (maxX, maxY) ;
-		}
-		else
-		{
-				// If the peak is on the edge of the match space, just return it
-		  lTr->score ( maxScore);
-		  lTr->interpolated() = rc2Fvector (maxX, maxY);
-		}
+	  if (edge.none())
+	    {
+	      score[0] = cspace.getPixel (maxX-1,maxY-1)/ (float) mQuantz;
+	      score[1] = cspace.getPixel(maxX, maxY-1)/ (float) mQuantz;
+	      score[2] = cspace.getPixel(maxX+1, maxY-1)/ (float) mQuantz;
+	      score[3] = cspace.getPixel(maxX-1, maxY)/ (float) mQuantz;
+	      score[4] = cspace.getPixel(maxX, maxY)/ (float) mQuantz;
+	      score[5] = cspace.getPixel(maxX+1, maxY)/ (float) mQuantz;
+	      score[6] = cspace.getPixel(maxX-1, maxY+1)/ (float) mQuantz;
+	      score[7] = cspace.getPixel(maxX, maxY+1)/ (float) mQuantz;
+	      score[8] = cspace.getPixel(maxX+1, maxY+1)/ (float) mQuantz;
+	      position += interp;
+	    }
+	  // If the peak is on the edge of the match space, just return it
+	  lTr->score ( maxScore);
+	  lTr->interpolated(position);
 	}
 	profile.touch (9);
 

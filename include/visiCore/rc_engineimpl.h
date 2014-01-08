@@ -17,8 +17,6 @@
 #include <sys/wait.h>
 #include <stlplus_lite.hpp>
 
-// Boost
-#include <boost/atomic.hpp>
 
 // Visual
 #include <rc_imagegrabber.h>
@@ -41,13 +39,11 @@
 #include <rc_analysis.h>
 #include <rc_histstats.h>
 #include <rc_analyzer.h>
-#include <rc_kinetoscope.h>
 #include <rc_similarity.h>
 #include <rc_musclesegment.h>
 #include <rc_ip.h>
 #include <rc_ipconvert.h>
 #include <rc_1dcorr.h>
-//#include <rc_register.h>
 
 // Common
 #include <rc_systeminfo.h>
@@ -510,7 +506,7 @@ protected:
     rcGraphicsWriter*   _segmentVectorWriter;   // Segment vector visualization
     rcGraphicsWriter*   _energyPlotWriter;   // Segment vector visualization
 
-    atomic<rcVideoWriter*> _videoWriter; // Video frames
+    rcAtomicValue<rcVideoWriter*> _videoWriter; // Video frames
     uint32            _groupCount;  // Number of created writer groups
     rcAtomicValue<rcEngineFocusData*>  _frameFocus;
     rcFpsCalculator     _fpsCalculator; // Used to calculate display speed in FPS

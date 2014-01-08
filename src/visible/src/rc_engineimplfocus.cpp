@@ -171,6 +171,10 @@ rcEngineFocusData::rcEngineFocusData( rcWriterManager* writerManager, const rcRe
             // TODO: add a human-readable string listing analysis options to track name and description
         }
         break;
+        
+            default:
+            break;
+
 #if 0
         case eAnalysisCellTracking:
         {
@@ -344,11 +348,13 @@ void rcEngineFocusData::setCellTrackStartTimes( rcTimestamp start )
     }
 }
 
+#ifdef CELLS
 // Create cell results writers
 void rcEngineFocusData::createCellWriters( )
 {
   mCellWriters = new rcCellWriterGroupCollection( mWriterManager, mImageRect, mAnalysisRect ); // Pass Cell Type
 }
+#endif
 
 rcEngineFocusData::~rcEngineFocusData()
 {
@@ -376,7 +382,6 @@ rcEngineFocusData::~rcEngineFocusData()
     mGlobalWriters.clear();
     mGlobalCellWriters.clear();
 
-    delete mCellWriters;
 }
 
 // Clear all result containers
@@ -410,6 +415,5 @@ void rcEngineFocusData::flushFocusData()
     for ( uint32 i = 0; i < mGlobalCellWriters.size(); ++i ) 
         mGlobalCellWriters[i]->flush();
     
-    if ( mCellWriters != 0 ) 
-        mCellWriters->flush();
+        //    if ( mCellWriters != 0 ) mCellWriters->flush();
 }

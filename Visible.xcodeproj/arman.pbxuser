@@ -115,7 +115,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					536,
+					1117,
 					20,
 					48,
 					43,
@@ -189,7 +189,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					479,
+					1077,
 					60,
 					20,
 					48,
@@ -206,8 +206,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 410760372;
-			PBXWorkspaceStateSaveDate = 410760372;
+			PBXPerProjectTemplateStateSaveDate = 410828720;
+			PBXWorkspaceStateSaveDate = 410828720;
 		};
 		perUserProjectItems = {
 			C20F5F631318390600E0EAC0 = C20F5F631318390600E0EAC0 /* PBXTextBookmark */;
@@ -225,6 +225,8 @@
 			C2444E921840641B004E7AA4 = C2444E921840641B004E7AA4 /* PBXTextBookmark */;
 			C2AD7FB0131887B800EA1594 = C2AD7FB0131887B800EA1594 /* PBXTextBookmark */;
 			C2AD8050131898DE00EA1594 = C2AD8050131898DE00EA1594 /* PBXTextBookmark */;
+			C2C9BC7D187CC01F002A618B /* PBXTextBookmark */ = C2C9BC7D187CC01F002A618B /* PBXTextBookmark */;
+			C2C9BCAE187CC456002A618B /* PBXTextBookmark */ = C2C9BCAE187CC456002A618B /* PBXTextBookmark */;
 		};
 		sourceControlManager = C26F9C900F21129E0046570D /* Source Control */;
 		userBookmarkGroup = C2C452C40F3CED5E00C2BDAE /* PBXBookmarkGroup */;
@@ -247,9 +249,9 @@
 	};
 	C20F5F56131838D500E0EAC0 /* rc_persistencemanager.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {708, 3268}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1295, 3192}}";
 			sepNavSelRange = "{77, 0}";
-			sepNavVisRange = "{0, 2126}";
+			sepNavVisRange = "{0, 955}";
 		};
 	};
 	C20F5F631318390600E0EAC0 /* PBXTextBookmark */ = {
@@ -1058,6 +1060,26 @@
 		isa = PBXBookmark;
 		fRef = C2C4556E0F3D5CB400C2BDAE /* ASC_DCAM.framework */;
 	};
+	C2C9BC7D187CC01F002A618B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C20F5F56131838D500E0EAC0 /* rc_persistencemanager.h */;
+		name = "rc_persistencemanager.h: 5";
+		rLen = 0;
+		rLoc = 77;
+		rType = 0;
+		vrLen = 1669;
+		vrLoc = 0;
+	};
+	C2C9BCAE187CC456002A618B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C20F5F56131838D500E0EAC0 /* rc_persistencemanager.h */;
+		name = "rc_persistencemanager.h: 5";
+		rLen = 0;
+		rLoc = 77;
+		rType = 0;
+		vrLen = 955;
+		vrLoc = 0;
+	};
 	C2EC92240F37760300E49E22 /* rc_about.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1301, 915}}";
@@ -1489,6 +1511,13 @@
 			sepNavIntBoundsRect = "{{0, 0}, {1468, 6825}}";
 			sepNavSelRange = "{4271, 0}";
 			sepNavVisRange = "{3959, 1062}";
+		};
+	};
+	C2EC98580F37845400E49E22 /* rc_engineimplmuscle.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1468, 8227}}";
+			sepNavSelRange = "{10064, 84}";
+			sepNavVisRange = "{0, 0}";
 		};
 	};
 	C2EC98590F37845400E49E22 /* rc_engineimplplayback.cpp */ = {

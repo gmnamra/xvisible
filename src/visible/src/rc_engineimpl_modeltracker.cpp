@@ -8,7 +8,6 @@
  */
 
 #include "rc_engineimpl.h"
-#include <rc_visualtarget.h>
 #include <textio.hpp>
 #include <fstream>
 #include <iostreamio.hpp>

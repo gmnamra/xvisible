@@ -277,20 +277,19 @@
 								<string>0867D691FE84028FC02AAC07</string>
 								<string>08FB77ACFE841707C02AAC07</string>
 								<string>C26F9C930F21135D0046570D</string>
-								<string>C20F5F55131838D500E0EAC0</string>
-								<string>C26F9D880F21135D0046570D</string>
-								<string>C20F5F4E131838C100E0EAC0</string>
+								<string>0867D69AFE84028FC02AAC07</string>
 								<string>034768DDFF38A45A11DB9C8B</string>
 								<string>1C37FBAC04509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>0</integer>
+									<integer>58</integer>
+									<integer>56</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {471, 1056}}</string>
+							<string>{{0, 0}, {471, 1181}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -302,7 +301,7 @@
 					<key>GeometryConfiguration</key>
 					<dict>
 						<key>Frame</key>
-						<string>{{0, 0}, {488, 1074}}</string>
+						<string>{{0, 0}, {488, 1199}}</string>
 						<key>GroupTreeTableConfiguration</key>
 						<array>
 							<string>SCMStatusColumn</string>
@@ -311,7 +310,7 @@
 							<real>449</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>983 220 1253 1115 0 0 2560 1418 </string>
+						<string>454 151 1862 1240 0 0 2560 1418 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -339,7 +338,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>C2444E921840641B004E7AA4</string>
+										<string>C2C9BCAE187CC456002A618B</string>
 										<key>history</key>
 										<array>
 											<string>C20F5F631318390600E0EAC0</string>
@@ -349,7 +348,7 @@
 											<string>C2AD7FB0131887B800EA1594</string>
 											<string>C2AD8050131898DE00EA1594</string>
 											<string>C2444E8B18406366004E7AA4</string>
-											<string>C2444E8C18406366004E7AA4</string>
+											<string>C2444E921840641B004E7AA4</string>
 										</array>
 										<key>nextStack</key>
 										<array>
@@ -366,14 +365,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {760, 1069}}</string>
+								<string>{{0, 0}, {1369, 635}}</string>
 								<key>RubberWindowFrame</key>
-								<string>983 220 1253 1115 0 0 2560 1418 </string>
+								<string>454 151 1862 1240 0 0 2560 1418 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>1069pt</string>
+							<string>635pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -386,18 +385,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 1074}, {760, 0}}</string>
+								<string>{{0, 640}, {1369, 559}}</string>
 								<key>RubberWindowFrame</key>
-								<string>983 220 1253 1115 0 0 2560 1418 </string>
+								<string>454 151 1862 1240 0 0 2560 1418 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>0pt</string>
+							<string>559pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>760pt</string>
+					<string>1369pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -412,9 +411,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>C2444E631840485B004E7AA4</string>
+				<string>C2C9BC7E187CC01F002A618B</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>C2444E641840485B004E7AA4</string>
+				<string>C2C9BC7F187CC01F002A618B</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -550,13 +549,10 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>/Users/arman/wcs/visible_1.0_dev/Visible.xcodeproj</string>
-		<string>C26FA1FF0F212EA50046570D</string>
+		<string>/Users/arman/gwc/visibleqt105/Visible.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>983 220 1253 1115 0 0 2560 1418 </string>
+	<string>454 151 1862 1240 0 0 2560 1418 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
