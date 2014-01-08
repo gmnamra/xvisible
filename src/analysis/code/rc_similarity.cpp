@@ -332,13 +332,15 @@ bool rcSimilarator::entropies(deque<double>& signal, rcEntropyDefinition definit
   return false;
 }
 
-
+/*
+ *  Visual Entropy is used for mean projection versus ACI an entropic projection
+ */
 bool rcSimilarator::entropiesVisualEntropy(deque<double>& signal) const
 {
   rmAssert (_matrixSz);
-  if (_finished && !_entropies.empty())
+  if (_finished && !_sums.empty())
     {
-      signal = _entropies;
+      signal = _sums;
       return true;
     }
   return false;
@@ -399,24 +401,6 @@ bool rcSimilarator::internalFill(I start, I end,
     (*start).frameBuf().unlock();
   }
 
-  if ((_type == eApproxNoMatrix) || (_type == eApproximate)) {
-    if (tWin.empty()) {
-      _SList.resize(0);
-      
-      if ((_type == eApproximate) && !_SMatrix.empty())
-	_SMatrix.resize(0);
-
-      return false;
-    }
-
-    if (_SList.empty())
-      _SList.resize(_matrixSz - 1);
-    else
-      rmAssert(_SList.size() == (_matrixSz - 1));
-  }
-
-  if (_type == eApproxNoMatrix)
-    return (_finished = ssListFill(tWin)) && genListEntropy(tWin.size());
 
   if (tWin.empty()) {
     if (!_SMatrix.empty())
@@ -439,10 +423,6 @@ bool rcSimilarator::internalFill(I start, I end,
   /* Initialize identity diagonal of _SMatrix.
    */
   unity();
-
-  if (_type == eApproximate)
-    return (_finished = ssListFill(tWin)) && ssMatrixApproxFill(tWin) &&
-      genMatrixEntropy(tWin.size());
 
   /*
    * if longtermCache is on, write the first matrix size entropies
@@ -584,64 +564,6 @@ bool rcSimilarator::ssMatrixFill(deque<rcCorrelationWindow<T> >& tWin)
   return true;
 }
 
-/* N^^2 storage but faster algorithm by Peter Roberts...
- *
- * ssMatrixApproxFill - Generate a square matrix of correlation
- * scores, using as input a sequence of "distance 1" correlation
- * scores. By "distance 1" is meant that these are scores for
- * consecutive images from within some movie sequence. So a "distance
- * 2" correlation score is for 2 images that are separated by 1
- * intervening image, and in general, a "distance N" correlation score
- * is for 2 images separated by N-1 intervening images.
- *
- * The scores for "distance 0" and "distance 1" are generated in the
- * obvious way, which doesn't require approximation.
- *
- * "Distance D" correlation scores are approximated using the
- * geometric mean of the intervening pairwise correlations. For
- * example, the approximate correlation score between the 4th and 6th
- * images in a sequence is calculated as the SQUARE root of the
- * following product: corr[4] * corr[5]. The approximate correlation
- * score between the 4th and 7th images in a sequence is calculated as
- * the CUBE root of the following product: corr[4] * corr[5] * corr[6].
- */
-template <class T> bool
-rcSimilarator::ssMatrixApproxFill(deque<rcCorrelationWindow<T> >& tWin)
-{
-  uint32 matrixInUse = tWin.size();
-  rmAssert(matrixInUse <= _SMatrix.size());
-  rmAssert(matrixInUse <= (_SList.size()+1));
-  
-  if (matrixInUse < 2)
-    return true;
-
-  /* First, use the original correlation scores to set up all the
-   * "distance 1" entries in the scores array.
-   */
-  for (uint32 i = 0; i < (matrixInUse-1); i++)
-    if (_SList[i] == 0.0)
-      _SMatrix[i][i+1] = _SMatrix[i+1][i] = _tiny;
-    else
-      _SMatrix[i][i+1] = _SMatrix[i+1][i] = _SList[i];
-
-  /* Finally, generate approximate values for all the remaining scores
-   * entries.
-   */
-  for (uint32 i = 0; i < (matrixInUse-2); i++) {
-    double product = _SList[i];
-    uint32 distance = 2;
-    for (uint32 j = i + 2; j < matrixInUse; j++, distance++) {
-      product *= _SList[j-1];
-      double corrApprox = pow(product, (1./distance));
-      if (corrApprox == 0.0)
-	_SMatrix[i][j] = _SMatrix[j][i] = _tiny;
-      else
-	_SMatrix[i][j] = _SMatrix[j][i] = corrApprox;
-    }
-  }
-
-  return true;
-}
 
 template <class T>
 bool rcSimilarator::ssListFill(deque<rcCorrelationWindow<T> >& tWin)
@@ -712,20 +634,10 @@ bool rcSimilarator::internalUpdate(rcWindow& nextImage,
   if (tWin.size() == _matrixSz) {
     tWin.pop_front();
 
-    if ((_type == eApproxNoMatrix) || (_type == eApproximate))
-      shiftSList();
-
     if ((_type == eApproximate) || (_type == eExhaustive))
       shiftSMatrix();
   }
   
-  if ((_type == eApproxNoMatrix) || (_type == eApproximate)) {
-    if (_SList.empty())
-      _SList.resize(_matrixSz - 1);
-    else
-      rmAssert(_SList.size() == (_matrixSz - 1));
-  }
-
   if ((_type == eApproximate) || (_type == eExhaustive)) {
     if (_SMatrix.empty()) {
       _SMatrix.resize(_matrixSz);
@@ -740,12 +652,6 @@ bool rcSimilarator::internalUpdate(rcWindow& nextImage,
 
   tWin.push_back(rcCorrelationWindow<T>(nextImage));
   nextImage.frameBuf().unlock();
-
-  if (_type == eApproxNoMatrix)
-    return (_finished = ssListUpdate(tWin)) && genListEntropy(tWin.size());
-  else if (_type == eApproximate)
-    return (_finished = ssListUpdate(tWin)) && ssMatrixApproxUpdate(tWin)
-      && genMatrixEntropy(tWin.size());
 
   /*
    * if longtermCache is on, write the last entropy value to the cache line
@@ -837,70 +743,6 @@ bool rcSimilarator::ssMatrixUpdate(deque<rcCorrelationWindow<T> >& tWin)
   return true;
 }
 
-template <class T>
-bool rcSimilarator::ssMatrixApproxUpdate(deque<rcCorrelationWindow<T> >& tWin)
-{
-  rmAssert(!tWin.empty());
-
-  const uint32 lastImgIndex = tWin.size() - 1;
-  rmAssert(lastImgIndex < _matrixSz);
-
-  /* Set up identity value.
-   */
-  _SMatrix[lastImgIndex][lastImgIndex] = 1.0 + _tiny;
-  
-  if (lastImgIndex == 0)
-    return true;
-
-  /* Fill in "distance 1" values.
-   */
-  if (_SList[lastImgIndex-1] == 0.0)
-      _SMatrix[lastImgIndex][lastImgIndex-1] =
-	_SMatrix[lastImgIndex-1][lastImgIndex] = _tiny;
-  else
-    _SMatrix[lastImgIndex][lastImgIndex-1] =
-      _SMatrix[lastImgIndex-1][lastImgIndex] = _SList[lastImgIndex-1];
-
-  if (lastImgIndex == 1)
-    return true;
-
-  /* Finally, generate approximate values for all the remaining scores
-   * entries.
-   */
-  double product = _SList[lastImgIndex-1];
-  uint32 distance = 2;
-  for (uint32 i = lastImgIndex - 2; distance <= lastImgIndex;
-       i--, distance++) {
-    product *= _SList[i];
-    double corrApprox = pow(product, (1./distance));
-    if (corrApprox == 0.0)
-      _SMatrix[i][lastImgIndex] = _SMatrix[lastImgIndex][i] = _tiny;
-    else
-      _SMatrix[i][lastImgIndex] = _SMatrix[lastImgIndex][i] = corrApprox;
-  }
-
-  return true;
-}
-
-template <class T>
-bool rcSimilarator::ssListUpdate(deque<rcCorrelationWindow<T> >& tWin)
-{
-  rmAssert(_SList.size() == (_matrixSz-1));
-  rmAssert(!tWin.empty());
-
-  const uint32 lastImgIndex = tWin.size() - 1;
-
-  rmAssert(lastImgIndex <= _SList.size());
-
-  if (lastImgIndex) {
-    _SList[lastImgIndex-1] = correlate(tWin[lastImgIndex-1],
-				       tWin[lastImgIndex]);
-    tWin[lastImgIndex-1].frameBuf().unlock();
-    tWin[lastImgIndex].frameBuf().unlock();
-  }
-
-  return true;
-}
 
 template <class T>
 double rcSimilarator::correlate(rcCorrelationWindow<T>& i,
@@ -991,9 +833,13 @@ bool rcSimilarator::genMatrixEntropy(uint32 tWinSz)
 
   /* Create sums array and initialize all the elements.
    */
-  vector<double> sums(_matrixSz);
-  
+
   rmAssert(_SMatrix.size() == _matrixSz);
+
+    if (_sums.empty())
+        _sums.resize(_matrixSz);
+    else
+        rmAssert(_sums.size() == _matrixSz);
 
   if (_entropies.empty())
     _entropies.resize(_matrixSz);
@@ -1002,148 +848,32 @@ bool rcSimilarator::genMatrixEntropy(uint32 tWinSz)
 
   for (uint32 i = 0; i < _matrixSz; i++) {
     rmAssert(_SMatrix[i].size() == _matrixSz);
-    sums[i] = _SMatrix[i][i];
+    _sums[i] = _SMatrix[i][i];
     _entropies[i] = 0.0;
   }
 
   for (uint32 i = 0; i < (_matrixSz-1); i++)
     for (uint32 j = (i+1); j < _matrixSz; j++) {
-      sums[i] += _SMatrix[i][j];
-      sums[j] += _SMatrix[i][j];
+      _sums[i] += _SMatrix[i][j];
+      _sums[j] += _SMatrix[i][j];
     }
 
-  for (uint32  i = 0; i < _matrixSz; i++) {
+    for (uint32  i = 0; i < _matrixSz; i++) {
     for (uint32 j = i; j < _matrixSz; j++) {
       double rr =
-	_SMatrix[i][j]/sums[i]; // Normalize for total energy in samples
+	_SMatrix[i][j]/_sums[i]; // Normalize for total energy in samples
       _entropies[i] += shannon(rr);
       
       if (i != j) {
-	rr = _SMatrix[i][j]/sums[j];//Normalize for total energy in samples
+	rr = _SMatrix[i][j]/_sums[j];//Normalize for total energy in samples
 	_entropies[j] += shannon(rr);
       }
     }
     _entropies[i] = _entropies[i]/_log2MSz;// Normalize for cnt of samples
   }
-
-  return true;
-}
-
-/* N memory requirement but slower.
- *
- * genListEntropy - Generate a sequence of energy scores, using as
- * input a sequence of "distance 1" correlation scores.  This function
- * uses an algorithm that requires only O(N) space (where N is the
- * size of the temporal window).
- */
-bool rcSimilarator::genListEntropy(uint32 tWinSz)
-{
-  if (tWinSz < _matrixSz)
-    return false;
-
-  const uint32 nCorr = _SList.size();
-
-  rmAssert((nCorr + 1) == _matrixSz);
-
-  if (_entropies.empty())
-    _entropies.resize(_matrixSz);
-  else
-    rmAssert(_entropies.size() == _matrixSz);
-
-  /* Create sums array and initialize it.
-   */
-  deque<double> sums(_matrixSz);
-
-  /* Initialize the sums array with all the distance "0" values.
-   */
-  for (uint32 i = 0; i < _matrixSz; i++)
-    sums[i] = 1.0 + _tiny; // xyzzy 
-
-  /* One pass through to generate sums used in normalization.
-   */
-  {
-    /* First, use the original correlation scores to add in all the
-     * "distance 1" values into the sums array.
-     */
-    for (uint32 i = 0; i < nCorr; i++) {
-      if (_SList[i] == 0.0) {
-	sums[i] += _tiny;
-	sums[i+1] += _tiny;
-      }
-      else {
-	sums[i] += _SList[i];
-	sums[i+1] += _SList[i];
-      }
-    }
-
-    /* Finally, generate approximate values for all the remaining
-     * distances and add them to sums.
-     */
-    for (uint32 i = 0; i < (_matrixSz - 2); i++) {
-      double product = _SList[i];
-      uint32 distance = 2;
-      for (uint32 j = i + 2; j < _matrixSz; j++, distance++) {
-	product *= _SList[j-1];
-	double corrApprox = pow(product, (1./distance));
-	if (corrApprox == 0.0) {
-	  sums[i] += _tiny;
-	  sums[j] += _tiny;
-	}
-	else {
-	  sums[i] += corrApprox;
-	  sums[j] += corrApprox;
-	}
-      }
-    }
-  }
-
-  /* Second pass to generate energy scores.
-   */
-  {
-    /* First, accumulate energy scores for identity positions.
-     */
-    for (uint32 i = 0; i < _matrixSz; i++) {
-      double rr = 1.0/sums[i]; // Normalize for total energy in samples
-      _entropies[i] = shannon(rr);
-    }
-
-    /* Second, use the caller provided correlation scores to add in
-     * all the "distance 1" values into the energy array.
-     */
-    for (uint32 i = 0; i < nCorr; i++) {
-      double corrVal = (_SList[i] == 0.0) ? _tiny : _SList[i];
-
-      double rr = corrVal/sums[i]; // Normalize for total energy in samples
-      _entropies[i] += shannon(rr);
-
-      rr = corrVal/sums[i+1]; // Normalize for total energy in samples
-      _entropies[i + 1] += shannon(rr);
-    }
-
-    /* Finally, approximate the remaining correlation scores and use
-     * them to finish generating energy scores.
-     */
-    for (uint32 i = 0; i < (_matrixSz - 2); i++) {
-      double product = _SList[i];
-      uint32 distance = 2;
-      for (uint32 j = i + 2; j < _matrixSz; j++, distance++) {
-	product *= _SList[j-1];
-	double corrApprox = pow(product, (1./distance));
-	if (corrApprox == 0.0)
-	  corrApprox = _tiny;
-	double rr = corrApprox/sums[i]; // Norm for total energy in samples
-	_entropies[i] += shannon(rr);
-
-	rr = corrApprox/sums[j]; // Normalize for total energy in samples
-	_entropies[j] += shannon(rr);
-      }
-    }
-  }
-  
-  /* Do final normalization for the total number of samples used.
-   */
-  for (uint32 i = 0; i < _matrixSz; i++)
-    _entropies[i] = _entropies[i]/_log2MSz;
+    
+    for (uint32  i = 0; i < _matrixSz; i++)
+        _sums[i] = _sums[i] / _matrixSz;
 
   return true;
 }
