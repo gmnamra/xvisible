@@ -12,7 +12,7 @@
 #include "ut_analysis_main.h"
 #include <limits.h>
 #include <gtest/gtest.h>
-#define  UT_KINETOSCOPE
+    //#define  UT_KINETOSCOPE
 
 
 #define rmPrintImage(a){						\
@@ -64,42 +64,8 @@ int ut_analysis (std::string& resourcePath )
 			errors += test.run();
 		}
 		
-			
-		{
-			UT_RLE test;
-			errors += test.run();
-		}
-		
-		
-		// Pyramid Processing tests
-		{
-			UT_pyramid test;
-			errors += test.run();
-		}
-		
-		
-		
-		// Correlation tests
-		{
-			UT_Correlation test;
-			errors += test.run();
-		}
-		
-		
-		
-		// Image Set Registration Tests
-		{
-			UT_register test;
-			errors += test.run();
-		}
-		
-		
-		// Moment generating tests
-		{
-			UT_moments test;
-			errors += test.run();
-		}
-		// rcCorrelationWindow tests
+
+			// rcCorrelationWindow tests
 		{
 			UT_Correlationwindow test;
 			errors += test.run();
@@ -143,39 +109,18 @@ int ut_analysis (std::string& resourcePath )
 			UT_nr test;
 			errors += test.run();
 		}
-		// Point Correlation tests
-		{
-			UT_point_corr test;
-			errors += test.run();
-		}
-		
-		// Connectivity tests
-		{
-			UT_Connect test;
-			errors += test.run();
-		}
-		
+
 		// Distance Clustering tests
 		{
 			UT_Blum test;
 			errors += test.run();
 		}
 		
-		// rcAnalyzer tests
-		{
-			UT_Analyzer test;
-			errors += test.run();
-		}
-		// Shape Calculator tests
-		{
-			UT_shape test;
-			errors += test.run();
-		}
-		
+
 
 		
 	}
-	catch ( exception& e ) {
+	catch ( general_exception& e ) {
 		fprintf(stderr, "exception \"%s\" thrown\n",  e.what() );
 		++errors;
 	}

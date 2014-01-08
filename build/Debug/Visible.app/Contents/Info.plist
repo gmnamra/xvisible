@@ -4,6 +4,8 @@
 <dict>
 	<key>BuildMachineOSBuild</key>
 	<string>12F45</string>
+	<key>BuildRevision</key>
+	<string>f8e3225</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -20,7 +22,7 @@
 				<string>rfyeml</string>
 			</array>
 			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
+			<string>Editor</string>
 			<key>LSIsAppleDefaultForType</key>
 			<true/>
 		</dict>
@@ -38,31 +40,13 @@
 				<string>rfymov</string>
 			</array>
 			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSIsAppleDefaultForType</key>
-			<true/>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>rfygra</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>rfygra.icns</string>
-			<key>CFBundleTypeName</key>
-			<string>rfygra</string>
-			<key>CFBundleTypeOSTypes</key>
-			<array>
-				<string>rfygra</string>
-			</array>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
+			<string>Editor</string>
 			<key>LSIsAppleDefaultForType</key>
 			<true/>
 		</dict>
 	</array>
 	<key>CFBundleGetInfoString</key>
-	<string>2.0, Copyright 2011 Reify Corporation</string>
+	<string>2.0, Copyright 2014 Reify Corporation</string>
 	<key>CFBundleIconFile</key>
 	<string>Visible.icns</string>
 	<key>CFBundleIdentifier</key>
@@ -87,5 +71,7 @@
 	<string>0502</string>
 	<key>DTXcodeBuild</key>
 	<string>5A3005</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.developer-tools</string>
 </dict>
 </plist>

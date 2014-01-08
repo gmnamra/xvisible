@@ -9,7 +9,7 @@
 #include <mmintrin.h>
 #include <rc_window.h>
 #include "ut_simd.h"
-#include "ut.h"
+
 
 int testMMXCorr ();
 int gtruth ();
@@ -19,7 +19,7 @@ int ut_simd (std::string& foo)
 	uint32 ne = 0;
 #if defined  (__i386__)
 	ne += (testMMXCorr () != gtruth ());
-	CPTAssert (ne == 0);
+	assert (ne == 0);
 #endif
 	return ne;
 }

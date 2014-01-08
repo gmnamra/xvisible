@@ -493,7 +493,7 @@ void UT_Analyzer::testOptions()
         rcAnalyzerOptions opt2( opt1 );
         rcAnalyzerOptions opt3( opt1 );
         rcSimilarator::rcEntropyDefinition d1 = rcSimilarator::eVisualEntropy;
-        rcSimilarator::rcEntropyDefinition d2 = rcSimilarator::eRMSVisualEntropy;
+        rcSimilarator::rcEntropyDefinition d2 = rcSimilarator::eACI;
         
         rcUNITTEST_ASSERT( d1 != d2 );
                 

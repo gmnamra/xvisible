@@ -9,7 +9,7 @@
 #define _UT_CAPTURE_H_
 
 #include <rc_unittest.h>
-#include <rc_capture.hp>
+
 
 class UT_capture: public rcUnitTest {
   public:

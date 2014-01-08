@@ -18,87 +18,16 @@
 #include "ut_histogram.h"
 
 
-
-void Set_c_Array(int x[3])
-{
-  x[0] = 1;
-  x[1] = 2;
-  x[2] = 3;
-}
-
-void Print_Array(rcFixedArray<int, 3> x, std::ostream& os)
-{
-  os << '{' << x[0] << ',' << x[1] << ',' << x[2] << '}' << std::endl;
-}
-
-void Print_c_ArrayConst(const int x[3], std::ostream& os)
-{
-  os << '{' << x[0] << ',' << x[1] << ',' << x[2] << '}' << std::endl;
-}
-
-void Print_Array5(rcFixedArray<int, 5> x, std::ostream& os)
-{
-  os << '{' << x[0] << ',' << x[1] << ',' << x[2] << ','
-     << x[3] << ',' << x[4] << '}' << std::endl;
-}
-
-
 UT_histogram::UT_histogram ()
 {
 }
 
 uint32 UT_histogram::run ()
 {
-  testFixedArray ();
   testGeneralHistogram ();
   testListHistogram ();
   return mErrors;
 }
-
-void UT_histogram::testFixedArray ()
-{
-  // Test out many combinations of using c-style arrays and rcFixedArray
-  
-  int c_Array1[3] = {0,0,0};
-  
-  Set_c_Array(c_Array1);
-  Print_Array(c_Array1, std::cout);
-  Print_c_ArrayConst(c_Array1, std::cout);
-
-  int c_Array2[3] = {0,0,0};
-  Print_Array(c_Array2, std::cout);
-  
-  int array3Init[3] = {4,4,4};
-  rcFixedArray<int, 3> array3 = array3Init;
-  Print_Array(array3, std::cout);
-  Print_c_ArrayConst(array3.GetDataPointer(), std::cout);
-
-  Set_c_Array(array3.GetDataPointer());
-  Print_Array(array3, std::cout);
-
-  rcFixedArray<int, 3> array4;
-  array4.Fill(0);
-  Print_Array(array4, std::cout);
-  
-  // Test operator!= and operator==
-  rcUTCheck (array4 == array4 );
-  rcUTCheck ( !(array4 != array4));
-
-  // Test Get/Set element
-  const unsigned int n = 20;
-  rcFixedArray< unsigned int, n > array20;
-  for(unsigned int i=0; i<n; i++)
-    {
-      array20.SetElement(i,i);
-    }
-  
-  for(unsigned int k=0; k<n; k++)
-    {
-      rcUTCheck ( array20.GetElement(k) == k );
-    } 
-
-}
-
 
 UT_histogram::~UT_histogram ()
 {

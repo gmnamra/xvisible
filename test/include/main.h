@@ -9,7 +9,7 @@
 #ifndef UT_UTIL_MAIN
 #define UT_UTIL_MAIN
 
-#include <ut_atomic.h>
+#include "ut_atomic.h"
 #include <ut_ring.h>
 #include <ut_timestamp.h>
 #include <ut_thread.h>
@@ -19,7 +19,6 @@
 #include <ut_line.h>
 #include <ut_systeminfo.h>
 #include <ut_stats.h>
-#include <svn_version.h>
 #include <ut_affine.h>
 #include <ut_pmcorr.h>
 #include <ut_polygon.h>

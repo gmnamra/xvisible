@@ -60,6 +60,7 @@ uint32 UT_tiff::run()
 		uint32 frames = mNumFrames[i];
 		testFile (fname, frames);
     }
+    return 1;
 }
 
   uint32 UT_tiff::testFile (std::string& fname, uint32 frames)

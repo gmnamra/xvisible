@@ -180,7 +180,7 @@ int ut_visual (std::string& resourcePath )
 	  	  
   }
 
-  catch ( exception& e ) {
+  catch ( general_exception& e ) {
 	  fprintf(stderr, "%s error: exception \"%s\" thrown\n", resourcePath.c_str(), e.what());
     ++errors;
   }

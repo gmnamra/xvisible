@@ -1,6 +1,14 @@
 // Copyright 2002 Reify, Inc.
 
-#include "ut_util_main.h"
+
+#include <ut_rect.h>
+#include <ut_thread.h>
+#include <ut_atomic.h>
+#include <ut_simd.h>
+#include <ut_stats.h>
+#include <ut_timestamp.h>
+#include <ut_systeminfo.h>
+#include <ut_rect.h>
 
 #include <rc_fileutils.h>
 
@@ -103,21 +111,7 @@ int ut_util( std::string& resourcePath )
     }
 #endif
 	  
-    {
-      rcRingContainer <string> rs;
-      rs.push_back("one");
-      rs.push_back("two");
-      rs.push_back("three");
-      rs.push_back("four");
-      rs.push_back("five");
-      rcRingContainer <string>::iterator it = rs.begin();
-      ++it; ++it;
-      it.insert("six");
-      it = rs.begin();
-      // Twice around the ring:
-      for(int i = 0; i < rs.size() * 2; i++)
-	cout << *it++ << endl;
-    } ///:~
+
 
 #if defined (TEST_GLOB)	  
     {
@@ -151,11 +145,6 @@ int ut_util( std::string& resourcePath )
 
     }
 #endif	  
-    // Histogram test
-    {
-      UT_histogram test;
-      errors += test.run();
-    }
 
     // Stats test
     {
@@ -168,23 +157,7 @@ int ut_util( std::string& resourcePath )
       UT_Systeminfo test;
       errors += test.run();
     }
-    // Line segment tests
-    {
-      UT_line test;
-      errors += test.run();
-    }
 
-    // Fixed Point Cordic tests
-    {
-      UT_cordic test;
-      errors += test.run();
-    }
-
-    // security code tests
-    {
-      UT_Security test;
-      errors += test.run();
-    }
         
     // rcTimestamp tests
     {
@@ -192,11 +165,6 @@ int ut_util( std::string& resourcePath )
       errors += test.run();
     }
         
-    // rcSparseHistogram tests
-    {
-      UT_SparseHistogram test;
-      errors += test.run();
-    }
 
     // atomicValue template tests
     {
@@ -210,24 +178,10 @@ int ut_util( std::string& resourcePath )
       errors += test.run();
     }
 
-    // ringBuffer tests
-    {
-      UT_RingBuffer test;
-      errors += test.run();
-    }
-
-    // bidirectionalRing tests
-    {
-      UT_BidirectionalRing test;
-      errors += test.run();
-    }
 
     // pair / rect tests
     {
-      UT_pair ptest;
-      errors += ptest.run();
-
-      UT_rect rtest;
+      UT_Rect rtest;
       errors += rtest.run();
 
     }

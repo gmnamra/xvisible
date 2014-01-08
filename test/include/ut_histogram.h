@@ -17,7 +17,6 @@
 #define __UT_HISTOGRAM_H
 
 #include <rc_unittest.h>
-#include <rc_fixedarray.h>
 #include <rc_generalhistogram.h>
 #include <rc_listhistogram.h>
 
@@ -33,7 +32,6 @@ public:
 private:
   void testGeneralHistogram ();
   void testListHistogram ();
-  void testFixedArray ();
 };
 
 

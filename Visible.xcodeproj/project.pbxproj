@@ -218,13 +218,6 @@
 			remoteGlobalIDString = C2C443C80F3A5AF900C2BDAE;
 			remoteInfo = QGLViewer;
 		};
-		C22DD1DF13158B5B00801DE4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C245B0D0130F61140065941E /* vf.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C22DCCBE1314BC3100801DE4;
-			remoteInfo = coreUT;
-		};
 		C245B0D6130F61140065941E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C245B0D0130F61140065941E /* vf.xcodeproj */;
@@ -252,6 +245,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = C2EC9C74183E692A00AC3300;
 			remoteInfo = vsigmatch;
+		};
+		C2B8E9AA187DE11D0060D961 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C245B0D0130F61140065941E /* vf.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C2B8E993187DDC2B0060D961;
+			remoteInfo = gut;
+		};
+		C2B8E9AC187DE1B00060D961 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C245B0D0130F61140065941E /* vf.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D07F2BC0486CC7A007CD1D0;
+			remoteInfo = vf;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -299,7 +306,7 @@
 		C20F5F57131838D500E0EAC0 /* rc_setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_setting.h; sourceTree = "<group>"; };
 		C20F5F58131838D500E0EAC0 /* rc_uitypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_uitypes.h; sourceTree = "<group>"; };
 		C20F5F59131838D500E0EAC0 /* rc_value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_value.h; sourceTree = "<group>"; };
-		C211A7D40FFDD01C00162208 /* tip.stk */ = {isa = PBXFileReference; lastKnownFileType = file; path = tip.stk; sourceTree = "<group>"; };
+		C211A7D40FFDD01C00162208 /* tip.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = tip.tif; path = ../../Visible/resources/tip.tif; sourceTree = "<group>"; };
 		C21252B0130D9B1500B6C967 /* ASC_DCAM_DEV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ASC_DCAM_DEV.framework; path = 3rdparty/outcastsoft/framework/ASC_DCAM_DEV.framework; sourceTree = "<group>"; };
 		C21CB1820F4236E7003CC197 /* moc_camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_camera.cpp; sourceTree = "<group>"; };
 		C21CB1830F4236E7003CC197 /* moc_frame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_frame.cpp; sourceTree = "<group>"; };
@@ -425,7 +432,7 @@
 		C23864650F32BA0600423241 /* data_tracks.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = data_tracks.html; sourceTree = "<group>"; };
 		C23864660F32BA0600423241 /* rfyeml.dtd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = rfyeml.dtd; sourceTree = "<group>"; };
 		C23864670F32BA0600423241 /* xml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = xml.html; sourceTree = "<group>"; };
-		C23864690F32BA0600423241 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C23864690F32BA0600423241 /* Visible-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Visible-Info.plist"; path = "../../Visible/resources/Visible-Info.plist"; sourceTree = "<group>"; };
 		C238646A0F32BA0600423241 /* rfyeml.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = rfyeml.icns; sourceTree = "<group>"; };
 		C238646B0F32BA0600423241 /* rfygra.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = rfygra.icns; sourceTree = "<group>"; };
 		C238646C0F32BA0600423241 /* rfymov.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = rfymov.icns; sourceTree = "<group>"; };
@@ -1345,8 +1352,8 @@
 		C23864680F32BA0600423241 /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				C211A7D40FFDD01C00162208 /* tip.stk */,
-				C23864690F32BA0600423241 /* Info.plist */,
+				C211A7D40FFDD01C00162208 /* tip.tif */,
+				C23864690F32BA0600423241 /* Visible-Info.plist */,
 				C238646A0F32BA0600423241 /* rfyeml.icns */,
 				C238646B0F32BA0600423241 /* rfygra.icns */,
 				C238646C0F32BA0600423241 /* rfymov.icns */,
@@ -1360,10 +1367,10 @@
 			isa = PBXGroup;
 			children = (
 				C245B0D7130F61140065941E /* vfi386_d.framework */,
-				C22DD1E013158B5B00801DE4 /* coreUT.app */,
 				C29AFA6E1840435E005B0754 /* libvf32_dvf.a */,
 				C29AFA701840435E005B0754 /* vBina32.app */,
 				C2728EED187B9BFC00476945 /* batch_convert.app */,
+				C2B8E9AB187DE11D0060D961 /* gut */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2212,6 +2219,7 @@
 			buildConfigurationList = C28DC52F0F3108AA00DC9AAC /* Build configuration list for PBXNativeTarget "Visible" */;
 			buildPhases = (
 				C28DC4AD0F3108AA00DC9AAC /* Resources */,
+				C2B8E9B0187DE8040060D961 /* ShellScript */,
 				C28DC4E80F3108AA00DC9AAC /* Sources */,
 				C28DC52A0F3108AA00DC9AAC /* Frameworks */,
 				C28DC52D0F3108AA00DC9AAC /* CopyFiles */,
@@ -2221,6 +2229,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C2B8E9AD187DE1B00060D961 /* PBXTargetDependency */,
 			);
 			name = Visible;
 			productName = vUT;
@@ -2274,13 +2283,6 @@
 			remoteRef = C21CB2310F4236ED003CC197 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C22DD1E013158B5B00801DE4 /* coreUT.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = coreUT.app;
-			remoteRef = C22DD1DF13158B5B00801DE4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		C245B0D7130F61140065941E /* vfi386_d.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -2307,6 +2309,13 @@
 			fileType = wrapper.application;
 			path = vBina32.app;
 			remoteRef = C29AFA6F1840435E005B0754 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C2B8E9AB187DE11D0060D961 /* gut */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = gut;
+			remoteRef = C2B8E9AA187DE11D0060D961 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -2424,6 +2433,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Parse arguments\nDYLIB=\"vfi386.framework/Versions/A/vfi386\"\napplicationExecutable=\"${CONFIGURATION_BUILD_DIR}/Visible.app/Contents/MacOS/Visible\"\necho \"${LINENO} ${applicationExecutable}\"\nframeworksLocation=\"`dirname ${applicationExecutable}`/../Frameworks\"\necho \" ${LINENO} Relocating ${frameworksLocation}\"\nframeworkExecutable=\"${frameworksLocation}/${DYLIB}\"\n\n# Rewrite install_name of framework\nnewInstallName=\"@executable_path/../Frameworks/${DYLIB}\"\necho \"${LINENO}  Relocating ${frameworkExecutable} as ${newInstallName}\"\ninstall_name_tool -id \"${newInstallName}\" \"${frameworkExecutable}\"\n\n # Rewrite install_name in the app\necho \"${LINENO}  Relocating ${frameworkExecutable} as ${newInstallName} in application\"\n\n# We re-search originalInstallName, in application, because might be different.\n  originalInstallName=`otool -L ${applicationExecutable}| grep  ${DYLIB} | sed -e 's/^\\([[:blank:]]*\\)\\(.*\\)\\( (.*\\)$/\\2/'`\n  echo \"${LINENO}  install_name_tool -change ${originalInstallName} ${newInstallName} ${applicationExecutable}\"\n  install_name_tool -change \"${originalInstallName}\" \"${newInstallName}\" \"${applicationExecutable}\"\n\n\n\n# Rewrite install_name of framework\nSUBDYLIB=\"ASC_DCAM_DEV.framework/Versions/A/ASC_DCAM_DEV\"\nSUBframeworkExecutable=\"${frameworksLocation}/${SUBDYLIB}\"\necho \"${LINENO}  Relocating ${SUBframeworkExecutable}\"\nnewInstallName=\"@executable_path/../Frameworks/${SUBDYLIB}\"\necho \"${LINENO}  Relocating ${SUBframeworkExecutable} as ${newInstallName}\"\ninstall_name_tool -id \"${newInstallName}\" \"${SUBframeworkExecutable}\"\n\n # Rewrite install_name in the app\necho \"${LINENO}  Relocating ${SUBframeworkExecutable} as ${newInstallName} in application\"\n\n# We re-search originalInstallName, in application, because might be different.\n  originalInstallName=`otool -L ${applicationExecutable}| grep  ${SUBDYLIB} | sed -e 's/^\\([[:blank:]]*\\)\\(.*\\)\\( (.*\\)$/\\2/'`\n  echo \"${LINENO}  install_name_tool -change ${originalInstallName} ${newInstallName} ${applicationExecutable}\"\n  install_name_tool -change \"${originalInstallName}\" \"${newInstallName}\" \"${applicationkExecutable}\"\n\n# finally mark DYLIB and SUBDYLIB\n# originalInstallName=`otool -L ${frameworksExecutable}| grep  ${SUBDYLIB} | sed -e 's/^\\([[:blank:]]*\\)\\(.*\\)\\( (.*\\)$/\\2/'`\n\n  echo \"${LINENO}  install_name_tool -change ${originalInstallName} ${newInstallName} ${frameworkExecutable}\"\n\n install_name_tool -change \"${originalInstallName}\" \"${newInstallName}\" \"${frameworkExecutable}\"\n\n";
+		};
+		C2B8E9B0187DE8040060D961 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "GIT=/usr/bin/git\nGITOPTIONS=\"--pretty=oneline --abbrev-commit\"\nCUT=/usr/bin/cut\n$GIT log -1 $GITOPTIONS\necho \"${LINENO} ${TARGET_BUILD_DIR}/${INFOPLIST_PATH} \"\n/usr/libexec/PlistBuddy -c \"Set :BuildRevision `$GIT log -1 $GITOPTIONS | $CUT -c1-7`\" ${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2548,6 +2570,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C2B8E9AD187DE1B00060D961 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = vf;
+			targetProxy = C2B8E9AC187DE1B00060D961 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		089C1666FE841158C02AAC07 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -2555,6 +2585,7 @@
 				089C1667FE841158C02AAC07 /* English */,
 			);
 			name = InfoPlist.strings;
+			path = resources/Visible;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
