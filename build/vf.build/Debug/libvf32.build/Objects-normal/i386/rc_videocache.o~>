@@ -1,9 +1,0 @@
-/Users/arman/wcs/visible_1.0_dev/src/visual/code/rc_videocache.cpp:130: error: no 'unsigned int rcVideoCache::getNextToken()' member function declared in class 'rcVideoCache'
-/Users/arman/wcs/visible_1.0_dev/src/visual/code/rc_videocache.cpp: In member function 'unsigned int rcVideoCache::getNextToken()':
-/Users/arman/wcs/visible_1.0_dev/src/visual/code/rc_videocache.cpp:132: error: '_debuggingToken' was not declared in this scope
-/Users/arman/wcs/visible_1.0_dev/src/visual/code/rc_videocache.cpp: In constructor 'rcVideoCache::rcVideoCache(std::string, unsigned int, bool, bool, bool, unsigned int, rcProgressIndicator*)':
-/Users/arman/wcs/visible_1.0_dev/src/visual/code/rc_videocache.cpp:210: error: '_debuggingToken' was not declared in this scope
-/Users/arman/wcs/visible_1.0_dev/src/visual/code/rc_videocache.cpp: In constructor 'rcVideoCache::rcVideoCache(const std::vector<rcTimestamp, std::allocator<rcTimestamp> >&)':
-/Users/arman/wcs/visible_1.0_dev/src/visual/code/rc_videocache.cpp:334: error: '_debuggingToken' was not declared in this scope
-/Users/arman/wcs/visible_1.0_dev/src/visual/code/rc_videocache.cpp: In member function 'void rcVideoCache::unlockFrame(unsigned int)':
-/Users/arman/wcs/visible_1.0_dev/src/visual/code/rc_videocache.cpp:1656: warning: unused variable 'dToken'
