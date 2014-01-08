@@ -1610,6 +1610,9 @@
 		C2B8E993187DDC2B0060D961 /* gut */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gut; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2B8E995187DDC2B0060D961 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C2B8E997187DDC2B0060D961 /* gut.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = gut.1; sourceTree = "<group>"; };
+		C2B8E9A0187DDD240060D961 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = gtest.framework; sourceTree = "<group>"; };
+		C2B8E9A1187DDD240060D961 /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgtest.a; sourceTree = "<group>"; };
+		C2B8E9A2187DDD240060D961 /* libgtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgtest_main.a; sourceTree = "<group>"; };
 		C2C301220F34FBAC0057B45E /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		C2EC91B00F37755700E49E22 /* batch_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = batch_main.cpp; sourceTree = "<group>"; };
 		C2EC91B10F37755700E49E22 /* bcnvrt_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bcnvrt_main.cpp; sourceTree = "<group>"; };
@@ -1923,6 +1926,7 @@
 		C26B4AB9130DEAB00059FA8B /* 3rdparty */ = {
 			isa = PBXGroup;
 			children = (
+				C2B8E99E187DDCF40060D961 /* gtest */,
 				C26B4ABC130DEAB00059FA8B /* mpeg2 */,
 				C26B4AC4130DEAB00059FA8B /* outcastsoft */,
 			);
@@ -2830,6 +2834,24 @@
 				C2B8E997187DDC2B0060D961 /* gut.1 */,
 			);
 			path = gut;
+			sourceTree = "<group>";
+		};
+		C2B8E99E187DDCF40060D961 /* gtest */ = {
+			isa = PBXGroup;
+			children = (
+				C2B8E99F187DDD240060D961 /* Release */,
+			);
+			name = gtest;
+			sourceTree = "<group>";
+		};
+		C2B8E99F187DDD240060D961 /* Release */ = {
+			isa = PBXGroup;
+			children = (
+				C2B8E9A0187DDD240060D961 /* gtest.framework */,
+				C2B8E9A1187DDD240060D961 /* libgtest.a */,
+				C2B8E9A2187DDD240060D961 /* libgtest_main.a */,
+			);
+			path = Release;
 			sourceTree = "<group>";
 		};
 		C2EC91AF0F37755700E49E22 /* support */ = {
