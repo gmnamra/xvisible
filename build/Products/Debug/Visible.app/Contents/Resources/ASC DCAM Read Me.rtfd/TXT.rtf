@@ -1,0 +1,193 @@
+{\rtf1\mac\ansicpg10000\cocoartf102
+{\fonttbl\f0\fswiss\fcharset77 Helvetica-Bold;\f1\fswiss\fcharset77 Helvetica;\f2\fnil\fcharset77 LucidaGrande-Bold;
+\f3\fnil\fcharset77 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww20420\viewh15800\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qj
+
+\f0\b\fs38 \cf0 \ul \ulc0 Installation and Notes
+\f1\b0\fs24 \ulnone \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj
+
+\f2\b \cf0 1) Install the FrameWork(s):\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj
+
+\f3\b0 \cf0 \
+Before beginning development or using any of the provided sample applications, you need to first  install the DCAM Framework(s) by simply dragging it (them) into \
+\
+/Library/FrameWorks/\
+\
+on the boot Volume of your Mac, as shown below.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+\cf0 {{\NeXTGraphic FWKInstallPath.jpg \width16380 \height1520
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+
+\f3\fs24 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj
+\cf0 \
+\
+All developer kits include a copy of the "ASC_DCAM_DEV.framework" and a "end user framework" that is specific to the type of developer kit you have purchased. The name of the "end user framework" will be either "ASC_DCAM.framework" or a manufacturer's specified name.\
+\
+To use the FrameWork in CodeWarrior (this is done similar for Project Builder too), open your OSX Mach-O application project, click on the FrameWork Tab and then drag the "ASC_DCAM_DEV.framework" into your project. In your Header file add the following line of code to the project\
+\
+#include	< ASC_DCAM_DEV/ASC_DCAM_API.h>\
+\
+and that's all you need to do.\
+\
+The header file (ASC_DCAM_API.h) is located inside the "ASC_DCAM_DEV.framework" framework bundle folder in the "Headers" folder. You do not need to physically add the header file to your project to use it.\
+\
+For doing Carbon based application development under OSX, you need to add the "ASC DCAM DEV Carbon.lib" (for development work) or "ASC DCAM Carbon.lib" (for end user apps) to your Carbon Projects.  In your Codes Header file add the following line of code to the project\
+\
+#include	<ASC_DCAM_API Carbon.h>\
+\
+The Carbon libs call the correct (i.e. ASC_DCAM_DEV.framework, "ASC_DCAM.framework" or a manufacturer's specified named one) framework for you. In your Carbon code, you must call "EnterASCDCAMCarbonLib()" before you start using the "ASC_DCAM" API and when you have finnished using it must call "ExitASCDCAMCarbonLib()". This allows the Carbon libraries to initialize and destroy the function pointer it creates for you.\
+\
+2) 
+\f2\b Install the Unlock key:
+\f3\b0 \
+\
+The "ASC_DCAM_DEV.framework" and "ASC DCAM DEV Carbon.lib" requires a developer unlock Key to utilize any IIDC/DCAM cameras. Otherwise the routines "ASCDCAMGetListOfCameras()" or "ASCDCAMOpenACamera()" will fail to find any cameras and return -128 errors.\
+\
+For the "ASC_DCAM_DEV.framework" you are allowed to designate up to five (5) Macs that can be used for development work and then use any IIDC/DCAM camera with them.\
+\
+To Register a Mac simply transfer the supplied "Register Mac SN" application to the Mac you want to register and then double click on on it.\
+\
+If successful, the following alert will appear:\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+\cf0 {{\NeXTGraphic Export Mac_SN.jpg \width8280 \height3400
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+
+\f3\fs24 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj
+\cf0 \
+The same information is also placed in the console.log file of "Console.App", as shown below:\
+\
+-------------- Registering Mac START\
+0000003065D66028\
+-------------- Registering Mac END\
+\
+The 16 digit "0000003065D66028" is the unique identifier for this Mac and is what you send to us at "support@outcastsoft.com". If your registering multiple Macs, then simply run the "Export Mac SN" application on each Mac, collect the unique identifier for them and then e-mail all of them to us in one shot. After we receive them, we will e-mail you a stuffit file containing the "ASC_DCAM_DEV" unlock file. You must place the "ASC_DCAM_DEV" into\
+\
+/Library/Application Support/\
+\
+on the boot Volume of the Macs you registered, as shown below.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+\cf0 {{\NeXTGraphic UnlockKeyPath.jpg \width16360 \height1840
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qc
+
+\f3\fs24 \cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qj
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\qj
+
+\f2\b \cf0 3) Examine the Source Code
+\f3\b0 :\
+The supplied source code samples are compatible with Metrowerks CodeWarrior 8.3 and Apple's Project builder 2.0 (from Jaguar).  You can use the source as guide to constructing your own Application and for learning how to use the framework API. \
+\
+The "ASC_DCAM Simple Examples" folder, which has simple samples for creating Mach-O and Carbon based applications. \
+\
+If you have the purchased a manufacturers license, then the source code to the "ASC DCAM Sample" Applications is provided in the "ASC_DCAM Manufacturers Example" folder.\
+\
+
+\f2\b 3) List of API functions
+\f3\b0 . The following is a brief summary of the API functions and what they do. Please review the "ASC DCAM API Documentation.pdf" for full details.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\qj
+\cf0 ASCDCAMGetListOfCameras()\
+-Returns a list of up to 63 cameras and information (i.e. name of device, is in use, GUID etc.) on them.\
+\
+ASCDCAMOpenACamera()\
+-Opens a specified Camera for exclusive usage\
+\
+ASCDCAMCloseACamera()\
+- Closes the previously opened Camera\
+\
+ASCDCAMSetQuadlet()\
+-Writes  a Quadlet (4 bytes) to the Open Camera to a specified CSR relative address or a 48 bit absolute address.\
+\
+ASCDCAMGetQuadlet()\
+-Reads a Quadlet (4 bytes) from the Open Camera from a specified CSR relative address or a 48 bit absolute address.\
+\
+ASCDCAMGetCameraProperties()\
+-Reads the Gross Properties from an Open Camera, such as device name string, supported  format, supported  modes, supported  frame rates and what IIDC camera controls are supported.\
+\
+ASCDCAMGetPropertyCapability()\
+-Reads the capabilities of a specified IIDC camera control, such as min, max, auto, manual, one push and on off.\
+\
+ASCDCAMGetPropertyValue()\
+-Reads the value of a IIDC camera control, such as the current manual value, the state of the auto controls etc.\
+\
+ASCDCAMSetPropertyValue()\
+-Writes the value of a IIDC camera control, such as the current manual value, enabling auto controls, using a one push button control etc.\
+\
+ASCDCAMGetFMRProperties()\
+-Returns the Cameras image format properties for a specific Format (0,1,2 or 7), Mode (0 to 7) and Frame Rate (60.00 to 1.875). The Frame Rate paramater does not apply for Format 7. These property values are read from the camera.\
+\
+ASCDCAMSetFMR()\
+-Set the Camera's to the specified Format (0,1,2) Mode (0 to 7) and frame Rate (1.875 to 60.00 fps). If the Format or Mode are not supported, it will return a -50 error.\
+\
+ASCDCAM7MR()\
+-Sets the Camera's to Format 7, Mode (0 to 7) and using the specified width, height, left, top and packet size paramameters.\
+\
+ASCDCAMGetFMRLTWHCB()\
+- Returns the Cached Cameras Image Format Properties, such as format, mode, frame rate, left, top, width, height, bit depth and video format. You will receive a -50 error unless you have called ASCDCAMSetFMR() or ASCDCAM7MR() error prior to using the ASCDCAMGetFMRLTWHCB() call.\
+\
+ASCDCAMAllocateReleaseIsochChannel()\
+- Allocates or deallocates Isochronous resources and channel for the Camera.\
+\
+ASCDCAMStartStopVideo()\
+-Starts or stops the camera from transmitting video over the Isochronous channel\
+\
+ASCDCAMResumePauseVideo()\
+- Resumes or Pauses the Video Stream, so that the CPU does not have to process any packets of data. This is basically for users who want to free up the CPU after grabbing a frame -but without the inherent latency  in starting/stopping the camera.\
+\
+ASCDCAMConvertRawFrameToGWorld()\
+- Converts a supplied frame of video (monochrome8, rgb24, yuv411, yuv422, yuv444, monochrome16 and rgb48) into  format, which is suitable for Buffers or PixMap handles used in Quicktime, GWorlds and Mac Windows.\
+\
+ASCDCAMConvertFrameToARGB32()\
+- Converts a supplied frame of video (monochrome8, rgb24, yuv411, yuv422, yuv444, monochrome16 and rgb48) to ARGB32 format, which is suitable for Buffers or PixMap handles used in Quicktime, GWorlds and Mac Windows.\
+\
+ASCDCAMGrabRawFrame()\
+- Extracts a raw unprocessed frame of video from the camera into a specified Buffer\
+\
+ASCDCAMGrabARGB32Frame()\
+- Extracts a frame of video from the camera and returns it in a ARGB32 buffer.\
+\
+ASCDCAMSaveFrameToDisk()\
+- Extracts a frame of video from the camera and then saves it to a user defined location on disk in a specified file format. Supported formats are Mac Pict, PNG (8 or 16), TIFF (8 or 16 bit), BMP, JPEG, PhotoShop and for monochrome 8 or 16 bit images, NASA's FITS file format.\
+\
+ASCDCAMCancelGrabFrame()\
+- Cancels any pending calls to "ASCDCAMGrabRawFrame", "ASCDCAMGrabARGB32Frame" or "ASCDCAMSaveFrameToDisk" immeditely. If you are doing long exposures with these routines and need to cancel them before the frame of videos is actually delivered, then use this call.\
+\
+ASCDCAMAssignCallback()\
+- Allows you to assign a user defined function that is called every time that a Frame of Video has been received. This can be used for live video preview in a window or extracting multiple frames of video to disk for creating Movies.\
+\
+ASCDCAMSetIODelayTimes()\
+- Allows you to specify default delays in milliseconds between ANY Read or Write transaction to a FireWire Addresses (ones you make directly or 
+\f1 indirectly
+\f3  by using the API). Almost all current FireWire cameras do not need this and adding a delay will simply make doing Read/Write IO with the camera that much slower. This should only be necessary for older Sony FireWire Cameras which required up to 100 millisecond delay after a write to a FireWire address - otherwise those cameras may not work properly. \
+\
+ASCDCAMConvertRaw16FrameToRGB48()\
+- Converts a 12 or 16 bit Bayer image into an RGB48 bit buffer, GWorld or PixMaphandle.\
+\
+ASCDCAMSaveGWorldtoDisk()\
+- Saves a GWorld to disk as a user specified file Type.\
+\
+ASCDCAMSaveRAWFrametoDisk()\
+- Saves a Raw frame extracted form the camera to disk as a user specified file Type.\
+\
+ASCDCAMGetABSPropertyCapability(), ASCDCAMGetABSPropertyValue() and ASCDCAMSetABSPropertyValue()\
+- Allow you to extract information from, get or set the value of Absolute Camera Control registers.\
+\
+ASCDCAMCreateMovie(), ASCDCAMAddMovieFrame() and ASCDCAMCloseMovie()\
+ - Allows you to record QuickTime movies.\
+\
+\
+\
+}

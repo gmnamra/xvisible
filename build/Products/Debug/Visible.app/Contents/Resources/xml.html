@@ -1,0 +1,34 @@
+<title>XML Persistence Architecture</title>
+
+<h3>Experiment Markup Language</h3>
+
+Experiment data and applications settings are persisted in an XML format, Reify Experiment Markup Language (file extension .rfyeml). See <a href="rfyeml.dtd">official DTD</a>.
+
+One experiment file can contain both settings and analysis data. Settings are encapsulated in one or more  <code>&lt;setting-category&gt; </code> elements. Analysis data is encapsulated in a single <code>&lt;experiment-data&gt;</code> element.
+
+<pre>
+&lt;experiment&gt;
+    &lt;setting-category&gt;
+        &lt;!-- Application settings --&gt;
+    &lt;/setting-category&gt;
+    &lt;experiment-data&gt;
+        &lt;!-- Analysis data --&gt;
+    &lt;/experiment-data&gt;
+&lt;/experiment&gt;
+</pre>
+
+
+<h4>Application Settings</h4>
+
+Coming soon...
+
+<h4>Analysis Data</h4>
+
+Coming soon...
+
+<p><font size=-1><i>Author: <a href="mailto:sami@reifycorp.com">Sami Kukkonen</a><i></font>
+<hr>
+<center>
+<font size=-1>Copyright &copy; 2002-2003 Reify Corporation. All rights reserved.</font><p>
+</center>
+
