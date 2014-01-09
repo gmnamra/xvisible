@@ -451,7 +451,6 @@
 		C24EA9091842FD0D00E88B0A /* rc_assemblyfcts_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DDD0F21135D0046570D /* rc_assemblyfcts_mac.cpp */; };
 		C24EA90A1842FD0D00E88B0A /* rc_fileutils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DE00F21135D0046570D /* rc_fileutils.cpp */; };
 		C24EA90B1842FD0D00E88B0A /* rc_fixcord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DE10F21135D0046570D /* rc_fixcord.cpp */; };
-		C24EA90C1842FD0D00E88B0A /* rc_line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DE50F21135D0046570D /* rc_line.cpp */; };
 		C24EA90D1842FD0D00E88B0A /* rc_numeric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DEF0F21135D0046570D /* rc_numeric.cpp */; };
 		C24EA90E1842FD0D00E88B0A /* rc_frequency.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DA00F21135D0046570D /* rc_frequency.cpp */; };
 		C24EA90F1842FD0D00E88B0A /* rc_parametermap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DF00F21135D0046570D /* rc_parametermap.cpp */; };
@@ -467,7 +466,6 @@
 		C24EA9191842FD0D00E88B0A /* rc_timestamp_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DFD0F21135D0046570D /* rc_timestamp_mac.cpp */; };
 		C24EA91A1842FD0D00E88B0A /* rc_timinginfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DFF0F21135D0046570D /* rc_timinginfo.cpp */; };
 		C24EA91B1842FD0D00E88B0A /* rc_units.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E000F21135D0046570D /* rc_units.cpp */; };
-		C24EA91C1842FD0D00E88B0A /* ringbuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E040F21135D0046570D /* ringbuffer.c */; };
 		C24EA91D1842FD0D00E88B0A /* tif_aux.c in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E070F21135D0046570D /* tif_aux.c */; };
 		C24EA91E1842FD0D00E88B0A /* svdfit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2ED4D1F183DBC23008599E0 /* svdfit.cpp */; };
 		C24EA91F1842FD0D00E88B0A /* tif_close.c in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E080F21135D0046570D /* tif_close.c */; };
@@ -751,9 +749,27 @@
 		C2B8E970187D03380060D961 /* rc_lattice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB00F21135D0046570D /* rc_lattice.cpp */; };
 		C2B8E971187D033A0060D961 /* rc_lattice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB00F21135D0046570D /* rc_lattice.cpp */; };
 		C2B8E972187D033C0060D961 /* rc_lattice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB00F21135D0046570D /* rc_lattice.cpp */; };
-		C2B8E998187DDC2B0060D961 /* gut.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2B8E997187DDC2B0060D961 /* gut.1 */; };
 		C2B8E99C187DDC510060D961 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA26D0F21357A0046570D /* main.cpp */; };
-		C2B8E99D187DDC620060D961 /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D07F2C80486CC7A007CD1D0 /* vfi386_d.framework */; };
+		C2B8EA00187E0F880060D961 /* rc_unittest.h in Headers */ = {isa = PBXBuildFile; fileRef = C2B8E9FF187E0F880060D961 /* rc_unittest.h */; };
+		C2B8EA02187E11F20060D961 /* ut_timestamp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2A70F21357A0046570D /* ut_timestamp.cpp */; };
+		C2B8EA03187E13170060D961 /* ut_atomic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2720F21357A0046570D /* ut_atomic.cpp */; };
+		C2B8EA04187E13280060D961 /* ut_systeminfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2A40F21357A0046570D /* ut_systeminfo.cpp */; };
+		C2B8EA05187E132E0060D961 /* ut_ring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA29B0F21357A0046570D /* ut_ring.cpp */; };
+		C2B8EA06187E137C0060D961 /* ut_similarity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2A00F21357A0046570D /* ut_similarity.cpp */; };
+		C2B8EA07187E13880060D961 /* ut_window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2AB0F21357A0046570D /* ut_window.cpp */; };
+		C2B8EA08187E13A40060D961 /* ut_stats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2A30F21357A0046570D /* ut_stats.cpp */; };
+		C2B8EA09187E13A80060D961 /* ut_thread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2A50F21357A0046570D /* ut_thread.cpp */; };
+		C2B8EA0A187E14570060D961 /* ut_security.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA29D0F21357A0046570D /* ut_security.cpp */; };
+		C2B8EA0B187E42310060D961 /* ut_atomic_race_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2730F21357A0046570D /* ut_atomic_race_test.cpp */; };
+		C2B8EA0C187E43D30060D961 /* ut_cordic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2770F21357A0046570D /* ut_cordic.cpp */; };
+		C2B8EA0D187E446A0060D961 /* ut_line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2850F21357A0046570D /* ut_line.cpp */; };
+		C2B8EA0E187E46400060D961 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAED60F421FE2003CC197 /* Carbon.framework */; };
+		C2B8EA0F187E46480060D961 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0480F212DF40046570D /* CoreServices.framework */; };
+		C2B8EA17187E4D800060D961 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0440F212DEC0046570D /* IOKit.framework */; };
+		C2B8EA18187E4DD10060D961 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0530F212E300046570D /* Accelerate.framework */; };
+		C2B8EA19187E4E620060D961 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA04E0F212E170046570D /* QuickTime.framework */; };
+		C2B8EA1F187E526B0060D961 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EA1E187E526B0060D961 /* gtest-all.cc */; };
+		C2B8EA20187E548E0060D961 /* libvf32_dvf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C24B8D0C183E62D30010E3C2 /* libvf32_dvf.a */; };
 		C2EC976F0F37838200E49E22 /* avevar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D8B0F21135D0046570D /* avevar.cpp */; };
 		C2EC97700F37838200E49E22 /* blitz.txt in Resources */ = {isa = PBXBuildFile; fileRef = C26F9D8C0F21135D0046570D /* blitz.txt */; };
 		C2EC977B0F37838200E49E22 /* rc_analyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D970F21135D0046570D /* rc_analyzer.cpp */; };
@@ -1071,19 +1087,6 @@
 		EBD7A644187C952B0052C9A4 /* stlplus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC9CD9183E6BA100AC3300 /* stlplus.cpp */; };
 		EBD7A645187C952B0052C9A4 /* stlplus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC9CD9183E6BA100AC3300 /* stlplus.cpp */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		C2B8E991187DDC2B0060D961 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-				C2B8E998187DDC2B0060D961 /* gut.1 in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		089C1667FE841158C02AAC07 /* English.lproj */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = folder; name = English.lproj; path = resources/Visible/English.lproj; sourceTree = "<group>"; };
@@ -1613,6 +1616,13 @@
 		C2B8E9A0187DDD240060D961 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = gtest.framework; sourceTree = "<group>"; };
 		C2B8E9A1187DDD240060D961 /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgtest.a; sourceTree = "<group>"; };
 		C2B8E9A2187DDD240060D961 /* libgtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgtest_main.a; sourceTree = "<group>"; };
+		C2B8E9FB187E0D540060D961 /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest.a; path = 3rdparty/googletest/libgtest.a; sourceTree = "<group>"; };
+		C2B8E9FD187E0D6C0060D961 /* libgtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest_main.a; path = 3rdparty/googletest/libgtest_main.a; sourceTree = "<group>"; };
+		C2B8E9FF187E0F880060D961 /* rc_unittest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_unittest.h; sourceTree = "<group>"; };
+		C2B8EA11187E48BB0060D961 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/gcc/i686-apple-darwin9/4.0.1/libstdc++.dylib"; sourceTree = SDKROOT; };
+		C2B8EA13187E49110060D961 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = 3rdparty/googletest/gtest.framework; sourceTree = "<group>"; };
+		C2B8EA15187E4B470060D961 /* libvf32_vf.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libvf32_vf.a; path = build/Release/libvf32_vf.a; sourceTree = "<group>"; };
+		C2B8EA1E187E526B0060D961 /* gtest-all.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "gtest-all.cc"; path = "usr/local/googletest-read-only/src/gtest-all.cc"; sourceTree = "<group>"; };
 		C2C301220F34FBAC0057B45E /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		C2EC91B00F37755700E49E22 /* batch_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = batch_main.cpp; sourceTree = "<group>"; };
 		C2EC91B10F37755700E49E22 /* bcnvrt_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bcnvrt_main.cpp; sourceTree = "<group>"; };
@@ -1802,7 +1812,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2B8E99D187DDC620060D961 /* vfi386_d.framework in Frameworks */,
+				C2B8EA20187E548E0060D961 /* libvf32_dvf.a in Frameworks */,
+				C2B8EA19187E4E620060D961 /* QuickTime.framework in Frameworks */,
+				C2B8EA18187E4DD10060D961 /* Accelerate.framework in Frameworks */,
+				C2B8EA17187E4D800060D961 /* IOKit.framework in Frameworks */,
+				C2B8EA0F187E46480060D961 /* CoreServices.framework in Frameworks */,
+				C2B8EA0E187E46400060D961 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1840,6 +1855,12 @@
 		0867D691FE84028FC02AAC07 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C2B8EA1E187E526B0060D961 /* gtest-all.cc */,
+				C2B8EA15187E4B470060D961 /* libvf32_vf.a */,
+				C2B8EA13187E49110060D961 /* gtest.framework */,
+				C2B8EA11187E48BB0060D961 /* libstdc++.dylib */,
+				C2B8E9FD187E0D6C0060D961 /* libgtest_main.a */,
+				C2B8E9FB187E0D540060D961 /* libgtest.a */,
 				C24EA7F91842B85400E88B0A /* libpmk.xcodeproj */,
 				C24EA7FE1842B93D00E88B0A /* vSigMatch */,
 				C2850D03131A18EC002C8918 /* vf-Info.plist */,
@@ -2181,6 +2202,7 @@
 		C26F9D070F21135D0046570D /* util */ = {
 			isa = PBXGroup;
 			children = (
+				C2B8E9FF187E0F880060D961 /* rc_unittest.h */,
 				C26DB1D5184E61B100879A31 /* linlsq.h */,
 				C2444EB618407047004E7AA4 /* rc_stlplus.h */,
 				C2A5A569131CA14D00DFB62E /* matrix.hpp */,
@@ -3158,6 +3180,7 @@
 				C26F9F300F21135D0046570D /* rc_mpeg2.h in Headers */,
 				C26F9F310F21135D0046570D /* rc_mpeg2grabber.h in Headers */,
 				C26F9F320F21135D0046570D /* rc_mutualinfo.h in Headers */,
+				C2B8EA00187E0F880060D961 /* rc_unittest.h in Headers */,
 				C26F9F330F21135D0046570D /* rc_peak.h in Headers */,
 				C26F9F340F21135D0046570D /* rc_point.h in Headers */,
 				C26F9F350F21135D0046570D /* rc_polygon.h in Headers */,
@@ -3452,7 +3475,6 @@
 			buildPhases = (
 				C2B8E98F187DDC2B0060D961 /* Sources */,
 				C2B8E990187DDC2B0060D961 /* Frameworks */,
-				C2B8E991187DDC2B0060D961 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -4090,7 +4112,6 @@
 				C24EA9091842FD0D00E88B0A /* rc_assemblyfcts_mac.cpp in Sources */,
 				C24EA90A1842FD0D00E88B0A /* rc_fileutils.cpp in Sources */,
 				C24EA90B1842FD0D00E88B0A /* rc_fixcord.cpp in Sources */,
-				C24EA90C1842FD0D00E88B0A /* rc_line.cpp in Sources */,
 				C24EA90D1842FD0D00E88B0A /* rc_numeric.cpp in Sources */,
 				C24EA90E1842FD0D00E88B0A /* rc_frequency.cpp in Sources */,
 				C24EA90F1842FD0D00E88B0A /* rc_parametermap.cpp in Sources */,
@@ -4106,7 +4127,6 @@
 				C24EA9191842FD0D00E88B0A /* rc_timestamp_mac.cpp in Sources */,
 				C24EA91A1842FD0D00E88B0A /* rc_timinginfo.cpp in Sources */,
 				C24EA91B1842FD0D00E88B0A /* rc_units.cpp in Sources */,
-				C24EA91C1842FD0D00E88B0A /* ringbuffer.c in Sources */,
 				C24EA91D1842FD0D00E88B0A /* tif_aux.c in Sources */,
 				C24EA91E1842FD0D00E88B0A /* svdfit.cpp in Sources */,
 				C24EA91F1842FD0D00E88B0A /* tif_close.c in Sources */,
@@ -4180,7 +4200,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2B8EA1F187E526B0060D961 /* gtest-all.cc in Sources */,
+				C2B8EA0D187E446A0060D961 /* ut_line.cpp in Sources */,
+				C2B8EA02187E11F20060D961 /* ut_timestamp.cpp in Sources */,
+				C2B8EA07187E13880060D961 /* ut_window.cpp in Sources */,
+				C2B8EA09187E13A80060D961 /* ut_thread.cpp in Sources */,
+				C2B8EA03187E13170060D961 /* ut_atomic.cpp in Sources */,
 				C2B8E99C187DDC510060D961 /* main.cpp in Sources */,
+				C2B8EA08187E13A40060D961 /* ut_stats.cpp in Sources */,
+				C2B8EA0C187E43D30060D961 /* ut_cordic.cpp in Sources */,
+				C2B8EA0A187E14570060D961 /* ut_security.cpp in Sources */,
+				C2B8EA06187E137C0060D961 /* ut_similarity.cpp in Sources */,
+				C2B8EA05187E132E0060D961 /* ut_ring.cpp in Sources */,
+				C2B8EA04187E13280060D961 /* ut_systeminfo.cpp in Sources */,
+				C2B8EA0B187E42310060D961 /* ut_atomic_race_test.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4357,7 +4390,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -4402,7 +4435,7 @@
 				OpenCV = "$(SRCROOT)/frameworks/OpenCV.framework";
 				PRODUCT_NAME = vfi386_d;
 				RFY_DLL_EXPORT = "";
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.5;
 				SKIP_INSTALL = NO;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = static;
 				VALID_ARCHS = i386;
@@ -4415,7 +4448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
@@ -4465,7 +4498,7 @@
 				OpenCV = "$(SRCROOT)/frameworks/OpenCV.framework";
 				PRODUCT_NAME = vfi386;
 				RFY_DLL_EXPORT = "";
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.5;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = static;
 				STRIP_STYLE = debugging;
 				VALID_ARCHS = i386;
@@ -4569,7 +4602,7 @@
 				RFY_DLL_EXPORT = "";
 				SKIP_INSTALL = NO;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
-				VALID_ARCHS = i386;
+				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -4579,7 +4612,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
@@ -4628,7 +4661,7 @@
 				LIBRARY_STYLE = STATIC;
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				MACH_O_TYPE = staticlib;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				OpenCV = "$(SRCROOT)/frameworks/OpenCV.framework";
@@ -4636,7 +4669,7 @@
 				RFY_DLL_EXPORT = "";
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
 				STRIP_STYLE = debugging;
-				VALID_ARCHS = i386;
+				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
@@ -4826,8 +4859,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++98";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -4838,12 +4872,23 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/arman/gwc/visibleqt105/3rdparty/googletest,
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					_USE_NATIVE_ATOMIC_,
+					RFY_DLL,
+					"$(inherited)",
+					RFY_DLL_EXPORTS,
+					"__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0",
+					"GTEST_HAS_RTTI=0",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -4851,10 +4896,21 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/usr/local/boost/include",
+					"$(SRCROOT)/include/**",
+					"$(SRCROOT)/test/include",
+					"$(SRCROOT)//usr/local/googletest-read-only/",
+					"$(SRCROOT)//usr/local/googletest-read-only/include",
+				);
+				LIBRARY_SEARCH_PATHS = "";
+				MACH_O_TYPE = mh_execute;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = " -lpthread";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.5;
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -4862,8 +4918,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++98";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -4876,15 +4933,40 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/arman/gwc/visibleqt105/3rdparty/googletest,
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					_USE_NATIVE_ATOMIC_,
+					RFY_DLL,
+					"$(inherited)",
+					RFY_DLL_EXPORTS,
+					"__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/usr/local/boost/include",
+					"$(SRCROOT)/include/**",
+					"$(SRCROOT)/test/include",
+					"$(SRCROOT)//usr/local/googletest-read-only/",
+					"$(SRCROOT)//usr/local/googletest-read-only/include",
+				);
+				LIBRARY_SEARCH_PATHS = "";
+				MACH_O_TYPE = mh_execute;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				OTHER_LDFLAGS = " -lpthread";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.5;
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Release;
 		};
@@ -5084,6 +5166,7 @@
 				C2B8E99B187DDC2B0060D961 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		C2EC9C71183E692A00AC3300 /* Build configuration list for PBXNativeTarget "vsigmatch" */ = {
 			isa = XCConfigurationList;

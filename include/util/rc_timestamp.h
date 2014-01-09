@@ -9,7 +9,7 @@
 #ifndef _rcBASE_RCTIMESTAMP_H_
 #define _rcBASE_RCTIMESTAMP_H_
 
-#include <rc_types.h>
+#include "rc_types.h"
 #include <iostream>
 #include <deque>
 

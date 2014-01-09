@@ -38,14 +38,6 @@ TEST( UT_Window, run )
 }
 
 
-	// Correlation tests
-TEST(UT_Correlation, run)
-{
-	UT_Correlation test;
-	EXPECT_EQ(0, test.run());
-}
-
-
 TEST(UT_similarity, run)
 {
 	UT_similarity test;
@@ -127,19 +119,6 @@ TEST ( UT_BidirectionalRing, run )
   EXPECT_EQ(0,  test.run());
 }
 	// Pyramid Processing tests
-TEST(UT_pyramid, run)
-{
-	UT_pyramid test;
-	EXPECT_EQ(0, test.run());
-}
-
-	// Moment generating tests
-TEST(UT_moments, run)
-{
-	UT_moments test;
-	EXPECT_EQ(0, test.run());
-}
-
 
 
 

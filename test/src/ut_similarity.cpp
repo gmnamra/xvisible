@@ -1,59 +1,4 @@
-/*
- *
- *$Id $
- *$Log$
- *Revision 1.16  2005/01/25 09:39:19  arman
- *added wrt latest latticeSimilarity changes
- *
- *Revision 1.15  2005/01/17 14:51:00  arman
- *updated wrt lattice changes
- *
- *Revision 1.14  2005/01/16 03:36:14  arman
- *added ut for longTermEntropy additions to ut_similarity
- *
- *Revision 1.13  2005/01/14 21:34:31  arman
- *added lattice test
- *
- *Revision 1.12  2005/01/14 16:25:50  arman
- *incremental
- *
- *Revision 1.11  2004/08/12 19:16:42  arman
- **** empty log message ***
- *
- *Revision 1.10  2004/08/09 13:20:23  arman
- *added test for Ref
- *
- *Revision 1.9  2004/03/15 03:16:31  arman
- *added correlationDefinition
- *
- *Revision 1.8  2003/09/21 22:53:34  arman
- *fixed according to default behaviour being 1 - visualEntropy. rcOptoKinetic produces visualEntropy
- *
- *Revision 1.7  2003/04/15 18:20:19  proberts
- *New rcSimilarator interface and implementation
- *
- *Revision 1.6  2003/04/04 20:47:21  sami
- *Use rfCorrelateWindow instead of rfCorrelate for pixel sums caching
- *
- *Revision 1.5  2003/03/06 22:34:15  sami
- *Added missing return value
- *
- *Revision 1.4  2003/03/03 20:20:03  arman
- *similarity ut
- *
- *Revision 1.3  2003/02/04 22:56:58  arman
- *incremental
- *
- *Revision 1.2  2003/02/04 22:07:20  arman
- *added 1/2 pixel shift
- *
- *Revision 1.1  2003/02/03 05:04:23  arman
- *unit test for similarity
- *
- *
- *
- * Copyright (c) 2002 Reify Corp. All rights reserved.
- */
+
 #include "ut_similarity.h"
 #include <rc_math.h>
 #include <rc_time.h>
@@ -71,49 +16,6 @@ UT_similarity::~UT_similarity()
     printSuccessMessage( "rcSimilarator test", mErrors );
 }
 
-
-
-void UT_similarity::testLattice()
-{
-  vector<rc2Dvector> ctrs (2);
-  vector<int32> dias (2);
-  vector<rc2Dvector> ds (2);
-  int32 width (128), height (128);
-  dias [0] = 20 + uint8 (random ()) / 2;
-  dias [1] = 50 + uint8 (random ()) / 2;
-  ctrs[0] = rc2Dvector (width / 4, height / 4);
-  ctrs[1] = rc2Dvector ((3 * width) / 4., (3 * height) / 4.);
-  rcWindow tmp (width, height);
-  rcWindow tmp2 (width, height);
-
-
-  vector<rcWindow> movie;
-
-  for (int32 j = -1; j < 2; j++)
-    for (int32 i = -1; i < 2; i++)
-      {
-	tmp.setAllPixels (128);
-
-	for (int32 c = 0; c < 2; c++)
-	  rfDrawCircle (ctrs[c] + rc2Dvector (i, j), 
-			dias[c] / 2, tmp, 32);
-
-	rfGaussianConv (tmp, tmp2, 17);
-	rcWindow celld = rfPixelSample (tmp2, 3, 3);
-	movie.push_back (celld);
-    }
-
-  rcLatticeSimilarator lat (movie.size(), 5);
-
-  vector<rcWindow>::iterator rItr = movie.begin();
-  vector<rcWindow>::iterator eItr = rItr;
-  for (int32 i = 0; i < 3; i++) eItr++;
-
-  lat.fill (rItr, movie.end());
-  rcWindow ttc, ttd;
-  lat.ttc (ttc, ttd);
-  rcWindow ttc8 = rfImageConvertFloat8 (ttc, 1.0f, 0.0f);
-}
 
 
 void UT_similarity::testBasics()
@@ -163,9 +65,6 @@ void UT_similarity::testBasics()
     images[i] = tmp;
   }
 
-  rsCorrParams cp;
-  vector<double> fr(images.size());
-  rfOptoKineticEnergy(images, fr, cp);
 
   rcUTCheck (sm.longTermCache() == false);
   rcUTCheck (sm.longTermCache (true) == true);
@@ -178,14 +77,8 @@ void UT_similarity::testBasics()
   rcUNITTEST_ASSERT(fRet);
 
   rcUNITTEST_ASSERT(ent.size() == images.size());
-  rcUNITTEST_ASSERT(ent.size() == fr.size());
+  rcUNITTEST_ASSERT(fRet);
 
-  for (uint32 i = 0; i < ent.size(); i++)
-    rcUNITTEST_ASSERT(rfRealEq(ent[i], fr[i], 1.e-9));
-
-  for (uint32 i = 0; i < ent.size(); i++)
-    rcUNITTEST_ASSERT(rfRealEq((double)sm.longTermEntropy()[i], 
-				fr[i], 1.e-9));
 
   deque<deque<double> > matrix;
   sm.selfSimilarityMatrix(matrix);
@@ -198,8 +91,8 @@ void UT_similarity::testBasics()
   rcUTCheck (simi.use_count() == 2);
 
   // Test Base Filer
-  vector<double> signal (32);
-  simi->filter (signal);
+  // vector<double> signal (32);
+  // simi->filter (signal);
 }
 
 void UT_similarity::testUpdate()
@@ -296,6 +189,7 @@ void UT_similarity::testUpdate()
   } // End of: for (uint32 matGen = 0; matGen < 3; matGen++) {
 }
 
+#if 0
 // Test performance with different vector sizes
 void UT_similarity::testPerformance(bool useAltivec, bool useExh,
 				    uint32 size, vector<rcWindow>& images)
@@ -345,6 +239,7 @@ void UT_similarity::testPerformance(bool useAltivec, bool useExh,
 	  imagevector[0].depth() * 8, dMilliSeconds, perByte, 1/perByte,
 	  1000/dMilliSeconds);
 }
+#endif
 
 uint32 UT_similarity::run()
 {
@@ -356,7 +251,7 @@ uint32 UT_similarity::run()
   const uint32 min = 2;
   const uint32 max = 16;
 
-#if defined (PERFORMANCE)	
+#if 0 // defined (PERFORMANCE)
   // Create a vector of random images
   vector<rcWindow> imagevector( max );
   for (uint32 i = 0; i < imagevector.size(); ++i) {
@@ -379,8 +274,6 @@ uint32 UT_similarity::run()
 
 #endif  // Performace
 	
-  testLattice ();
-
   return mErrors;
 }
 

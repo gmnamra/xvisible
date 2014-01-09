@@ -79,7 +79,7 @@ UT_Window::run() {
       rcWindow win (83, 37);
       win.vImage (vib);
 
-      rcUTCheck ((uint32) vib.data == (uint32) win.pelPointer (0,0));
+            //   rcUTCheck ((uint32) vib.data == (uint32) win.pelPointer (0,0));
       rcUTCheck (vib.width == (uint32) win.width());
       rcUTCheck (vib.height == (uint32) win.height());
       rcUTCheck (vib.rowBytes == (uint32) win.rowUpdate());

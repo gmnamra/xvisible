@@ -5,7 +5,7 @@
 
 #include <string>
 #include <assert.h>
-#include <rc_platform.h>
+#include "rc_platform.h"
 
 // Integer types
 typedef unsigned char   uint8;

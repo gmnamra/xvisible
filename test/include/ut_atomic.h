@@ -3,7 +3,7 @@
 #ifndef _rcUT_ATOMIC_H_
 #define _rcUT_ATOMIC_H_
 
-#include <rc_unittest.h>
+#include "rc_unittest.h"
 
 class UT_AtomicValue : public rcUnitTest {
 public:

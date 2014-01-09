@@ -1,0 +1,5 @@
+6ff953bafc6c8fc2dda1f4a3ad3fc98c 97b3b2730895bbd80837b9d119f5fa84 ffffffffffffffffffffffffffffffff 854040 /usr/local/googletest-read-only/xcode/build/Release/libgtest.a
+e84000781874ec43870c2cdee102b294 a9d846ea150c6630e135c54fddefad7a ffffffffffffffffffffffffffffffff 431728 /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest-static.build/Objects-normal/x86_64/libgtest.a
+4b133295c753962b3b35551bfcaea780 657227bd3647939a80ad48296d7c71e2 ffffffffffffffffffffffffffffffff 422264 /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest-static.build/Objects-normal/i386/libgtest.a
+000000004c8f09bf0000000000000de6 e84000785471f0b1870c2cdee102bfad ffffffffffffffffffffffffffffffff 387208 /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest-static.build/Objects-normal/x86_64/gtest-all.o
+000000004c8f09bf0000000000000de6 4b1332958b568ad93b35551bfcaeaabf ffffffffffffffffffffffffffffffff 377412 /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest-static.build/Objects-normal/i386/gtest-all.o

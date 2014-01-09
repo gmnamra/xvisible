@@ -7,8 +7,8 @@
 #ifndef _rcUT_SECURITY_H_
 #define _rcUT_SECURITY_H_
 
-#include <rc_unittest.h>
-#include <rc_security.h>
+#include "rc_unittest.h"
+#include "rc_security.h"
 
 class UT_Security : public rcUnitTest {
 public:

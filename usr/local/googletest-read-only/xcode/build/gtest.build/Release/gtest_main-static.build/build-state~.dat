@@ -1,0 +1,173 @@
+Tgtest_main-static
+v6
+r1
+cCheck dependencies
+cCompileC build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/gtest_main.o /usr/local/googletest-read-only/src/gtest_main.cc normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/gtest_main.o /usr/local/googletest-read-only/src/gtest_main.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cLibtool /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/libgtest_main.a normal x86_64
+cLibtool /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/libgtest_main.a normal i386
+cCreateUniversalBinary /usr/local/googletest-read-only/xcode/build/Release/libgtest_main.a normal i386\ x86_64
+cStrip /usr/local/googletest-read-only/xcode/build/Release/libgtest_main.a
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
+c000000005243E79F00000000000000AA
+t1380181919
+s170
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/SDKSettings.plist
+c0000000052694773000000000000044C
+t1382631283
+s1100
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/CoreServices/SystemVersion.plist
+c000000005269477300000000000001DB
+t1382631283
+s475
+
+N/usr/local/googletest-read-only/src/gtest_main.cc
+c000000004EB4274700000000000006E5
+t1320429383
+s1765
+
+N/usr/local/googletest-read-only/xcode/build/Release/libgtest_main.a
+t1388966624
+s10008
+
+N/usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/gtest_main.LinkFileList
+c0000000052C9F2DF0000000000000079
+t1388966623
+s121
+
+N/usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/gtest_main.o
+t1388966624
+s3160
+
+N/usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/libgtest_main.a
+t1388966624
+s4072
+
+N/usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/gtest_main.LinkFileList
+c0000000052C9F2DF000000000000007B
+t1388966623
+s123
+
+N/usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/gtest_main.o
+t1388966624
+s4972
+
+N/usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/libgtest_main.a
+t1388966624
+s5888
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciescbb9645f2a7ab841^93e2735f2a7ab841^---0#1#1#--18"Check dependencies36"0E2798DF-AE29-495E-BAB9-CCBAC6983885-
+
+CCompileC build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/gtest_main.o /usr/local/googletest-read-only/src/gtest_main.cc normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s410659423.454558
+e410659424.278040
+r1
+xCompileC
+xbuild/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/gtest_main.o
+x/usr/local/googletest-read-only/src/gtest_main.cc
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/usr/local/googletest-read-only/src/gtest_main.cc
+d/usr/local/googletest-read-only/include/gtest/gtest.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-internal.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-port.h
+d/usr/local/googletest-read-only/include/gtest/gtest-message.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-string.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-filepath.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-type-util.h
+d/usr/local/googletest-read-only/include/gtest/gtest-death-test.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-death-test-internal.h
+d/usr/local/googletest-read-only/include/gtest/gtest-param-test.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-param-util.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-linked_ptr.h
+d/usr/local/googletest-read-only/include/gtest/gtest-printers.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-param-util-generated.h
+d/usr/local/googletest-read-only/include/gtest/gtest_prod.h
+d/usr/local/googletest-read-only/include/gtest/gtest-test-part.h
+d/usr/local/googletest-read-only/include/gtest/gtest-typed-test.h
+d/usr/local/googletest-read-only/include/gtest/gtest_pred_impl.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection57"Compile /usr/local/googletest-read-only/src/gtest_main.cc217"[1mCompileC[0m build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/gtest_main.o [1m/usr/local/googletest-read-only/src/gtest_main.cc[0m normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler9f72745f2a7ab841^a12d47602a7ab841^---0#0#1#-19%DVTDocumentLocation2@65"file://localhost/usr/local/googletest-read-only/src/gtest_main.cc0000000000000000^2753"[1mCompileC[0m build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/gtest_main.o [1m/usr/local/googletest-read-only/src/gtest_main.cc[0m normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /usr/local/googletest-read-only/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=124 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.4 -Wno-sign-conversion -iquote /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/gtest_main-generated-files.hmap -I/usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/gtest_main-own-target-headers.hmap -I/usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/gtest_main-all-target-headers.hmap -iquote /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/gtest_main-project-headers.hmap -I/usr/local/googletest-read-only/xcode/build/Release/include -I.. -I../include -I/usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/DerivedSources/i386 -I/usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/DerivedSources -Wall -Werror -Wendif-labels -Wnewline-eof -Wno-sign-compare -Wshadow -F/usr/local/googletest-read-only/xcode/build/Release -DNDEBUG=1 -Wno-unused-variable -MMD -MT dependencies -MF /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/gtest_main.d --serialize-diagnostics /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/gtest_main.dia -c /usr/local/googletest-read-only/src/gtest_main.cc -o /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/gtest_main.o36"470497AE-FA18-4F15-80AC-C915F486029E-
+bD496CAC6-FB36-42CF-9E23-29448AF09F1E
+
+CCompileC build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/gtest_main.o /usr/local/googletest-read-only/src/gtest_main.cc normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s410659423.454608
+e410659424.277716
+r1
+xCompileC
+xbuild/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/gtest_main.o
+x/usr/local/googletest-read-only/src/gtest_main.cc
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/usr/local/googletest-read-only/src/gtest_main.cc
+d/usr/local/googletest-read-only/include/gtest/gtest.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-internal.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-port.h
+d/usr/local/googletest-read-only/include/gtest/gtest-message.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-string.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-filepath.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-type-util.h
+d/usr/local/googletest-read-only/include/gtest/gtest-death-test.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-death-test-internal.h
+d/usr/local/googletest-read-only/include/gtest/gtest-param-test.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-param-util.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-linked_ptr.h
+d/usr/local/googletest-read-only/include/gtest/gtest-printers.h
+d/usr/local/googletest-read-only/include/gtest/internal/gtest-param-util-generated.h
+d/usr/local/googletest-read-only/include/gtest/gtest_prod.h
+d/usr/local/googletest-read-only/include/gtest/gtest-test-part.h
+d/usr/local/googletest-read-only/include/gtest/gtest-typed-test.h
+d/usr/local/googletest-read-only/include/gtest/gtest_pred_impl.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection57"Compile /usr/local/googletest-read-only/src/gtest_main.cc221"[1mCompileC[0m build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/gtest_main.o [1m/usr/local/googletest-read-only/src/gtest_main.cc[0m normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler5873745f2a7ab841^b91847602a7ab841^---0#0#1#-19%DVTDocumentLocation2@65"file://localhost/usr/local/googletest-read-only/src/gtest_main.cc0000000000000000^2767"[1mCompileC[0m build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/gtest_main.o [1m/usr/local/googletest-read-only/src/gtest_main.cc[0m normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /usr/local/googletest-read-only/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=124 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.4 -Wno-sign-conversion -iquote /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/gtest_main-generated-files.hmap -I/usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/gtest_main-own-target-headers.hmap -I/usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/gtest_main-all-target-headers.hmap -iquote /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/gtest_main-project-headers.hmap -I/usr/local/googletest-read-only/xcode/build/Release/include -I.. -I../include -I/usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/DerivedSources/x86_64 -I/usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/DerivedSources -Wall -Werror -Wendif-labels -Wnewline-eof -Wno-sign-compare -Wshadow -F/usr/local/googletest-read-only/xcode/build/Release -DNDEBUG=1 -Wno-unused-variable -MMD -MT dependencies -MF /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/gtest_main.d --serialize-diagnostics /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/gtest_main.dia -c /usr/local/googletest-read-only/src/gtest_main.cc -o /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/gtest_main.o36"C6F2DEC8-2B3C-441E-A467-C13825660D19-
+bD496CAC6-FB36-42CF-9E23-29448AF09F1E
+
+CCreateUniversalBinary /usr/local/googletest-read-only/xcode/build/Release/libgtest_main.a normal i386\ x86_64
+s410659424.303176
+e410659424.310940
+r1
+xCreateUniversalBinary
+x/usr/local/googletest-read-only/xcode/build/Release/libgtest_main.a
+xnormal
+xi386 x86_64
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection91"Create universal binary /usr/local/googletest-read-only/xcode/build/Release/libgtest_main.a87"[1mCreateUniversalBinary[0m [1mbuild/Release/libgtest_main.a[0m normal i386\ x86_64efac4d602a7ab841^399a4f602a7ab841^---0#0#1#-19%DVTDocumentLocation2@83"file://localhost/usr/local/googletest-read-only/xcode/build/Release/libgtest_main.a0038b4ffdcffdf42^474"[1mCreateUniversalBinary[0m [1mbuild/Release/libgtest_main.a[0m normal i386\ x86_64    cd /usr/local/googletest-read-only/xcode    libtool -static /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/libgtest_main.a /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/libgtest_main.a -o /usr/local/googletest-read-only/xcode/build/Release/libgtest_main.a36"2C211407-FE18-49CA-95A5-54AB228B816B-
+bD496CAC6-FB36-42CF-9E23-29448AF09F1E
+
+CLibtool /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/libgtest_main.a normal i386
+s410659424.286308
+e410659424.294997
+r1
+xLibtool
+x/usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/libgtest_main.a
+xnormal
+xi386
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection113"[1mLibtool[0m build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/libgtest_main.a normal i386113"[1mLibtool[0m build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/libgtest_main.a normal i386795b49602a7ab841^4d864b602a7ab841^---0#0#1#--757"[1mLibtool[0m build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/libgtest_main.a normal i386    cd /usr/local/googletest-read-only/xcode    setenv MACOSX_DEPLOYMENT_TARGET 10.4    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only i386 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -L/usr/local/googletest-read-only/xcode/build/Release -filelist /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/gtest_main.LinkFileList -o /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/i386/libgtest_main.a36"1DC6CC24-73FD-4AFD-A826-65294D9434E2-
+bD496CAC6-FB36-42CF-9E23-29448AF09F1E
+
+CLibtool /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/libgtest_main.a normal x86_64
+s410659424.286306
+e410659424.293744
+r1
+xLibtool
+x/usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/libgtest_main.a
+xnormal
+xx86_64
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection117"[1mLibtool[0m build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/libgtest_main.a normal x86_64117"[1mLibtool[0m build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/libgtest_main.a normal x86_64bc5b49602a7ab841^cd3a4b602a7ab841^---0#0#1#--767"[1mLibtool[0m build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/libgtest_main.a normal x86_64    cd /usr/local/googletest-read-only/xcode    setenv MACOSX_DEPLOYMENT_TARGET 10.4    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only x86_64 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk -L/usr/local/googletest-read-only/xcode/build/Release -filelist /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/gtest_main.LinkFileList -o /usr/local/googletest-read-only/xcode/build/gtest.build/Release/gtest_main-static.build/Objects-normal/x86_64/libgtest_main.a36"3661EFD9-5E6C-4B77-B3E4-304053D56282-
+bD496CAC6-FB36-42CF-9E23-29448AF09F1E
+
+CStrip /usr/local/googletest-read-only/xcode/build/Release/libgtest_main.a
+s410659424.319182
+e410659424.350861
+r1
+xStrip
+x/usr/local/googletest-read-only/xcode/build/Release/libgtest_main.a
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection51"[1mStrip[0m [1mbuild/Release/libgtest_main.a[0m51"[1mStrip[0m [1mbuild/Release/libgtest_main.a[0m82c551602a7ab841^a4e059602a7ab841^---0#0#1#-19%DVTDocumentLocation2@83"file://localhost/usr/local/googletest-read-only/xcode/build/Release/libgtest_main.a0000000000000000^265"[1mStrip[0m [1mbuild/Release/libgtest_main.a[0m    cd /usr/local/googletest-read-only/xcode    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -S /usr/local/googletest-read-only/xcode/build/Release/libgtest_main.a36"0264AA32-D629-4F6F-9D21-A7DCD62C6409-
+bD496CAC6-FB36-42CF-9E23-29448AF09F1E
+

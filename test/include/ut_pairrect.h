@@ -13,7 +13,7 @@
 #ifndef __UT_PAIRRECT_H
 #define __UT_PAIRRECT_H
 
-#include <rc_unittest.h>
+#include "rc_unittest.h"
 
 class UT_pair : public rcUnitTest {
 public:

@@ -4,9 +4,9 @@
 #define _rcUNITTEST_H_
 
 #include <stdio.h>
-#include <rc_types.h>
-#include <rc_math.h>
-#include <rc_timestamp.h>
+#include "rc_types.h"
+#include "rc_math.h"
+#include "rc_timestamp.h"
 
 #define UT_SOURCELINE() (__FILE__, __LINE__)
 
