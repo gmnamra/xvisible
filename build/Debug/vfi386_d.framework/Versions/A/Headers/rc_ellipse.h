@@ -52,16 +52,16 @@ class rcEllipse
   struct rcEllipseNormUnit
   {
     rc2Dvector mCtr;
-    rc2Matrix mUnit;
+    rcMatrix_2d mUnit;
     rcEllipseNormUnit () {}
-    rcEllipseNormUnit (const rc2Dvector& point, const rc2Matrix& norm)
+    rcEllipseNormUnit (const rc2Dvector& point, const rcMatrix_2d& norm)
       : mCtr(point), mUnit(norm) { }
   };
 
   rcEllipseNormUnit unit() const
   {
     if (degenerate()) 
-      return rcEllipseNormUnit (mCenter, rc2Matrix());
+      return rcEllipseNormUnit (mCenter, rcMatrix_2d());
 
     mOrient.norm();
 
@@ -69,7 +69,7 @@ class rcEllipse
     double cs = cos (mOrient) / mRadii.x();
     double tg = tan (rcRadian (0.0));
 
-    rc2Matrix mm (cs + sn * tg, 
+    rcMatrix_2d mm (cs + sn * tg, 
 		  sn - cs * tg,
 		  -sn / (mRadii.y() / mRadii.x()), // y / x is aspect ratio
 		  cs / (mRadii.y() / mRadii.x()));

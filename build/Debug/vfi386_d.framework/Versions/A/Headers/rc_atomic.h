@@ -307,14 +307,15 @@ public:
 	rcAtomicValue(const rcAtomicValue<T>& av)
   {
 		T temp;
-    setValue(av.getValue (temp));
+        setValue(av.getValue (temp));
   }
 
-	rcAtomicValue& operator= (rcAtomicValue& other)
-	{
-		T temp;		
-		setValue(other.getValue (temp) );
-	}
+  	rcAtomicValue& operator= (rcAtomicValue& other)
+      	{
+      		T temp;
+            setValue(other.getValue (temp) );
+            return *this;
+       }
 
 	
   T& getValue(T& v) const

@@ -13,7 +13,10 @@
 #include <iostream>
 
 #include <sys/time.h>
+#include <sys/types.h>
 #include <rc_types.h>
+#include <libkern/OSTypes.h>
+#include <CoreServices/CoreServices.h>
 
 // Note: constructing one starts it as well. 
 
@@ -28,7 +31,7 @@ public:
    void start ()
    {
       
-      UInt64 startTime, elapsedTime;
+      uint64 startTime, elapsedTime;
       double t0;
 
       //Calibrate the clock
@@ -97,13 +100,13 @@ private:
    
    double mGetTime ( void )
    {
-      UInt64 time;
+      uint64 time;
       Microseconds( (UnsignedWide*) &time );
       return (double) time * 1e-6;
    }
 
    //Read the contents of the TBR and return as a UInt64
-   UInt64 mReadTBR( void )
+   uint64 mReadTBR( void )
       {
 #ifdef __ppc__	  
 	register unsigned int temp1 asm ("r4");

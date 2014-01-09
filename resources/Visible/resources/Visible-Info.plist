@@ -2,16 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleGetInfoString</key>
-	<string>2.0, Copyright 2011 Reify Corporation</string>
-	<key>CFBundleIconFile</key>
-	<string>Visible.icns</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>2.0</string>
-	<key>CFBundleSignature</key>
-	<string>RFYV</string>
+	<key>BuildRevision</key>
+	<string>a3f2156 </string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -46,7 +38,7 @@
 				<string>rfymov</string>
 			</array>
 			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
+			<string>Shell</string>
 			<key>LSIsAppleDefaultForType</key>
 			<true/>
 		</dict>
@@ -69,7 +61,17 @@
 			<true/>
 		</dict>
 	</array>
+	<key>CFBundleGetInfoString</key>
+	<string>2.0, Copyright 2014 Reify Corporation</string>
+	<key>CFBundleIconFile</key>
+	<string>Visible.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.reifycorp.visible</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.0</string>
+	<key>CFBundleSignature</key>
+	<string>RFYV</string>
 </dict>
 </plist>

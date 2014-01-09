@@ -14,8 +14,8 @@
 #ifndef __rcMATH_H
 #define __rcMATH_H
 
-#include <rc_types.h>
-#include <rc_limits.h>
+#include "rc_types.h"
+#include "rc_limits.h"
 #include <cmath>
 
 using namespace std;
