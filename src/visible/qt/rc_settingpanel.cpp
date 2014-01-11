@@ -119,6 +119,7 @@ void rcSettingPanel::updatePages( void )
 	    }
 	}
 
+#ifdef EXPR
 	for (i = 0; i < nPages; i++)
 	{
 	  rcSettingCategory category = experiment->getSettingCategory(i);
@@ -129,7 +130,8 @@ void rcSettingPanel::updatePages( void )
 	      setTabToolTip( tab , category.getDescription() );
 	    }
 	}
-
+#endif
+    
 
     // Restore selected tab
     if ( currentPage >= 0 )

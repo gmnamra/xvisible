@@ -347,6 +347,10 @@ void rcWriterManager::renameEntropyTrack( rcWriter* writer, rcSimilarator::rcEnt
         case rcSimilarator::eACI:
             name = "Aggregate Change Index";
             break;
+        case rcSimilarator::eVisualEntropy:
+            name = "Mean Similarity Index";
+            break;
+
         default:
             cerr <<  "Unknown Similarity Option " << def << endl;
             rmAssert( 0 );

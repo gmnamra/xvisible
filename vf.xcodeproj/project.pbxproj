@@ -61,8 +61,6 @@
 		C24B8C83183E62D30010E3C2 /* mpeg2.sh in Resources */ = {isa = PBXBuildFile; fileRef = C26B4AC2130DEAB00059FA8B /* mpeg2.sh */; };
 		C24B8C84183E62D30010E3C2 /* mpeg2dec-0.4.1.tar in Resources */ = {isa = PBXBuildFile; fileRef = C26B4AC3130DEAB00059FA8B /* mpeg2dec-0.4.1.tar */; };
 		C24B8C85183E62D30010E3C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2850D0A131A1920002C8918 /* InfoPlist.strings */; };
-		C24B8C86183E62D30010E3C2 /* coreUT-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2850D12131A1940002C8918 /* coreUT-Info.plist */; };
-		C24B8C87183E62D30010E3C2 /* dcamUT-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2850D14131A1940002C8918 /* dcamUT-Info.plist */; };
 		C24B8C8A183E62D30010E3C2 /* rc_edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E360F21135D0046570D /* rc_edge.cpp */; };
 		C24B8C8B183E62D30010E3C2 /* rc_filegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E370F21135D0046570D /* rc_filegrabber.cpp */; };
 		C24B8C8C183E62D30010E3C2 /* rc_fill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E380F21135D0046570D /* rc_fill.cpp */; };
@@ -385,8 +383,6 @@
 		C24EA8C61842FD0D00E88B0A /* mpeg2.sh in Resources */ = {isa = PBXBuildFile; fileRef = C26B4AC2130DEAB00059FA8B /* mpeg2.sh */; };
 		C24EA8C71842FD0D00E88B0A /* mpeg2dec-0.4.1.tar in Resources */ = {isa = PBXBuildFile; fileRef = C26B4AC3130DEAB00059FA8B /* mpeg2dec-0.4.1.tar */; };
 		C24EA8C81842FD0D00E88B0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2850D0A131A1920002C8918 /* InfoPlist.strings */; };
-		C24EA8C91842FD0D00E88B0A /* coreUT-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2850D12131A1940002C8918 /* coreUT-Info.plist */; };
-		C24EA8CA1842FD0D00E88B0A /* dcamUT-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2850D14131A1940002C8918 /* dcamUT-Info.plist */; };
 		C24EA8CB1842FD0D00E88B0A /* digraph.tpp in Resources */ = {isa = PBXBuildFile; fileRef = C2EC9CB4183E6BA100AC3300 /* digraph.tpp */; };
 		C24EA8CC1842FD0D00E88B0A /* foursome.tpp in Resources */ = {isa = PBXBuildFile; fileRef = C2EC9CC1183E6BA100AC3300 /* foursome.tpp */; };
 		C24EA8CD1842FD0D00E88B0A /* hash.tpp in Resources */ = {isa = PBXBuildFile; fileRef = C2EC9CC3183E6BA100AC3300 /* hash.tpp */; };
@@ -711,8 +707,6 @@
 		C26FA04F0F212E170046570D /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA04E0F212E170046570D /* QuickTime.framework */; };
 		C26FA0540F212E300046570D /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0530F212E300046570D /* Accelerate.framework */; };
 		C2850D0D131A1920002C8918 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2850D0A131A1920002C8918 /* InfoPlist.strings */; };
-		C2850D15131A1940002C8918 /* coreUT-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2850D12131A1940002C8918 /* coreUT-Info.plist */; };
-		C2850D16131A1940002C8918 /* dcamUT-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2850D14131A1940002C8918 /* dcamUT-Info.plist */; };
 		C290D0FA187B9CAA00135E01 /* linlsq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26DB1D2184E618B00879A31 /* linlsq.cpp */; };
 		C292A6641845BCF30067FA2B /* peakspotter.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C292A6621845BCF30067FA2B /* peakspotter.hpp */; };
 		C29B703C12F77A6D0030E336 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAEE00F42239D003CC197 /* AppKit.framework */; };
@@ -880,8 +874,6 @@
 		C2EC9BEB183E692A00AC3300 /* mpeg2.sh in Resources */ = {isa = PBXBuildFile; fileRef = C26B4AC2130DEAB00059FA8B /* mpeg2.sh */; };
 		C2EC9BEC183E692A00AC3300 /* mpeg2dec-0.4.1.tar in Resources */ = {isa = PBXBuildFile; fileRef = C26B4AC3130DEAB00059FA8B /* mpeg2dec-0.4.1.tar */; };
 		C2EC9BED183E692A00AC3300 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2850D0A131A1920002C8918 /* InfoPlist.strings */; };
-		C2EC9BEE183E692A00AC3300 /* coreUT-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2850D12131A1940002C8918 /* coreUT-Info.plist */; };
-		C2EC9BEF183E692A00AC3300 /* dcamUT-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2850D14131A1940002C8918 /* dcamUT-Info.plist */; };
 		C2EC9BF2183E692A00AC3300 /* rc_edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E360F21135D0046570D /* rc_edge.cpp */; };
 		C2EC9BF3183E692A00AC3300 /* rc_filegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E370F21135D0046570D /* rc_filegrabber.cpp */; };
 		C2EC9BF4183E692A00AC3300 /* rc_fill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E380F21135D0046570D /* rc_fill.cpp */; };
@@ -1557,8 +1549,6 @@
 		C2850D03131A18EC002C8918 /* vf-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = "vf-Info.plist"; path = "resources/vf/vf-Info.plist"; sourceTree = "<group>"; };
 		C2850D0B131A1920002C8918 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C2850D0C131A1920002C8918 /* vf-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "vf-Info.plist"; sourceTree = "<group>"; };
-		C2850D12131A1940002C8918 /* coreUT-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "coreUT-Info.plist"; sourceTree = "<group>"; };
-		C2850D14131A1940002C8918 /* dcamUT-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "dcamUT-Info.plist"; sourceTree = "<group>"; };
 		C292A6621845BCF30067FA2B /* peakspotter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = peakspotter.hpp; sourceTree = "<group>"; };
 		C2A39B6B0F33999800845D59 /* releasenotes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = releasenotes.html; sourceTree = "<group>"; };
 		C2A39B6C0F33999800845D59 /* visible.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = visible.html; sourceTree = "<group>"; };
@@ -1898,8 +1888,6 @@
 		089C1665FE841158C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C2850D11131A1940002C8918 /* coreUT */,
-				C2850D13131A1940002C8918 /* dcamUT */,
 				C2850D09131A1920002C8918 /* vf */,
 				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
 			);
@@ -2683,24 +2671,6 @@
 			);
 			name = vf;
 			path = resources/vf;
-			sourceTree = "<group>";
-		};
-		C2850D11131A1940002C8918 /* coreUT */ = {
-			isa = PBXGroup;
-			children = (
-				C2850D12131A1940002C8918 /* coreUT-Info.plist */,
-			);
-			name = coreUT;
-			path = resources/coreUT;
-			sourceTree = "<group>";
-		};
-		C2850D13131A1940002C8918 /* dcamUT */ = {
-			isa = PBXGroup;
-			children = (
-				C2850D14131A1940002C8918 /* dcamUT-Info.plist */,
-			);
-			name = dcamUT;
-			path = resources/dcamUT;
 			sourceTree = "<group>";
 		};
 		C292A6601845BCF30067FA2B /* visigmatch */ = {
@@ -3579,8 +3549,6 @@
 				C26B4CA8130DEAB10059FA8B /* mpeg2.sh in Resources */,
 				C26B4CA9130DEAB10059FA8B /* mpeg2dec-0.4.1.tar in Resources */,
 				C2850D0D131A1920002C8918 /* InfoPlist.strings in Resources */,
-				C2850D15131A1940002C8918 /* coreUT-Info.plist in Resources */,
-				C2850D16131A1940002C8918 /* dcamUT-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3617,8 +3585,6 @@
 				C24B8C83183E62D30010E3C2 /* mpeg2.sh in Resources */,
 				C24B8C84183E62D30010E3C2 /* mpeg2dec-0.4.1.tar in Resources */,
 				C24B8C85183E62D30010E3C2 /* InfoPlist.strings in Resources */,
-				C24B8C86183E62D30010E3C2 /* coreUT-Info.plist in Resources */,
-				C24B8C87183E62D30010E3C2 /* dcamUT-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3654,8 +3620,6 @@
 				C24EA8C61842FD0D00E88B0A /* mpeg2.sh in Resources */,
 				C24EA8C71842FD0D00E88B0A /* mpeg2dec-0.4.1.tar in Resources */,
 				C24EA8C81842FD0D00E88B0A /* InfoPlist.strings in Resources */,
-				C24EA8C91842FD0D00E88B0A /* coreUT-Info.plist in Resources */,
-				C24EA8CA1842FD0D00E88B0A /* dcamUT-Info.plist in Resources */,
 				C24EA8CB1842FD0D00E88B0A /* digraph.tpp in Resources */,
 				C24EA8CC1842FD0D00E88B0A /* foursome.tpp in Resources */,
 				C24EA8CD1842FD0D00E88B0A /* hash.tpp in Resources */,
@@ -3700,8 +3664,6 @@
 				C2EC9BEB183E692A00AC3300 /* mpeg2.sh in Resources */,
 				C2EC9BEC183E692A00AC3300 /* mpeg2dec-0.4.1.tar in Resources */,
 				C2EC9BED183E692A00AC3300 /* InfoPlist.strings in Resources */,
-				C2EC9BEE183E692A00AC3300 /* coreUT-Info.plist in Resources */,
-				C2EC9BEF183E692A00AC3300 /* dcamUT-Info.plist in Resources */,
 				C2EC9CF6183E6BA100AC3300 /* digraph.tpp in Resources */,
 				C2EC9D03183E6BA100AC3300 /* foursome.tpp in Resources */,
 				C2EC9D05183E6BA100AC3300 /* hash.tpp in Resources */,

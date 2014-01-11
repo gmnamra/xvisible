@@ -85,7 +85,6 @@
 		C26CA0B10F61E68900549A3C /* moc_rc_trackmanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA08E0F61E68900549A3C /* moc_rc_trackmanager.cpp */; };
 		C26CA0B20F61E68900549A3C /* moc_rc_trackpanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA08F0F61E68900549A3C /* moc_rc_trackpanel.cpp */; };
 		C2850D3E131A1DDC002C8918 /* Visible-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2850D3D131A1DDC002C8918 /* Visible-Info.plist */; };
-		C2974F091318860D003C5A68 /* RCDCAM in CopyFiles */ = {isa = PBXBuildFile; fileRef = C26B50C4130E24AA0059FA8B /* RCDCAM */; };
 		C29AFA7618404422005B0754 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29AFA7318404421005B0754 /* CoreData.framework */; };
 		C29AFA7718404422005B0754 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29AFA7418404422005B0754 /* CoreFoundation.framework */; };
 		C29AFA8318404494005B0754 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29AFA7918404494005B0754 /* OpenGL.framework */; };
@@ -270,16 +269,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C245B03B130F5AE40065941E /* ASC_DCAM_DEV.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C26B50DD130E26BE0059FA8B /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 6;
-			files = (
-				C2974F091318860D003C5A68 /* RCDCAM in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -701,6 +690,7 @@
 		C2B2ABD10F37F44900ECA6E1 /* test.pro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.pro; sourceTree = "<group>"; };
 		C2B8E96C187CCBF90060D961 /* libvf32_vf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvf32_vf.a; path = build/Release/libvf32_vf.a; sourceTree = "<group>"; };
 		C2B8E96E187CCC250060D961 /* vfi386.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386.framework; path = build/Release/vfi386.framework; sourceTree = "<group>"; };
+		C2B8EA21187F18070060D961 /* RCDCAM */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = RCDCAM; path = build/Debug/RCDCAM; sourceTree = "<group>"; };
 		C2C301220F34FBAC0057B45E /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		C2C4466F0F3A61C400C2BDAE /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = examples/callback/main.cpp; sourceTree = "<group>"; };
 		C2C446700F3A61C400C2BDAE /* callback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = callback.h; path = examples/callback/callback.h; sourceTree = "<group>"; };
@@ -976,6 +966,7 @@
 		0867D691FE84028FC02AAC07 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C2B8EA21187F18070060D961 /* RCDCAM */,
 				C2B8E96E187CCC250060D961 /* vfi386.framework */,
 				C2B8E96C187CCBF90060D961 /* libvf32_vf.a */,
 				C2850D3D131A1DDC002C8918 /* Visible-Info.plist */,
@@ -2223,7 +2214,6 @@
 				C28DC4E80F3108AA00DC9AAC /* Sources */,
 				C28DC52A0F3108AA00DC9AAC /* Frameworks */,
 				C28DC52D0F3108AA00DC9AAC /* CopyFiles */,
-				C26B50DD130E26BE0059FA8B /* CopyFiles */,
 				C26B50DF130E26D90059FA8B /* ShellScript */,
 			);
 			buildRules = (
