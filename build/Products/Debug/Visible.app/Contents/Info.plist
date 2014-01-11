@@ -4,6 +4,8 @@
 <dict>
 	<key>BuildMachineOSBuild</key>
 	<string>12F45</string>
+	<key>BuildRevision</key>
+	<string>1174b68</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -38,7 +40,7 @@
 				<string>rfymov</string>
 			</array>
 			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
+			<string>Shell</string>
 			<key>LSIsAppleDefaultForType</key>
 			<true/>
 		</dict>
@@ -62,7 +64,7 @@
 		</dict>
 	</array>
 	<key>CFBundleGetInfoString</key>
-	<string>2.0, Copyright 2011 Reify Corporation</string>
+	<string>2.0, Copyright 2014 Reify Corporation</string>
 	<key>CFBundleIconFile</key>
 	<string>Visible.icns</string>
 	<key>CFBundleIdentifier</key>

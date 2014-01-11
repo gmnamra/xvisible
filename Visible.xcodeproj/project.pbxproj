@@ -145,8 +145,8 @@
 		C2AD53DA11554CE700467A9B /* QtXml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28DC6640F310B9000DC9AAC /* QtXml.framework */; };
 		C2AD53DB11554CE700467A9B /* QtXmlPatterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28DC6630F310B9000DC9AAC /* QtXmlPatterns.framework */; };
 		C2B16EEA130E384700C8050C /* ASC_DCAM_DEV.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C21252B0130D9B1500B6C967 /* ASC_DCAM_DEV.framework */; };
-		C2B8E96F187CCC250060D961 /* vfi386.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B8E96E187CCC250060D961 /* vfi386.framework */; };
 		C2B8E973187D0A3C0060D961 /* vfi386.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2B8E96E187CCC250060D961 /* vfi386.framework */; };
+		C2B8EA26188103F20060D961 /* vfi386.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B8E96E187CCC250060D961 /* vfi386.framework */; };
 		C2C301230F34FBAC0057B45E /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C301220F34FBAC0057B45E /* ApplicationServices.framework */; };
 		C2EC986A0F37845600E49E22 /* rc_about.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98280F37845400E49E22 /* rc_about.cpp */; };
 		C2EC986C0F37845600E49E22 /* rc_checkboxsettingwidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC982A0F37845400E49E22 /* rc_checkboxsettingwidget.cpp */; };
@@ -691,6 +691,7 @@
 		C2B8E96C187CCBF90060D961 /* libvf32_vf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvf32_vf.a; path = build/Release/libvf32_vf.a; sourceTree = "<group>"; };
 		C2B8E96E187CCC250060D961 /* vfi386.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386.framework; path = build/Release/vfi386.framework; sourceTree = "<group>"; };
 		C2B8EA21187F18070060D961 /* RCDCAM */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = RCDCAM; path = build/Debug/RCDCAM; sourceTree = "<group>"; };
+		C2B8EA24188102920060D961 /* vfi386_d.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386_d.framework; path = build/Debug/vfi386_d.framework; sourceTree = "<group>"; };
 		C2C301220F34FBAC0057B45E /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		C2C4466F0F3A61C400C2BDAE /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = examples/callback/main.cpp; sourceTree = "<group>"; };
 		C2C446700F3A61C400C2BDAE /* callback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = callback.h; path = examples/callback/callback.h; sourceTree = "<group>"; };
@@ -919,7 +920,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2B8E96F187CCC250060D961 /* vfi386.framework in Frameworks */,
+				C2B8EA26188103F20060D961 /* vfi386.framework in Frameworks */,
 				C29AFA8318404494005B0754 /* OpenGL.framework in Frameworks */,
 				C29AFA8618404494005B0754 /* PreferencePanes.framework in Frameworks */,
 				C29AFA8818404494005B0754 /* QTKit.framework in Frameworks */,
@@ -966,6 +967,7 @@
 		0867D691FE84028FC02AAC07 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C2B8EA24188102920060D961 /* vfi386_d.framework */,
 				C2B8EA21187F18070060D961 /* RCDCAM */,
 				C2B8E96E187CCC250060D961 /* vfi386.framework */,
 				C2B8E96C187CCBF90060D961 /* libvf32_vf.a */,
@@ -2770,6 +2772,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/3rdparty/outcastsoft/framework",
 					/Users/arman/gwc/visibleqt105/build/Release,
+					/Users/arman/gwc/visibleqt105/build/Debug,
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -2868,6 +2871,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/3rdparty/outcastsoft/framework",
 					/Users/arman/gwc/visibleqt105/build/Release,
+					/Users/arman/gwc/visibleqt105/build/Debug,
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;

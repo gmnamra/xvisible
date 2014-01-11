@@ -60,7 +60,7 @@ class rcVisualSegment {
     void p1(const rc2Fvector& p) { mP1 = p; }
     void p2(const rc2Fvector& p) { mP2 = p; }
     void type( rcVisualSegmentType t ) { mType = t; };
-    rcVisualSegment&  operator+=(const rc2Fvector& _t_) { mP1 += _t_; mP2 += _t_; }
+    rcVisualSegment&  operator+=(const rc2Fvector& _t_) { mP1 += _t_; mP2 += _t_; return *this; }
     
     // Operators
     bool operator==(const rcVisualSegment& o) const {
