@@ -1,0 +1,9 @@
+<map id="clip_polygon_to_pel" name="clip_polygon_to_pel">
+<area shape="rect" id="node2" href="$rc__fill_8h.html#a00254f8042116d7ae9165b9ec7784ea2" title="rc_fill_poly" alt="" coords="193,77,277,105"/>
+<area shape="rect" id="node3" href="$rc__draw_8h.html#a72125d1915a0c243a770c6635ecbf584" title="rcFillPolygon" alt="" coords="326,77,423,105"/>
+<area shape="rect" id="node4" href="$classrc_muscle_segmenter.html#a61c65559f55fd9fa632b96e09ef50b2e" title="rcMuscleSegmenter::\lgenFrequencySegmentation" alt="" coords="472,7,661,51"/>
+<area shape="rect" id="node7" href="$classrc_kinetoscope.html#a18739703ba714a3c04de5a56846bbd9d" title="rcKinetoscope::preSegmented\lBodies" alt="" coords="710,73,911,117"/>
+<area shape="rect" id="node8" href="$classrc_shape.html#a121cd77a46ce4a89b92e6a2b5e1cfc00" title="rcShape::setMask" alt="" coords="503,129,631,157"/>
+<area shape="rect" id="node5" href="$classrc_muscle_segmenter.html#a660d7b3d1c240efa0b725e0db65154e3" title="rcMuscleSegmenter::\lfilterByActivity" alt="" coords="737,5,884,49"/>
+<area shape="rect" id="node6" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="961,47,1154,75"/>
+</map>

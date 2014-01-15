@@ -1,0 +1,11 @@
+<map id="TIFFGetConfiguredCODECs" name="TIFFGetConfiguredCODECs">
+<area shape="rect" id="node2" href="$tif__apple_8c.html#adcb814cdc66530ea86553b6840c19819" title="_TIFFfree" alt="" coords="292,5,372,33"/>
+<area shape="rect" id="node3" href="$tif__apple_8c.html#aacf23567597faf7b8f01f31f397217f0" title="_TIFFmemcpy" alt="" coords="278,57,386,85"/>
+<area shape="rect" id="node4" href="$tif__apple_8c.html#abbc4b30de2ac6b7eecdf9362bfa74c39" title="_TIFFmemset" alt="" coords="280,109,384,137"/>
+<area shape="rect" id="node5" href="$tif__apple_8c.html#a6bb8a05190e8eefa70db67b4c20f2aeb" title="_TIFFrealloc" alt="" coords="284,161,380,189"/>
+<area shape="rect" id="node6" href="$tif__codec_8c.html#a09af2d3e1c230a0d78ebc531205d173a" title="TIFFIsCODECConfigured" alt="" coords="245,213,419,241"/>
+<area shape="rect" id="node7" href="$tif__codec_8c.html#a7f64f89d3fb230bec84c0b34857b3c88" title="NotConfigured" alt="" coords="466,186,574,214"/>
+<area shape="rect" id="node10" href="$tif__compress_8c.html#a7f233a5bea0e99a82aa46ca549887c33" title="TIFFFindCODEC" alt="" coords="782,238,906,266"/>
+<area shape="rect" id="node8" href="$tif__codec_8c.html#a71b59200c896ba126951d635996d6acb" title="_notConfigured" alt="" coords="621,186,734,214"/>
+<area shape="rect" id="node9" href="$tif__error_8c.html#a2e8b77a2d4e7b7283b55b963dd67ec31" title="TIFFErrorExt" alt="" coords="795,186,893,214"/>
+</map>

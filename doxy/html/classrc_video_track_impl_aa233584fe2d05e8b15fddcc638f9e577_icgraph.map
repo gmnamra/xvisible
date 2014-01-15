@@ -1,0 +1,9 @@
+<map id="rcVideoTrackImpl::segments" name="rcVideoTrackImpl::segments">
+<area shape="rect" id="node2" href="$classrc_video_track_impl.html#a01b7a81dbb3b710a2baa2f438420e28b" title="rcVideoTrackImpl::addSegment" alt="" coords="243,57,450,85"/>
+<area shape="rect" id="node5" href="$classrc_video_segment_iterator_impl.html#a4fc8e33e6a999516f7116a1ec7bda337" title="rcVideoSegmentIteratorImpl\l::setCurrentValue" alt="" coords="253,145,440,189"/>
+<area shape="rect" id="node3" href="$classrc_video_track_impl.html#a3c77cf3e548499bf555bcf1fc9ee24f2" title="rcVideoTrackImpl::flush" alt="" coords="516,5,676,33"/>
+<area shape="rect" id="node4" href="$classrc_video_track_impl.html#aefd0892a903fe03ede23853655e36bb0" title="rcVideoTrackImpl::writeValue" alt="" coords="499,57,693,85"/>
+<area shape="rect" id="node6" href="$classrc_video_segment_iterator_impl.html#a6d9611f6ec9ce5746d2ad9ef43d1ef6f" title="rcVideoSegmentIteratorImpl\l::advance" alt="" coords="502,109,690,153"/>
+<area shape="rect" id="node7" href="$classrc_video_segment_iterator_impl.html#aebb94a4fc65853891caa4b75ec7ca767" title="rcVideoSegmentIteratorImpl\l::rcVideoSegmentIteratorImpl" alt="" coords="499,177,693,221"/>
+<area shape="rect" id="node8" href="$classrc_video_segment_iterator_impl.html#ae1038990479e0bbc2858bdcd10bf5e73" title="rcVideoSegmentIteratorImpl\l::reset" alt="" coords="502,245,690,289"/>
+</map>

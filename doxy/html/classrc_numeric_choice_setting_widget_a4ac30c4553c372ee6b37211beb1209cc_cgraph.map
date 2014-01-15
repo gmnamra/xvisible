@@ -1,0 +1,10 @@
+<map id="rcNumericChoiceSettingWidget::settingChanged" name="rcNumericChoiceSettingWidget::settingChanged">
+<area shape="rect" id="node2" href="$classrc_numeric_choice_setting_widget.html#a814579c2e77d35c0f1e278f30b5e6f84" title="rcNumericChoiceSettingWidget\l::findChoice" alt="" coords="262,57,469,101"/>
+<area shape="rect" id="node5" href="$classrc_setting_info.html#a1b99595ec48ea7982c8a8c7f3afd0534" title="rcSettingInfo::getNChoices" alt="" coords="518,125,698,153"/>
+<area shape="rect" id="node6" href="$classrc_setting_info.html#a97d3386417e33e46df6f361ccfb430a5" title="rcSettingInfo::getValue" alt="" coords="288,177,443,205"/>
+<area shape="rect" id="node7" href="$classrc_setting_widget.html#aca95d3b856ab397c63567ae71dba446b" title="Update widget visibility/editability state based on setting state." alt="" coords="263,229,468,273"/>
+<area shape="rect" id="node3" href="$classrc_setting_info.html#a6d3cda0e1b71a0f7c2061015fb02d3d8" title="rcSettingInfo::getChoice" alt="" coords="526,5,690,33"/>
+<area shape="rect" id="node4" href="$structrc_setting_choice.html#a2d47fcdec3c4938ae6ffd0581fa22887" title="rcSettingChoice::getFloat\lValue" alt="" coords="522,57,694,101"/>
+<area shape="rect" id="node8" href="$classrc_setting_info.html#a776ac0e50f5e8d632e6cb2c4099d6c59" title="rcSettingInfo::isEditable" alt="" coords="527,210,689,238"/>
+<area shape="rect" id="node9" href="$classrc_setting_info.html#a2663e0e877560ec8a958fb92184c1c63" title="rcSettingInfo::isEnabled" alt="" coords="527,262,689,290"/>
+</map>

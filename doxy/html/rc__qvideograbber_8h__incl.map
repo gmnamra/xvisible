@@ -1,0 +1,22 @@
+<map id="include/visual/rc_qvideograbber.h" name="include/visual/rc_qvideograbber.h">
+<area shape="rect" id="node2" href="$rc__types_8h.html" title="rc_types.h" alt="" coords="697,718,780,746"/>
+<area shape="rect" id="node7" href="$rc__framebuf_8h.html" title="rc_framebuf.h" alt="" coords="308,401,411,429"/>
+<area shape="rect" id="node15" href="$rc__atomic_8h.html" title="rc_atomic.h" alt="" coords="220,161,309,189"/>
+<area shape="rect" id="node16" href="$rc__gen__capture_8h.html" title="rc_gen_capture.h" alt="" coords="387,83,511,111"/>
+<area shape="rect" id="node38" href="$rc__framegrabber_8h.html" title="rc_framegrabber.h" alt="" coords="1140,238,1269,266"/>
+<area shape="rect" id="node5" href="$rc__platform_8h.html" title="rc_platform.h" alt="" coords="988,795,1087,823"/>
+<area shape="rect" id="node8" href="$rc__timestamp_8h.html" title="rc_timestamp.h" alt="" coords="704,486,816,514"/>
+<area shape="rect" id="node11" href="$rc__thread_8h.html" title="rc_thread.h" alt="" coords="93,486,181,514"/>
+<area shape="rect" id="node13" href="$rc__macro_8h.html" title="rc_macro.h" alt="" coords="537,641,625,669"/>
+<area shape="rect" id="node18" href="$rc__moviefileformat_8h.html" title="rc_moviefileformat.h" alt="" coords="553,315,695,343"/>
+<area shape="rect" id="node32" href="$rc__ipconvert_8h.html" title="rc_ipconvert.h" alt="" coords="733,161,837,189"/>
+<area shape="rect" id="node19" href="$rc__rect_8h.html" title="rc_rect.h" alt="" coords="587,401,660,429"/>
+<area shape="rect" id="node20" href="$rc__rectangle_8h.html" title="rc_rectangle.h" alt="" coords="844,486,949,514"/>
+<area shape="rect" id="node21" href="$rc__pair_8h.html" title="rc_pair.h" alt="" coords="801,641,873,669"/>
+<area shape="rect" id="node22" href="$rc__vector2d_8h.html" title="rc_vector2d.h" alt="" coords="934,563,1036,591"/>
+<area shape="rect" id="node24" href="$rc__exception_8h.html" title="rc_exception.h" alt="" coords="1135,641,1243,669"/>
+<area shape="rect" id="node27" href="$rc__math_8h.html" title="rc_math.h" alt="" coords="1268,641,1348,669"/>
+<area shape="rect" id="node28" href="$rc__limits_8h.html" title="rc_limits.h" alt="" coords="1298,718,1379,746"/>
+<area shape="rect" id="node33" href="$rc__window_8h.html" title="rc_window.h" alt="" coords="851,315,945,343"/>
+<area shape="rect" id="node37" href="$rc__imageprocessing_8h.html" title="rc_imageprocessing.h" alt="" coords="823,238,973,266"/>
+</map>

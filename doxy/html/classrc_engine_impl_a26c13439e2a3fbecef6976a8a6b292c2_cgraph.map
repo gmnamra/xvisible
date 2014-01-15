@@ -1,0 +1,17 @@
+<map id="rcEngineImpl::updateCaptureLog" name="rcEngineImpl::updateCaptureLog">
+<area shape="rect" id="node2" href="$classrc_video_cache.html#aa85808f161304b912d91bf4038f0369b" title="rcVideoCache::averageFrameRate" alt="" coords="281,83,508,111"/>
+<area shape="rect" id="node3" href="$textio_8cpp.html#a905a4c61e365d406069f00eb68db1ca5" title="endl" alt="" coords="371,135,418,163"/>
+<area shape="rect" id="node15" href="$classrc_video_cache.html#ac387a28bd8afa08bca02c5ebca6291c7" title="rcVideoCache::movieFileExperiments" alt="" coords="273,187,516,215"/>
+<area shape="rect" id="node16" href="$classrc_video_cache.html#aa5fb8bf922cdc2175ec9bbaf01714e1e" title="rcVideoCache::movieFileOrigins" alt="" coords="289,239,500,267"/>
+<area shape="rect" id="node4" href="$classotext.html#a5086c0fd5e3f551eae3027e5d23d3c30" title="otext::put" alt="" coords="566,135,642,163"/>
+<area shape="rect" id="node5" href="$classotext.html#ab52b059090ba70eeeac469f9051d3a22" title="otext::flush" alt="" coords="720,5,806,33"/>
+<area shape="rect" id="node7" href="$classobuff.html#a069bcd2767c0d7c8e2bc8cd26d91e267" title="obuff::increment" alt="" coords="704,57,821,85"/>
+<area shape="rect" id="node8" href="$classobuff.html#a51efd4e8e00303842fa762940aad86ec" title="obuff::line_buffer" alt="" coords="703,109,823,137"/>
+<area shape="rect" id="node9" href="$classobuff.html#a0711113beee11f9793f5ba9e8e64c641" title="obuff::newline_mode" alt="" coords="691,161,835,189"/>
+<area shape="rect" id="node10" href="$classobuff.html#a5bbb61ac15c672da7f7b2002bef6b128" title="obuff::put" alt="" coords="724,213,801,241"/>
+<area shape="rect" id="node11" href="$classotext.html#a2a2435d80cce60cb88360c7bfe3f8445" title="otext::set_error" alt="" coords="707,265,818,293"/>
+<area shape="rect" id="node6" href="$classobuff.html#a8fb8969c450f4fdc037f8c51d35c87c7" title="obuff::flush" alt="" coords="896,5,982,33"/>
+<area shape="rect" id="node12" href="$classobuff.html#ae388e9608d1c873d1feaf621f4044c25" title="obuff::set_error" alt="" coords="883,265,994,293"/>
+<area shape="rect" id="node13" href="$class_t_c_p__client__data.html#a970f6bf6bb6e6166615813c5f7768381" title="TCP_client_data::error" alt="" coords="1044,265,1199,293"/>
+<area shape="rect" id="node14" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="1249,265,1378,293"/>
+</map>

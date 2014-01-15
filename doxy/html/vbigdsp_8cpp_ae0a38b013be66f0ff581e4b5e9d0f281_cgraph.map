@@ -1,0 +1,10 @@
+<map id="fft_pingpong" name="fft_pingpong">
+<area shape="rect" id="node2" href="$vbigdsp_8cpp.html#ada10e88814c1dd5b64256fe3f27ac93a" title="EnsureStaticBufferSize" alt="" coords="150,5,308,33"/>
+<area shape="rect" id="node3" href="$vbigdsp_8cpp.html#afc4785c346206680fc58b4fae0453329" title="fft_scalar" alt="" coords="192,57,267,85"/>
+<area shape="rect" id="node4" href="$nrutil__nr_8h.html#a0c6419b6f375fd05c1cd758ca031974c" title="pow" alt="" coords="388,5,434,33"/>
+<area shape="rect" id="node5" href="$vbigdsp_8cpp.html#a275bdb06c90835ff7b1aac960ae639bf" title="log2max" alt="" coords="375,57,447,85"/>
+<area shape="rect" id="node6" href="$vbigdsp_8cpp.html#aaced55c025b2c0495a617ad4feeaef87" title="InitFFTSinCos" alt="" coords="357,109,464,137"/>
+<area shape="rect" id="node7" href="$rc__math_8h.html#a6699cdaca52c9f90fbc27d377ac74cff" title="cos" alt="" coords="512,82,554,110"/>
+<area shape="rect" id="node9" href="$rc__math_8h.html#adac5d992515c3417b2ab21dd654a272c" title="sin" alt="" coords="514,134,553,162"/>
+<area shape="rect" id="node8" href="$classrc_radian.html#a2e41a3904c1fefd6989ddc3124dfaa32" title="rcRadian::Double" alt="" coords="603,109,728,137"/>
+</map>

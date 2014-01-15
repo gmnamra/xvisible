@@ -1,0 +1,11 @@
+<map id="rcEngineMovieCapture::saveComplete" name="rcEngineMovieCapture::saveComplete">
+<area shape="rect" id="node2" href="$classrc_bidirectional_ring.html#a6c5c2172708503988b98b75616bb8812" title="rcBidirectionalRing\l::availNewResources" alt="" coords="228,5,375,49"/>
+<area shape="rect" id="node3" href="$classrc_condition_variable.html#a853ec8df0400c2eb4e58228a74aec1da" title="rcConditionVariable\l::decrementVariable" alt="" coords="231,73,371,117"/>
+<area shape="rect" id="node5" href="$classrc_movie_save_status_reader.html#a96690155a532ce813c46b55dd008635a" title="rcMovieSaveStatusReader\l::getState" alt="" coords="211,141,391,185"/>
+<area shape="rect" id="node7" href="$classrc_movie_save_status_reader.html#a822fed692f70229f975b3407b1e60f04" title="rcMovieSaveStatusReader\l::getStatus" alt="" coords="211,209,391,253"/>
+<area shape="rect" id="node8" href="$classrc_bidirectional_ring.html#a5978b26fecf24a075b4e782e7dff1e1a" title="rcBidirectionalRing\l::releaseResource" alt="" coords="235,277,368,321"/>
+<area shape="rect" id="node9" href="$classrc_engine_movie_saver.html#a521169bcaae58b98dea651017062f4f2" title="rcEngineMovieSaver\l::saveStatus" alt="" coords="229,345,374,389"/>
+<area shape="rect" id="node10" href="$classrc_bidirectional_ring.html#a0be41998417625ecb2f118f9f9c4df3a" title="rcBidirectionalRing\l::takeResource" alt="" coords="235,413,368,457"/>
+<area shape="rect" id="node4" href="$classrc_condition_variable.html#a6eb5cab02192e94354ed354d97807373" title="rcConditionVariable\l::mutateFct" alt="" coords="454,73,591,117"/>
+<area shape="rect" id="node6" href="$classrc_atomic_value.html#a8b62cd136f31322300507fbe894e6b70" title="rcAtomicValue::getValue" alt="" coords="440,182,605,210"/>
+</map>

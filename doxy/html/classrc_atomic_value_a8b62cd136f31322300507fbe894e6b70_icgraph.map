@@ -1,0 +1,51 @@
+<map id="rcAtomicValue::getValue" name="rcAtomicValue::getValue">
+<area shape="rect" id="node2" href="$classrc_shared_memory_user.html#a309c27a08f28eb26c2e0ee2744e2638c" title="rcSharedMemoryUser\l::acquireSharedMemory" alt="" coords="240,137,403,181"/>
+<area shape="rect" id="node9" href="$classrc_ring_buffer.html#a92baa1538bc693f2939cc1fb00f6d12c" title="rcRingBuffer\&lt; rcSharedFrame\lBufPtr \&gt;::availFreeSlots" alt="" coords="222,205,421,249"/>
+<area shape="rect" id="node10" href="$classrc_ring_buffer.html#aec128d81b132f1de8005877bb207e00c" title="rcRingBuffer\&lt; rcSharedFrame\lBufPtr \&gt;::availValues" alt="" coords="222,273,421,317"/>
+<area shape="rect" id="node11" href="$classrc_engine_impl.html#a26bff835c02e9abf77822aa87a653c15" title="rcEngineImpl::createShared\lWriters" alt="" coords="228,341,415,385"/>
+<area shape="rect" id="node13" href="$classrc_engine_impl.html#a3f1d54d99e195efe0eec45f9263e6342" title="rcEngineImpl::loadFrames" alt="" coords="502,413,679,441"/>
+<area shape="rect" id="node14" href="$classrc_engine_movie_saver.html#a7282a1f65f3db0878397239984e4a02c" title="rcEngineMovieSaver\l::doneHdlr" alt="" coords="518,563,663,607"/>
+<area shape="rect" id="node16" href="$classrc_engine_impl.html#a1d87f31acb85041d7358208d46a890ef" title="rcEngineImpl::flushShared\lWriters" alt="" coords="232,461,410,505"/>
+<area shape="rect" id="node18" href="$classrc_engine_impl.html#aef0069d7ed7a75220e0dcc572057fafc" title="rcEngineImpl::frameFlush" alt="" coords="235,855,408,883"/>
+<area shape="rect" id="node19" href="$classrc_engine_impl.html#a08582f48ac2811b56b0fbbe48c1afaf5" title="rcEngineImpl::frameInterrupt" alt="" coords="758,713,948,741"/>
+<area shape="rect" id="node20" href="$classrc_video_capture_ctrl_reader.html#a6701ecb7734689cef75cfbc735af22fb" title="rcVideoCaptureCtrlReader\l::getACIEnabled" alt="" coords="232,907,410,951"/>
+<area shape="rect" id="node21" href="$classrc_video_capture_ctrl_reader.html#ac345114d976fa27e87495212712dfa19" title="rcVideoCaptureCtrlReader\l::getBinning" alt="" coords="232,975,410,1019"/>
+<area shape="rect" id="node22" href="$classrc_video_capture_status_reader.html#a32cc322877bf3014b3b69e455da6f28d" title="rcVideoCaptureStatusReader\l::getCaptureDepth" alt="" coords="224,1043,419,1087"/>
+<area shape="rect" id="node23" href="$classrc_video_capture_status_reader.html#a3284b3f8f05e7427828a89207cd03365" title="rcVideoCaptureStatusReader\l::getCaptureRect" alt="" coords="224,1111,419,1155"/>
+<area shape="rect" id="node24" href="$classrc_movie_save_status_reader.html#a69090cf6966c0e7876a74d906f39b5af" title="rcMovieSaveStatusReader\l::getCaptureTime" alt="" coords="231,1179,411,1223"/>
+<area shape="rect" id="node25" href="$classrc_movie_playback_ctrl_reader.html#a751ef1af3d95393fc0e348b1f6f27bdf" title="rcMoviePlaybackCtrlReader\l::getCtrlInfo" alt="" coords="228,1247,415,1291"/>
+<area shape="rect" id="node26" href="$classrc_experiment_domain_impl.html#a6ac4ea1896cf32453bab706452bec86b" title="rcExperimentDomainImpl\l::getCursorTime" alt="" coords="236,1315,407,1359"/>
+<area shape="rect" id="node27" href="$classrc_video_capture_ctrl_reader.html#af8d85fc9d406ab431f8ad22b137cc210" title="rcVideoCaptureCtrlReader\l::getDecimationRate" alt="" coords="232,1383,410,1427"/>
+<area shape="rect" id="node28" href="$classrc_movie_save_status_reader.html#a0d0dbd6a4b220495b928d86f24360ecc" title="rcMovieSaveStatusReader\l::getDelayLeft" alt="" coords="231,1451,411,1495"/>
+<area shape="rect" id="node29" href="$classrc_video_capture_ctrl_reader.html#ab0592eaf99997ca407f495e53b747426" title="rcVideoCaptureCtrlReader\l::getEntropyDefinition" alt="" coords="232,1519,410,1563"/>
+<area shape="rect" id="node30" href="$classrc_movie_save_ctrl_reader.html#a41caa545aa590419372015e78b8db703" title="rcMovieSaveCtrlReader\l::getFrameCaptureDelayTime" alt="" coords="223,1587,420,1631"/>
+<area shape="rect" id="node31" href="$classrc_movie_save_ctrl_reader.html#a5f4219ccccf04d327dc90895e107425e" title="rcMovieSaveCtrlReader\l::getFrameCaptureTime" alt="" coords="240,1655,403,1699"/>
+<area shape="rect" id="node32" href="$classrc_video_capture_ctrl_reader.html#ae4391fb09ed1d42efb702c5ef1c85bf1" title="rcVideoCaptureCtrlReader\l::getGain" alt="" coords="232,1723,410,1767"/>
+<area shape="rect" id="node33" href="$classrc_video_capture_status_reader.html#aa010dcb1613a6a04c4dee82ba2f60e06" title="rcVideoCaptureStatusReader\l::getMaxFramesPerSecond" alt="" coords="224,1791,419,1835"/>
+<area shape="rect" id="node34" href="$classrc_video_capture_ctrl_reader.html#a169fa25dc8d261ee3e6547261079ce2e" title="rcVideoCaptureCtrlReader\l::getShutter" alt="" coords="232,1859,410,1903"/>
+<area shape="rect" id="node35" href="$classrc_video_capture_ctrl_reader.html#a2447550a88af7beeb21879d64b42778e" title="rcVideoCaptureCtrlReader\l::getSlidingWindowEnabled" alt="" coords="230,1927,413,1971"/>
+<area shape="rect" id="node36" href="$classrc_video_capture_ctrl_reader.html#a614f9019e61b94df96554707224af126" title="rcVideoCaptureCtrlReader\l::getSlidingWindowOrigin" alt="" coords="232,1995,410,2039"/>
+<area shape="rect" id="node37" href="$classrc_video_capture_ctrl_reader.html#a3238b787f65f7d1b35bf122ece808f9e" title="rcVideoCaptureCtrlReader\l::getSlidingWindowSize" alt="" coords="232,2063,410,2107"/>
+<area shape="rect" id="node38" href="$classrc_movie_playback_status_reader.html#ab75f99f9fccb9133b635e2f08172c674" title="rcMoviePlaybackStatusReader\l::getState" alt="" coords="220,2131,423,2175"/>
+<area shape="rect" id="node39" href="$classrc_movie_save_status_reader.html#a96690155a532ce813c46b55dd008635a" title="rcMovieSaveStatusReader\l::getState" alt="" coords="231,685,411,729"/>
+<area shape="rect" id="node40" href="$classrc_engine_movie_saver.html#a4ec2b35acbff64ea93dbed3aecb2d1c4" title="rcEngineMovieSaver\l::reset" alt="" coords="518,735,663,779"/>
+<area shape="rect" id="node41" href="$classrc_engine_impl.html#a10253833f625dc4d1d5a3c1e384758e6" title="rcEngineImpl::getState" alt="" coords="243,581,399,609"/>
+<area shape="rect" id="node42" href="$classrc_engine_impl.html#a8defbaa20c5f1f2cfa987a1c6556b5f5" title="rcEngineImpl::processCapturedData" alt="" coords="473,631,709,659"/>
+<area shape="rect" id="node43" href="$classrc_movie_save_status_reader.html#a822fed692f70229f975b3407b1e60f04" title="rcMovieSaveStatusReader\l::getStatus" alt="" coords="231,2199,411,2243"/>
+<area shape="rect" id="node44" href="$classrc_ring_buffer.html#af49bf0986808a661e3294b4388f825c3" title="rcRingBuffer\&lt; rcSharedFrame\lBufPtr \&gt;::getValue" alt="" coords="222,2267,421,2311"/>
+<area shape="rect" id="node45" href="$classrc_atomic_value.html#a9779b3e65bcc0f9d61825f7e5d3e76f8" title="rcAtomicValue\&lt; rcAnalyzer\lResultOrigin \&gt;::operator=" alt="" coords="231,2335,412,2379"/>
+<area shape="rect" id="node46" href="$classrc_ring_buffer.html#a7b293f15597afb603c1664c5d1fd1855" title="rcRingBuffer\&lt; rcSharedFrame\lBufPtr \&gt;::putValue" alt="" coords="222,2403,421,2447"/>
+<area shape="rect" id="node47" href="$classrc_atomic_value.html#a6b611a657b4fbc5ca32f578b7537f470" title="rcAtomicValue\&lt; rcAnalyzer\lResultOrigin \&gt;::rcAtomicValue" alt="" coords="222,2471,421,2515"/>
+<area shape="rect" id="node48" href="$rc__resource__ctrl_8cpp.html#a8ff77bb0f9264d1244aefb6d29b169c2" title="rcResCtrlWatchdog" alt="" coords="253,2539,390,2567"/>
+<area shape="rect" id="node49" href="$classrc_create_child_shmem.html#a5169bd2c87a6072115b7d05b73ad5b8c" title="rcCreateChildShmem\l::~rcCreateChildShmem" alt="" coords="239,2591,403,2635"/>
+<area shape="rect" id="node50" href="$classrc_engine_impl.html#a87f7beaf58a8233341b16d2695e48bed" title="rcEngineImpl::~rcEngineImpl" alt="" coords="225,2659,417,2687"/>
+<area shape="rect" id="node3" href="$rc__dcam__capture_8cpp.html#ac1fe3127add7052941727a67822ce338" title="writeAcqInfo" alt="" coords="543,5,638,33"/>
+<area shape="rect" id="node4" href="$rc__dcam__capture_8cpp.html#a874ea214edb91da0d6d46337410b3c64" title="getCtrlInfo" alt="" coords="549,57,632,85"/>
+<area shape="rect" id="node5" href="$rc__dcam__capture_8cpp.html#a5bb44dd407ae5255003d9c7b0101a519" title="yourDisplayCallback" alt="" coords="520,109,662,137"/>
+<area shape="rect" id="node6" href="$classrc_q_video_grabber.html#ab09a2f477ce59f7bd2847174a6939767" title="rcQVideoGrabber::getAcqInfo" alt="" coords="492,161,689,189"/>
+<area shape="rect" id="node7" href="$classrc_q_video_grabber.html#aec8edc088c11dc5c5df37fa4af8a835d" title="rcQVideoGrabber::setAcqControl" alt="" coords="482,213,699,241"/>
+<area shape="rect" id="node8" href="$classrc_q_video_grabber.html#ac25de3ef1ee3dddbc280a2584e1b720d" title="rcQVideoGrabber::getNext\lFrame" alt="" coords="501,265,680,309"/>
+<area shape="rect" id="node12" href="$classrc_engine_impl.html#a6d36ffad5feaaa46f82bec2bf309b0f4" title="rcEngineImpl::start" alt="" coords="524,349,657,377"/>
+<area shape="rect" id="node15" href="$classrc_engine_movie_saver.html#a216e88884a3dd557507ea93dc3609a91" title="rcEngineMovieSaver::run" alt="" coords="768,627,939,655"/>
+<area shape="rect" id="node17" href="$classrc_engine_impl.html#a3ad6dbc54b2a53acae4d345ff14974ae" title="rcEngineImpl::analyzeFocusArea" alt="" coords="482,469,699,497"/>
+</map>

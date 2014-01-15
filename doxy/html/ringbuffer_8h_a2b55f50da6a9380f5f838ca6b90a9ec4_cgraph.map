@@ -1,0 +1,4 @@
+<map id="RingBuffer_GetWriteRegions" name="RingBuffer_GetWriteRegions">
+<area shape="rect" id="node2" href="$ringbuffer_8c.html#a91c1b7c3b47dc12df82486e234251e89" title="RingBuffer_GetWriteAvailable" alt="" coords="248,5,446,33"/>
+<area shape="rect" id="node3" href="$ringbuffer_8c.html#ac59988c5961a99288adef3d759f697eb" title="RingBuffer_GetReadAvailable" alt="" coords="494,5,693,33"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="rcEngineObserver::notifyVideoRect" name="rcEngineObserver::notifyVideoRect">
+<area shape="rect" id="node2" href="$classrc_engine_impl.html#a3f1d54d99e195efe0eec45f9263e6342" title="rcEngineImpl::loadFrames" alt="" coords="225,30,402,58"/>
+<area shape="rect" id="node6" href="$classrc_engine_movie_capture.html#a0d8bfe4fd32e11bdbdb2c0ad113425ff" title="rcEngineMovieCapture::run" alt="" coords="222,82,405,110"/>
+<area shape="rect" id="node3" href="$classrc_engine_impl.html#ac6c444948228b9a6c9c013efefd7452c" title="rcEngineImpl::loadImages" alt="" coords="454,5,629,33"/>
+<area shape="rect" id="node5" href="$classrc_engine_impl.html#ac0162da8fe4f677ad6f3d04a465d50f0" title="rcEngineImpl::loadMovie" alt="" coords="458,57,625,85"/>
+<area shape="rect" id="node4" href="$classrc_engine_importer.html#a2e45417f1c29adf01483b2b8fca6b27b" title="rcEngineImporter::run" alt="" coords="678,5,828,33"/>
+</map>

@@ -1,0 +1,29 @@
+<map id="rcCorrelationWindow::window" name="rcCorrelationWindow::window">
+<area shape="rect" id="node2" href="$classrc_similarator.html#a6a567c016eebe9f98de3a0f6d675889f" title="rcSimilarator::correlate" alt="" coords="224,173,379,201"/>
+<area shape="rect" id="node25" href="$classrc_visual_function.html#a7106e30aa8dcb6430cf4572ac8107e85" title="rcVisualFunction::dividing\lProcess" alt="" coords="215,225,387,269"/>
+<area shape="rect" id="node26" href="$classrc_visual_function.html#ac5ad8352829a9a16429c34a17482520e" title="rcVisualFunction::match" alt="" coords="220,293,383,321"/>
+<area shape="rect" id="node27" href="$classrc_basic_corr_row_func.html#a4760884d4fe4e207082edffdf8533774" title="rcBasicCorrRowFunc\l::rcBasicCorrRowFunc" alt="" coords="224,345,379,389"/>
+<area shape="rect" id="node28" href="$classrc_similarator.html#a5b7b0ecbcc86a969d57e3472fa388f71" title="rcSimilarator::relativeCorrelate" alt="" coords="201,413,402,441"/>
+<area shape="rect" id="node3" href="$classrc_similarator.html#a081cdbb2699ab7aeb90a7889eb97ce9e" title="rcSimilarator::ssMatrixFill" alt="" coords="464,121,634,149"/>
+<area shape="rect" id="node22" href="$classrc_similarator.html#aead2f039a73f47009eeccc0dd6aa6fd4" title="rcSimilarator::ssListFill" alt="" coords="472,173,627,201"/>
+<area shape="rect" id="node23" href="$classrc_similarator.html#abb5d4db114e266ceeeb73d754816573f" title="rcSimilarator::ssMatrixUpdate" alt="" coords="451,225,647,253"/>
+<area shape="rect" id="node4" href="$classrc_similarator.html#a839680b499153998724455ec37cd2b76" title="rcSimilarator::fill" alt="" coords="734,95,850,123"/>
+<area shape="rect" id="node5" href="$classrc_similarator.html#a16a57206645f9d03bbf6cc8ca1a878a2" title="rcSimilarator::internalFill" alt="" coords="710,147,874,175"/>
+<area shape="rect" id="node6" href="$classrc_similarator.html#a4d6823b49a2320b53a3b91d67a0395b9" title="rcSimilarator::fill" alt="" coords="937,147,1053,175"/>
+<area shape="rect" id="node7" href="$rc__kineticimage_8h.html#a74f16cb8db93e0991685b7e04ac2d18d" title="segPointByEnergy" alt="" coords="1134,5,1266,33"/>
+<area shape="rect" id="node8" href="$rc__kineticimage_8h.html#a37fdff5165799a39ff0e7807bf05a1a3" title="calcMusclePeriod" alt="" coords="1137,57,1263,85"/>
+<area shape="rect" id="node12" href="$classrc_muscle_segmenter.html#ab797a355a4e18e94b3e482fbbff932ea" title="rcMuscleSegmenter::\lgetEMI" alt="" coords="1126,109,1274,153"/>
+<area shape="rect" id="node15" href="$classrc_shape.html#a0c28cf660f43f60ce630345077ec6e7d" title="rcShape::projectMI" alt="" coords="1133,177,1267,205"/>
+<area shape="rect" id="node16" href="$batch__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1175,229,1225,257"/>
+<area shape="rect" id="node17" href="$classrc_engine_impl.html#afeacc2314f49f0c2ebda1adc29845367" title="rcEngineImpl::entropyTracker" alt="" coords="1102,281,1298,309"/>
+<area shape="rect" id="node9" href="$classrc_muscle_segmenter.html#a61c65559f55fd9fa632b96e09ef50b2e" title="rcMuscleSegmenter::\lgenFrequencySegmentation" alt="" coords="1362,45,1550,89"/>
+<area shape="rect" id="node10" href="$classrc_muscle_segmenter.html#a660d7b3d1c240efa0b725e0db65154e3" title="rcMuscleSegmenter::\lfilterByActivity" alt="" coords="1616,45,1763,89"/>
+<area shape="rect" id="node11" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1814,87,2007,115"/>
+<area shape="rect" id="node13" href="$classrc_muscle_segmenter.html#a248fccb8fc46afa10c1a0a0cb240e72a" title="rcMuscleSegmenter::\lgenSpatialSegmentation" alt="" coords="1373,113,1539,157"/>
+<area shape="rect" id="node14" href="$classrc_muscle_segmenter.html#a86d108c38d0bcb7a7eb47021b7ab0308" title="rcMuscleSegmenter::\lsegment" alt="" coords="1616,113,1763,157"/>
+<area shape="rect" id="node18" href="$classrc_engine_impl.html#a3ad6dbc54b2a53acae4d345ff14974ae" title="rcEngineImpl::analyzeFocusArea" alt="" coords="1348,281,1564,309"/>
+<area shape="rect" id="node19" href="$classrc_engine_impl.html#ae320706cbcafd64f219018b9842c8290" title="rcEngineImpl::analyze" alt="" coords="1613,281,1766,309"/>
+<area shape="rect" id="node20" href="$classrc_engine_impl.html#a507e034c1e43ae1dd6ec95a11ec0bb02" title="rcEngineImpl::process" alt="" coords="1834,254,1987,282"/>
+<area shape="rect" id="node21" href="$classrc_engine_analyzer.html#a064037f0ec3e68fcb11dabbcba790cdd" title="rcEngineAnalyzer::run" alt="" coords="1834,306,1987,334"/>
+<area shape="rect" id="node24" href="$classrc_similarator.html#a6ba1e7717ef2e6a262043e3e87fa25eb" title="rcSimilarator::internalUpdate" alt="" coords="697,225,887,253"/>
+</map>

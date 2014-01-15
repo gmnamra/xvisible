@@ -1,0 +1,10 @@
+<map id="TIFFVStripSize" name="TIFFVStripSize">
+<area shape="rect" id="node2" href="$tif__strip_8c.html#a3d2583ed5901992de25556d454e42054" title="multiply" alt="" coords="363,27,429,55"/>
+<area shape="rect" id="node3" href="$tif__error_8c.html#a2e8b77a2d4e7b7283b55b963dd67ec31" title="TIFFErrorExt" alt="" coords="516,79,615,107"/>
+<area shape="rect" id="node4" href="$tif__strip_8c.html#ab148b812d46cc98adb3fafbb631f08fd" title="summarize" alt="" coords="353,131,439,159"/>
+<area shape="rect" id="node5" href="$tif__dir_8c.html#ac1ca0e4a5a3e8f3fa76e853dbe68c6b2" title="TIFFGetField" alt="" coords="179,182,279,210"/>
+<area shape="rect" id="node9" href="$tif__strip_8c.html#aef36f27f4a6a728488375ff085268850" title="TIFFScanlineSize" alt="" coords="166,27,293,55"/>
+<area shape="rect" id="node6" href="$tif__dir_8c.html#ab0eecdbdae2ee28066c5453fdd594027" title="TIFFVGetField" alt="" coords="342,183,450,211"/>
+<area shape="rect" id="node7" href="$tif__dirinfo_8c.html#a3317560b966ff5f4b7e378e8c6ca936a" title="_TIFFFindFieldInfo" alt="" coords="498,183,632,211"/>
+<area shape="rect" id="node8" href="$tif__dirinfo_8c.html#a365ced53b43ae215e93968db3ef3a29e" title="tagCompare" alt="" coords="681,183,775,211"/>
+</map>

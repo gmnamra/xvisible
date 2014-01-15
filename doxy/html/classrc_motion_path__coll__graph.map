@@ -1,0 +1,11 @@
+<map id="rcMotionPath" name="rcMotionPath">
+<area shape="rect" id="node2" href="$classrc_pair.html" title="rcPair\&lt; double \&gt;" alt="" coords="519,6,638,34"/>
+<area shape="rect" id="node4" href="$classrc_feature.html" title="rcFeature" alt="" coords="806,197,885,225"/>
+<area shape="rect" id="node5" href="$classrc_pair.html" title="rcPair\&lt; uint32 \&gt;" alt="" coords="521,114,636,142"/>
+<area shape="rect" id="node7" href="$classrc_pair.html" title="rcPair\&lt; rcFixed16 \&gt;" alt="" coords="510,335,648,363"/>
+<area shape="rect" id="node9" href="$classrc_pair.html" title="rcPair\&lt; int32 \&gt;" alt="" coords="225,253,333,281"/>
+<area shape="rect" id="node12" href="$classrc_rectangle.html" title="rcRectangle\&lt; int32 \&gt;" alt="" coords="506,283,651,311"/>
+<area shape="rect" id="node11" href="$classrc_rectangle.html" title="rcRectangle\&lt; T \&gt;" alt="" coords="517,62,640,90"/>
+<area shape="rect" id="node13" href="$classrc2d_vector.html" title="rc2dVector\&lt; double \&gt;" alt="" coords="505,391,653,419"/>
+<area shape="rect" id="node14" href="$classrc_fixed16.html" title="rcFixed16" alt="" coords="539,166,619,194"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="buildMap" name="buildMap">
+<area shape="rect" id="node2" href="$tif__getimage_8c.html#aca99957a9c2d0f7f76640f1ab7aaa4dc" title="checkcmap" alt="" coords="145,5,234,33"/>
+<area shape="rect" id="node3" href="$tif__getimage_8c.html#ac3a4c7fc64d784e60c00d3aea8cf3584" title="cvtcmap" alt="" coords="154,57,225,85"/>
+<area shape="rect" id="node4" href="$tif__getimage_8c.html#ad93be2c82e988345385ea5bd2e201a1f" title="makecmap" alt="" coords="302,211,389,239"/>
+<area shape="rect" id="node7" href="$tif__open_8c.html#a98b1b431a075949047294f94a1555ec7" title="TIFFFileName" alt="" coords="443,186,549,214"/>
+<area shape="rect" id="node8" href="$tif__getimage_8c.html#a4403a3bb08a8791bd19edda17c981c2a" title="setupMap" alt="" coords="149,263,229,291"/>
+<area shape="rect" id="node11" href="$tif__warning_8c.html#a638d746ae5f7d08283cdf0ce81a104be" title="TIFFWarningExt" alt="" coords="130,315,248,343"/>
+<area shape="rect" id="node5" href="$tif__apple_8c.html#aaa739de67506b8254e9d150190425b4f" title="_TIFFmalloc" alt="" coords="448,367,544,395"/>
+<area shape="rect" id="node6" href="$tif__error_8c.html#a2e8b77a2d4e7b7283b55b963dd67ec31" title="TIFFErrorExt" alt="" coords="447,315,545,343"/>
+<area shape="rect" id="node9" href="$tif__getimage_8c.html#ab88cefdb66831d5401f60a0c5b29cfd3" title="makebwmap" alt="" coords="297,367,394,395"/>
+<area shape="rect" id="node10" href="$tif__apple_8c.html#adcb814cdc66530ea86553b6840c19819" title="_TIFFfree" alt="" coords="305,263,385,291"/>
+</map>

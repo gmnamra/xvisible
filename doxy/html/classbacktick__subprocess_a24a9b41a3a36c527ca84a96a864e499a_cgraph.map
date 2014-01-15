@@ -1,0 +1,11 @@
+<map id="backtick_subprocess::spawn" name="backtick_subprocess::spawn">
+<area shape="rect" id="node2" href="$classsubprocess.html#abf44f57a3afc7798ea7bc78aa6397f5d" title="subprocess::spawn" alt="" coords="200,131,336,159"/>
+<area shape="rect" id="node3" href="$textio_8cpp.html#acf3fee36b85acdf7fae42a766218d233" title="close" alt="" coords="800,56,853,84"/>
+<area shape="rect" id="node5" href="$classarg__vector.html#ac1572560b2893481d0ac4fae0d8a612e" title="arg_vector::argv" alt="" coords="398,235,516,263"/>
+<area shape="rect" id="node6" href="$classsubprocess.html#a5317d6ffca779ae61fe4ffb5512bfce0" title="subprocess::callback" alt="" coords="385,287,530,315"/>
+<area shape="rect" id="node7" href="$classsubprocess.html#a9e2c0f10c8fd3ec2a4b37f4ae7b19f0d" title="subprocess::kill" alt="" coords="401,131,514,159"/>
+<area shape="rect" id="node8" href="$classsubprocess.html#a93a5a36b980b0a8135690eca34a0fed8" title="subprocess::close_stdin" alt="" coords="584,29,747,57"/>
+<area shape="rect" id="node9" href="$classsubprocess.html#a513a73712c337d5406e87a2e67a38454" title="subprocess::close_stdout" alt="" coords="579,81,751,109"/>
+<area shape="rect" id="node10" href="$classsubprocess.html#a6c094be24bfb11f259116b7d1e38b7d0" title="subprocess::close_stderr" alt="" coords="581,133,750,161"/>
+<area shape="rect" id="node4" href="$classotext.html#ab8cc31aaff71191e9cb95a5330a7bc5f" title="otext::close" alt="" coords="902,56,991,84"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="rcMomentGenerator::genSumSumSq2D" name="rcMomentGenerator::genSumSumSq2D">
+<area shape="rect" id="node2" href="$classrc_window.html#a958e7e0bd74b12cbcb44e73a2692400a" title="rcWindow::height" alt="" coords="216,5,339,33"/>
+<area shape="rect" id="node3" href="$classrc_rectangle.html#abe44205fccdffe80fbfdd4de79b406dc" title="rcRectangle::height" alt="" coords="209,57,345,85"/>
+<area shape="rect" id="node4" href="$classrc_moment_generator.html#afa6faa212f60b6e46628338ca5bf394e" title="rcMomentGenerator::\limgSumPtr" alt="" coords="203,109,351,153"/>
+<area shape="rect" id="node5" href="$classrc_moment_generator.html#ac1468d0559ebb01265b8c61d900f48ab" title="rcMomentGenerator::\limgSumSqPtr" alt="" coords="203,177,351,221"/>
+<area shape="rect" id="node6" href="$classrc_window.html#a0ae0c2adbe34085eb07c93edd60b342a" title="rcWindow::width" alt="" coords="218,245,337,273"/>
+<area shape="rect" id="node7" href="$classrc_rectangle.html#a37c8043dcda3dc1076e57c4a1c219263" title="rcRectangle::width" alt="" coords="212,297,343,325"/>
+<area shape="rect" id="node8" href="$classrc_rect.html#ac0f95519a41dcf7e33bec85ccb8e7aff" title="rcRect::x" alt="" coords="240,349,314,377"/>
+<area shape="rect" id="node10" href="$classrc_rect.html#a50236160751c949d8718f8d4d17f7923" title="rcRect::y" alt="" coords="240,401,314,429"/>
+<area shape="rect" id="node9" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="401,349,471,377"/>
+<area shape="rect" id="node11" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="401,401,471,429"/>
+</map>

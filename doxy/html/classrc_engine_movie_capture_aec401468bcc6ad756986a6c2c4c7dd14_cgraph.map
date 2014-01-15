@@ -1,0 +1,7 @@
+<map id="rcEngineMovieCapture::createGrabber" name="rcEngineMovieCapture::createGrabber">
+<area shape="rect" id="node2" href="$classrc_frame_grabber.html#a89f335fc268ffdcbb1e49fa9bb6a67d1" title="rcFrameGrabber::getError\lString" alt="" coords="223,5,398,49"/>
+<area shape="rect" id="node3" href="$classrc_frame_grabber.html#a011480aa888287f5b5d74231a8fce54d" title="rcFrameGrabber::getInput\lSourceName" alt="" coords="223,73,398,117"/>
+<area shape="rect" id="node4" href="$classrc_frame_grabber.html#acf1e7da1167f3b05b327e9481e9a7d35" title="rcFrameGrabber::getLastError" alt="" coords="210,141,411,169"/>
+<area shape="rect" id="node5" href="$classrc_frame_grabber.html#acd7dbea73ecbe9d9cf819b400c7f4fca" title="rcFrameGrabber::isValid" alt="" coords="228,193,393,221"/>
+<area shape="rect" id="node6" href="$classrc_engine_observer.html#aa35b059cdee544a3e93d2486ceb54d77" title="rcEngineObserver::notify\lStatus" alt="" coords="227,245,395,289"/>
+</map>

@@ -1,0 +1,27 @@
+<map id="src/visual/code/rc_affinewindow.cpp" name="src/visual/code/rc_affinewindow.cpp">
+<area shape="rect" id="node2" href="$rc__affinewindow_8h.html" title="rc_affinewindow.h" alt="" coords="699,177,825,205"/>
+<area shape="rect" id="node41" href="$rc__def__generators_8h.html" title="rc_def_generators.h" alt="" coords="674,99,813,127"/>
+<area shape="rect" id="node42" href="$rc__cubic__generators_8h.html" title="rc_cubic_generators.h" alt="" coords="838,99,991,127"/>
+<area shape="rect" id="node43" href="$rc__lin__generators_8h.html" title="rc_lin_generators.h" alt="" coords="1015,99,1149,127"/>
+<area shape="rect" id="node3" href="$rc__window_8h.html" title="rc_window.h" alt="" coords="571,409,665,437"/>
+<area shape="rect" id="node33" href="$rc__affine_8h.html" title="rc_affine.h" alt="" coords="729,254,812,282"/>
+<area shape="rect" id="node40" href="$rc__generator_8h.html" title="rc_generator.h" alt="" coords="853,254,960,282"/>
+<area shape="rect" id="node4" href="$rc__framebuf_8h.html" title="rc_framebuf.h" alt="" coords="196,734,299,762"/>
+<area shape="rect" id="node17" href="$rc__rect_8h.html" title="rc_rect.h" alt="" coords="767,494,840,522"/>
+<area shape="rect" id="node5" href="$rc__timestamp_8h.html" title="rc_timestamp.h" alt="" coords="214,811,327,839"/>
+<area shape="rect" id="node13" href="$rc__thread_8h.html" title="rc_thread.h" alt="" coords="350,811,439,839"/>
+<area shape="rect" id="node15" href="$rc__macro_8h.html" title="rc_macro.h" alt="" coords="463,811,551,839"/>
+<area shape="rect" id="node6" href="$rc__types_8h.html" title="rc_types.h" alt="" coords="768,889,851,917"/>
+<area shape="rect" id="node9" href="$rc__platform_8h.html" title="rc_platform.h" alt="" coords="598,966,697,994"/>
+<area shape="rect" id="node18" href="$rc__rectangle_8h.html" title="rc_rectangle.h" alt="" coords="715,657,820,685"/>
+<area shape="rect" id="node19" href="$rc__pair_8h.html" title="rc_pair.h" alt="" coords="996,811,1068,839"/>
+<area shape="rect" id="node20" href="$rc__vector2d_8h.html" title="rc_vector2d.h" alt="" coords="860,734,961,762"/>
+<area shape="rect" id="node22" href="$rc__exception_8h.html" title="rc_exception.h" alt="" coords="575,811,683,839"/>
+<area shape="rect" id="node25" href="$rc__math_8h.html" title="rc_math.h" alt="" coords="1092,811,1172,839"/>
+<area shape="rect" id="node26" href="$rc__limits_8h.html" title="rc_limits.h" alt="" coords="1045,889,1125,917"/>
+<area shape="rect" id="node34" href="$rc__xforms_8h.html" title="rc_xforms.h" alt="" coords="1029,579,1120,607"/>
+<area shape="rect" id="node37" href="$rc__graphics_8h.html" title="rc_graphics.h" alt="" coords="808,331,909,359"/>
+<area shape="rect" id="node35" href="$rc__matrix_8h.html" title="rc_matrix.h" alt="" coords="1044,657,1131,685"/>
+<area shape="rect" id="node38" href="$rc__style_8h.html" title="rc_style.h" alt="" coords="858,409,936,437"/>
+<area shape="rect" id="node39" href="$rc__line_8h.html" title="rc_line.h" alt="" coords="864,494,935,522"/>
+</map>

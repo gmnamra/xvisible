@@ -1,0 +1,24 @@
+<map id="lm_library::set_writable" name="lm_library::set_writable">
+<area shape="rect" id="node2" href="$classlm__library.html#a0b847ac1d6155add2ecdfd009f97567f" title="lm_library::set_read\l_write" alt="" coords="211,129,349,173"/>
+<area shape="rect" id="node3" href="$classlm__library.html#a70bb7737782b4dc673314a16f449d5e5" title="lm_library::os_read_only" alt="" coords="579,6,746,34"/>
+<area shape="rect" id="node9" href="$library__manager_8cpp.html#ad14f441aa467dd750083703692bdd6c7" title="read_context" alt="" coords="415,189,513,217"/>
+<area shape="rect" id="node15" href="$classlm__library.html#a8c50d7bec2ff5aae78fcfb36b9fcd62a" title="lm_library::writable" alt="" coords="398,110,530,138"/>
+<area shape="rect" id="node18" href="$library__manager_8cpp.html#adbf0f3e9b6c1b913546bf07c2819e458" title="write_context" alt="" coords="414,291,514,319"/>
+<area shape="rect" id="node4" href="$file__system_8cpp.html#aca2e038e3296f4edf901c5e3c318d548" title="folder_writable" alt="" coords="811,6,919,34"/>
+<area shape="rect" id="node8" href="$classlm__library.html#aa025c61299499f986c5f2724354ee874" title="lm_library::path" alt="" coords="809,58,922,86"/>
+<area shape="rect" id="node5" href="$file__system_8cpp.html#aad7ae11400ad76e728db2b39f937db2f" title="folder_exists" alt="" coords="984,33,1080,61"/>
+<area shape="rect" id="node6" href="$file__system_8cpp.html#a4bf41553eb34f21058b17faf699b5a4f" title="is_folder" alt="" coords="1128,85,1200,113"/>
+<area shape="rect" id="node7" href="$file__system_8cpp.html#a99e06c76afffe1f1d77f01c905b1a5fd" title="is_separator" alt="" coords="1249,162,1343,190"/>
+<area shape="rect" id="node10" href="$file__system_8cpp.html#a62475ca973dfe0094c00d60286c7c286" title="create_filespec" alt="" coords="607,266,718,294"/>
+<area shape="rect" id="node11" href="$file__system_8cpp.html#a70caa80e7bc53b5f40266a0a985f5e09" title="file_exists" alt="" coords="623,162,703,190"/>
+<area shape="rect" id="node13" href="$visimatch_8cpp.html#ae8a6e4899fbd06cc223556ccef67b64e" title="restore" alt="" coords="631,214,694,242"/>
+<area shape="rect" id="node12" href="$file__system_8cpp.html#a896521b0391b7bcdd8057eaec72fa0a1" title="is_file" alt="" coords="1004,162,1060,190"/>
+<area shape="rect" id="node14" href="$persistent_8hpp.html#aeeb01b2ea31ac58564b5f56b4545f406" title="restore_deque" alt="" coords="812,214,919,242"/>
+<area shape="rect" id="node16" href="$classlm__library.html#a0aa8f9d580030a7343b234357a994da5" title="lm_library::os_writable" alt="" coords="586,58,740,86"/>
+<area shape="rect" id="node17" href="$classlm__library.html#a861af8d3f68a37e769edd54cb74af5ca" title="lm_library::lm_writable" alt="" coords="586,110,740,138"/>
+<area shape="rect" id="node19" href="$visimatch_8cpp.html#a455a979b4529b4ab9bf44ef7f4c535eb" title="dump" alt="" coords="635,318,690,346"/>
+<area shape="rect" id="node21" href="$rc__xml_8cpp.html#a127c366ab4e46d552c39dd2d2e7d6b89" title="output" alt="" coords="633,378,692,406"/>
+<area shape="rect" id="node20" href="$persistent_8hpp.html#ad663f7090f251c9983d60cd899eed527" title="dump_deque" alt="" coords="816,318,915,346"/>
+<area shape="rect" id="node22" href="$classrc_progress_indicator.html#ae01451b2ec83eef63852f3ce8c238bf5" title="rcProgressIndicator\l::progress" alt="" coords="797,370,934,414"/>
+<area shape="rect" id="node23" href="$classrc_x_m_l_element.html#a16e3743f305544ac5d7b71a1c5b7e54b" title="rcXMLElement::type" alt="" coords="795,438,936,466"/>
+</map>

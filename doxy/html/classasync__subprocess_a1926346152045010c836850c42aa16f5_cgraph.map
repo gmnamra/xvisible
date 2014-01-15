@@ -1,0 +1,8 @@
+<map id="async_subprocess::read_stderr" name="async_subprocess::read_stderr">
+<area shape="rect" id="node2" href="$classitext.html#a7d979345846d3dc44d0bc360718f855a" title="itext::bytes" alt="" coords="261,5,347,33"/>
+<area shape="rect" id="node4" href="$classasync__subprocess.html#a075c0e1d1ab1e760c3960f06e8379202" title="async_subprocess::close\l_stderr" alt="" coords="219,57,389,101"/>
+<area shape="rect" id="node7" href="$classasync__subprocess.html#a42af6ce5c6721ee251e5e29dfd1d1502" title="async_subprocess::set\l_error" alt="" coords="226,125,382,169"/>
+<area shape="rect" id="node3" href="$classibuff.html#ad9b82baa50ad63fe90d0a450e1629987" title="ibuff::bytes" alt="" coords="437,5,523,33"/>
+<area shape="rect" id="node5" href="$textio_8cpp.html#acf3fee36b85acdf7fae42a766218d233" title="close" alt="" coords="454,65,506,93"/>
+<area shape="rect" id="node6" href="$classotext.html#ab8cc31aaff71191e9cb95a5330a7bc5f" title="otext::close" alt="" coords="572,65,660,93"/>
+</map>

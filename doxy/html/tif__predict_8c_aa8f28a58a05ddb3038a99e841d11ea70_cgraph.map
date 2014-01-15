@@ -1,0 +1,7 @@
+<map id="PredictorSetup" name="PredictorSetup">
+<area shape="rect" id="node2" href="$tif__error_8c.html#a2e8b77a2d4e7b7283b55b963dd67ec31" title="TIFFErrorExt" alt="" coords="453,27,552,55"/>
+<area shape="rect" id="node3" href="$tif__strip_8c.html#aef36f27f4a6a728488375ff085268850" title="TIFFScanlineSize" alt="" coords="163,27,290,55"/>
+<area shape="rect" id="node5" href="$tif__tile_8c.html#a423193eb74c9eb9178517131614f5c01" title="TIFFTileRowSize" alt="" coords="165,79,288,107"/>
+<area shape="rect" id="node4" href="$tif__strip_8c.html#a3d2583ed5901992de25556d454e42054" title="multiply" alt="" coords="339,27,405,55"/>
+<area shape="rect" id="node6" href="$tif__tile_8c.html#a3d2583ed5901992de25556d454e42054" title="multiply" alt="" coords="339,79,405,107"/>
+</map>

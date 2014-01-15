@@ -1,0 +1,9 @@
+<map id="rcGenHalfRes" name="rcGenHalfRes">
+<area shape="rect" id="node2" href="$rc__qtime__capture_8cpp.html#a624fb0d42c16afe3ebc037ff4106afab" title="MungGrabDataProc" alt="" coords="353,5,493,33"/>
+<area shape="rect" id="node5" href="$rc__dcam__capture_8cpp.html#a5bb44dd407ae5255003d9c7b0101a519" title="yourDisplayCallback" alt="" coords="161,57,303,85"/>
+<area shape="rect" id="node3" href="$rc__qtime__capture_8h.html#adf4b66b022a2bc6ba21cddbc179756cb" title="rfQTVideoCapture" alt="" coords="553,5,682,33"/>
+<area shape="rect" id="node4" href="$rc__qtime__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="742,5,792,33"/>
+<area shape="rect" id="node6" href="$rc__dcam__capture_8cpp.html#a8fcb91e1b2e6adaad571752a59ac3dad" title="InitializeMungData2" alt="" coords="353,57,492,85"/>
+<area shape="rect" id="node7" href="$rc__dcam__capture_8h.html#aa3528bb0b33aa9119084d4b082f8c0aa" title="rfDCAMVideoCapture" alt="" coords="542,57,692,85"/>
+<area shape="rect" id="node8" href="$rc__dcam__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="742,57,792,85"/>
+</map>

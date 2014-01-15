@@ -1,0 +1,12 @@
+<map id="rfPixel8Min3By3" name="rfPixel8Min3By3">
+<area shape="rect" id="node2" href="$rc__ip_8h.html#afaed10925a6512ef0409009d03556e73" title="rfPixel8Max3By3" alt="" coords="175,5,297,33"/>
+<area shape="rect" id="node3" href="$rc__ip_8h.html#ae84e0058ec9241ba355accbfd028ed8f" title="rfPixel8Min3By3" alt="" coords="177,57,295,85"/>
+<area shape="rect" id="node4" href="$rc__ip_8h.html#a4629eb9f4afaa7b1f3b546eab83c5e54" title="rfPixelMin3By3" alt="" coords="181,109,291,137"/>
+<area shape="rect" id="node11" href="$rc__kineticimage_8h.html#a74f16cb8db93e0991685b7e04ac2d18d" title="segPointByEnergy" alt="" coords="170,161,302,189"/>
+<area shape="rect" id="node5" href="$classrc_kinetoscope.html#a9e34ed1b237aa970f30995cb75245233" title="rcKinetoscope::connected\lFunctions" alt="" coords="350,70,525,114"/>
+<area shape="rect" id="node10" href="$rc__ip_8h.html#a66496689cd4a73d94b4c049c3ef51f1d" title="rfPixelMin3By3" alt="" coords="382,138,492,166"/>
+<area shape="rect" id="node6" href="$classrc_kinetoscope.html#a30274b84c57f86e667b614556f6c569b" title="rcKinetoscope::step" alt="" coords="824,78,963,106"/>
+<area shape="rect" id="node8" href="$classrc_kinetoscope.html#ae0addfc3a10c4c69ba027d9bfc351217" title="rcKinetoscope::stepContractile" alt="" coords="574,78,776,106"/>
+<area shape="rect" id="node9" href="$classrc_kinetoscope.html#a431144623d201c5aeb857893d8460ca2" title="rcKinetoscope::stepEpi" alt="" coords="596,130,754,158"/>
+<area shape="rect" id="node7" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1011,78,1205,106"/>
+</map>

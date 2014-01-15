@@ -1,0 +1,26 @@
+<map id="rcVideoTrackImpl::writeValue" name="rcVideoTrackImpl::writeValue">
+<area shape="rect" id="node2" href="$classrc_video_track_impl.html#a01b7a81dbb3b710a2baa2f438420e28b" title="rcVideoTrackImpl::addSegment" alt="" coords="248,251,456,279"/>
+<area shape="rect" id="node22" href="$classrc_track_impl.html#aa62c0a61102cc20eadcd03e7c1c99234" title="rcTrackImpl::nextSegment\lLength" alt="" coords="264,317,440,361"/>
+<area shape="rect" id="node23" href="$classrc_video_track_impl.html#ab04767a2629c7c7a7bf180b78c5c03bc" title="rcVideoTrackImpl::setWriter\lState" alt="" coords="260,385,444,429"/>
+<area shape="rect" id="node25" href="$classrc_track_impl.html#aeff311b9b61ed579c55ffc367fde187d" title="rcTrackImpl::updateFirstTime" alt="" coords="255,453,449,481"/>
+<area shape="rect" id="node3" href="$textio_8cpp.html#a905a4c61e365d406069f00eb68db1ca5" title="endl" alt="" coords="817,135,863,163"/>
+<area shape="rect" id="node15" href="$classrc_segment_impl.html#a3e75fcd7573f9ec7f1d4aa3c46255098" title="rcSegmentImpl::length" alt="" coords="521,131,676,159"/>
+<area shape="rect" id="node16" href="$classrc_track_impl.html#a41aefd56f083b3f242113a9e0ebb1792" title="rcTrackImpl::nextSegment\lStart" alt="" coords="510,183,687,227"/>
+<area shape="rect" id="node17" href="$classrc_timestamp.html#a7a76776edb5c337196cf10c009339d15" title="rcTimestamp::secs" alt="" coords="532,251,665,279"/>
+<area shape="rect" id="node20" href="$classrc_video_track_impl.html#a03db20074b77018303ff9576781af6c8" title="rcVideoTrackImpl::segment" alt="" coords="507,303,690,331"/>
+<area shape="rect" id="node21" href="$classrc_video_track_impl.html#aa233584fe2d05e8b15fddcc638f9e577" title="rcVideoTrackImpl::segments" alt="" coords="504,355,693,383"/>
+<area shape="rect" id="node4" href="$classotext.html#a5086c0fd5e3f551eae3027e5d23d3c30" title="otext::put" alt="" coords="1033,135,1109,163"/>
+<area shape="rect" id="node5" href="$classotext.html#ab52b059090ba70eeeac469f9051d3a22" title="otext::flush" alt="" coords="1232,5,1318,33"/>
+<area shape="rect" id="node7" href="$classobuff.html#a069bcd2767c0d7c8e2bc8cd26d91e267" title="obuff::increment" alt="" coords="1216,57,1333,85"/>
+<area shape="rect" id="node8" href="$classobuff.html#a51efd4e8e00303842fa762940aad86ec" title="obuff::line_buffer" alt="" coords="1215,109,1335,137"/>
+<area shape="rect" id="node9" href="$classobuff.html#a0711113beee11f9793f5ba9e8e64c641" title="obuff::newline_mode" alt="" coords="1203,161,1347,189"/>
+<area shape="rect" id="node10" href="$classobuff.html#a5bbb61ac15c672da7f7b2002bef6b128" title="obuff::put" alt="" coords="1236,213,1313,241"/>
+<area shape="rect" id="node11" href="$classotext.html#a2a2435d80cce60cb88360c7bfe3f8445" title="otext::set_error" alt="" coords="1219,265,1330,293"/>
+<area shape="rect" id="node6" href="$classobuff.html#a8fb8969c450f4fdc037f8c51d35c87c7" title="obuff::flush" alt="" coords="1408,5,1494,33"/>
+<area shape="rect" id="node12" href="$classobuff.html#ae388e9608d1c873d1feaf621f4044c25" title="obuff::set_error" alt="" coords="1395,265,1506,293"/>
+<area shape="rect" id="node13" href="$class_t_c_p__client__data.html#a970f6bf6bb6e6166615813c5f7768381" title="TCP_client_data::error" alt="" coords="1556,265,1711,293"/>
+<area shape="rect" id="node14" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="1761,265,1890,293"/>
+<area shape="rect" id="node18" href="$rc__timestamp_8h.html#ac624900be52fa7f30d3ad72543cc725d" title="convertTimestampToSeconds" alt="" coords="742,251,938,279"/>
+<area shape="rect" id="node19" href="$rc__timestamp__mac_8cpp.html#a7962719b626553bf7a913f7c2671b777" title="getTimestampResolution" alt="" coords="987,251,1155,279"/>
+<area shape="rect" id="node24" href="$classrc_track_impl.html#a22ab234f62ffb656bbc134ef3c5bd220" title="rcTrackImpl::setWriterState" alt="" coords="508,407,690,435"/>
+</map>

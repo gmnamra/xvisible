@@ -1,0 +1,30 @@
+<map id="rcEngineImpl::updateConversionLog" name="rcEngineImpl::updateConversionLog">
+<area shape="rect" id="node2" href="$textio_8cpp.html#a905a4c61e365d406069f00eb68db1ca5" title="endl" alt="" coords="643,170,690,198"/>
+<area shape="rect" id="node14" href="$classrc_movie_file_conv_ext.html#aa383eb707eb740f0991031b8deff171f" title="rcMovieFileConvExt::log" alt="" coords="331,470,496,498"/>
+<area shape="rect" id="node29" href="$classrc_video_cache.html#ad12f39ef5056d0fdcd861509c3ddcc3c" title="rcVideoCache::movieFileConversions" alt="" coords="292,522,535,550"/>
+<area shape="rect" id="node3" href="$classotext.html#a5086c0fd5e3f551eae3027e5d23d3c30" title="otext::put" alt="" coords="826,161,902,189"/>
+<area shape="rect" id="node4" href="$classotext.html#ab52b059090ba70eeeac469f9051d3a22" title="otext::flush" alt="" coords="1034,5,1120,33"/>
+<area shape="rect" id="node6" href="$classobuff.html#a069bcd2767c0d7c8e2bc8cd26d91e267" title="obuff::increment" alt="" coords="1019,57,1136,85"/>
+<area shape="rect" id="node7" href="$classobuff.html#a51efd4e8e00303842fa762940aad86ec" title="obuff::line_buffer" alt="" coords="1017,109,1137,137"/>
+<area shape="rect" id="node8" href="$classobuff.html#a0711113beee11f9793f5ba9e8e64c641" title="obuff::newline_mode" alt="" coords="1005,161,1149,189"/>
+<area shape="rect" id="node9" href="$classobuff.html#a5bbb61ac15c672da7f7b2002bef6b128" title="obuff::put" alt="" coords="1039,213,1116,241"/>
+<area shape="rect" id="node10" href="$classotext.html#a2a2435d80cce60cb88360c7bfe3f8445" title="otext::set_error" alt="" coords="1022,265,1133,293"/>
+<area shape="rect" id="node5" href="$classobuff.html#a8fb8969c450f4fdc037f8c51d35c87c7" title="obuff::flush" alt="" coords="1265,5,1351,33"/>
+<area shape="rect" id="node11" href="$classobuff.html#ae388e9608d1c873d1feaf621f4044c25" title="obuff::set_error" alt="" coords="1252,265,1364,293"/>
+<area shape="rect" id="node12" href="$class_t_c_p__client__data.html#a970f6bf6bb6e6166615813c5f7768381" title="TCP_client_data::error" alt="" coords="1441,265,1596,293"/>
+<area shape="rect" id="node13" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="1646,265,1775,293"/>
+<area shape="rect" id="node15" href="$classrc_movie_file_conv_ext.html#a041eabe5b195e4845d53140afbf044f3" title="rcMovieFileConvExt\l::date" alt="" coords="597,222,737,266"/>
+<area shape="rect" id="node16" href="$classrc_timestamp.html#a941324441a315fd7ca01a28720a57be3" title="rcTimestamp::localtime" alt="" coords="588,290,746,318"/>
+<area shape="rect" id="node20" href="$classrc_movie_file_conv_ext.html#aa95a35bd00a673a33e8c52e00195f7fb" title="rcMovieFileConvExt::rev" alt="" coords="584,342,750,370"/>
+<area shape="rect" id="node21" href="$classrc_movie_file_conv_ext.html#adab0bbec42b8a36af8ebb5cad65485d7" title="rcMovieFileConvExt\l::startOffset" alt="" coords="597,394,737,438"/>
+<area shape="rect" id="node22" href="$classrc_movie_file_conv_ext.html#a36a4e3df51f6dce8e289a50d08fd6a3d" title="rcMovieFileConvExt\l::frameCount" alt="" coords="597,462,737,506"/>
+<area shape="rect" id="node23" href="$classrc_movie_file_conv_ext.html#a732f5339d27cf27a25176223317f7706" title="rcMovieFileConvExt\l::frameInterval" alt="" coords="597,530,737,574"/>
+<area shape="rect" id="node24" href="$classrc_movie_file_conv_ext.html#a7441a060550064efc226099ebdb1713c" title="rcMovieFileConvExt\l::sample" alt="" coords="597,598,737,642"/>
+<area shape="rect" id="node25" href="$classrc_movie_file_conv_ext.html#ae9c5e8e3f3e2a36254140562733b2f2c" title="rcMovieFileConvExt\l::cropRect" alt="" coords="597,666,737,710"/>
+<area shape="rect" id="node26" href="$classrc_movie_file_conv_ext.html#a70280f1d3314754e9a8edc3729683410" title="rcMovieFileConvExt\l::channel" alt="" coords="597,734,737,778"/>
+<area shape="rect" id="node27" href="$classrc_movie_file_conv_ext.html#a0c6d7121c318a86d98bd26c5751d74e5" title="rcMovieFileConvExt\l::pixelsReversed" alt="" coords="597,802,737,846"/>
+<area shape="rect" id="node28" href="$classrc_movie_file_conv_ext.html#ae6d486085536b11da6e1173566b6fea3" title="rcMovieFileConvExt\l::creatorName" alt="" coords="597,870,737,914"/>
+<area shape="rect" id="node17" href="$classrc_timestamp.html#a7a76776edb5c337196cf10c009339d15" title="rcTimestamp::secs" alt="" coords="798,299,930,327"/>
+<area shape="rect" id="node18" href="$rc__timestamp_8h.html#ac624900be52fa7f30d3ad72543cc725d" title="convertTimestampToSeconds" alt="" coords="979,317,1176,345"/>
+<area shape="rect" id="node19" href="$rc__timestamp__mac_8cpp.html#a7962719b626553bf7a913f7c2671b777" title="getTimestampResolution" alt="" coords="1224,317,1392,345"/>
+</map>

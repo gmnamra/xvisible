@@ -1,0 +1,30 @@
+<map id="unsigned_resize" name="unsigned_resize">
+<area shape="rect" id="node2" href="$string__arithmetic_8hpp.html#a85d17624b756ab5c9dccbc3fa1c9e582" title="inf_to_unsigned" alt="" coords="186,5,302,33"/>
+<area shape="rect" id="node3" href="$string__arithmetic_8hpp.html#aadea3688ea789af8751de7438de2b81a" title="signed_divide" alt="" coords="591,167,694,195"/>
+<area shape="rect" id="node4" href="$string__arithmetic_8hpp.html#a045a224c929ce31ed52a22c98778f8db" title="signed_remainder" alt="" coords="579,401,707,429"/>
+<area shape="rect" id="node6" href="$string__arithmetic_8hpp.html#a2f604f28aadd59218e5805893096eecf" title="ulong_to_unsigned" alt="" coords="177,159,311,187"/>
+<area shape="rect" id="node7" href="$string__arithmetic_8hpp.html#aab7b661f2a7b94f994161a00ebe05285" title="unsigned_add" alt="" coords="191,263,297,291"/>
+<area shape="rect" id="node8" href="$string__arithmetic_8hpp.html#a1a9ef700a6e1fd5112a73b0827021423" title="unsigned_multiply" alt="" coords="379,263,507,291"/>
+<area shape="rect" id="node9" href="$string__arithmetic_8hpp.html#ac486cb288d3c9b862af2484d93a1a074" title="unsigned_and" alt="" coords="191,315,297,343"/>
+<area shape="rect" id="node10" href="$string__arithmetic_8hpp.html#a92fd10d164e4f857f9aba03b019161f8" title="unsigned_divide" alt="" coords="584,543,702,571"/>
+<area shape="rect" id="node11" href="$string__arithmetic_8hpp.html#a5ca6f14628952e366427bfd17b1026d6" title="unsigned_equality" alt="" coords="180,575,308,603"/>
+<area shape="rect" id="node13" href="$string__arithmetic_8hpp.html#ad0516fe3afc0dfb4884ab079d65a8572" title="unsigned_exponent" alt="" coords="175,471,313,499"/>
+<area shape="rect" id="node14" href="$string__arithmetic_8hpp.html#a26fc5f3b1ff43bdf390632ff091a3d87" title="unsigned_less_than" alt="" coords="174,835,314,863"/>
+<area shape="rect" id="node19" href="$string__arithmetic_8hpp.html#a57dd0f52a3fa28aaa04a0de120f9011b" title="unsigned_remainder" alt="" coords="571,777,714,805"/>
+<area shape="rect" id="node21" href="$string__arithmetic_8hpp.html#ab1f0013eecdec5a4382f22c3bb834caf" title="unsigned_nand" alt="" coords="188,627,300,655"/>
+<area shape="rect" id="node22" href="$string__arithmetic_8hpp.html#aeaa45964b903924178a3963c1e7242b5" title="unsigned_nor" alt="" coords="193,679,295,707"/>
+<area shape="rect" id="node23" href="$string__arithmetic_8hpp.html#ae10351907f804a4f545fcea090d9f1e3" title="unsigned_not" alt="" coords="193,731,295,759"/>
+<area shape="rect" id="node24" href="$string__arithmetic_8hpp.html#aaf69c4775ae52472d1cf80f2aded57bb" title="unsigned_or" alt="" coords="197,783,291,811"/>
+<area shape="rect" id="node25" href="$string__arithmetic_8hpp.html#a4baff515b9105dabb2caf7c0f42cb1e5" title="unsigned_shift_left" alt="" coords="178,367,310,395"/>
+<area shape="rect" id="node26" href="$string__arithmetic_8hpp.html#a7699e558fd6e6c852c9b6bc5492d8084" title="unsigned_shift_right" alt="" coords="174,523,314,551"/>
+<area shape="rect" id="node27" href="$string__arithmetic_8hpp.html#aaeb22e5a58e1aa49e6d6309adcab6412" title="unsigned_subtract" alt="" coords="179,419,309,447"/>
+<area shape="rect" id="node28" href="$string__arithmetic_8hpp.html#a19776ae06bdbdaee8dc36172a8b3e3c0" title="unsigned_xnor" alt="" coords="190,990,298,1018"/>
+<area shape="rect" id="node29" href="$string__arithmetic_8hpp.html#a43f62726a9b7e4dfc0552ced8e930e33" title="unsigned_xor" alt="" coords="193,1042,295,1070"/>
+<area shape="rect" id="node5" href="$string__arithmetic_8hpp.html#a2e8b975956735b659e2ce6940a1b19a5" title="signed_modulus" alt="" coords="770,401,889,429"/>
+<area shape="rect" id="node12" href="$string__arithmetic_8hpp.html#ac758cc5a5c9f0f205f2048114d173fe8" title="unsigned_inequality" alt="" coords="373,575,512,603"/>
+<area shape="rect" id="node15" href="$string__arithmetic_8hpp.html#a0e8d68da57b2e5a1da2a6bf3073cbc0b" title="unsigned_less_than\l_or_equal" alt="" coords="373,699,513,743"/>
+<area shape="rect" id="node16" href="$string__arithmetic_8hpp.html#a74f395b776c00da6bcafa29579ed2638" title="unsigned_greater_than" alt="" coords="363,767,522,795"/>
+<area shape="rect" id="node17" href="$string__arithmetic_8hpp.html#a2509ef306357f9b0958747ad45b1a34d" title="unsigned_greater_than\l_or_equal" alt="" coords="363,819,522,863"/>
+<area shape="rect" id="node18" href="$string__arithmetic_8cpp.html#afc453c238c64f9a65f4feba453f3ac49" title="divrem" alt="" coords="412,471,473,499"/>
+<area shape="rect" id="node20" href="$string__arithmetic_8hpp.html#ad4d3d4da04a2430d6ddb04b46fb583c3" title="unsigned_modulus" alt="" coords="763,777,896,805"/>
+</map>

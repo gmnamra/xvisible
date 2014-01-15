@@ -1,0 +1,16 @@
+<map id="rfImageConvert8ToARGB" name="rfImageConvert8ToARGB">
+<area shape="rect" id="node2" href="$classrc_window.html#a958e7e0bd74b12cbcb44e73a2692400a" title="rcWindow::height" alt="" coords="252,5,375,33"/>
+<area shape="rect" id="node3" href="$classrc_window.html#a3286f93b0d223617111f3ac62b854b2f" title="rcWindow::isBound" alt="" coords="635,107,770,135"/>
+<area shape="rect" id="node4" href="$rc__ipconvert_8cpp.html#a68c0a110293c29b0ba67beafe7002d1a" title="rfImageConvert8ToARGB" alt="" coords="227,134,400,162"/>
+<area shape="rect" id="node15" href="$classrc_window.html#a0ae0c2adbe34085eb07c93edd60b342a" title="rcWindow::width" alt="" coords="643,263,762,291"/>
+<area shape="rect" id="node5" href="$classrc_window.html#a9ab724dc45a3c3c2beee6c8ed558de1e" title="rcWindow::depth" alt="" coords="453,159,574,187"/>
+<area shape="rect" id="node6" href="$classrc_window.html#a2a036edf5b144800400615066e744e39" title="rcWindow::vImage" alt="" coords="448,211,579,239"/>
+<area shape="rect" id="node7" href="$classrc_window.html#a5cddcde6594113f6d8bb2dfb1f498c0a" title="rcWindow::rowUpdate" alt="" coords="627,159,779,187"/>
+<area shape="rect" id="node8" href="$classrc_window.html#a8bad48552f0db28803089113326911de" title="rcWindow::pelPointer" alt="" coords="629,211,776,239"/>
+<area shape="rect" id="node9" href="$classrc_frame.html#a8005eafc78f0008a7df596d55c2b23b9" title="rcFrame::pelPointer" alt="" coords="827,159,965,187"/>
+<area shape="rect" id="node11" href="$classrc_rect.html#ac0f95519a41dcf7e33bec85ccb8e7aff" title="rcRect::x" alt="" coords="859,211,933,239"/>
+<area shape="rect" id="node13" href="$classrc_rect.html#a50236160751c949d8718f8d4d17f7923" title="rcRect::y" alt="" coords="859,263,933,291"/>
+<area shape="rect" id="node10" href="$classrc_frame.html#aaef8303c840834284eb9c60d33bf40c1" title="rcFrame::depth" alt="" coords="1013,159,1125,187"/>
+<area shape="rect" id="node12" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="1034,211,1104,239"/>
+<area shape="rect" id="node14" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="1034,263,1104,291"/>
+</map>

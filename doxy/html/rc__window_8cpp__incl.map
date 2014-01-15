@@ -1,0 +1,26 @@
+<map id="src/visual/code/rc_window.cpp" name="src/visual/code/rc_window.cpp">
+<area shape="rect" id="node2" href="$rc__window_8h.html" title="rc_window.h" alt="" coords="1743,177,1837,205"/>
+<area shape="rect" id="node13" href="$rc__macro_8h.html" title="rc_macro.h" alt="" coords="988,502,1076,530"/>
+<area shape="rect" id="node25" href="$rc__videocache_8h.html" title="rc_videocache.h" alt="" coords="366,99,484,127"/>
+<area shape="rect" id="node30" href="$rc__qtime_8h.html" title="rc_qtime.h" alt="" coords="1485,99,1568,127"/>
+<area shape="rect" id="node35" href="$rc__tiff_8h.html" title="rc_tiff.h" alt="" coords="1930,99,1995,127"/>
+<area shape="rect" id="node39" href="$tiff_8h.html" title="tiff.h" alt="" coords="2541,347,2587,375"/>
+<area shape="rect" id="node50" href="$rc__systeminfo_8h.html" title="rc_systeminfo.h" alt="" coords="2605,425,2720,453"/>
+<area shape="rect" id="node3" href="$rc__framebuf_8h.html" title="rc_framebuf.h" alt="" coords="332,262,435,290"/>
+<area shape="rect" id="node15" href="$rc__rect_8h.html" title="rc_rect.h" alt="" coords="1229,262,1301,290"/>
+<area shape="rect" id="node4" href="$rc__timestamp_8h.html" title="rc_timestamp.h" alt="" coords="536,347,648,375"/>
+<area shape="rect" id="node11" href="$rc__thread_8h.html" title="rc_thread.h" alt="" coords="144,347,232,375"/>
+<area shape="rect" id="node5" href="$rc__types_8h.html" title="rc_types.h" alt="" coords="1576,579,1659,607"/>
+<area shape="rect" id="node8" href="$rc__platform_8h.html" title="rc_platform.h" alt="" coords="1724,657,1823,685"/>
+<area shape="rect" id="node16" href="$rc__rectangle_8h.html" title="rc_rectangle.h" alt="" coords="1564,347,1669,375"/>
+<area shape="rect" id="node17" href="$rc__pair_8h.html" title="rc_pair.h" alt="" coords="1508,502,1580,530"/>
+<area shape="rect" id="node18" href="$rc__vector2d_8h.html" title="rc_vector2d.h" alt="" coords="1566,425,1668,453"/>
+<area shape="rect" id="node19" href="$rc__exception_8h.html" title="rc_exception.h" alt="" coords="1886,502,1993,530"/>
+<area shape="rect" id="node20" href="$rc__math_8h.html" title="rc_math.h" alt="" coords="1654,502,1735,530"/>
+<area shape="rect" id="node28" href="$rc__moviefileformat_8h.html" title="rc_moviefileformat.h" alt="" coords="539,177,680,205"/>
+<area shape="rect" id="node38" href="$tiffio_8h.html" title="tiffio.h" alt="" coords="1964,262,2020,290"/>
+<area shape="rect" id="node44" href="$tiffiop_8h.html" title="tiffiop.h" alt="" coords="2184,177,2248,205"/>
+<area shape="rect" id="node41" href="$tiffvers_8h.html" title="tiffvers.h" alt="" coords="1911,347,1981,375"/>
+<area shape="rect" id="node40" href="$tif__config_8h.html" title="tif_config.h" alt="" coords="2445,425,2531,453"/>
+<area shape="rect" id="node49" href="$tif__dir_8h.html" title="tif_dir.h" alt="" coords="2141,262,2205,290"/>
+</map>

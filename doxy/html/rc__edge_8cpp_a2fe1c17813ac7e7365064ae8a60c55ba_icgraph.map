@@ -1,0 +1,9 @@
+<map id="rfSpatialEdge" name="rfSpatialEdge">
+<area shape="rect" id="node2" href="$classrc_spatial_pyramid_3_012_01_4.html#a4881bd9d7906dbdd00d92ab0a735cfbd" title="rcSpatialPyramid\&lt; 2\l \&gt;::gradientProcess" alt="" coords="195,5,336,49"/>
+<area shape="rect" id="node3" href="$rc__graphics_8h.html#a10bc6f7b7db72f7f9f90f3e7ab55fcf9" title="rfImageGradientToVisualSegment" alt="" coords="155,73,376,101"/>
+<area shape="rect" id="node4" href="$classrc_engine_impl.html#a7eec21aabd0c657881fc6eac91787480" title="rcEngineImpl::modelTracker" alt="" coords="425,73,612,101"/>
+<area shape="rect" id="node5" href="$classrc_engine_impl.html#a3ad6dbc54b2a53acae4d345ff14974ae" title="rcEngineImpl::analyzeFocusArea" alt="" coords="662,73,879,101"/>
+<area shape="rect" id="node6" href="$classrc_engine_impl.html#ae320706cbcafd64f219018b9842c8290" title="rcEngineImpl::analyze" alt="" coords="928,73,1080,101"/>
+<area shape="rect" id="node7" href="$classrc_engine_impl.html#a507e034c1e43ae1dd6ec95a11ec0bb02" title="rcEngineImpl::process" alt="" coords="1129,46,1282,74"/>
+<area shape="rect" id="node8" href="$classrc_engine_analyzer.html#a064037f0ec3e68fcb11dabbcba790cdd" title="rcEngineAnalyzer::run" alt="" coords="1129,98,1282,126"/>
+</map>

@@ -1,0 +1,18 @@
+<map id="otext::operator&lt;&lt;" name="otext::operator&lt;&lt;">
+<area shape="rect" id="node2" href="$classitext.html#aaee598f762de2ee4100c1a4c89f7ea44" title="itext::get" alt="" coords="179,109,251,137"/>
+<area shape="rect" id="node7" href="$classotext.html#a5086c0fd5e3f551eae3027e5d23d3c30" title="otext::put" alt="" coords="177,317,253,345"/>
+<area shape="rect" id="node3" href="$classibuff.html#afddfd5bdd2219ccd01dd176e5cd57369" title="ibuff::get" alt="" coords="337,5,409,33"/>
+<area shape="rect" id="node4" href="$classibuff.html#aecdbe63ee9b456ffac55153b8aaeec79" title="ibuff::increment" alt="" coords="317,57,429,85"/>
+<area shape="rect" id="node5" href="$classibuff.html#a34316b72de5ddac433ef6d29d7c00eb4" title="ibuff::newline_mode" alt="" coords="303,109,443,137"/>
+<area shape="rect" id="node6" href="$classibuff.html#af83bd07bbed7b837d08c8bafdfbd3e87" title="ibuff::peek" alt="" coords="332,161,415,189"/>
+<area shape="rect" id="node8" href="$classotext.html#a2a2435d80cce60cb88360c7bfe3f8445" title="otext::set_error" alt="" coords="318,213,429,241"/>
+<area shape="rect" id="node12" href="$classobuff.html#a5bbb61ac15c672da7f7b2002bef6b128" title="obuff::put" alt="" coords="335,265,412,293"/>
+<area shape="rect" id="node13" href="$classobuff.html#a069bcd2767c0d7c8e2bc8cd26d91e267" title="obuff::increment" alt="" coords="315,317,432,345"/>
+<area shape="rect" id="node14" href="$classobuff.html#a0711113beee11f9793f5ba9e8e64c641" title="obuff::newline_mode" alt="" coords="301,369,445,397"/>
+<area shape="rect" id="node15" href="$classobuff.html#a51efd4e8e00303842fa762940aad86ec" title="obuff::line_buffer" alt="" coords="313,421,433,449"/>
+<area shape="rect" id="node16" href="$classotext.html#ab52b059090ba70eeeac469f9051d3a22" title="otext::flush" alt="" coords="330,473,416,501"/>
+<area shape="rect" id="node9" href="$classobuff.html#ae388e9608d1c873d1feaf621f4044c25" title="obuff::set_error" alt="" coords="494,213,605,241"/>
+<area shape="rect" id="node10" href="$class_t_c_p__client__data.html#a970f6bf6bb6e6166615813c5f7768381" title="TCP_client_data::error" alt="" coords="654,213,810,241"/>
+<area shape="rect" id="node11" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="859,213,989,241"/>
+<area shape="rect" id="node17" href="$classobuff.html#a8fb8969c450f4fdc037f8c51d35c87c7" title="obuff::flush" alt="" coords="506,473,592,501"/>
+</map>

@@ -1,0 +1,31 @@
+<map id="rfSetWindowBorder" name="rfSetWindowBorder">
+<area shape="rect" id="node2" href="$classrc_similarator.html#a6a567c016eebe9f98de3a0f6d675889f" title="rcSimilarator::correlate" alt="" coords="193,119,348,147"/>
+<area shape="rect" id="node25" href="$classrc_spatial_pyramid_3_012_01_4.html#a4881bd9d7906dbdd00d92ab0a735cfbd" title="rcSpatialPyramid\&lt; 2\l \&gt;::gradientProcess" alt="" coords="425,219,567,263"/>
+<area shape="rect" id="node26" href="$rc__ip_8h.html#a96d1ade51e0f61413e07fabc7e78d024" title="rfHysteresisThreshold" alt="" coords="195,231,346,259"/>
+<area shape="rect" id="node27" href="$rc__edge_8h.html#aa22d9b836cfbd4b49695eae4a3d0445e" title="rfSobel" alt="" coords="239,287,302,315"/>
+<area shape="rect" id="node3" href="$classrc_similarator.html#a081cdbb2699ab7aeb90a7889eb97ce9e" title="rcSimilarator::ssMatrixFill" alt="" coords="411,63,581,91"/>
+<area shape="rect" id="node22" href="$classrc_similarator.html#aead2f039a73f47009eeccc0dd6aa6fd4" title="rcSimilarator::ssListFill" alt="" coords="419,115,573,143"/>
+<area shape="rect" id="node23" href="$classrc_similarator.html#abb5d4db114e266ceeeb73d754816573f" title="rcSimilarator::ssMatrixUpdate" alt="" coords="398,167,594,195"/>
+<area shape="rect" id="node4" href="$classrc_similarator.html#a839680b499153998724455ec37cd2b76" title="rcSimilarator::fill" alt="" coords="695,63,811,91"/>
+<area shape="rect" id="node5" href="$classrc_similarator.html#a16a57206645f9d03bbf6cc8ca1a878a2" title="rcSimilarator::internalFill" alt="" coords="671,115,835,143"/>
+<area shape="rect" id="node6" href="$classrc_similarator.html#a4d6823b49a2320b53a3b91d67a0395b9" title="rcSimilarator::fill" alt="" coords="949,117,1065,145"/>
+<area shape="rect" id="node7" href="$rc__kineticimage_8h.html#a74f16cb8db93e0991685b7e04ac2d18d" title="segPointByEnergy" alt="" coords="1182,5,1314,33"/>
+<area shape="rect" id="node8" href="$rc__kineticimage_8h.html#a37fdff5165799a39ff0e7807bf05a1a3" title="calcMusclePeriod" alt="" coords="1185,57,1311,85"/>
+<area shape="rect" id="node12" href="$classrc_muscle_segmenter.html#ab797a355a4e18e94b3e482fbbff932ea" title="rcMuscleSegmenter::\lgetEMI" alt="" coords="1174,109,1322,153"/>
+<area shape="rect" id="node15" href="$classrc_shape.html#a0c28cf660f43f60ce630345077ec6e7d" title="rcShape::projectMI" alt="" coords="1181,177,1315,205"/>
+<area shape="rect" id="node16" href="$batch__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1223,229,1273,257"/>
+<area shape="rect" id="node17" href="$classrc_engine_impl.html#afeacc2314f49f0c2ebda1adc29845367" title="rcEngineImpl::entropyTracker" alt="" coords="1150,282,1346,310"/>
+<area shape="rect" id="node9" href="$classrc_muscle_segmenter.html#a61c65559f55fd9fa632b96e09ef50b2e" title="rcMuscleSegmenter::\lgenFrequencySegmentation" alt="" coords="1410,45,1598,89"/>
+<area shape="rect" id="node10" href="$classrc_muscle_segmenter.html#a660d7b3d1c240efa0b725e0db65154e3" title="rcMuscleSegmenter::\lfilterByActivity" alt="" coords="1664,45,1811,89"/>
+<area shape="rect" id="node11" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1862,87,2055,115"/>
+<area shape="rect" id="node13" href="$classrc_muscle_segmenter.html#a248fccb8fc46afa10c1a0a0cb240e72a" title="rcMuscleSegmenter::\lgenSpatialSegmentation" alt="" coords="1421,113,1587,157"/>
+<area shape="rect" id="node14" href="$classrc_muscle_segmenter.html#a86d108c38d0bcb7a7eb47021b7ab0308" title="rcMuscleSegmenter::\lsegment" alt="" coords="1664,113,1811,157"/>
+<area shape="rect" id="node18" href="$classrc_engine_impl.html#a3ad6dbc54b2a53acae4d345ff14974ae" title="rcEngineImpl::analyzeFocusArea" alt="" coords="1396,307,1612,335"/>
+<area shape="rect" id="node19" href="$classrc_engine_impl.html#ae320706cbcafd64f219018b9842c8290" title="rcEngineImpl::analyze" alt="" coords="1661,307,1814,335"/>
+<area shape="rect" id="node20" href="$classrc_engine_impl.html#a507e034c1e43ae1dd6ec95a11ec0bb02" title="rcEngineImpl::process" alt="" coords="1882,281,2035,309"/>
+<area shape="rect" id="node21" href="$classrc_engine_analyzer.html#a064037f0ec3e68fcb11dabbcba790cdd" title="rcEngineAnalyzer::run" alt="" coords="1882,333,2035,361"/>
+<area shape="rect" id="node24" href="$classrc_similarator.html#a6ba1e7717ef2e6a262043e3e87fa25eb" title="rcSimilarator::internalUpdate" alt="" coords="658,167,848,195"/>
+<area shape="rect" id="node28" href="$rc__edge_8h.html#a11fbb1eb0376dd39a4be2ea72b7ef156" title="rfDirectionSignal" alt="" coords="436,287,556,315"/>
+<area shape="rect" id="node29" href="$rc__graphics_8h.html#a10bc6f7b7db72f7f9f90f3e7ab55fcf9" title="rfImageGradientToVisualSegment" alt="" coords="643,338,864,366"/>
+<area shape="rect" id="node30" href="$classrc_engine_impl.html#a7eec21aabd0c657881fc6eac91787480" title="rcEngineImpl::modelTracker" alt="" coords="913,334,1100,362"/>
+</map>

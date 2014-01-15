@@ -1,0 +1,8 @@
+<map id="rcModelDomain::operatingOnLiveInput" name="rcModelDomain::operatingOnLiveInput">
+<area shape="rect" id="node2" href="$classrc_control_panel.html#ae23fcd481d145da2b0460a7f6b04aed5" title="rcControlPanel::updateCursorTime" alt="" coords="232,83,459,111"/>
+<area shape="rect" id="node6" href="$classrc_control_panel.html#acc61e3dd8c4709619cdfe4de344ca770" title="rcControlPanel::updateElapsedTime" alt="" coords="506,5,742,33"/>
+<area shape="rect" id="node7" href="$classrc_control_panel.html#ad4e31bcaa048990450bb9dcf1d646bab" title="rcControlPanel::updateState" alt="" coords="251,161,440,189"/>
+<area shape="rect" id="node3" href="$classrc_control_panel.html#aa9afee306e1819f8cb45365384f08ca6" title="rcControlPanel::inputSource" alt="" coords="530,161,718,189"/>
+<area shape="rect" id="node4" href="$classrc_control_panel.html#a1d81139159e25744274b18bdc03d4948" title="rcControlPanel::rcControl\lPanel" alt="" coords="789,127,960,171"/>
+<area shape="rect" id="node5" href="$classrc_control_panel.html#aa7e44df1bde3fa091e12c704435a7d02" title="rcControlPanel::updateCursorTime" alt="" coords="511,57,737,85"/>
+</map>

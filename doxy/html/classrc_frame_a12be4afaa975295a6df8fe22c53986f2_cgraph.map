@@ -1,0 +1,6 @@
+<map id="rcFrame::operator()" name="rcFrame::operator()">
+<area shape="rect" id="node2" href="$classrc_frame.html#a6c9c6593266e6e6602270f314c108e49" title="rcFrame::getDoublePixel" alt="" coords="192,5,360,33"/>
+<area shape="rect" id="node3" href="$classrc_frame.html#afe29820f04ff401b75e23226cbec4c03" title="rcFrame::getPixel" alt="" coords="213,57,339,85"/>
+<area shape="rect" id="node4" href="$classrc_frame.html#ae52de398e02de893913cc956b824cc51" title="rcFrame::isD32Float" alt="" coords="205,109,347,137"/>
+<area shape="rect" id="node5" href="$classrc_frame.html#aaef8303c840834284eb9c60d33bf40c1" title="rcFrame::depth" alt="" coords="408,109,520,137"/>
+</map>

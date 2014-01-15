@@ -1,0 +1,24 @@
+<map id="erase_library" name="erase_library">
+<area shape="rect" id="node2" href="$file__system_8cpp.html#a62475ca973dfe0094c00d60286c7c286" title="create_filespec" alt="" coords="658,245,769,273"/>
+<area shape="rect" id="node4" href="$file__system_8cpp.html#a70caa80e7bc53b5f40266a0a985f5e09" title="file_exists" alt="" coords="161,410,241,438"/>
+<area shape="rect" id="node6" href="$file__system_8cpp.html#ad9c0d4149b33e9a3bba7e935fbf26d55" title="folder_delete" alt="" coords="152,307,251,335"/>
+<area shape="rect" id="node3" href="$file__system_8cpp.html#a99e06c76afffe1f1d77f01c905b1a5fd" title="is_separator" alt="" coords="837,245,931,273"/>
+<area shape="rect" id="node5" href="$file__system_8cpp.html#a896521b0391b7bcdd8057eaec72fa0a1" title="is_file" alt="" coords="686,417,741,445"/>
+<area shape="rect" id="node7" href="$file__system_8cpp.html#a9751085fce8efc932530308d53fd5d1d" title="file_delete" alt="" coords="508,426,590,454"/>
+<area shape="rect" id="node8" href="$file__system_8cpp.html#ac0d27eb5c79ca89e14cbd544ccb2865c" title="folder_down" alt="" coords="502,119,596,147"/>
+<area shape="rect" id="node16" href="$file__system_8cpp.html#aad7ae11400ad76e728db2b39f937db2f" title="folder_exists" alt="" coords="324,281,420,309"/>
+<area shape="rect" id="node18" href="$file__system_8cpp.html#a2b41af2772cbc6497287f08c2955bdaa" title="folder_files" alt="" coords="329,385,415,413"/>
+<area shape="rect" id="node23" href="$file__system_8cpp.html#af8031688a5fa78d97b6bb459a7217cf3" title="folder_subdirectories" alt="" coords="299,333,445,361"/>
+<area shape="rect" id="node9" href="$classfile__specification.html#a972bbb1a259f4c25b2e6eb72391ff60e" title="file_specification\l::add_subpath" alt="" coords="654,41,773,85"/>
+<area shape="rect" id="node10" href="$classfile__specification.html#a518bc2d13c74b0e00131c87fdd294f2b" title="file_specification\l::image" alt="" coords="654,109,773,153"/>
+<area shape="rect" id="node14" href="$classfile__specification.html#aefefc9da1b64f7ed66a436750a88ffa2" title="file_specification\l::initialise_folder" alt="" coords="654,177,773,221"/>
+<area shape="rect" id="node11" href="$classfile__specification.html#a5b8f1026354ff32bfc183da3f38f5ce7" title="file_specification\l::absolute" alt="" coords="824,5,944,49"/>
+<area shape="rect" id="node12" href="$classfile__specification.html#a18e9d7a9b9dd1214d09ab5e843ea7806" title="file_specification\l::relative" alt="" coords="995,61,1114,105"/>
+<area shape="rect" id="node13" href="$string__utilities_8hpp.html#a657118c43fe44a8454311075655ac9d4" title="vector_to_string" alt="" coords="826,73,942,101"/>
+<area shape="rect" id="node15" href="$classfile__specification.html#ab6e2c3cc492528550d2c4021d3a1c225" title="file_specification\l::path" alt="" coords="824,177,944,221"/>
+<area shape="rect" id="node17" href="$file__system_8cpp.html#a4bf41553eb34f21058b17faf699b5a4f" title="is_folder" alt="" coords="677,297,749,325"/>
+<area shape="rect" id="node19" href="$file__system_8cpp.html#a98cfc7b7a7288df295314c2fe9f31bc5" title="folder_wildcard" alt="" coords="494,345,605,373"/>
+<area shape="rect" id="node20" href="$string__utilities_8cpp.html#a9083169d662611e6a848ceae73bfff00" title="match_wildcard" alt="" coords="656,349,770,377"/>
+<area shape="rect" id="node21" href="$string__utilities_8cpp.html#add874a470a590a1c4a00898f447ac3d8" title="match_remainder" alt="" coords="821,349,947,377"/>
+<area shape="rect" id="node22" href="$string__utilities_8cpp.html#a5892db7121e88ced58311f4a3968331f" title="match_set" alt="" coords="1013,349,1096,377"/>
+</map>

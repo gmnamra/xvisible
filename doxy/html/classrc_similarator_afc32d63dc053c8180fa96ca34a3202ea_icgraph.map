@@ -1,0 +1,11 @@
+<map id="rcSimilarator::internalUpdate" name="rcSimilarator::internalUpdate">
+<area shape="rect" id="node2" href="$classrc_similarator.html#a778a5f9764b8b49df3ded912bafbfcaf" title="rcSimilarator::update" alt="" coords="245,57,390,85"/>
+<area shape="rect" id="node3" href="$rc__kineticimage_8h.html#a74f16cb8db93e0991685b7e04ac2d18d" title="segPointByEnergy" alt="" coords="445,5,576,33"/>
+<area shape="rect" id="node4" href="$rc__kineticimage_8h.html#a37fdff5165799a39ff0e7807bf05a1a3" title="calcMusclePeriod" alt="" coords="448,57,574,85"/>
+<area shape="rect" id="node8" href="$classrc_muscle_segmenter.html#ab797a355a4e18e94b3e482fbbff932ea" title="rcMuscleSegmenter::\lgetEMI" alt="" coords="437,110,584,154"/>
+<area shape="rect" id="node5" href="$classrc_muscle_segmenter.html#a61c65559f55fd9fa632b96e09ef50b2e" title="rcMuscleSegmenter::\lgenFrequencySegmentation" alt="" coords="632,46,821,90"/>
+<area shape="rect" id="node6" href="$classrc_muscle_segmenter.html#a660d7b3d1c240efa0b725e0db65154e3" title="rcMuscleSegmenter::\lfilterByActivity" alt="" coords="869,46,1016,90"/>
+<area shape="rect" id="node7" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1065,89,1258,117"/>
+<area shape="rect" id="node9" href="$classrc_muscle_segmenter.html#a248fccb8fc46afa10c1a0a0cb240e72a" title="rcMuscleSegmenter::\lgenSpatialSegmentation" alt="" coords="643,114,810,158"/>
+<area shape="rect" id="node10" href="$classrc_muscle_segmenter.html#a86d108c38d0bcb7a7eb47021b7ab0308" title="rcMuscleSegmenter::\lsegment" alt="" coords="869,114,1016,158"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="itext::operator!" name="itext::operator!">
+<area shape="rect" id="node2" href="$classitext.html#aa8c9f7d2395b32e16207a2022ff2b743" title="itext::good" alt="" coords="160,83,243,111"/>
+<area shape="rect" id="node3" href="$classitext.html#a0ee8b28beefefede4d6a567cb9325f34" title="itext::eof" alt="" coords="296,57,368,85"/>
+<area shape="rect" id="node7" href="$classitext.html#aee164877ef63f52cd3e3953f4f46b30d" title="itext::error" alt="" coords="291,109,373,137"/>
+<area shape="rect" id="node4" href="$classitext.html#a38bd74dce665f9902b0be3ebc89fa236" title="itext::peek" alt="" coords="447,57,529,85"/>
+<area shape="rect" id="node5" href="$classibuff.html#af83bd07bbed7b837d08c8bafdfbd3e87" title="ibuff::peek" alt="" coords="632,5,715,33"/>
+<area shape="rect" id="node6" href="$classibuff.html#a34316b72de5ddac433ef6d29d7c00eb4" title="ibuff::newline_mode" alt="" coords="603,57,743,85"/>
+<area shape="rect" id="node8" href="$classitext.html#aab78eb8e393603e937837202c4c2512f" title="itext::error_number" alt="" coords="421,109,555,137"/>
+<area shape="rect" id="node9" href="$classibuff.html#a05db40e2f442d8b7d4b0ee6b7450a054" title="ibuff::error_number" alt="" coords="606,109,741,137"/>
+</map>

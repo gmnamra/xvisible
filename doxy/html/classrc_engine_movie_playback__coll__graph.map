@@ -1,0 +1,46 @@
+<map id="rcEngineMoviePlayback" name="rcEngineMoviePlayback">
+<area shape="rect" id="node7" href="$classrc_engine_impl.html" title="rcEngineImpl" alt="" coords="1893,994,1992,1022"/>
+<area shape="rect" id="node2" href="$classrc_runnable.html" title="rcRunnable" alt="" coords="6,195,95,223"/>
+<area shape="rect" id="node21" href="$classrc_engine_analyzer.html" title="rcEngineAnalyzer" alt="" coords="2152,923,2278,951"/>
+<area shape="rect" id="node28" href="$classrc_thread.html" title="rcThread" alt="" coords="469,194,544,222"/>
+<area shape="rect" id="node29" href="$structrc_thread_1_1state__t.html" title="rcThread::state_t" alt="" coords="214,225,336,253"/>
+<area shape="rect" id="node41" href="$classrc_engine_importer.html" title="rcEngineImporter" alt="" coords="2153,1063,2276,1091"/>
+<area shape="rect" id="node48" href="$classrc_engine_movie_capture.html" title="rcEngineMovieCapture" alt="" coords="2136,219,2293,247"/>
+<area shape="rect" id="node3" href="$classrc_timestamp.html" title="rcTimestamp" alt="" coords="1143,1165,1241,1193"/>
+<area shape="rect" id="node18" href="$classrc_fps_calculator.html" title="rcFpsCalculator" alt="" coords="1497,1253,1612,1281"/>
+<area shape="rect" id="node35" href="$classrc_engine_progress.html" title="rcEngineProgress" alt="" coords="1491,1201,1618,1229"/>
+<area shape="rect" id="node4" href="$classrc_movie_playback_ctrl_reader.html" title="rcMoviePlaybackCtrlReader" alt="" coords="1099,1349,1285,1377"/>
+<area shape="rect" id="node44" href="$classrc_movie_playback_ctrl.html" title="rcMoviePlaybackCtrl" alt="" coords="1483,1305,1626,1333"/>
+<area shape="rect" id="node5" href="$classrc_atomic_value.html" title="rcAtomicValue\&lt; int \&gt;" alt="" coords="751,1349,894,1377"/>
+<area shape="rect" id="node8" href="$classrc_engine.html" title="rcEngine" alt="" coords="1155,1429,1229,1457"/>
+<area shape="rect" id="node9" href="$classrc_setting_source.html" title="rcSettingSource" alt="" coords="1497,1409,1613,1437"/>
+<area shape="rect" id="node10" href="$classrc_carbon_lock.html" title="rcCarbonLock" alt="" coords="1502,1461,1607,1489"/>
+<area shape="rect" id="node11" href="$classrc_atomic_value.html" title="rcAtomicValue\&lt; bool \&gt;" alt="" coords="1477,1513,1632,1541"/>
+<area shape="rect" id="node13" href="$classrc_movie_save_ctrl.html" title="rcMovieSaveCtrl" alt="" coords="1495,573,1614,601"/>
+<area shape="rect" id="node14" href="$classrc_movie_save_ctrl_reader.html" title="rcMovieSaveCtrlReader" alt="" coords="1111,573,1273,601"/>
+<area shape="rect" id="node15" href="$classrc_mutex.html" title="rcMutex" alt="" coords="472,669,541,697"/>
+<area shape="rect" id="node45" href="$classrc_video_cache.html" title="rcVideoCache" alt="" coords="1140,851,1244,879"/>
+<area shape="rect" id="node46" href="$classrc_video_cache_1_1rc_video_cache_prefetch_unit.html" title="rcVideoCache::rcVideoCache\lPrefetchUnit" alt="" coords="725,697,921,741"/>
+<area shape="rect" id="node47" href="$classrc_signal_pending.html" title="rcSignalPending" alt="" coords="763,765,882,793"/>
+<area shape="rect" id="node16" href="$classrc_writer_manager.html" title="rcWriterManager" alt="" coords="1494,898,1615,926"/>
+<area shape="rect" id="node17" href="$classrc_engine_observer.html" title="rcEngineObserver" alt="" coords="1128,795,1256,823"/>
+<area shape="rect" id="node19" href="$classrc_pair.html" title="rcPair\&lt; int32 \&gt;" alt="" coords="453,1663,561,1691"/>
+<area shape="rect" id="node25" href="$classrc_rectangle.html" title="rcIRect" alt="" coords="791,1663,854,1691"/>
+<area shape="rect" id="node31" href="$classrc_affine_rectangle.html" title="rcAffineRectangle" alt="" coords="759,1565,886,1593"/>
+<area shape="rect" id="node22" href="$classrc_atomic_value.html" title="rcAtomicValue\&lt; rcEngineState \&gt;" alt="" coords="1448,1790,1661,1818"/>
+<area shape="rect" id="node24" href="$classrc_rect.html" title="rcRect" alt="" coords="1162,1662,1222,1690"/>
+<area shape="rect" id="node42" href="$classrc_window.html" title="rcWindow" alt="" coords="1515,1681,1595,1709"/>
+<area shape="rect" id="node26" href="$classrc_atomic_value.html" title="rcAtomicValue\&lt; rcEngineFocus\lData * \&gt;" alt="" coords="1451,401,1658,445"/>
+<area shape="rect" id="node30" href="$classrc_scalar_writer.html" title="rcScalarWriter" alt="" coords="1502,469,1607,497"/>
+<area shape="rect" id="node32" href="$classrc2_xform.html" title="rc2Xform" alt="" coords="469,1494,544,1522"/>
+<area shape="rect" id="node33" href="$classrc2d_vector.html" title="rc2dVector\&lt; double \&gt;" alt="" coords="201,1537,349,1565"/>
+<area shape="rect" id="node34" href="$classrc_writer_group.html" title="rcWriterGroup" alt="" coords="1502,521,1607,549"/>
+<area shape="rect" id="node36" href="$classrc_progress_indicator.html" title="rcProgressIndicator" alt="" coords="754,914,891,942"/>
+<area shape="rect" id="node37" href="$classrc_atomic_value.html" title="rcAtomicValue\&lt; rcVideoWriter * \&gt;" alt="" coords="1445,625,1664,653"/>
+<area shape="rect" id="node38" href="$classrc_graphics_writer.html" title="rcGraphicsWriter" alt="" coords="1494,677,1615,705"/>
+<area shape="rect" id="node39" href="$classrc_polygon_group_ref.html" title="rcPolygonGroupRef" alt="" coords="1485,781,1624,809"/>
+<area shape="rect" id="node40" href="$classrc_movie_file_org_ext.html" title="rcMovieFileOrgExt" alt="" coords="1489,1015,1620,1043"/>
+<area shape="rect" id="node43" href="$classrc_video_capture_ctrl.html" title="rcVideoCaptureCtrl" alt="" coords="1487,297,1622,325"/>
+<area shape="rect" id="node49" href="$classrc_movie_playback_status.html" title="rcMoviePlaybackStatus" alt="" coords="1112,1049,1272,1077"/>
+<area shape="rect" id="node50" href="$classrc_movie_playback_status_reader.html" title="rcMoviePlaybackStatusReader" alt="" coords="721,1049,924,1077"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="rcImageCanvasGL::getTrackValue" name="rcImageCanvasGL::getTrackValue">
+<area shape="rect" id="node2" href="$classrc_segment_iterator.html#aad34d9a3613ec272be5261a60e30e3c8" title="rcSegmentIterator::\lcontains" alt="" coords="283,5,418,49"/>
+<area shape="rect" id="node3" href="$classrc_scalar_track.html#a94160e536f1bbd6e9550f1b55f37cc4c" title="rcScalarTrack::getDataSegment\lIterator" alt="" coords="245,73,456,117"/>
+<area shape="rect" id="node4" href="$classrc_position_track.html#a32c598e7afb72e22422dcccbf5383b53" title="rcPositionTrack::getData\lSegmentIterator" alt="" coords="267,141,434,185"/>
+<area shape="rect" id="node5" href="$classrc_track.html#aa92c4dfed7e9cdfe07f52769061086be" title="rcTrack::getTrackType" alt="" coords="274,209,427,237"/>
+<area shape="rect" id="node6" href="$classrc_scalar_segment_iterator.html#aa005157044805aae90080492260757d6" title="rcScalarSegmentIterator\l::getValue" alt="" coords="268,261,434,305"/>
+<area shape="rect" id="node7" href="$classrc_position_segment_iterator.html#ac067566618c063de9cdced9c25d227bf" title="rcPositionSegmentIterator\l::getValue" alt="" coords="263,329,438,373"/>
+</map>

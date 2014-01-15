@@ -1,0 +1,6 @@
+<map id="rcCreateChildShmem::rcCreateChildShmem" name="rcCreateChildShmem::rcCreateChildShmem">
+<area shape="rect" id="node2" href="$rc__resource__ctrl_8cpp.html#a8ff77bb0f9264d1244aefb6d29b169c2" title="rcResCtrlWatchdog" alt="" coords="210,73,347,101"/>
+<area shape="rect" id="node3" href="$classrc_shared_memory_user.html#a0ad284121c6fc0b879b7979fc05c50cb" title="rcSharedMemoryUser\l::forceRelease" alt="" coords="401,5,553,49"/>
+<area shape="rect" id="node4" href="$classrc_atomic_value.html#a8b62cd136f31322300507fbe894e6b70" title="rcAtomicValue::getValue" alt="" coords="395,73,560,101"/>
+<area shape="rect" id="node5" href="$classrc_atomic_value.html#ae2089dca17b80f3395dcee01d91c8585" title="rcAtomicValue::setValue" alt="" coords="395,125,560,153"/>
+</map>

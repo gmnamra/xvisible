@@ -1,0 +1,9 @@
+<map id="rcFileChoiceSettingWidget::multiFileBrowse" name="rcFileChoiceSettingWidget::multiFileBrowse">
+<area shape="rect" id="node2" href="$classrc_persistence_manager.html#a9a83e177acde964e334550592787b913" title="rcPersistenceManager\l::fileFormatImportCaption" alt="" coords="258,5,430,49"/>
+<area shape="rect" id="node3" href="$classrc_persistence_manager.html#a9449b59fa9f3773c3b2ed29e708b7480" title="rcPersistenceManager\l::fileFormatImportFilter" alt="" coords="266,73,422,117"/>
+<area shape="rect" id="node4" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="233,141,455,169"/>
+<area shape="rect" id="node5" href="$classrc_persistence_manager_factory.html#ab45216ea21c13d548a0afc8825287c8d" title="rcPersistenceManagerFactory\l::getPersistenceManager" alt="" coords="244,193,444,237"/>
+<area shape="rect" id="node6" href="$classrc_model_domain.html#a964f8cb50c816a0826dbbbc60bb78006" title="rcModelDomain::notifySetting\lChange" alt="" coords="246,261,442,305"/>
+<area shape="rect" id="node8" href="$classrc_setting_info.html#a56e4a99afd7b35b9ac8bfcb853dcdc4d" title="rcSettingInfo::setValue" alt="" coords="267,329,421,357"/>
+<area shape="rect" id="node7" href="$classrc_model_domain.html#af20f3010314a2ddf0ec3b3aa82f466b5" title="rcModelDomain::updateSettings" alt="" coords="504,269,715,297"/>
+</map>

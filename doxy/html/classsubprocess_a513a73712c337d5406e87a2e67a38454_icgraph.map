@@ -1,0 +1,10 @@
+<map id="subprocess::close_stdout" name="subprocess::close_stdout">
+<area shape="rect" id="node2" href="$classsubprocess.html#a9e2c0f10c8fd3ec2a4b37f4ae7b19f0d" title="subprocess::kill" alt="" coords="254,45,367,73"/>
+<area shape="rect" id="node3" href="$classsubprocess.html#ab0dbac0795d8f5c5c84bceaaf339b937" title="subprocess::~subprocess" alt="" coords="443,5,616,33"/>
+<area shape="rect" id="node4" href="$classsubprocess.html#abf44f57a3afc7798ea7bc78aa6397f5d" title="subprocess::spawn" alt="" coords="462,67,597,95"/>
+<area shape="rect" id="node8" href="$classsubprocess.html#ac0092c704d9c53ee07b57ac649e863d4" title="subprocess::read_stdout" alt="" coords="227,149,394,177"/>
+<area shape="rect" id="node5" href="$classsubprocess.html#aca31f4a811773426d2feaa9a7ff5ca55" title="subprocess::spawn" alt="" coords="670,37,805,65"/>
+<area shape="rect" id="node6" href="$classbacktick__subprocess.html#a76d93b38c570d15deefe7c56896ee430" title="backtick_subprocess\l::spawn" alt="" coords="665,89,810,133"/>
+<area shape="rect" id="node7" href="$subprocesses_8hpp.html#a0c0f0f6762546636e0a6dc1185f3e66d" title="backtick" alt="" coords="859,97,928,125"/>
+<area shape="rect" id="node9" href="$classbacktick__subprocess.html#a52cf56592ab0f1cb20e0cb9e88c4b0f3" title="backtick_subprocess\l::callback" alt="" coords="457,141,602,185"/>
+</map>

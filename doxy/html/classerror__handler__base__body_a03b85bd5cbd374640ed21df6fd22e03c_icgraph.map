@@ -1,0 +1,5 @@
+<map id="error_handler_base_body::pop_context" name="error_handler_base_body::pop_context">
+<area shape="rect" id="node2" href="$classerror__handler__base.html#a9d683d01ffdc266c4c9df3b651c22c95" title="error_handler_base\l::pop_context" alt="" coords="192,5,330,49"/>
+<area shape="rect" id="node3" href="$classerror__context__body.html#a9183a12bc929597bbeb075790b73475d" title="error_context_body::pop" alt="" coords="378,13,544,41"/>
+<area shape="rect" id="node4" href="$classerror__context__body.html#af942cf79f5c5e92c191b4897d4f56fdc" title="error_context_body\l::~error_context_body" alt="" coords="592,5,744,49"/>
+</map>

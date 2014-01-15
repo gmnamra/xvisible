@@ -1,0 +1,8 @@
+<map id="rfPixel8Map" name="rfPixel8Map">
+<area shape="rect" id="node2" href="$classrc_segmentation_level.html#a354228ed0f1b076ea2de147541143462" title="rcSegmentationLevel\l::binaryImage" alt="" coords="149,5,296,49"/>
+<area shape="rect" id="node3" href="$rc__ip_8h.html#a96d1ade51e0f61413e07fabc7e78d024" title="rfHysteresisThreshold" alt="" coords="147,73,298,101"/>
+<area shape="rect" id="node5" href="$rc__ip_8h.html#a4264d326b3efb93742ccb22d545e8ed2" title="rfPixel8Invert" alt="" coords="173,125,272,153"/>
+<area shape="rect" id="node6" href="$classrc_muscle_segmenter.html#a86d108c38d0bcb7a7eb47021b7ab0308" title="rcMuscleSegmenter::\lsegment" alt="" coords="149,177,296,221"/>
+<area shape="rect" id="node4" href="$classrc_spatial_pyramid_3_012_01_4.html#a4881bd9d7906dbdd00d92ab0a735cfbd" title="rcSpatialPyramid\&lt; 2\l \&gt;::gradientProcess" alt="" coords="373,65,515,109"/>
+<area shape="rect" id="node7" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="347,185,541,213"/>
+</map>

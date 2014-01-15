@@ -1,0 +1,17 @@
+<map id="rcModelDomain::getCursorTime" name="rcModelDomain::getCursorTime">
+<area shape="rect" id="node2" href="$classrc_image_canvas_g_l.html#ac8b4aa9f1a730692eb00c7a096a1a751" title="rcImageCanvasGL::findCell\lPositionTracks" alt="" coords="264,102,448,146"/>
+<area shape="rect" id="node9" href="$classrc_image_canvas_g_l.html#a81111b0e59530e373e19cc01144c0347" title="rcImageCanvasGL::getTool\lTipText" alt="" coords="787,143,970,187"/>
+<area shape="rect" id="node11" href="$classrc_cell_info_widget.html#af3ba83828e1b40f7910dae02fccf0856" title="rcCellInfoWidget::update\lTrackDisplay" alt="" coords="272,306,440,350"/>
+<area shape="rect" id="node3" href="$classrc_image_canvas_g_l.html#a85e0b816bc87a7c933361451e7768810" title="rcImageCanvasGL::enableCell\lGroup" alt="" coords="497,34,700,78"/>
+<area shape="rect" id="node8" href="$classrc_image_canvas_g_l.html#a20505dcee342d0b1a7a3e357f524d9ff" title="rcImageCanvasGL::findClosest\lCellGroup" alt="" coords="496,102,702,146"/>
+<area shape="rect" id="node4" href="$classrc_image_canvas_g_l.html#acb25a27713e20842e6bb0a741570480b" title="rcImageCanvasGL::mouseRelease\lEvent" alt="" coords="764,5,993,49"/>
+<area shape="rect" id="node5" href="$classrc_image_canvas_g_l.html#a99a6568df0e15227de9062331e1f2e0b" title="rcImageCanvasGL::updateAnalysisRect" alt="" coords="750,73,1008,101"/>
+<area shape="rect" id="node6" href="$classrc_monitor.html#ae24f91aee12ee35053a43b405b0fd35c" title="rcMonitor::updateAnalysisRect" alt="" coords="1062,73,1264,101"/>
+<area shape="rect" id="node7" href="$classrc_monitor.html#ac08d61628243cd2d0bf2f6388f42995b" title="rcMonitor::rcMonitor" alt="" coords="1318,73,1458,101"/>
+<area shape="rect" id="node10" href="$classrc_image_canvas_g_l.html#ab57b93a733a4e2b8703a4ee083d46737" title="rcImageCanvasGL::mouseMove\lEvent" alt="" coords="1056,143,1269,187"/>
+<area shape="rect" id="node12" href="$classrc_cell_info_widget.html#a1f6ca3dce158e7b1fd77aa3e368a2bbd" title="rcCellInfoWidget::rcCell\lInfoWidget" alt="" coords="798,341,959,385"/>
+<area shape="rect" id="node13" href="$classrc_cell_info_widget.html#acb54df6aabcb3b443e9cfbcd11a02299" title="rcCellInfoWidget::update\lCursorTime" alt="" coords="515,273,682,317"/>
+<area shape="rect" id="node14" href="$classrc_cell_info_widget.html#a935c8f915acec7499796f0fe97cf65b3" title="rcCellInfoWidget::update\lDisplay" alt="" coords="515,341,682,385"/>
+<area shape="rect" id="node15" href="$classrc_cell_info_widget.html#a115752df3a9548b03a677da31c2889af" title="rcCellInfoWidget::update\lSettings" alt="" coords="515,409,682,453"/>
+<area shape="rect" id="node16" href="$classrc_cell_info_widget.html#a0a5863573fc489b2d340b7c1788ceea0" title="rcCellInfoWidget::update\lState" alt="" coords="515,477,682,521"/>
+</map>

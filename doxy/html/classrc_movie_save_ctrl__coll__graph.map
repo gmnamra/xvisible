@@ -1,0 +1,5 @@
+<map id="rcMovieSaveCtrl" name="rcMovieSaveCtrl">
+<area shape="rect" id="node2" href="$classrc_movie_save_ctrl_reader.html" title="rcMovieSaveCtrlReader" alt="" coords="100,195,263,223"/>
+<area shape="rect" id="node3" href="$classrc_atomic_value.html" title="rcAtomicValue\&lt; uint32 \&gt;" alt="" coords="5,86,171,114"/>
+<area shape="rect" id="node5" href="$classrc_mutex.html" title="rcMutex" alt="" coords="240,86,308,114"/>
+</map>

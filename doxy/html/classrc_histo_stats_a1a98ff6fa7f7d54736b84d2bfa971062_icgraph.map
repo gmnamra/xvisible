@@ -1,0 +1,44 @@
+<map id="rcHistoStats::max" name="rcHistoStats::max">
+<area shape="rect" id="node2" href="$rc__histstats_8cpp.html#a20781c42cc4b2634205ea18d1528fd58" title="operator\&lt;\&lt;" alt="" coords="227,306,314,334"/>
+<area shape="rect" id="node3" href="$rc__ipconvert_8h.html#a5bb0ea6706c0b53a3029f75a9167f673" title="Convert 16 bit images to 8 bit ones." alt="" coords="203,358,338,386"/>
+<area shape="rect" id="node43" href="$classrc_histo_stats.html#a0796281bfce532c7dde1e5ffeb09c3e5" title="rcHistoStats::stretchMapUs" alt="" coords="179,410,362,438"/>
+<area shape="rect" id="node4" href="$classrc_gen_movie_file.html#a635b3a3f2bdcc0c9ef87d176cbacc98c" title="rcGenMovieFile::addFrame" alt="" coords="411,331,594,359"/>
+<area shape="rect" id="node21" href="$bcnvrt__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="994,5,1044,33"/>
+<area shape="rect" id="node24" href="$rc__imagecanvasgl_8cpp.html#aa7155cb8881aa8e9053fe8144e5f48a3" title="Copies analysis images with appropriate depth for display in OpenGL." alt="" coords="459,383,546,411"/>
+<area shape="rect" id="node42" href="$rc__ipconvert_8h.html#ae67e012f1c60ae3a1c807b4e811b40b1" title="rfImageConvert168" alt="" coords="435,435,570,463"/>
+<area shape="rect" id="node5" href="$classrc_gen_movie_file.html#ae0b7e770db0bc9c3e81de68fa5d798ee" title="rcGenMovieFile::addFrame" alt="" coords="663,141,846,169"/>
+<area shape="rect" id="node6" href="$classrc_muscle_segmenter.html#aa7848f0983d310e89e54fe027fef33d8" title="rcMuscleSegmenter::\ldebugWrite" alt="" coords="681,294,828,338"/>
+<area shape="rect" id="node15" href="$rc__movie__generator__main_8cpp.html#a5550a91ae12b5e67dfd875fc254297c7" title="generateExpansionMovie" alt="" coords="669,414,841,442"/>
+<area shape="rect" id="node17" href="$rc__movie__generator__main_8cpp.html#a92109472abf27accd174041f883f63f4" title="generateRandomMovie" alt="" coords="675,466,835,494"/>
+<area shape="rect" id="node18" href="$rc__movie__generator__main_8cpp.html#a985cd5fa3dfb30e1cd9fbc88bb733ed1" title="generateTinyMovie" alt="" coords="688,518,822,546"/>
+<area shape="rect" id="node19" href="$rc__movie__generator__main_8cpp.html#a962307a7d6fb769d8a773be64259653b" title="generateTranslationMovie" alt="" coords="667,362,842,390"/>
+<area shape="rect" id="node20" href="$classrc_m_p_e_g2_grabber.html#a25eb38ba2908388ab5ee43a5a90d3f79" title="rcMPEG2Grabber::getReify\lMovie" alt="" coords="662,193,847,237"/>
+<area shape="rect" id="node7" href="$classrc_muscle_segmenter.html#a61c65559f55fd9fa632b96e09ef50b2e" title="rcMuscleSegmenter::\lgenFrequencySegmentation" alt="" coords="924,297,1113,341"/>
+<area shape="rect" id="node8" href="$classrc_muscle_segmenter.html#a660d7b3d1c240efa0b725e0db65154e3" title="rcMuscleSegmenter::\lfilterByActivity" alt="" coords="1188,297,1335,341"/>
+<area shape="rect" id="node10" href="$classrc_muscle_segmenter.html#a86d108c38d0bcb7a7eb47021b7ab0308" title="rcMuscleSegmenter::\lsegment" alt="" coords="1188,367,1335,411"/>
+<area shape="rect" id="node11" href="$classrc_muscle_segmenter.html#a2e698fffa047b8425fae1f0eb2fbd577" title="rcMuscleSegmenter::\lfilterBySize" alt="" coords="1188,439,1335,483"/>
+<area shape="rect" id="node12" href="$classrc_muscle_segmenter.html#aebc8461787ceeb574bd03fd36ed00dc2" title="rcMuscleSegmenter::\lfilterByAR" alt="" coords="1188,111,1335,155"/>
+<area shape="rect" id="node13" href="$classrc_muscle_segmenter.html#a7aca1928bc153b5d7ed946967af48cd6" title="rcMuscleSegmenter::\lfilterAtEdge" alt="" coords="945,161,1092,205"/>
+<area shape="rect" id="node14" href="$classrc_muscle_segmenter.html#a0071b46925605142d7147eb8a270d266" title="rcMuscleSegmenter::\lgetCells" alt="" coords="945,229,1092,273"/>
+<area shape="rect" id="node9" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1401,271,1594,299"/>
+<area shape="rect" id="node16" href="$rc__movie__generator__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="994,518,1044,546"/>
+<area shape="rect" id="node22" href="$visimatch_8cpp.html#ae0d7b28519100e4a3b9ee193dbfb41ae" title="genRFYmov" alt="" coords="971,57,1066,85"/>
+<area shape="rect" id="node23" href="$visimatch_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1236,57,1286,85"/>
+<area shape="rect" id="node25" href="$classrc_image_canvas_g_l.html#a5600b09bad68cb3fd92163ea7868192a" title="rcImageCanvasGL::loadrcWindow" alt="" coords="643,570,866,598"/>
+<area shape="rect" id="node26" href="$classrc_monitor.html#a1a030f1c963f968121298bea1fa60321" title="rcMonitor::updateCachedImage" alt="" coords="915,651,1123,679"/>
+<area shape="rect" id="node39" href="$classrc_monitor.html#afffe9ccd7658e601b29f9e054affdbb9" title="rcMonitor::deleteCachedImage" alt="" coords="917,570,1120,598"/>
+<area shape="rect" id="node27" href="$classrc_monitor.html#a127ffb18fd0cc155f5b9d73d76be92b8" title="rcMonitor::updateDisplay" alt="" coords="1177,619,1346,647"/>
+<area shape="rect" id="node28" href="$classrc_monitor.html#ace4a868b4792dd9865f2cbd13fac9199" title="rcMonitor::displayTrackFocus" alt="" coords="1400,723,1595,751"/>
+<area shape="rect" id="node38" href="$classrc_monitor.html#af50b9bec8be3cb25d58629ea722088dc" title="rcMonitor::paintVideoTrack\lFocus" alt="" coords="1171,671,1351,715"/>
+<area shape="rect" id="node29" href="$classrc_monitor.html#a191fd1af79d5f43582d88755419429ac" title="rcMonitor::internalUpdate\lDisplay" alt="" coords="1642,715,1814,759"/>
+<area shape="rect" id="node30" href="$classrc_monitor.html#ad8a4152cd70dd9aae4ad045378e26f06" title="rcMonitor::updateCursorTime" alt="" coords="1866,619,2060,647"/>
+<area shape="rect" id="node32" href="$classrc_monitor.html#ac9231e871ef28821ed1b762eaeca7cfb" title="rcMonitor::updateDisplay" alt="" coords="1878,671,2047,699"/>
+<area shape="rect" id="node33" href="$classrc_monitor.html#ae24f91aee12ee35053a43b405b0fd35c" title="rcMonitor::updateAnalysisRect" alt="" coords="1862,723,2064,751"/>
+<area shape="rect" id="node34" href="$classrc_monitor.html#a6d7baed800c04560ee01809b016de702" title="rcMonitor::updateAnalysis\lRectRotation" alt="" coords="1875,775,2050,819"/>
+<area shape="rect" id="node35" href="$classrc_monitor.html#a86955f05aa2947844ad5d2c924f0558f" title="rcMonitor::updateScale" alt="" coords="1883,843,2042,871"/>
+<area shape="rect" id="node36" href="$classrc_monitor.html#ad85bf9190c2c9332d24d2ee2dd4c1acf" title="rcMonitor::settingChanged" alt="" coords="1874,895,2052,923"/>
+<area shape="rect" id="node37" href="$classrc_monitor.html#a365544a05e4cd905f6b9025ccb483117" title="rcMonitor::paintEvent" alt="" coords="1889,567,2036,595"/>
+<area shape="rect" id="node31" href="$classrc_monitor.html#ac08d61628243cd2d0bf2f6388f42995b" title="rcMonitor::rcMonitor" alt="" coords="2113,723,2253,751"/>
+<area shape="rect" id="node40" href="$classrc_monitor.html#a4c6327c49d85de27acaba468c72b67d2" title="rcMonitor::~rcMonitor" alt="" coords="1188,567,1335,595"/>
+<area shape="rect" id="node41" href="$classrc_monitor.html#ab6e8c725da9df124ce56d3a8693bc6b6" title="rcMonitor::updateState" alt="" coords="1650,515,1806,543"/>
+</map>

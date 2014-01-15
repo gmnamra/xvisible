@@ -1,0 +1,8 @@
+<map id="TCP_client_data::close" name="TCP_client_data::close">
+<area shape="rect" id="node2" href="$class_t_c_p__client.html#abbd73f1afc63aa8900aec546b3a0f308" title="TCP_client::close" alt="" coords="244,5,369,33"/>
+<area shape="rect" id="node3" href="$class_t_c_p__client__data.html#ab387413f41d44ede03e6d823b53ad68a" title="TCP_client_data::initialise" alt="" coords="219,57,394,85"/>
+<area shape="rect" id="node6" href="$class_t_c_p__client__data.html#ada80f3134cf932c27ab175e2bf3a5b60" title="TCP_client_data::operator=" alt="" coords="214,109,399,137"/>
+<area shape="rect" id="node7" href="$class_t_c_p__client__data.html#abd7d9de83daa548827556dd5a3ec0ec3" title="TCP_client_data::~TCP\l_client_data" alt="" coords="226,161,388,205"/>
+<area shape="rect" id="node4" href="$class_t_c_p__client.html#ac05952b87a054b90890f02268f08c118" title="TCP_client::initialise" alt="" coords="448,57,589,85"/>
+<area shape="rect" id="node5" href="$class_t_c_p__client.html#a7059bb9cf4b13aa63f85f8d1089432c7" title="TCP_client::TCP_client" alt="" coords="638,57,797,85"/>
+</map>

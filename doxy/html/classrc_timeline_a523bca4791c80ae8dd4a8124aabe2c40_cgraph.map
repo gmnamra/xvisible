@@ -1,0 +1,12 @@
+<map id="rcTimeline::mouseReleaseEvent" name="rcTimeline::mouseReleaseEvent">
+<area shape="rect" id="node2" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="505,5,727,33"/>
+<area shape="rect" id="node3" href="$classrc_timeline.html#a8c8dec2479c11805ff16e1d4145d94f1" title="rcTimeline::inputIsCamera" alt="" coords="256,57,432,85"/>
+<area shape="rect" id="node6" href="$classrc_modifier_keys.html#a8ecf9ab62bae54e3611bd43035de9264" title="rcModifierKeys::isCtrlDown" alt="" coords="253,109,435,137"/>
+<area shape="rect" id="node7" href="$classrc_modifier_keys.html#a46780af38d85c5efb97583a2ec88d47f" title="rcModifierKeys::isShiftDown" alt="" coords="250,161,438,189"/>
+<area shape="rect" id="node8" href="$classrc_model_domain.html#a3ed65018986b80d4feb889d644611a71" title="rcModelDomain::notifyCursorTime" alt="" coords="232,213,456,241"/>
+<area shape="rect" id="node11" href="$classrc_timeline.html#a1cfad544bb17958f1169a30cd0e56da2" title="rcTimeline::scaleClicked" alt="" coords="262,265,426,293"/>
+<area shape="rect" id="node4" href="$classrc_model_domain.html#aa43d293533bcf88d4fff6846aa52d1d3" title="rcModelDomain::getExperiment\lAttributes" alt="" coords="512,57,720,101"/>
+<area shape="rect" id="node5" href="$classrc_experiment_domain.html#a6abeb9bb031e7bf26116f5cb914e2a56" title="rcExperimentDomain\l::getExperimentAttributes" alt="" coords="776,57,947,101"/>
+<area shape="rect" id="node9" href="$classrc_model_domain.html#afceb24d9439fa6651f7aed6910de5926" title="rcModelDomain::cursorTime" alt="" coords="522,182,710,210"/>
+<area shape="rect" id="node10" href="$classrc_experiment_domain.html#a9d0bba5049dad6fe414c4f478e94587a" title="rcExperimentDomain\l::notifyCursorTime" alt="" coords="543,234,689,278"/>
+</map>

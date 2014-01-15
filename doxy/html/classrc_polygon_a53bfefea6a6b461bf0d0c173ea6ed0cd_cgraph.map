@@ -1,0 +1,19 @@
+<map id="rcPolygon::segmentInter" name="rcPolygon::segmentInter">
+<area shape="rect" id="node2" href="$textio_8cpp.html#a905a4c61e365d406069f00eb68db1ca5" title="endl" alt="" coords="471,135,518,163"/>
+<area shape="rect" id="node14" href="$classrc_polygon.html#a72dba2cd405394fb016f48e8ea8ed87b" title="rcPolygon::parallelInter" alt="" coords="218,239,376,267"/>
+<area shape="rect" id="node16" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="613,239,712,267"/>
+<area shape="rect" id="node17" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="613,291,712,319"/>
+<area shape="rect" id="node3" href="$classotext.html#a5086c0fd5e3f551eae3027e5d23d3c30" title="otext::put" alt="" coords="625,135,701,163"/>
+<area shape="rect" id="node4" href="$classotext.html#ab52b059090ba70eeeac469f9051d3a22" title="otext::flush" alt="" coords="789,5,875,33"/>
+<area shape="rect" id="node6" href="$classobuff.html#a069bcd2767c0d7c8e2bc8cd26d91e267" title="obuff::increment" alt="" coords="774,57,890,85"/>
+<area shape="rect" id="node7" href="$classobuff.html#a51efd4e8e00303842fa762940aad86ec" title="obuff::line_buffer" alt="" coords="772,109,892,137"/>
+<area shape="rect" id="node8" href="$classobuff.html#a0711113beee11f9793f5ba9e8e64c641" title="obuff::newline_mode" alt="" coords="760,161,904,189"/>
+<area shape="rect" id="node9" href="$classobuff.html#a5bbb61ac15c672da7f7b2002bef6b128" title="obuff::put" alt="" coords="794,213,870,241"/>
+<area shape="rect" id="node10" href="$classotext.html#a2a2435d80cce60cb88360c7bfe3f8445" title="otext::set_error" alt="" coords="776,265,888,293"/>
+<area shape="rect" id="node5" href="$classobuff.html#a8fb8969c450f4fdc037f8c51d35c87c7" title="obuff::flush" alt="" coords="965,5,1051,33"/>
+<area shape="rect" id="node11" href="$classobuff.html#ae388e9608d1c873d1feaf621f4044c25" title="obuff::set_error" alt="" coords="952,265,1064,293"/>
+<area shape="rect" id="node12" href="$class_t_c_p__client__data.html#a970f6bf6bb6e6166615813c5f7768381" title="TCP_client_data::error" alt="" coords="1113,265,1268,293"/>
+<area shape="rect" id="node13" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="1318,265,1447,293"/>
+<area shape="rect" id="node15" href="$classrc_polygon.html#acc777bfef1094b5db7b699d0ef38c686" title="rcPolygon::areaSign" alt="" coords="424,239,565,267"/>
+<area shape="rect" id="node18" href="$classrc_polygon.html#adb66075148b1819b8a5a34acc6fa8ef2" title="rcPolygon::between" alt="" coords="425,291,564,319"/>
+</map>

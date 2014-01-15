@@ -1,0 +1,9 @@
+<map id="rcAnalyzerResult::setEntropy" name="rcAnalyzerResult::setEntropy">
+<area shape="rect" id="node2" href="$classrc_analyzer.html#a8a3d5b38714ea9edc5cc5b5ee98b38a0" title="rcAnalyzer::getNextResult" alt="" coords="448,31,624,59"/>
+<area shape="rect" id="node8" href="$classrc_analyzer.html#a8190551934b5b04725ae5cb002ed1589" title="rcAnalyzer::popResult" alt="" coords="248,57,400,85"/>
+<area shape="rect" id="node3" href="$classrc_engine_impl.html#a1ec71befab88914b35b700cd5fe03ba2" title="rcEngineImpl::entropyTracker\lWindow" alt="" coords="673,23,869,67"/>
+<area shape="rect" id="node4" href="$classrc_engine_impl.html#a3ad6dbc54b2a53acae4d345ff14974ae" title="rcEngineImpl::analyzeFocusArea" alt="" coords="918,31,1135,59"/>
+<area shape="rect" id="node5" href="$classrc_engine_impl.html#ae320706cbcafd64f219018b9842c8290" title="rcEngineImpl::analyze" alt="" coords="1184,31,1336,59"/>
+<area shape="rect" id="node6" href="$classrc_engine_impl.html#a507e034c1e43ae1dd6ec95a11ec0bb02" title="rcEngineImpl::process" alt="" coords="1385,5,1538,33"/>
+<area shape="rect" id="node7" href="$classrc_engine_analyzer.html#a064037f0ec3e68fcb11dabbcba790cdd" title="rcEngineAnalyzer::run" alt="" coords="1385,57,1538,85"/>
+</map>

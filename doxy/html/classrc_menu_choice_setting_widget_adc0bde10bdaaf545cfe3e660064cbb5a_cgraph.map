@@ -1,0 +1,14 @@
+<map id="rcMenuChoiceSettingWidget::settingChanged" name="rcMenuChoiceSettingWidget::settingChanged">
+<area shape="rect" id="node2" href="$classrc_menu_choice_setting_widget.html#af2ff3bc8043711ee4116956907e5d282" title="rcMenuChoiceSettingWidget\l::findChoice" alt="" coords="262,46,452,90"/>
+<area shape="rect" id="node4" href="$classrc_setting_info.html#a1b99595ec48ea7982c8a8c7f3afd0534" title="rcSettingInfo::getNChoices" alt="" coords="523,113,703,141"/>
+<area shape="rect" id="node6" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="246,166,469,194"/>
+<area shape="rect" id="node7" href="$classrc_setting_info.html#a4dc154cd3e34eeb58d3e08b72d1f1c34" title="rcSettingInfo::getTag" alt="" coords="286,218,429,246"/>
+<area shape="rect" id="node8" href="$classrc_setting_info.html#a97d3386417e33e46df6f361ccfb430a5" title="rcSettingInfo::getValue" alt="" coords="280,270,435,298"/>
+<area shape="rect" id="node9" href="$classrc_model_domain.html#ababf529c281a7ef2121e3d03ce877225" title="rcModelDomain::requestInput\lSource" alt="" coords="259,322,455,366"/>
+<area shape="rect" id="node11" href="$classrc_setting_widget.html#aca95d3b856ab397c63567ae71dba446b" title="Update widget visibility/editability state based on setting state." alt="" coords="255,390,460,434"/>
+<area shape="rect" id="node3" href="$classrc_setting_info.html#a6d3cda0e1b71a0f7c2061015fb02d3d8" title="rcSettingInfo::getChoice" alt="" coords="532,5,695,33"/>
+<area shape="rect" id="node5" href="$structrc_setting_choice.html#a1171657e8b731eaf1ce4acddc732f9c3" title="rcSettingChoice::getValue" alt="" coords="526,57,701,85"/>
+<area shape="rect" id="node10" href="$classrc_model_domain.html#acb939c1b1fc6335f34dc6a3fe7cdb5f3" title="rcModelDomain::updateInput\lSource" alt="" coords="517,322,710,366"/>
+<area shape="rect" id="node12" href="$classrc_setting_info.html#a776ac0e50f5e8d632e6cb2c4099d6c59" title="rcSettingInfo::isEditable" alt="" coords="533,394,694,422"/>
+<area shape="rect" id="node13" href="$classrc_setting_info.html#a2663e0e877560ec8a958fb92184c1c63" title="rcSettingInfo::isEnabled" alt="" coords="532,446,694,474"/>
+</map>

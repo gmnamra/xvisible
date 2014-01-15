@@ -1,0 +1,11 @@
+<map id="rcBasicPixelMap::rcBasicPixelMap" name="rcBasicPixelMap::rcBasicPixelMap">
+<area shape="rect" id="node2" href="$classrc_window.html#a232627a15bd75725861721177a38df82" title="rcWindow::rowPointer" alt="" coords="224,82,376,110"/>
+<area shape="rect" id="node9" href="$classrc_window.html#aae85efa83f5cad9ca30bd96c7d624860" title="rcWindow::size" alt="" coords="245,134,355,162"/>
+<area shape="rect" id="node10" href="$classrc_window.html#a0ae0c2adbe34085eb07c93edd60b342a" title="rcWindow::width" alt="" coords="241,186,359,214"/>
+<area shape="rect" id="node3" href="$classrc_frame.html#a401a851fcb8a4328949d38cb34b572f6" title="rcFrame::rowPointer" alt="" coords="425,5,567,33"/>
+<area shape="rect" id="node4" href="$classrc_rect.html#a50236160751c949d8718f8d4d17f7923" title="rcRect::y" alt="" coords="459,57,533,85"/>
+<area shape="rect" id="node6" href="$classrc_rect.html#ac0f95519a41dcf7e33bec85ccb8e7aff" title="rcRect::x" alt="" coords="459,109,533,137"/>
+<area shape="rect" id="node8" href="$classrc_frame.html#aaef8303c840834284eb9c60d33bf40c1" title="rcFrame::depth" alt="" coords="440,161,552,189"/>
+<area shape="rect" id="node5" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="617,57,687,85"/>
+<area shape="rect" id="node7" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="617,109,687,137"/>
+</map>

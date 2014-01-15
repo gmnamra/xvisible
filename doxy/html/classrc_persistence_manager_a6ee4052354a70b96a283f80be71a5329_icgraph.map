@@ -1,0 +1,8 @@
+<map id="rcPersistenceManager::generatorComment" name="rcPersistenceManager::generatorComment">
+<area shape="rect" id="node2" href="$classrc_engine_movie_saver.html#a32276bec2dea00cc5439e6f7cd3d586c" title="rcEngineMovieSaver\l::closeHdlr" alt="" coords="224,5,368,49"/>
+<area shape="rect" id="node4" href="$classrc_experiment_domain_impl.html#a8db39db2ae092474f985b4c2997d5b72" title="rcExperimentDomainImpl\l::saveExperiment" alt="" coords="432,90,603,134"/>
+<area shape="rect" id="node7" href="$classrc_experiment_impl.html#a375595b76e0c9f303a7135e096391b9a" title="rcExperimentImpl::saveTo" alt="" coords="209,125,383,153"/>
+<area shape="rect" id="node3" href="$classrc_engine_movie_saver.html#a216e88884a3dd557507ea93dc3609a91" title="rcEngineMovieSaver::run" alt="" coords="432,13,603,41"/>
+<area shape="rect" id="node5" href="$rc__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="711,67,761,95"/>
+<area shape="rect" id="node6" href="$classrc_experiment_domain_impl.html#a29b2a73f82318c9faec49f9a1178f90b" title="rcExperimentDomainImpl\l::notifyRequestSave" alt="" coords="650,119,822,163"/>
+</map>

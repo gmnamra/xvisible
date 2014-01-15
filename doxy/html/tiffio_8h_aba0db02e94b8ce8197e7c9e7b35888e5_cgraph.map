@@ -1,0 +1,6 @@
+<map id="TIFFReadRawStrip" name="TIFFReadRawStrip">
+<area shape="rect" id="node2" href="$tif__read_8c.html#a90b7068de0a3d5ef5d1dbfb1a945d61f" title="TIFFCheckRead" alt="" coords="202,5,321,33"/>
+<area shape="rect" id="node3" href="$tif__error_8c.html#a2e8b77a2d4e7b7283b55b963dd67ec31" title="TIFFErrorExt" alt="" coords="385,57,484,85"/>
+<area shape="rect" id="node4" href="$tif__read_8c.html#af8b0b74a11a6584a2dad1472354cbc48" title="TIFFReadRawStrip1" alt="" coords="190,109,333,137"/>
+<area shape="rect" id="node5" href="$tif__apple_8c.html#aacf23567597faf7b8f01f31f397217f0" title="_TIFFmemcpy" alt="" coords="381,109,488,137"/>
+</map>

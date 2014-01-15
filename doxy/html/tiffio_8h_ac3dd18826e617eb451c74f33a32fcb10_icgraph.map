@@ -1,0 +1,11 @@
+<map id="TIFFOpen" name="TIFFOpen">
+<area shape="rect" id="node2" href="$class_t_i_f_f_reader_internal.html#adc7888a9bc3fe28248b49b8b204ae8ae" title="TIFFReaderInternal\l::Open" alt="" coords="136,61,274,105"/>
+<area shape="rect" id="node6" href="$classrc_window.html#adf6ca47beb76a8bfdc73369f80dd003d" title="rcWindow::tiff" alt="" coords="155,158,256,186"/>
+<area shape="rect" id="node3" href="$class_t_i_f_f_image_i_o.html#abec0d00f473debbd9d05f5a0e4820402" title="TIFFImageIO::CanReadFile" alt="" coords="327,53,513,81"/>
+<area shape="rect" id="node4" href="$classrc_engine_impl.html#ac0162da8fe4f677ad6f3d04a465d50f0" title="rcEngineImpl::loadMovie" alt="" coords="571,5,738,33"/>
+<area shape="rect" id="node5" href="$classrc_window.html#a5da06176e6878b676bbc534db6b09b7d" title="rcWindow::rcWindow" alt="" coords="582,57,728,85"/>
+<area shape="rect" id="node7" href="$classrc_visual_function.html#a1df64c3605f3a0a4670118911ac783b1" title="rcVisualFunction::cardiac\lMeasure" alt="" coords="335,105,505,149"/>
+<area shape="rect" id="node9" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="323,173,517,201"/>
+<area shape="rect" id="node10" href="$rc__edge_8h.html#a11fbb1eb0376dd39a4be2ea72b7ef156" title="rfDirectionSignal" alt="" coords="360,225,480,253"/>
+<area shape="rect" id="node8" href="$classrc_visual_function.html#ac3135ba614a9ba5080e78c3f2f426312" title="rcVisualFunction::measure" alt="" coords="565,113,744,141"/>
+</map>

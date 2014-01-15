@@ -1,0 +1,25 @@
+var textio_8cpp =
+[
+    [ "close", "textio_8cpp.html#acf3fee36b85acdf7fae42a766218d233", null ],
+    [ "close", "textio_8cpp.html#a95821e14bd1317d7eb0a4dc08bafe1ae", null ],
+    [ "dec", "textio_8cpp.html#a4deea3a2830b4c316846f211ee192c95", null ],
+    [ "endl", "textio_8cpp.html#a905a4c61e365d406069f00eb68db1ca5", null ],
+    [ "flush", "textio_8cpp.html#ab114ed8c45623137dc62acdd736787d9", null ],
+    [ "get_token", "textio_8cpp.html#a47d6fa76227d95d3bb473bd7e67b078f", null ],
+    [ "hex", "textio_8cpp.html#ad0a882910bc0d2f516a4d2aade1febac", null ],
+    [ "oct", "textio_8cpp.html#a5a0d20857895fb57f42283f9224e8312", null ],
+    [ "skipendl", "textio_8cpp.html#aa28f8c06c3dedaa564d4ca67d7653ffd", null ],
+    [ "skipline", "textio_8cpp.html#ae4d257374e4519e2869205c8ba109d70", null ],
+    [ "skiponewhite", "textio_8cpp.html#aea02d6b2c5a48026001f9223b380d621", null ],
+    [ "skipspaces", "textio_8cpp.html#aea351ab3cf7a6f73c116512705e46593", null ],
+    [ "skipwhite", "textio_8cpp.html#a4ef4f0d0a99f5c3ce65ad5f4d651a238", null ],
+    [ "textio_error_string", "textio_8cpp.html#a30f7c885cc5ab9147956990d3af55164", null ],
+    [ "to_string", "textio_8cpp.html#aefec3f0b8f063f55de2d07e89244e0fc", null ],
+    [ "to_string", "textio_8cpp.html#a01e221f197de2b23e7a6104b8c65849c", null ],
+    [ "to_string", "textio_8cpp.html#a720649657f9d771532bc3d46503b87be", null ],
+    [ "textio_format_error", "textio_8cpp.html#ae59f828da8155c41f4fc4f40c37d0f76", null ],
+    [ "textio_get_failed", "textio_8cpp.html#a2deb698b64b08376e6c7d805c148d288", null ],
+    [ "textio_open_failed", "textio_8cpp.html#a2d35329dced794dbe410147b68c4c53f", null ],
+    [ "textio_put_failed", "textio_8cpp.html#a571cd80b9463b9bb29a0df0f5fdb31de", null ],
+    [ "textio_uninitialised", "textio_8cpp.html#a0b1872cf2375472a2e96cacacbce0c68", null ]
+];

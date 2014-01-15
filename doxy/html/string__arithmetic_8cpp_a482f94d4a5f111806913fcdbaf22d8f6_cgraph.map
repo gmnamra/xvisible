@@ -1,0 +1,24 @@
+<map id="signed_modulus" name="signed_modulus">
+<area shape="rect" id="node2" href="$string__arithmetic_8cpp.html#a337f393b72280cdc046546bd29ae1ba0" title="is_zero" alt="" coords="205,5,269,33"/>
+<area shape="rect" id="node3" href="$string__arithmetic_8cpp.html#aa13ea301c3b601b71e4e6aa8215cb7e9" title="signed_add" alt="" coords="667,314,757,342"/>
+<area shape="rect" id="node9" href="$string__arithmetic_8cpp.html#a81d7a054172ae982785819c0c51a87c5" title="signed_resize" alt="" coords="824,159,928,187"/>
+<area shape="rect" id="node10" href="$string__arithmetic_8cpp.html#afc0ff7546334be9995d3e94a47f21e33" title="signed_remainder" alt="" coords="173,210,301,238"/>
+<area shape="rect" id="node4" href="$string__arithmetic_8cpp.html#a94695ea56cea67bf729e29e05a1a919e" title="bit_carry" alt="" coords="840,366,912,394"/>
+<area shape="rect" id="node7" href="$string__arithmetic_8cpp.html#a5908e619ca6762dbb4a713ef69a04ed7" title="bit_sum" alt="" coords="842,314,910,342"/>
+<area shape="rect" id="node5" href="$string__arithmetic_8cpp.html#afe7cda5eba463b65d65687c2fd389fff" title="bit_and" alt="" coords="977,366,1042,394"/>
+<area shape="rect" id="node6" href="$string__arithmetic_8cpp.html#a3f0dedb0825234f431e364e025ff9452" title="bit_or" alt="" coords="982,289,1037,317"/>
+<area shape="rect" id="node8" href="$string__arithmetic_8cpp.html#aa479141a8083df6b46cd98c13609d224" title="bit_xor" alt="" coords="979,225,1040,253"/>
+<area shape="rect" id="node11" href="$string__arithmetic_8cpp.html#afc453c238c64f9a65f4feba453f3ac49" title="divrem" alt="" coords="349,418,411,446"/>
+<area shape="rect" id="node15" href="$string__arithmetic_8cpp.html#ac03b6b6ac3421fe0895d15048e0f1bd7" title="unsigned_resize" alt="" coords="653,470,771,498"/>
+<area shape="rect" id="node22" href="$string__arithmetic_8cpp.html#a2d20bb7ba49a71aa1f502b8da93094ab" title="signed_abs" alt="" coords="485,185,574,213"/>
+<area shape="rect" id="node23" href="$string__arithmetic_8cpp.html#adf27f3cb51dced903b8c7dc5b7b70eff" title="signed_negate" alt="" coords="658,210,766,238"/>
+<area shape="rect" id="node12" href="$string__arithmetic_8cpp.html#a26fc5f3b1ff43bdf390632ff091a3d87" title="unsigned_less_than" alt="" coords="459,366,599,394"/>
+<area shape="rect" id="node17" href="$string__arithmetic_8cpp.html#a0e67532fe299ea837edda12a3f7e4bae" title="unsigned_shift_left" alt="" coords="463,418,596,446"/>
+<area shape="rect" id="node19" href="$string__arithmetic_8cpp.html#a2b0af6b46b7ffeb12ba3a67141809cbc" title="unsigned_shift_right" alt="" coords="459,470,600,498"/>
+<area shape="rect" id="node21" href="$string__arithmetic_8cpp.html#a7270b346c83ab513309c9ee2e3cdd898" title="unsigned_subtract" alt="" coords="464,574,594,602"/>
+<area shape="rect" id="node13" href="$string__arithmetic_8cpp.html#a21df22820cbc1ab7c128f203d18c7104" title="signed_subtract" alt="" coords="654,366,770,394"/>
+<area shape="rect" id="node16" href="$string__arithmetic_8cpp.html#aa19eed0b96f17cfe786e83058b5ecffb" title="is_negative" alt="" coords="668,262,756,290"/>
+<area shape="rect" id="node14" href="$string__arithmetic_8cpp.html#a1a22bf947511ecf8da04a7cead2979ad" title="bit_not" alt="" coords="845,546,907,574"/>
+<area shape="rect" id="node18" href="$string__arithmetic_8cpp.html#adabd8a461950d5edbb4a3f9ada13c874" title="bitwise_shift_left" alt="" coords="652,418,772,446"/>
+<area shape="rect" id="node20" href="$string__arithmetic_8cpp.html#aa4b688b0d66e2a5e233df63057cf00a8" title="bitwise_shift_right" alt="" coords="648,522,776,550"/>
+</map>

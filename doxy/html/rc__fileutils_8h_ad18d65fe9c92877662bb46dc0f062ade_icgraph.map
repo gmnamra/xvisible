@@ -1,0 +1,5 @@
+<map id="rfStripPath" name="rfStripPath">
+<area shape="rect" id="node2" href="$classrc_engine_impl.html#ac0162da8fe4f677ad6f3d04a465d50f0" title="rcEngineImpl::loadMovie" alt="" coords="152,5,320,33"/>
+<area shape="rect" id="node3" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="139,57,333,85"/>
+<area shape="rect" id="node4" href="$classrc_experiment_domain_impl.html#a3f84aaf27478b51eed5e33e26bd8637f" title="rcExperimentDomainImpl\l::notifyMovieImport" alt="" coords="150,109,322,153"/>
+</map>

@@ -1,0 +1,19 @@
+<map id="lm_unit_name::type" name="lm_unit_name::type">
+<area shape="rect" id="node2" href="$classlm__library.html#a008338d3a220ddc880b2540e8b57d9dd" title="lm_library::create" alt="" coords="216,5,339,33"/>
+<area shape="rect" id="node3" href="$classlm__unit.html#a4a0f3e1ffea1129ffb061bd28141c459" title="lm_unit::filename" alt="" coords="216,109,338,137"/>
+<area shape="rect" id="node7" href="$classlm__unit.html#a5c316c08e15c1e53f7bd19e7596b07fe" title="lm_unit::header_filename" alt="" coords="192,161,363,189"/>
+<area shape="rect" id="node13" href="$classlm__unit.html#a1d7075e41c86f236a957b27f1050ab89" title="lm_unit::print_long" alt="" coords="427,265,557,293"/>
+<area shape="rect" id="node14" href="$classlm__unit__name.html#a805a29ae43934ccc0f4310b078273de2" title="lm_unit_name::set_type" alt="" coords="196,362,359,390"/>
+<area shape="rect" id="node16" href="$classlm__unit__dependency.html#a77f3b691c48d486f1f3275b9e9adf297" title="lm_unit_dependency\l::type" alt="" coords="205,265,350,309"/>
+<area shape="rect" id="node18" href="$classlm__unit.html#a03dcdfee12a02a737e560ef573dcf435" title="lm_unit::type" alt="" coords="229,57,326,85"/>
+<area shape="rect" id="node4" href="$classlm__unit.html#aaf906aef678a910a3d4aef087efb6d7b" title="lm_unit::load" alt="" coords="444,5,540,33"/>
+<area shape="rect" id="node5" href="$classlm__unit.html#a1ad26d48fe292e950dd6aed7a12b3f01" title="lm_unit::modified" alt="" coords="431,109,553,137"/>
+<area shape="rect" id="node6" href="$classlm__unit.html#a538312ce419bf422b958f6c50f15854f" title="lm_unit::save" alt="" coords="442,57,542,85"/>
+<area shape="rect" id="node8" href="$classlm__unit.html#ac56f4305b294e90ad29709b6911f965c" title="lm_unit::dump_header" alt="" coords="415,161,569,189"/>
+<area shape="rect" id="node10" href="$classlm__unit.html#ae966f958b69da25ac2a8d6c5452e931c" title="lm_unit::restore_header" alt="" coords="411,213,573,241"/>
+<area shape="rect" id="node9" href="$classlm__unit.html#a04607b36e59a5a216fb25b959e580cd3" title="lm_unit::~lm_unit" alt="" coords="621,161,744,189"/>
+<area shape="rect" id="node11" href="$classlm__unit.html#a70b9a0676e04aebfdd12bd8dac2dac92" title="lm_unit::lm_unit" alt="" coords="625,213,740,241"/>
+<area shape="rect" id="node12" href="$classlm__unit.html#afe1494f2c58dfd904629cc0330bfc2f1" title="lm_unit::clone" alt="" coords="792,213,896,241"/>
+<area shape="rect" id="node15" href="$classlm__unit__dependency.html#ad036e9ba399ed4a1d4b8f3683f277368" title="lm_unit_dependency\l::set_type" alt="" coords="420,385,564,429"/>
+<area shape="rect" id="node17" href="$classlm__library.html#a0c7ebf3f3157ecef27e64c06c7e1f20e" title="lm_library::pretty\l_print" alt="" coords="432,317,552,361"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="rcSettingPage" name="rcSettingPage">
+<area shape="rect" id="node3" href="$classrc_setting_category.html" title="rcSettingCategory" alt="" coords="124,286,252,314"/>
+<area shape="rect" id="node4" href="$structrc_setting_category_spec.html" title="rcSettingCategorySpec" alt="" coords="5,193,163,221"/>
+<area shape="rect" id="node5" href="$structrc_setting_info_spec.html" title="rcSettingInfoSpec" alt="" coords="21,99,147,127"/>
+<area shape="rect" id="node6" href="$structrc_setting_choice.html" title="rcSettingChoice" alt="" coords="26,6,141,34"/>
+<area shape="rect" id="node7" href="$classrc_setting_source.html" title="rcSettingSource" alt="" coords="187,193,303,221"/>
+</map>

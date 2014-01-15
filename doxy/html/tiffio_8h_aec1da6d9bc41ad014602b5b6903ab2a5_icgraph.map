@@ -1,0 +1,28 @@
+<map id="TIFFStripSize" name="TIFFStripSize">
+<area shape="rect" id="node2" href="$tif__getimage_8c.html#a5c4b515440d0ac5f91d5ae61e1c2eb1c" title="gtStripContig" alt="" coords="184,134,283,162"/>
+<area shape="rect" id="node13" href="$tif__getimage_8c.html#a77889ae27269991a284dd36ef28cc1a8" title="gtStripSeparate" alt="" coords="176,186,290,214"/>
+<area shape="rect" id="node14" href="$tiffio_8h.html#ab5f774a4a20c860a3d28a42e8b7166b4" title="TIFFReadDirectory" alt="" coords="166,238,301,266"/>
+<area shape="rect" id="node27" href="$tiffio_8h.html#a9e5f5b657a51d0b02fb2d668fbfd8445" title="TIFFWriteBufferSetup" alt="" coords="158,290,309,318"/>
+<area shape="rect" id="node3" href="$tiffio_8h.html#acd3bb3a843674f44624f98f2d6f7785a" title="TIFFRGBAImageBegin" alt="" coords="358,134,517,162"/>
+<area shape="rect" id="node4" href="$tiffio_8h.html#a37f05a9b68bdc13fb34dc6d4182914d4" title="TIFFReadRGBAImageOriented" alt="" coords="760,55,968,83"/>
+<area shape="rect" id="node11" href="$tiffio_8h.html#a078cb3ec8bbc21b9d0b107241bdeb340" title="TIFFReadRGBAStrip" alt="" coords="565,107,712,135"/>
+<area shape="rect" id="node12" href="$tiffio_8h.html#a9cb0696bc0bde1de66286981e94def26" title="TIFFReadRGBATile" alt="" coords="569,159,708,187"/>
+<area shape="rect" id="node5" href="$class_t_i_f_f_image_i_o.html#a65d99c4b2c48e346698c0ae5462f2b20" title="TIFFImageIO::Read" alt="" coords="1025,37,1165,65"/>
+<area shape="rect" id="node10" href="$tiffio_8h.html#a2992848d0612320b0aa5e7ef655a824e" title="TIFFReadRGBAImage" alt="" coords="1017,89,1173,117"/>
+<area shape="rect" id="node6" href="$class_t_i_f_f_image_i_o.html#a972c82b540defb6309ae7c051d1d3694" title="TIFFImageIO::ReadPages" alt="" coords="1236,6,1414,34"/>
+<area shape="rect" id="node8" href="$class_t_i_f_f_image_i_o.html#a167f81244878f036d2f6bec094eefc84" title="TIFFImageIO::ReadSinglePage" alt="" coords="1221,58,1429,86"/>
+<area shape="rect" id="node7" href="$classrc_engine_impl.html#ac0162da8fe4f677ad6f3d04a465d50f0" title="rcEngineImpl::loadMovie" alt="" coords="1483,19,1650,47"/>
+<area shape="rect" id="node9" href="$classrc_window.html#a5da06176e6878b676bbc534db6b09b7d" title="rcWindow::rcWindow" alt="" coords="1494,97,1640,125"/>
+<area shape="rect" id="node15" href="$tiffio_8h.html#a165611e0432d36de8bcf57f35e161bd3" title="TIFFClientOpen" alt="" coords="379,186,495,214"/>
+<area shape="rect" id="node25" href="$tiffio_8h.html#a58cdb91e8e93b12c8002ade2e4072251" title="TIFFSetDirectory" alt="" coords="376,238,499,266"/>
+<area shape="rect" id="node26" href="$tiffio_8h.html#a33628efcd540db4412ec3cd7761c3733" title="TIFFSetSubDirectory" alt="" coords="364,290,511,318"/>
+<area shape="rect" id="node16" href="$tiffio_8h.html#adca230876d2f7fdec1ff6c7fdb7898a8" title="TIFFFdOpen" alt="" coords="590,211,687,239"/>
+<area shape="rect" id="node17" href="$tiffio_8h.html#ac3dd18826e617eb451c74f33a32fcb10" title="TIFFOpen" alt="" coords="823,211,905,239"/>
+<area shape="rect" id="node18" href="$class_t_i_f_f_reader_internal.html#adc7888a9bc3fe28248b49b8b204ae8ae" title="TIFFReaderInternal\l::Open" alt="" coords="1026,141,1164,185"/>
+<area shape="rect" id="node20" href="$classrc_window.html#adf6ca47beb76a8bfdc73369f80dd003d" title="rcWindow::tiff" alt="" coords="1044,219,1145,247"/>
+<area shape="rect" id="node19" href="$class_t_i_f_f_image_i_o.html#abec0d00f473debbd9d05f5a0e4820402" title="TIFFImageIO::CanReadFile" alt="" coords="1232,110,1418,138"/>
+<area shape="rect" id="node21" href="$classrc_visual_function.html#a1df64c3605f3a0a4670118911ac783b1" title="rcVisualFunction::cardiac\lMeasure" alt="" coords="1240,162,1410,206"/>
+<area shape="rect" id="node23" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1229,230,1422,258"/>
+<area shape="rect" id="node24" href="$rc__edge_8h.html#a11fbb1eb0376dd39a4be2ea72b7ef156" title="rfDirectionSignal" alt="" coords="1266,282,1385,310"/>
+<area shape="rect" id="node22" href="$classrc_visual_function.html#ac3135ba614a9ba5080e78c3f2f426312" title="rcVisualFunction::measure" alt="" coords="1477,170,1656,198"/>
+</map>

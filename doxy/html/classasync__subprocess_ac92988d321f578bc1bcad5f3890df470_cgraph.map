@@ -1,0 +1,9 @@
+<map id="async_subprocess::~async_subprocess" name="async_subprocess::~async_subprocess">
+<area shape="rect" id="node2" href="$classasync__subprocess.html#a075c0e1d1ab1e760c3960f06e8379202" title="async_subprocess::close\l_stderr" alt="" coords="398,5,568,49"/>
+<area shape="rect" id="node5" href="$classasync__subprocess.html#aeae5cd61a33589045cb1e089d0ba9664" title="async_subprocess::close\l_stdin" alt="" coords="398,73,568,117"/>
+<area shape="rect" id="node6" href="$classasync__subprocess.html#a089ac60e8ae3be054a068efc83e5fadf" title="async_subprocess::close\l_stdout" alt="" coords="398,209,568,253"/>
+<area shape="rect" id="node7" href="$classasync__subprocess.html#afabbb79ed1383cd1f6acc7f41ffd55da" title="async_subprocess::kill" alt="" coords="195,133,349,161"/>
+<area shape="rect" id="node3" href="$textio_8cpp.html#acf3fee36b85acdf7fae42a766218d233" title="close" alt="" coords="616,81,669,109"/>
+<area shape="rect" id="node4" href="$classotext.html#ab8cc31aaff71191e9cb95a5330a7bc5f" title="otext::close" alt="" coords="718,81,807,109"/>
+<area shape="rect" id="node8" href="$classasync__subprocess.html#a42af6ce5c6721ee251e5e29dfd1d1502" title="async_subprocess::set\l_error" alt="" coords="404,141,561,185"/>
+</map>

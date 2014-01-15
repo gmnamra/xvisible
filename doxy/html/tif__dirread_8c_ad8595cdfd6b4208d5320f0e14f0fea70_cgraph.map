@@ -1,0 +1,9 @@
+<map id="EstimateStripByteCounts" name="EstimateStripByteCounts">
+<area shape="rect" id="node2" href="$tif__aux_8c.html#a96a072a0d1fd5779a76f5f2e13953e2a" title="_TIFFCheckMalloc" alt="" coords="224,55,357,83"/>
+<area shape="rect" id="node4" href="$tif__error_8c.html#a2e8b77a2d4e7b7283b55b963dd67ec31" title="TIFFErrorExt" alt="" coords="549,107,648,135"/>
+<area shape="rect" id="node5" href="$tif__apple_8c.html#adcb814cdc66530ea86553b6840c19819" title="_TIFFfree" alt="" coords="251,159,331,187"/>
+<area shape="rect" id="node6" href="$tif__dirinfo_8c.html#a2e6382d04dbf3af83901b2f032fa98e7" title="TIFFDataWidth" alt="" coords="235,211,347,239"/>
+<area shape="rect" id="node7" href="$tif__strip_8c.html#aef36f27f4a6a728488375ff085268850" title="TIFFScanlineSize" alt="" coords="227,263,354,291"/>
+<area shape="rect" id="node3" href="$tif__apple_8c.html#aaa739de67506b8254e9d150190425b4f" title="_TIFFmalloc" alt="" coords="406,5,501,33"/>
+<area shape="rect" id="node8" href="$tif__strip_8c.html#a3d2583ed5901992de25556d454e42054" title="multiply" alt="" coords="420,211,487,239"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="TIFFReadRawStrip" name="TIFFReadRawStrip">
+<area shape="rect" id="node2" href="$class_t_i_f_f_image_i_o.html#ac5b02fc0e9a22eff2e714546c6eadeb2" title="TIFFImageIO::ReadGeneric\lImage" alt="" coords="189,23,376,67"/>
+<area shape="rect" id="node3" href="$class_t_i_f_f_image_i_o.html#a65d99c4b2c48e346698c0ae5462f2b20" title="TIFFImageIO::Read" alt="" coords="425,31,565,59"/>
+<area shape="rect" id="node4" href="$class_t_i_f_f_image_i_o.html#a972c82b540defb6309ae7c051d1d3694" title="TIFFImageIO::ReadPages" alt="" coords="628,5,806,33"/>
+<area shape="rect" id="node6" href="$class_t_i_f_f_image_i_o.html#a167f81244878f036d2f6bec094eefc84" title="TIFFImageIO::ReadSinglePage" alt="" coords="613,57,821,85"/>
+<area shape="rect" id="node5" href="$classrc_engine_impl.html#ac0162da8fe4f677ad6f3d04a465d50f0" title="rcEngineImpl::loadMovie" alt="" coords="870,5,1037,33"/>
+<area shape="rect" id="node7" href="$classrc_window.html#a5da06176e6878b676bbc534db6b09b7d" title="rcWindow::rcWindow" alt="" coords="880,57,1026,85"/>
+</map>

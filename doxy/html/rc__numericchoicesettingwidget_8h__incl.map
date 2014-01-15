@@ -1,0 +1,28 @@
+<map id="include/visUI/rc_numericchoicesettingwidget.h" name="include/visUI/rc_numericchoicesettingwidget.h">
+<area shape="rect" id="node2" href="$rc__lineedit_8h.html" title="rc_lineedit.h" alt="" coords="125,83,217,111"/>
+<area shape="rect" id="node5" href="$rc__settingwidget_8h.html" title="rc_settingwidget.h" alt="" coords="358,83,487,111"/>
+<area shape="rect" id="node6" href="$rc__setting_8h.html" title="rc_setting.h" alt="" coords="555,161,644,189"/>
+<area shape="rect" id="node7" href="$rc__value_8h.html" title="rc_value.h" alt="" coords="1312,238,1395,266"/>
+<area shape="rect" id="node45" href="$rc__uitypes_8h.html" title="rc_uitypes.h" alt="" coords="553,315,645,343"/>
+<area shape="rect" id="node46" href="$rc__atomic_8h.html" title="rc_atomic.h" alt="" coords="312,393,401,421"/>
+<area shape="rect" id="node10" href="$rc__exception_8h.html" title="rc_exception.h" alt="" coords="1669,873,1776,901"/>
+<area shape="rect" id="node15" href="$rc__rect_8h.html" title="rc_rect.h" alt="" coords="613,555,685,583"/>
+<area shape="rect" id="node28" href="$rc__affine_8h.html" title="rc_affine.h" alt="" coords="1312,315,1395,343"/>
+<area shape="rect" id="node11" href="$rc__platform_8h.html" title="rc_platform.h" alt="" coords="1262,1027,1361,1055"/>
+<area shape="rect" id="node16" href="$rc__types_8h.html" title="rc_types.h" alt="" coords="1113,950,1196,978"/>
+<area shape="rect" id="node18" href="$rc__rectangle_8h.html" title="rc_rectangle.h" alt="" coords="1152,718,1257,746"/>
+<area shape="rect" id="node19" href="$rc__pair_8h.html" title="rc_pair.h" alt="" coords="1192,873,1264,901"/>
+<area shape="rect" id="node20" href="$rc__vector2d_8h.html" title="rc_vector2d.h" alt="" coords="1293,795,1395,823"/>
+<area shape="rect" id="node22" href="$rc__math_8h.html" title="rc_math.h" alt="" coords="1425,873,1505,901"/>
+<area shape="rect" id="node26" href="$rc__macro_8h.html" title="rc_macro.h" alt="" coords="979,873,1067,901"/>
+<area shape="rect" id="node23" href="$rc__limits_8h.html" title="rc_limits.h" alt="" coords="1425,950,1505,978"/>
+<area shape="rect" id="node29" href="$rc__xforms_8h.html" title="rc_xforms.h" alt="" coords="1417,641,1508,669"/>
+<area shape="rect" id="node33" href="$rc__graphics_8h.html" title="rc_graphics.h" alt="" coords="1240,393,1341,421"/>
+<area shape="rect" id="node30" href="$rc__matrix_8h.html" title="rc_matrix.h" alt="" coords="1416,718,1503,746"/>
+<area shape="rect" id="node34" href="$rc__style_8h.html" title="rc_style.h" alt="" coords="1251,470,1329,498"/>
+<area shape="rect" id="node37" href="$rc__window_8h.html" title="rc_window.h" alt="" coords="923,470,1017,498"/>
+<area shape="rect" id="node35" href="$rc__line_8h.html" title="rc_line.h" alt="" coords="1267,555,1337,583"/>
+<area shape="rect" id="node38" href="$rc__framebuf_8h.html" title="rc_framebuf.h" alt="" coords="680,795,783,823"/>
+<area shape="rect" id="node39" href="$rc__timestamp_8h.html" title="rc_timestamp.h" alt="" coords="842,873,955,901"/>
+<area shape="rect" id="node40" href="$rc__thread_8h.html" title="rc_thread.h" alt="" coords="450,873,539,901"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="rcOptoKineticImage::genFreqImg" name="rcOptoKineticImage::genFreqImg">
+<area shape="rect" id="node2" href="$classrc_muscle_segmenter.html#a61c65559f55fd9fa632b96e09ef50b2e" title="rcMuscleSegmenter::\lgenFrequencySegmentation" alt="" coords="192,5,381,49"/>
+<area shape="rect" id="node3" href="$classrc_muscle_segmenter.html#a660d7b3d1c240efa0b725e0db65154e3" title="rcMuscleSegmenter::\lfilterByActivity" alt="" coords="429,5,576,49"/>
+<area shape="rect" id="node4" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="625,13,818,41"/>
+</map>

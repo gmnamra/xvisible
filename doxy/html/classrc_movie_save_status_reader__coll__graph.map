@@ -1,0 +1,5 @@
+<map id="rcMovieSaveStatusReader" name="rcMovieSaveStatusReader">
+<area shape="rect" id="node2" href="$classrc_atomic_value.html" title="rcAtomicValue\&lt; uint32 \&gt;" alt="" coords="248,5,413,33"/>
+<area shape="rect" id="node4" href="$classrc_atomic_value.html" title="rcAtomicValue\&lt; rcMovieFile\lState \&gt;" alt="" coords="238,57,424,101"/>
+<area shape="rect" id="node6" href="$classrc_atomic_value.html" title="rcAtomicValue\&lt; rcMovieFile\lErr \&gt;" alt="" coords="238,125,424,169"/>
+</map>

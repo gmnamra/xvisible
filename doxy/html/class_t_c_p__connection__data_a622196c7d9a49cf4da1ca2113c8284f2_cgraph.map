@@ -1,0 +1,32 @@
+<map id="TCP_connection_data::initialise" name="TCP_connection_data::initialise">
+<area shape="rect" id="node2" href="$class_t_c_p__connection__data.html#a898cc4fd4c465e352c5a546690b825fb" title="TCP_connection_data\l::address" alt="" coords="209,5,362,49"/>
+<area shape="rect" id="node3" href="$class_t_c_p__connection__data.html#aa55187d3ad30e032d2a2c2ce2a6ba2aa" title="TCP_connection_data\l::close" alt="" coords="209,73,362,117"/>
+<area shape="rect" id="node29" href="$class_t_c_p__connection__data.html#a745b45080629830583b179cc431475b2" title="TCP_connection_data\l::port" alt="" coords="209,193,362,237"/>
+<area shape="rect" id="node30" href="$class_t_c_p__socket.html#a8c7a3e5004f50fc8edc485385a94082d" title="TCP_socket::set" alt="" coords="226,141,345,169"/>
+<area shape="rect" id="node4" href="$class_t_c_p__socket.html#a784ca7a3cb43891c3f8068030d5457e8" title="TCP_socket::close" alt="" coords="415,85,548,113"/>
+<area shape="rect" id="node5" href="$class_t_c_p__socket.html#ab3548a9a992a647f4260b0343f26f090" title="TCP_socket::initialised" alt="" coords="601,58,757,86"/>
+<area shape="rect" id="node6" href="$class_t_c_p__socket.html#a6aa627297e2a1b6c82d89f875b8cbf2b" title="TCP_socket::set_error" alt="" coords="601,110,756,138"/>
+<area shape="rect" id="node7" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="806,83,935,111"/>
+<area shape="rect" id="node8" href="$tcp_8cpp.html#ab932f3e7890ed088ca90870c290fb2da" title="error_string" alt="" coords="826,135,915,163"/>
+<area shape="rect" id="node9" href="$error__handler_8cpp.html#aac3be3c13a6d90b39f966b6e897c0744" title="to_string" alt="" coords="984,109,1056,137"/>
+<area shape="rect" id="node28" href="$string__utilities_8cpp.html#a92b477f13171d3fd668249c0f9b45a1a" title="trim" alt="" coords="998,161,1042,189"/>
+<area shape="rect" id="node10" href="$classerror__position.html#a3f7ed498a2a6aa5343334b17bbdf4bbf" title="error_position::column" alt="" coords="1113,30,1266,58"/>
+<area shape="rect" id="node11" href="$classerror__position.html#ac4739e90b92106a85b0f8c76e9198daf" title="error_position::filename" alt="" coords="1109,82,1270,110"/>
+<area shape="rect" id="node12" href="$file__system_8cpp.html#a6982b54d454c07cc3f770f67c5d0b5ef" title="filespec_to_relative_path" alt="" coords="1105,134,1274,162"/>
+<area shape="rect" id="node27" href="$classerror__position.html#af47fc5beec407412df713d56814af6fe" title="error_position::line" alt="" coords="1124,186,1255,214"/>
+<area shape="rect" id="node13" href="$file__system_8cpp.html#a62475ca973dfe0094c00d60286c7c286" title="create_filespec" alt="" coords="1528,55,1640,83"/>
+<area shape="rect" id="node15" href="$file__system_8cpp.html#acf89fa1738d4f789e4cc5b9c3c3bec72" title="filename_part" alt="" coords="1533,107,1635,135"/>
+<area shape="rect" id="node16" href="$file__system_8cpp.html#acb48f4675dcd897962719fcc704fa980" title="folder_part" alt="" coords="1359,159,1444,187"/>
+<area shape="rect" id="node17" href="$file__system_8cpp.html#a154091f28159afef5c72b12cee64a9a0" title="folder_to_relative_path" alt="" coords="1323,322,1480,350"/>
+<area shape="rect" id="node14" href="$file__system_8cpp.html#a99e06c76afffe1f1d77f01c905b1a5fd" title="is_separator" alt="" coords="2037,159,2131,187"/>
+<area shape="rect" id="node18" href="$file__system_8cpp.html#a0a5c33c34c3c47d4e15e955b7ac25681" title="relative_path" alt="" coords="1535,403,1633,431"/>
+<area shape="rect" id="node19" href="$classfile__specification.html#a518bc2d13c74b0e00131c87fdd294f2b" title="file_specification\l::image" alt="" coords="1688,297,1808,341"/>
+<area shape="rect" id="node21" href="$classfile__specification.html#a18e9d7a9b9dd1214d09ab5e843ea7806" title="file_specification\l::relative" alt="" coords="2024,493,2144,537"/>
+<area shape="rect" id="node23" href="$classfile__specification.html#aefefc9da1b64f7ed66a436750a88ffa2" title="file_specification\l::initialise_folder" alt="" coords="1856,433,1976,477"/>
+<area shape="rect" id="node25" href="$classfile__specification.html#a1c51930e39fad4d827a81b5b12a72752" title="file_specification\l::make_absolute" alt="" coords="1688,365,1808,409"/>
+<area shape="rect" id="node26" href="$classfile__specification.html#a37f966146802536ffdb2f154e3df928f" title="file_specification\l::make_relative" alt="" coords="1688,485,1808,529"/>
+<area shape="rect" id="node20" href="$classfile__specification.html#a5b8f1026354ff32bfc183da3f38f5ce7" title="file_specification\l::absolute" alt="" coords="1856,365,1976,409"/>
+<area shape="rect" id="node22" href="$string__utilities_8hpp.html#a657118c43fe44a8454311075655ac9d4" title="vector_to_string" alt="" coords="1858,313,1974,341"/>
+<area shape="rect" id="node24" href="$classfile__specification.html#ab6e2c3cc492528550d2c4021d3a1c225" title="file_specification\l::path" alt="" coords="2024,425,2144,469"/>
+<area shape="rect" id="node31" href="$class_t_c_p__socket.html#af144705e325c972bf6c420436ecc9dba" title="TCP_socket::socket" alt="" coords="411,141,551,169"/>
+</map>

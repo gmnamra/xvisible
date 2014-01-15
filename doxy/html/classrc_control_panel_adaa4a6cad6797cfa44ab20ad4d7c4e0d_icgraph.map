@@ -1,0 +1,5 @@
+<map id="rcControlPanel::timestampToString" name="rcControlPanel::timestampToString">
+<area shape="rect" id="node2" href="$classrc_control_panel.html#a1d81139159e25744274b18bdc03d4948" title="rcControlPanel::rcControl\lPanel" alt="" coords="514,16,686,60"/>
+<area shape="rect" id="node3" href="$classrc_control_panel.html#aa7e44df1bde3fa091e12c704435a7d02" title="rcControlPanel::updateCursorTime" alt="" coords="236,24,463,52"/>
+<area shape="rect" id="node4" href="$classrc_control_panel.html#acc61e3dd8c4709619cdfe4de344ca770" title="rcControlPanel::updateElapsedTime" alt="" coords="232,76,467,104"/>
+</map>

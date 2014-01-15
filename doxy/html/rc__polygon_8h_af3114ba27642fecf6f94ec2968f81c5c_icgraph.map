@@ -1,0 +1,11 @@
+<map id="rfPolygonToSegmentsCollection" name="rfPolygonToSegmentsCollection">
+<area shape="rect" id="node2" href="$classrc_image_canvas_g_l.html#a20eeb995b882e553bd5c16e19a22b03e" title="rcImageCanvasGL::drawCurrent\lFocus" alt="" coords="269,5,483,49"/>
+<area shape="rect" id="node4" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="551,133,745,161"/>
+<area shape="rect" id="node5" href="$classrc_engine_impl.html#a16024a37adcc86ac8e6f3d042f6906eb" title="rcEngineImpl::produceMuscle\lDebugResults" alt="" coords="278,125,474,169"/>
+<area shape="rect" id="node6" href="$rc__polygongroup_8cpp.html#a4403aecb88407020fce34f10151b16db" title="rfPolygonGroupToGraphics\lCollection" alt="" coords="285,193,467,237"/>
+<area shape="rect" id="node7" href="$classrc_kinetoscope.html#a3cabc9a20a2426314710f1f3d8908f75" title="rcKinetoscope::visualDebug\lGraphics" alt="" coords="283,261,469,305"/>
+<area shape="rect" id="node9" href="$classrc_kinetoscope.html#aff1e9fdbb27b84b86d7f9a9f5a3d6229" title="rcKinetoscope::visualFunctionMap" alt="" coords="264,329,488,357"/>
+<area shape="rect" id="node3" href="$classrc_image_canvas_g_l.html#a13613e3b67ed570184de3526df233e23" title="Render display lists." alt="" coords="555,13,741,41"/>
+<area shape="rect" id="node8" href="$classrc_kinetoscope.html#a7eb12d336c7e47b947f4a3ddf480b710" title="rcKinetoscope::visualDebug\lGraphics" alt="" coords="555,261,741,305"/>
+<area shape="rect" id="node10" href="$classrc_kinetoscope.html#abf1996c0d39c655ec7b58d9795fed1c8" title="rcKinetoscope::visualFunctionMap" alt="" coords="536,329,760,357"/>
+</map>

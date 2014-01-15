@@ -1,0 +1,6 @@
+<map id="rcEngineMovieSaver::errorHdlr" name="rcEngineMovieSaver::errorHdlr">
+<area shape="rect" id="node2" href="$rc__engineimplsave_8cpp.html#ad2f3dce94204cb2819e749f99f0d7fae" title="getMovieErrorString" alt="" coords="218,5,358,33"/>
+<area shape="rect" id="node3" href="$classrc_movie_save_status_reader.html#a822fed692f70229f975b3407b1e60f04" title="rcMovieSaveStatusReader\l::getStatus" alt="" coords="198,57,378,101"/>
+<area shape="rect" id="node5" href="$classrc_engine_observer.html#ad99e636a717e4b8d5afa3ff8266c034f" title="rcEngineObserver::notify\lError" alt="" coords="204,125,372,169"/>
+<area shape="rect" id="node4" href="$classrc_atomic_value.html#a8b62cd136f31322300507fbe894e6b70" title="rcAtomicValue::getValue" alt="" coords="427,65,592,93"/>
+</map>

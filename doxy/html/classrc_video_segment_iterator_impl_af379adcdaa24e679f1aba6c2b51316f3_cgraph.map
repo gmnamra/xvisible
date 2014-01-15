@@ -1,0 +1,6 @@
+<map id="rcVideoSegmentIteratorImpl::hasNextSegment" name="rcVideoSegmentIteratorImpl::hasNextSegment">
+<area shape="rect" id="node2" href="$classrc_segment_iterator_impl.html#ae02b354f1067d51ce3c2a7d79d98c83e" title="rcSegmentIteratorImpl\l::hasNextSegment" alt="" coords="241,35,394,79"/>
+<area shape="rect" id="node3" href="$classrc_segment_iterator_impl.html#a22abc78fcb201cdca524b10299558f03" title="rcSegmentIteratorImpl\l::lock" alt="" coords="445,5,598,49"/>
+<area shape="rect" id="node5" href="$classrc_track_impl.html#a7364f3ea7bc5feb9bb14a2600c949925" title="rcTrackImpl::segments" alt="" coords="443,73,599,101"/>
+<area shape="rect" id="node4" href="$classrc_mutex.html#ab3d2138979404d7f06abe308ca2177a8" title="rcMutex::lock" alt="" coords="649,13,749,41"/>
+</map>

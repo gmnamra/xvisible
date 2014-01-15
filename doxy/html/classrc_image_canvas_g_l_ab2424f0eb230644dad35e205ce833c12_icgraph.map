@@ -1,0 +1,5 @@
+<map id="rcImageCanvasGL::zoomKeyPressed" name="rcImageCanvasGL::zoomKeyPressed">
+<area shape="rect" id="node2" href="$classrc_image_canvas_g_l.html#ab57b93a733a4e2b8703a4ee083d46737" title="rcImageCanvasGL::mouseMove\lEvent" alt="" coords="251,5,464,49"/>
+<area shape="rect" id="node3" href="$classrc_image_canvas_g_l.html#acb25a27713e20842e6bb0a741570480b" title="rcImageCanvasGL::mouseRelease\lEvent" alt="" coords="512,95,741,139"/>
+<area shape="rect" id="node4" href="$classrc_image_canvas_g_l.html#afc7671f278e5ef9e4c7ce49ad164f88f" title="rcImageCanvasGL::mouseScale\lEvent" alt="" coords="251,125,464,169"/>
+</map>

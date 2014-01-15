@@ -1,0 +1,12 @@
+<map id="rcImageCanvasGL::mousePanEvent" name="rcImageCanvasGL::mousePanEvent">
+<area shape="rect" id="node2" href="$classrc_image_canvas_g_l.html#a8ece60ad522ba10ca561729adff567be" title="rcImageCanvasGL::devToModel\lCoord" alt="" coords="259,279,471,323"/>
+<area shape="rect" id="node4" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="1050,211,1150,239"/>
+<area shape="rect" id="node6" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="848,237,947,265"/>
+<area shape="rect" id="node7" href="$classrc_window.html#a1838f7ac1e13653c84b24e93b384898c" title="isWithin / isWithin takes a position in the frameBuf coordinate" alt="" coords="298,399,432,427"/>
+<area shape="rect" id="node8" href="$classrc_image_canvas_g_l.html#a391d5f984d7b2517658eb7ab822b53e2" title="rcImageCanvasGL::panToPoint" alt="" coords="262,125,469,153"/>
+<area shape="rect" id="node3" href="$classrc_image_canvas_g_l.html#a13d56c0353ab393915bfb11a4f131603" title="rcImageCanvasGL::devToWorld\lCoord" alt="" coords="792,65,1002,109"/>
+<area shape="rect" id="node5" href="$classrc_image_canvas_g_l.html#a79b23acf7bf6e15eac33dc73e43d2c7a" title="rcImageCanvasGL::worldTo\lPixel" alt="" coords="539,279,725,323"/>
+<area shape="rect" id="node9" href="$classrc_image_canvas_g_l.html#a5d9b75e58abeba4215838930140b6b98" title="rcImageCanvasGL::canvasCenter\lCoord" alt="" coords="521,5,743,49"/>
+<area shape="rect" id="node10" href="$classrc_image_canvas_g_l.html#ac4a1311e9dfcce42629141459251e65a" title="rcImageCanvasGL::panCurrent" alt="" coords="529,175,735,203"/>
+<area shape="rect" id="node11" href="$string__utilities_8cpp.html#afe62e35765e4698de8041b795e8a6d17" title="translate" alt="" coords="861,185,934,213"/>
+</map>

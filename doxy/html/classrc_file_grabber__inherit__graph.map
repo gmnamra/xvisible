@@ -1,0 +1,7 @@
+<map id="rcFileGrabber" name="rcFileGrabber">
+<area shape="rect" id="node3" href="$classrc_image_grabber.html" title="rcImageGrabber" alt="" coords="5,161,123,189"/>
+<area shape="rect" id="node4" href="$classrc_movie_grabber.html" title="rcMovieGrabber" alt="" coords="147,161,263,189"/>
+<area shape="rect" id="node5" href="$classrc_m_p_e_g2_grabber.html" title="rcMPEG2Grabber" alt="" coords="288,161,416,189"/>
+<area shape="rect" id="node6" href="$classrc_reify_movie_grabber.html" title="rcReifyMovieGrabber" alt="" coords="440,161,587,189"/>
+<area shape="rect" id="node2" href="$classrc_frame_grabber.html" title="rcFrameGrabber" alt="" coords="219,6,337,34"/>
+</map>

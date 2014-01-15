@@ -1,0 +1,12 @@
+<map id="trunc_form" name="trunc_form">
+<area shape="rect" id="node2" href="$rc__fill_8cpp.html#a4ccfc8f15382b152a75e72b6047efdff" title="bndry_fract" alt="" coords="300,27,388,55"/>
+<area shape="rect" id="node10" href="$rc__fill_8cpp.html#a76ab3fb5a70dcd3a1587154bbbf69d0d" title="dump_poly" alt="" coords="139,79,226,107"/>
+<area shape="rect" id="node3" href="$rc__fill_8h.html#a00254f8042116d7ae9165b9ec7784ea2" title="rc_fill_poly" alt="" coords="462,79,546,107"/>
+<area shape="rect" id="node4" href="$rc__draw_8h.html#a72125d1915a0c243a770c6635ecbf584" title="rcFillPolygon" alt="" coords="595,79,693,107"/>
+<area shape="rect" id="node5" href="$classrc_muscle_segmenter.html#a61c65559f55fd9fa632b96e09ef50b2e" title="rcMuscleSegmenter::\lgenFrequencySegmentation" alt="" coords="742,7,930,51"/>
+<area shape="rect" id="node8" href="$classrc_kinetoscope.html#a18739703ba714a3c04de5a56846bbd9d" title="rcKinetoscope::preSegmented\lBodies" alt="" coords="980,73,1180,117"/>
+<area shape="rect" id="node9" href="$classrc_shape.html#a121cd77a46ce4a89b92e6a2b5e1cfc00" title="rcShape::setMask" alt="" coords="772,131,900,159"/>
+<area shape="rect" id="node6" href="$classrc_muscle_segmenter.html#a660d7b3d1c240efa0b725e0db65154e3" title="rcMuscleSegmenter::\lfilterByActivity" alt="" coords="1006,5,1154,49"/>
+<area shape="rect" id="node7" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1230,47,1423,75"/>
+<area shape="rect" id="node11" href="$rc__fill_8cpp.html#a94235a51c6359ac0ea37baf89df53699" title="clip_polygon_to_pel" alt="" coords="274,131,414,159"/>
+</map>

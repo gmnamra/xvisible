@@ -1,0 +1,36 @@
+<map id="rfImageFind" name="rfImageFind">
+<area shape="rect" id="node2" href="$code_2rc__lattice_8cpp.html#aeb150780e48b760bf6f48e2cc39e4798" title="_exhaustiveImageFind" alt="" coords="148,514,303,542"/>
+<area shape="rect" id="node3" href="$classrc_window.html#a0ae0c2adbe34085eb07c93edd60b342a" title="rcWindow::width" alt="" coords="842,152,961,180"/>
+<area shape="rect" id="node4" href="$classrc_window.html#a958e7e0bd74b12cbcb44e73a2692400a" title="rcWindow::height" alt="" coords="840,256,963,284"/>
+<area shape="rect" id="node5" href="$classrc_timing_info.html#a5e7930bfdd3c0b07d791a153c79dfdae" title="rcTimingInfo::nextPass" alt="" coords="352,514,509,542"/>
+<area shape="rect" id="node8" href="$classrc_timing_info.html#a50ba9cb10b77d8673443680f2a42e4c9" title="rcTimingInfo::touch" alt="" coords="364,566,498,594"/>
+<area shape="rect" id="node12" href="$classrc_window.html#a348733d8c21d8f4e6d811263f95c5ce4" title="rcWindow::set" alt="" coords="378,179,483,207"/>
+<area shape="rect" id="node24" href="$classrc_window.html#a3286f93b0d223617111f3ac62b854b2f" title="rcWindow::isBound" alt="" coords="363,618,498,646"/>
+<area shape="rect" id="node25" href="$classrc_window.html#aae85efa83f5cad9ca30bd96c7d624860" title="rcWindow::size" alt="" coords="375,670,486,698"/>
+<area shape="rect" id="node26" href="$classrc_window.html#a8bad48552f0db28803089113326911de" title="rcWindow::pelPointer" alt="" coords="828,412,975,440"/>
+<area shape="rect" id="node28" href="$rc__pmcorr_8cpp.html#a3e71cbf4dcfc42383864e5dc5f9865d3" title="rfCorrelate" alt="" coords="389,722,473,750"/>
+<area shape="rect" id="node33" href="$classrc_corr.html#ab39952b1108f5c888184bbd07783ee86" title="rcCorr::r" alt="" coords="396,774,466,802"/>
+<area shape="rect" id="node34" href="$rc__peak_8h.html#a4c900d1016fe817241cbaa9ef3e3ef60" title="rfDetectPeaks" alt="" coords="603,410,709,438"/>
+<area shape="rect" id="node6" href="$classrc_timestamp.html#a7e749f376ff8741e79a2dbba2419e78f" title="rcTimestamp::now" alt="" coords="591,514,721,542"/>
+<area shape="rect" id="node7" href="$rc__timestamp__mac_8cpp.html#af7988734f76c2effcc4118da588b8779" title="getCurrentTimestamp" alt="" coords="826,514,976,542"/>
+<area shape="rect" id="node9" href="$classrc_timestamp.html#a7a76776edb5c337196cf10c009339d15" title="rcTimestamp::secs" alt="" coords="590,566,722,594"/>
+<area shape="rect" id="node10" href="$rc__timestamp_8h.html#ac624900be52fa7f30d3ad72543cc725d" title="convertTimestampToSeconds" alt="" coords="803,566,1000,594"/>
+<area shape="rect" id="node11" href="$rc__timestamp__mac_8cpp.html#a7962719b626553bf7a913f7c2671b777" title="getTimestampResolution" alt="" coords="1048,566,1216,594"/>
+<area shape="rect" id="node13" href="$classrc_window.html#a9ab724dc45a3c3c2beee6c8ed558de1e" title="rcWindow::depth" alt="" coords="841,308,962,336"/>
+<area shape="rect" id="node14" href="$classrc_window.html#a6149c75b44e0b1cbea36adf98055b021" title="rcWindow::setAllDoublePixels" alt="" coords="557,152,755,180"/>
+<area shape="rect" id="node15" href="$classrc_window.html#a232627a15bd75725861721177a38df82" title="rcWindow::rowPointer" alt="" coords="826,204,977,232"/>
+<area shape="rect" id="node22" href="$classrc_window.html#a0e1cf40e57b974aec21e6bc47d52f8b4" title="rcWindow::setAllPixels" alt="" coords="578,204,734,232"/>
+<area shape="rect" id="node23" href="$classrc_window.html#a7453268c0a363296c92dad5268d25738" title="rcWindow::isD32Float" alt="" coords="580,100,732,128"/>
+<area shape="rect" id="node16" href="$classrc_frame.html#a401a851fcb8a4328949d38cb34b572f6" title="rcFrame::rowPointer" alt="" coords="1061,204,1203,232"/>
+<area shape="rect" id="node17" href="$classrc_rect.html#a50236160751c949d8718f8d4d17f7923" title="rcRect::y" alt="" coords="1095,360,1169,388"/>
+<area shape="rect" id="node19" href="$classrc_rect.html#ac0f95519a41dcf7e33bec85ccb8e7aff" title="rcRect::x" alt="" coords="1095,308,1169,336"/>
+<area shape="rect" id="node21" href="$classrc_frame.html#aaef8303c840834284eb9c60d33bf40c1" title="rcFrame::depth" alt="" coords="1264,412,1376,440"/>
+<area shape="rect" id="node18" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="1285,360,1355,388"/>
+<area shape="rect" id="node20" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="1285,308,1355,336"/>
+<area shape="rect" id="node27" href="$classrc_frame.html#a8005eafc78f0008a7df596d55c2b23b9" title="rcFrame::pelPointer" alt="" coords="1063,412,1201,440"/>
+<area shape="rect" id="node29" href="$rc__simd__mac_8cpp.html#aa7d4bbaccb0fd2492887d7b3d1ba5183" title="rfHasSIMD" alt="" coords="613,703,699,731"/>
+<area shape="rect" id="node30" href="$classrc_basic_corr_row_func.html#a15fb622244c32813f2fe695665583b75" title="rcBasicCorrRowFunc\l::prolog" alt="" coords="582,755,730,799"/>
+<area shape="rect" id="node31" href="$classrc_basic_corr_row_func.html#ad3dc1f6b18eeb79fb174ca858e6020e5" title="rcBasicCorrRowFunc\l::areaFunc" alt="" coords="582,823,730,867"/>
+<area shape="rect" id="node32" href="$classrc_basic_corr_row_func.html#ab0efbeda3a03a7c3321bfc2508d04140" title="rcBasicCorrRowFunc\l::epilog" alt="" coords="582,635,730,679"/>
+<area shape="rect" id="node35" href="$classrc_window.html#a5cddcde6594113f6d8bb2dfb1f498c0a" title="rcWindow::rowUpdate" alt="" coords="825,360,977,388"/>
+</map>

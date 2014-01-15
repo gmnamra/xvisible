@@ -1,0 +1,11 @@
+<map id="rcWindow::canPeekOutSide" name="rcWindow::canPeekOutSide">
+<area shape="rect" id="node2" href="$classrc_window.html#ad566893d4733191f6e22195a65365a71" title="rcWindow::contains" alt="" coords="244,57,380,85"/>
+<area shape="rect" id="node8" href="$classrc_rectangle.html#a73f63f6c596e1ba27aed947a5523b09a" title="rcRectangle::trim" alt="" coords="251,109,373,137"/>
+<area shape="rect" id="node9" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="277,161,347,189"/>
+<area shape="rect" id="node10" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="277,213,347,241"/>
+<area shape="rect" id="node3" href="$classrc_window.html#a3286f93b0d223617111f3ac62b854b2f" title="rcWindow::isBound" alt="" coords="436,5,572,33"/>
+<area shape="rect" id="node4" href="$classrc_rectangle.html#ad69317345e356a2e6f70362c50dd543d" title="rcRectangle::contains" alt="" coords="429,57,579,85"/>
+<area shape="rect" id="node7" href="$classrc_window.html#a89b86cca79113a99ef305290e81765b6" title="rcWindow::rectangle" alt="" coords="433,109,575,137"/>
+<area shape="rect" id="node5" href="$classrc_rectangle.html#aad573ed10aad598b8ca0a6a351fbe72f" title="rcRectangle::lr" alt="" coords="629,31,736,59"/>
+<area shape="rect" id="node6" href="$classrc_rectangle.html#a503fad35feaa849fc21d0c5895cf9b63" title="rcRectangle::ul" alt="" coords="628,83,738,111"/>
+</map>

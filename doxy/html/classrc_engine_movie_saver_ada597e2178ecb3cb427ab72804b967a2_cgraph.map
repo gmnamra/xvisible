@@ -1,0 +1,8 @@
+<map id="rcEngineMovieSaver::openHdlr" name="rcEngineMovieSaver::openHdlr">
+<area shape="rect" id="node2" href="$classrc_movie_save_status.html#a77e9bfb2b4bdee22394f66e9487f5d06" title="rcMovieSaveStatus::\lstatus" alt="" coords="198,5,341,49"/>
+<area shape="rect" id="node4" href="$classrc_movie_file_format2.html#ad077416ee7459fe3e47e2e070d54b769" title="rcMovieFileFormat2\l::write" alt="" coords="200,73,339,117"/>
+<area shape="rect" id="node3" href="$classrc_atomic_value.html#ae2089dca17b80f3395dcee01d91c8585" title="rcAtomicValue::setValue" alt="" coords="390,13,554,41"/>
+<area shape="rect" id="node5" href="$rc__systeminfo__mac_8cpp.html#a126126658dd407b361d6cba5c3e6c3ab" title="rfPlatformByteOrder" alt="" coords="793,123,933,151"/>
+<area shape="rect" id="node6" href="$classrc_movie_file_format2.html#a0cc799d8692dbc65c7af9325f0e0881a" title="rcMovieFileFormat2\l::fixEndian" alt="" coords="402,125,542,169"/>
+<area shape="rect" id="node7" href="$classrc_movie_file_identifier.html#a12d8dd7bbf727b46b169214f791d19bd" title="rcMovieFileIdentifier\l::fixEndian" alt="" coords="603,175,744,219"/>
+</map>

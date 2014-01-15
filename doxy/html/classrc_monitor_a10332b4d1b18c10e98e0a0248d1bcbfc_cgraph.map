@@ -1,0 +1,12 @@
+<map id="rcMonitor::buildPositionPath" name="rcMonitor::buildPositionPath">
+<area shape="rect" id="node2" href="$classrc_segment_iterator.html#aa2a42e1ee12f1b72a5314d4c8e2ef38e" title="rcSegmentIterator::\ladvance" alt="" coords="266,5,401,49"/>
+<area shape="rect" id="node3" href="$classrc_position_track.html#a32c598e7afb72e22422dcccbf5383b53" title="rcPositionTrack::getData\lSegmentIterator" alt="" coords="250,73,417,117"/>
+<area shape="rect" id="node4" href="$classrc_segment_iterator.html#a7c50f8a2b69ea85812f18c956d4e42db" title="rcSegmentIterator::\lgetSegmentCount" alt="" coords="266,141,401,185"/>
+<area shape="rect" id="node5" href="$classrc_segment_iterator.html#a11beb39c9aff504430e7ece5d57f193b" title="rcSegmentIterator::\lgetSegmentStartAbsolute" alt="" coords="247,209,420,253"/>
+<area shape="rect" id="node6" href="$classrc_position_segment_iterator.html#ac067566618c063de9cdced9c25d227bf" title="rcPositionSegmentIterator\l::getValue" alt="" coords="246,277,421,321"/>
+<area shape="rect" id="node7" href="$classrc_segment_iterator.html#ae011a564261662baf236fa2a0a668236" title="rcSegmentIterator::lock" alt="" coords="254,345,413,373"/>
+<area shape="rect" id="node8" href="$classrc_visual_graphics_collection.html#a8d58ec7a7055585048a092857d4b8a62" title="rcVisualGraphicsCollection\l::segments" alt="" coords="243,397,424,441"/>
+<area shape="rect" id="node9" href="$classrc_segment_iterator.html#aeb3d011a45b33852b38c82a803f6f175" title="rcSegmentIterator::\lunlock" alt="" coords="266,465,401,509"/>
+<area shape="rect" id="node10" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="298,533,368,561"/>
+<area shape="rect" id="node11" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="298,585,368,613"/>
+</map>

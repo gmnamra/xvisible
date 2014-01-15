@@ -1,0 +1,14 @@
+<map id="rcFileGrabber::getLastError" name="rcFileGrabber::getLastError">
+<area shape="rect" id="node2" href="$classrc_file_grabber.html#aa1db231700cc4b52379d5ad5eb835bcf" title="rcFileGrabber::isValid" alt="" coords="244,213,393,241"/>
+<area shape="rect" id="node5" href="$bcnvrt__main_8cpp.html#a6d89c150eafa999900b4088db4b6d0a3" title="rfCountMovieFrames" alt="" coords="448,109,594,137"/>
+<area shape="rect" id="node9" href="$classrc_image_grabber.html#a0dc0c2910c0ddaf1af724aa83e345dd8" title="rcImageGrabber::start" alt="" coords="243,265,395,293"/>
+<area shape="rect" id="node10" href="$classrc_m_p_e_g2_grabber.html#a80b63b1921f5a507ac4c88f233e9539b" title="rcMPEG2Grabber::start" alt="" coords="238,57,399,85"/>
+<area shape="rect" id="node13" href="$classrc_movie_grabber.html#a175b3961adae93680760a64ad82a7a13" title="rcMovieGrabber::start" alt="" coords="244,161,394,189"/>
+<area shape="rect" id="node3" href="$bcnvrt__main_8cpp.html#a6e8fab40e4cd89f05d7bafbc7c22dedc" title="rfCompareMovies" alt="" coords="458,161,585,189"/>
+<area shape="rect" id="node6" href="$classrc_reify_movie_grabber.html#a51c06698f577defb85f0a1cc75c5f9f0" title="rcReifyMovieGrabber\l::start" alt="" coords="448,213,595,257"/>
+<area shape="rect" id="node7" href="$classrc_reify_movie_grabber.html#ac30158a86bebe84be1bc1254758821a5" title="rcReifyMovieGrabber\l::getNextFrame" alt="" coords="642,242,790,286"/>
+<area shape="rect" id="node8" href="$classrc_reify_movie_grabber.html#a599448264899ca366e167778ed2c41cc" title="rcReifyMovieGrabber\l::stop" alt="" coords="448,333,595,377"/>
+<area shape="rect" id="node4" href="$bcnvrt__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="691,109,741,137"/>
+<area shape="rect" id="node11" href="$visimatch_8cpp.html#ae0d7b28519100e4a3b9ee193dbfb41ae" title="genRFYmov" alt="" coords="474,5,569,33"/>
+<area shape="rect" id="node12" href="$visimatch_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="691,5,741,33"/>
+</map>

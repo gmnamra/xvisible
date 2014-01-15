@@ -1,0 +1,36 @@
+<map id="TIFFSwabLong" name="TIFFSwabLong">
+<area shape="rect" id="node2" href="$tif__dirwrite_8c.html#a99ebbf4b3b0fd87a64d558757cf03635" title="_TIFFWriteDirectory" alt="" coords="385,166,527,194"/>
+<area shape="rect" id="node4" href="$tiffio_8h.html#a030e9a2ded6444dde1fd9b8164664b8c" title="TIFFRewriteDirectory" alt="" coords="830,99,978,127"/>
+<area shape="rect" id="node7" href="$tiffio_8h.html#a165611e0432d36de8bcf57f35e161bd3" title="TIFFClientOpen" alt="" coords="1230,243,1346,271"/>
+<area shape="rect" id="node24" href="$tif__dir_8c.html#aee1ccb8c1894edf32c7e236a92390ee2" title="TIFFAdvanceDirectory" alt="" coords="166,514,320,542"/>
+<area shape="rect" id="node27" href="$tiffio_8h.html#ac0f7bfa0b6efc24ba7d5b3f40aea82a1" title="TIFFUnlinkDirectory" alt="" coords="386,605,526,633"/>
+<area shape="rect" id="node28" href="$tif__dirread_8c.html#a5ebd28727b33b7e2c66c8359df383fa9" title="TIFFFetchString" alt="" coords="184,309,301,337"/>
+<area shape="rect" id="node30" href="$tiffio_8h.html#ab5f774a4a20c860a3d28a42e8b7166b4" title="TIFFReadDirectory" alt="" coords="837,399,971,427"/>
+<area shape="rect" id="node35" href="$tif__dirwrite_8c.html#a0ac2d51c39fef6f75672957ea210b063" title="TIFFLinkDirectory" alt="" coords="179,191,306,219"/>
+<area shape="rect" id="node3" href="$tiffio_8h.html#a81556034d0f25ab8e5a780a20a2754af" title="TIFFWriteDirectory" alt="" coords="616,139,750,167"/>
+<area shape="rect" id="node23" href="$tiffio_8h.html#abb5ff4e7abc98286d574600a9a8d0b5f" title="TIFFCheckpointDirectory" alt="" coords="598,191,767,219"/>
+<area shape="rect" id="node5" href="$tiffio_8h.html#aca3453296ad6a9dc3cbbead4e1bc2792" title="TIFFFlush" alt="" coords="863,173,945,201"/>
+<area shape="rect" id="node6" href="$tiffio_8h.html#aceb629aa7034d6d0304207556be3ce17" title="TIFFCleanup" alt="" coords="1058,183,1158,211"/>
+<area shape="rect" id="node19" href="$tiffio_8h.html#a3fefdfb6b9f9316edb732a85934efd90" title="TIFFClose" alt="" coords="1402,183,1486,211"/>
+<area shape="rect" id="node8" href="$tiffio_8h.html#adca230876d2f7fdec1ff6c7fdb7898a8" title="TIFFFdOpen" alt="" coords="1395,243,1493,271"/>
+<area shape="rect" id="node9" href="$tiffio_8h.html#ac3dd18826e617eb451c74f33a32fcb10" title="TIFFOpen" alt="" coords="1570,243,1652,271"/>
+<area shape="rect" id="node10" href="$class_t_i_f_f_reader_internal.html#adc7888a9bc3fe28248b49b8b204ae8ae" title="TIFFReaderInternal\l::Open" alt="" coords="1756,177,1894,221"/>
+<area shape="rect" id="node14" href="$classrc_window.html#adf6ca47beb76a8bfdc73369f80dd003d" title="rcWindow::tiff" alt="" coords="1775,245,1876,273"/>
+<area shape="rect" id="node11" href="$class_t_i_f_f_image_i_o.html#abec0d00f473debbd9d05f5a0e4820402" title="TIFFImageIO::CanReadFile" alt="" coords="1975,107,2161,135"/>
+<area shape="rect" id="node12" href="$classrc_engine_impl.html#ac0162da8fe4f677ad6f3d04a465d50f0" title="rcEngineImpl::loadMovie" alt="" coords="2219,82,2386,110"/>
+<area shape="rect" id="node13" href="$classrc_window.html#a5da06176e6878b676bbc534db6b09b7d" title="rcWindow::rcWindow" alt="" coords="2230,134,2376,162"/>
+<area shape="rect" id="node15" href="$classrc_visual_function.html#a1df64c3605f3a0a4670118911ac783b1" title="rcVisualFunction::cardiac\lMeasure" alt="" coords="1983,297,2153,341"/>
+<area shape="rect" id="node17" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1971,193,2165,221"/>
+<area shape="rect" id="node18" href="$rc__edge_8h.html#a11fbb1eb0376dd39a4be2ea72b7ef156" title="rfDirectionSignal" alt="" coords="2008,245,2128,273"/>
+<area shape="rect" id="node16" href="$classrc_visual_function.html#ac3135ba614a9ba5080e78c3f2f426312" title="rcVisualFunction::measure" alt="" coords="2213,305,2392,333"/>
+<area shape="rect" id="node20" href="$class_t_i_f_f_reader_internal.html#aaa46d9e82420cfadfe323b1026cac726" title="TIFFReaderInternal\l::Clean" alt="" coords="1542,117,1680,161"/>
+<area shape="rect" id="node21" href="$class_t_i_f_f_reader_internal.html#a37acb14f97aa8a07dd8875ed13bc21ba" title="TIFFReaderInternal\l::TIFFReaderInternal" alt="" coords="1753,5,1898,49"/>
+<area shape="rect" id="node22" href="$class_t_i_f_f_image_i_o.html#a3ad4dcd4aad49fe2ea0c85ce5edac4da" title="TIFFImageIO::~TIFFImageIO" alt="" coords="1728,125,1923,153"/>
+<area shape="rect" id="node25" href="$tiffio_8h.html#a4c03cf5dc3c061742f57f66bc271bd2e" title="TIFFNumberOfDirectories" alt="" coords="369,553,543,581"/>
+<area shape="rect" id="node26" href="$tiffio_8h.html#a58cdb91e8e93b12c8002ade2e4072251" title="TIFFSetDirectory" alt="" coords="1047,477,1169,505"/>
+<area shape="rect" id="node29" href="$tif__dirread_8c.html#a04526f5cd630d655c8d723d511d82731" title="TIFFFetchNormalTag" alt="" coords="382,334,530,362"/>
+<area shape="rect" id="node32" href="$tiffio_8h.html#ab3cb4edaf203fa41478bc4bfc6b227f7" title="TIFFReadCustomDirectory" alt="" coords="592,295,773,323"/>
+<area shape="rect" id="node34" href="$tif__dirread_8c.html#abc98a039cf0dded7164de706bc8706c0" title="TIFFFetchRefBlackWhite" alt="" coords="598,347,768,375"/>
+<area shape="rect" id="node31" href="$tiffio_8h.html#a33628efcd540db4412ec3cd7761c3733" title="TIFFSetSubDirectory" alt="" coords="1035,347,1181,375"/>
+<area shape="rect" id="node33" href="$tiffio_8h.html#a8e1741c4dfa13bbb8432aaab1fc269e8" title="TIFFReadEXIFDirectory" alt="" coords="822,295,986,323"/>
+</map>

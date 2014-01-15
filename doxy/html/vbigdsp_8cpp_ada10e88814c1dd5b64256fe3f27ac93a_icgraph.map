@@ -1,0 +1,14 @@
+<map id="EnsureStaticBufferSize" name="EnsureStaticBufferSize">
+<area shape="rect" id="node2" href="$vbigdsp_8cpp.html#ae0a38b013be66f0ff581e4b5e9d0f281" title="fft_pingpong" alt="" coords="214,69,309,97"/>
+<area shape="rect" id="node3" href="$vbigdsp_8h.html#af2ab131969e2f007da33e60f2f54114b" title="FFTComplex" alt="" coords="357,69,456,97"/>
+<area shape="rect" id="node4" href="$vbigdsp_8cpp.html#a38e87f9c7ae8534965b0ea707bdbf619" title="fft_real_forward_scalar" alt="" coords="504,42,661,70"/>
+<area shape="rect" id="node12" href="$vbigdsp_8cpp.html#a1a48211bf3e5130dc02c496e291712f6" title="fft_real_inverse_scalar" alt="" coords="505,94,660,122"/>
+<area shape="rect" id="node5" href="$vbigdsp_8h.html#a149c566750d66eb4dc6b32c060ebba74" title="FFTRealForward" alt="" coords="710,42,832,70"/>
+<area shape="rect" id="node6" href="$classrc_opto_kinetic_image.html#a1d1715dc28a0eea84834c136e02c26c4" title="rcOptoKineticImage\l::genDFT" alt="" coords="900,5,1039,49"/>
+<area shape="rect" id="node7" href="$rc__analysis_8h.html#ae51d37ad5797d5b59058fafde4fb4248" title="rf1DFourierAnalysisVoxels" alt="" coords="880,73,1058,101"/>
+<area shape="rect" id="node8" href="$classrc_opto_kinetic_image.html#ab8c6bd963086ef561d0f65ec8240e139" title="rcOptoKineticImage\l::genFreqImg" alt="" coords="1107,65,1245,109"/>
+<area shape="rect" id="node9" href="$classrc_muscle_segmenter.html#a61c65559f55fd9fa632b96e09ef50b2e" title="rcMuscleSegmenter::\lgenFrequencySegmentation" alt="" coords="1294,65,1482,109"/>
+<area shape="rect" id="node10" href="$classrc_muscle_segmenter.html#a660d7b3d1c240efa0b725e0db65154e3" title="rcMuscleSegmenter::\lfilterByActivity" alt="" coords="1530,65,1678,109"/>
+<area shape="rect" id="node11" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1726,73,1919,101"/>
+<area shape="rect" id="node13" href="$vbigdsp_8h.html#a61beacf0495a1cf3b668929e73f585d8" title="FFTRealInverse" alt="" coords="712,94,829,122"/>
+</map>

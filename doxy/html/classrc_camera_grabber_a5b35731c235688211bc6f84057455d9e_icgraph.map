@@ -1,0 +1,5 @@
+<map id="rcCameraGrabber::getAcqInfo" name="rcCameraGrabber::getAcqInfo">
+<area shape="rect" id="node2" href="$classrc_engine_movie_capture.html#a0444dc34ad1c8eb36f3d55a7270f5493" title="rcEngineMovieCapture\l::getCameraState" alt="" coords="254,5,410,49"/>
+<area shape="rect" id="node4" href="$classrc_engine_movie_capture.html#a6a8350d80d9ae7a2b10eb473f64b7354" title="rcEngineMovieCapture\l::initializeCamera" alt="" coords="254,73,410,117"/>
+<area shape="rect" id="node3" href="$classrc_engine_movie_capture.html#a0d8bfe4fd32e11bdbdb2c0ad113425ff" title="rcEngineMovieCapture::run" alt="" coords="459,47,642,75"/>
+</map>

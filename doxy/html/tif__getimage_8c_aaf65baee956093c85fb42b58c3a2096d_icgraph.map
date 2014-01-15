@@ -1,0 +1,11 @@
+<map id="TIFFRGBAImageEnd" name="TIFFRGBAImageEnd">
+<area shape="rect" id="node2" href="$tiffio_8h.html#a37f05a9b68bdc13fb34dc6d4182914d4" title="TIFFReadRGBAImageOriented" alt="" coords="203,55,410,83"/>
+<area shape="rect" id="node9" href="$tiffio_8h.html#a078cb3ec8bbc21b9d0b107241bdeb340" title="TIFFReadRGBAStrip" alt="" coords="233,107,380,135"/>
+<area shape="rect" id="node10" href="$tiffio_8h.html#a9cb0696bc0bde1de66286981e94def26" title="TIFFReadRGBATile" alt="" coords="237,159,376,187"/>
+<area shape="rect" id="node3" href="$class_t_i_f_f_image_i_o.html#a65d99c4b2c48e346698c0ae5462f2b20" title="TIFFImageIO::Read" alt="" coords="467,30,607,58"/>
+<area shape="rect" id="node8" href="$tiffio_8h.html#a2992848d0612320b0aa5e7ef655a824e" title="TIFFReadRGBAImage" alt="" coords="459,82,615,110"/>
+<area shape="rect" id="node4" href="$class_t_i_f_f_image_i_o.html#a972c82b540defb6309ae7c051d1d3694" title="TIFFImageIO::ReadPages" alt="" coords="679,5,857,33"/>
+<area shape="rect" id="node6" href="$class_t_i_f_f_image_i_o.html#a167f81244878f036d2f6bec094eefc84" title="TIFFImageIO::ReadSinglePage" alt="" coords="664,57,872,85"/>
+<area shape="rect" id="node5" href="$classrc_engine_impl.html#ac0162da8fe4f677ad6f3d04a465d50f0" title="rcEngineImpl::loadMovie" alt="" coords="920,5,1088,33"/>
+<area shape="rect" id="node7" href="$classrc_window.html#a5da06176e6878b676bbc534db6b09b7d" title="rcWindow::rcWindow" alt="" coords="931,57,1077,85"/>
+</map>

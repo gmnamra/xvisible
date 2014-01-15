@@ -1,0 +1,28 @@
+<map id="src/visible/qt/rc_spinboxsettingwidget.cpp" name="src/visible/qt/rc_spinboxsettingwidget.cpp">
+<area shape="rect" id="node7" href="$rc__spinboxsettingwidget_8h.html" title="rc_spinboxsettingwidget.h" alt="" coords="401,83,575,111"/>
+<area shape="rect" id="node26" href="$rc__modeldomain_8h.html" title="rc_modeldomain.h" alt="" coords="853,83,984,111"/>
+<area shape="rect" id="node47" href="$rc__appconstants_8h.html" title="rc_appconstants.h" alt="" coords="1435,83,1564,111"/>
+<area shape="rect" id="node8" href="$rc__settingwidget_8h.html" title="rc_settingwidget.h" alt="" coords="426,161,555,189"/>
+<area shape="rect" id="node9" href="$rc__setting_8h.html" title="rc_setting.h" alt="" coords="871,315,960,343"/>
+<area shape="rect" id="node10" href="$rc__value_8h.html" title="rc_value.h" alt="" coords="1036,393,1119,421"/>
+<area shape="rect" id="node20" href="$rc__uitypes_8h.html" title="rc_uitypes.h" alt="" coords="1341,470,1433,498"/>
+<area shape="rect" id="node21" href="$rc__atomic_8h.html" title="rc_atomic.h" alt="" coords="871,393,960,421"/>
+<area shape="rect" id="node12" href="$rc__exception_8h.html" title="rc_exception.h" alt="" coords="914,470,1021,498"/>
+<area shape="rect" id="node13" href="$rc__rect_8h.html" title="rc_rect.h" alt="" coords="1087,625,1160,653"/>
+<area shape="rect" id="node15" href="$rc__affine_8h.html" title="rc_affine.h" alt="" coords="1465,470,1548,498"/>
+<area shape="rect" id="node14" href="$rc__types_8h.html" title="rc_types.h" alt="" coords="763,702,845,730"/>
+<area shape="rect" id="node16" href="$rc__xforms_8h.html" title="rc_xforms.h" alt="" coords="1612,547,1703,575"/>
+<area shape="rect" id="node18" href="$rc__graphics_8h.html" title="rc_graphics.h" alt="" coords="1249,547,1351,575"/>
+<area shape="rect" id="node19" href="$rc__style_8h.html" title="rc_style.h" alt="" coords="1261,625,1339,653"/>
+<area shape="rect" id="node29" href="$rc__model_8h.html" title="rc_model.h" alt="" coords="1002,238,1088,266"/>
+<area shape="rect" id="node43" href="$rc__security_8h.html" title="rc_security.h" alt="" coords="43,625,137,653"/>
+<area shape="rect" id="node44" href="$rc__customeventmanager_8h.html" title="rc_customeventmanager.h" alt="" coords="765,161,943,189"/>
+<area shape="rect" id="node30" href="$rc__timestamp_8h.html" title="rc_timestamp.h" alt="" coords="726,470,839,498"/>
+<area shape="rect" id="node32" href="$rc__xml_8h.html" title="rc_xml.h" alt="" coords="345,315,416,343"/>
+<area shape="rect" id="node40" href="$rc__persistencemanager_8h.html" title="rc_persistencemanager.h" alt="" coords="1036,315,1207,343"/>
+<area shape="rect" id="node42" href="$rc__polygongroup_8h.html" title="rc_polygongroup.h" alt="" coords="1281,315,1412,343"/>
+<area shape="rect" id="node37" href="$rc__xmldefs_8h.html" title="rc_xmldefs.h" alt="" coords="456,393,552,421"/>
+<area shape="rect" id="node38" href="$rc__xmldefs__v0_8h.html" title="rc_xmldefs_v0.h" alt="" coords="577,393,695,421"/>
+<area shape="rect" id="node39" href="$rc__xmlelem_8h.html" title="rc_xmlelem.h" alt="" coords="331,393,431,421"/>
+<area shape="rect" id="node49" href="$rc__uiconstants_8h.html" title="rc_uiconstants.h" alt="" coords="1537,161,1655,189"/>
+</map>

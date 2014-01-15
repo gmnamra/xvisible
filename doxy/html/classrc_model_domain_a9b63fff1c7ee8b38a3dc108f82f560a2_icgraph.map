@@ -1,0 +1,7 @@
+<map id="rcModelDomain::notifyTimelineScale" name="rcModelDomain::notifyTimelineScale">
+<area shape="rect" id="node2" href="$classrc_timeline.html#a6025aa591cface209ac2897cdeacb2bf" title="rcTimeline::keyCameraEvent" alt="" coords="261,30,453,58"/>
+<area shape="rect" id="node5" href="$classrc_timeline.html#a82ab1ac96dab1bfd044d01d83b333e24" title="rcTimeline::mouseMoveEvent" alt="" coords="259,82,456,110"/>
+<area shape="rect" id="node3" href="$classrc_timeline.html#a54f33ca884fce920f42c3643c305d341" title="rcTimeline::keyPressEvent" alt="" coords="749,5,928,33"/>
+<area shape="rect" id="node4" href="$classrc_timeline.html#aeaaccfa10a612c29679497245a78cf87" title="rcTimeline::keyNavigateEvent" alt="" coords="504,30,701,58"/>
+<area shape="rect" id="node6" href="$classrc_timeline.html#a8a5755070cda22ee7307093bb95f5824" title="rcTimeline::mousePressEvent" alt="" coords="504,82,702,110"/>
+</map>

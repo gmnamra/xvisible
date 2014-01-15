@@ -1,0 +1,15 @@
+<map id="include/stlplus/library_manager.cpp" name="include/stlplus/library_manager.cpp">
+<area shape="rect" id="node2" href="$os__fixes_8hpp.html" title="os_fixes.hpp" alt="" coords="445,486,541,514"/>
+<area shape="rect" id="node4" href="$library__manager_8hpp.html" title="library_manager.hpp" alt="" coords="1159,99,1301,127"/>
+<area shape="rect" id="node8" href="$persistent_8hpp.html" title="persistent.hpp" alt="" coords="1770,331,1875,359"/>
+<area shape="rect" id="node26" href="$file__system_8hpp.html" title="file_system.hpp" alt="" coords="704,331,817,359"/>
+<area shape="rect" id="node27" href="$fileio_8hpp.html" title="fileio.hpp" alt="" coords="304,254,379,282"/>
+<area shape="rect" id="node30" href="$debug_8hpp.html" title="debug.hpp" alt="" coords="178,254,261,282"/>
+<area shape="rect" id="node32" href="$string__utilities_8hpp.html" title="string_utilities.hpp" alt="" coords="1260,331,1388,359"/>
+<area shape="rect" id="node5" href="$smart__ptr_8hpp.html" title="smart_ptr.hpp" alt="" coords="1082,254,1184,282"/>
+<area shape="rect" id="node9" href="$textio_8hpp.html" title="textio.hpp" alt="" coords="867,409,945,437"/>
+<area shape="rect" id="node24" href="$ini__manager_8hpp.html" title="ini_manager.hpp" alt="" coords="1171,177,1289,205"/>
+<area shape="rect" id="node6" href="$exceptions_8hpp.html" title="exceptions.hpp" alt="" coords="518,331,628,359"/>
+<area shape="rect" id="node13" href="$clonable_8hpp.html" title="clonable.hpp" alt="" coords="1977,409,2073,437"/>
+<area shape="rect" id="node10" href="$format__types_8hpp.html" title="format_types.hpp" alt="" coords="883,486,1007,514"/>
+</map>

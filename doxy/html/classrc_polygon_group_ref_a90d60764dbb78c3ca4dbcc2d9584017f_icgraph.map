@@ -1,0 +1,9 @@
+<map id="rcPolygonGroupRef::polys" name="rcPolygonGroupRef::polys">
+<area shape="rect" id="node2" href="$classrc_image_canvas_g_l.html#a20eeb995b882e553bd5c16e19a22b03e" title="rcImageCanvasGL::drawCurrent\lFocus" alt="" coords="208,5,421,49"/>
+<area shape="rect" id="node4" href="$classrc_model_domain.html#a1fa52cb565d03d937474d522bb22cfef" title="rcModelDomain::dumpPolys" alt="" coords="221,73,409,101"/>
+<area shape="rect" id="node5" href="$classrc_image_canvas_g_l.html#acb25a27713e20842e6bb0a741570480b" title="rcImageCanvasGL::mouseRelease\lEvent" alt="" coords="200,125,429,169"/>
+<area shape="rect" id="node6" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="218,193,411,221"/>
+<area shape="rect" id="node7" href="$rc__polygongroup_8cpp.html#a89908a3bd7576624f939c06a0e6245c6" title="operator==" alt="" coords="271,245,358,273"/>
+<area shape="rect" id="node8" href="$rc__polygongroup_8cpp.html#a4403aecb88407020fce34f10151b16db" title="rfPolygonGroupToGraphics\lCollection" alt="" coords="224,297,406,341"/>
+<area shape="rect" id="node3" href="$classrc_image_canvas_g_l.html#a13613e3b67ed570184de3526df233e23" title="Render display lists." alt="" coords="477,13,664,41"/>
+</map>

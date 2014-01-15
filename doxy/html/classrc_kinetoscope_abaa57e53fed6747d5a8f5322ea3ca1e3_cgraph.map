@@ -1,0 +1,11 @@
+<map id="rcKinetoscope::use4moving" name="rcKinetoscope::use4moving">
+<area shape="rect" id="node2" href="$classrc_kinetoscope.html#adc8a89eabf3d80ce0de093373789a42b" title="rcKinetoscope::channelAvailable" alt="" coords="248,5,462,33"/>
+<area shape="rect" id="node4" href="$classrc_kinetoscope.html#a7e076603137b191a5c68996dec23aa9f" title="rcKinetoscope::channelMovingPast" alt="" coords="240,57,469,85"/>
+<area shape="rect" id="node6" href="$classrc_kinetoscope.html#ae33112ed53dbf5360a75c85ac534c20d" title="rcKinetoscope::isLabelProtein" alt="" coords="256,213,454,241"/>
+<area shape="rect" id="node9" href="$classrc_kinetoscope.html#a7ef2b3fb9ce6c8797bc15bb97261d125" title="rcKinetoscope::moving" alt="" coords="277,109,433,137"/>
+<area shape="rect" id="node10" href="$classrc_kinetoscope.html#ae31b460a855a7406dab32e6f0769e7f7" title="rcKinetoscope::movingPast" alt="" coords="263,161,446,189"/>
+<area shape="rect" id="node3" href="$classrc_kinetoscope.html#ac9568a6bf45d811c47e89632aa58f945" title="rcKinetoscope::have" alt="" coords="549,5,691,33"/>
+<area shape="rect" id="node5" href="$classrc_kinetoscope.html#ae46f297240640027b90d14915cc580e7" title="rcKinetoscope::detail" alt="" coords="547,109,693,137"/>
+<area shape="rect" id="node7" href="$classrc_kinetoscope.html#afdc6f16a29d2822b29e120988e7595ff" title="rcKinetoscope::organism" alt="" coords="536,186,704,214"/>
+<area shape="rect" id="node8" href="$classrc_kinetoscope.html#a8143c946161e98827336c73f30340848" title="rcKinetoscope::organismName" alt="" coords="518,238,722,266"/>
+</map>

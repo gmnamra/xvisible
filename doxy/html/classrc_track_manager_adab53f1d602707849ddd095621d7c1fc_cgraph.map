@@ -1,0 +1,32 @@
+<map id="rcTrackManager::setHiliteTrack" name="rcTrackManager::setHiliteTrack">
+<area shape="rect" id="node2" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="742,5,965,33"/>
+<area shape="rect" id="node3" href="$classrc_track_manager.html#aaf2afe318ef9695a04553f676464c9b9" title="rcTrackManager::getTrackInfo" alt="" coords="227,199,426,227"/>
+<area shape="rect" id="node26" href="$classrc_track_manager.html#a4203ff1eee93a069ee7306c35ad93559" title="rcTrackManager::isHilite\lTrack" alt="" coords="244,303,409,347"/>
+<area shape="rect" id="node27" href="$classrc_model_domain.html#a86d2be206d7e3823bc8e4ed05515f029" title="rcModelDomain::notifyUpdate\lDisplay" alt="" coords="228,371,425,415"/>
+<area shape="rect" id="node29" href="$classrc_track_manager.html#acc0db089cd8a69750a5c694a7cb12ea8" title="rcTrackManager::reportTrack\lHighLighted" alt="" coords="230,439,423,483"/>
+<area shape="rect" id="node31" href="$classrc_track_manager.html#ad362efc68ed7ad397acb9ed00b25ddcd" title="rcTrackManager::setTrackInfo" alt="" coords="228,251,426,279"/>
+<area shape="rect" id="node4" href="$classrc_track_manager.html#ab9cc09f62f0e5d3696ba71b211a8a9bb" title="rcTrackManager::addTracks" alt="" coords="490,199,678,227"/>
+<area shape="rect" id="node14" href="$textio_8cpp.html#a905a4c61e365d406069f00eb68db1ca5" title="endl" alt="" coords="561,251,607,279"/>
+<area shape="rect" id="node5" href="$classrc_model_domain.html#a37b48b12a046a3849e0aa2c2e0eb121f" title="rcModelDomain::getExperiment" alt="" coords="749,229,957,257"/>
+<area shape="rect" id="node7" href="$classrc_experiment.html#a27452fbb8c0c37cce05d39052d3f0f5b" title="rcExperiment::getNTrackGroups" alt="" coords="747,281,959,309"/>
+<area shape="rect" id="node8" href="$classrc_track_group.html#aeaac0b69fb2dd8810c1b5a5d5179319d" title="rcTrackGroup::getNTracks" alt="" coords="765,333,942,361"/>
+<area shape="rect" id="node9" href="$classrc_track_group.html#af6717118313f9c7a40d241addf84e434" title="rcTrackGroup::getTrack" alt="" coords="773,385,934,413"/>
+<area shape="rect" id="node10" href="$classrc_experiment.html#af8f42371548d6281b00f7fd3e753fbd6" title="rcExperiment::getTrackGroup" alt="" coords="755,57,951,85"/>
+<area shape="rect" id="node11" href="$classrc_track.html#aa92c4dfed7e9cdfe07f52769061086be" title="rcTrack::getTrackType" alt="" coords="777,109,930,137"/>
+<area shape="rect" id="node12" href="$classrc_track_manager.html#aa0c1e63cee83d32f29d07597b5d624ce" title="rcTrackManager::setTrack\lColor" alt="" coords="765,161,941,205"/>
+<area shape="rect" id="node6" href="$classrc_experiment_domain.html#a07b0276398b8c4d8748702565156f287" title="rcExperimentDomain\l::getExperiment" alt="" coords="1014,221,1160,265"/>
+<area shape="rect" id="node13" href="$classrc_track.html#aae992301108c97ad554fcdce2bdf034d" title="rcTrack::getName" alt="" coords="1023,169,1150,197"/>
+<area shape="rect" id="node15" href="$classotext.html#a5086c0fd5e3f551eae3027e5d23d3c30" title="otext::put" alt="" coords="815,437,891,465"/>
+<area shape="rect" id="node16" href="$classotext.html#ab52b059090ba70eeeac469f9051d3a22" title="otext::flush" alt="" coords="1044,414,1130,442"/>
+<area shape="rect" id="node18" href="$classobuff.html#a069bcd2767c0d7c8e2bc8cd26d91e267" title="obuff::increment" alt="" coords="1028,466,1145,494"/>
+<area shape="rect" id="node19" href="$classobuff.html#a51efd4e8e00303842fa762940aad86ec" title="obuff::line_buffer" alt="" coords="1027,518,1147,546"/>
+<area shape="rect" id="node20" href="$classobuff.html#a0711113beee11f9793f5ba9e8e64c641" title="obuff::newline_mode" alt="" coords="1015,570,1159,598"/>
+<area shape="rect" id="node21" href="$classobuff.html#a5bbb61ac15c672da7f7b2002bef6b128" title="obuff::put" alt="" coords="1048,310,1125,338"/>
+<area shape="rect" id="node22" href="$classotext.html#a2a2435d80cce60cb88360c7bfe3f8445" title="otext::set_error" alt="" coords="1031,362,1142,390"/>
+<area shape="rect" id="node17" href="$classobuff.html#a8fb8969c450f4fdc037f8c51d35c87c7" title="obuff::flush" alt="" coords="1221,414,1307,442"/>
+<area shape="rect" id="node23" href="$classobuff.html#ae388e9608d1c873d1feaf621f4044c25" title="obuff::set_error" alt="" coords="1208,362,1320,390"/>
+<area shape="rect" id="node24" href="$class_t_c_p__client__data.html#a970f6bf6bb6e6166615813c5f7768381" title="TCP_client_data::error" alt="" coords="1369,362,1524,390"/>
+<area shape="rect" id="node25" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="1574,362,1703,390"/>
+<area shape="rect" id="node28" href="$classrc_model_domain.html#a805c6db48f4ede8d72e92c3a040c5ece" title="rcModelDomain::updateDisplay" alt="" coords="481,379,687,407"/>
+<area shape="rect" id="node30" href="$classrc_track_manager.html#a8a3c66d301c14a7fd8525cb673e39502" title="rcTrackManager::trackhighlighted" alt="" coords="475,447,693,475"/>
+</map>

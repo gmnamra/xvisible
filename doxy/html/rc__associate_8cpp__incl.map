@@ -1,0 +1,29 @@
+<map id="src/analysis/code/rc_associate.cpp" name="src/analysis/code/rc_associate.cpp">
+<area shape="rect" id="node2" href="$rc__associate_8h.html" title="rc_associate.h" alt="" coords="529,99,636,127"/>
+<area shape="rect" id="node46" href="$nr_8h.html" title="nr.h" alt="" coords="1494,734,1537,762"/>
+<area shape="rect" id="node3" href="$rc__macro_8h.html" title="rc_macro.h" alt="" coords="728,889,816,917"/>
+<area shape="rect" id="node4" href="$rc__polygongroup_8h.html" title="rc_polygongroup.h" alt="" coords="517,177,648,205"/>
+<area shape="rect" id="node5" href="$rc__polygon_8h.html" title="rc_polygon.h" alt="" coords="607,254,704,282"/>
+<area shape="rect" id="node6" href="$rc__types_8h.html" title="rc_types.h" alt="" coords="1094,966,1177,994"/>
+<area shape="rect" id="node11" href="$rc__vector2d_8h.html" title="rc_vector2d.h" alt="" coords="719,811,821,839"/>
+<area shape="rect" id="node22" href="$rc__affine_8h.html" title="rc_affine.h" alt="" coords="697,331,780,359"/>
+<area shape="rect" id="node23" href="$rc__xforms_8h.html" title="rc_xforms.h" alt="" coords="1293,657,1384,685"/>
+<area shape="rect" id="node30" href="$rc__graphics_8h.html" title="rc_graphics.h" alt="" coords="605,409,706,437"/>
+<area shape="rect" id="node41" href="$rc__polygon__edge_8h.html" title="rc_polygon_edge.h" alt="" coords="382,331,516,359"/>
+<area shape="rect" id="node9" href="$rc__platform_8h.html" title="rc_platform.h" alt="" coords="482,1043,581,1071"/>
+<area shape="rect" id="node13" href="$rc__exception_8h.html" title="rc_exception.h" alt="" coords="116,889,224,917"/>
+<area shape="rect" id="node17" href="$rc__pair_8h.html" title="rc_pair.h" alt="" coords="1026,889,1098,917"/>
+<area shape="rect" id="node18" href="$rc__math_8h.html" title="rc_math.h" alt="" coords="1293,889,1373,917"/>
+<area shape="rect" id="node19" href="$rc__limits_8h.html" title="rc_limits.h" alt="" coords="1292,966,1373,994"/>
+<area shape="rect" id="node26" href="$rc__rect_8h.html" title="rc_rect.h" alt="" coords="642,571,714,599"/>
+<area shape="rect" id="node24" href="$rc__matrix_8h.html" title="rc_matrix.h" alt="" coords="996,734,1082,762"/>
+<area shape="rect" id="node27" href="$rc__rectangle_8h.html" title="rc_rectangle.h" alt="" coords="806,734,910,762"/>
+<area shape="rect" id="node31" href="$rc__style_8h.html" title="rc_style.h" alt="" coords="910,486,988,514"/>
+<area shape="rect" id="node34" href="$rc__window_8h.html" title="rc_window.h" alt="" coords="782,486,876,514"/>
+<area shape="rect" id="node32" href="$rc__line_8h.html" title="rc_line.h" alt="" coords="1153,571,1224,599"/>
+<area shape="rect" id="node35" href="$rc__framebuf_8h.html" title="rc_framebuf.h" alt="" coords="351,811,453,839"/>
+<area shape="rect" id="node36" href="$rc__timestamp_8h.html" title="rc_timestamp.h" alt="" coords="300,889,412,917"/>
+<area shape="rect" id="node37" href="$rc__thread_8h.html" title="rc_thread.h" alt="" coords="615,889,704,917"/>
+<area shape="rect" id="node49" href="$nrutil__nr_8h.html" title="nrutil_nr.h" alt="" coords="1498,889,1577,917"/>
+<area shape="rect" id="node50" href="$nrtypes__nr_8h.html" title="nrtypes_nr.h" alt="" coords="1554,811,1648,839"/>
+</map>

@@ -1,0 +1,20 @@
+<map id="rcScalarSegmentIteratorImpl::reset" name="rcScalarSegmentIteratorImpl::reset">
+<area shape="rect" id="node2" href="$classrc_segment_iterator_impl.html#a22abc78fcb201cdca524b10299558f03" title="rcSegmentIteratorImpl\l::lock" alt="" coords="265,55,418,99"/>
+<area shape="rect" id="node4" href="$classrc_segment_iterator_impl.html#a9f0f6ff8abe7d4c09de3706508f5a0a0" title="rcSegmentIteratorImpl\l::reset" alt="" coords="265,213,418,257"/>
+<area shape="rect" id="node16" href="$classrc_scalar_segment_iterator_impl.html#a75e29a44aa9aab49b76d2362d1e3e743" title="rcScalarSegmentIteratorImpl\l::setCurrentValue" alt="" coords="246,418,437,462"/>
+<area shape="rect" id="node19" href="$classrc_segment_iterator_impl.html#a7a4317386190f35b906cb94f2280ac76" title="rcSegmentIteratorImpl\l::unlock" alt="" coords="265,333,418,377"/>
+<area shape="rect" id="node3" href="$classrc_mutex.html#ab3d2138979404d7f06abe308ca2177a8" title="rcMutex::lock" alt="" coords="531,6,631,34"/>
+<area shape="rect" id="node5" href="$classrc_experiment_domain_factory.html#a138ea9e736e52e90303b7a681d3c920c" title="rcExperimentDomainFactory\l::getExperimentDomain" alt="" coords="486,178,676,222"/>
+<area shape="rect" id="node6" href="$classrc_experiment_domain.html#adcdad124b236b3e94fc0431f2333179a" title="rcExperimentDomain\l::getExperimentStart" alt="" coords="508,246,654,290"/>
+<area shape="rect" id="node7" href="$classrc_track_impl.html#ab45e202ce363e1671de16a2660d4df33" title="rcTrackImpl::getTrackStart" alt="" coords="493,314,670,342"/>
+<area shape="rect" id="node8" href="$classrc_segment_impl.html#a72143dacddaf704a11dd558b3d3b8ddb" title="rcSegmentImpl::setLength" alt="" coords="493,58,670,86"/>
+<area shape="rect" id="node9" href="$classrc_segment_iterator_impl.html#a34e346184f63f0dbbe3ab6c114cbb646" title="rcSegmentIteratorImpl\l::advanceNoLock" alt="" coords="505,110,658,154"/>
+<area shape="rect" id="node15" href="$classrc_mutex.html#a323ac59a27ac3a491d94a72fb338ecbf" title="rcMutex::unlock" alt="" coords="524,366,639,394"/>
+<area shape="rect" id="node10" href="$classrc_track_impl.html#a7364f3ea7bc5feb9bb14a2600c949925" title="rcTrackImpl::segments" alt="" coords="929,22,1085,50"/>
+<area shape="rect" id="node11" href="$classrc_track_impl.html#ae853c3b756bcfff5d42dcad8795075ec" title="rcTrackImpl::segment" alt="" coords="932,103,1081,131"/>
+<area shape="rect" id="node12" href="$classrc_segment_impl.html#ad3c4f17458bfc71d0b0d1b0ab846b89a" title="rcSegmentImpl::start" alt="" coords="934,157,1079,185"/>
+<area shape="rect" id="node13" href="$classrc_segment_iterator_impl.html#a7f32e45b3ec89be158054c1aa28ec01e" title="rcSegmentIteratorImpl\l::findClosestSegment" alt="" coords="726,110,879,154"/>
+<area shape="rect" id="node14" href="$classrc_segment_impl.html#a3e75fcd7573f9ec7f1d4aa3c46255098" title="rcSegmentImpl::length" alt="" coords="929,211,1084,239"/>
+<area shape="rect" id="node17" href="$classrc_segment_iterator_impl.html#aa6314211f43757b3bbde20e5749518b4" title="rcSegmentIteratorImpl\l::getSegmentIndex" alt="" coords="505,486,658,530"/>
+<area shape="rect" id="node18" href="$classrc_scalar_track_impl.html#a9f26ad215518236192161fba86f266a5" title="rcScalarTrackImpl::\lsegments" alt="" coords="513,418,649,462"/>
+</map>

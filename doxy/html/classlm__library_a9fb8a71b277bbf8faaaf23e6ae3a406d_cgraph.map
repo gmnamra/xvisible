@@ -1,0 +1,32 @@
+<map id="lm_library::open" name="lm_library::open">
+<area shape="rect" id="node2" href="$classlm__library.html#a8d17cdf3ea83b9f6ff599a0077f21b65" title="lm_library::close" alt="" coords="188,103,305,131"/>
+<area shape="rect" id="node4" href="$file__system_8cpp.html#a43fc3ab8b60b46427572a1c6d14ce91d" title="folder_to_path" alt="" coords="193,183,300,211"/>
+<area shape="rect" id="node14" href="$classlm__library.html#a222ae9a0946face450f8caffcff177cb" title="lm_library::load_types" alt="" coords="171,394,322,422"/>
+<area shape="rect" id="node28" href="$library__manager_8cpp.html#ad14f441aa467dd750083703692bdd6c7" title="read_context" alt="" coords="393,346,492,374"/>
+<area shape="rect" id="node3" href="$classlm__library.html#a54d331ae570cf87b05c3886b64a24517" title="lm_library::save" alt="" coords="385,103,500,131"/>
+<area shape="rect" id="node5" href="$file__system_8cpp.html#a30c94ed8ef34b2bc1716be7b002b79a3" title="full_path" alt="" coords="407,155,479,183"/>
+<area shape="rect" id="node6" href="$classfile__specification.html#a5b8f1026354ff32bfc183da3f38f5ce7" title="file_specification\l::absolute" alt="" coords="784,97,904,141"/>
+<area shape="rect" id="node7" href="$classfile__specification.html#a18e9d7a9b9dd1214d09ab5e843ea7806" title="file_specification\l::relative" alt="" coords="955,97,1074,141"/>
+<area shape="rect" id="node8" href="$classfile__specification.html#a518bc2d13c74b0e00131c87fdd294f2b" title="file_specification\l::image" alt="" coords="590,207,709,251"/>
+<area shape="rect" id="node11" href="$classfile__specification.html#aefefc9da1b64f7ed66a436750a88ffa2" title="file_specification\l::initialise_folder" alt="" coords="784,29,904,73"/>
+<area shape="rect" id="node13" href="$classfile__specification.html#a1c51930e39fad4d827a81b5b12a72752" title="file_specification\l::make_absolute" alt="" coords="590,87,709,131"/>
+<area shape="rect" id="node9" href="$file__system_8cpp.html#a99e06c76afffe1f1d77f01c905b1a5fd" title="is_separator" alt="" coords="967,398,1062,426"/>
+<area shape="rect" id="node10" href="$string__utilities_8hpp.html#a657118c43fe44a8454311075655ac9d4" title="vector_to_string" alt="" coords="786,267,902,295"/>
+<area shape="rect" id="node12" href="$classfile__specification.html#ab6e2c3cc492528550d2c4021d3a1c225" title="file_specification\l::path" alt="" coords="955,29,1074,73"/>
+<area shape="rect" id="node15" href="$classlm__library.html#a33a32c68cf681559099106a061bef521" title="lm_library::load_type" alt="" coords="370,554,515,582"/>
+<area shape="rect" id="node16" href="$file__system_8cpp.html#a1cb60e22abe24655f2528a14ae3cd29e" title="basename_part" alt="" coords="592,527,706,555"/>
+<area shape="rect" id="node18" href="$file__system_8cpp.html#a167ee0fb292e776b9801558d23b95d14" title="create_filename" alt="" coords="591,631,707,659"/>
+<area shape="rect" id="node19" href="$file__system_8cpp.html#a98cfc7b7a7288df295314c2fe9f31bc5" title="folder_wildcard" alt="" coords="594,475,705,503"/>
+<area shape="rect" id="node26" href="$classlm__unit__name.html#a245b61a5e15f2ef85c0200a5879d6cad" title="lm_unit_name::lowercase" alt="" coords="563,683,736,711"/>
+<area shape="rect" id="node27" href="$classsmart__ptr__nocopy.html#aab9cedecc2ee1f233db16833f984f7aa" title="smart_ptr_nocopy::set" alt="" coords="573,579,726,607"/>
+<area shape="rect" id="node17" href="$file__system_8cpp.html#acf89fa1738d4f789e4cc5b9c3c3bec72" title="filename_part" alt="" coords="793,579,895,607"/>
+<area shape="rect" id="node20" href="$file__system_8cpp.html#a62475ca973dfe0094c00d60286c7c286" title="create_filespec" alt="" coords="788,371,900,399"/>
+<area shape="rect" id="node21" href="$file__system_8cpp.html#a896521b0391b7bcdd8057eaec72fa0a1" title="is_file" alt="" coords="816,423,872,451"/>
+<area shape="rect" id="node22" href="$file__system_8cpp.html#a4bf41553eb34f21058b17faf699b5a4f" title="is_folder" alt="" coords="808,475,880,503"/>
+<area shape="rect" id="node23" href="$string__utilities_8cpp.html#a9083169d662611e6a848ceae73bfff00" title="match_wildcard" alt="" coords="787,527,901,555"/>
+<area shape="rect" id="node24" href="$string__utilities_8cpp.html#add874a470a590a1c4a00898f447ac3d8" title="match_remainder" alt="" coords="952,527,1077,555"/>
+<area shape="rect" id="node25" href="$string__utilities_8cpp.html#a5892db7121e88ced58311f4a3968331f" title="match_set" alt="" coords="1125,527,1208,555"/>
+<area shape="rect" id="node29" href="$file__system_8cpp.html#a70caa80e7bc53b5f40266a0a985f5e09" title="file_exists" alt="" coords="609,423,689,451"/>
+<area shape="rect" id="node30" href="$visimatch_8cpp.html#ae8a6e4899fbd06cc223556ccef67b64e" title="restore" alt="" coords="618,319,681,347"/>
+<area shape="rect" id="node31" href="$persistent_8hpp.html#aeeb01b2ea31ac58564b5f56b4545f406" title="restore_deque" alt="" coords="790,319,898,347"/>
+</map>

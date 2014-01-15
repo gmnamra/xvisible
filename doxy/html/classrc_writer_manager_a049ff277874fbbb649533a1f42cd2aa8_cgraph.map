@@ -1,0 +1,10 @@
+<map id="rcWriterManager::createGraphicsWriter" name="rcWriterManager::createGraphicsWriter">
+<area shape="rect" id="node2" href="$classrc_writer_group.html#a870215c67ee469f267cccab880d2cad1" title="rcWriterGroup::createWriter" alt="" coords="272,5,456,33"/>
+<area shape="rect" id="node3" href="$classrc_writer_info.html#ab2990ea9e4f8a8b74a3e94956f0f85bf" title="rcWriterInfo::description" alt="" coords="283,57,445,85"/>
+<area shape="rect" id="node4" href="$classrc_writer_info.html#a0c3e4904d9c6e3cbf8807e2e4a12fc05" title="rcWriterInfo::format" alt="" coords="296,109,432,137"/>
+<area shape="rect" id="node5" href="$classrc_writer_mapper.html#a3ffaa8bb2896f541ac37290822d27568" title="rcWriterMapper::info" alt="" coords="293,161,435,189"/>
+<area shape="rect" id="node6" href="$classrc_writer_info.html#add5665d48e7275ff33a2d8456a7d54fa" title="rcWriterInfo::name" alt="" coords="299,213,429,241"/>
+<area shape="rect" id="node7" href="$classrc_writer_info.html#a8c6dcb29aa33c571c2972efd1fa39888" title="rcWriterInfo::tag" alt="" coords="306,265,422,293"/>
+<area shape="rect" id="node8" href="$classrc_writer_info.html#ae451dcdc7a0addd2e119a2cc0c74974c" title="rcWriterInfo::trackType" alt="" coords="286,317,442,345"/>
+<area shape="rect" id="node9" href="$classrc_writer_info.html#a2356971328e03fdf35eda486e81a755b" title="rcWriterInfo::type" alt="" coords="303,369,425,397"/>
+</map>

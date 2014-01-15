@@ -1,0 +1,51 @@
+<map id="rcMonitor::updateState" name="rcMonitor::updateState">
+<area shape="rect" id="node2" href="$classrc_monitor.html#afffe9ccd7658e601b29f9e054affdbb9" title="rcMonitor::deleteCachedImage" alt="" coords="212,1426,415,1454"/>
+<area shape="rect" id="node46" href="$classrc_monitor.html#af5d40a96ef0c716f75288fb414196291" title="rcMonitor::inputIsStored" alt="" coords="232,1521,395,1549"/>
+<area shape="rect" id="node50" href="$classrc_fps_calculator.html#a7cf74a7eb88b7396255543a1e0bc54bd" title="rcFpsCalculator::reset" alt="" coords="237,1573,389,1601"/>
+<area shape="rect" id="node3" href="$classrc_image_canvas_g_l.html#a5600b09bad68cb3fd92163ea7868192a" title="rcImageCanvasGL::loadrcWindow" alt="" coords="464,1342,688,1370"/>
+<area shape="rect" id="node4" href="$classrc_image_canvas_g_l.html#a8ce3780c13778e928eb9089cd5c8d65b" title="rcImageCanvasGL::buildCell\lGraphicsDlist" alt="" coords="755,1206,946,1250"/>
+<area shape="rect" id="node8" href="$textio_8cpp.html#a905a4c61e365d406069f00eb68db1ca5" title="endl" alt="" coords="1583,1390,1630,1418"/>
+<area shape="rect" id="node14" href="$classrc_image_canvas_g_l.html#ac5775ba8670a2eb99d298140d86e6c80" title="rcImageCanvasGL::buildGlobal\lGraphicsDlist" alt="" coords="747,1274,954,1318"/>
+<area shape="rect" id="node16" href="$rc__imagecanvasgl_8cpp.html#aa7155cb8881aa8e9053fe8144e5f48a3" title="Copies analysis images with appropriate depth for display in OpenGL." alt="" coords="807,777,894,805"/>
+<area shape="rect" id="node19" href="$classrc_window.html#a9ab724dc45a3c3c2beee6c8ed558de1e" title="rcWindow::depth" alt="" coords="1324,781,1444,809"/>
+<area shape="rect" id="node20" href="$classrc_window.html#a958e7e0bd74b12cbcb44e73a2692400a" title="rcWindow::height" alt="" coords="1322,885,1446,913"/>
+<area shape="rect" id="node21" href="$classrc_window.html#a0ae0c2adbe34085eb07c93edd60b342a" title="rcWindow::width" alt="" coords="1547,677,1666,705"/>
+<area shape="rect" id="node25" href="$classrc_window.html#a3286f93b0d223617111f3ac62b854b2f" title="rcWindow::isBound" alt="" coords="1539,262,1674,290"/>
+<area shape="rect" id="node38" href="$classrc_image_canvas_g_l.html#a9a57461963b11a42f0c0b28aa19fa983" title="rcImageCanvasGL::reconvert\lImage" alt="" coords="753,1425,948,1469"/>
+<area shape="rect" id="node43" href="$classrc_image_canvas_g_l.html#aab0f3ef5f0897dfe32eb5fed7fe9ea1a" title="rcImageCanvasGL::resetImages" alt="" coords="744,1542,957,1570"/>
+<area shape="rect" id="node44" href="$classrc_image_canvas_g_l.html#ac79f397e3887e4c78e89a9aee0059cc6" title="rcImageCanvasGL::showSaturated\lPixels" alt="" coords="736,1717,965,1761"/>
+<area shape="rect" id="node45" href="$classrc_image_canvas_g_l.html#a4171cba414b9050b4b192417d237bd55" title="rcImageCanvasGL::textureSize" alt="" coords="747,5,954,33"/>
+<area shape="rect" id="node5" href="$classrc_image_canvas_g_l.html#a1fe993325ca50553aa5f505608f02366" title="rcImageCanvasGL::deleteCell\lGraphicsDlist" alt="" coords="1022,1154,1221,1198"/>
+<area shape="rect" id="node6" href="$classrc_image_canvas_g_l.html#ac7efd4493f6f75d4005142206fbca231" title="rcImageCanvasGL::draw" alt="" coords="1037,1222,1206,1250"/>
+<area shape="rect" id="node7" href="$rc__imagecanvasgl_8cpp.html#a06bdf4d459280ad8056cd35cb117966a" title="displayOpenGLError" alt="" coords="1313,1237,1455,1265"/>
+<area shape="rect" id="node9" href="$classotext.html#a5086c0fd5e3f551eae3027e5d23d3c30" title="otext::put" alt="" coords="1723,1390,1799,1418"/>
+<area shape="rect" id="node10" href="$classotext.html#ab52b059090ba70eeeac469f9051d3a22" title="otext::flush" alt="" coords="1877,1311,1963,1339"/>
+<area shape="rect" id="node11" href="$classobuff.html#a069bcd2767c0d7c8e2bc8cd26d91e267" title="obuff::increment" alt="" coords="1862,1363,1978,1391"/>
+<area shape="rect" id="node12" href="$classobuff.html#a51efd4e8e00303842fa762940aad86ec" title="obuff::line_buffer" alt="" coords="1860,1415,1980,1443"/>
+<area shape="rect" id="node13" href="$classobuff.html#a0711113beee11f9793f5ba9e8e64c641" title="obuff::newline_mode" alt="" coords="1848,1467,1992,1495"/>
+<area shape="rect" id="node15" href="$classrc_image_canvas_g_l.html#ab230827d6501bc8d1d7a9c65175e83c3" title="rcImageCanvasGL::deleteGlobal\lGraphicsDlist" alt="" coords="1014,1274,1229,1318"/>
+<area shape="rect" id="node17" href="$classrc_frame.html#ae3ac88de540e922eabef93511072b05a" title="rcFrame::colorMapSize" alt="" coords="1304,1179,1464,1207"/>
+<area shape="rect" id="node18" href="$classrc_window.html#a57edd985555420d24b83c6185988e959" title="rcWindow::copyPixelsFrom\lWindow" alt="" coords="1030,933,1212,977"/>
+<area shape="rect" id="node23" href="$classrc_window.html#a21071d7c895af110edf6fb9e19342d6b" title="rcWindow::frameBuf" alt="" coords="1313,1046,1455,1074"/>
+<area shape="rect" id="node24" href="$classrc_frame.html#ac8264644f2c97390f190b792cf8c1c32" title="rcFrame::getColor" alt="" coords="1320,1107,1448,1135"/>
+<area shape="rect" id="node26" href="$rc__ipconvert_8cpp.html#a042ebe70b34f2a9cbc5fca46e1e609c4" title="Convert 16 bit images to 8 bit ones." alt="" coords="1054,366,1189,394"/>
+<area shape="rect" id="node31" href="$rc__moreip_8cpp.html#ac498ce5cd93bbe2f05bb77744745448f" title="rfImageVerticalReflect" alt="" coords="1045,571,1197,599"/>
+<area shape="rect" id="node32" href="$classrc_window.html#aae85efa83f5cad9ca30bd96c7d624860" title="rcWindow::size" alt="" coords="1329,521,1439,549"/>
+<area shape="rect" id="node34" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="1349,729,1419,757"/>
+<area shape="rect" id="node35" href="$classrc_frame.html#a1ffbdce165ada8cedbd6439ad1eb8feb" title="rcFrame::setColor" alt="" coords="1057,881,1185,909"/>
+<area shape="rect" id="node36" href="$classrc_frame.html#ab106b36a621f9c1fd6e3641bed82e36b" title="rcFrame::setIsGray" alt="" coords="1054,777,1189,805"/>
+<area shape="rect" id="node22" href="$classrc_window.html#a232627a15bd75725861721177a38df82" title="rcWindow::rowPointer" alt="" coords="1308,937,1460,965"/>
+<area shape="rect" id="node27" href="$classrc_window.html#a12f7b04b6f6e883df7992e9b7aa56d0f" title="rcWindow::bits" alt="" coords="1330,262,1438,290"/>
+<area shape="rect" id="node28" href="$classrc_histo_stats.html#a1a98ff6fa7f7d54736b84d2bfa971062" title="rcHistoStats::max" alt="" coords="1321,314,1447,342"/>
+<area shape="rect" id="node29" href="$classrc_histo_stats.html#a6c037101d3338db3126b2d19d10b11ea" title="rcHistoStats::min" alt="" coords="1323,210,1445,238"/>
+<area shape="rect" id="node30" href="$classrc_window.html#a2a036edf5b144800400615066e744e39" title="rcWindow::vImage" alt="" coords="1319,366,1449,394"/>
+<area shape="rect" id="node33" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="1349,625,1419,653"/>
+<area shape="rect" id="node37" href="$classrc_frame.html#af1a10fd97a2b54fc9bffffd92403f6cf" title="rcFrame::isGray" alt="" coords="1326,833,1442,861"/>
+<area shape="rect" id="node39" href="$classrc_image_canvas_g_l.html#a1904f80d39ae3f7f162dbf6d75c12e81" title="rcImageCanvasGL::buildImage\lDlist" alt="" coords="1019,1394,1224,1438"/>
+<area shape="rect" id="node41" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="1334,1442,1434,1470"/>
+<area shape="rect" id="node42" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="1334,1494,1434,1522"/>
+<area shape="rect" id="node40" href="$classrc_image_canvas_g_l.html#a1d66aa7eb4b8d97163668526dca0664e" title="rcImageCanvasGL::deleteImage\lDlist" alt="" coords="1277,1546,1491,1590"/>
+<area shape="rect" id="node47" href="$classrc_model_domain.html#aa43d293533bcf88d4fff6846aa52d1d3" title="rcModelDomain::getExperiment\lAttributes" alt="" coords="472,1742,680,1786"/>
+<area shape="rect" id="node49" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="465,1521,687,1549"/>
+<area shape="rect" id="node48" href="$classrc_experiment_domain.html#a6abeb9bb031e7bf26116f5cb914e2a56" title="rcExperimentDomain\l::getExperimentAttributes" alt="" coords="765,1785,936,1829"/>
+</map>

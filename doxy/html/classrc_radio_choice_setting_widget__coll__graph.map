@@ -1,0 +1,7 @@
+<map id="rcRadioChoiceSettingWidget" name="rcRadioChoiceSettingWidget">
+<area shape="rect" id="node2" href="$classrc_setting_widget.html" title="rcSettingWidget" alt="" coords="42,286,157,314"/>
+<area shape="rect" id="node4" href="$classrc_setting_info.html" title="rcSettingInfo" alt="" coords="124,193,220,221"/>
+<area shape="rect" id="node5" href="$structrc_setting_info_spec.html" title="rcSettingInfoSpec" alt="" coords="17,99,143,127"/>
+<area shape="rect" id="node6" href="$structrc_setting_choice.html" title="rcSettingChoice" alt="" coords="22,6,137,34"/>
+<area shape="rect" id="node7" href="$classrc_setting_source.html" title="rcSettingSource" alt="" coords="167,99,283,127"/>
+</map>

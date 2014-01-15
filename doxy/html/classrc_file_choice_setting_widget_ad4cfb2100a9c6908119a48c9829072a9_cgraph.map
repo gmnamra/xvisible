@@ -1,0 +1,12 @@
+<map id="rcFileChoiceSettingWidget::movieImport" name="rcFileChoiceSettingWidget::movieImport">
+<area shape="rect" id="node2" href="$classrc_setting_info.html#a8db8e684d49d6c889d9f79e246a8715b" title="rcSettingInfo::getDisplayType" alt="" coords="232,141,427,169"/>
+<area shape="rect" id="node3" href="$classrc_file_choice_setting_widget.html#ae0c0e2da2d4ed948706ca38f13fd707f" title="rcFileChoiceSettingWidget\l::singleFileBrowse" alt="" coords="240,193,419,237"/>
+<area shape="rect" id="node4" href="$classrc_setting_info.html#a97d3386417e33e46df6f361ccfb430a5" title="rcSettingInfo::getValue" alt="" coords="509,5,664,33"/>
+<area shape="rect" id="node5" href="$classrc_persistence_manager_factory.html#ab45216ea21c13d548a0afc8825287c8d" title="rcPersistenceManagerFactory\l::getPersistenceManager" alt="" coords="487,57,686,101"/>
+<area shape="rect" id="node6" href="$classrc_persistence_manager.html#a9449b59fa9f3773c3b2ed29e708b7480" title="rcPersistenceManager\l::fileFormatImportFilter" alt="" coords="509,125,664,169"/>
+<area shape="rect" id="node7" href="$classrc_persistence_manager.html#a9a83e177acde964e334550592787b913" title="rcPersistenceManager\l::fileFormatImportCaption" alt="" coords="501,193,673,237"/>
+<area shape="rect" id="node8" href="$classrc_setting_info.html#a56e4a99afd7b35b9ac8bfcb853dcdc4d" title="rcSettingInfo::setValue" alt="" coords="509,261,664,289"/>
+<area shape="rect" id="node9" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="475,313,698,341"/>
+<area shape="rect" id="node10" href="$classrc_model_domain.html#a964f8cb50c816a0826dbbbc60bb78006" title="rcModelDomain::notifySetting\lChange" alt="" coords="489,365,684,409"/>
+<area shape="rect" id="node11" href="$classrc_model_domain.html#af20f3010314a2ddf0ec3b3aa82f466b5" title="rcModelDomain::updateSettings" alt="" coords="746,373,958,401"/>
+</map>

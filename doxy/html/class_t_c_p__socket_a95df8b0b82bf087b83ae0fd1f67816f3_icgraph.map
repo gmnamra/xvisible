@@ -1,0 +1,8 @@
+<map id="TCP_socket::message" name="TCP_socket::message">
+<area shape="rect" id="node2" href="$class_t_c_p__connection__data.html#aa4d82e322d4b0bbb16775e1941b60e49" title="TCP_connection_data\l::message" alt="" coords="229,5,382,49"/>
+<area shape="rect" id="node4" href="$class_t_c_p__server__data.html#a3244ce802dc577e272d2b25eb665e245" title="TCP_server_data::message" alt="" coords="212,73,399,101"/>
+<area shape="rect" id="node6" href="$class_t_c_p__client__data.html#a599a2eef6a0112e8487b5d4944858bfa" title="TCP_client_data::message" alt="" coords="215,125,396,153"/>
+<area shape="rect" id="node3" href="$class_t_c_p__connection.html#ad0f0dccc5ca79e46f9d7fd1928df256e" title="TCP_connection::message" alt="" coords="448,13,629,41"/>
+<area shape="rect" id="node5" href="$class_t_c_p__server.html#ab0fc3be7c77db96308bc59ed70d2bdef" title="TCP_server::message" alt="" coords="462,73,616,101"/>
+<area shape="rect" id="node7" href="$class_t_c_p__client.html#a3680a6ef8202eab7c4473c9bac82edae" title="TCP_client::message" alt="" coords="465,125,613,153"/>
+</map>

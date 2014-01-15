@@ -1,0 +1,32 @@
+<map id="include/visiCore/rc_nativeimporter.h" name="include/visiCore/rc_nativeimporter.h">
+<area shape="rect" id="node2" href="$rc__types_8h.html" title="rc_types.h" alt="" coords="1479,734,1562,762"/>
+<area shape="rect" id="node7" href="$rc__engine_8h.html" title="rc_engine.h" alt="" coords="1071,99,1162,127"/>
+<area shape="rect" id="node44" href="$rc__xml_8h.html" title="rc_xml.h" alt="" coords="2236,486,2307,514"/>
+<area shape="rect" id="node5" href="$rc__platform_8h.html" title="rc_platform.h" alt="" coords="819,811,918,839"/>
+<area shape="rect" id="node9" href="$rc__window_8h.html" title="rc_window.h" alt="" coords="1122,486,1216,514"/>
+<area shape="rect" id="node11" href="$rc__timestamp_8h.html" title="rc_timestamp.h" alt="" coords="1659,657,1771,685"/>
+<area shape="rect" id="node22" href="$rc__pair_8h.html" title="rc_pair.h" alt="" coords="1015,571,1087,599"/>
+<area shape="rect" id="node23" href="$rc__graphics_8h.html" title="rc_graphics.h" alt="" coords="826,409,927,437"/>
+<area shape="rect" id="node27" href="$rc__affine_8h.html" title="rc_affine.h" alt="" coords="742,331,826,359"/>
+<area shape="rect" id="node29" href="$rc__polygongroup_8h.html" title="rc_polygongroup.h" alt="" coords="401,177,532,205"/>
+<area shape="rect" id="node30" href="$rc__polygon_8h.html" title="rc_polygon.h" alt="" coords="418,254,515,282"/>
+<area shape="rect" id="node34" href="$rc__uitypes_8h.html" title="rc_uitypes.h" alt="" coords="1290,331,1382,359"/>
+<area shape="rect" id="node35" href="$rc__value_8h.html" title="rc_value.h" alt="" coords="768,254,851,282"/>
+<area shape="rect" id="node36" href="$rc__setting_8h.html" title="rc_setting.h" alt="" coords="1154,177,1243,205"/>
+<area shape="rect" id="node38" href="$rc__resource__ctrl_8h.html" title="rc_resource_ctrl.h" alt="" coords="1295,177,1423,205"/>
+<area shape="rect" id="node41" href="$rc__persistencemanager_8h.html" title="rc_persistencemanager.h" alt="" coords="1587,177,1758,205"/>
+<area shape="rect" id="node43" href="$rc__typedefs_8h.html" title="rc_typedefs.h" alt="" coords="1752,571,1854,599"/>
+<area shape="rect" id="node10" href="$rc__framebuf_8h.html" title="rc_framebuf.h" alt="" coords="1379,571,1482,599"/>
+<area shape="rect" id="node17" href="$rc__rect_8h.html" title="rc_rect.h" alt="" coords="868,571,940,599"/>
+<area shape="rect" id="node14" href="$rc__thread_8h.html" title="rc_thread.h" alt="" coords="1215,657,1303,685"/>
+<area shape="rect" id="node15" href="$rc__macro_8h.html" title="rc_macro.h" alt="" coords="786,657,874,685"/>
+<area shape="rect" id="node24" href="$rc__style_8h.html" title="rc_style.h" alt="" coords="798,486,876,514"/>
+<area shape="rect" id="node25" href="$rc__vector2d_8h.html" title="rc_vector2d.h" alt="" coords="572,486,674,514"/>
+<area shape="rect" id="node26" href="$rc__exception_8h.html" title="rc_exception.h" alt="" coords="329,571,436,599"/>
+<area shape="rect" id="node28" href="$rc__xforms_8h.html" title="rc_xforms.h" alt="" coords="609,409,700,437"/>
+<area shape="rect" id="node31" href="$rc__polygon__edge_8h.html" title="rc_polygon_edge.h" alt="" coords="400,409,534,437"/>
+<area shape="rect" id="node37" href="$rc__atomic_8h.html" title="rc_atomic.h" alt="" coords="1204,254,1294,282"/>
+<area shape="rect" id="node48" href="$rc__xmldefs_8h.html" title="rc_xmldefs.h" alt="" coords="2498,571,2595,599"/>
+<area shape="rect" id="node49" href="$rc__xmldefs__v0_8h.html" title="rc_xmldefs_v0.h" alt="" coords="2029,571,2147,599"/>
+<area shape="rect" id="node50" href="$rc__xmlelem_8h.html" title="rc_xmlelem.h" alt="" coords="2222,571,2322,599"/>
+</map>

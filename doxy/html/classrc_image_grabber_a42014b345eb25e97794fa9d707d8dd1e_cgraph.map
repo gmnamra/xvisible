@@ -1,0 +1,6 @@
+<map id="rcImageGrabber::stop" name="rcImageGrabber::stop">
+<area shape="rect" id="node2" href="$classrc_file_grabber.html#aec38f5ee4c719127b5566011c981dbab" title="rcFileGrabber::lock" alt="" coords="213,5,347,33"/>
+<area shape="rect" id="node4" href="$classrc_file_grabber.html#a207b9e0a09e52ae34ec586b3bcb3ac8c" title="rcFileGrabber::unlock" alt="" coords="206,57,354,85"/>
+<area shape="rect" id="node3" href="$classrc_carbon_lock.html#ac56248341ae4b7fb1d32d22c6d6adc78" title="rcCarbonLock::lock" alt="" coords="411,5,546,33"/>
+<area shape="rect" id="node5" href="$classrc_carbon_lock.html#a7e71f89f7b34564243ccd27ef365642c" title="rcCarbonLock::unlock" alt="" coords="404,57,554,85"/>
+</map>

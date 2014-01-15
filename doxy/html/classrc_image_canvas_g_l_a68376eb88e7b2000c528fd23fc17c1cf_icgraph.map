@@ -1,0 +1,10 @@
+<map id="rcImageCanvasGL::updateStatus" name="rcImageCanvasGL::updateStatus">
+<area shape="rect" id="node2" href="$classrc_image_canvas_g_l.html#a8d709ffcbefb623ce61619f462287dd0" title="rcImageCanvasGL::convert\lEvent" alt="" coords="294,55,477,99"/>
+<area shape="rect" id="node6" href="$classrc_image_canvas_g_l.html#afd5e75f95cc8f23cf8601e6e4b49788c" title="rcImageCanvasGL::keyPress\lEvent" alt="" coords="288,123,483,167"/>
+<area shape="rect" id="node7" href="$classrc_image_canvas_g_l.html#afc7671f278e5ef9e4c7ce49ad164f88f" title="rcImageCanvasGL::mouseScale\lEvent" alt="" coords="279,191,492,235"/>
+<area shape="rect" id="node8" href="$classrc_image_canvas_g_l.html#a9bf77854f6fd2f0ca66ed61306b468c8" title="rcImageCanvasGL::scaleChanged" alt="" coords="273,259,498,287"/>
+<area shape="rect" id="node3" href="$classrc_image_canvas_g_l.html#ab57b93a733a4e2b8703a4ee083d46737" title="rcImageCanvasGL::mouseMove\lEvent" alt="" coords="555,5,768,49"/>
+<area shape="rect" id="node4" href="$classrc_image_canvas_g_l.html#a20a3588232227dac1aa7211929a83d0e" title="rcImageCanvasGL::mousePress\lEvent" alt="" coords="554,73,768,117"/>
+<area shape="rect" id="node5" href="$classrc_image_canvas_g_l.html#acb25a27713e20842e6bb0a741570480b" title="rcImageCanvasGL::mouseRelease\lEvent" alt="" coords="547,174,776,218"/>
+<area shape="rect" id="node9" href="$classrc_monitor.html#aa78742e62875bda71d8b6f1ec7fef9f1" title="rcMonitor::scaleChanged" alt="" coords="577,259,746,287"/>
+</map>

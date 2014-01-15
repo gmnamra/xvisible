@@ -1,0 +1,7 @@
+<map id="rcTrackManager::groupType" name="rcTrackManager::groupType">
+<area shape="rect" id="node2" href="$classrc_model_domain.html#a37b48b12a046a3849e0aa2c2e0eb121f" title="rcModelDomain::getExperiment" alt="" coords="251,13,459,41"/>
+<area shape="rect" id="node4" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="243,65,466,93"/>
+<area shape="rect" id="node5" href="$classrc_experiment.html#af8f42371548d6281b00f7fd3e753fbd6" title="rcExperiment::getTrackGroup" alt="" coords="257,117,453,145"/>
+<area shape="rect" id="node6" href="$classrc_track_group.html#a5bb93fe23f0992a358157bc1966cac60" title="rcTrackGroup::getType" alt="" coords="276,169,433,197"/>
+<area shape="rect" id="node3" href="$classrc_experiment_domain.html#a07b0276398b8c4d8748702565156f287" title="rcExperimentDomain\l::getExperiment" alt="" coords="515,5,661,49"/>
+</map>

@@ -1,0 +1,33 @@
+<map id="rcFrame::frameIndex" name="rcFrame::frameIndex">
+<area shape="rect" id="node2" href="$classrc_video_cache.html#af8b8c6ef9d331e30eb97b46fbbb3d7df" title="rcVideoCache::cacheInsert" alt="" coords="200,517,381,545"/>
+<area shape="rect" id="node3" href="$classrc_video_cache.html#a000b4e4e8f5f544b1ccc1c2fd2ca0bab" title="rcVideoCache::internalGet\lFrame" alt="" coords="442,451,619,495"/>
+<area shape="rect" id="node25" href="$classrc_kinetoscope.html#a9e34ed1b237aa970f30995cb75245233" title="rcKinetoscope::connected\lFunctions" alt="" coords="203,569,378,613"/>
+<area shape="rect" id="node30" href="$classrc_shared_frame_buf_ptr.html#ad9c1c1a338fa61c67368e356cda7e87b" title="rcSharedFrameBufPtr\l::operator=" alt="" coords="215,637,366,681"/>
+<area shape="rect" id="node31" href="$classrc_shared_frame_buf_ptr.html#abc3f05db87299856319f3bb533a408d9" title="rcSharedFrameBufPtr\l::operator==" alt="" coords="215,705,366,749"/>
+<area shape="rect" id="node32" href="$classrc_shared_frame_buf_ptr.html#a936b6be60b4de35d4ad716954887cbeb" title="rcSharedFrameBufPtr\l::rcSharedFrameBufPtr" alt="" coords="211,773,370,817"/>
+<area shape="rect" id="node4" href="$classrc_video_cache.html#a915f62e1b5273e9b83d9e97b83eb8a75" title="rcVideoCache::getFrame" alt="" coords="681,254,850,282"/>
+<area shape="rect" id="node5" href="$bcnvrt__main_8cpp.html#a6e8fab40e4cd89f05d7bafbc7c22dedc" title="rfCompareMovies" alt="" coords="1158,5,1285,33"/>
+<area shape="rect" id="node6" href="$bcnvrt__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1619,107,1669,135"/>
+<area shape="rect" id="node7" href="$bcnvrt__main_8cpp.html#a00a4dac924291e9ba2f484741e4abc19" title="rfCompareReifyMovies" alt="" coords="1143,109,1300,137"/>
+<area shape="rect" id="node8" href="$classrc_engine_movie_playback.html#ab5cff6edcb8b3d901f96d0fde1766f18" title="rcEngineMoviePlayback::run" alt="" coords="901,159,1091,187"/>
+<area shape="rect" id="node9" href="$classrc_movie_converter_to_rfy.html#a14ff503f33fc8496d34f367992430ebb" title="rcMovieConverterToRfy\l::createRfyMovie" alt="" coords="916,211,1076,255"/>
+<area shape="rect" id="node14" href="$classrc_movie_converter_to_q_t.html#ad76ebb33252df1ff7af4984a729c9dba" title="rcMovieConverterToQT\l::addVideoSamplesToMedia" alt="" coords="902,279,1090,323"/>
+<area shape="rect" id="node16" href="$classrc_reify_movie_grabber.html#ac30158a86bebe84be1bc1254758821a5" title="rcReifyMovieGrabber\l::getNextFrame" alt="" coords="922,347,1070,391"/>
+<area shape="rect" id="node17" href="$classrc_video_cache.html#af3a31aeda33cb4d43a00e1e60eb693dc" title="rcVideoCache::cacheLock" alt="" coords="908,415,1084,443"/>
+<area shape="rect" id="node24" href="$classrc_window.html#ac4fbc33417c0898ef2511e3a13f7b3df" title="rcWindow::rcWindow" alt="" coords="923,467,1069,495"/>
+<area shape="rect" id="node10" href="$classrc_movie_converter_to_rfy.html#af3af0dd934f527a9c08669e49f7f2304" title="rcMovieConverterToRfy\l::convert" alt="" coords="1141,207,1302,251"/>
+<area shape="rect" id="node11" href="$bcnvrt__main_8cpp.html#accc22075ea7eb720aed5cad6e10344b9" title="rfConvertMovie" alt="" coords="1379,159,1491,187"/>
+<area shape="rect" id="node12" href="$bcnvrt__main_8cpp.html#add0a6eef95e64e05a21758380072e136" title="rfConvertTwoMovies" alt="" coords="1363,211,1506,239"/>
+<area shape="rect" id="node13" href="$classrc_experiment_impl.html#ac08b9d15f5bb7db0b85a6d67406f95fa" title="rcExperimentImpl::export\lMovie" alt="" coords="1350,263,1519,307"/>
+<area shape="rect" id="node15" href="$classrc_movie_converter_to_q_t.html#a166b19241ef0b0b93ba0210903f53969" title="rcMovieConverterToQT\l::createQTMovie" alt="" coords="1142,279,1301,323"/>
+<area shape="rect" id="node18" href="$classrc_shared_frame_buf_ptr.html#a0fb601bfcd7cc6caa00725e5f14a205c" title="rcSharedFrameBufPtr\l::internalLock" alt="" coords="1146,407,1297,451"/>
+<area shape="rect" id="node19" href="$classrc_shared_frame_buf_ptr.html#afda06ec382dbd04bf772d0ef1e7d41c6" title="rcSharedFrameBufPtr\l::lock" alt="" coords="1359,407,1510,451"/>
+<area shape="rect" id="node20" href="$classrc_shared_frame_buf_ptr.html#a39871a6114d68084d9fe4ccf24405791" title="rcSharedFrameBufPtr\l::operator rcFrame *" alt="" coords="1568,307,1720,351"/>
+<area shape="rect" id="node21" href="$classrc_shared_frame_buf_ptr.html#ac2e30a362faf3d5ca9796a7850501cb4" title="rcSharedFrameBufPtr\l::operator*" alt="" coords="1568,375,1720,419"/>
+<area shape="rect" id="node22" href="$classrc_shared_frame_buf_ptr.html#ab1d09c025127296010372dff2d4eda14" title="rcSharedFrameBufPtr\l::operator&#45;\&gt;" alt="" coords="1568,443,1720,487"/>
+<area shape="rect" id="node23" href="$classrc_shared_frame_buf_ptr.html#a4572a9d662265cdfe2bc8fb302ac9705" title="rcSharedFrameBufPtr\l::refCount" alt="" coords="1568,511,1720,555"/>
+<area shape="rect" id="node26" href="$classrc_kinetoscope.html#a30274b84c57f86e667b614556f6c569b" title="rcKinetoscope::step" alt="" coords="696,622,835,650"/>
+<area shape="rect" id="node28" href="$classrc_kinetoscope.html#ae0addfc3a10c4c69ba027d9bfc351217" title="rcKinetoscope::stepContractile" alt="" coords="430,622,632,650"/>
+<area shape="rect" id="node29" href="$classrc_kinetoscope.html#a431144623d201c5aeb857893d8460ca2" title="rcKinetoscope::stepEpi" alt="" coords="452,674,610,702"/>
+<area shape="rect" id="node27" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="899,622,1093,650"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="fft_scalar" name="fft_scalar">
+<area shape="rect" id="node2" href="$vbigdsp_8cpp.html#aaced55c025b2c0495a617ad4feeaef87" title="InitFFTSinCos" alt="" coords="128,30,235,58"/>
+<area shape="rect" id="node6" href="$vbigdsp_8cpp.html#a275bdb06c90835ff7b1aac960ae639bf" title="log2max" alt="" coords="145,82,217,110"/>
+<area shape="rect" id="node7" href="$nrutil__nr_8h.html#a0c6419b6f375fd05c1cd758ca031974c" title="pow" alt="" coords="158,134,204,162"/>
+<area shape="rect" id="node3" href="$rc__math_8h.html#a6699cdaca52c9f90fbc27d377ac74cff" title="cos" alt="" coords="283,5,325,33"/>
+<area shape="rect" id="node5" href="$rc__math_8h.html#adac5d992515c3417b2ab21dd654a272c" title="sin" alt="" coords="285,57,323,85"/>
+<area shape="rect" id="node4" href="$classrc_radian.html#a2e41a3904c1fefd6989ddc3124dfaa32" title="rcRadian::Double" alt="" coords="374,31,498,59"/>
+</map>

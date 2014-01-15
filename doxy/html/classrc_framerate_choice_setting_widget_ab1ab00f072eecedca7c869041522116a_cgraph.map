@@ -1,0 +1,6 @@
+<map id="rcFramerateChoiceSettingWidget::intervalChanged" name="rcFramerateChoiceSettingWidget::intervalChanged">
+<area shape="rect" id="node2" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="233,5,455,33"/>
+<area shape="rect" id="node3" href="$classrc_model_domain.html#a964f8cb50c816a0826dbbbc60bb78006" title="rcModelDomain::notifySetting\lChange" alt="" coords="246,57,442,101"/>
+<area shape="rect" id="node5" href="$classrc_setting_info.html#a56e4a99afd7b35b9ac8bfcb853dcdc4d" title="rcSettingInfo::setValue" alt="" coords="267,125,421,153"/>
+<area shape="rect" id="node4" href="$classrc_model_domain.html#af20f3010314a2ddf0ec3b3aa82f466b5" title="rcModelDomain::updateSettings" alt="" coords="504,65,715,93"/>
+</map>

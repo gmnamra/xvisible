@@ -1,0 +1,7 @@
+<map id="subprocess::write_stdin" name="subprocess::write_stdin">
+<area shape="rect" id="node2" href="$classitext.html#a7d979345846d3dc44d0bc360718f855a" title="itext::bytes" alt="" coords="253,5,339,33"/>
+<area shape="rect" id="node4" href="$classsubprocess.html#a93a5a36b980b0a8135690eca34a0fed8" title="subprocess::close_stdin" alt="" coords="214,57,378,85"/>
+<area shape="rect" id="node3" href="$classibuff.html#ad9b82baa50ad63fe90d0a450e1629987" title="ibuff::bytes" alt="" coords="427,5,512,33"/>
+<area shape="rect" id="node5" href="$textio_8cpp.html#acf3fee36b85acdf7fae42a766218d233" title="close" alt="" coords="443,57,496,85"/>
+<area shape="rect" id="node6" href="$classotext.html#ab8cc31aaff71191e9cb95a5330a7bc5f" title="otext::close" alt="" coords="561,57,650,85"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="rcRectSettingWidget::setMaxValues" name="rcRectSettingWidget::setMaxValues">
+<area shape="rect" id="node2" href="$classrc_model_domain.html#aa43d293533bcf88d4fff6846aa52d1d3" title="rcModelDomain::getExperiment\lAttributes" alt="" coords="205,5,413,49"/>
+<area shape="rect" id="node4" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="198,73,421,101"/>
+<area shape="rect" id="node3" href="$classrc_experiment_domain.html#a6abeb9bb031e7bf26116f5cb914e2a56" title="rcExperimentDomain\l::getExperimentAttributes" alt="" coords="469,5,640,49"/>
+</map>

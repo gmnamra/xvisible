@@ -1,0 +1,9 @@
+<map id="rcMovieFileExpExt::treatment2" name="rcMovieFileExpExt::treatment2">
+<area shape="rect" id="node2" href="$classrc_engine_impl.html#aee7e2b0760801f1fc7df4d5eb76f3101" title="rcEngineImpl::attributes" alt="" coords="193,5,354,33"/>
+<area shape="rect" id="node4" href="$classrc_engine_movie_saver.html#a32276bec2dea00cc5439e6f7cd3d586c" title="rcEngineMovieSaver\l::closeHdlr" alt="" coords="201,57,346,101"/>
+<area shape="rect" id="node6" href="$classrc_movie_file_exp_ext.html#a29ed25b9ee57ce7fe32879f679c2d9f4" title="rcMovieFileExpExt::log" alt="" coords="195,125,352,153"/>
+<area shape="rect" id="node8" href="$rc__moviefileformat_8h.html#a4b5bdf2017b302953b3cb398a66285b8" title="operator\&lt;\&lt;" alt="" coords="230,177,317,205"/>
+<area shape="rect" id="node3" href="$classrc_engine_impl.html#ac0162da8fe4f677ad6f3d04a465d50f0" title="rcEngineImpl::loadMovie" alt="" coords="416,5,584,33"/>
+<area shape="rect" id="node5" href="$classrc_engine_movie_saver.html#a216e88884a3dd557507ea93dc3609a91" title="rcEngineMovieSaver::run" alt="" coords="414,65,586,93"/>
+<area shape="rect" id="node7" href="$classrc_engine_impl.html#ac0c1f457dc0078b470c0bbcb2a0f06ec" title="rcEngineImpl::setCaptureInfo" alt="" coords="403,125,597,153"/>
+</map>

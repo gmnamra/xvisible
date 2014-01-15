@@ -1,0 +1,31 @@
+<map id="rcPolygon::leftTurn" name="rcPolygon::leftTurn">
+<area shape="rect" id="node2" href="$classrc_polygon.html#a3fd238c5f728095b4325cc356e6bba55" title="rcPolygon::createConvexHull" alt="" coords="187,5,381,33"/>
+<area shape="rect" id="node8" href="$classrc_polygon.html#a3f76c821a42981abf52a1cf49f39e6dd" title="rcPolygon::findPeak" alt="" coords="214,57,354,85"/>
+<area shape="rect" id="node10" href="$classrc_polygon.html#a5bfd6f3c435fb3f8ea825bc89da5e0d4" title="rcPolygon::isConvex" alt="" coords="213,211,355,239"/>
+<area shape="rect" id="node3" href="$classrc_polygon.html#a21a2848e4600d69f1eab1d05143f000c" title="rcPolygon::discBuffer" alt="" coords="722,18,870,46"/>
+<area shape="rect" id="node4" href="$rc__polygongroup_8h.html#aef640fc26e2a3c85a5ae68abb68fc251" title="rfPolygonGroupMutualMerge" alt="" coords="950,78,1143,106"/>
+<area shape="rect" id="node5" href="$classrc_kinetoscope.html#a3cabc9a20a2426314710f1f3d8908f75" title="rcKinetoscope::visualDebug\lGraphics" alt="" coords="953,10,1140,54"/>
+<area shape="rect" id="node6" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1878,138,2071,166"/>
+<area shape="rect" id="node7" href="$classrc_kinetoscope.html#a7eb12d336c7e47b947f4a3ddf480b710" title="rcKinetoscope::visualDebug\lGraphics" alt="" coords="1197,70,1384,114"/>
+<area shape="rect" id="node9" href="$classrc_polygon.html#a392686f03ee969c7f83bdc366b03af96" title="rcPolygon::genMinEnclosingRect" alt="" coords="430,57,647,85"/>
+<area shape="rect" id="node11" href="$classrc_polygon.html#a24a3347f6c64febad2b5d6d07c61b63c" title="rcPolygon::contains" alt="" coords="727,315,865,343"/>
+<area shape="rect" id="node12" href="$classrc_polygon.html#a589db645c2f757064903220d41721d2e" title="rcPolygon::convexCompared\lToConvex" alt="" coords="442,367,635,411"/>
+<area shape="rect" id="node13" href="$classrc_polygon.html#a879031bf9eea3cd7a0834408a8019acb" title="rcPolygon::intersects" alt="" coords="723,367,869,395"/>
+<area shape="rect" id="node22" href="$classrc_polygon.html#a41ee396a9453685f11c2cc8d15af5738" title="rcPolygon::convexIntersection" alt="" coords="696,159,896,187"/>
+<area shape="rect" id="node26" href="$classrc_polygon.html#ae9419a418956102a7c5a48c72049be58" title="rcPolygon::convexUnion" alt="" coords="713,107,879,135"/>
+<area shape="rect" id="node27" href="$rc__polygon_8cpp.html#a39308e4aa4de6addecf18fd62d7ded31" title="operator==" alt="" coords="495,211,582,239"/>
+<area shape="rect" id="node30" href="$classrc_polygon.html#a0af0f7e800cc32f5dde741caeb230f9d" title="rcPolygon::rcPolygon" alt="" coords="465,263,612,291"/>
+<area shape="rect" id="node14" href="$classrc_kinetoscope.html#aeb4e292dbf28c00e8aa73b18debdc6d6" title="rcKinetoscope::associate" alt="" coords="962,354,1131,382"/>
+<area shape="rect" id="node19" href="$classrc_polygon.html#ad22adb537d52958897ec5b6c1b5b86e0" title="rcPolygon::intersects" alt="" coords="974,250,1119,278"/>
+<area shape="rect" id="node20" href="$classrc_kinetoscope.html#a417073176a71ba125e6eeab0a2c3a8f0" title="rcKinetoscope::newGeneration" alt="" coords="945,406,1148,434"/>
+<area shape="rect" id="node21" href="$rc__kinetrack_8cpp.html#a29f6a59de6b3dbbed8672ad7da9016ae" title="rfOfCellsAndPolys" alt="" coords="982,302,1111,330"/>
+<area shape="rect" id="node15" href="$classrc_kinetoscope.html#a9e34ed1b237aa970f30995cb75245233" title="rcKinetoscope::connected\lFunctions" alt="" coords="1203,294,1378,338"/>
+<area shape="rect" id="node16" href="$classrc_kinetoscope.html#a30274b84c57f86e667b614556f6c569b" title="rcKinetoscope::step" alt="" coords="1687,249,1825,277"/>
+<area shape="rect" id="node17" href="$classrc_kinetoscope.html#ae0addfc3a10c4c69ba027d9bfc351217" title="rcKinetoscope::stepContractile" alt="" coords="1432,327,1634,355"/>
+<area shape="rect" id="node18" href="$classrc_kinetoscope.html#a431144623d201c5aeb857893d8460ca2" title="rcKinetoscope::stepEpi" alt="" coords="1454,223,1612,251"/>
+<area shape="rect" id="node23" href="$classrc_muscle_segmenter.html#a7a53df71095b135bc1b256d1544fc0f4" title="rcMuscleSegmenter::\lmergePolygons" alt="" coords="973,130,1120,174"/>
+<area shape="rect" id="node25" href="$rc__analysis_8h.html#ad0865a28963f4fccfcf3f05e42b15769" title="rfComponentPolygons" alt="" coords="970,198,1123,226"/>
+<area shape="rect" id="node24" href="$classrc_muscle_segmenter.html#a86d108c38d0bcb7a7eb47021b7ab0308" title="rcMuscleSegmenter::\lsegment" alt="" coords="1682,130,1830,174"/>
+<area shape="rect" id="node28" href="$classrc_corr.html#ac30b4b71108137b986312f6561b0268c" title="rcCorr::operator!=" alt="" coords="733,211,859,239"/>
+<area shape="rect" id="node29" href="$rc__polygon_8h.html#abb8ce3208e91562a9838c33637e947ea" title="operator!=" alt="" coords="755,263,837,291"/>
+</map>

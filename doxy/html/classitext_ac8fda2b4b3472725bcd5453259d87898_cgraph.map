@@ -1,0 +1,15 @@
+<map id="itext::operator&gt;&gt;" name="itext::operator&gt;&gt;">
+<area shape="rect" id="node2" href="$textio_8cpp.html#a47d6fa76227d95d3bb473bd7e67b078f" title="get_token" alt="" coords="187,135,267,163"/>
+<area shape="rect" id="node10" href="$classitext.html#a64f926512727e90dd60351897fb9b994" title="itext::set_error" alt="" coords="173,187,280,215"/>
+<area shape="rect" id="node14" href="$string__utilities_8cpp.html#a1183605425445594730974b0c4ea8aa0" title="to_int" alt="" coords="200,239,254,267"/>
+<area shape="rect" id="node3" href="$classitext.html#aaee598f762de2ee4100c1a4c89f7ea44" title="itext::get" alt="" coords="525,109,597,137"/>
+<area shape="rect" id="node8" href="$classitext.html#a38bd74dce665f9902b0be3ebc89fa236" title="itext::peek" alt="" coords="520,57,602,85"/>
+<area shape="rect" id="node9" href="$textio_8cpp.html#a4ef4f0d0a99f5c3ce65ad5f4d651a238" title="skipwhite" alt="" coords="343,109,419,137"/>
+<area shape="rect" id="node4" href="$classibuff.html#afddfd5bdd2219ccd01dd176e5cd57369" title="ibuff::get" alt="" coords="723,161,795,189"/>
+<area shape="rect" id="node5" href="$classibuff.html#aecdbe63ee9b456ffac55153b8aaeec79" title="ibuff::increment" alt="" coords="703,109,815,137"/>
+<area shape="rect" id="node6" href="$classibuff.html#a34316b72de5ddac433ef6d29d7c00eb4" title="ibuff::newline_mode" alt="" coords="689,57,829,85"/>
+<area shape="rect" id="node7" href="$classibuff.html#af83bd07bbed7b837d08c8bafdfbd3e87" title="ibuff::peek" alt="" coords="717,5,800,33"/>
+<area shape="rect" id="node11" href="$classibuff.html#a8add995ecf0a95ef60c0ae122905b933" title="ibuff::set_error" alt="" coords="328,213,435,241"/>
+<area shape="rect" id="node12" href="$class_t_c_p__client__data.html#a970f6bf6bb6e6166615813c5f7768381" title="TCP_client_data::error" alt="" coords="484,213,639,241"/>
+<area shape="rect" id="node13" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="694,213,823,241"/>
+</map>

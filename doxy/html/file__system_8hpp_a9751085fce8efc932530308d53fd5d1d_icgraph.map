@@ -1,0 +1,14 @@
+<map id="file_delete" name="file_delete">
+<area shape="rect" id="node2" href="$classini__manager.html#a3348c2576d09475b967d5c78c5145af7" title="ini_manager::erase" alt="" coords="146,5,281,33"/>
+<area shape="rect" id="node3" href="$classlm__library.html#a51684f8f4641b07bd63c89f54f4e2443" title="lm_library::erase" alt="" coords="153,57,273,85"/>
+<area shape="rect" id="node4" href="$file__system_8hpp.html#af1433f867f2df74c14ac262a985f756d" title="file_move" alt="" coords="174,109,253,137"/>
+<area shape="rect" id="node5" href="$file__system_8hpp.html#a5bf621ffe8aff1601bcda9b05b1e1af0" title="folder_delete" alt="" coords="164,185,263,213"/>
+<area shape="rect" id="node11" href="$visimatch_8cpp.html#ae0d7b28519100e4a3b9ee193dbfb41ae" title="genRFYmov" alt="" coords="166,237,261,265"/>
+<area shape="rect" id="node13" href="$classlibrary__manager.html#a8c791a80cabeaaf982680c41aa54713d" title="library_manager::save\l_mappings" alt="" coords="137,289,290,333"/>
+<area shape="rect" id="node6" href="$library__manager_8cpp.html#a61deb030ff6c9831e255cc93181f9af0" title="erase_library" alt="" coords="339,185,437,213"/>
+<area shape="rect" id="node7" href="$classlm__library.html#a67c3b958302cdf31f7c3ed61fc8c7047" title="lm_library::erase" alt="" coords="485,185,605,213"/>
+<area shape="rect" id="node8" href="$classlm__library.html#a008338d3a220ddc880b2540e8b57d9dd" title="lm_library::create" alt="" coords="662,125,786,153"/>
+<area shape="rect" id="node9" href="$classlm__library.html#a5e913849cba45b03ba14a60fa07672a3" title="lm_library::erase_by\l_source" alt="" coords="653,177,795,221"/>
+<area shape="rect" id="node10" href="$classlm__library.html#a0f0d928c549b095099e11b19740ab4f9" title="lm_library::tidy" alt="" coords="670,245,778,273"/>
+<area shape="rect" id="node12" href="$visimatch_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="363,237,413,265"/>
+</map>

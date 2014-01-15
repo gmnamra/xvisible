@@ -1,0 +1,6 @@
+<map id="TCP_socket::receive" name="TCP_socket::receive">
+<area shape="rect" id="node2" href="$class_t_c_p__connection__data.html#a5d8b363a86c7c73872f3523616737890" title="TCP_connection_data\l::receive" alt="" coords="206,5,359,49"/>
+<area shape="rect" id="node4" href="$class_t_c_p__client__data.html#a1b1bb29cb272e2cbf4a7b0cb7011d296" title="TCP_client_data::receive" alt="" coords="198,73,368,101"/>
+<area shape="rect" id="node3" href="$class_t_c_p__connection.html#ad5dfbda91187ab5a1a402cf45340b7e0" title="TCP_connection::receive" alt="" coords="416,13,586,41"/>
+<area shape="rect" id="node5" href="$class_t_c_p__client.html#a9953b6a9c8b175b9ccc5ca7ecbd7947e" title="TCP_client::receive" alt="" coords="433,73,570,101"/>
+</map>

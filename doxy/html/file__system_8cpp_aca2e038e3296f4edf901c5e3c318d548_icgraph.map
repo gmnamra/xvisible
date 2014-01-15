@@ -1,0 +1,20 @@
+<map id="folder_writable" name="folder_writable">
+<area shape="rect" id="node2" href="$file__system_8hpp.html#af1b4015e95ccfc0571140b25b648b91b" title="file_writable" alt="" coords="201,146,293,174"/>
+<area shape="rect" id="node5" href="$classlm__library.html#a70bb7737782b4dc673314a16f449d5e5" title="lm_library::os_read_only" alt="" coords="163,286,330,314"/>
+<area shape="rect" id="node16" href="$classlm__library.html#a0aa8f9d580030a7343b234357a994da5" title="lm_library::os_writable" alt="" coords="170,353,324,381"/>
+<area shape="rect" id="node3" href="$classini__file.html#a2f1a805d0c24494001d979e3ac613b24" title="ini_file::read_file" alt="" coords="393,99,511,127"/>
+<area shape="rect" id="node4" href="$classini__file.html#a93b558c428dbeea78090450849ae08bd" title="ini_file::ini_file" alt="" coords="594,5,699,33"/>
+<area shape="rect" id="node6" href="$classlm__library.html#a0b847ac1d6155add2ecdfd009f97567f" title="lm_library::set_read\l_write" alt="" coords="577,401,716,445"/>
+<area shape="rect" id="node9" href="$classlm__library.html#ad5cf095e4c8df3d5b26e2bc46314f20d" title="lm_library::read_only" alt="" coords="379,245,525,273"/>
+<area shape="rect" id="node7" href="$classlm__library.html#a44688991cb8ad3b0798f163a127ded51" title="lm_library::set_writable" alt="" coords="774,413,932,441"/>
+<area shape="rect" id="node8" href="$classlm__library.html#a42e42491593b717d6a0b311cdfb66b1f" title="lm_library::set_read_only" alt="" coords="768,361,938,389"/>
+<area shape="rect" id="node10" href="$classlm__library.html#a008338d3a220ddc880b2540e8b57d9dd" title="lm_library::create" alt="" coords="585,193,708,221"/>
+<area shape="rect" id="node11" href="$classlm__library.html#ada1f9ff3282996fdf15693ef36901d9d" title="lm_library::save" alt="" coords="589,245,704,273"/>
+<area shape="rect" id="node12" href="$classlm__library.html#a51684f8f4641b07bd63c89f54f4e2443" title="lm_library::erase" alt="" coords="587,297,707,325"/>
+<area shape="rect" id="node13" href="$classlm__library.html#ac66d0580a305882476cba3022ab03c48" title="lm_library::mark" alt="" coords="589,349,705,377"/>
+<area shape="rect" id="node14" href="$classlm__library.html#a5e913849cba45b03ba14a60fa07672a3" title="lm_library::erase_by\l_source" alt="" coords="576,57,717,101"/>
+<area shape="rect" id="node15" href="$classlm__library.html#a0c7ebf3f3157ecef27e64c06c7e1f20e" title="lm_library::pretty\l_print" alt="" coords="587,125,707,169"/>
+<area shape="rect" id="node17" href="$classlm__library.html#a8c50d7bec2ff5aae78fcfb36b9fcd62a" title="lm_library::writable" alt="" coords="386,409,518,437"/>
+<area shape="rect" id="node18" href="$classlm__library.html#ae918f3a88ec1ed37f8b39f6afa761e59" title="lm_library::print_long" alt="" coords="574,469,719,497"/>
+<area shape="rect" id="node19" href="$library__manager_8hpp.html#a0a3f1c2bc0569889590400ebb3d0539f" title="print_long" alt="" coords="813,469,893,497"/>
+</map>

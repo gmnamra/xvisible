@@ -1,0 +1,8 @@
+<map id="rcPositionSegment" name="rcPositionSegment">
+<area shape="rect" id="node2" href="$classrc_segment_impl.html" title="rcSegmentImpl" alt="" coords="87,385,197,413"/>
+<area shape="rect" id="node3" href="$classrc_timestamp.html" title="rcTimestamp" alt="" coords="4,275,101,303"/>
+<area shape="rect" id="node4" href="$classrc_rect.html" title="rcRect" alt="" coords="126,275,185,303"/>
+<area shape="rect" id="node5" href="$classrc_rectangle.html" title="rcIRect" alt="" coords="124,195,187,223"/>
+<area shape="rect" id="node6" href="$classrc_pair.html" title="rcPair\&lt; int32 \&gt;" alt="" coords="102,86,209,114"/>
+<area shape="rect" id="node8" href="$classrc_pair.html" title="rcPair\&lt; float \&gt;" alt="" coords="222,385,327,413"/>
+</map>

@@ -1,0 +1,21 @@
+<map id="rcRateChoiceSettingWidget::rcRateChoiceSettingWidget" name="rcRateChoiceSettingWidget::rcRateChoiceSettingWidget">
+<area shape="rect" id="node2" href="$classrc_rate_choice_setting_widget.html#aee68cf31d1f3c52b9d5594cbdeddee08" title="rcRateChoiceSettingWidget\l::choiceSelected" alt="" coords="254,208,439,252"/>
+<area shape="rect" id="node3" href="$classrc_setting_info.html#a1b99595ec48ea7982c8a8c7f3afd0534" title="rcSettingInfo::getNChoices" alt="" coords="783,471,963,499"/>
+<area shape="rect" id="node4" href="$classrc_setting_info.html#a6d3cda0e1b71a0f7c2061015fb02d3d8" title="rcSettingInfo::getChoice" alt="" coords="792,164,955,192"/>
+<area shape="rect" id="node7" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="497,320,719,348"/>
+<area shape="rect" id="node10" href="$classrc_setting_info.html#adbd066da272f4ad48b4fdf92c08a972a" title="rcSettingInfo::getDescription" alt="" coords="252,400,441,428"/>
+<area shape="rect" id="node11" href="$classrc_setting_info.html#aefe2cf659ca951ac9078b4fb7eef812f" title="rcSettingInfo::getDisplayName" alt="" coords="246,452,447,480"/>
+<area shape="rect" id="node12" href="$classrc_setting_info.html#a4dc154cd3e34eeb58d3e08b72d1f1c34" title="rcSettingInfo::getTag" alt="" coords="275,504,418,532"/>
+<area shape="rect" id="node13" href="$structrc_setting_choice.html#a070feb5f1050f3e828f32d42bd58ae31" title="rcSettingChoice::getText" alt="" coords="264,556,430,584"/>
+<area shape="rect" id="node14" href="$classrc_setting_info.html#a97d3386417e33e46df6f361ccfb430a5" title="rcSettingInfo::getValue" alt="" coords="530,518,686,546"/>
+<area shape="rect" id="node15" href="$classrc_rate_choice_setting_widget.html#ae8f6722c11e821b669eb5f5e5ab9ed24" title="rcRateChoiceSettingWidget\l::settingChanged" alt="" coords="254,660,439,704"/>
+<area shape="rect" id="node5" href="$classrc_setting_info.html#a56e4a99afd7b35b9ac8bfcb853dcdc4d" title="rcSettingInfo::setValue" alt="" coords="531,112,685,140"/>
+<area shape="rect" id="node6" href="$structrc_setting_choice.html#a1171657e8b731eaf1ce4acddc732f9c3" title="rcSettingChoice::getValue" alt="" coords="521,216,695,244"/>
+<area shape="rect" id="node8" href="$classrc_model_domain.html#a964f8cb50c816a0826dbbbc60bb78006" title="rcModelDomain::notifySetting\lChange" alt="" coords="510,44,706,88"/>
+<area shape="rect" id="node9" href="$classrc_model_domain.html#af20f3010314a2ddf0ec3b3aa82f466b5" title="rcModelDomain::updateSettings" alt="" coords="768,52,979,80"/>
+<area shape="rect" id="node16" href="$classrc_rate_choice_setting_widget.html#a1012778f97be0b05d7e611e23fab97e1" title="rcRateChoiceSettingWidget\l::findChoice" alt="" coords="515,570,701,614"/>
+<area shape="rect" id="node18" href="$classrc_setting_widget.html#aca95d3b856ab397c63567ae71dba446b" title="Update widget visibility/editability state based on setting state." alt="" coords="505,690,711,734"/>
+<area shape="rect" id="node17" href="$structrc_setting_choice.html#a2d47fcdec3c4938ae6ffd0581fa22887" title="rcSettingChoice::getFloat\lValue" alt="" coords="788,570,959,614"/>
+<area shape="rect" id="node19" href="$classrc_setting_info.html#a776ac0e50f5e8d632e6cb2c4099d6c59" title="rcSettingInfo::isEditable" alt="" coords="793,671,954,699"/>
+<area shape="rect" id="node20" href="$classrc_setting_info.html#a2663e0e877560ec8a958fb92184c1c63" title="rcSettingInfo::isEnabled" alt="" coords="792,723,954,751"/>
+</map>

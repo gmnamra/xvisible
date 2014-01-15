@@ -1,0 +1,29 @@
+<map id="sobelEdgeProcess" name="sobelEdgeProcess">
+<area shape="rect" id="node2" href="$classrc_edge_tables.html#a8fab66717bc9ad4d3db6bfdc86bf4979" title="rcEdgeTables::binAtan" alt="" coords="212,57,367,85"/>
+<area shape="rect" id="node3" href="$classrc_window.html#a12f7b04b6f6e883df7992e9b7aa56d0f" title="rcWindow::bits" alt="" coords="235,109,343,137"/>
+<area shape="rect" id="node6" href="$textio_8cpp.html#a905a4c61e365d406069f00eb68db1ca5" title="endl" alt="" coords="266,161,313,189"/>
+<area shape="rect" id="node18" href="$classrc_window.html#a958e7e0bd74b12cbcb44e73a2692400a" title="rcWindow::height" alt="" coords="228,213,351,241"/>
+<area shape="rect" id="node19" href="$classrc_edge_tables.html#a88c908450b3c439b3d5b383ba424e497" title="rcEdgeTables::magnitudeTable" alt="" coords="187,265,391,293"/>
+<area shape="rect" id="node20" href="$classrc_window.html#a7b791055618d616156007fac694581e0" title="rcWindow::rowPixelUpdate" alt="" coords="199,317,380,345"/>
+<area shape="rect" id="node21" href="$classrc_window.html#a232627a15bd75725861721177a38df82" title="rcWindow::rowPointer" alt="" coords="214,369,365,397"/>
+<area shape="rect" id="node28" href="$classrc_window.html#a0ae0c2adbe34085eb07c93edd60b342a" title="rcWindow::width" alt="" coords="230,421,349,449"/>
+<area shape="rect" id="node4" href="$classrc_window.html#ac3dea930b031d67abbaefe87149da135" title="rcWindow::bytes" alt="" coords="452,57,572,85"/>
+<area shape="rect" id="node5" href="$classrc_window.html#a9ab724dc45a3c3c2beee6c8ed558de1e" title="rcWindow::depth" alt="" coords="644,5,764,33"/>
+<area shape="rect" id="node7" href="$classotext.html#a5086c0fd5e3f551eae3027e5d23d3c30" title="otext::put" alt="" coords="474,161,550,189"/>
+<area shape="rect" id="node8" href="$classotext.html#a2a2435d80cce60cb88360c7bfe3f8445" title="otext::set_error" alt="" coords="648,57,760,85"/>
+<area shape="rect" id="node12" href="$classobuff.html#a5bbb61ac15c672da7f7b2002bef6b128" title="obuff::put" alt="" coords="666,109,742,137"/>
+<area shape="rect" id="node13" href="$classobuff.html#a069bcd2767c0d7c8e2bc8cd26d91e267" title="obuff::increment" alt="" coords="646,161,762,189"/>
+<area shape="rect" id="node14" href="$classobuff.html#a0711113beee11f9793f5ba9e8e64c641" title="obuff::newline_mode" alt="" coords="632,213,776,241"/>
+<area shape="rect" id="node15" href="$classobuff.html#a51efd4e8e00303842fa762940aad86ec" title="obuff::line_buffer" alt="" coords="644,265,764,293"/>
+<area shape="rect" id="node16" href="$classotext.html#ab52b059090ba70eeeac469f9051d3a22" title="otext::flush" alt="" coords="661,317,747,345"/>
+<area shape="rect" id="node9" href="$classobuff.html#ae388e9608d1c873d1feaf621f4044c25" title="obuff::set_error" alt="" coords="824,57,936,85"/>
+<area shape="rect" id="node10" href="$class_t_c_p__client__data.html#a970f6bf6bb6e6166615813c5f7768381" title="TCP_client_data::error" alt="" coords="985,57,1140,85"/>
+<area shape="rect" id="node11" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="1190,57,1319,85"/>
+<area shape="rect" id="node17" href="$classobuff.html#a8fb8969c450f4fdc037f8c51d35c87c7" title="obuff::flush" alt="" coords="837,317,923,345"/>
+<area shape="rect" id="node22" href="$classrc_frame.html#a401a851fcb8a4328949d38cb34b572f6" title="rcFrame::rowPointer" alt="" coords="441,317,583,345"/>
+<area shape="rect" id="node23" href="$classrc_rect.html#a50236160751c949d8718f8d4d17f7923" title="rcRect::y" alt="" coords="475,369,549,397"/>
+<area shape="rect" id="node25" href="$classrc_rect.html#ac0f95519a41dcf7e33bec85ccb8e7aff" title="rcRect::x" alt="" coords="475,421,549,449"/>
+<area shape="rect" id="node27" href="$classrc_frame.html#aaef8303c840834284eb9c60d33bf40c1" title="rcFrame::depth" alt="" coords="456,473,568,501"/>
+<area shape="rect" id="node24" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="669,369,739,397"/>
+<area shape="rect" id="node26" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="669,421,739,449"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="include/visUI/rc_lineedit.h" name="include/visUI/rc_lineedit.h">
+<area shape="rect" id="node2" href="$rc__frameratechoicesettingwidget_8h.html" title="include/visUI/rc_frameratechoicesettingwidget.h" alt="" coords="499,83,801,111"/>
+<area shape="rect" id="node6" href="$rc__menuchoicesettingwidget_8h.html" title="include/visUI/rc_menuchoicesettingwidget.h" alt="" coords="956,83,1235,111"/>
+<area shape="rect" id="node9" href="$rc__numericchoicesettingwidget_8h.html" title="include/visUI/rc_numericchoicesettingwidget.h" alt="" coords="1365,83,1659,111"/>
+<area shape="rect" id="node12" href="$rc__textchoicesettingwidget_8h.html" title="include/visUI/rc_textchoicesettingwidget.h" alt="" coords="1683,83,1951,111"/>
+<area shape="rect" id="node15" href="$rc__textlinesettingwidget_8cpp.html" title="src/visible/qt/rc_textlinesettingwidget.cpp" alt="" coords="1976,83,2237,111"/>
+<area shape="rect" id="node3" href="$moc__rc__frameratechoicesettingwidget_8cpp.html" title="src/visible/moc/moc\l_rc_frameratechoicesettingwidget.cpp" alt="" coords="345,161,591,205"/>
+<area shape="rect" id="node4" href="$rc__frameratechoicesettingwidget_8cpp.html" title="src/visible/qt/rc_frameratechoicesettingwidget.cpp" alt="" coords="5,169,320,197"/>
+<area shape="rect" id="node5" href="$rc__settingpage_8cpp.html" title="src/visible/qt/rc_settingpage.cpp" alt="" coords="1177,169,1388,197"/>
+<area shape="rect" id="node7" href="$moc__rc__menuchoicesettingwidget_8cpp.html" title="src/visible/moc/moc\l_rc_menuchoicesettingwidget.cpp" alt="" coords="932,161,1153,205"/>
+<area shape="rect" id="node8" href="$rc__menuchoicesettingwidget_8cpp.html" title="src/visible/qt/rc_menuchoicesettingwidget.cpp" alt="" coords="615,169,907,197"/>
+<area shape="rect" id="node10" href="$moc__rc__numericchoicesettingwidget_8cpp.html" title="src/visible/moc/moc\l_rc_numericchoicesettingwidget.cpp" alt="" coords="1742,161,1977,205"/>
+<area shape="rect" id="node11" href="$rc__numericchoicesettingwidget_8cpp.html" title="src/visible/qt/rc_numericchoicesettingwidget.cpp" alt="" coords="1412,169,1717,197"/>
+<area shape="rect" id="node13" href="$moc__rc__textchoicesettingwidget_8cpp.html" title="src/visible/moc/moc\l_rc_textchoicesettingwidget.cpp" alt="" coords="2307,161,2516,205"/>
+<area shape="rect" id="node14" href="$rc__textchoicesettingwidget_8cpp.html" title="src/visible/qt/rc_textchoicesettingwidget.cpp" alt="" coords="2003,169,2281,197"/>
+</map>

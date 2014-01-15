@@ -1,0 +1,51 @@
+<map id="rcWindow::rowUpdate" name="rcWindow::rowUpdate">
+<area shape="rect" id="node2" href="$classrc_window.html#ae462e13a1bfb76c9d2d820a097b435ef" title="rcWindow::CGImage" alt="" coords="236,5,380,33"/>
+<area shape="rect" id="node4" href="$classrc_window.html#a50417d472a3eeb9f479315dbdee3e3cf" title="rcWindow::contains" alt="" coords="240,57,376,85"/>
+<area shape="rect" id="node5" href="$rc__qtime_8h.html#a153dba2884b60c335db2c497dfe145e9" title="getNextVideoSample" alt="" coords="235,109,381,137"/>
+<area shape="rect" id="node7" href="$classrc_movie_grabber.html#a45d79cfbc28d7aba7eb37e156c297f13" title="rcMovieGrabber::getNextVideo\lSample" alt="" coords="206,161,410,205"/>
+<area shape="rect" id="node9" href="$rc__window_8cpp.html#a1c2abc8ebd0b6338f2532f9b3c06356b" title="operator\&lt;\&lt;" alt="" coords="265,229,351,257"/>
+<area shape="rect" id="node10" href="$rc__fill_8h.html#a00254f8042116d7ae9165b9ec7784ea2" title="rc_fill_poly" alt="" coords="266,281,350,309"/>
+<area shape="rect" id="node12" href="$rc__imageprocessing_8h.html#a62625e07ed8057be0747759e975efd19" title="rfAndImage" alt="" coords="263,697,353,725"/>
+<area shape="rect" id="node15" href="$rc__analysis_8h.html#af5982c4024b5f04c52ab775bf07ffb83" title="rfCorrelate" alt="" coords="266,385,350,413"/>
+<area shape="rect" id="node16" href="$rc__peak_8h.html#a4c900d1016fe817241cbaa9ef3e3ef60" title="rfDetectPeaks" alt="" coords="255,749,361,777"/>
+<area shape="rect" id="node18" href="$rc__moments_8h.html#a4fe8630130174ae886fae39d9477e769" title="rfGen1DMomentIntegrals" alt="" coords="222,541,394,569"/>
+<area shape="rect" id="node19" href="$classrc_moment_generator.html#a7b8dba1194147838b9ddadd80fb12c47" title="rcMomentGenerator::\lupdate" alt="" coords="490,481,638,525"/>
+<area shape="rect" id="node20" href="$rc__moments_8h.html#a017c65322ae5a54c45ea41af2c82fb4e" title="rfGen2DIMIntegrals" alt="" coords="239,593,377,621"/>
+<area shape="rect" id="node21" href="$rc__moments_8h.html#a4c54818de44a76d888a8645ce48c46ca" title="rfGen2DIMIntegralsFast" alt="" coords="226,645,390,673"/>
+<area shape="rect" id="node22" href="$rc__moments_8h.html#a736675f43b010edda050a94d93a3bb91" title="rfGen2DMomentIntegrals" alt="" coords="222,437,394,465"/>
+<area shape="rect" id="node23" href="$rc__moments_8h.html#a0511827967c9dd723498545eed039f36" title="rfGen2DMomentIntegralsFast" alt="" coords="210,489,406,517"/>
+<area shape="rect" id="node24" href="$rc__analysis_8h.html#ad502b5b11d75de45c2c0f634e837abd1" title="rfGetComponents" alt="" coords="245,801,371,829"/>
+<area shape="rect" id="node27" href="$rc__ip_8h.html#a96d1ade51e0f61413e07fabc7e78d024" title="rfHysteresisThreshold" alt="" coords="488,1450,640,1478"/>
+<area shape="rect" id="node29" href="$rc__moments_8h.html#a765026319f7a164612e551260ce15c05" title="rfImage8Integrals" alt="" coords="245,905,371,933"/>
+<area shape="rect" id="node30" href="$rc__ipconvert_8h.html#a8dd3c54037d0387917f8d2150c086e32" title="rfImage8Transpose" alt="" coords="240,853,376,881"/>
+<area shape="rect" id="node32" href="$rc__imageintegrals_8cpp.html#a20b33654ff01ced109f050e9a8bbdcd8" title="rfImageACfield" alt="" coords="253,1009,363,1037"/>
+<area shape="rect" id="node33" href="$rc__imagegrabber_8cpp.html#aca5ea7850d6246664dbd762bfb7e1c04" title="rfImageFileToRcWindow" alt="" coords="225,957,391,985"/>
+<area shape="rect" id="node36" href="$rc__median_8cpp.html#a44d9553ce9d251a1fd2c7632cbc41b0e" title="rfMedian3By3Depth8" alt="" coords="235,1061,381,1089"/>
+<area shape="rect" id="node38" href="$rc__peak_8cpp.html#a744f66c72b217308ced43f6c69a120ef" title="rfPeakDetect8Bit" alt="" coords="247,1165,369,1193"/>
+<area shape="rect" id="node39" href="$rc__peak_8cpp.html#a7a390178140bc7d4b980af1b5cb0d383" title="rfPeakDetectAsym8Bit" alt="" coords="231,1217,385,1245"/>
+<area shape="rect" id="node40" href="$rc__ip_8h.html#a6b46cda13a90168021a00a049f2dd757" title="rfPixel8Max3By3" alt="" coords="247,1269,369,1297"/>
+<area shape="rect" id="node41" href="$rc__ip_8h.html#a2586cdcf2cacaeed7c285b4d07a429b9" title="rfPixel8Min3By3" alt="" coords="249,1321,367,1349"/>
+<area shape="rect" id="node42" href="$rc__ip_8h.html#a330a7c1ecfdb250b97b778bc50ee39b7" title="rfPixelExpand" alt="" coords="256,1373,360,1401"/>
+<area shape="rect" id="node43" href="$rc__moreip_8cpp.html#a81477e1737efca10a7a45432f471be23" title="rfSetWindowBorder" alt="" coords="240,1425,376,1453"/>
+<area shape="rect" id="node44" href="$rc__edge_8h.html#aa73c26425525a31622bf1dd06473783a" title="rfSpatialEdge" alt="" coords="513,1242,615,1270"/>
+<area shape="rect" id="node45" href="$rc__ip_8h.html#a301df491ff5a582a7155eb7227aeacf0" title="rfSurfaceHessian" alt="" coords="246,1529,370,1557"/>
+<area shape="rect" id="node46" href="$classrc_correlation_window.html#a40d411a1466440a3d44304f9e4d8079e" title="rcCorrelationWindow\l\&lt; uint8 \&gt;::rowPelUpdate" alt="" coords="226,1581,390,1625"/>
+<area shape="rect" id="node47" href="$classrc_correlation_window.html#a0766e39a8ced5118417c36ccae2e5c36" title="rcCorrelationWindow\l\&lt; uint8 \&gt;::rowUpdate" alt="" coords="235,1649,381,1693"/>
+<area shape="rect" id="node48" href="$rc__levelset_8cpp.html#a88948193985540b57e8532b6aef50b8e" title="segment" alt="" coords="272,1717,344,1745"/>
+<area shape="rect" id="node49" href="$classrc_point_correlation.html#ad6854b8a453a1da89c4bce902902f034" title="rcPointCorrelation\l::update" alt="" coords="244,1769,372,1813"/>
+<area shape="rect" id="node50" href="$classrc_window.html#a2a036edf5b144800400615066e744e39" title="rcWindow::vImage" alt="" coords="243,1837,373,1865"/>
+<area shape="rect" id="node3" href="$rc__window2jpg_8h.html#aafff9f578cb98cab6bdf83fbd405e12f" title="rfImageExport2JPG" alt="" coords="495,5,633,33"/>
+<area shape="rect" id="node6" href="$rc__qtime_8h.html#a508d1079857b36d17f2526f229d8b364" title="rfMovieFileToRcWindow" alt="" coords="482,109,646,137"/>
+<area shape="rect" id="node8" href="$classrc_movie_grabber.html#aed6d758e70008ac09a56f670754f08b0" title="rcMovieGrabber::getNextFrame" alt="" coords="460,169,668,197"/>
+<area shape="rect" id="node11" href="$rc__draw_8h.html#a72125d1915a0c243a770c6635ecbf584" title="rcFillPolygon" alt="" coords="515,281,613,309"/>
+<area shape="rect" id="node13" href="$classrc_shape.html#a2cd1218076efeb8e15b86b381e557d44" title="rcShape::project" alt="" coords="729,585,847,613"/>
+<area shape="rect" id="node14" href="$rc__analysis_8h.html#aef94b5a8ac88d8947ad186ce22a59973" title="rfCorrelate" alt="" coords="522,629,606,657"/>
+<area shape="rect" id="node17" href="$code_2rc__lattice_8cpp.html#aeb150780e48b760bf6f48e2cc39e4798" title="_exhaustiveImageFind" alt="" coords="486,733,642,761"/>
+<area shape="rect" id="node25" href="$classrc_muscle_segmenter.html#ab72e0bbc316a2b7e28c1e8b2dd4cd2c5" title="rcMuscleSegmenter::\lgenPolygons" alt="" coords="490,837,638,881"/>
+<area shape="rect" id="node26" href="$rc__analysis_8h.html#ad0865a28963f4fccfcf3f05e42b15769" title="rfComponentPolygons" alt="" coords="487,785,641,813"/>
+<area shape="rect" id="node28" href="$classrc_spatial_pyramid_3_012_01_4.html#a4881bd9d7906dbdd00d92ab0a735cfbd" title="rcSpatialPyramid\&lt; 2\l \&gt;::gradientProcess" alt="" coords="717,1390,859,1434"/>
+<area shape="rect" id="node31" href="$classrc_similarator.html#aa97c800f676b10be175c2bf2e8312456" title="rcSimilarator::fill" alt="" coords="506,905,622,933"/>
+<area shape="rect" id="node34" href="$classrc_image_grabber.html#a62e2ceb7252f220671389d48e46a2fad" title="rcImageGrabber::getNextFrame" alt="" coords="459,1009,669,1037"/>
+<area shape="rect" id="node35" href="$rc__qtime_8cpp.html#a8aef718bc73e8a79fbc40e6a7e74a90f" title="rfImageFileToRcWindowGi" alt="" coords="474,957,654,985"/>
+<area shape="rect" id="node37" href="$rc__ip_8h.html#a495e59a07b11b417a00198c9900654fe" title="rfMedian" alt="" coords="527,1061,601,1089"/>
+</map>

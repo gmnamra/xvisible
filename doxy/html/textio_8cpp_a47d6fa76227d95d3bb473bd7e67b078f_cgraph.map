@@ -1,0 +1,9 @@
+<map id="get_token" name="get_token">
+<area shape="rect" id="node2" href="$classitext.html#aaee598f762de2ee4100c1a4c89f7ea44" title="itext::get" alt="" coords="264,83,336,111"/>
+<area shape="rect" id="node7" href="$classitext.html#a38bd74dce665f9902b0be3ebc89fa236" title="itext::peek" alt="" coords="259,135,341,163"/>
+<area shape="rect" id="node8" href="$textio_8cpp.html#a4ef4f0d0a99f5c3ce65ad5f4d651a238" title="skipwhite" alt="" coords="134,109,210,137"/>
+<area shape="rect" id="node3" href="$classibuff.html#afddfd5bdd2219ccd01dd176e5cd57369" title="ibuff::get" alt="" coords="424,5,496,33"/>
+<area shape="rect" id="node4" href="$classibuff.html#a34316b72de5ddac433ef6d29d7c00eb4" title="ibuff::newline_mode" alt="" coords="390,109,530,137"/>
+<area shape="rect" id="node5" href="$classibuff.html#af83bd07bbed7b837d08c8bafdfbd3e87" title="ibuff::peek" alt="" coords="419,161,501,189"/>
+<area shape="rect" id="node6" href="$classibuff.html#aecdbe63ee9b456ffac55153b8aaeec79" title="ibuff::increment" alt="" coords="404,57,516,85"/>
+</map>

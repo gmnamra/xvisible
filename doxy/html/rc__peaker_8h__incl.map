@@ -1,0 +1,18 @@
+<map id="include/analysis/rc_peaker.h" name="include/analysis/rc_peaker.h">
+<area shape="rect" id="node2" href="$rc__filter1d_8h.html" title="rc_filter1d.h" alt="" coords="653,99,744,127"/>
+<area shape="rect" id="node20" href="$rc__pair_8h.html" title="rc_pair.h" alt="" coords="914,502,987,530"/>
+<area shape="rect" id="node3" href="$rc__types_8h.html" title="rc_types.h" alt="" coords="909,579,992,607"/>
+<area shape="rect" id="node9" href="$rc__window_8h.html" title="rc_window.h" alt="" coords="651,177,745,205"/>
+<area shape="rect" id="node33" href="$rc__fit_8h.html" title="rc_fit.h" alt="" coords="355,177,416,205"/>
+<area shape="rect" id="node6" href="$rc__platform_8h.html" title="rc_platform.h" alt="" coords="753,657,852,685"/>
+<area shape="rect" id="node10" href="$rc__framebuf_8h.html" title="rc_framebuf.h" alt="" coords="219,425,321,453"/>
+<area shape="rect" id="node18" href="$rc__rect_8h.html" title="rc_rect.h" alt="" coords="853,262,925,290"/>
+<area shape="rect" id="node11" href="$rc__timestamp_8h.html" title="rc_timestamp.h" alt="" coords="397,502,509,530"/>
+<area shape="rect" id="node14" href="$rc__thread_8h.html" title="rc_thread.h" alt="" coords="234,502,323,530"/>
+<area shape="rect" id="node16" href="$rc__macro_8h.html" title="rc_macro.h" alt="" coords="533,502,621,530"/>
+<area shape="rect" id="node19" href="$rc__rectangle_8h.html" title="rc_rectangle.h" alt="" coords="823,347,928,375"/>
+<area shape="rect" id="node21" href="$rc__vector2d_8h.html" title="rc_vector2d.h" alt="" coords="737,425,839,453"/>
+<area shape="rect" id="node23" href="$rc__exception_8h.html" title="rc_exception.h" alt="" coords="646,502,753,530"/>
+<area shape="rect" id="node26" href="$rc__math_8h.html" title="rc_math.h" alt="" coords="1166,502,1247,530"/>
+<area shape="rect" id="node27" href="$rc__limits_8h.html" title="rc_limits.h" alt="" coords="1213,579,1293,607"/>
+</map>

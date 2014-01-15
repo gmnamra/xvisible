@@ -1,0 +1,17 @@
+<map id="TIFFFetchPerSampleShorts" name="TIFFFetchPerSampleShorts">
+<area shape="rect" id="node2" href="$tiffio_8h.html#ab5f774a4a20c860a3d28a42e8b7166b4" title="TIFFReadDirectory" alt="" coords="241,166,375,194"/>
+<area shape="rect" id="node3" href="$tiffio_8h.html#a165611e0432d36de8bcf57f35e161bd3" title="TIFFClientOpen" alt="" coords="439,114,555,142"/>
+<area shape="rect" id="node15" href="$tiffio_8h.html#a58cdb91e8e93b12c8002ade2e4072251" title="TIFFSetDirectory" alt="" coords="436,166,559,194"/>
+<area shape="rect" id="node16" href="$tiffio_8h.html#a33628efcd540db4412ec3cd7761c3733" title="TIFFSetSubDirectory" alt="" coords="424,218,571,246"/>
+<area shape="rect" id="node4" href="$tiffio_8h.html#adca230876d2f7fdec1ff6c7fdb7898a8" title="TIFFFdOpen" alt="" coords="619,114,717,142"/>
+<area shape="rect" id="node5" href="$tiffio_8h.html#ac3dd18826e617eb451c74f33a32fcb10" title="TIFFOpen" alt="" coords="766,114,848,142"/>
+<area shape="rect" id="node6" href="$class_t_i_f_f_reader_internal.html#adc7888a9bc3fe28248b49b8b204ae8ae" title="TIFFReaderInternal\l::Open" alt="" coords="896,61,1034,105"/>
+<area shape="rect" id="node10" href="$classrc_window.html#adf6ca47beb76a8bfdc73369f80dd003d" title="rcWindow::tiff" alt="" coords="915,158,1016,186"/>
+<area shape="rect" id="node7" href="$class_t_i_f_f_image_i_o.html#abec0d00f473debbd9d05f5a0e4820402" title="TIFFImageIO::CanReadFile" alt="" coords="1087,53,1273,81"/>
+<area shape="rect" id="node8" href="$classrc_engine_impl.html#ac0162da8fe4f677ad6f3d04a465d50f0" title="rcEngineImpl::loadMovie" alt="" coords="1331,5,1498,33"/>
+<area shape="rect" id="node9" href="$classrc_window.html#a5da06176e6878b676bbc534db6b09b7d" title="rcWindow::rcWindow" alt="" coords="1342,57,1488,85"/>
+<area shape="rect" id="node11" href="$classrc_visual_function.html#a1df64c3605f3a0a4670118911ac783b1" title="rcVisualFunction::cardiac\lMeasure" alt="" coords="1095,105,1265,149"/>
+<area shape="rect" id="node13" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1083,173,1277,201"/>
+<area shape="rect" id="node14" href="$rc__edge_8h.html#a11fbb1eb0376dd39a4be2ea72b7ef156" title="rfDirectionSignal" alt="" coords="1120,225,1240,253"/>
+<area shape="rect" id="node12" href="$classrc_visual_function.html#ac3135ba614a9ba5080e78c3f2f426312" title="rcVisualFunction::measure" alt="" coords="1325,113,1504,141"/>
+</map>

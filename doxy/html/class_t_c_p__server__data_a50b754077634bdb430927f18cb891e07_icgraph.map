@@ -1,0 +1,8 @@
+<map id="TCP_server_data::set_error" name="TCP_server_data::set_error">
+<area shape="rect" id="node2" href="$class_t_c_p__server__data.html#a004eca7522f8ebfe804d8e7988225304" title="TCP_server_data::connection" alt="" coords="205,65,403,93"/>
+<area shape="rect" id="node5" href="$class_t_c_p__server__data.html#af6b23301f5372ad134e11dceb7d609d9" title="TCP_server_data::initialise" alt="" coords="214,121,394,149"/>
+<area shape="rect" id="node3" href="$class_t_c_p__server.html#a59603f23a2ba9dd321dbeea0e46bd557" title="TCP_server::connection" alt="" coords="451,5,616,33"/>
+<area shape="rect" id="node4" href="$class_t_c_p__connection.html#a1f72968182ca65cc67ee4c9c94f6ac5f" title="TCP_connection::TCP\l_connection" alt="" coords="456,57,610,101"/>
+<area shape="rect" id="node6" href="$class_t_c_p__server.html#a0d91804b7d07c1718c6d07a561a73ac9" title="TCP_server::initialise" alt="" coords="460,125,607,153"/>
+<area shape="rect" id="node7" href="$class_t_c_p__server.html#a91bba78d80f36ba329ec00357764c9dd" title="TCP_server::TCP_server" alt="" coords="664,125,835,153"/>
+</map>

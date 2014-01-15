@@ -1,0 +1,47 @@
+<map id="rfImageConvert32to8" name="rfImageConvert32to8">
+<area shape="rect" id="node2" href="$classrc_gen_movie_file.html#a635b3a3f2bdcc0c9ef87d176cbacc98c" title="rcGenMovieFile::addFrame" alt="" coords="675,213,858,241"/>
+<area shape="rect" id="node12" href="$bcnvrt__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1222,506,1272,534"/>
+<area shape="rect" id="node22" href="$classrc_engine_impl.html#a3ad6dbc54b2a53acae4d345ff14974ae" title="rcEngineImpl::analyzeFocusArea" alt="" coords="396,962,612,990"/>
+<area shape="rect" id="node26" href="$classrc_engine_impl.html#a09f8eedca5a66e3efffbebbd5737aa86" title="rcEngineImpl::ipp" alt="" coords="211,819,336,847"/>
+<area shape="rect" id="node31" href="$rc__ipconvert_8h.html#a2ed5f9d46515260beb6d011253334ff6" title="rfImageConvert32to8" alt="" coords="200,871,347,899"/>
+<area shape="rect" id="node32" href="$rc__ipconvert_8h.html#a92272c84089f808d4aaba6ad497dc748" title="rfRcWindow32to8" alt="" coords="210,725,337,753"/>
+<area shape="rect" id="node3" href="$classrc_muscle_segmenter.html#aa7848f0983d310e89e54fe027fef33d8" title="rcMuscleSegmenter::\ldebugWrite" alt="" coords="938,265,1086,309"/>
+<area shape="rect" id="node13" href="$rc__movie__generator__main_8cpp.html#a962307a7d6fb769d8a773be64259653b" title="generateTranslationMovie" alt="" coords="924,57,1100,85"/>
+<area shape="rect" id="node15" href="$rc__movie__generator__main_8cpp.html#a5550a91ae12b5e67dfd875fc254297c7" title="generateExpansionMovie" alt="" coords="926,109,1098,137"/>
+<area shape="rect" id="node16" href="$rc__movie__generator__main_8cpp.html#a92109472abf27accd174041f883f63f4" title="generateRandomMovie" alt="" coords="932,161,1092,189"/>
+<area shape="rect" id="node17" href="$rc__movie__generator__main_8cpp.html#a985cd5fa3dfb30e1cd9fbc88bb733ed1" title="generateTinyMovie" alt="" coords="945,5,1079,33"/>
+<area shape="rect" id="node18" href="$classrc_gen_movie_file.html#ae0b7e770db0bc9c3e81de68fa5d798ee" title="rcGenMovieFile::addFrame" alt="" coords="921,213,1103,241"/>
+<area shape="rect" id="node19" href="$classrc_m_p_e_g2_grabber.html#a25eb38ba2908388ab5ee43a5a90d3f79" title="rcMPEG2Grabber::getReify\lMovie" alt="" coords="920,359,1104,403"/>
+<area shape="rect" id="node4" href="$classrc_muscle_segmenter.html#a61c65559f55fd9fa632b96e09ef50b2e" title="rcMuscleSegmenter::\lgenFrequencySegmentation" alt="" coords="1152,182,1341,226"/>
+<area shape="rect" id="node5" href="$classrc_muscle_segmenter.html#a660d7b3d1c240efa0b725e0db65154e3" title="rcMuscleSegmenter::\lfilterByActivity" alt="" coords="1389,198,1536,242"/>
+<area shape="rect" id="node7" href="$classrc_muscle_segmenter.html#a86d108c38d0bcb7a7eb47021b7ab0308" title="rcMuscleSegmenter::\lsegment" alt="" coords="1389,266,1536,310"/>
+<area shape="rect" id="node8" href="$classrc_muscle_segmenter.html#a2e698fffa047b8425fae1f0eb2fbd577" title="rcMuscleSegmenter::\lfilterBySize" alt="" coords="1389,334,1536,378"/>
+<area shape="rect" id="node9" href="$classrc_muscle_segmenter.html#aebc8461787ceeb574bd03fd36ed00dc2" title="rcMuscleSegmenter::\lfilterByAR" alt="" coords="1389,402,1536,446"/>
+<area shape="rect" id="node10" href="$classrc_muscle_segmenter.html#a7aca1928bc153b5d7ed946967af48cd6" title="rcMuscleSegmenter::\lfilterAtEdge" alt="" coords="1389,62,1536,106"/>
+<area shape="rect" id="node11" href="$classrc_muscle_segmenter.html#a0071b46925605142d7147eb8a270d266" title="rcMuscleSegmenter::\lgetCells" alt="" coords="1389,130,1536,174"/>
+<area shape="rect" id="node6" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1585,241,1778,269"/>
+<area shape="rect" id="node14" href="$rc__movie__generator__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1222,27,1272,55"/>
+<area shape="rect" id="node20" href="$visimatch_8cpp.html#ae0d7b28519100e4a3b9ee193dbfb41ae" title="genRFYmov" alt="" coords="1199,454,1294,482"/>
+<area shape="rect" id="node21" href="$visimatch_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1438,470,1488,498"/>
+<area shape="rect" id="node23" href="$classrc_engine_impl.html#ae320706cbcafd64f219018b9842c8290" title="rcEngineImpl::analyze" alt="" coords="690,962,843,990"/>
+<area shape="rect" id="node24" href="$classrc_engine_impl.html#a507e034c1e43ae1dd6ec95a11ec0bb02" title="rcEngineImpl::process" alt="" coords="935,935,1089,963"/>
+<area shape="rect" id="node25" href="$classrc_engine_analyzer.html#a064037f0ec3e68fcb11dabbcba790cdd" title="rcEngineAnalyzer::run" alt="" coords="936,987,1088,1015"/>
+<area shape="rect" id="node27" href="$classrc_engine_impl.html#a3f1d54d99e195efe0eec45f9263e6342" title="rcEngineImpl::loadFrames" alt="" coords="416,910,592,938"/>
+<area shape="rect" id="node28" href="$classrc_engine_impl.html#ac6c444948228b9a6c9c013efefd7452c" title="rcEngineImpl::loadImages" alt="" coords="679,858,854,886"/>
+<area shape="rect" id="node30" href="$classrc_engine_impl.html#ac0162da8fe4f677ad6f3d04a465d50f0" title="rcEngineImpl::loadMovie" alt="" coords="683,910,850,938"/>
+<area shape="rect" id="node29" href="$classrc_engine_importer.html#a2e45417f1c29adf01483b2b8fca6b27b" title="rcEngineImporter::run" alt="" coords="937,858,1087,886"/>
+<area shape="rect" id="node33" href="$rc__qtime_8h.html#a153dba2884b60c335db2c497dfe145e9" title="getNextVideoSample" alt="" coords="431,634,577,662"/>
+<area shape="rect" id="node35" href="$classrc_movie_grabber.html#a45d79cfbc28d7aba7eb37e156c297f13" title="rcMovieGrabber::getNextVideo\lSample" alt="" coords="402,686,606,730"/>
+<area shape="rect" id="node37" href="$bcnvrt__main_8cpp.html#a6e8fab40e4cd89f05d7bafbc7c22dedc" title="rfCompareMovies" alt="" coords="949,694,1075,722"/>
+<area shape="rect" id="node38" href="$rc__cell_8h.html#a5d9f9d82e064f72f81482313e389f641" title="rfCellDensity" alt="" coords="456,858,552,886"/>
+<area shape="rect" id="node39" href="$rc__analysis_8h.html#a395a11588b0868cef05234c53a8fc17c" title="Processing Function." alt="" coords="434,530,574,558"/>
+<area shape="rect" id="node40" href="$rc__ipconvert_8h.html#af0cb149b23e870c2b3145cf97f5743f5" title="rfRcWindow32to8" alt="" coords="441,582,567,610"/>
+<area shape="rect" id="node41" href="$rc__dcam__capture_8cpp.html#a5bb44dd407ae5255003d9c7b0101a519" title="yourDisplayCallback" alt="" coords="433,806,575,834"/>
+<area shape="rect" id="node34" href="$rc__qtime_8h.html#a508d1079857b36d17f2526f229d8b364" title="rfMovieFileToRcWindow" alt="" coords="685,634,849,662"/>
+<area shape="rect" id="node36" href="$classrc_movie_grabber.html#aed6d758e70008ac09a56f670754f08b0" title="rcMovieGrabber::getNextFrame" alt="" coords="662,694,871,722"/>
+<area shape="rect" id="node42" href="$rc__dcam__capture_8cpp.html#a8fcb91e1b2e6adaad571752a59ac3dad" title="InitializeMungData2" alt="" coords="697,806,836,834"/>
+<area shape="rect" id="node43" href="$rc__dcam__capture_8h.html#aa3528bb0b33aa9119084d4b082f8c0aa" title="rfDCAMVideoCapture" alt="" coords="937,754,1087,782"/>
+<area shape="rect" id="node45" href="$rc__qtime__capture_8h.html#adf4b66b022a2bc6ba21cddbc179756cb" title="rfQTVideoCapture" alt="" coords="947,806,1077,834"/>
+<area shape="rect" id="node44" href="$rc__dcam__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1222,754,1272,782"/>
+<area shape="rect" id="node46" href="$rc__qtime__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1222,806,1272,834"/>
+</map>

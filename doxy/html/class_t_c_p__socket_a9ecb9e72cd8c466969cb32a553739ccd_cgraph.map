@@ -1,0 +1,27 @@
+<map id="TCP_socket::send" name="TCP_socket::send">
+<area shape="rect" id="node2" href="$class_t_c_p__socket.html#ab3548a9a992a647f4260b0343f26f090" title="TCP_socket::initialised" alt="" coords="403,22,559,50"/>
+<area shape="rect" id="node3" href="$class_t_c_p__socket.html#a4a6f8268fbffc3d04360c87e4e0caee6" title="TCP_socket::send_ready" alt="" coords="184,47,355,75"/>
+<area shape="rect" id="node4" href="$class_t_c_p__socket.html#a6aa627297e2a1b6c82d89f875b8cbf2b" title="TCP_socket::set_error" alt="" coords="404,86,559,114"/>
+<area shape="rect" id="node5" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="609,59,738,87"/>
+<area shape="rect" id="node6" href="$tcp_8cpp.html#ab932f3e7890ed088ca90870c290fb2da" title="error_string" alt="" coords="629,111,718,139"/>
+<area shape="rect" id="node7" href="$error__handler_8cpp.html#aac3be3c13a6d90b39f966b6e897c0744" title="to_string" alt="" coords="786,85,859,113"/>
+<area shape="rect" id="node26" href="$string__utilities_8cpp.html#a92b477f13171d3fd668249c0f9b45a1a" title="trim" alt="" coords="801,137,844,165"/>
+<area shape="rect" id="node8" href="$classerror__position.html#a3f7ed498a2a6aa5343334b17bbdf4bbf" title="error_position::column" alt="" coords="915,6,1069,34"/>
+<area shape="rect" id="node9" href="$classerror__position.html#ac4739e90b92106a85b0f8c76e9198daf" title="error_position::filename" alt="" coords="912,58,1072,86"/>
+<area shape="rect" id="node10" href="$file__system_8cpp.html#a6982b54d454c07cc3f770f67c5d0b5ef" title="filespec_to_relative_path" alt="" coords="908,110,1076,138"/>
+<area shape="rect" id="node25" href="$classerror__position.html#af47fc5beec407412df713d56814af6fe" title="error_position::line" alt="" coords="926,162,1058,190"/>
+<area shape="rect" id="node11" href="$file__system_8cpp.html#a62475ca973dfe0094c00d60286c7c286" title="create_filespec" alt="" coords="1331,31,1442,59"/>
+<area shape="rect" id="node13" href="$file__system_8cpp.html#acf89fa1738d4f789e4cc5b9c3c3bec72" title="filename_part" alt="" coords="1336,83,1438,111"/>
+<area shape="rect" id="node14" href="$file__system_8cpp.html#acb48f4675dcd897962719fcc704fa980" title="folder_part" alt="" coords="1161,135,1247,163"/>
+<area shape="rect" id="node15" href="$file__system_8cpp.html#a154091f28159afef5c72b12cee64a9a0" title="folder_to_relative_path" alt="" coords="1126,298,1282,326"/>
+<area shape="rect" id="node12" href="$file__system_8cpp.html#a99e06c76afffe1f1d77f01c905b1a5fd" title="is_separator" alt="" coords="1839,135,1934,163"/>
+<area shape="rect" id="node16" href="$file__system_8cpp.html#a0a5c33c34c3c47d4e15e955b7ac25681" title="relative_path" alt="" coords="1338,379,1436,407"/>
+<area shape="rect" id="node17" href="$classfile__specification.html#a518bc2d13c74b0e00131c87fdd294f2b" title="file_specification\l::image" alt="" coords="1491,273,1610,317"/>
+<area shape="rect" id="node19" href="$classfile__specification.html#a18e9d7a9b9dd1214d09ab5e843ea7806" title="file_specification\l::relative" alt="" coords="1827,469,1946,513"/>
+<area shape="rect" id="node21" href="$classfile__specification.html#aefefc9da1b64f7ed66a436750a88ffa2" title="file_specification\l::initialise_folder" alt="" coords="1659,409,1778,453"/>
+<area shape="rect" id="node23" href="$classfile__specification.html#a1c51930e39fad4d827a81b5b12a72752" title="file_specification\l::make_absolute" alt="" coords="1491,341,1610,385"/>
+<area shape="rect" id="node24" href="$classfile__specification.html#a37f966146802536ffdb2f154e3df928f" title="file_specification\l::make_relative" alt="" coords="1491,461,1610,505"/>
+<area shape="rect" id="node18" href="$classfile__specification.html#a5b8f1026354ff32bfc183da3f38f5ce7" title="file_specification\l::absolute" alt="" coords="1659,341,1778,385"/>
+<area shape="rect" id="node20" href="$string__utilities_8hpp.html#a657118c43fe44a8454311075655ac9d4" title="vector_to_string" alt="" coords="1661,289,1777,317"/>
+<area shape="rect" id="node22" href="$classfile__specification.html#ab6e2c3cc492528550d2c4021d3a1c225" title="file_specification\l::path" alt="" coords="1827,401,1946,445"/>
+</map>

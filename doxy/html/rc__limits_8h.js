@@ -1,0 +1,26 @@
+var rc__limits_8h =
+[
+    [ "rcDBL_EPSILON", "rc__limits_8h.html#a05d2149cc6df856d054721516c140912", null ],
+    [ "rcDBL_MAX", "rc__limits_8h.html#a5a8ae2077872031769a801ff21d0cb0a", null ],
+    [ "rcDBL_MIN", "rc__limits_8h.html#aea4ae145ee45c28715fb9a419212b82c", null ],
+    [ "rcFLT_EPSILON", "rc__limits_8h.html#afe70382e02ef0493d8afd996e946baa8", null ],
+    [ "rcFLT_MAX", "rc__limits_8h.html#ad4464c1b7b359d448b2c1227d33b7045", null ],
+    [ "rcFLT_MIN", "rc__limits_8h.html#ab3fa2b01927f5a69cfe9f3dfdfb0e561", null ],
+    [ "rcINT16_MAX", "rc__limits_8h.html#ae4deb0ca8f64128c2dbf7d0b77bdc7f7", null ],
+    [ "rcINT16_MIN", "rc__limits_8h.html#a330c02a944186b5b79c4c65226ecf450", null ],
+    [ "rcINT32_MAX", "rc__limits_8h.html#a17bc63af469cc434f10f3b421398dc96", null ],
+    [ "rcINT32_MIN", "rc__limits_8h.html#ab8ce4f2534a5bf5d1c5a147b75e0e3da", null ],
+    [ "rcINT8_MAX", "rc__limits_8h.html#ad4033b083af7bbdb7d2a5d056ae997b2", null ],
+    [ "rcINT8_MIN", "rc__limits_8h.html#a8e2e403a413cdc8b6b20ccd1ca5d77c3", null ],
+    [ "rcUINT16_MAX", "rc__limits_8h.html#a6a52fe3ef36c21e8b3e3ef657eb30d7d", null ],
+    [ "rcUINT16_MIN", "rc__limits_8h.html#a288c94d51f8b20a379e9ec72a4354fa0", null ],
+    [ "rcUINT24_MAX", "rc__limits_8h.html#ac65cc847a55eb2a2750b25bbf4206dff", null ],
+    [ "rcUINT32_MAX", "rc__limits_8h.html#aa7ce6f2eaa4a319c84c22a0ef6d44375", null ],
+    [ "rcUINT32_MIN", "rc__limits_8h.html#a54cfc43116ae6e1c2d38c79f8ba7ca62", null ],
+    [ "rcUINT64_MAX", "rc__limits_8h.html#ab26fa6752ddb992aa336823b6d4d3db9", null ],
+    [ "rcUINT8_MAX", "rc__limits_8h.html#a82c4ed9614d5c28f8cd3bf74dc351e84", null ],
+    [ "rcUINT8_MIN", "rc__limits_8h.html#a8b7cc3cc11c59785540cf5a5f9d28085", null ],
+    [ "rk2PI", "rc__limits_8h.html#a734aa3a05499599ea11458591dac5f30", null ],
+    [ "rkPI", "rc__limits_8h.html#a8bd11910fc8eb004d8f4a51386c9b9d5", null ],
+    [ "rkRadian", "rc__limits_8h.html#a5b925852e5300a85e92ff9e0aa4594e4", null ]
+];

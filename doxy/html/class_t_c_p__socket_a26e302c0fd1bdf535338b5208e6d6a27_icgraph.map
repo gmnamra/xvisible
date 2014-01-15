@@ -1,0 +1,13 @@
+<map id="TCP_socket::receive_ready" name="TCP_socket::receive_ready">
+<area shape="rect" id="node2" href="$class_t_c_p__server__data.html#ada0534f87ea96784ce06e3f19b4ad020" title="TCP_server_data::connection\l_ready" alt="" coords="197,39,395,83"/>
+<area shape="rect" id="node4" href="$class_t_c_p__socket.html#a93d798ea548168ae973e626042f51673" title="TCP_socket::receive" alt="" coords="224,141,368,169"/>
+<area shape="rect" id="node9" href="$class_t_c_p__connection__data.html#a7074fce7cd94249f6a2cc68b5eeccf86" title="TCP_connection_data\l::receive_ready" alt="" coords="219,193,373,237"/>
+<area shape="rect" id="node11" href="$class_t_c_p__client__data.html#a28f8758291bb86e98daff169ff97e5ad" title="TCP_client_data::receive\l_ready" alt="" coords="211,261,381,305"/>
+<area shape="rect" id="node3" href="$class_t_c_p__server.html#ac35461802062e75aa9d3f65e7e64d19d" title="TCP_server::connection\l_ready" alt="" coords="446,5,610,49"/>
+<area shape="rect" id="node5" href="$class_t_c_p__connection__data.html#a5d8b363a86c7c73872f3523616737890" title="TCP_connection_data\l::receive" alt="" coords="451,73,605,117"/>
+<area shape="rect" id="node7" href="$class_t_c_p__client__data.html#a1b1bb29cb272e2cbf4a7b0cb7011d296" title="TCP_client_data::receive" alt="" coords="443,141,613,169"/>
+<area shape="rect" id="node6" href="$class_t_c_p__connection.html#ad5dfbda91187ab5a1a402cf45340b7e0" title="TCP_connection::receive" alt="" coords="662,81,832,109"/>
+<area shape="rect" id="node8" href="$class_t_c_p__client.html#a9953b6a9c8b175b9ccc5ca7ecbd7947e" title="TCP_client::receive" alt="" coords="678,141,815,169"/>
+<area shape="rect" id="node10" href="$class_t_c_p__connection.html#ad608d33400f9cb9a066d6abe7a13d123" title="TCP_connection::receive\l_ready" alt="" coords="443,193,613,237"/>
+<area shape="rect" id="node12" href="$class_t_c_p__client.html#ae8c5007290e7be06bc19e6d7afd25b63" title="TCP_client::receive\l_ready" alt="" coords="460,261,596,305"/>
+</map>

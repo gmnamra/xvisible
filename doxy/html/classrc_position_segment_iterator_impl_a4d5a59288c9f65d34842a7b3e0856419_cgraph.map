@@ -1,0 +1,9 @@
+<map id="rcPositionSegmentIteratorImpl::rcPositionSegmentIteratorImpl" name="rcPositionSegmentIteratorImpl::rcPositionSegmentIteratorImpl">
+<area shape="rect" id="node2" href="$classrc_position_segment_iterator_impl.html#a4d2a0b059a564a1c9544e7ebc2446769" title="rcPositionSegmentIterator\lImpl::lock" alt="" coords="288,5,464,49"/>
+<area shape="rect" id="node5" href="$classrc_segment_iterator_impl.html#abaa5d758a85788273fd632136d089f09" title="rcSegmentIteratorImpl\l::mutex" alt="" coords="299,73,453,117"/>
+<area shape="rect" id="node6" href="$classrc_position_segment_iterator_impl.html#ae06774169ba4300bcb3b9f3e9110f309" title="rcPositionSegmentIterator\lImpl::setCurrentValue" alt="" coords="288,141,464,185"/>
+<area shape="rect" id="node3" href="$classrc_segment_iterator_impl.html#a22abc78fcb201cdca524b10299558f03" title="rcSegmentIteratorImpl\l::lock" alt="" coords="513,5,666,49"/>
+<area shape="rect" id="node4" href="$classrc_mutex.html#ab3d2138979404d7f06abe308ca2177a8" title="rcMutex::lock" alt="" coords="715,13,815,41"/>
+<area shape="rect" id="node7" href="$classrc_segment_iterator_impl.html#aa6314211f43757b3bbde20e5749518b4" title="rcSegmentIteratorImpl\l::getSegmentIndex" alt="" coords="513,106,666,150"/>
+<area shape="rect" id="node8" href="$classrc_position_track_impl.html#a2e90d86d25e7fb644025064611ed8b69" title="rcPositionTrackImpl\l::segments" alt="" coords="520,174,658,218"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="rfMedian3By3Depth8" name="rfMedian3By3Depth8">
+<area shape="rect" id="node2" href="$rc__ip_8h.html#a495e59a07b11b417a00198c9900654fe" title="rfMedian" alt="" coords="201,109,274,137"/>
+<area shape="rect" id="node3" href="$classrc_visual_function.html#a76bcc401f54c5578f2962cd77cb11a63" title="rcVisualFunction::beatProcess" alt="" coords="325,5,526,33"/>
+<area shape="rect" id="node5" href="$classrc_muscle_segmenter.html#a2e698fffa047b8425fae1f0eb2fbd577" title="rcMuscleSegmenter::\lfilterBySize" alt="" coords="826,74,974,118"/>
+<area shape="rect" id="node7" href="$classrc_engine_impl.html#a2d5f7968c10d00be3ec63e9c1d2d3731" title="rcEngineImpl::groupStatistics" alt="" coords="328,109,522,137"/>
+<area shape="rect" id="node8" href="$classrc_kinetoscope.html#af573001b28a364609f2854f80d29f41d" title="rcKinetoscope::keepPopulation\lMeasure" alt="" coords="323,161,528,205"/>
+<area shape="rect" id="node11" href="$classrc_mutual_info_grouping.html#a1ea47fe6c2b9ef46c1fb92d239b85d23" title="rcMutualInfoGrouping\l::rcMutualInfoGrouping" alt="" coords="347,229,504,273"/>
+<area shape="rect" id="node4" href="$classrc_visual_function.html#a653fd69af532714b01f9c0b5cabc96c6" title="rcVisualFunction::reconcile" alt="" coords="587,5,768,33"/>
+<area shape="rect" id="node6" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1022,115,1215,143"/>
+<area shape="rect" id="node9" href="$classrc_kinetoscope.html#ae0addfc3a10c4c69ba027d9bfc351217" title="rcKinetoscope::stepContractile" alt="" coords="576,162,778,190"/>
+<area shape="rect" id="node10" href="$classrc_kinetoscope.html#a30274b84c57f86e667b614556f6c569b" title="rcKinetoscope::step" alt="" coords="831,149,969,177"/>
+</map>

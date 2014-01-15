@@ -1,0 +1,9 @@
+<map id="rcTimeline::updateTime" name="rcTimeline::updateTime">
+<area shape="rect" id="node2" href="$classrc_timeline.html#a9697b8cd493f7298ece8931e5e0ebac3" title="rcTimeline::updateDisplay" alt="" coords="214,31,388,59"/>
+<area shape="rect" id="node3" href="$classrc_fps_calculator.html#a7b060141120f9b7f25d8a5b0a0b7b4f8" title="rcFpsCalculator::addTime" alt="" coords="437,5,611,33"/>
+<area shape="rect" id="node7" href="$classrc_timestamp.html#a7e749f376ff8741e79a2dbba2419e78f" title="rcTimestamp::now" alt="" coords="459,57,589,85"/>
+<area shape="rect" id="node4" href="$classrc_timestamp.html#a7a76776edb5c337196cf10c009339d15" title="rcTimestamp::secs" alt="" coords="667,5,800,33"/>
+<area shape="rect" id="node5" href="$rc__timestamp_8h.html#ac624900be52fa7f30d3ad72543cc725d" title="convertTimestampToSeconds" alt="" coords="856,5,1053,33"/>
+<area shape="rect" id="node6" href="$rc__timestamp__mac_8cpp.html#a7962719b626553bf7a913f7c2671b777" title="getTimestampResolution" alt="" coords="1101,5,1269,33"/>
+<area shape="rect" id="node8" href="$rc__timestamp__mac_8cpp.html#af7988734f76c2effcc4118da588b8779" title="getCurrentTimestamp" alt="" coords="658,57,808,85"/>
+</map>

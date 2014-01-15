@@ -1,0 +1,35 @@
+<map id="rcExporter::isExportable" name="rcExporter::isExportable">
+<area shape="rect" id="node2" href="$classrc_track.html#a70b58187ae19ac809a958ba4e5fe2b33" title="rcTrack::getTag" alt="" coords="262,30,375,58"/>
+<area shape="rect" id="node3" href="$classrc_track.html#aa92c4dfed7e9cdfe07f52769061086be" title="rcTrack::getTrackType" alt="" coords="489,6,642,34"/>
+<area shape="rect" id="node4" href="$classrc_exporter.html#a96a9746c0272885f17d64ecac11e0a31" title="rcExporter::hasValidSegments" alt="" coords="218,134,419,162"/>
+<area shape="rect" id="node32" href="$classrc_track.html#a4227da46ca3b04a0946bf787f26855f6" title="rcTrack::isExportable" alt="" coords="246,186,392,214"/>
+<area shape="rect" id="node33" href="$classrc_writer_manager.html#aab01438b6a98fb863e1c6cba969e0173" title="rcWriterManager::tagType" alt="" coords="231,275,406,303"/>
+<area shape="rect" id="node5" href="$visimatch_8cpp.html#a4ce292257fdb2688b442274eb3854aa9" title="count" alt="" coords="538,194,592,222"/>
+<area shape="rect" id="node29" href="$classrc_scalar_track.html#a1397f06bbefa1eb03315f1afc9d1b59b" title="rcScalarTrack::getSegment\lCount" alt="" coords="474,246,657,290"/>
+<area shape="rect" id="node30" href="$classrc_graphics_track.html#a7cce36538b25b1ef2fca117fa4d8645d" title="rcGraphicsTrack::getSegment\lCount" alt="" coords="466,58,664,102"/>
+<area shape="rect" id="node31" href="$classrc_position_track.html#a1d3a8511506a59a669b3c5b61685efcb" title="rcPositionTrack::getSegment\lCount" alt="" coords="469,126,661,170"/>
+<area shape="rect" id="node6" href="$classcli__parser.html#a183aac4f38a81619dc8c0a2b3e857557" title="cli_parser::name" alt="" coords="712,103,832,131"/>
+<area shape="rect" id="node26" href="$classcli__parser.html#a733b08825a9e869f56b5e8b1c85ba5c5" title="cli_parser::size" alt="" coords="717,223,827,251"/>
+<area shape="rect" id="node27" href="$classcli__parser.html#ac672b628f0b9db3d1c899303db23496a" title="cli_parser::string\l_value" alt="" coords="712,155,832,199"/>
+<area shape="rect" id="node28" href="$string__utilities_8cpp.html#a1183605425445594730974b0c4ea8aa0" title="to_int" alt="" coords="745,275,799,303"/>
+<area shape="rect" id="node7" href="$error__handler_8cpp.html#aac3be3c13a6d90b39f966b6e897c0744" title="to_string" alt="" coords="880,134,952,162"/>
+<area shape="rect" id="node8" href="$classerror__position.html#a3f7ed498a2a6aa5343334b17bbdf4bbf" title="error_position::column" alt="" coords="1009,55,1162,83"/>
+<area shape="rect" id="node9" href="$classerror__position.html#ac4739e90b92106a85b0f8c76e9198daf" title="error_position::filename" alt="" coords="1005,107,1166,135"/>
+<area shape="rect" id="node10" href="$file__system_8cpp.html#a6982b54d454c07cc3f770f67c5d0b5ef" title="filespec_to_relative_path" alt="" coords="1001,159,1170,187"/>
+<area shape="rect" id="node25" href="$classerror__position.html#af47fc5beec407412df713d56814af6fe" title="error_position::line" alt="" coords="1020,211,1151,239"/>
+<area shape="rect" id="node11" href="$file__system_8cpp.html#a62475ca973dfe0094c00d60286c7c286" title="create_filespec" alt="" coords="1424,81,1536,109"/>
+<area shape="rect" id="node13" href="$file__system_8cpp.html#acf89fa1738d4f789e4cc5b9c3c3bec72" title="filename_part" alt="" coords="1429,133,1531,161"/>
+<area shape="rect" id="node14" href="$file__system_8cpp.html#acb48f4675dcd897962719fcc704fa980" title="folder_part" alt="" coords="1255,185,1340,213"/>
+<area shape="rect" id="node15" href="$file__system_8cpp.html#a154091f28159afef5c72b12cee64a9a0" title="folder_to_relative_path" alt="" coords="1219,347,1376,375"/>
+<area shape="rect" id="node12" href="$file__system_8cpp.html#a99e06c76afffe1f1d77f01c905b1a5fd" title="is_separator" alt="" coords="1933,185,2027,213"/>
+<area shape="rect" id="node16" href="$file__system_8cpp.html#a0a5c33c34c3c47d4e15e955b7ac25681" title="relative_path" alt="" coords="1431,429,1529,457"/>
+<area shape="rect" id="node17" href="$classfile__specification.html#a518bc2d13c74b0e00131c87fdd294f2b" title="file_specification\l::image" alt="" coords="1584,322,1704,366"/>
+<area shape="rect" id="node19" href="$classfile__specification.html#a18e9d7a9b9dd1214d09ab5e843ea7806" title="file_specification\l::relative" alt="" coords="1920,518,2040,562"/>
+<area shape="rect" id="node21" href="$classfile__specification.html#aefefc9da1b64f7ed66a436750a88ffa2" title="file_specification\l::initialise_folder" alt="" coords="1752,458,1872,502"/>
+<area shape="rect" id="node23" href="$classfile__specification.html#a1c51930e39fad4d827a81b5b12a72752" title="file_specification\l::make_absolute" alt="" coords="1584,390,1704,434"/>
+<area shape="rect" id="node24" href="$classfile__specification.html#a37f966146802536ffdb2f154e3df928f" title="file_specification\l::make_relative" alt="" coords="1584,510,1704,554"/>
+<area shape="rect" id="node18" href="$classfile__specification.html#a5b8f1026354ff32bfc183da3f38f5ce7" title="file_specification\l::absolute" alt="" coords="1752,390,1872,434"/>
+<area shape="rect" id="node20" href="$string__utilities_8hpp.html#a657118c43fe44a8454311075655ac9d4" title="vector_to_string" alt="" coords="1754,338,1870,366"/>
+<area shape="rect" id="node22" href="$classfile__specification.html#ab6e2c3cc492528550d2c4021d3a1c225" title="file_specification\l::path" alt="" coords="1920,450,2040,494"/>
+<area shape="rect" id="node34" href="$classrc_writer_mapper.html#a9208d582bb49ebf7321a61d7a3d95bda" title="rcWriterMapper::typeTag" alt="" coords="482,314,649,342"/>
+</map>

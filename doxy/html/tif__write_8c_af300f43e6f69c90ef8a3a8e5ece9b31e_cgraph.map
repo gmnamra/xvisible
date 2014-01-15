@@ -1,0 +1,15 @@
+<map id="TIFFWriteCheck" name="TIFFWriteCheck">
+<area shape="rect" id="node2" href="$tif__error_8c.html#a2e8b77a2d4e7b7283b55b963dd67ec31" title="TIFFErrorExt" alt="" coords="867,223,965,251"/>
+<area shape="rect" id="node3" href="$tif__strip_8c.html#aef36f27f4a6a728488375ff085268850" title="TIFFScanlineSize" alt="" coords="174,69,301,97"/>
+<area shape="rect" id="node5" href="$tif__write_8c.html#afe33d84d9a443c2408c33fe4127b9f46" title="TIFFSetupStrips" alt="" coords="178,146,297,174"/>
+<area shape="rect" id="node11" href="$tif__tile_8c.html#a5088d1b6386f85e7e9c24009d2bd574f" title="TIFFTileSize" alt="" coords="189,250,286,278"/>
+<area shape="rect" id="node4" href="$tif__strip_8c.html#a3d2583ed5901992de25556d454e42054" title="multiply" alt="" coords="580,119,647,147"/>
+<area shape="rect" id="node6" href="$tif__apple_8c.html#aaa739de67506b8254e9d150190425b4f" title="_TIFFmalloc" alt="" coords="375,94,470,122"/>
+<area shape="rect" id="node7" href="$tif__apple_8c.html#abbc4b30de2ac6b7eecdf9362bfa74c39" title="_TIFFmemset" alt="" coords="371,146,475,174"/>
+<area shape="rect" id="node8" href="$tif__strip_8c.html#a5328073d6865037bd8be7d3b17f0d9c0" title="TIFFNumberOfStrips" alt="" coords="350,198,495,226"/>
+<area shape="rect" id="node9" href="$tif__tile_8c.html#a9e48a8f5a668c37c6a05373f18532fa6" title="TIFFNumberOfTiles" alt="" coords="544,171,683,199"/>
+<area shape="rect" id="node10" href="$tif__tile_8c.html#a3d2583ed5901992de25556d454e42054" title="multiply" alt="" coords="741,223,808,251"/>
+<area shape="rect" id="node12" href="$tif__tile_8c.html#ac2b6fed7e66c77d417c67d8088e36b66" title="TIFFVTileSize" alt="" coords="370,302,475,330"/>
+<area shape="rect" id="node13" href="$tif__tile_8c.html#ab148b812d46cc98adb3fafbb631f08fd" title="summarize" alt="" coords="731,379,818,407"/>
+<area shape="rect" id="node14" href="$tif__tile_8c.html#a423193eb74c9eb9178517131614f5c01" title="TIFFTileRowSize" alt="" coords="552,275,675,303"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="rcMovieFileCamExt" name="rcMovieFileCamExt">
+<area shape="rect" id="node2" href="$classrc_movie_file_ext.html" title="rcMovieFileExt" alt="" coords="4,275,112,303"/>
+<area shape="rect" id="node3" href="$classrc_rect.html" title="rcRect" alt="" coords="137,275,196,303"/>
+<area shape="rect" id="node4" href="$classrc_rectangle.html" title="rcIRect" alt="" coords="135,195,197,223"/>
+<area shape="rect" id="node5" href="$classrc_pair.html" title="rcPair\&lt; int32 \&gt;" alt="" coords="113,86,220,114"/>
+</map>

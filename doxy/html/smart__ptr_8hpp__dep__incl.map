@@ -1,0 +1,29 @@
+<map id="include/stlplus/smart_ptr.hpp" name="include/stlplus/smart_ptr.hpp">
+<area shape="rect" id="node2" href="$error__handler_8hpp.html" title="include/stlplus/error\l_handler.hpp" alt="" coords="490,99,627,143"/>
+<area shape="rect" id="node6" href="$stlplus_8hpp.html" title="include/stlplus/stlplus.hpp" alt="" coords="639,294,811,322"/>
+<area shape="rect" id="node9" href="$stlplus__lite_8hpp.html" title="include/stlplus/stlplus\l_lite.hpp" alt="" coords="836,286,981,330"/>
+<area shape="rect" id="node22" href="$ini__manager_8hpp.html" title="include/stlplus/ini\l_manager.hpp" alt="" coords="819,99,940,143"/>
+<area shape="rect" id="node24" href="$library__manager_8hpp.html" title="include/stlplus/library\l_manager.hpp" alt="" coords="942,193,1087,237"/>
+<area shape="rect" id="node26" href="$persistent_8cpp.html" title="include/stlplus/persistent.cpp" alt="" coords="1339,107,1529,135"/>
+<area shape="rect" id="node27" href="$tcp_8hpp.html" title="include/stlplus/tcp.hpp" alt="" coords="1112,201,1264,229"/>
+<area shape="rect" id="node3" href="$cli__parser_8hpp.html" title="include/stlplus/cli\l_parser.hpp" alt="" coords="498,193,619,237"/>
+<area shape="rect" id="node21" href="$error__handler_8cpp.html" title="include/stlplus/error\l_handler.cpp" alt="" coords="286,193,423,237"/>
+<area shape="rect" id="node4" href="$visimatch_8cpp.html" title="src/vsigmatch/visimatch.cpp" alt="" coords="282,294,469,322"/>
+<area shape="rect" id="node5" href="$cli__parser_8cpp.html" title="include/stlplus/cli\l_parser.cpp" alt="" coords="494,286,615,330"/>
+<area shape="rect" id="node7" href="$convert_matrix_8cpp.html" title="src/vsigmatch/convertMatrix.cpp" alt="" coords="409,387,620,415"/>
+<area shape="rect" id="node8" href="$stlplus_8cpp.html" title="include/stlplus/stlplus.cpp" alt="" coords="645,387,816,415"/>
+<area shape="rect" id="node10" href="$rc__engineimpl_8h.html" title="include/visiCore/rc\l_engineimpl.h" alt="" coords="844,379,973,423"/>
+<area shape="rect" id="node11" href="$rc__engineimpl_8cpp.html" title="src/visible/src/rc\l_engineimpl.cpp" alt="" coords="5,473,123,517"/>
+<area shape="rect" id="node12" href="$rc__engineimpl__modeltracker_8cpp.html" title="src/visible/src/rc\l_engineimpl_modeltracker.cpp" alt="" coords="147,473,348,517"/>
+<area shape="rect" id="node13" href="$rc__engineimplcapture_8cpp.html" title="src/visible/src/rc\l_engineimplcapture.cpp" alt="" coords="373,473,536,517"/>
+<area shape="rect" id="node14" href="$rc__engineimplcmdline_8cpp.html" title="src/visible/src/rc\l_engineimplcmdline.cpp" alt="" coords="560,473,724,517"/>
+<area shape="rect" id="node15" href="$rc__engineimplload_8cpp.html" title="src/visible/src/rc\l_engineimplload.cpp" alt="" coords="750,473,892,517"/>
+<area shape="rect" id="node16" href="$rc__engineimplmuscle_8cpp.html" title="src/visible/src/rc\l_engineimplmuscle.cpp" alt="" coords="917,473,1077,517"/>
+<area shape="rect" id="node17" href="$rc__engineimplplayback_8cpp.html" title="src/visible/src/rc\l_engineimplplayback.cpp" alt="" coords="1101,473,1272,517"/>
+<area shape="rect" id="node18" href="$rc__engineimplsave_8cpp.html" title="src/visible/src/rc\l_engineimplsave.cpp" alt="" coords="1296,473,1441,517"/>
+<area shape="rect" id="node19" href="$rc__engineimplsettings_8cpp.html" title="src/visible/src/rc\l_engineimplsettings.cpp" alt="" coords="1467,473,1631,517"/>
+<area shape="rect" id="node20" href="$rc__main_8cpp.html" title="src/visible/src/rc\l_main.cpp" alt="" coords="1655,473,1771,517"/>
+<area shape="rect" id="node23" href="$ini__manager_8cpp.html" title="include/stlplus/ini\l_manager.cpp" alt="" coords="695,193,816,237"/>
+<area shape="rect" id="node25" href="$library__manager_8cpp.html" title="include/stlplus/library\l_manager.cpp" alt="" coords="1006,286,1151,330"/>
+<area shape="rect" id="node28" href="$tcp_8cpp.html" title="include/stlplus/tcp.cpp" alt="" coords="1175,294,1325,322"/>
+</map>

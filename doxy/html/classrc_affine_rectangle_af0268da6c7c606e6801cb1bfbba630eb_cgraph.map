@@ -1,0 +1,8 @@
+<map id="rcAffineRectangle::getPixelLoc" name="rcAffineRectangle::getPixelLoc">
+<area shape="rect" id="node2" href="$classrc_affine_rectangle.html#aabaf03089f1ca6cda7f910291b25bf64" title="rcAffineRectangle::\laffineToImage" alt="" coords="186,5,320,49"/>
+<area shape="rect" id="node4" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="218,73,288,101"/>
+<area shape="rect" id="node5" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="204,125,303,153"/>
+<area shape="rect" id="node6" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="218,177,288,205"/>
+<area shape="rect" id="node7" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="204,229,303,257"/>
+<area shape="rect" id="node3" href="$classrc2_xform.html#a44d8bfc2fca67ec4126f15be742281fd" title="rc2Xform::mapPoint" alt="" coords="368,13,507,41"/>
+</map>

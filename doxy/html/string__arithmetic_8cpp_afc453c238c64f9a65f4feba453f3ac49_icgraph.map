@@ -1,0 +1,8 @@
+<map id="divrem" name="divrem">
+<area shape="rect" id="node2" href="$string__arithmetic_8hpp.html#aadea3688ea789af8751de7438de2b81a" title="signed_divide" alt="" coords="135,5,238,33"/>
+<area shape="rect" id="node3" href="$string__arithmetic_8hpp.html#a045a224c929ce31ed52a22c98778f8db" title="signed_remainder" alt="" coords="123,57,251,85"/>
+<area shape="rect" id="node5" href="$string__arithmetic_8hpp.html#a92fd10d164e4f857f9aba03b019161f8" title="unsigned_divide" alt="" coords="128,109,246,137"/>
+<area shape="rect" id="node6" href="$string__arithmetic_8hpp.html#a57dd0f52a3fa28aaa04a0de120f9011b" title="unsigned_remainder" alt="" coords="115,161,258,189"/>
+<area shape="rect" id="node4" href="$string__arithmetic_8hpp.html#a2e8b975956735b659e2ce6940a1b19a5" title="signed_modulus" alt="" coords="314,57,433,85"/>
+<area shape="rect" id="node7" href="$string__arithmetic_8hpp.html#ad4d3d4da04a2430d6ddb04b46fb583c3" title="unsigned_modulus" alt="" coords="307,161,440,189"/>
+</map>

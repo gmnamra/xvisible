@@ -1,0 +1,10 @@
+<map id="rcAnalyzerResult::entropy" name="rcAnalyzerResult::entropy">
+<area shape="rect" id="node2" href="$classrc_engine_impl.html#a1ec71befab88914b35b700cd5fe03ba2" title="rcEngineImpl::entropyTracker\lWindow" alt="" coords="247,22,443,66"/>
+<area shape="rect" id="node7" href="$classrc_engine_impl.html#a8defbaa20c5f1f2cfa987a1c6556b5f5" title="rcEngineImpl::processCapturedData" alt="" coords="227,90,463,118"/>
+<area shape="rect" id="node3" href="$classrc_engine_impl.html#a3ad6dbc54b2a53acae4d345ff14974ae" title="rcEngineImpl::analyzeFocusArea" alt="" coords="513,30,730,58"/>
+<area shape="rect" id="node4" href="$classrc_engine_impl.html#ae320706cbcafd64f219018b9842c8290" title="rcEngineImpl::analyze" alt="" coords="794,30,947,58"/>
+<area shape="rect" id="node5" href="$classrc_engine_impl.html#a507e034c1e43ae1dd6ec95a11ec0bb02" title="rcEngineImpl::process" alt="" coords="1011,5,1165,33"/>
+<area shape="rect" id="node6" href="$classrc_engine_analyzer.html#a064037f0ec3e68fcb11dabbcba790cdd" title="rcEngineAnalyzer::run" alt="" coords="1012,57,1164,85"/>
+<area shape="rect" id="node8" href="$classrc_engine_impl.html#a08582f48ac2811b56b0fbbe48c1afaf5" title="rcEngineImpl::frameInterrupt" alt="" coords="526,90,716,118"/>
+<area shape="rect" id="node9" href="$classrc_engine_movie_capture.html#a0d8bfe4fd32e11bdbdb2c0ad113425ff" title="rcEngineMovieCapture::run" alt="" coords="779,90,962,118"/>
+</map>

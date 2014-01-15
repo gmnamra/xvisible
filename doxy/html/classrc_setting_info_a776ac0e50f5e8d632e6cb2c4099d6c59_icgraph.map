@@ -1,0 +1,34 @@
+<map id="rcSettingInfo::isEditable" name="rcSettingInfo::isEditable">
+<area shape="rect" id="node2" href="$classrc_playback_setting_widget.html#a7546850c885987a1f6f56169269475b5" title="rcPlaybackSettingWidget\l::settingChanged" alt="" coords="234,209,403,253"/>
+<area shape="rect" id="node4" href="$classrc_setting_widget.html#aca95d3b856ab397c63567ae71dba446b" title="Update widget visibility/editability state based on setting state." alt="" coords="216,481,421,525"/>
+<area shape="rect" id="node3" href="$classrc_playback_setting_widget.html#a8f1e88a036a831774afac6ec547a6540" title="rcPlaybackSettingWidget\l::rcPlaybackSettingWidget" alt="" coords="485,5,662,49"/>
+<area shape="rect" id="node5" href="$classrc_checkbox_setting_widget.html#a90c47db47a90381bec590e51a7be93f9" title="rcCheckboxSettingWidget\l::settingChanged" alt="" coords="486,73,661,117"/>
+<area shape="rect" id="node7" href="$classrc_file_choice_setting_widget.html#ac87829a290cc37ade0655a46972651e8" title="rcFileChoiceSettingWidget\l::settingChanged" alt="" coords="484,141,663,185"/>
+<area shape="rect" id="node9" href="$classrc_file_save_setting_widget.html#a4f23f8b5389b044a08ad1f5ff11a3bc3" title="rcFileSaveSettingWidget\l::settingChanged" alt="" coords="490,209,657,253"/>
+<area shape="rect" id="node11" href="$classrc_framerate_choice_setting_widget.html#a49532d2e86a72944afb3898d3ed6b162" title="rcFramerateChoiceSetting\lWidget::settingChanged" alt="" coords="485,277,662,321"/>
+<area shape="rect" id="node13" href="$classrc_rate_choice_setting_widget.html#ae8f6722c11e821b669eb5f5e5ab9ed24" title="rcRateChoiceSettingWidget\l::settingChanged" alt="" coords="481,345,666,389"/>
+<area shape="rect" id="node15" href="$classrc_menu_choice_setting_widget.html#adc0bde10bdaaf545cfe3e660064cbb5a" title="rcMenuChoiceSettingWidget\l::settingChanged" alt="" coords="478,413,668,457"/>
+<area shape="rect" id="node17" href="$classrc_numeric_choice_setting_widget.html#a4ac30c4553c372ee6b37211beb1209cc" title="rcNumericChoiceSettingWidget\l::settingChanged" alt="" coords="470,481,677,525"/>
+<area shape="rect" id="node19" href="$classrc_radio_choice_setting_widget.html#a7e3c71b86244478f9926cdb0629a225a" title="rcRadioChoiceSettingWidget\l::settingChanged" alt="" coords="477,549,669,593"/>
+<area shape="rect" id="node21" href="$classrc_rect_setting_widget.html#ac907368cef37ec028ea700b7690d9c91" title="rcRectSettingWidget\l::settingChanged" alt="" coords="502,617,645,661"/>
+<area shape="rect" id="node24" href="$classrc_spinbox_setting_widget.html#a6ffc951352415dcdad374999a040afa3" title="rcSpinboxSettingWidget\l::settingChanged" alt="" coords="492,686,655,730"/>
+<area shape="rect" id="node26" href="$classrc_text_area_setting_widget.html#afb76338853467928ab8d79352e1a0bc3" title="rcTextAreaSettingWidget\l::settingChanged" alt="" coords="489,757,657,801"/>
+<area shape="rect" id="node28" href="$classrc_text_choice_setting_widget.html#a9bc758a961fbc186f6b74bb6a6a8d99c" title="rcTextChoiceSettingWidget\l::settingChanged" alt="" coords="483,831,664,875"/>
+<area shape="rect" id="node30" href="$classrc_text_line_setting_widget.html#a865b124b54f238fa7be5649d0300f05c" title="rcTextLineSettingWidget\l::settingChanged" alt="" coords="491,913,656,957"/>
+<area shape="rect" id="node32" href="$classrc_thumb_wheel_setting_widget.html#a84dd253c191de3668a2f5a93c8c1f6c7" title="Setting has changed, update widget." alt="" coords="476,1006,671,1050"/>
+<area shape="rect" id="node6" href="$classrc_checkbox_setting_widget.html#a660182d895c055c67e5a874500011899" title="rcCheckboxSettingWidget\l::rcCheckboxSettingWidget" alt="" coords="748,57,930,101"/>
+<area shape="rect" id="node8" href="$classrc_file_choice_setting_widget.html#aeae71796eec8e405b0303cc05b608f84" title="rcFileChoiceSettingWidget\l::rcFileChoiceSettingWidget" alt="" coords="746,125,932,169"/>
+<area shape="rect" id="node10" href="$classrc_file_save_setting_widget.html#abc3c59ae75e58cd5ef97afc43f1403a5" title="rcFileSaveSettingWidget\l::rcFileSaveSettingWidget" alt="" coords="751,193,926,237"/>
+<area shape="rect" id="node12" href="$classrc_framerate_choice_setting_widget.html#a99a79e85dbd9945428ac587eea3a8784" title="rcFramerateChoiceSetting\lWidget::rcFramerateChoiceSetting\lWidget" alt="" coords="726,261,952,321"/>
+<area shape="rect" id="node14" href="$classrc_rate_choice_setting_widget.html#a320c346bff7f1b10afd3ed0a217c06e8" title="rcRateChoiceSettingWidget\l::rcRateChoiceSettingWidget" alt="" coords="742,345,935,389"/>
+<area shape="rect" id="node16" href="$classrc_menu_choice_setting_widget.html#a773fae1f1eb050ae4eaaff392c83454e" title="rcMenuChoiceSettingWidget\l::rcMenuChoiceSettingWidget" alt="" coords="740,413,938,457"/>
+<area shape="rect" id="node18" href="$classrc_numeric_choice_setting_widget.html#a89aed61bd392ad54d5f427f277a64e01" title="rcNumericChoiceSettingWidget\l::rcNumericChoiceSettingWidget" alt="" coords="732,481,946,525"/>
+<area shape="rect" id="node20" href="$classrc_radio_choice_setting_widget.html#a449e29641d3c4ceba7d506eddbb4bc9e" title="rcRadioChoiceSettingWidget\l::rcRadioChoiceSettingWidget" alt="" coords="739,549,938,593"/>
+<area shape="rect" id="node22" href="$classrc_rect_setting_widget.html#a8eeeacdb8f58de8b0f29a7e9a500d169" title="rcRectSettingWidget\l::rcRectSettingWidget" alt="" coords="1001,639,1151,683"/>
+<area shape="rect" id="node23" href="$classrc_rect_setting_widget.html#a7bb53b7b9721006281fca24a9b3bbd00" title="rcRectSettingWidget\l::selectAll" alt="" coords="767,669,910,713"/>
+<area shape="rect" id="node25" href="$classrc_spinbox_setting_widget.html#ac28ff42ee0d0ed0e649fbc51ceec323c" title="rcSpinboxSettingWidget\l::rcSpinboxSettingWidget" alt="" coords="753,737,924,781"/>
+<area shape="rect" id="node27" href="$classrc_text_area_setting_widget.html#af93c18ca1de26520f615f763483686b9" title="rcTextAreaSettingWidget\l::rcTextAreaSettingWidget" alt="" coords="751,805,926,849"/>
+<area shape="rect" id="node29" href="$classrc_text_choice_setting_widget.html#a1fb738595b5a80ccd2608a0e9cd66984" title="rcTextChoiceSettingWidget\l::rcTextChoiceSettingWidget" alt="" coords="744,873,933,917"/>
+<area shape="rect" id="node31" href="$classrc_text_line_setting_widget.html#a673ba09f1f07a9afe9812951883a0e69" title="rcTextLineSettingWidget\l::rcTextLineSettingWidget" alt="" coords="752,941,925,985"/>
+<area shape="rect" id="node33" href="$classrc_thumb_wheel_setting_widget.html#ab55d0507f3da4afe900e0f72ef5b5745" title="rcThumbWheelSettingWidget\l::rcThumbWheelSettingWidget" alt="" coords="738,1009,940,1053"/>
+</map>

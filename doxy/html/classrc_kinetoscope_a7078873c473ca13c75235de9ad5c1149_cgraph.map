@@ -1,0 +1,7 @@
+<map id="rcKinetoscope::isBound" name="rcKinetoscope::isBound">
+<area shape="rect" id="node2" href="$classrc_kinetoscope.html#a994df77ce43559cdbeb43efc4507459a" title="rcKinetoscope::fixed" alt="" coords="237,5,379,33"/>
+<area shape="rect" id="node4" href="$classrc_kinetoscope.html#af0dea2ee79325a500e4cd721e8872fa3" title="rcKinetoscope::fixedPast" alt="" coords="224,57,392,85"/>
+<area shape="rect" id="node5" href="$classrc_kinetoscope.html#a7ef2b3fb9ce6c8797bc15bb97261d125" title="rcKinetoscope::moving" alt="" coords="230,109,386,137"/>
+<area shape="rect" id="node6" href="$classrc_kinetoscope.html#ae31b460a855a7406dab32e6f0769e7f7" title="rcKinetoscope::movingPast" alt="" coords="217,161,399,189"/>
+<area shape="rect" id="node3" href="$classrc_kinetoscope.html#ae46f297240640027b90d14915cc580e7" title="rcKinetoscope::detail" alt="" coords="449,83,594,111"/>
+</map>

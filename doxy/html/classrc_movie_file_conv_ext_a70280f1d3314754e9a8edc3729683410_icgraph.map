@@ -1,0 +1,36 @@
+<map id="rcMovieFileConvExt::channel" name="rcMovieFileConvExt::channel">
+<area shape="rect" id="node2" href="$classrc_gen_movie_file.html#a9d002baad1b73a712e42ac960a9a7c53" title="rcGenMovieFile::flush" alt="" coords="202,187,352,215"/>
+<area shape="rect" id="node13" href="$classrc_movie_file_conv_ext.html#aa383eb707eb740f0991031b8deff171f" title="rcMovieFileConvExt::log" alt="" coords="195,325,360,353"/>
+<area shape="rect" id="node35" href="$rc__moviefileformat_8h.html#ab58c951dee3218adec34bced5515ab14" title="operator\&lt;\&lt;" alt="" coords="234,377,321,405"/>
+<area shape="rect" id="node3" href="$rc__movie__generator__main_8cpp.html#a5550a91ae12b5e67dfd875fc254297c7" title="generateExpansionMovie" alt="" coords="441,5,613,33"/>
+<area shape="rect" id="node5" href="$rc__movie__generator__main_8cpp.html#a92109472abf27accd174041f883f63f4" title="generateRandomMovie" alt="" coords="447,57,607,85"/>
+<area shape="rect" id="node6" href="$rc__movie__generator__main_8cpp.html#a985cd5fa3dfb30e1cd9fbc88bb733ed1" title="generateTinyMovie" alt="" coords="460,109,594,137"/>
+<area shape="rect" id="node7" href="$rc__movie__generator__main_8cpp.html#a962307a7d6fb769d8a773be64259653b" title="generateTranslationMovie" alt="" coords="439,161,614,189"/>
+<area shape="rect" id="node8" href="$classrc_m_p_e_g2_grabber.html#a25eb38ba2908388ab5ee43a5a90d3f79" title="rcMPEG2Grabber::getReify\lMovie" alt="" coords="434,265,619,309"/>
+<area shape="rect" id="node9" href="$bcnvrt__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="779,217,829,245"/>
+<area shape="rect" id="node12" href="$classrc_gen_movie_file.html#aa3bb06b562732cd86dac44560e05fa79" title="rcGenMovieFile::~rcGenMovieFile" alt="" coords="415,333,638,361"/>
+<area shape="rect" id="node4" href="$rc__movie__generator__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="779,83,829,111"/>
+<area shape="rect" id="node10" href="$visimatch_8cpp.html#ae0d7b28519100e4a3b9ee193dbfb41ae" title="genRFYmov" alt="" coords="756,273,852,301"/>
+<area shape="rect" id="node11" href="$visimatch_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1035,273,1085,301"/>
+<area shape="rect" id="node14" href="$classrc_engine_impl.html#a711c081c01dcabd0aae43a89ec662977" title="rcEngineImpl::updateConversionLog" alt="" coords="408,385,645,413"/>
+<area shape="rect" id="node15" href="$classrc_engine_impl.html#a37cd0e97f3119de1d2b760346b98c412" title="rcEngineImpl::updateHeaderLogs" alt="" coords="694,385,914,413"/>
+<area shape="rect" id="node16" href="$classrc_engine_impl.html#a3f1d54d99e195efe0eec45f9263e6342" title="rcEngineImpl::loadFrames" alt="" coords="1210,281,1387,309"/>
+<area shape="rect" id="node20" href="$classrc_engine_impl.html#af86b1890184a272b1b0eeb055c251e39" title="rcEngineImpl::setSetting\lValue" alt="" coords="977,377,1143,421"/>
+<area shape="rect" id="node31" href="$classrc_engine_impl.html#a48233eb8692967c57e62c454edd70822" title="rcEngineImpl::unlockedReset" alt="" coords="963,599,1157,627"/>
+<area shape="rect" id="node17" href="$classrc_engine_impl.html#ac6c444948228b9a6c9c013efefd7452c" title="rcEngineImpl::loadImages" alt="" coords="1448,202,1624,230"/>
+<area shape="rect" id="node19" href="$classrc_engine_impl.html#ac0162da8fe4f677ad6f3d04a465d50f0" title="rcEngineImpl::loadMovie" alt="" coords="1452,254,1620,282"/>
+<area shape="rect" id="node18" href="$classrc_engine_importer.html#a2e45417f1c29adf01483b2b8fca6b27b" title="rcEngineImporter::run" alt="" coords="1690,202,1840,230"/>
+<area shape="rect" id="node21" href="$classrc_engine_impl.html#ae320706cbcafd64f219018b9842c8290" title="rcEngineImpl::analyze" alt="" coords="1222,358,1375,386"/>
+<area shape="rect" id="node24" href="$classrc_engine_impl.html#a9a8ec782559561ddc80c85208bc859c7" title="rcEngineImpl::setFromArgs" alt="" coords="1207,410,1390,438"/>
+<area shape="rect" id="node26" href="$classrc_engine_impl.html#a6d36ffad5feaaa46f82bec2bf309b0f4" title="rcEngineImpl::start" alt="" coords="1232,487,1365,515"/>
+<area shape="rect" id="node22" href="$classrc_engine_impl.html#a507e034c1e43ae1dd6ec95a11ec0bb02" title="rcEngineImpl::process" alt="" coords="1459,306,1613,334"/>
+<area shape="rect" id="node23" href="$classrc_engine_analyzer.html#a064037f0ec3e68fcb11dabbcba790cdd" title="rcEngineAnalyzer::run" alt="" coords="1460,358,1612,386"/>
+<area shape="rect" id="node25" href="$rc__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1511,410,1561,438"/>
+<area shape="rect" id="node27" href="$classrc_engine_movie_playback.html#ab5cff6edcb8b3d901f96d0fde1766f18" title="rcEngineMoviePlayback::run" alt="" coords="1441,462,1631,490"/>
+<area shape="rect" id="node28" href="$classrc_engine_movie_capture.html#a0d8bfe4fd32e11bdbdb2c0ad113425ff" title="rcEngineMovieCapture::run" alt="" coords="1444,514,1628,542"/>
+<area shape="rect" id="node29" href="$classrc_engine_movie_saver.html#abb624bdd44b94c6a21f9e34dfc2da081" title="rcEngineMovieSaver\l::waitHdlr" alt="" coords="1464,566,1608,610"/>
+<area shape="rect" id="node30" href="$classrc_engine_movie_saver.html#a216e88884a3dd557507ea93dc3609a91" title="rcEngineMovieSaver::run" alt="" coords="1680,574,1851,602"/>
+<area shape="rect" id="node32" href="$classrc_engine_impl.html#a5faff49613b7e0e95b134cafdce659aa" title="rcEngineImpl::internalReset" alt="" coords="1206,599,1391,627"/>
+<area shape="rect" id="node34" href="$classrc_engine_impl.html#afe1f4a208e8b56aae9527dab0cd888e0" title="rcEngineImpl::reset" alt="" coords="1231,651,1367,679"/>
+<area shape="rect" id="node33" href="$classrc_engine_impl.html#aef01c1029056616c7c9f880107d1d67c" title="rcEngineImpl::rcEngineImpl" alt="" coords="1444,634,1628,662"/>
+</map>

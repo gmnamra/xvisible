@@ -1,0 +1,7 @@
+<map id="rf1DPeakDetect" name="rf1DPeakDetect">
+<area shape="rect" id="node2" href="$rc__kineticimage_8h.html#a37fdff5165799a39ff0e7807bf05a1a3" title="calcMusclePeriod" alt="" coords="177,5,303,33"/>
+<area shape="rect" id="node6" href="$classrc_opto_kinetic_image.html#ab8c6bd963086ef561d0f65ec8240e139" title="rcOptoKineticImage\l::genFreqImg" alt="" coords="171,57,309,101"/>
+<area shape="rect" id="node3" href="$classrc_muscle_segmenter.html#a61c65559f55fd9fa632b96e09ef50b2e" title="rcMuscleSegmenter::\lgenFrequencySegmentation" alt="" coords="358,27,546,71"/>
+<area shape="rect" id="node4" href="$classrc_muscle_segmenter.html#a660d7b3d1c240efa0b725e0db65154e3" title="rcMuscleSegmenter::\lfilterByActivity" alt="" coords="594,27,742,71"/>
+<area shape="rect" id="node5" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="790,35,983,63"/>
+</map>

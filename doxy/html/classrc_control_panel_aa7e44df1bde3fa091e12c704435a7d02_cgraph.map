@@ -1,0 +1,12 @@
+<map id="rcControlPanel::updateCursorTime" name="rcControlPanel::updateCursorTime">
+<area shape="rect" id="node2" href="$classrc_timestamp.html#a7a76776edb5c337196cf10c009339d15" title="rcTimestamp::secs" alt="" coords="600,5,733,33"/>
+<area shape="rect" id="node5" href="$classrc_control_panel.html#adaa4a6cad6797cfa44ab20ad4d7c4e0d" title="rcControlPanel::timestamp\lToString" alt="" coords="304,53,483,97"/>
+<area shape="rect" id="node6" href="$classrc_control_panel.html#ae23fcd481d145da2b0460a7f6b04aed5" title="rcControlPanel::updateCursorTime" alt="" coords="280,121,507,149"/>
+<area shape="rect" id="node3" href="$rc__timestamp_8h.html#ac624900be52fa7f30d3ad72543cc725d" title="convertTimestampToSeconds" alt="" coords="827,5,1024,33"/>
+<area shape="rect" id="node4" href="$rc__timestamp__mac_8cpp.html#a7962719b626553bf7a913f7c2671b777" title="getTimestampResolution" alt="" coords="1072,5,1240,33"/>
+<area shape="rect" id="node7" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="555,61,778,89"/>
+<area shape="rect" id="node8" href="$classrc_model_domain.html#a407c976085f996af753dc53b02deb36d" title="rcModelDomain::operating\lOnLiveInput" alt="" coords="578,113,756,157"/>
+<area shape="rect" id="node10" href="$classrc_model_domain.html#abf45f359d0cc72ee2531e0585828c03a" title="rcModelDomain::storingLive\lInput" alt="" coords="573,181,760,225"/>
+<area shape="rect" id="node9" href="$classrc_experiment_domain.html#aad0cfe78090f8444ba58c60a434f49cb" title="rcExperimentDomain\l::operatingOnLiveInput" alt="" coords="847,113,1003,157"/>
+<area shape="rect" id="node11" href="$classrc_experiment_domain.html#a73b95037f94d932b013bd89829e11ae3" title="rcExperimentDomain\l::storingLiveInput" alt="" coords="852,181,998,225"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="subprocess::read_stdout" name="subprocess::read_stdout">
+<area shape="rect" id="node2" href="$classitext.html#a7d979345846d3dc44d0bc360718f855a" title="itext::bytes" alt="" coords="265,5,351,33"/>
+<area shape="rect" id="node4" href="$classsubprocess.html#a513a73712c337d5406e87a2e67a38454" title="subprocess::close_stdout" alt="" coords="222,57,394,85"/>
+<area shape="rect" id="node3" href="$classibuff.html#ad9b82baa50ad63fe90d0a450e1629987" title="ibuff::bytes" alt="" coords="443,5,528,33"/>
+<area shape="rect" id="node5" href="$textio_8cpp.html#acf3fee36b85acdf7fae42a766218d233" title="close" alt="" coords="459,57,512,85"/>
+<area shape="rect" id="node6" href="$classotext.html#ab8cc31aaff71191e9cb95a5330a7bc5f" title="otext::close" alt="" coords="577,57,666,85"/>
+</map>

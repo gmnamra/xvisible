@@ -1,0 +1,10 @@
+<map id="rcFeature::octants" name="rcFeature::octants">
+<area shape="rect" id="node2" href="$classrc_angle8.html#a2d0214047f4722e120e82bd3563ba468" title="rcAngle8::basic" alt="" coords="188,5,300,33"/>
+<area shape="rect" id="node3" href="$classrc_fixed16.html#aab07a66364a725f0b71ede836f3ecedd" title="rcFixed16::basic" alt="" coords="185,57,303,85"/>
+<area shape="rect" id="node4" href="$rc__fixcord_8cpp.html#a12e07d4aab6917e3d7555c4f04cc0e84" title="rfFxPolarize" alt="" coords="198,109,290,137"/>
+<area shape="rect" id="node8" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="209,161,279,189"/>
+<area shape="rect" id="node9" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="209,213,279,241"/>
+<area shape="rect" id="node5" href="$rc__fixcord_8cpp.html#a30f705c308f8afec62cb61feb528b05b" title="FFracMul" alt="" coords="371,57,448,85"/>
+<area shape="rect" id="node6" href="$rc__fixcord_8cpp.html#a945d0e7dfce919299bc43ba50f635140" title="FxPreNorm" alt="" coords="365,109,454,137"/>
+<area shape="rect" id="node7" href="$rc__fixcord_8cpp.html#a15fa327474b71fcf48c8b641ee1281de" title="PseudoPolarize" alt="" coords="352,161,467,189"/>
+</map>

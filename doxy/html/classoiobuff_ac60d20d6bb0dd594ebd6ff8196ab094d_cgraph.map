@@ -1,0 +1,6 @@
+<map id="oiobuff::~oiobuff" name="oiobuff::~oiobuff">
+<area shape="rect" id="node2" href="$classoiobuff.html#a9af1e93aa17b222ad019af62c0746b07" title="oiobuff::flush" alt="" coords="172,5,268,33"/>
+<area shape="rect" id="node3" href="$classobuff.html#ae388e9608d1c873d1feaf621f4044c25" title="obuff::set_error" alt="" coords="318,5,429,33"/>
+<area shape="rect" id="node4" href="$class_t_c_p__client__data.html#a970f6bf6bb6e6166615813c5f7768381" title="TCP_client_data::error" alt="" coords="478,5,634,33"/>
+<area shape="rect" id="node5" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="683,5,813,33"/>
+</map>

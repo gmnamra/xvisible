@@ -1,0 +1,12 @@
+<map id="dec" name="dec">
+<area shape="rect" id="node2" href="$classrc_shape.html#ab6a8c8111bd97a4891676104fd109f66" title="rcShape::peakDetect1d" alt="" coords="97,174,258,202"/>
+<area shape="rect" id="node3" href="$classrc_shape.html#aeca92baf420c58ebd13c20c86ebfd6ca" title="rcShape::needMajorDimension" alt="" coords="307,97,512,125"/>
+<area shape="rect" id="node7" href="$classrc_shape.html#a835423ce5f65bb0daa5adffc3a7c1e11" title="rcShape::needMinorDimension" alt="" coords="307,174,512,202"/>
+<area shape="rect" id="node11" href="$classrc_shape.html#a2bacf243a179e8db22b436a75f5bc40c" title="rcShape::testPeak" alt="" coords="344,226,474,254"/>
+<area shape="rect" id="node4" href="$classrc_shape.html#a258227de585d1d580ea7801c5ad34290" title="rcShape::majorDimension" alt="" coords="561,5,735,33"/>
+<area shape="rect" id="node5" href="$classrc_shape.html#acafce32b0c19c1dd82618256a3364ed1" title="rcShape::majorProfile" alt="" coords="573,57,723,85"/>
+<area shape="rect" id="node6" href="$classrc_shape.html#a33f2dc70bda0435a24239f8581003d47" title="rcShape::majorEnds" alt="" coords="577,109,719,137"/>
+<area shape="rect" id="node8" href="$classrc_shape.html#affc149c129047bca3b7e80347cab671b" title="rcShape::minorDimension" alt="" coords="561,161,735,189"/>
+<area shape="rect" id="node9" href="$classrc_shape.html#ae48de2f81c398c5c08d415e6399df369" title="rcShape::minorProfile" alt="" coords="573,213,723,241"/>
+<area shape="rect" id="node10" href="$classrc_shape.html#aa6ec7954ca147204f0d2986d8c59a84f" title="rcShape::minorEnds" alt="" coords="577,265,719,293"/>
+</map>

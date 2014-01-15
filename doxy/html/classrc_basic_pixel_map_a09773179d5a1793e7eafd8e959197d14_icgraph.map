@@ -1,0 +1,11 @@
+<map id="rcBasicPixelMap::areaFunc" name="rcBasicPixelMap::areaFunc">
+<area shape="rect" id="node2" href="$rc__ip_8h.html#a9af4106493f4ef14420a0896323aea9b" title="rfPixel16Map" alt="" coords="237,39,336,67"/>
+<area shape="rect" id="node4" href="$rc__ip_8h.html#a84122b53b67ee80855b0e78a103ead30" title="rfPixel8Map" alt="" coords="241,125,333,153"/>
+<area shape="rect" id="node3" href="$rc__ip_8cpp.html#a006b412d974d8676d63c0853008f2375" title="rfPixel16Map" alt="" coords="410,5,510,33"/>
+<area shape="rect" id="node5" href="$classrc_segmentation_level.html#a354228ed0f1b076ea2de147541143462" title="rcSegmentationLevel\l::binaryImage" alt="" coords="387,57,533,101"/>
+<area shape="rect" id="node6" href="$rc__ip_8h.html#a96d1ade51e0f61413e07fabc7e78d024" title="rfHysteresisThreshold" alt="" coords="384,125,536,153"/>
+<area shape="rect" id="node8" href="$rc__ip_8h.html#a4264d326b3efb93742ccb22d545e8ed2" title="rfPixel8Invert" alt="" coords="410,177,510,205"/>
+<area shape="rect" id="node9" href="$classrc_muscle_segmenter.html#a86d108c38d0bcb7a7eb47021b7ab0308" title="rcMuscleSegmenter::\lsegment" alt="" coords="386,229,534,273"/>
+<area shape="rect" id="node7" href="$classrc_spatial_pyramid_3_012_01_4.html#a4881bd9d7906dbdd00d92ab0a735cfbd" title="rcSpatialPyramid\&lt; 2\l \&gt;::gradientProcess" alt="" coords="611,117,752,161"/>
+<area shape="rect" id="node10" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="585,237,778,265"/>
+</map>

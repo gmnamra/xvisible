@@ -1,0 +1,5 @@
+<map id="rcTimestamp::localtime" name="rcTimestamp::localtime">
+<area shape="rect" id="node2" href="$classrc_timestamp.html#a7a76776edb5c337196cf10c009339d15" title="rcTimestamp::secs" alt="" coords="211,5,344,33"/>
+<area shape="rect" id="node3" href="$rc__timestamp_8h.html#ac624900be52fa7f30d3ad72543cc725d" title="convertTimestampToSeconds" alt="" coords="392,5,589,33"/>
+<area shape="rect" id="node4" href="$rc__timestamp__mac_8cpp.html#a7962719b626553bf7a913f7c2671b777" title="getTimestampResolution" alt="" coords="637,5,805,33"/>
+</map>

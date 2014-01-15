@@ -1,0 +1,9 @@
+<map id="unsigned_subtract" name="unsigned_subtract">
+<area shape="rect" id="node2" href="$string__arithmetic_8cpp.html#afc453c238c64f9a65f4feba453f3ac49" title="divrem" alt="" coords="184,83,245,111"/>
+<area shape="rect" id="node3" href="$string__arithmetic_8hpp.html#aadea3688ea789af8751de7438de2b81a" title="signed_divide" alt="" coords="314,5,417,33"/>
+<area shape="rect" id="node4" href="$string__arithmetic_8hpp.html#a045a224c929ce31ed52a22c98778f8db" title="signed_remainder" alt="" coords="301,57,429,85"/>
+<area shape="rect" id="node6" href="$string__arithmetic_8hpp.html#a92fd10d164e4f857f9aba03b019161f8" title="unsigned_divide" alt="" coords="306,109,424,137"/>
+<area shape="rect" id="node7" href="$string__arithmetic_8hpp.html#a57dd0f52a3fa28aaa04a0de120f9011b" title="unsigned_remainder" alt="" coords="294,161,437,189"/>
+<area shape="rect" id="node5" href="$string__arithmetic_8hpp.html#a2e8b975956735b659e2ce6940a1b19a5" title="signed_modulus" alt="" coords="493,57,611,85"/>
+<area shape="rect" id="node8" href="$string__arithmetic_8hpp.html#ad4d3d4da04a2430d6ddb04b46fb583c3" title="unsigned_modulus" alt="" coords="485,161,619,189"/>
+</map>

@@ -1,0 +1,36 @@
+<map id="library_manager::set_ini_manager" name="library_manager::set_ini_manager">
+<area shape="rect" id="node2" href="$file__system_8cpp.html#acb48f4675dcd897962719fcc704fa980" title="folder_part" alt="" coords="1097,326,1183,354"/>
+<area shape="rect" id="node4" href="$file__system_8cpp.html#a43fc3ab8b60b46427572a1c6d14ce91d" title="folder_to_path" alt="" coords="488,238,595,266"/>
+<area shape="rect" id="node5" href="$file__system_8cpp.html#a30c94ed8ef34b2bc1716be7b002b79a3" title="full_path" alt="" coords="737,161,809,189"/>
+<area shape="rect" id="node13" href="$classlibrary__manager.html#a4b9f81eaad855969c67fbdee2f3c9a27" title="library_manager::is\l_library" alt="" coords="474,342,609,386"/>
+<area shape="rect" id="node17" href="$classlibrary__manager.html#a6e11b9f375b71c6870e51584d56efb06" title="library_manager::library_name" alt="" coords="198,498,400,526"/>
+<area shape="rect" id="node25" href="$classlibrary__manager.html#a0cd027b7336471ac38d1b6baf4a62a27" title="library_manager::open" alt="" coords="221,446,376,474"/>
+<area shape="rect" id="node27" href="$classini__manager.html#ae819483a364505734987249eeec8823e" title="ini_manager::section\l_exists" alt="" coords="226,550,371,594"/>
+<area shape="rect" id="node28" href="$classlibrary__manager.html#a59fa25492811c8cefe1b37069ff67fe6" title="library_manager::setwork" alt="" coords="213,618,384,646"/>
+<area shape="rect" id="node29" href="$classlibrary__manager.html#ae33dadc3fa13c82eb355748a2eb1b514" title="library_manager::unsetwork" alt="" coords="448,670,634,698"/>
+<area shape="rect" id="node30" href="$classini__manager.html#a429da28d776027d44d6f6d7396c51134" title="ini_manager::variable\l_filename" alt="" coords="224,722,373,766"/>
+<area shape="rect" id="node33" href="$classini__manager.html#aeb9faa8cbd90fd0f659d2dd982272871" title="ini_manager::variable\l_names" alt="" coords="224,790,373,834"/>
+<area shape="rect" id="node34" href="$classini__manager.html#a68ebbd9d61521f8dcc67940e8c172a30" title="ini_manager::variable\l_value" alt="" coords="224,858,373,902"/>
+<area shape="rect" id="node35" href="$classlibrary__manager.html#a354e6d30744a3b0367671863f56c12b2" title="library_manager::work_name" alt="" coords="202,926,396,954"/>
+<area shape="rect" id="node3" href="$file__system_8cpp.html#a99e06c76afffe1f1d77f01c905b1a5fd" title="is_separator" alt="" coords="1261,326,1355,354"/>
+<area shape="rect" id="node6" href="$classfile__specification.html#a5b8f1026354ff32bfc183da3f38f5ce7" title="file_specification\l::absolute" alt="" coords="1080,34,1200,78"/>
+<area shape="rect" id="node7" href="$classfile__specification.html#a18e9d7a9b9dd1214d09ab5e843ea7806" title="file_specification\l::relative" alt="" coords="1248,34,1368,78"/>
+<area shape="rect" id="node8" href="$classfile__specification.html#a518bc2d13c74b0e00131c87fdd294f2b" title="file_specification\l::image" alt="" coords="912,153,1032,197"/>
+<area shape="rect" id="node10" href="$classfile__specification.html#aefefc9da1b64f7ed66a436750a88ffa2" title="file_specification\l::initialise_folder" alt="" coords="1080,206,1200,250"/>
+<area shape="rect" id="node12" href="$classfile__specification.html#a1c51930e39fad4d827a81b5b12a72752" title="file_specification\l::make_absolute" alt="" coords="912,85,1032,129"/>
+<area shape="rect" id="node9" href="$string__utilities_8hpp.html#a657118c43fe44a8454311075655ac9d4" title="vector_to_string" alt="" coords="1082,102,1198,130"/>
+<area shape="rect" id="node11" href="$classfile__specification.html#ab6e2c3cc492528550d2c4021d3a1c225" title="file_specification\l::path" alt="" coords="1248,206,1368,250"/>
+<area shape="rect" id="node14" href="$file__system_8cpp.html#a62475ca973dfe0094c00d60286c7c286" title="create_filespec" alt="" coords="718,378,829,406"/>
+<area shape="rect" id="node15" href="$file__system_8cpp.html#a70caa80e7bc53b5f40266a0a985f5e09" title="file_exists" alt="" coords="733,430,813,458"/>
+<area shape="rect" id="node16" href="$file__system_8cpp.html#a896521b0391b7bcdd8057eaec72fa0a1" title="is_file" alt="" coords="1112,430,1168,458"/>
+<area shape="rect" id="node18" href="$classlibrary__manager.html#a8f8adf85212ff2dfe2eacce2de2b54e4" title="library_manager::name" alt="" coords="462,514,621,542"/>
+<area shape="rect" id="node21" href="$library__manager_8cpp.html#ad14f441aa467dd750083703692bdd6c7" title="read_context" alt="" coords="492,462,591,490"/>
+<area shape="rect" id="node24" href="$classlibrary__manager.html#aa4e18ba621e08321acea4b810b2a3ace" title="library_manager::writable" alt="" coords="456,566,627,594"/>
+<area shape="rect" id="node19" href="$classlibrary__manager.html#a3e9b46768443b2a126ff2affda73ac53" title="library_manager::local_find" alt="" coords="683,541,864,569"/>
+<area shape="rect" id="node20" href="$string__utilities_8cpp.html#a981da2fc3da4b4974d8acb6d0593ed6a" title="lowercase" alt="" coords="931,541,1013,569"/>
+<area shape="rect" id="node22" href="$visimatch_8cpp.html#ae8a6e4899fbd06cc223556ccef67b64e" title="restore" alt="" coords="742,482,805,510"/>
+<area shape="rect" id="node23" href="$persistent_8hpp.html#aeeb01b2ea31ac58564b5f56b4545f406" title="restore_deque" alt="" coords="918,482,1026,510"/>
+<area shape="rect" id="node26" href="$classlibrary__manager.html#a874a2b734074459f436b1d7f5aa3c2a3" title="library_manager::close" alt="" coords="463,410,619,438"/>
+<area shape="rect" id="node31" href="$classini__manager.html#a9e26b39ed882ecb11b0ef82f696f79ec" title="ini_manager::filename" alt="" coords="465,730,618,758"/>
+<area shape="rect" id="node32" href="$classini__manager.html#a473383c1d15dc8605c597c8bbd26277b" title="ini_manager::variable\l_exists" alt="" coords="467,819,616,863"/>
+</map>

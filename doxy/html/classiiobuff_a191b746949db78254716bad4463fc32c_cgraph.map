@@ -1,0 +1,5 @@
+<map id="iiobuff::get" name="iiobuff::get">
+<area shape="rect" id="node2" href="$classibuff.html#a8add995ecf0a95ef60c0ae122905b933" title="ibuff::set_error" alt="" coords="136,5,243,33"/>
+<area shape="rect" id="node3" href="$class_t_c_p__client__data.html#a970f6bf6bb6e6166615813c5f7768381" title="TCP_client_data::error" alt="" coords="292,5,447,33"/>
+<area shape="rect" id="node4" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="497,5,626,33"/>
+</map>

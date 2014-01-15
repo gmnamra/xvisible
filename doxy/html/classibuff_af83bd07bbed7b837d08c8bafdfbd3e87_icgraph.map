@@ -1,0 +1,26 @@
+<map id="ibuff::peek" name="ibuff::peek">
+<area shape="rect" id="node2" href="$classitext.html#aaee598f762de2ee4100c1a4c89f7ea44" title="itext::get" alt="" coords="141,213,213,241"/>
+<area shape="rect" id="node13" href="$classitext.html#a38bd74dce665f9902b0be3ebc89fa236" title="itext::peek" alt="" coords="136,343,218,371"/>
+<area shape="rect" id="node3" href="$classrestore__context__body.html#acdcc751c5066513b19961cce1a02b3ca" title="restore_context_body::get" alt="" coords="267,5,442,33"/>
+<area shape="rect" id="node5" href="$classotext.html#ad5026466327cd94be92487fa7493877c" title="otext::operator\&lt;\&lt;" alt="" coords="293,57,416,85"/>
+<area shape="rect" id="node6" href="$textio_8cpp.html#a47d6fa76227d95d3bb473bd7e67b078f" title="get_token" alt="" coords="537,265,617,293"/>
+<area shape="rect" id="node8" href="$textio_8hpp.html#aefef196710c6412511a1945c73c78b56" title="skipwhite" alt="" coords="317,265,393,293"/>
+<area shape="rect" id="node9" href="$textio_8hpp.html#a6370c20b1d4423503029cfe6023d9afe" title="skiponewhite" alt="" coords="305,317,404,345"/>
+<area shape="rect" id="node10" href="$textio_8hpp.html#ae74c2c00785eb1a21bb2382863ec52d8" title="skipspaces" alt="" coords="311,369,398,397"/>
+<area shape="rect" id="node11" href="$textio_8hpp.html#a2991976c21a986661c0889ccfd8be9a3" title="skipline" alt="" coords="322,161,388,189"/>
+<area shape="rect" id="node12" href="$textio_8hpp.html#ae1115dc18fec9271b8f01623fb78a8f3" title="skipendl" alt="" coords="320,213,390,241"/>
+<area shape="rect" id="node4" href="$classrestore__context.html#a483b31369171dac9534d562ad22b4af3" title="restore_context::get" alt="" coords="508,5,647,33"/>
+<area shape="rect" id="node7" href="$classitext.html#ae16b1e0bfc667d9f5feb706438326240" title="itext::operator\&gt;\&gt;" alt="" coords="713,265,831,293"/>
+<area shape="rect" id="node14" href="$classitext.html#a0ee8b28beefefede4d6a567cb9325f34" title="itext::eof" alt="" coords="319,473,391,501"/>
+<area shape="rect" id="node18" href="$classitext.html#af63d6f6cba4f0849f205a006047b333d" title="itext::eoln" alt="" coords="315,525,394,553"/>
+<area shape="rect" id="node19" href="$classitext.html#a22a3de7513de1b92b666d24c430645e4" title="itext::getline" alt="" coords="308,614,401,642"/>
+<area shape="rect" id="node15" href="$classitext.html#aa8c9f7d2395b32e16207a2022ff2b743" title="itext::good" alt="" coords="536,453,619,481"/>
+<area shape="rect" id="node16" href="$classitext.html#ad37d126c87d8064854ae481da69e2c7f" title="itext::operator!" alt="" coords="719,427,825,455"/>
+<area shape="rect" id="node17" href="$classitext.html#a14cd8807168ac7d884efe4b502254b1c" title="itext::operator\&gt;\&gt;" alt="" coords="713,479,831,507"/>
+<area shape="rect" id="node20" href="$classerror__position.html#a088aa4d3f7d446779611786525d227eb" title="error_position::show" alt="" coords="507,745,648,773"/>
+<area shape="rect" id="node21" href="$classerror__handler__base__body.html#adba175bd7ed06e6170d1e9682797cf0d" title="error_handler_base\l_body::add_message_file" alt="" coords="491,505,664,549"/>
+<area shape="rect" id="node22" href="$classini__file.html#a2f1a805d0c24494001d979e3ac613b24" title="ini_file::read_file" alt="" coords="518,573,636,601"/>
+<area shape="rect" id="node24" href="$classlibrary__manager.html#a12e20333489fef2db96ea08e93d821f1" title="library_manager::load\l_mappings" alt="" coords="502,625,652,669"/>
+<area shape="rect" id="node25" href="$classitext.html#a4a66eb38ec6f618a00380632d36062a5" title="itext::operator\&gt;\&gt;" alt="" coords="518,693,637,721"/>
+<area shape="rect" id="node23" href="$classini__file.html#a93b558c428dbeea78090450849ae08bd" title="ini_file::ini_file" alt="" coords="720,573,824,601"/>
+</map>

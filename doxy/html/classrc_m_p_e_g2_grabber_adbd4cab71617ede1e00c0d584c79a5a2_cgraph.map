@@ -1,0 +1,9 @@
+<map id="rcMPEG2Grabber::add_frame" name="rcMPEG2Grabber::add_frame">
+<area shape="rect" id="node2" href="$classrc_window.html#a232627a15bd75725861721177a38df82" title="rcWindow::rowPointer" alt="" coords="211,83,362,111"/>
+<area shape="rect" id="node3" href="$classrc_frame.html#a401a851fcb8a4328949d38cb34b572f6" title="rcFrame::rowPointer" alt="" coords="412,5,554,33"/>
+<area shape="rect" id="node4" href="$classrc_rect.html#a50236160751c949d8718f8d4d17f7923" title="rcRect::y" alt="" coords="446,57,520,85"/>
+<area shape="rect" id="node6" href="$classrc_rect.html#ac0f95519a41dcf7e33bec85ccb8e7aff" title="rcRect::x" alt="" coords="446,109,520,137"/>
+<area shape="rect" id="node8" href="$classrc_frame.html#aaef8303c840834284eb9c60d33bf40c1" title="rcFrame::depth" alt="" coords="427,161,539,189"/>
+<area shape="rect" id="node5" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="604,57,674,85"/>
+<area shape="rect" id="node7" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="604,109,674,137"/>
+</map>

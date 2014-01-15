@@ -1,0 +1,10 @@
+<map id="subprocess::spawn" name="subprocess::spawn">
+<area shape="rect" id="node2" href="$classarg__vector.html#ac1572560b2893481d0ac4fae0d8a612e" title="arg_vector::argv" alt="" coords="204,5,322,33"/>
+<area shape="rect" id="node3" href="$classsubprocess.html#a5317d6ffca779ae61fe4ffb5512bfce0" title="subprocess::callback" alt="" coords="190,57,335,85"/>
+<area shape="rect" id="node4" href="$textio_8cpp.html#acf3fee36b85acdf7fae42a766218d233" title="close" alt="" coords="606,187,658,215"/>
+<area shape="rect" id="node6" href="$classsubprocess.html#a6c094be24bfb11f259116b7d1e38b7d0" title="subprocess::close_stderr" alt="" coords="386,161,555,189"/>
+<area shape="rect" id="node7" href="$classsubprocess.html#a93a5a36b980b0a8135690eca34a0fed8" title="subprocess::close_stdin" alt="" coords="389,213,552,241"/>
+<area shape="rect" id="node8" href="$classsubprocess.html#a513a73712c337d5406e87a2e67a38454" title="subprocess::close_stdout" alt="" coords="385,265,557,293"/>
+<area shape="rect" id="node9" href="$classsubprocess.html#a9e2c0f10c8fd3ec2a4b37f4ae7b19f0d" title="subprocess::kill" alt="" coords="206,262,319,290"/>
+<area shape="rect" id="node5" href="$classotext.html#ab8cc31aaff71191e9cb95a5330a7bc5f" title="otext::close" alt="" coords="708,187,796,215"/>
+</map>

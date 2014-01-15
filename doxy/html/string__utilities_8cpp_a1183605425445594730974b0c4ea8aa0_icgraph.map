@@ -1,0 +1,51 @@
+<map id="to_int" name="to_int">
+<area shape="rect" id="node2" href="$visimatch_8cpp.html#a4ce292257fdb2688b442274eb3854aa9" title="count" alt="" coords="140,905,194,933"/>
+<area shape="rect" id="node38" href="$classitext.html#ac8fda2b4b3472725bcd5453259d87898" title="itext::operator\&gt;\&gt;" alt="" coords="107,1779,226,1807"/>
+<area shape="rect" id="node39" href="$visimatch_8cpp.html#a5f9575250e67f01e508fe11eaf4c787c" title="percent" alt="" coords="134,1943,200,1971"/>
+<area shape="rect" id="node44" href="$visimatch_8cpp.html#a58e84fbb4fc2f5b9a3ccf471ca9cf19e" title="sample" alt="" coords="135,2241,199,2269"/>
+<area shape="rect" id="node50" href="$visimatch_8cpp.html#a0bfa7640848728e7c2159b4ee5dd8e18" title="startframe" alt="" coords="126,1831,207,1859"/>
+<area shape="rect" id="node3" href="$string__arithmetic_8hpp.html#ad0516fe3afc0dfb4884ab079d65a8572" title="unsigned_exponent" alt="" coords="318,5,456,33"/>
+<area shape="rect" id="node4" href="$string__arithmetic_8hpp.html#aeb8b4ac2bac4a911ada4b1b8823475b3" title="signed_exponent" alt="" coords="325,57,448,85"/>
+<area shape="rect" id="node5" href="$rc__stlplus_8h.html#a45a4fb512202a9bf23a35df5457953a3" title="vectorSum" alt="" coords="344,109,429,137"/>
+<area shape="rect" id="node6" href="$class_peak_spotter.html#a53188e3b8bd841781066f836dca6834f" title="PeakSpotter::transform" alt="" coords="307,161,466,189"/>
+<area shape="rect" id="node7" href="$classrc_tails.html#a2dda2f6378948f15fe203327e60dcccc" title="rcTails::rcTails" alt="" coords="335,213,439,241"/>
+<area shape="rect" id="node8" href="$batch__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="362,265,412,293"/>
+<area shape="rect" id="node9" href="$bcnvrt__main_8cpp.html#accc22075ea7eb720aed5cad6e10344b9" title="rfConvertMovie" alt="" coords="331,317,443,345"/>
+<area shape="rect" id="node10" href="$bcnvrt__main_8cpp.html#add0a6eef95e64e05a21758380072e136" title="rfConvertTwoMovies" alt="" coords="315,369,458,397"/>
+<area shape="rect" id="node11" href="$bcnvrt__main_8cpp.html#a6d89c150eafa999900b4088db4b6d0a3" title="rfCountMovieFrames" alt="" coords="314,421,460,449"/>
+<area shape="rect" id="node12" href="$classrc_license_manager.html#a827bda189c99e84462d9ae36b12a44f3" title="rcLicenseManager::getTime" alt="" coords="294,473,480,501"/>
+<area shape="rect" id="node13" href="$classrc_license_manager.html#a2350a7e093df72d1c0e1822632b3119f" title="rcLicenseManager::readFile" alt="" coords="293,525,480,553"/>
+<area shape="rect" id="node14" href="$tif__predict_8c.html#a32af707c807c46196456bc4a3b6b4dc9" title="fpAcc" alt="" coords="359,577,414,605"/>
+<area shape="rect" id="node15" href="$tif__predict_8c.html#a20ad540f1c4479ebc0c64d021f7c8a31" title="fpDiff" alt="" coords="361,629,413,657"/>
+<area shape="rect" id="node16" href="$tiffio_8h.html#a8de66a84ca1cdf3e65bb3b6d78c90f01" title="TIFFPrintDirectory" alt="" coords="322,681,452,709"/>
+<area shape="rect" id="node17" href="$classrc_setting_page.html#af3a60d804ed60214c70ac66dbc2b0dc9" title="rcSettingPage::rcSettingPage" alt="" coords="289,733,485,761"/>
+<area shape="rect" id="node18" href="$classrc_setting_panel.html#af52f92d65c1bbac98d3f98c9d06e2cfd" title="rcSettingPanel::updatePages" alt="" coords="290,785,484,813"/>
+<area shape="rect" id="node19" href="$classrc_engine_impl.html#aa88ea89affe1d1423a0f3d805c6290a9" title="rcEngineImpl::writeTimed\lScalar" alt="" coords="301,837,472,881"/>
+<area shape="rect" id="node20" href="$classrc_engine_impl.html#aed3e25c038699a7e34add46870c2a8e4" title="rcEngineImpl::writeEntropyData" alt="" coords="548,875,756,903"/>
+<area shape="rect" id="node21" href="$classrc_engine_impl.html#ade2645ee493a9245d0e9a8ab46ea4b54" title="rcEngineImpl::writeTimed\lFloats" alt="" coords="301,957,472,1001"/>
+<area shape="rect" id="node22" href="$classrc_engine_impl.html#ac6c444948228b9a6c9c013efefd7452c" title="rcEngineImpl::loadImages" alt="" coords="299,1025,474,1053"/>
+<area shape="rect" id="node23" href="$classrc_engine_impl.html#ab708d5637a9deccc4784bbb44d80d7b5" title="rcEngineImpl::loadMovie" alt="" coords="303,1077,470,1105"/>
+<area shape="rect" id="node24" href="$classrc_exporter.html#a96a9746c0272885f17d64ecac11e0a31" title="rcExporter::hasValidSegments" alt="" coords="286,1129,487,1157"/>
+<area shape="rect" id="node25" href="$classrc_native_importer.html#a23e6f19748e5c7769a74dce7ca6c896c" title="rcNativeImporter::parseGraphics\lCollection" alt="" coords="280,1181,494,1225"/>
+<area shape="rect" id="node26" href="$classrc_segment_iterator_impl.html#a9d74a23a0b75bec7d7bc9eeec2af775c" title="rcSegmentIteratorImpl\l::advanceNoLock" alt="" coords="310,1249,463,1293"/>
+<area shape="rect" id="node27" href="$rc__dcam_8h.html#a471b8dac84c06d5437ad0e873b84da77" title="rfGetCameraCapabilities" alt="" coords="303,1317,470,1345"/>
+<area shape="rect" id="node28" href="$rc__dcam_8h.html#abdaac796c588bd54040222228f90bd0f" title="rfGetCameraInformation" alt="" coords="304,1369,469,1397"/>
+<area shape="rect" id="node29" href="$rc__draw_8h.html#a358a6940d1797a42162fe0fb242186c1" title="rcDrawPolygon" alt="" coords="331,1421,443,1449"/>
+<area shape="rect" id="node30" href="$rc__draw_8h.html#a72125d1915a0c243a770c6635ecbf584" title="rcFillPolygon" alt="" coords="338,1473,435,1501"/>
+<area shape="rect" id="node31" href="$rc__ipconvert_8h.html#af0cb149b23e870c2b3145cf97f5743f5" title="rfRcWindow32to8" alt="" coords="323,1525,450,1553"/>
+<area shape="rect" id="node32" href="$rc__ipconvert_8h.html#ad93ec61c1a70c540b2090b9d7bdc7a27" title="rfImageConvert32to8" alt="" coords="313,1577,460,1605"/>
+<area shape="rect" id="node33" href="$classrc_polygon.html#ada37b3f1a8807caadafb01269bf736ea" title="rcPolygon::polyArea2" alt="" coords="313,1629,461,1657"/>
+<area shape="rect" id="node34" href="$rc__polygon_8cpp.html#a39308e4aa4de6addecf18fd62d7ded31" title="operator==" alt="" coords="343,1681,430,1709"/>
+<area shape="rect" id="node35" href="$class_t_i_f_f_reader_internal.html#adc7888a9bc3fe28248b49b8b204ae8ae" title="TIFFReaderInternal\l::Open" alt="" coords="318,1733,456,1777"/>
+<area shape="rect" id="node36" href="$visimatch_8cpp.html#a82fefdf34801de8f8e9eb60b25fbd6b6" title="genSignatureFromMov" alt="" coords="308,1801,465,1829"/>
+<area shape="rect" id="node37" href="$visimatch_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="627,1853,677,1881"/>
+<area shape="rect" id="node40" href="$classrc_muscle_tracker.html#a29d2c7e54027ea363c48fa55b62d4d18" title="rcMuscleTracker::setEdge\lPersistence" alt="" coords="299,1905,475,1949"/>
+<area shape="rect" id="node41" href="$rc__analysis_8h.html#a395a11588b0868cef05234c53a8fc17c" title="Processing Function." alt="" coords="316,1973,457,2001"/>
+<area shape="rect" id="node42" href="$classrc_histo_stats.html#a58aafcfaedc1cc1a8bc577e6cc0c45a4" title="rcHistoStats::inverseCum" alt="" coords="301,2025,473,2053"/>
+<area shape="rect" id="node43" href="$classrc_histo_stats.html#adb9c8e33c02fe7dd7c250e3610abf0b7" title="rcHistoStats::computeInverseCum" alt="" coords="275,2077,498,2105"/>
+<area shape="rect" id="node45" href="$os__fixes_8hpp.html#a658951c4c8f24cc85b99e5ec0eec5ece" title="little_endian" alt="" coords="340,2181,433,2209"/>
+<area shape="rect" id="node46" href="$classrc_spatial_pyramid_3_012_01_4.html#a73bfbd40efe7fd8d1d2eaf15549c5472" title="rcSpatialPyramid\&lt; 2\l \&gt;::rcSpatialPyramid" alt="" coords="316,2233,457,2277"/>
+<area shape="rect" id="node47" href="$tiffio_8h.html#a2bc46326513dd4b3040859a278acb936" title="TIFFReadScanline" alt="" coords="320,2301,453,2329"/>
+<area shape="rect" id="node48" href="$tiffio_8h.html#aeb8ced7ec5236ab9b4f5db5ec3c200ad" title="TIFFWriteScanline" alt="" coords="321,2353,452,2381"/>
+<area shape="rect" id="node49" href="$tiffio_8h.html#a97ab5cd747490e96fc3902ab4eaaca77" title="TIFFWriteEncodedStrip" alt="" coords="306,2405,467,2433"/>
+</map>

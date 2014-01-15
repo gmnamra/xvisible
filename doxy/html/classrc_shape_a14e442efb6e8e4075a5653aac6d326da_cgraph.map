@@ -1,0 +1,40 @@
+<map id="rcShape::printCache" name="rcShape::printCache">
+<area shape="rect" id="node2" href="$classrc_shape.html#a81de64236f3356a91295d36e96a44e46" title="rcShape::affineWindow" alt="" coords="198,514,357,542"/>
+<area shape="rect" id="node25" href="$classrc_shape.html#acc0e95b282384746658f087098f02e3d" title="rcShape::isValid" alt="" coords="1123,639,1240,667"/>
+<area shape="rect" id="node28" href="$textio_8cpp.html#a905a4c61e365d406069f00eb68db1ca5" title="endl" alt="" coords="254,683,301,711"/>
+<area shape="rect" id="node3" href="$classrc_shape.html#a9d3e78bfdd0b1a1f7e13f64e3e64b18c" title="rcShape::needAffineWindow" alt="" coords="405,487,595,515"/>
+<area shape="rect" id="node4" href="$classrc_shape.html#afd531de5e98d3c64c78b5963455f0a95" title="rcShape::affineRect" alt="" coords="645,379,784,407"/>
+<area shape="rect" id="node27" href="$classrc_shape.html#a4e81fb442d9c9d695e84257fe361f6e8" title="rcShape::validate" alt="" coords="1119,5,1244,33"/>
+<area shape="rect" id="node5" href="$classrc_shape.html#a578ea66eb32383e5059e9b2d72295c96" title="rcShape::needAffineRect" alt="" coords="835,362,1005,390"/>
+<area shape="rect" id="node6" href="$classrc_affine_rectangle.html#af422709ef0e54ca1c30b6ddf0f7bfeaf" title="rcAffineRectangle::\lcannonicalSize" alt="" coords="1360,145,1494,189"/>
+<area shape="rect" id="node7" href="$classrc_affine_rectangle.html#adb7ab0d66c9bb5f8041c9109350d13ce" title="rcAffineRectangle::\lexpand" alt="" coords="1114,354,1248,398"/>
+<area shape="rect" id="node14" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="1574,317,1644,345"/>
+<area shape="rect" id="node15" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="1574,437,1644,465"/>
+<area shape="rect" id="node18" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="1377,557,1476,585"/>
+<area shape="rect" id="node19" href="$classrc_affine_rectangle.html#a669ac385bee96382251a349f599e7b13" title="rcAffineRectangle::\lxyScale" alt="" coords="1360,661,1494,705"/>
+<area shape="rect" id="node24" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="1377,41,1476,69"/>
+<area shape="rect" id="node26" href="$classrc_polygon.html#a9c0fbc52bbb31b4092e5da3b64cdae19" title="rcPolygon::minimumAreaEnclosingRect" alt="" coords="1054,109,1309,137"/>
+<area shape="rect" id="node8" href="$classrc_affine_rectangle.html#a5861891b41e1d0f4f9bf936d0c044a04" title="rcAffineRectangle::\langle" alt="" coords="1360,489,1494,533"/>
+<area shape="rect" id="node12" href="$classrc2_xform.html#a44d8bfc2fca67ec4126f15be742281fd" title="rc2Xform::mapPoint" alt="" coords="1357,265,1496,293"/>
+<area shape="rect" id="node13" href="$classrc_affine_rectangle.html#a5337edf2a9b2c9a32b73d5aaeffcfe89" title="default constructor takes no arguments" alt="" coords="1360,369,1494,413"/>
+<area shape="rect" id="node16" href="$classrc2_xform.html#a07808604dd841770d2cf267abba4030f" title="rc2Xform::scale" alt="" coords="1370,213,1484,241"/>
+<area shape="rect" id="node9" href="$classrc2_xform.html#ab6ce57e99e7d44cc9d66d4dd6e459b79" title="rc2Xform::rotation" alt="" coords="1546,497,1673,525"/>
+<area shape="rect" id="node10" href="$classrc_matrix__2d.html#a69832383948cf959222f9cab77ea8e3a" title="rcMatrix_2d::rotation" alt="" coords="1723,497,1866,525"/>
+<area shape="rect" id="node11" href="$rc__math_8h.html#a7e5004e092115336302e39a1774060ca" title="arctan" alt="" coords="1915,497,1973,525"/>
+<area shape="rect" id="node17" href="$classrc_matrix__2d.html#ad150aa461d45414b8365e4cd7103a12e" title="rcMatrix_2d::scale" alt="" coords="1545,213,1674,241"/>
+<area shape="rect" id="node20" href="$classrc2_xform.html#a4c46e7895d5600a706ea2c80e0ebe70e" title="rc2Xform::xScale" alt="" coords="1548,642,1671,670"/>
+<area shape="rect" id="node22" href="$classrc2_xform.html#ab502f0541b483424b2793b03d051cb55" title="rc2Xform::yScale" alt="" coords="1548,694,1671,722"/>
+<area shape="rect" id="node21" href="$classrc_matrix__2d.html#afda2638e1ec9c5323a54baec1dda771c" title="rcMatrix_2d::xScale" alt="" coords="1725,642,1864,670"/>
+<area shape="rect" id="node23" href="$classrc_matrix__2d.html#a0cd75d45f23e08383eb21b991065b911" title="rcMatrix_2d::yScale" alt="" coords="1725,694,1864,722"/>
+<area shape="rect" id="node29" href="$classotext.html#a5086c0fd5e3f551eae3027e5d23d3c30" title="otext::put" alt="" coords="462,735,538,763"/>
+<area shape="rect" id="node30" href="$classotext.html#ab52b059090ba70eeeac469f9051d3a22" title="otext::flush" alt="" coords="672,839,758,867"/>
+<area shape="rect" id="node32" href="$classobuff.html#a069bcd2767c0d7c8e2bc8cd26d91e267" title="obuff::increment" alt="" coords="656,891,773,919"/>
+<area shape="rect" id="node33" href="$classobuff.html#a51efd4e8e00303842fa762940aad86ec" title="obuff::line_buffer" alt="" coords="655,631,775,659"/>
+<area shape="rect" id="node34" href="$classobuff.html#a0711113beee11f9793f5ba9e8e64c641" title="obuff::newline_mode" alt="" coords="643,683,787,711"/>
+<area shape="rect" id="node35" href="$classobuff.html#a5bbb61ac15c672da7f7b2002bef6b128" title="obuff::put" alt="" coords="676,735,753,763"/>
+<area shape="rect" id="node36" href="$classotext.html#a2a2435d80cce60cb88360c7bfe3f8445" title="otext::set_error" alt="" coords="659,787,770,815"/>
+<area shape="rect" id="node31" href="$classobuff.html#a8fb8969c450f4fdc037f8c51d35c87c7" title="obuff::flush" alt="" coords="877,839,963,867"/>
+<area shape="rect" id="node37" href="$classobuff.html#ae388e9608d1c873d1feaf621f4044c25" title="obuff::set_error" alt="" coords="864,787,976,815"/>
+<area shape="rect" id="node38" href="$class_t_c_p__client__data.html#a970f6bf6bb6e6166615813c5f7768381" title="TCP_client_data::error" alt="" coords="1104,787,1259,815"/>
+<area shape="rect" id="node39" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="1362,787,1491,815"/>
+</map>

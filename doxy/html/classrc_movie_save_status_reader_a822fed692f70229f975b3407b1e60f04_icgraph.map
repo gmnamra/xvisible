@@ -1,0 +1,7 @@
+<map id="rcMovieSaveStatusReader::getStatus" name="rcMovieSaveStatusReader::getStatus">
+<area shape="rect" id="node2" href="$classrc_engine_movie_capture.html#a535d82661039051de63c547c2b6afae1" title="rcEngineMovieCapture\l::closeSaveFile" alt="" coords="235,5,392,49"/>
+<area shape="rect" id="node4" href="$classrc_engine_movie_saver.html#acfcf110c1e056627ecf64589d5efc035" title="rcEngineMovieSaver\l::errorHdlr" alt="" coords="241,141,386,185"/>
+<area shape="rect" id="node6" href="$classrc_engine_movie_capture.html#ac35da60d880240d3634b0768a7d6b3bf" title="rcEngineMovieCapture\l::saveComplete" alt="" coords="235,73,392,117"/>
+<area shape="rect" id="node3" href="$classrc_engine_movie_capture.html#a0d8bfe4fd32e11bdbdb2c0ad113425ff" title="rcEngineMovieCapture::run" alt="" coords="440,47,624,75"/>
+<area shape="rect" id="node5" href="$classrc_engine_movie_saver.html#a216e88884a3dd557507ea93dc3609a91" title="rcEngineMovieSaver::run" alt="" coords="446,149,618,177"/>
+</map>

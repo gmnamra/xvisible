@@ -1,0 +1,13 @@
+<map id="rfPixelSample" name="rfPixelSample">
+<area shape="rect" id="node2" href="$rc__movie__generator__main_8cpp.html#a5550a91ae12b5e67dfd875fc254297c7" title="generateExpansionMovie" alt="" coords="166,5,338,33"/>
+<area shape="rect" id="node4" href="$rc__movie__generator__main_8cpp.html#a92109472abf27accd174041f883f63f4" title="generateRandomMovie" alt="" coords="172,57,332,85"/>
+<area shape="rect" id="node5" href="$rc__movie__generator__main_8cpp.html#a962307a7d6fb769d8a773be64259653b" title="generateTranslationMovie" alt="" coords="164,109,340,137"/>
+<area shape="rect" id="node6" href="$classrc_spatial_pyramid_3_012_01_4.html#a76108ad3a682a947abb2866c9b9a5c54" title="rcSpatialPyramid\&lt; 2\l \&gt;::intensityProcess" alt="" coords="181,161,323,205"/>
+<area shape="rect" id="node7" href="$classrc_engine_impl.html#a7eec21aabd0c657881fc6eac91787480" title="rcEngineImpl::modelTracker" alt="" coords="158,229,346,257"/>
+<area shape="rect" id="node12" href="$rc__ip_8h.html#aa7f3a1cc6316a0c08c325436abf85d34" title="rfPixelSample" alt="" coords="200,281,304,309"/>
+<area shape="rect" id="node3" href="$rc__movie__generator__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="479,57,529,85"/>
+<area shape="rect" id="node8" href="$classrc_engine_impl.html#a3ad6dbc54b2a53acae4d345ff14974ae" title="rcEngineImpl::analyzeFocusArea" alt="" coords="396,229,612,257"/>
+<area shape="rect" id="node9" href="$classrc_engine_impl.html#ae320706cbcafd64f219018b9842c8290" title="rcEngineImpl::analyze" alt="" coords="661,229,814,257"/>
+<area shape="rect" id="node10" href="$classrc_engine_impl.html#a507e034c1e43ae1dd6ec95a11ec0bb02" title="rcEngineImpl::process" alt="" coords="862,202,1015,230"/>
+<area shape="rect" id="node11" href="$classrc_engine_analyzer.html#a064037f0ec3e68fcb11dabbcba790cdd" title="rcEngineAnalyzer::run" alt="" coords="862,254,1015,282"/>
+</map>

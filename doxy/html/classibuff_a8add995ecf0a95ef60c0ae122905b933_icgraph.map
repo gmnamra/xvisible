@@ -1,0 +1,11 @@
+<map id="ibuff::set_error" name="ibuff::set_error">
+<area shape="rect" id="node2" href="$classiiobuff.html#a191b746949db78254716bad4463fc32c" title="iiobuff::get" alt="" coords="172,5,255,33"/>
+<area shape="rect" id="node3" href="$classifbuff.html#a149813720a8fcd5d3e8101dcc463cd15" title="ifbuff::get" alt="" coords="175,57,251,85"/>
+<area shape="rect" id="node4" href="$classifbuff.html#a865755bba321ed46d7df24b8ce121c4c" title="ifbuff::open" alt="" coords="170,109,257,137"/>
+<area shape="rect" id="node6" href="$classiiobuff.html#a85f40b34e78205e9573915db0a512303" title="iiobuff::peek" alt="" coords="167,161,260,189"/>
+<area shape="rect" id="node7" href="$classifbuff.html#aac697145c8e70a6349246b60a4bfc1eb" title="ifbuff::peek" alt="" coords="170,213,256,241"/>
+<area shape="rect" id="node8" href="$classitext.html#a64f926512727e90dd60351897fb9b994" title="itext::set_error" alt="" coords="160,265,267,293"/>
+<area shape="rect" id="node5" href="$classifbuff.html#a0cb42c67b40464fc31eec42b1b63bb88" title="ifbuff::ifbuff" alt="" coords="332,109,418,137"/>
+<area shape="rect" id="node9" href="$inf_8hpp.html#a8638ad061198329d0a98a326be64b18d" title="operator\&gt;\&gt;" alt="" coords="331,238,418,266"/>
+<area shape="rect" id="node10" href="$classitext.html#ae7f77b61fb32b6374fe68bdb9f382617" title="itext::operator\&gt;\&gt;" alt="" coords="315,290,434,318"/>
+</map>

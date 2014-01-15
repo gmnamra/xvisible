@@ -1,0 +1,9 @@
+<map id="rcNumericChoiceSettingWidget::choiceSelected" name="rcNumericChoiceSettingWidget::choiceSelected">
+<area shape="rect" id="node2" href="$classrc_setting_info.html#a6d3cda0e1b71a0f7c2061015fb02d3d8" title="rcSettingInfo::getChoice" alt="" coords="292,5,455,33"/>
+<area shape="rect" id="node3" href="$structrc_setting_choice.html#a2d47fcdec3c4938ae6ffd0581fa22887" title="rcSettingChoice::getFloat\lValue" alt="" coords="288,57,459,101"/>
+<area shape="rect" id="node4" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="262,125,485,153"/>
+<area shape="rect" id="node5" href="$classrc_setting_info.html#a1b99595ec48ea7982c8a8c7f3afd0534" title="rcSettingInfo::getNChoices" alt="" coords="283,177,463,205"/>
+<area shape="rect" id="node6" href="$classrc_model_domain.html#a964f8cb50c816a0826dbbbc60bb78006" title="rcModelDomain::notifySetting\lChange" alt="" coords="276,229,471,273"/>
+<area shape="rect" id="node8" href="$classrc_setting_info.html#a56e4a99afd7b35b9ac8bfcb853dcdc4d" title="rcSettingInfo::setValue" alt="" coords="296,297,451,325"/>
+<area shape="rect" id="node7" href="$classrc_model_domain.html#af20f3010314a2ddf0ec3b3aa82f466b5" title="rcModelDomain::updateSettings" alt="" coords="533,237,744,265"/>
+</map>

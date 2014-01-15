@@ -1,0 +1,5 @@
+<map id="rcSharedFrameBufPtr::setCachedFrame" name="rcSharedFrameBufPtr::setCachedFrame">
+<area shape="rect" id="node2" href="$classrc_frame.html#a644385072e6c42199d2646929781cfcc" title="rcFrame::addRef" alt="" coords="221,5,342,33"/>
+<area shape="rect" id="node3" href="$classrc_shared_frame_buf_ptr.html#ad9212bfe5e7c637bd913fcdd53e1830b" title="rcSharedFrameBufPtr\l::frameIndex" alt="" coords="206,57,357,101"/>
+<area shape="rect" id="node4" href="$classrc_shared_frame_buf_ptr.html#aaa855b75abe62fab19f19228a1048a11" title="rcSharedFrameBufPtr\l::getMutex" alt="" coords="206,125,357,169"/>
+</map>

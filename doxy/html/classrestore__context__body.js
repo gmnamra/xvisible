@@ -1,0 +1,28 @@
+var classrestore__context__body =
+[
+    [ "callback_map", "classrestore__context__body.html#a7560bb3e6ebdcca744bba36b0e7427e8", null ],
+    [ "interface_map", "classrestore__context__body.html#ad72ee407ccd622aa3188b30ab9dbb85e", null ],
+    [ "magic_map", "classrestore__context__body.html#a098a38e9971c48656a6e76a67079870b", null ],
+    [ "persistent_ptr", "classrestore__context__body.html#a914ae70191671ea48d5de752f227c689", null ],
+    [ "restore_context_body", "classrestore__context__body.html#a6cccd3f4482a18b4cbf87bd62fe99f10", null ],
+    [ "~restore_context_body", "classrestore__context__body.html#aa56678c11d70f4757ff19c7f8660d28a", null ],
+    [ "device", "classrestore__context__body.html#a29147aec3d79d3c221fbe5068d57372a", null ],
+    [ "get", "classrestore__context__body.html#acdcc751c5066513b19961cce1a02b3ca", null ],
+    [ "is_callback", "classrestore__context__body.html#a47b66bff5407a379284cb8f992399479", null ],
+    [ "is_interface", "classrestore__context__body.html#ade2f1af5b7813e846324271b5c72c754", null ],
+    [ "little_endian", "classrestore__context__body.html#aef78826b6775c4c2b84b0bdf5c88eb6f", null ],
+    [ "lookup_interface", "classrestore__context__body.html#aa74499f3da6b75547fab6a13530b7ce9", null ],
+    [ "lookup_type", "classrestore__context__body.html#afbab5e4c112744e2cda1503dbd7302ab", null ],
+    [ "pointer_add", "classrestore__context__body.html#af239a93b11d3633cb5606aa3fe584b79", null ],
+    [ "pointer_map", "classrestore__context__body.html#ab52c82b470df8aacc13b547a7a5f89ff", null ],
+    [ "register_interface", "classrestore__context__body.html#ae036986c86cffc9e38be00bc2bd0aff7", null ],
+    [ "register_type", "classrestore__context__body.html#a07d8415fb6f25332b111798860d8073c", null ],
+    [ "version", "classrestore__context__body.html#a6e75422d8fe20c88c729e8fbf0134b0d", null ],
+    [ "m_callbacks", "classrestore__context__body.html#a6033a8be77b40d43a2ea3cfc63f56059", null ],
+    [ "m_device", "classrestore__context__body.html#acc5a24f54c7f49af3143c14ec2fd27f5", null ],
+    [ "m_interfaces", "classrestore__context__body.html#adc9e3433b6c198a3b63e261e73e5f1c1", null ],
+    [ "m_little_endian", "classrestore__context__body.html#a8a73f54a14b80651e4302a012f8d33d3", null ],
+    [ "m_max_key", "classrestore__context__body.html#a3bdbad01a11f652c7748408809b82ff7", null ],
+    [ "m_pointers", "classrestore__context__body.html#a48ed886420048748683135eac5353bb8", null ],
+    [ "m_version", "classrestore__context__body.html#ac8dafe5b9e992f443d55a1a2ab2aff58", null ]
+];

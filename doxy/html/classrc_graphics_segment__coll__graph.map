@@ -1,0 +1,10 @@
+<map id="rcGraphicsSegment" name="rcGraphicsSegment">
+<area shape="rect" id="node2" href="$classrc_segment_impl.html" title="rcSegmentImpl" alt="" coords="73,398,183,426"/>
+<area shape="rect" id="node3" href="$classrc_timestamp.html" title="rcTimestamp" alt="" coords="4,289,101,317"/>
+<area shape="rect" id="node4" href="$classrc_rect.html" title="rcRect" alt="" coords="126,289,185,317"/>
+<area shape="rect" id="node5" href="$classrc_rectangle.html" title="rcIRect" alt="" coords="124,195,187,223"/>
+<area shape="rect" id="node6" href="$classrc_pair.html" title="rcPair\&lt; int32 \&gt;" alt="" coords="102,86,209,114"/>
+<area shape="rect" id="node8" href="$classrc_visual_graphics_collection.html" title="rcVisualGraphicsCollection" alt="" coords="207,398,387,426"/>
+<area shape="rect" id="node9" href="$classrc_style.html" title="rcStyle" alt="" coords="266,289,328,317"/>
+<area shape="rect" id="node10" href="$classrc2d_vector.html" title="rc2dVector\&lt; float \&gt;" alt="" coords="231,195,363,223"/>
+</map>

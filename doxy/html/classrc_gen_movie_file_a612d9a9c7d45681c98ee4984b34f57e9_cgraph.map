@@ -1,0 +1,8 @@
+<map id="rcGenMovieFile::open" name="rcGenMovieFile::open">
+<area shape="rect" id="node2" href="$classrc_movie_file_format.html#a6c7669c6c33bd7448fe2ad9e6d183f44" title="rcMovieFileFormat::\lwrite" alt="" coords="205,31,344,75"/>
+<area shape="rect" id="node6" href="$classrc_movie_file_format2.html#ad077416ee7459fe3e47e2e070d54b769" title="rcMovieFileFormat2\l::write" alt="" coords="205,107,344,151"/>
+<area shape="rect" id="node3" href="$rc__systeminfo__mac_8cpp.html#a126126658dd407b361d6cba5c3e6c3ab" title="rfPlatformByteOrder" alt="" coords="769,81,909,109"/>
+<area shape="rect" id="node4" href="$classrc_movie_file_format.html#a77243fc3bd34fbe3fe2a6a7091d07fd7" title="rcMovieFileFormat::\lfixEndian" alt="" coords="392,31,531,75"/>
+<area shape="rect" id="node5" href="$classrc_movie_file_identifier.html#a12d8dd7bbf727b46b169214f791d19bd" title="rcMovieFileIdentifier\l::fixEndian" alt="" coords="579,73,720,117"/>
+<area shape="rect" id="node7" href="$classrc_movie_file_format2.html#a0cc799d8692dbc65c7af9325f0e0881a" title="rcMovieFileFormat2\l::fixEndian" alt="" coords="392,107,531,151"/>
+</map>

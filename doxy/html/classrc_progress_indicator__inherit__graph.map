@@ -1,0 +1,5 @@
+<map id="rcProgressIndicator" name="rcProgressIndicator">
+<area shape="rect" id="node2" href="$classrc_conversion_progress.html" title="rcConversionProgress" alt="" coords="5,83,157,111"/>
+<area shape="rect" id="node3" href="$classrc_engine_progress.html" title="rcEngineProgress" alt="" coords="182,83,308,111"/>
+<area shape="rect" id="node4" href="$classrc_model_progress.html" title="rcModelProgress" alt="" coords="334,83,455,111"/>
+</map>

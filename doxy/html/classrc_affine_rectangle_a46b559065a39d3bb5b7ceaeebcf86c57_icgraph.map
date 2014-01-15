@@ -1,0 +1,7 @@
+<map id="rcAffineRectangle::boundingBox" name="rcAffineRectangle::boundingBox">
+<area shape="rect" id="node2" href="$classrc_cubic_generate_pixel.html#ab3c0673ea3f8d55de767e8c0dbda99f9" title="rcCubicGeneratePixel\l::genPixel" alt="" coords="222,5,373,49"/>
+<area shape="rect" id="node3" href="$classrc_shape.html#ada3c411ff799782c331cb9e71191ea85" title="rcShape::orthogonalBoundingBox" alt="" coords="187,73,408,101"/>
+<area shape="rect" id="node6" href="$classrc_affine_window.html#a8d6d3a4acf50a95e38eab57a34f6a1cc" title="rcAffineWindow::rcAffine\lWindow" alt="" coords="214,125,381,169"/>
+<area shape="rect" id="node4" href="$classrc_shape.html#ae7e9defc8e2df3d3d7698c48731ebc30" title="rcShape::orthogonalBounding\lBoxCenter" alt="" coords="456,31,654,75"/>
+<area shape="rect" id="node5" href="$classrc_shape.html#a4ee6251786966994fe57f460230d0be2" title="rcShape::orthogonalBounding\lBoxAspect" alt="" coords="456,99,654,143"/>
+</map>

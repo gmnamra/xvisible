@@ -1,0 +1,19 @@
+<map id="TIFFFlush" name="TIFFFlush">
+<area shape="rect" id="node2" href="$tiffio_8h.html#aceb629aa7034d6d0304207556be3ce17" title="TIFFCleanup" alt="" coords="136,105,235,133"/>
+<area shape="rect" id="node3" href="$tiffio_8h.html#a165611e0432d36de8bcf57f35e161bd3" title="TIFFClientOpen" alt="" coords="283,78,399,106"/>
+<area shape="rect" id="node15" href="$tiffio_8h.html#a3fefdfb6b9f9316edb732a85934efd90" title="TIFFClose" alt="" coords="456,130,539,158"/>
+<area shape="rect" id="node4" href="$tiffio_8h.html#adca230876d2f7fdec1ff6c7fdb7898a8" title="TIFFFdOpen" alt="" coords="449,78,546,106"/>
+<area shape="rect" id="node5" href="$tiffio_8h.html#ac3dd18826e617eb451c74f33a32fcb10" title="TIFFOpen" alt="" coords="623,78,705,106"/>
+<area shape="rect" id="node6" href="$class_t_i_f_f_reader_internal.html#adc7888a9bc3fe28248b49b8b204ae8ae" title="TIFFReaderInternal\l::Open" alt="" coords="810,126,948,170"/>
+<area shape="rect" id="node10" href="$classrc_window.html#adf6ca47beb76a8bfdc73369f80dd003d" title="rcWindow::tiff" alt="" coords="828,74,929,102"/>
+<area shape="rect" id="node7" href="$class_t_i_f_f_image_i_o.html#abec0d00f473debbd9d05f5a0e4820402" title="TIFFImageIO::CanReadFile" alt="" coords="1028,186,1214,214"/>
+<area shape="rect" id="node8" href="$classrc_engine_impl.html#ac0162da8fe4f677ad6f3d04a465d50f0" title="rcEngineImpl::loadMovie" alt="" coords="1272,159,1440,187"/>
+<area shape="rect" id="node9" href="$classrc_window.html#a5da06176e6878b676bbc534db6b09b7d" title="rcWindow::rcWindow" alt="" coords="1283,211,1429,239"/>
+<area shape="rect" id="node11" href="$classrc_visual_function.html#a1df64c3605f3a0a4670118911ac783b1" title="rcVisualFunction::cardiac\lMeasure" alt="" coords="1036,6,1206,50"/>
+<area shape="rect" id="node13" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1025,74,1218,102"/>
+<area shape="rect" id="node14" href="$rc__edge_8h.html#a11fbb1eb0376dd39a4be2ea72b7ef156" title="rfDirectionSignal" alt="" coords="1062,126,1181,154"/>
+<area shape="rect" id="node12" href="$classrc_visual_function.html#ac3135ba614a9ba5080e78c3f2f426312" title="rcVisualFunction::measure" alt="" coords="1267,14,1445,42"/>
+<area shape="rect" id="node16" href="$class_t_i_f_f_reader_internal.html#aaa46d9e82420cfadfe323b1026cac726" title="TIFFReaderInternal\l::Clean" alt="" coords="595,186,733,230"/>
+<area shape="rect" id="node17" href="$class_t_i_f_f_reader_internal.html#a37acb14f97aa8a07dd8875ed13bc21ba" title="TIFFReaderInternal\l::TIFFReaderInternal" alt="" coords="806,298,951,342"/>
+<area shape="rect" id="node18" href="$class_t_i_f_f_image_i_o.html#a3ad4dcd4aad49fe2ea0c85ce5edac4da" title="TIFFImageIO::~TIFFImageIO" alt="" coords="781,246,976,274"/>
+</map>

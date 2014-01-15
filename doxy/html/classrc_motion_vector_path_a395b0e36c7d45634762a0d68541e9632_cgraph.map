@@ -1,0 +1,14 @@
+<map id="rcMotionVectorPath::parabolicDisparity" name="rcMotionVectorPath::parabolicDisparity">
+<area shape="rect" id="node2" href="$classrc_window.html#a9ab724dc45a3c3c2beee6c8ed558de1e" title="rcWindow::depth" alt="" coords="388,5,508,33"/>
+<area shape="rect" id="node3" href="$classrc_rectangle.html#abe44205fccdffe80fbfdd4de79b406dc" title="rcRectangle::height" alt="" coords="193,57,329,85"/>
+<area shape="rect" id="node4" href="$classrc_motion_vector_path.html#a9163b7d85bbac553dbceb45632815fea" title="rcMotionVectorPath\l::match" alt="" coords="192,109,330,153"/>
+<area shape="rect" id="node8" href="$classrc_motion_vector_path.html#a0cc1b17913fabf86898fa2360365b9c4" title="rcMotionVectorPath\l::move" alt="" coords="192,177,330,221"/>
+<area shape="rect" id="node9" href="$rc__fit_8h.html#aab8b94282f03e5c40b03bda83b781d23" title="parabolicFit" alt="" coords="216,245,306,273"/>
+<area shape="rect" id="node10" href="$classrc_motion_vector_path.html#a2420b5b2259f76e7755b744bdee236b0" title="rcMotionVectorPath\l::sharedKin" alt="" coords="192,297,330,341"/>
+<area shape="rect" id="node11" href="$classrc_rectangle.html#a37c8043dcda3dc1076e57c4a1c219263" title="rcRectangle::width" alt="" coords="196,365,327,393"/>
+<area shape="rect" id="node12" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="226,417,296,445"/>
+<area shape="rect" id="node13" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="226,469,296,497"/>
+<area shape="rect" id="node5" href="$classrc_motion_vector_path.html#a200aac86ab8178b806d51c21a62ade77" title="rcMotionVectorPath\l::_match_u16" alt="" coords="379,57,517,101"/>
+<area shape="rect" id="node6" href="$classrc_motion_vector_path.html#a2225fc3180b0b950486c0716dc2c6d5b" title="rcMotionVectorPath\l::_match_u32" alt="" coords="379,125,517,169"/>
+<area shape="rect" id="node7" href="$classrc_motion_vector_path.html#a4dbd0d706ecf802c577e3d479f7ea2a7" title="rcMotionVectorPath\l::_match_u8" alt="" coords="379,193,517,237"/>
+</map>

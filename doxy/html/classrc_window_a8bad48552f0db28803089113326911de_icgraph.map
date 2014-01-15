@@ -1,0 +1,51 @@
+<map id="rcWindow::pelPointer" name="rcWindow::pelPointer">
+<area shape="rect" id="node2" href="$code_2rc__lattice_8cpp.html#aeb150780e48b760bf6f48e2cc39e4798" title="_exhaustiveImageFind" alt="" coords="481,54,636,82"/>
+<area shape="rect" id="node5" href="$classrc_kinetoscope.html#ab795e389312f305243ecde92c5614dbd" title="rcKinetoscope::canonical\lMotionField" alt="" coords="215,787,385,831"/>
+<area shape="rect" id="node6" href="$classrc_window.html#a50417d472a3eeb9f479315dbdee3e3cf" title="rcWindow::contains" alt="" coords="232,855,368,883"/>
+<area shape="rect" id="node7" href="$classrc_kinetoscope.html#a71bf36bfcaed48850d22e75501cd725d" title="rcKinetoscope::epiMotion\lField" alt="" coords="214,907,386,951"/>
+<area shape="rect" id="node9" href="$classrc_correlation_window.html#a0813440e7044a13fff02ec1b77502495" title="rcCorrelationWindow\l\&lt; uint8 \&gt;::pelPointer" alt="" coords="227,975,373,1019"/>
+<area shape="rect" id="node10" href="$classrc_label_r_l_e.html#a63a006ceaed7f64fb53891975e7a8edf" title="rcLabelRLE::rcLabelRLE" alt="" coords="475,1070,643,1098"/>
+<area shape="rect" id="node11" href="$classrc_motion_vector_path.html#a4478bdaef7fe4812f76ac3f24fc38aa5" title="rcMotionVectorPath\l::reconcile" alt="" coords="231,1147,369,1191"/>
+<area shape="rect" id="node12" href="$rc__ip_8h.html#a31eda27cf700c27262ff7e7c755c9af0" title="rfCubicShiftImage" alt="" coords="236,1215,364,1243"/>
+<area shape="rect" id="node13" href="$rc__peak_8h.html#a4c900d1016fe817241cbaa9ef3e3ef60" title="rfDetectPeaks" alt="" coords="247,5,353,33"/>
+<area shape="rect" id="node14" href="$rc__graphics_8h.html#a6ed921e3a8f4a183d5b273a11406ed08" title="rfGradientImageToVisualSegment" alt="" coords="448,106,669,134"/>
+<area shape="rect" id="node16" href="$rc__moments_8h.html#a765026319f7a164612e551260ce15c05" title="rfImage8Integrals" alt="" coords="237,1267,363,1295"/>
+<area shape="rect" id="node17" href="$rc__ipconvert_8h.html#a8dd3c54037d0387917f8d2150c086e32" title="rfImage8Transpose" alt="" coords="232,1319,368,1347"/>
+<area shape="rect" id="node19" href="$rc__imageintegrals_8cpp.html#a4c9e78ee8f8128ed6ba82aea9e2b5d7e" title="rfImageIntegrals" alt="" coords="241,1371,359,1399"/>
+<area shape="rect" id="node21" href="$rc__imageintegrals_8cpp.html#a8aac98ba1ad98349dcb3f2f919f1b588" title="rfImageOrthogonalProjections" alt="" coords="201,1423,399,1451"/>
+<area shape="rect" id="node22" href="$rc__imageprocessing_8cpp.html#af5e2c1824379cbd789341ffae4a9a8ae" title="rfMutualChannel" alt="" coords="768,875,888,903"/>
+<area shape="rect" id="node23" href="$rc__ip_8h.html#a6b46cda13a90168021a00a049f2dd757" title="rfPixel8Max3By3" alt="" coords="239,1475,361,1503"/>
+<area shape="rect" id="node24" href="$rc__ip_8h.html#a2586cdcf2cacaeed7c285b4d07a429b9" title="rfPixel8Min3By3" alt="" coords="241,1527,359,1555"/>
+<area shape="rect" id="node25" href="$rc__ip_8h.html#a330a7c1ecfdb250b97b778bc50ee39b7" title="rfPixelExpand" alt="" coords="248,1579,352,1607"/>
+<area shape="rect" id="node27" href="$rc__ip_8h.html#a4c06ab053a578c812d5c679e7e5f5bc2" title="rfPixelSample" alt="" coords="776,210,880,238"/>
+<area shape="rect" id="node33" href="$rc__analysis_8h.html#af476ba11f7209bcee588468f933d7987" title="rfPrintCorrSpace" alt="" coords="240,1631,360,1659"/>
+<area shape="rect" id="node34" href="$rc__label_r_l_e_8cpp.html#a6185ecf427e3b84d1be40a053ffad777" title="rfRLEstimate" alt="" coords="251,1043,349,1071"/>
+<area shape="rect" id="node35" href="$classrc_kinetoscope.html#afe805a453ae10008a433841fa9c8ad1e" title="rcKinetoscope::selfSimilar\lMotionField_AttentiveCapture" alt="" coords="202,1683,398,1727"/>
+<area shape="rect" id="node37" href="$classrc_window.html#a2a036edf5b144800400615066e744e39" title="rcWindow::vImage" alt="" coords="235,563,365,591"/>
+<area shape="rect" id="node3" href="$rc__analysis_8h.html#a11f409678e4d3f84988be5331f3b0512" title="rfImageFind" alt="" coords="782,54,874,82"/>
+<area shape="rect" id="node4" href="$classrc_engine_impl.html#a7eec21aabd0c657881fc6eac91787480" title="rcEngineImpl::modelTracker" alt="" coords="988,106,1175,134"/>
+<area shape="rect" id="node8" href="$classrc_kinetoscope.html#a431144623d201c5aeb857893d8460ca2" title="rcKinetoscope::stepEpi" alt="" coords="480,954,638,982"/>
+<area shape="rect" id="node15" href="$rc__graphics_8h.html#a10bc6f7b7db72f7f9f90f3e7ab55fcf9" title="rfImageGradientToVisualSegment" alt="" coords="717,106,939,134"/>
+<area shape="rect" id="node18" href="$classrc_similarator.html#aa97c800f676b10be175c2bf2e8312456" title="rcSimilarator::fill" alt="" coords="501,1319,617,1347"/>
+<area shape="rect" id="node20" href="$rc__imageintegrals_8cpp.html#a20b33654ff01ced109f050e9a8bbdcd8" title="rfImageACfield" alt="" coords="504,1371,613,1399"/>
+<area shape="rect" id="node26" href="$rc__ip_8h.html#af1423bdda3b016223a01d34b54f0aa44" title="rfPixelExpand" alt="" coords="507,1579,610,1607"/>
+<area shape="rect" id="node28" href="$rc__movie__generator__main_8cpp.html#a5550a91ae12b5e67dfd875fc254297c7" title="generateExpansionMovie" alt="" coords="995,382,1167,410"/>
+<area shape="rect" id="node29" href="$rc__movie__generator__main_8cpp.html#a92109472abf27accd174041f883f63f4" title="generateRandomMovie" alt="" coords="1001,210,1161,238"/>
+<area shape="rect" id="node30" href="$rc__movie__generator__main_8cpp.html#a962307a7d6fb769d8a773be64259653b" title="generateTranslationMovie" alt="" coords="994,262,1169,290"/>
+<area shape="rect" id="node31" href="$classrc_spatial_pyramid_3_012_01_4.html#a76108ad3a682a947abb2866c9b9a5c54" title="rcSpatialPyramid\&lt; 2\l \&gt;::intensityProcess" alt="" coords="1011,314,1152,358"/>
+<area shape="rect" id="node32" href="$rc__ip_8h.html#aa7f3a1cc6316a0c08c325436abf85d34" title="rfPixelSample" alt="" coords="1030,158,1133,186"/>
+<area shape="rect" id="node36" href="$classrc_kinetoscope.html#a0b18f2bfdf0f15e136add61040f57f62" title="rcKinetoscope::selfSimilar\lMotionField" alt="" coords="471,1683,646,1727"/>
+<area shape="rect" id="node38" href="$rc__ip_8h.html#a2b6195ca5dc6882dba2301d27da6108f" title="rfGaussianConv" alt="" coords="770,322,886,350"/>
+<area shape="rect" id="node39" href="$rc__ip_8cpp.html#aa1a6d4d9ba9c2ee7accc173232fe09ac" title="rfGauss3" alt="" coords="521,330,596,358"/>
+<area shape="rect" id="node40" href="$rc__ip_8h.html#a84122b53b67ee80855b0e78a103ead30" title="rfPixel8Map" alt="" coords="513,486,605,514"/>
+<area shape="rect" id="node41" href="$classrc_kinetoscope.html#aee440cbc28f4b4ff78067959045b68b9" title="rcKinetoscope::reichardt" alt="" coords="745,590,911,618"/>
+<area shape="rect" id="node42" href="$rc__ip_8h.html#a4629eb9f4afaa7b1f3b546eab83c5e54" title="rfPixelMin3By3" alt="" coords="504,694,614,722"/>
+<area shape="rect" id="node43" href="$rc__ip_8h.html#af47fd04a454b4e43056b3cc8c7104124" title="rfPixelMax3By3" alt="" coords="502,746,616,774"/>
+<area shape="rect" id="node44" href="$rc__ip_8h.html#ac498ce5cd93bbe2f05bb77744745448f" title="rfImageVerticalReflect" alt="" coords="483,798,635,826"/>
+<area shape="rect" id="node45" href="$classrc_def_generate_image.html#abaf414018792172efa91b653757bae81" title="rcDefGenerateImage\l::genImage" alt="" coords="486,210,632,254"/>
+<area shape="rect" id="node46" href="$rc__ipconvert_8h.html#a4dd62c4a0955c99c5fbec06fb86350f1" title="Convert 4 8bit images to ARGB." alt="" coords="461,538,656,566"/>
+<area shape="rect" id="node47" href="$rc__ipconvert_8h.html#a969a79b09734199b560ebfc1cbe76ad7" title="rfImageConvertARGBto8888" alt="" coords="463,278,655,306"/>
+<area shape="rect" id="node48" href="$rc__ipconvert_8h.html#a68c0a110293c29b0ba67beafe7002d1a" title="rfImageConvert8ToARGB" alt="" coords="472,590,645,618"/>
+<area shape="rect" id="node49" href="$rc__ipconvert_8h.html#a5592b89026fcc427e2b378773c304d2a" title="rfImageConvertFloat8" alt="" coords="484,850,634,878"/>
+<area shape="rect" id="node50" href="$rc__ipconvert_8h.html#a5bb0ea6706c0b53a3029f75a9167f673" title="Convert 16 bit images to 8 bit ones." alt="" coords="491,382,626,410"/>
+</map>

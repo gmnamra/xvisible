@@ -1,0 +1,11 @@
+<map id="rcTimeline::paintFrameTicks" name="rcTimeline::paintFrameTicks">
+<area shape="rect" id="node2" href="$classrc_segment_iterator.html#aa2a42e1ee12f1b72a5314d4c8e2ef38e" title="rcSegmentIterator::\ladvance" alt="" coords="279,5,414,49"/>
+<area shape="rect" id="node3" href="$classrc_video_track.html#aeb2cb58804c65450a87ab510b6229940" title="rcVideoTrack::getDataSegment\lIterator" alt="" coords="243,73,450,117"/>
+<area shape="rect" id="node4" href="$classrc_segment_iterator.html#a9993f68fc143e84a11fc41b6af7ac142" title="rcSegmentIterator::\lgetSegmentStart" alt="" coords="279,141,414,185"/>
+<area shape="rect" id="node5" href="$classrc_timeline.html#a7100998639e6a107447410de5fb4a5d5" title="rcTimeline::getTimeOffset" alt="" coords="260,209,433,237"/>
+<area shape="rect" id="node6" href="$classrc_timeline.html#ad11fccfaa5f0279ad21f2392bba4d86b" title="rcTimeline::getTimeScale" alt="" coords="261,261,432,289"/>
+<area shape="rect" id="node7" href="$classrc_segment_iterator.html#ae011a564261662baf236fa2a0a668236" title="rcSegmentIterator::lock" alt="" coords="267,313,426,341"/>
+<area shape="rect" id="node8" href="$classrc_timeline.html#a0dc73034ba28ad774b905c9db3dfad6e" title="rcTimeline::paintSegmentTick" alt="" coords="249,365,445,393"/>
+<area shape="rect" id="node9" href="$classrc_timeline.html#afdf92dc14998acadb2ff74122c01e67c" title="rcTimeline::timeToPixel" alt="" coords="268,417,426,445"/>
+<area shape="rect" id="node10" href="$classrc_segment_iterator.html#aeb3d011a45b33852b38c82a803f6f175" title="rcSegmentIterator::\lunlock" alt="" coords="279,469,414,513"/>
+</map>

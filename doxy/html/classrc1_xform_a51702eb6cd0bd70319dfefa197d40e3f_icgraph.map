@@ -1,0 +1,5 @@
+<map id="rc1Xform::mapVector" name="rc1Xform::mapVector">
+<area shape="rect" id="node2" href="$classrc_kinetoscope.html#aa7a2a23cd14b29f81e9927e583a87f6a" title="rcKinetoscope::currentTime" alt="" coords="203,5,387,33"/>
+<area shape="rect" id="node3" href="$classrc_kinetoscope.html#aeac4b4f50f874d4e89b4eea4b7d2e1a0" title="rcKinetoscope::deltaTime" alt="" coords="209,57,380,85"/>
+<area shape="rect" id="node4" href="$classrc_kinetoscope.html#a98e4c0eb3a8486445cd2e849c2ad917b" title="rcKinetoscope::elapsedTime" alt="" coords="200,109,389,137"/>
+</map>

@@ -1,0 +1,19 @@
+<map id="match_set" name="match_set">
+<area shape="rect" id="node2" href="$string__utilities_8cpp.html#add874a470a590a1c4a00898f447ac3d8" title="match_remainder" alt="" coords="136,54,261,82"/>
+<area shape="rect" id="node3" href="$string__utilities_8hpp.html#a9083169d662611e6a848ceae73bfff00" title="match_wildcard" alt="" coords="310,54,424,82"/>
+<area shape="rect" id="node4" href="$class__debug__trace.html#a60450fdc6f9142946bcd98b0ed73606a" title="_debug_trace::_debug\l_trace" alt="" coords="472,15,627,59"/>
+<area shape="rect" id="node5" href="$file__system_8hpp.html#ad123a978321d2edac369f61c61e14e7c" title="folder_wildcard" alt="" coords="494,83,605,111"/>
+<area shape="rect" id="node6" href="$file__system_8hpp.html#a8c01d49182eee10d652092667d857927" title="folder_all" alt="" coords="710,5,786,33"/>
+<area shape="rect" id="node7" href="$file__system_8hpp.html#aeeff2d2033df0557aec1fd0ec2384241" title="folder_files" alt="" coords="705,57,791,85"/>
+<area shape="rect" id="node14" href="$file__system_8hpp.html#a6bef9c46b65901ad1d97d82c7b3b1b69" title="folder_subdirectories" alt="" coords="675,109,821,137"/>
+<area shape="rect" id="node15" href="$classlm__library.html#a33a32c68cf681559099106a061bef521" title="lm_library::load_type" alt="" coords="676,161,820,189"/>
+<area shape="rect" id="node8" href="$file__system_8hpp.html#a5bf621ffe8aff1601bcda9b05b1e1af0" title="folder_delete" alt="" coords="896,83,995,111"/>
+<area shape="rect" id="node9" href="$library__manager_8cpp.html#a61deb030ff6c9831e255cc93181f9af0" title="erase_library" alt="" coords="1079,83,1177,111"/>
+<area shape="rect" id="node10" href="$classlm__library.html#a67c3b958302cdf31f7c3ed61fc8c7047" title="lm_library::erase" alt="" coords="1237,83,1357,111"/>
+<area shape="rect" id="node11" href="$classlm__library.html#a008338d3a220ddc880b2540e8b57d9dd" title="lm_library::create" alt="" coords="1417,23,1540,51"/>
+<area shape="rect" id="node12" href="$classlm__library.html#a5e913849cba45b03ba14a60fa07672a3" title="lm_library::erase_by\l_source" alt="" coords="1408,75,1549,119"/>
+<area shape="rect" id="node13" href="$classlm__library.html#a0f0d928c549b095099e11b19740ab4f9" title="lm_library::tidy" alt="" coords="1425,143,1532,171"/>
+<area shape="rect" id="node16" href="$classlm__library.html#a222ae9a0946face450f8caffcff177cb" title="lm_library::load_types" alt="" coords="870,161,1021,189"/>
+<area shape="rect" id="node17" href="$classlm__library.html#a9fb8a71b277bbf8faaaf23e6ae3a406d" title="lm_library::open" alt="" coords="1070,161,1186,189"/>
+<area shape="rect" id="node18" href="$classlm__library.html#a4efccb5e2f455c573592df7c31097892" title="lm_library::create" alt="" coords="1236,161,1359,189"/>
+</map>

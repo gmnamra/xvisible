@@ -1,0 +1,10 @@
+<map id="rfPlot1Dsignal" name="rfPlot1Dsignal">
+<area shape="rect" id="node2" href="$classrc_affine_rectangle.html#aabaf03089f1ca6cda7f910291b25bf64" title="rcAffineRectangle::\laffineToImage" alt="" coords="157,5,291,49"/>
+<area shape="rect" id="node4" href="$classrc_affine_rectangle.html#af422709ef0e54ca1c30b6ddf0f7bfeaf" title="rcAffineRectangle::\lcannonicalSize" alt="" coords="157,73,291,117"/>
+<area shape="rect" id="node5" href="$rc__polygon__edge_8h.html#a20b90bbf2be94c9dfdbadcdbe910eed4" title="value_type" alt="" coords="181,141,267,169"/>
+<area shape="rect" id="node6" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="189,193,259,221"/>
+<area shape="rect" id="node7" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="174,245,274,273"/>
+<area shape="rect" id="node8" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="189,297,259,325"/>
+<area shape="rect" id="node9" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="174,349,274,377"/>
+<area shape="rect" id="node3" href="$classrc2_xform.html#a44d8bfc2fca67ec4126f15be742281fd" title="rc2Xform::mapPoint" alt="" coords="338,13,478,41"/>
+</map>

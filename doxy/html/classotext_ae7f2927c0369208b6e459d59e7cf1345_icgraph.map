@@ -1,0 +1,7 @@
+<map id="otext::newline_mode" name="otext::newline_mode">
+<area shape="rect" id="node2" href="$classotext.html#a92fdd5a1332b2cd9f0c875a058f6beb0" title="otext::is_binary_mode" alt="" coords="199,5,351,33"/>
+<area shape="rect" id="node3" href="$classotext.html#ad8f99f982e7ccc0bd05a156e148f5262" title="otext::is_macos_mode" alt="" coords="197,57,352,85"/>
+<area shape="rect" id="node4" href="$classotext.html#a2460ff19064b0895924717ba1d6a36c8" title="otext::is_msdos_mode" alt="" coords="197,109,352,137"/>
+<area shape="rect" id="node5" href="$classotext.html#a80feb04f54858f9914d824ca7aee5172" title="otext::is_native_mode" alt="" coords="199,161,350,189"/>
+<area shape="rect" id="node6" href="$classotext.html#a74ee075ddb82b4bde04b88a518471543" title="otext::is_unix_mode" alt="" coords="205,213,345,241"/>
+</map>

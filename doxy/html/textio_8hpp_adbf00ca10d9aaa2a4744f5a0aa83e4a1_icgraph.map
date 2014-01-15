@@ -1,0 +1,29 @@
+<map id="close" name="close">
+<area shape="rect" id="node2" href="$tif__unix_8c.html#aaa07d6ea7c84fe7c51e070c79a68201b" title="_tiffCloseProc" alt="" coords="144,5,248,33"/>
+<area shape="rect" id="node4" href="$classsubprocess.html#a6c094be24bfb11f259116b7d1e38b7d0" title="subprocess::close_stderr" alt="" coords="111,211,281,239"/>
+<area shape="rect" id="node6" href="$classsubprocess.html#abf44f57a3afc7798ea7bc78aa6397f5d" title="subprocess::spawn" alt="" coords="579,262,714,290"/>
+<area shape="rect" id="node12" href="$classasync__subprocess.html#a075c0e1d1ab1e760c3960f06e8379202" title="async_subprocess::close\l_stderr" alt="" coords="111,650,281,694"/>
+<area shape="rect" id="node17" href="$classsubprocess.html#a93a5a36b980b0a8135690eca34a0fed8" title="subprocess::close_stdin" alt="" coords="114,366,278,394"/>
+<area shape="rect" id="node19" href="$classasync__subprocess.html#aeae5cd61a33589045cb1e089d0ba9664" title="async_subprocess::close\l_stdin" alt="" coords="111,743,281,787"/>
+<area shape="rect" id="node21" href="$classsubprocess.html#a513a73712c337d5406e87a2e67a38454" title="subprocess::close_stdout" alt="" coords="110,519,282,547"/>
+<area shape="rect" id="node24" href="$classasync__subprocess.html#a089ac60e8ae3be054a068efc83e5fadf" title="async_subprocess::close\l_stdout" alt="" coords="111,811,281,855"/>
+<area shape="rect" id="node26" href="$classasync__subprocess.html#aca2ffdefffaa8ebcb5ff6e8879211cff" title="async_subprocess::spawn" alt="" coords="107,879,285,907"/>
+<area shape="rect" id="node28" href="$tif__unix_8c.html#a552518c505f29c38a78eff4a242fc429" title="TIFFOpen" alt="" coords="155,931,237,959"/>
+<area shape="rect" id="node3" href="$tif__unix_8c.html#a7c9f2d070519892ba59a07027b346b21" title="TIFFFdOpen" alt="" coords="374,5,471,33"/>
+<area shape="rect" id="node5" href="$classsubprocess.html#ab0dbac0795d8f5c5c84bceaaf339b937" title="subprocess::~subprocess" alt="" coords="560,393,733,421"/>
+<area shape="rect" id="node10" href="$classsubprocess.html#a9e2c0f10c8fd3ec2a4b37f4ae7b19f0d" title="subprocess::kill" alt="" coords="366,366,479,394"/>
+<area shape="rect" id="node11" href="$classsubprocess.html#a573b4926e612d0e50018ef0efcb315e6" title="subprocess::read_stderr" alt="" coords="340,159,505,187"/>
+<area shape="rect" id="node7" href="$classsubprocess.html#aca31f4a811773426d2feaa9a7ff5ca55" title="subprocess::spawn" alt="" coords="787,231,922,259"/>
+<area shape="rect" id="node8" href="$classbacktick__subprocess.html#a76d93b38c570d15deefe7c56896ee430" title="backtick_subprocess\l::spawn" alt="" coords="782,283,927,327"/>
+<area shape="rect" id="node9" href="$subprocesses_8hpp.html#a0c0f0f6762546636e0a6dc1185f3e66d" title="backtick" alt="" coords="976,291,1045,319"/>
+<area shape="rect" id="node13" href="$classasync__subprocess.html#ac92988d321f578bc1bcad5f3890df470" title="async_subprocess::\l~async_subprocess" alt="" coords="577,855,716,899"/>
+<area shape="rect" id="node14" href="$classasync__subprocess.html#afabbb79ed1383cd1f6acc7f41ffd55da" title="async_subprocess::kill" alt="" coords="345,811,500,839"/>
+<area shape="rect" id="node16" href="$classasync__subprocess.html#a1926346152045010c836850c42aa16f5" title="async_subprocess::read\l_stderr" alt="" coords="340,623,506,667"/>
+<area shape="rect" id="node15" href="$classasync__subprocess.html#acde5e2400ba28b985db83a164faa78fa" title="async_subprocess::tick" alt="" coords="567,803,726,831"/>
+<area shape="rect" id="node18" href="$classsubprocess.html#a892354c73b6356645e9227d1201fc524" title="subprocess::write_stdin" alt="" coords="342,314,503,342"/>
+<area shape="rect" id="node20" href="$classasync__subprocess.html#a94f56d9658526c745756918b4da9d68e" title="async_subprocess::write\l_stdin" alt="" coords="339,743,506,787"/>
+<area shape="rect" id="node22" href="$classsubprocess.html#ac0092c704d9c53ee07b57ac649e863d4" title="subprocess::read_stdout" alt="" coords="339,571,506,599"/>
+<area shape="rect" id="node23" href="$classbacktick__subprocess.html#a52cf56592ab0f1cb20e0cb9e88c4b0f3" title="backtick_subprocess\l::callback" alt="" coords="574,563,719,607"/>
+<area shape="rect" id="node25" href="$classasync__subprocess.html#a7c9c0428798e6c27e5dc32e8946ae451" title="async_subprocess::read\l_stdout" alt="" coords="340,966,506,1010"/>
+<area shape="rect" id="node27" href="$classasync__subprocess.html#a6c91f79df47065d74d2d5c59e7352a72" title="async_subprocess::spawn" alt="" coords="334,1034,512,1062"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="rfGetComponents" name="rfGetComponents">
+<area shape="rect" id="node2" href="$classrc_muscle_segmenter.html#ab72e0bbc316a2b7e28c1e8b2dd4cd2c5" title="rcMuscleSegmenter::\lgenPolygons" alt="" coords="636,21,783,65"/>
+<area shape="rect" id="node6" href="$rc__analysis_8h.html#ad0865a28963f4fccfcf3f05e42b15769" title="rfComponentPolygons" alt="" coords="182,98,335,126"/>
+<area shape="rect" id="node3" href="$classrc_muscle_segmenter.html#a86d108c38d0bcb7a7eb47021b7ab0308" title="rcMuscleSegmenter::\lsegment" alt="" coords="858,5,1006,49"/>
+<area shape="rect" id="node5" href="$classrc_muscle_segmenter.html#a660d7b3d1c240efa0b725e0db65154e3" title="rcMuscleSegmenter::\lfilterByActivity" alt="" coords="858,73,1006,117"/>
+<area shape="rect" id="node4" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1054,81,1247,109"/>
+<area shape="rect" id="node7" href="$classrc_kinetoscope.html#a9e34ed1b237aa970f30995cb75245233" title="rcKinetoscope::connected\lFunctions" alt="" coords="385,119,559,163"/>
+<area shape="rect" id="node8" href="$classrc_kinetoscope.html#a30274b84c57f86e667b614556f6c569b" title="rcKinetoscope::step" alt="" coords="863,141,1001,169"/>
+<area shape="rect" id="node9" href="$classrc_kinetoscope.html#ae0addfc3a10c4c69ba027d9bfc351217" title="rcKinetoscope::stepContractile" alt="" coords="608,141,810,169"/>
+<area shape="rect" id="node10" href="$classrc_kinetoscope.html#a431144623d201c5aeb857893d8460ca2" title="rcKinetoscope::stepEpi" alt="" coords="630,193,788,221"/>
+</map>

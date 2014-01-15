@@ -1,0 +1,11 @@
+<map id="rcSettingChoice::getValue" name="rcSettingChoice::getValue">
+<area shape="rect" id="node2" href="$classrc_menu_choice_setting_widget.html#acc0c80f0d82e66a80556c16ab027d12b" title="rcMenuChoiceSettingWidget\l::choiceSelected" alt="" coords="470,5,660,49"/>
+<area shape="rect" id="node4" href="$classrc_rate_choice_setting_widget.html#aee68cf31d1f3c52b9d5594cbdeddee08" title="rcRateChoiceSettingWidget\l::choiceSelected" alt="" coords="233,73,418,117"/>
+<area shape="rect" id="node6" href="$classrc_menu_choice_setting_widget.html#af2ff3bc8043711ee4116956907e5d282" title="rcMenuChoiceSettingWidget\l::findChoice" alt="" coords="230,141,420,185"/>
+<area shape="rect" id="node8" href="$classrc_choice_radio_button.html#a2fa459b7d4d26c23d32e755988220858" title="rcChoiceRadioButton\l::rcChoiceRadioButton" alt="" coords="248,209,403,253"/>
+<area shape="rect" id="node9" href="$classrc_text_choice_setting_widget.html#a9bc758a961fbc186f6b74bb6a6a8d99c" title="rcTextChoiceSettingWidget\l::settingChanged" alt="" coords="235,277,416,321"/>
+<area shape="rect" id="node3" href="$classrc_menu_choice_setting_widget.html#a773fae1f1eb050ae4eaaff392c83454e" title="rcMenuChoiceSettingWidget\l::rcMenuChoiceSettingWidget" alt="" coords="709,73,907,117"/>
+<area shape="rect" id="node5" href="$classrc_rate_choice_setting_widget.html#a320c346bff7f1b10afd3ed0a217c06e8" title="rcRateChoiceSettingWidget\l::rcRateChoiceSettingWidget" alt="" coords="469,73,662,117"/>
+<area shape="rect" id="node7" href="$classrc_menu_choice_setting_widget.html#adc0bde10bdaaf545cfe3e660064cbb5a" title="rcMenuChoiceSettingWidget\l::settingChanged" alt="" coords="470,141,660,185"/>
+<area shape="rect" id="node10" href="$classrc_text_choice_setting_widget.html#a1fb738595b5a80ccd2608a0e9cd66984" title="rcTextChoiceSettingWidget\l::rcTextChoiceSettingWidget" alt="" coords="471,277,660,321"/>
+</map>

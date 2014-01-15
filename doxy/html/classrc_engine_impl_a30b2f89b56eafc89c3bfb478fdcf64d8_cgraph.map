@@ -1,0 +1,11 @@
+<map id="rcEngineImpl::isSettingPersistable" name="rcEngineImpl::isSettingPersistable">
+<area shape="rect" id="node2" href="$classrc_engine_impl.html#aa263c4fa1d655e94065e09eabcd9cb55" title="rcEngineImpl::assertInitialized" alt="" coords="534,5,733,33"/>
+<area shape="rect" id="node5" href="$classrc_engine_impl.html#a456d6588ffe4432120ff1b7474c74ca6" title="rcEngineImpl::isSettingEnabled" alt="" coords="278,135,485,163"/>
+<area shape="rect" id="node9" href="$classrc_engine_impl.html#a727c5617119d6f2a25546962f8da493e" title="rcEngineImpl::lock" alt="" coords="568,265,698,293"/>
+<area shape="rect" id="node3" href="$classrc_engine_impl.html#a10253833f625dc4d1d5a3c1e384758e6" title="rcEngineImpl::getState" alt="" coords="795,57,951,85"/>
+<area shape="rect" id="node4" href="$classrc_atomic_value.html#a8b62cd136f31322300507fbe894e6b70" title="rcAtomicValue::getValue" alt="" coords="1013,107,1179,135"/>
+<area shape="rect" id="node6" href="$rc__engineimpl_8cpp.html#abeddc047badb21b663c9f3bc559faa3c" title="developerDebugging" alt="" coords="561,109,706,137"/>
+<area shape="rect" id="node7" href="$classrc_engine_impl.html#a01d21bebeb4d1bb89e3194e3959b6893" title="rcEngineImpl::framesLoaded" alt="" coords="537,161,729,189"/>
+<area shape="rect" id="node8" href="$classrc_video_capture_ctrl_reader.html#a2447550a88af7beeb21879d64b42778e" title="rcVideoCaptureCtrlReader\l::getSlidingWindowEnabled" alt="" coords="782,149,965,193"/>
+<area shape="rect" id="node10" href="$classrc_engine_observer.html#a9fc68578bc6646bede78bfc3198815d5" title="rcEngineObserver::notify\lLockApp" alt="" coords="789,257,957,301"/>
+</map>

@@ -1,0 +1,28 @@
+var class_t_i_f_f_reader_internal =
+[
+    [ "TIFFReaderInternal", "class_t_i_f_f_reader_internal.html#a37acb14f97aa8a07dd8875ed13bc21ba", null ],
+    [ "CanRead", "class_t_i_f_f_reader_internal.html#a1d19d56f57f5fae788c581fd19cae498", null ],
+    [ "Clean", "class_t_i_f_f_reader_internal.html#aaa46d9e82420cfadfe323b1026cac726", null ],
+    [ "Initialize", "class_t_i_f_f_reader_internal.html#af1d26c3cb421841e534dfa71dab023b9", null ],
+    [ "Open", "class_t_i_f_f_reader_internal.html#adc7888a9bc3fe28248b49b8b204ae8ae", null ],
+    [ "bps", "class_t_i_f_f_reader_internal.html#ad8cecc6d8453abead0d2acb59470912d", null ],
+    [ "Compression", "class_t_i_f_f_reader_internal.html#ac91b7700c38e6b3aa28e5cfef154d683", null ],
+    [ "CurrentPage", "class_t_i_f_f_reader_internal.html#a0d7287decfd627af4851c50febcd7cee", null ],
+    [ "Height", "class_t_i_f_f_reader_internal.html#ab9299953d5b9b258ed2e9e17b1338d40", null ],
+    [ "Image", "class_t_i_f_f_reader_internal.html#ab2afa93ef9e0828189af614ac3cd6cf8", null ],
+    [ "mIsSTKfile", "class_t_i_f_f_reader_internal.html#a8877d51cae857a0a768ec188b18be1e7", null ],
+    [ "NumberOfPages", "class_t_i_f_f_reader_internal.html#a0d287b8d9deefbc33dacc9a74ea11e25", null ],
+    [ "NumberOfTiles", "class_t_i_f_f_reader_internal.html#a4d661120b0dab99dc783b9f5c7e8fe2c", null ],
+    [ "Orientation", "class_t_i_f_f_reader_internal.html#a2472d137c135b43e3237963faed4bb94", null ],
+    [ "Photometrics", "class_t_i_f_f_reader_internal.html#a8fa6f9a8076388520dcf8e9ef3b0d638", null ],
+    [ "PlanarConfig", "class_t_i_f_f_reader_internal.html#ae38d88b3508ca9f85f91fba3a4549ee9", null ],
+    [ "SampleFormat", "class_t_i_f_f_reader_internal.html#acdbc9ed24f9e08eabc5981dba2869777", null ],
+    [ "spp", "class_t_i_f_f_reader_internal.html#a103d1f0660875277cbfe21e3a57a132f", null ],
+    [ "TileColumns", "class_t_i_f_f_reader_internal.html#ae23bd37b60584403c6ab87e40c4de06c", null ],
+    [ "TileDepth", "class_t_i_f_f_reader_internal.html#a8288822b7050dd36114c07a3d979c44c", null ],
+    [ "TileHeight", "class_t_i_f_f_reader_internal.html#a0fc99b995e62e7647ea80d653cddfd97", null ],
+    [ "TileRows", "class_t_i_f_f_reader_internal.html#a80550dcbdca9e7f4e8366e02ca446a00", null ],
+    [ "TileWidth", "class_t_i_f_f_reader_internal.html#a50cb98c78d2dacc70ed8da3f6b29d76b", null ],
+    [ "Width", "class_t_i_f_f_reader_internal.html#ad7fe56a371c2d4331dbde5b7c258a7a3", null ],
+    [ "XResolution", "class_t_i_f_f_reader_internal.html#aa2138de75ccee9c0ca526f56e47c5783", null ]
+];

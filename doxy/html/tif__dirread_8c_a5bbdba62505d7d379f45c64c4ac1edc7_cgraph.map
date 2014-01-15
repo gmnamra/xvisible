@@ -1,0 +1,12 @@
+<map id="TIFFFetchLongArray" name="TIFFFetchLongArray">
+<area shape="rect" id="node2" href="$tif__dirread_8c.html#a3a8b2608359688b663203e53c5b85f57" title="TIFFFetchData" alt="" coords="198,161,309,189"/>
+<area shape="rect" id="node3" href="$tif__dirinfo_8c.html#a30adfafbd54d531b3343751e2362dafe" title="_TIFFFieldWithTag" alt="" coords="376,5,510,33"/>
+<area shape="rect" id="node6" href="$tif__error_8c.html#a2e8b77a2d4e7b7283b55b963dd67ec31" title="TIFFErrorExt" alt="" coords="607,57,705,85"/>
+<area shape="rect" id="node7" href="$tif__apple_8c.html#aacf23567597faf7b8f01f31f397217f0" title="_TIFFmemcpy" alt="" coords="389,109,496,137"/>
+<area shape="rect" id="node8" href="$tif__dirinfo_8c.html#a2e6382d04dbf3af83901b2f032fa98e7" title="TIFFDataWidth" alt="" coords="387,161,499,189"/>
+<area shape="rect" id="node9" href="$tif__swab_8c.html#a1cb63e1ce5f2a4895038fc97d9a28bcf" title="TIFFSwabArrayOfDouble" alt="" coords="357,213,528,241"/>
+<area shape="rect" id="node10" href="$tif__swab_8c.html#ada2d5ffd72c625fdfe338b9ac985197f" title="TIFFSwabArrayOfLong" alt="" coords="577,238,735,266"/>
+<area shape="rect" id="node11" href="$tif__swab_8c.html#af432e2c4c57173790c3ee3d6f0244871" title="TIFFSwabArrayOfShort" alt="" coords="362,317,523,345"/>
+<area shape="rect" id="node4" href="$tif__dirinfo_8c.html#a3317560b966ff5f4b7e378e8c6ca936a" title="_TIFFFindFieldInfo" alt="" coords="589,5,723,33"/>
+<area shape="rect" id="node5" href="$tif__dirinfo_8c.html#a365ced53b43ae215e93968db3ef3a29e" title="tagCompare" alt="" coords="785,5,879,33"/>
+</map>

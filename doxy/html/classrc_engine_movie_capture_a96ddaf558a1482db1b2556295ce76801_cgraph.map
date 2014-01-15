@@ -1,0 +1,5 @@
+<map id="rcEngineMovieCapture::delayLeft" name="rcEngineMovieCapture::delayLeft">
+<area shape="rect" id="node2" href="$classrc_movie_save_status_reader.html#a0d0dbd6a4b220495b928d86f24360ecc" title="rcMovieSaveStatusReader\l::getDelayLeft" alt="" coords="211,5,391,49"/>
+<area shape="rect" id="node4" href="$classrc_engine_movie_saver.html#a521169bcaae58b98dea651017062f4f2" title="rcEngineMovieSaver\l::saveStatus" alt="" coords="229,73,374,117"/>
+<area shape="rect" id="node3" href="$classrc_atomic_value.html#a8b62cd136f31322300507fbe894e6b70" title="rcAtomicValue::getValue" alt="" coords="440,13,605,41"/>
+</map>

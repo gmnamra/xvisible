@@ -1,0 +1,10 @@
+<map id="full_path" name="full_path">
+<area shape="rect" id="node2" href="$classfile__specification.html#a5b8f1026354ff32bfc183da3f38f5ce7" title="file_specification\l::absolute" alt="" coords="294,181,413,225"/>
+<area shape="rect" id="node3" href="$classfile__specification.html#a18e9d7a9b9dd1214d09ab5e843ea7806" title="file_specification\l::relative" alt="" coords="462,70,581,114"/>
+<area shape="rect" id="node4" href="$classfile__specification.html#a518bc2d13c74b0e00131c87fdd294f2b" title="file_specification\l::image" alt="" coords="126,70,245,114"/>
+<area shape="rect" id="node7" href="$classfile__specification.html#aefefc9da1b64f7ed66a436750a88ffa2" title="file_specification\l::initialise_folder" alt="" coords="294,249,413,293"/>
+<area shape="rect" id="node9" href="$classfile__specification.html#a1c51930e39fad4d827a81b5b12a72752" title="file_specification\l::make_absolute" alt="" coords="126,190,245,234"/>
+<area shape="rect" id="node5" href="$string__utilities_8hpp.html#a657118c43fe44a8454311075655ac9d4" title="vector_to_string" alt="" coords="295,26,411,54"/>
+<area shape="rect" id="node6" href="$file__system_8cpp.html#a99e06c76afffe1f1d77f01c905b1a5fd" title="is_separator" alt="" coords="474,167,569,195"/>
+<area shape="rect" id="node8" href="$classfile__specification.html#ab6e2c3cc492528550d2c4021d3a1c225" title="file_specification\l::path" alt="" coords="462,249,581,293"/>
+</map>

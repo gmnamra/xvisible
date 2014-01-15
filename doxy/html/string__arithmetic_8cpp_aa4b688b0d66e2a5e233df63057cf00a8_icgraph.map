@@ -1,0 +1,11 @@
+<map id="bitwise_shift_right" name="bitwise_shift_right">
+<area shape="rect" id="node2" href="$string__arithmetic_8hpp.html#aa1f6c0920f5f3b52c6b8f96238137d7e" title="signed_shift_right" alt="" coords="189,31,315,59"/>
+<area shape="rect" id="node3" href="$string__arithmetic_8hpp.html#a7699e558fd6e6c852c9b6bc5492d8084" title="unsigned_shift_right" alt="" coords="182,83,322,111"/>
+<area shape="rect" id="node4" href="$string__arithmetic_8cpp.html#afc453c238c64f9a65f4feba453f3ac49" title="divrem" alt="" coords="371,83,432,111"/>
+<area shape="rect" id="node5" href="$string__arithmetic_8hpp.html#a92fd10d164e4f857f9aba03b019161f8" title="unsigned_divide" alt="" coords="493,5,611,33"/>
+<area shape="rect" id="node6" href="$string__arithmetic_8hpp.html#a57dd0f52a3fa28aaa04a0de120f9011b" title="unsigned_remainder" alt="" coords="481,57,623,85"/>
+<area shape="rect" id="node8" href="$string__arithmetic_8hpp.html#aadea3688ea789af8751de7438de2b81a" title="signed_divide" alt="" coords="501,109,603,137"/>
+<area shape="rect" id="node9" href="$string__arithmetic_8hpp.html#a045a224c929ce31ed52a22c98778f8db" title="signed_remainder" alt="" coords="488,161,616,189"/>
+<area shape="rect" id="node7" href="$string__arithmetic_8hpp.html#ad4d3d4da04a2430d6ddb04b46fb583c3" title="unsigned_modulus" alt="" coords="672,57,805,85"/>
+<area shape="rect" id="node10" href="$string__arithmetic_8hpp.html#a2e8b975956735b659e2ce6940a1b19a5" title="signed_modulus" alt="" coords="679,161,798,189"/>
+</map>

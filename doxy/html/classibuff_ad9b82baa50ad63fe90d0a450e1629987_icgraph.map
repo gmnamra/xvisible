@@ -1,0 +1,10 @@
+<map id="ibuff::bytes" name="ibuff::bytes">
+<area shape="rect" id="node2" href="$classitext.html#a7d979345846d3dc44d0bc360718f855a" title="itext::bytes" alt="" coords="139,139,224,167"/>
+<area shape="rect" id="node3" href="$classsubprocess.html#a892354c73b6356645e9227d1201fc524" title="subprocess::write_stdin" alt="" coords="276,5,436,33"/>
+<area shape="rect" id="node4" href="$classsubprocess.html#ac0092c704d9c53ee07b57ac649e863d4" title="subprocess::read_stdout" alt="" coords="272,57,440,85"/>
+<area shape="rect" id="node6" href="$classsubprocess.html#a573b4926e612d0e50018ef0efcb315e6" title="subprocess::read_stderr" alt="" coords="273,109,439,137"/>
+<area shape="rect" id="node7" href="$classasync__subprocess.html#a94f56d9658526c745756918b4da9d68e" title="async_subprocess::write\l_stdin" alt="" coords="272,161,440,205"/>
+<area shape="rect" id="node8" href="$classasync__subprocess.html#a7c9c0428798e6c27e5dc32e8946ae451" title="async_subprocess::read\l_stdout" alt="" coords="273,229,439,273"/>
+<area shape="rect" id="node9" href="$classasync__subprocess.html#a1926346152045010c836850c42aa16f5" title="async_subprocess::read\l_stderr" alt="" coords="273,297,439,341"/>
+<area shape="rect" id="node5" href="$classbacktick__subprocess.html#a52cf56592ab0f1cb20e0cb9e88c4b0f3" title="backtick_subprocess\l::callback" alt="" coords="489,49,634,93"/>
+</map>

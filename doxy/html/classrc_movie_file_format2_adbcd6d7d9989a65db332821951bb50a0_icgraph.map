@@ -1,0 +1,31 @@
+<map id="rcMovieFileFormat2::bytesInFrame" name="rcMovieFileFormat2::bytesInFrame">
+<area shape="rect" id="node2" href="$classrc_engine_movie_saver.html#a32276bec2dea00cc5439e6f7cd3d586c" title="rcEngineMovieSaver\l::closeHdlr" alt="" coords="228,151,372,195"/>
+<area shape="rect" id="node4" href="$classrc_gen_movie_file.html#a9d002baad1b73a712e42ac960a9a7c53" title="rcGenMovieFile::flush" alt="" coords="480,234,630,262"/>
+<area shape="rect" id="node15" href="$classrc_video_cache.html#a769435c5f70d7eb21dee4c4bab61b72a" title="rcVideoCache::headerLoadRev2" alt="" coords="193,370,407,398"/>
+<area shape="rect" id="node29" href="$classrc_engine_movie_saver.html#a6abf59057b5ba519217a1f5f43853046" title="rcEngineMovieSaver\l::saveHdlr" alt="" coords="228,66,372,110"/>
+<area shape="rect" id="node3" href="$classrc_engine_movie_saver.html#a216e88884a3dd557507ea93dc3609a91" title="rcEngineMovieSaver::run" alt="" coords="728,14,899,42"/>
+<area shape="rect" id="node5" href="$rc__movie__generator__main_8cpp.html#a5550a91ae12b5e67dfd875fc254297c7" title="generateExpansionMovie" alt="" coords="727,290,899,318"/>
+<area shape="rect" id="node7" href="$rc__movie__generator__main_8cpp.html#a92109472abf27accd174041f883f63f4" title="generateRandomMovie" alt="" coords="733,342,893,370"/>
+<area shape="rect" id="node8" href="$rc__movie__generator__main_8cpp.html#a985cd5fa3dfb30e1cd9fbc88bb733ed1" title="generateTinyMovie" alt="" coords="746,394,880,422"/>
+<area shape="rect" id="node9" href="$rc__movie__generator__main_8cpp.html#a962307a7d6fb769d8a773be64259653b" title="generateTranslationMovie" alt="" coords="726,238,901,266"/>
+<area shape="rect" id="node10" href="$classrc_m_p_e_g2_grabber.html#a25eb38ba2908388ab5ee43a5a90d3f79" title="rcMPEG2Grabber::getReify\lMovie" alt="" coords="721,170,906,214"/>
+<area shape="rect" id="node11" href="$bcnvrt__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1408,379,1458,407"/>
+<area shape="rect" id="node14" href="$classrc_gen_movie_file.html#aa3bb06b562732cd86dac44560e05fa79" title="rcGenMovieFile::~rcGenMovieFile" alt="" coords="702,118,925,146"/>
+<area shape="rect" id="node6" href="$rc__movie__generator__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1032,259,1082,287"/>
+<area shape="rect" id="node12" href="$visimatch_8cpp.html#ae0d7b28519100e4a3b9ee193dbfb41ae" title="genRFYmov" alt="" coords="1010,207,1105,235"/>
+<area shape="rect" id="node13" href="$visimatch_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1250,237,1300,265"/>
+<area shape="rect" id="node16" href="$classrc_video_cache.html#a6bda52136b3558bb73ddb4c9ff3c302d" title="rcVideoCache::rcVideoCache" alt="" coords="457,473,653,501"/>
+<area shape="rect" id="node17" href="$classrc_video_cache.html#acd275c05db2e1ab17a378817d410d058" title="rcVideoCache::rcVideoCacheCtor" alt="" coords="703,473,924,501"/>
+<area shape="rect" id="node28" href="$classrc_video_cache.html#a985702ceb8af5f143e6648d2fb0cecd7" title="rcVideoCache::rcVideoCache\lUTCtor" alt="" coords="715,525,911,569"/>
+<area shape="rect" id="node18" href="$batch__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1032,499,1082,527"/>
+<area shape="rect" id="node19" href="$bcnvrt__main_8cpp.html#a6e8fab40e4cd89f05d7bafbc7c22dedc" title="rfCompareMovies" alt="" coords="1211,506,1338,534"/>
+<area shape="rect" id="node20" href="$bcnvrt__main_8cpp.html#a00a4dac924291e9ba2f484741e4abc19" title="rfCompareReifyMovies" alt="" coords="1196,587,1353,615"/>
+<area shape="rect" id="node21" href="$classrc_engine_impl.html#ac0162da8fe4f677ad6f3d04a465d50f0" title="rcEngineImpl::loadMovie" alt="" coords="974,654,1141,682"/>
+<area shape="rect" id="node22" href="$classrc_movie_converter_to_rfy.html#af3af0dd934f527a9c08669e49f7f2304" title="rcMovieConverterToRfy\l::convert" alt="" coords="977,363,1138,407"/>
+<area shape="rect" id="node26" href="$classrc_movie_converter_to_q_t.html#a36c6fbe2132af1466f147840958563d3" title="rcMovieConverterToQT\l::convert" alt="" coords="978,431,1137,475"/>
+<area shape="rect" id="node27" href="$visimatch_8cpp.html#a82fefdf34801de8f8e9eb60b25fbd6b6" title="genSignatureFromMov" alt="" coords="979,311,1136,339"/>
+<area shape="rect" id="node23" href="$classrc_experiment_impl.html#ac08b9d15f5bb7db0b85a6d67406f95fa" title="rcExperimentImpl::export\lMovie" alt="" coords="1190,371,1359,415"/>
+<area shape="rect" id="node24" href="$bcnvrt__main_8cpp.html#accc22075ea7eb720aed5cad6e10344b9" title="rfConvertMovie" alt="" coords="1219,439,1331,467"/>
+<area shape="rect" id="node25" href="$bcnvrt__main_8cpp.html#add0a6eef95e64e05a21758380072e136" title="rfConvertTwoMovies" alt="" coords="1203,319,1346,347"/>
+<area shape="rect" id="node30" href="$classrc_engine_movie_saver.html#a1bb43ad35af079b3c901552205cd176d" title="rcEngineMovieSaver\l::uninitializedHdlr" alt="" coords="482,6,627,50"/>
+</map>

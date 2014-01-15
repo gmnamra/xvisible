@@ -1,0 +1,7 @@
+<map id="TCP_connection_data::port" name="TCP_connection_data::port">
+<area shape="rect" id="node2" href="$class_t_c_p__connection__data.html#a622196c7d9a49cf4da1ca2113c8284f2" title="TCP_connection_data\l::initialise" alt="" coords="209,35,362,79"/>
+<area shape="rect" id="node6" href="$class_t_c_p__connection.html#a0311ff5c9ce7d146c242bd5ddbdb57f7" title="TCP_connection::port" alt="" coords="210,103,360,131"/>
+<area shape="rect" id="node3" href="$class_t_c_p__server__data.html#a004eca7522f8ebfe804d8e7988225304" title="TCP_server_data::connection" alt="" coords="410,43,608,71"/>
+<area shape="rect" id="node4" href="$class_t_c_p__connection.html#a1f72968182ca65cc67ee4c9c94f6ac5f" title="TCP_connection::TCP\l_connection" alt="" coords="662,5,816,49"/>
+<area shape="rect" id="node5" href="$class_t_c_p__server.html#a59603f23a2ba9dd321dbeea0e46bd557" title="TCP_server::connection" alt="" coords="656,73,821,101"/>
+</map>

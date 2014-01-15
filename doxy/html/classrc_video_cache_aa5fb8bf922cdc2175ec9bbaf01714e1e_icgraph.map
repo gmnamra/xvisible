@@ -1,0 +1,30 @@
+<map id="rcVideoCache::movieFileOrigins" name="rcVideoCache::movieFileOrigins">
+<area shape="rect" id="node2" href="$classrc_engine_impl.html#a3ad6dbc54b2a53acae4d345ff14974ae" title="rcEngineImpl::analyzeFocusArea" alt="" coords="536,115,752,143"/>
+<area shape="rect" id="node6" href="$classrc_movie_converter_to_rfy.html#a14ff503f33fc8496d34f367992430ebb" title="rcMovieConverterToRfy\l::createRfyMovie" alt="" coords="296,343,456,387"/>
+<area shape="rect" id="node12" href="$classrc_engine_impl.html#a26c13439e2a3fbecef6976a8a6b292c2" title="rcEngineImpl::updateCaptureLog" alt="" coords="267,221,485,249"/>
+<area shape="rect" id="node3" href="$classrc_engine_impl.html#ae320706cbcafd64f219018b9842c8290" title="rcEngineImpl::analyze" alt="" coords="1062,83,1215,111"/>
+<area shape="rect" id="node4" href="$classrc_engine_impl.html#a507e034c1e43ae1dd6ec95a11ec0bb02" title="rcEngineImpl::process" alt="" coords="1299,5,1453,33"/>
+<area shape="rect" id="node5" href="$classrc_engine_analyzer.html#a064037f0ec3e68fcb11dabbcba790cdd" title="rcEngineAnalyzer::run" alt="" coords="1300,57,1452,85"/>
+<area shape="rect" id="node7" href="$classrc_movie_converter_to_rfy.html#af3af0dd934f527a9c08669e49f7f2304" title="rcMovieConverterToRfy\l::convert" alt="" coords="564,385,724,429"/>
+<area shape="rect" id="node8" href="$classrc_experiment_impl.html#ac08b9d15f5bb7db0b85a6d67406f95fa" title="rcExperimentImpl::export\lMovie" alt="" coords="815,354,985,398"/>
+<area shape="rect" id="node9" href="$bcnvrt__main_8cpp.html#accc22075ea7eb720aed5cad6e10344b9" title="rfConvertMovie" alt="" coords="844,474,956,502"/>
+<area shape="rect" id="node11" href="$bcnvrt__main_8cpp.html#add0a6eef95e64e05a21758380072e136" title="rfConvertTwoMovies" alt="" coords="829,422,971,450"/>
+<area shape="rect" id="node10" href="$bcnvrt__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1114,469,1164,497"/>
+<area shape="rect" id="node13" href="$classrc_engine_impl.html#a37cd0e97f3119de1d2b760346b98c412" title="rcEngineImpl::updateHeaderLogs" alt="" coords="534,221,754,249"/>
+<area shape="rect" id="node14" href="$classrc_engine_impl.html#a3f1d54d99e195efe0eec45f9263e6342" title="rcEngineImpl::loadFrames" alt="" coords="1050,161,1227,189"/>
+<area shape="rect" id="node18" href="$classrc_engine_impl.html#af86b1890184a272b1b0eeb055c251e39" title="rcEngineImpl::setSetting\lValue" alt="" coords="817,213,983,257"/>
+<area shape="rect" id="node26" href="$classrc_engine_impl.html#a48233eb8692967c57e62c454edd70822" title="rcEngineImpl::unlockedReset" alt="" coords="803,302,997,330"/>
+<area shape="rect" id="node15" href="$classrc_engine_impl.html#ac6c444948228b9a6c9c013efefd7452c" title="rcEngineImpl::loadImages" alt="" coords="1288,109,1464,137"/>
+<area shape="rect" id="node17" href="$classrc_engine_impl.html#ac0162da8fe4f677ad6f3d04a465d50f0" title="rcEngineImpl::loadMovie" alt="" coords="1292,161,1460,189"/>
+<area shape="rect" id="node16" href="$classrc_engine_importer.html#a2e45417f1c29adf01483b2b8fca6b27b" title="rcEngineImporter::run" alt="" coords="1530,109,1680,137"/>
+<area shape="rect" id="node19" href="$classrc_engine_impl.html#a9a8ec782559561ddc80c85208bc859c7" title="rcEngineImpl::setFromArgs" alt="" coords="1047,273,1230,301"/>
+<area shape="rect" id="node21" href="$classrc_engine_impl.html#a6d36ffad5feaaa46f82bec2bf309b0f4" title="rcEngineImpl::start" alt="" coords="1072,221,1205,249"/>
+<area shape="rect" id="node20" href="$rc__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1351,385,1401,413"/>
+<area shape="rect" id="node22" href="$classrc_engine_movie_playback.html#ab5cff6edcb8b3d901f96d0fde1766f18" title="rcEngineMoviePlayback::run" alt="" coords="1281,281,1471,309"/>
+<area shape="rect" id="node23" href="$classrc_engine_movie_capture.html#a0d8bfe4fd32e11bdbdb2c0ad113425ff" title="rcEngineMovieCapture::run" alt="" coords="1284,333,1468,361"/>
+<area shape="rect" id="node24" href="$classrc_engine_movie_saver.html#abb624bdd44b94c6a21f9e34dfc2da081" title="rcEngineMovieSaver\l::waitHdlr" alt="" coords="1304,213,1448,257"/>
+<area shape="rect" id="node25" href="$classrc_engine_movie_saver.html#a216e88884a3dd557507ea93dc3609a91" title="rcEngineMovieSaver::run" alt="" coords="1520,221,1691,249"/>
+<area shape="rect" id="node27" href="$classrc_engine_impl.html#a5faff49613b7e0e95b134cafdce659aa" title="rcEngineImpl::internalReset" alt="" coords="1046,389,1231,417"/>
+<area shape="rect" id="node29" href="$classrc_engine_impl.html#afe1f4a208e8b56aae9527dab0cd888e0" title="rcEngineImpl::reset" alt="" coords="1071,325,1207,353"/>
+<area shape="rect" id="node28" href="$classrc_engine_impl.html#aef01c1029056616c7c9f880107d1d67c" title="rcEngineImpl::rcEngineImpl" alt="" coords="1284,437,1468,465"/>
+</map>

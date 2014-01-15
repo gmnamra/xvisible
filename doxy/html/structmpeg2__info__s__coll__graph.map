@@ -1,0 +1,6 @@
+<map id="mpeg2_info_s" name="mpeg2_info_s">
+<area shape="rect" id="node2" href="$structmpeg2__fbuf__s.html" title="mpeg2_fbuf_s" alt="" coords="4,6,109,34"/>
+<area shape="rect" id="node3" href="$structmpeg2__gop__s.html" title="mpeg2_gop_s" alt="" coords="134,6,239,34"/>
+<area shape="rect" id="node4" href="$structmpeg2__picture__s.html" title="mpeg2_picture_s" alt="" coords="264,6,387,34"/>
+<area shape="rect" id="node5" href="$structmpeg2__sequence__s.html" title="mpeg2_sequence_s" alt="" coords="411,6,552,34"/>
+</map>

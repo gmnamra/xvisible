@@ -1,0 +1,21 @@
+<map id="rcSimilarator::genMatrixEntropy" name="rcSimilarator::genMatrixEntropy">
+<area shape="rect" id="node2" href="$classrc_similarator.html#a839680b499153998724455ec37cd2b76" title="rcSimilarator::fill" alt="" coords="254,107,370,135"/>
+<area shape="rect" id="node3" href="$classrc_similarator.html#a16a57206645f9d03bbf6cc8ca1a878a2" title="rcSimilarator::internalFill" alt="" coords="230,159,394,187"/>
+<area shape="rect" id="node20" href="$classrc_similarator.html#a6ba1e7717ef2e6a262043e3e87fa25eb" title="rcSimilarator::internalUpdate" alt="" coords="217,211,407,239"/>
+<area shape="rect" id="node4" href="$classrc_similarator.html#a4d6823b49a2320b53a3b91d67a0395b9" title="rcSimilarator::fill" alt="" coords="457,159,573,187"/>
+<area shape="rect" id="node5" href="$rc__kineticimage_8h.html#a37fdff5165799a39ff0e7807bf05a1a3" title="calcMusclePeriod" alt="" coords="657,81,783,109"/>
+<area shape="rect" id="node9" href="$classrc_engine_impl.html#afeacc2314f49f0c2ebda1adc29845367" title="rcEngineImpl::entropyTracker" alt="" coords="622,133,818,161"/>
+<area shape="rect" id="node14" href="$classrc_muscle_segmenter.html#ab797a355a4e18e94b3e482fbbff932ea" title="rcMuscleSegmenter::\lgetEMI" alt="" coords="646,9,794,53"/>
+<area shape="rect" id="node17" href="$batch__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="695,185,745,213"/>
+<area shape="rect" id="node18" href="$classrc_shape.html#a0c28cf660f43f60ce630345077ec6e7d" title="rcShape::projectMI" alt="" coords="653,237,787,265"/>
+<area shape="rect" id="node19" href="$rc__kineticimage_8h.html#a74f16cb8db93e0991685b7e04ac2d18d" title="segPointByEnergy" alt="" coords="654,289,786,317"/>
+<area shape="rect" id="node6" href="$classrc_muscle_segmenter.html#a61c65559f55fd9fa632b96e09ef50b2e" title="rcMuscleSegmenter::\lgenFrequencySegmentation" alt="" coords="882,73,1070,117"/>
+<area shape="rect" id="node7" href="$classrc_muscle_segmenter.html#a660d7b3d1c240efa0b725e0db65154e3" title="rcMuscleSegmenter::\lfilterByActivity" alt="" coords="1136,73,1283,117"/>
+<area shape="rect" id="node8" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1334,35,1527,63"/>
+<area shape="rect" id="node10" href="$classrc_engine_impl.html#a3ad6dbc54b2a53acae4d345ff14974ae" title="rcEngineImpl::analyzeFocusArea" alt="" coords="868,141,1084,169"/>
+<area shape="rect" id="node11" href="$classrc_engine_impl.html#ae320706cbcafd64f219018b9842c8290" title="rcEngineImpl::analyze" alt="" coords="1133,141,1286,169"/>
+<area shape="rect" id="node12" href="$classrc_engine_impl.html#a507e034c1e43ae1dd6ec95a11ec0bb02" title="rcEngineImpl::process" alt="" coords="1354,110,1507,138"/>
+<area shape="rect" id="node13" href="$classrc_engine_analyzer.html#a064037f0ec3e68fcb11dabbcba790cdd" title="rcEngineAnalyzer::run" alt="" coords="1354,162,1507,190"/>
+<area shape="rect" id="node15" href="$classrc_muscle_segmenter.html#a248fccb8fc46afa10c1a0a0cb240e72a" title="rcMuscleSegmenter::\lgenSpatialSegmentation" alt="" coords="893,5,1059,49"/>
+<area shape="rect" id="node16" href="$classrc_muscle_segmenter.html#a86d108c38d0bcb7a7eb47021b7ab0308" title="rcMuscleSegmenter::\lsegment" alt="" coords="1136,5,1283,49"/>
+</map>

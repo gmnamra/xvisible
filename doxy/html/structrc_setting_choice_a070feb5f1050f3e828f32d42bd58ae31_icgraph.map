@@ -1,0 +1,10 @@
+<map id="rcSettingChoice::getText" name="rcSettingChoice::getText">
+<area shape="rect" id="node2" href="$classrc_text_choice_setting_widget.html#ae56f4d240f4f561fecbc9f2e44d93b2e" title="rcTextChoiceSettingWidget\l::choiceSelected" alt="" coords="493,5,675,49"/>
+<area shape="rect" id="node3" href="$classrc_text_choice_setting_widget.html#a1fb738595b5a80ccd2608a0e9cd66984" title="rcTextChoiceSettingWidget\l::rcTextChoiceSettingWidget" alt="" coords="723,65,912,109"/>
+<area shape="rect" id="node4" href="$classrc_text_choice_setting_widget.html#a94273d709703acc0b9abe5e614f3432d" title="rcTextChoiceSettingWidget\l::findChoice" alt="" coords="241,125,423,169"/>
+<area shape="rect" id="node5" href="$classrc_text_choice_setting_widget.html#a9bc758a961fbc186f6b74bb6a6a8d99c" title="rcTextChoiceSettingWidget\l::settingChanged" alt="" coords="493,125,675,169"/>
+<area shape="rect" id="node6" href="$classrc_framerate_choice_setting_widget.html#a99a79e85dbd9945428ac587eea3a8784" title="rcFramerateChoiceSetting\lWidget::rcFramerateChoiceSetting\lWidget" alt="" coords="219,245,445,305"/>
+<area shape="rect" id="node7" href="$classrc_menu_choice_setting_widget.html#a773fae1f1eb050ae4eaaff392c83454e" title="rcMenuChoiceSettingWidget\l::rcMenuChoiceSettingWidget" alt="" coords="233,329,431,373"/>
+<area shape="rect" id="node8" href="$classrc_numeric_choice_setting_widget.html#a89aed61bd392ad54d5f427f277a64e01" title="rcNumericChoiceSettingWidget\l::rcNumericChoiceSettingWidget" alt="" coords="225,397,439,441"/>
+<area shape="rect" id="node9" href="$classrc_rate_choice_setting_widget.html#a320c346bff7f1b10afd3ed0a217c06e8" title="rcRateChoiceSettingWidget\l::rcRateChoiceSettingWidget" alt="" coords="236,465,428,509"/>
+</map>

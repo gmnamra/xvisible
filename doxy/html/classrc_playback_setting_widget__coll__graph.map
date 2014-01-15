@@ -1,0 +1,7 @@
+<map id="rcPlaybackSettingWidget" name="rcPlaybackSettingWidget">
+<area shape="rect" id="node2" href="$classrc_setting_widget.html" title="rcSettingWidget" alt="" coords="32,286,147,314"/>
+<area shape="rect" id="node4" href="$classrc_setting_info.html" title="rcSettingInfo" alt="" coords="113,193,209,221"/>
+<area shape="rect" id="node5" href="$structrc_setting_info_spec.html" title="rcSettingInfoSpec" alt="" coords="6,99,132,127"/>
+<area shape="rect" id="node6" href="$structrc_setting_choice.html" title="rcSettingChoice" alt="" coords="12,6,127,34"/>
+<area shape="rect" id="node7" href="$classrc_setting_source.html" title="rcSettingSource" alt="" coords="157,99,272,127"/>
+</map>

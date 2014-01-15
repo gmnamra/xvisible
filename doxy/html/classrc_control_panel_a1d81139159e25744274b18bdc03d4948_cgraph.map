@@ -1,0 +1,34 @@
+<map id="rcControlPanel::rcControlPanel" name="rcControlPanel::rcControlPanel">
+<area shape="rect" id="node2" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="787,255,1010,283"/>
+<area shape="rect" id="node3" href="$classrc_control_panel.html#aa9afee306e1819f8cb45365384f08ca6" title="rcControlPanel::inputSource" alt="" coords="247,151,435,179"/>
+<area shape="rect" id="node6" href="$classrc_control_panel.html#ad4e31bcaa048990450bb9dcf1d646bab" title="rcControlPanel::updateState" alt="" coords="526,203,714,231"/>
+<area shape="rect" id="node9" href="$classrc_control_panel.html#aa9c35e08ed1a41bf7119c8b25a5a9e25" title="rcControlPanel::updateAnalysisRect" alt="" coords="781,31,1016,59"/>
+<area shape="rect" id="node12" href="$classrc_control_panel.html#ae23fcd481d145da2b0460a7f6b04aed5" title="rcControlPanel::updateCursorTime" alt="" coords="507,358,733,386"/>
+<area shape="rect" id="node15" href="$classrc_control_panel.html#ae727f15c11b44aa504d179b4b8fb634a" title="rcControlPanel::settingChanged" alt="" coords="236,462,447,490"/>
+<area shape="rect" id="node16" href="$classrc_control_panel.html#adaa4a6cad6797cfa44ab20ad4d7c4e0d" title="rcControlPanel::timestamp\lToString" alt="" coords="531,462,709,506"/>
+<area shape="rect" id="node20" href="$classrc_control_panel.html#acc61e3dd8c4709619cdfe4de344ca770" title="rcControlPanel::updateElapsedTime" alt="" coords="224,358,459,386"/>
+<area shape="rect" id="node21" href="$classrc_control_panel.html#a9d7fc79b23d7a66cd74e5f34fd436717" title="rcControlPanel::updateSelection\lState" alt="" coords="235,539,448,583"/>
+<area shape="rect" id="node4" href="$classrc_model_domain.html#a68747503375433a57c58aaa8ff53b86d" title="rcModelDomain::getExperiment\lState" alt="" coords="516,83,724,127"/>
+<area shape="rect" id="node5" href="$classrc_experiment_domain.html#af8d96c921dc7348aa6d3a1a79efae9fb" title="rcExperimentDomain\l::getExperimentState" alt="" coords="826,83,972,127"/>
+<area shape="rect" id="node7" href="$classrc_model_domain.html#a407c976085f996af753dc53b02deb36d" title="rcModelDomain::operating\lOnLiveInput" alt="" coords="810,314,988,358"/>
+<area shape="rect" id="node8" href="$classrc_experiment_domain.html#aad0cfe78090f8444ba58c60a434f49cb" title="rcExperimentDomain\l::operatingOnLiveInput" alt="" coords="1085,314,1241,358"/>
+<area shape="rect" id="node10" href="$classrc_rectangle.html#a37c8043dcda3dc1076e57c4a1c219263" title="rcRectangle::width" alt="" coords="1097,5,1228,33"/>
+<area shape="rect" id="node11" href="$classrc_rectangle.html#abe44205fccdffe80fbfdd4de79b406dc" title="rcRectangle::height" alt="" coords="1095,57,1231,85"/>
+<area shape="rect" id="node13" href="$classrc_model_domain.html#abf45f359d0cc72ee2531e0585828c03a" title="rcModelDomain::storingLive\lInput" alt="" coords="805,382,992,426"/>
+<area shape="rect" id="node14" href="$classrc_experiment_domain.html#a73b95037f94d932b013bd89829e11ae3" title="rcExperimentDomain\l::storingLiveInput" alt="" coords="1090,382,1236,426"/>
+<area shape="rect" id="node17" href="$classrc_timestamp.html#a7a76776edb5c337196cf10c009339d15" title="rcTimestamp::secs" alt="" coords="832,467,965,495"/>
+<area shape="rect" id="node18" href="$rc__timestamp_8h.html#ac624900be52fa7f30d3ad72543cc725d" title="convertTimestampToSeconds" alt="" coords="1064,463,1261,491"/>
+<area shape="rect" id="node19" href="$rc__timestamp__mac_8cpp.html#a7962719b626553bf7a913f7c2671b777" title="getTimestampResolution" alt="" coords="1309,463,1477,491"/>
+<area shape="rect" id="node22" href="$textio_8cpp.html#a905a4c61e365d406069f00eb68db1ca5" title="endl" alt="" coords="597,574,643,602"/>
+<area shape="rect" id="node23" href="$classotext.html#a5086c0fd5e3f551eae3027e5d23d3c30" title="otext::put" alt="" coords="861,619,937,647"/>
+<area shape="rect" id="node24" href="$classotext.html#ab52b059090ba70eeeac469f9051d3a22" title="otext::flush" alt="" coords="1120,619,1206,647"/>
+<area shape="rect" id="node26" href="$classobuff.html#a069bcd2767c0d7c8e2bc8cd26d91e267" title="obuff::increment" alt="" coords="1104,671,1221,699"/>
+<area shape="rect" id="node27" href="$classobuff.html#a51efd4e8e00303842fa762940aad86ec" title="obuff::line_buffer" alt="" coords="1103,723,1223,751"/>
+<area shape="rect" id="node28" href="$classobuff.html#a0711113beee11f9793f5ba9e8e64c641" title="obuff::newline_mode" alt="" coords="1091,775,1235,803"/>
+<area shape="rect" id="node29" href="$classobuff.html#a5bbb61ac15c672da7f7b2002bef6b128" title="obuff::put" alt="" coords="1124,515,1201,543"/>
+<area shape="rect" id="node30" href="$classotext.html#a2a2435d80cce60cb88360c7bfe3f8445" title="otext::set_error" alt="" coords="1107,567,1218,595"/>
+<area shape="rect" id="node25" href="$classobuff.html#a8fb8969c450f4fdc037f8c51d35c87c7" title="obuff::flush" alt="" coords="1350,619,1436,647"/>
+<area shape="rect" id="node31" href="$classobuff.html#ae388e9608d1c873d1feaf621f4044c25" title="obuff::set_error" alt="" coords="1338,567,1449,595"/>
+<area shape="rect" id="node32" href="$class_t_c_p__client__data.html#a970f6bf6bb6e6166615813c5f7768381" title="TCP_client_data::error" alt="" coords="1526,567,1682,595"/>
+<area shape="rect" id="node33" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="1731,567,1861,595"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="rfGenerateSmoothingPts" name="rfGenerateSmoothingPts">
+<area shape="rect" id="node2" href="$classrc2d_vector.html#aa6340f65de15b41cea82a28fb5d45399" title="rc2dVector::distance" alt="" coords="224,5,366,33"/>
+<area shape="rect" id="node3" href="$classrc_polygon.html#a029d9a2ae49f52dedd12c650a2ba628d" title="rcPolygon::vertexAt" alt="" coords="226,57,363,85"/>
+<area shape="rect" id="node4" href="$classrc_polygon.html#a41869bd1a096e2b77d7304242e2c1e1e" title="rcPolygon::vertexCnt" alt="" coords="222,109,367,137"/>
+</map>

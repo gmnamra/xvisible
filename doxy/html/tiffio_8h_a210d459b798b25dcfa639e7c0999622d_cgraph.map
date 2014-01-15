@@ -1,0 +1,6 @@
+<map id="TIFFFlushData" name="TIFFFlushData">
+<area shape="rect" id="node2" href="$tif__write_8c.html#aa86d61423d269a88d674ffc565cd9663" title="TIFFFlushData1" alt="" coords="165,31,283,59"/>
+<area shape="rect" id="node3" href="$tif__swab_8c.html#a96ad4adba41a35b63c5f739441265359" title="TIFFReverseBits" alt="" coords="338,5,459,33"/>
+<area shape="rect" id="node4" href="$tif__write_8c.html#a26e4e0756dea1aebc15c275e0714cef8" title="TIFFAppendToStrip" alt="" coords="331,57,467,85"/>
+<area shape="rect" id="node5" href="$tif__error_8c.html#a2e8b77a2d4e7b7283b55b963dd67ec31" title="TIFFErrorExt" alt="" coords="515,57,613,85"/>
+</map>

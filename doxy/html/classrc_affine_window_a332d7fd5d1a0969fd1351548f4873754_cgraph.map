@@ -1,0 +1,10 @@
+<map id="rcAffineWindow::genPixel" name="rcAffineWindow::genPixel">
+<area shape="rect" id="node2" href="$classrc_affine_window.html#a57b841d70ac33034737205ab9b8739be" title="rcAffineWindow::getPixelLoc" alt="" coords="228,122,418,150"/>
+<area shape="rect" id="node7" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="665,177,764,205"/>
+<area shape="rect" id="node9" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="665,229,764,257"/>
+<area shape="rect" id="node3" href="$classrc_affine_rectangle.html#a2103fa7f0aa8584cde38ddee79796d21" title="rcAffineRectangle::\lgetPixelLoc" alt="" coords="466,110,600,154"/>
+<area shape="rect" id="node4" href="$classrc_affine_rectangle.html#aabaf03089f1ca6cda7f910291b25bf64" title="rcAffineRectangle::\laffineToImage" alt="" coords="648,5,782,49"/>
+<area shape="rect" id="node6" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="680,73,750,101"/>
+<area shape="rect" id="node8" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="680,125,750,153"/>
+<area shape="rect" id="node5" href="$classrc2_xform.html#a44d8bfc2fca67ec4126f15be742281fd" title="rc2Xform::mapPoint" alt="" coords="829,13,968,41"/>
+</map>

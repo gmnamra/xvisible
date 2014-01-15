@@ -1,0 +1,11 @@
+<map id="rf1Dfft" name="rf1Dfft">
+<area shape="rect" id="node2" href="$classrc_opto_kinetic_image.html#a1d1715dc28a0eea84834c136e02c26c4" title="rcOptoKineticImage\l::genDFT" alt="" coords="112,5,251,49"/>
+<area shape="rect" id="node3" href="$rc__analysis_8h.html#aba9fa9ef0666aeb4960a8a5f031fdce5" title="rf1DFourierAnalysis" alt="" coords="112,73,251,101"/>
+<area shape="rect" id="node4" href="$classrc_visual_function.html#a76bcc401f54c5578f2962cd77cb11a63" title="rcVisualFunction::beatProcess" alt="" coords="299,21,501,49"/>
+<area shape="rect" id="node6" href="$rc__kineticimage_8h.html#a37fdff5165799a39ff0e7807bf05a1a3" title="calcMusclePeriod" alt="" coords="337,73,463,101"/>
+<area shape="rect" id="node10" href="$classrc_opto_kinetic_image.html#ab8c6bd963086ef561d0f65ec8240e139" title="rcOptoKineticImage\l::genFreqImg" alt="" coords="331,125,469,169"/>
+<area shape="rect" id="node5" href="$classrc_visual_function.html#a653fd69af532714b01f9c0b5cabc96c6" title="rcVisualFunction::reconcile" alt="" coords="554,21,734,49"/>
+<area shape="rect" id="node7" href="$classrc_muscle_segmenter.html#a61c65559f55fd9fa632b96e09ef50b2e" title="rcMuscleSegmenter::\lgenFrequencySegmentation" alt="" coords="550,98,738,142"/>
+<area shape="rect" id="node8" href="$classrc_muscle_segmenter.html#a660d7b3d1c240efa0b725e0db65154e3" title="rcMuscleSegmenter::\lfilterByActivity" alt="" coords="786,98,934,142"/>
+<area shape="rect" id="node9" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="982,106,1175,134"/>
+</map>

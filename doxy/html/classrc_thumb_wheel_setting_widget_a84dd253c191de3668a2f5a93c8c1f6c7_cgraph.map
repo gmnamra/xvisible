@@ -1,0 +1,9 @@
+<map id="rcThumbWheelSettingWidget::settingChanged" name="rcThumbWheelSettingWidget::settingChanged">
+<area shape="rect" id="node2" href="$classrc_setting_info.html#a97d3386417e33e46df6f361ccfb430a5" title="rcSettingInfo::getValue" alt="" coords="521,5,676,33"/>
+<area shape="rect" id="node3" href="$classrc_thumb_wheel_setting_widget.html#a484dc0874807466a18cc7916f09a199a" title="Update value display label." alt="" coords="501,113,696,157"/>
+<area shape="rect" id="node4" href="$classrc_setting_widget.html#aca95d3b856ab397c63567ae71dba446b" title="Update widget visibility/editability state based on setting state." alt="" coords="248,173,453,217"/>
+<area shape="rect" id="node7" href="$classrc_thumb_wheel_setting_widget.html#aaceeba6182b1d12aa9e4b5d7c99bb694" title="Makes valueChanged() available as a slot." alt="" coords="253,53,448,97"/>
+<area shape="rect" id="node5" href="$classrc_setting_info.html#a776ac0e50f5e8d632e6cb2c4099d6c59" title="rcSettingInfo::isEditable" alt="" coords="518,233,679,261"/>
+<area shape="rect" id="node6" href="$classrc_setting_info.html#a2663e0e877560ec8a958fb92184c1c63" title="rcSettingInfo::isEnabled" alt="" coords="518,181,680,209"/>
+<area shape="rect" id="node8" href="$classrc_setting_info.html#a56e4a99afd7b35b9ac8bfcb853dcdc4d" title="rcSettingInfo::setValue" alt="" coords="521,61,676,89"/>
+</map>

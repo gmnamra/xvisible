@@ -1,0 +1,51 @@
+<map id="rcFrame::depth" name="rcFrame::depth">
+<area shape="rect" id="node2" href="$classrc_movie_converter.html#a4fd62b8f548fcc2eb83daec6b7d3342d" title="rcMovieConverter::clipped\lFrame" alt="" coords="165,73,341,117"/>
+<area shape="rect" id="node5" href="$classrc_kinetoscope.html#a673ae7a94c5b1b67c804fcb9fca3fc43" title="rcKinetoscope::frame" alt="" coords="180,271,327,299"/>
+<area shape="rect" id="node11" href="$classrc_frame.html#ae52de398e02de893913cc956b824cc51" title="rcFrame::isD32Float" alt="" coords="182,511,324,539"/>
+<area shape="rect" id="node12" href="$classrc_frame.html#a0c46eeef1725295d1a71df620f3adc07" title="rcFrame::markD32Float" alt="" coords="416,571,578,599"/>
+<area shape="rect" id="node16" href="$classrc_frame.html#a8005eafc78f0008a7df596d55c2b23b9" title="rcFrame::pelPointer" alt="" coords="184,623,323,651"/>
+<area shape="rect" id="node19" href="$bcnvrt__main_8cpp.html#ab4778b8a2f574f4a41b29fab53732492" title="rfCompareFrames" alt="" coords="189,2371,318,2399"/>
+<area shape="rect" id="node20" href="$bcnvrt__main_8cpp.html#a6e8fab40e4cd89f05d7bafbc7c22dedc" title="rfCompareMovies" alt="" coords="434,2371,561,2399"/>
+<area shape="rect" id="node23" href="$classrc_window.html#a232627a15bd75725861721177a38df82" title="rcWindow::rowPointer" alt="" coords="178,1487,329,1515"/>
+<area shape="rect" id="node3" href="$classrc_movie_converter_to_rfy.html#a14ff503f33fc8496d34f367992430ebb" title="rcMovieConverterToRfy\l::createRfyMovie" alt="" coords="417,5,578,49"/>
+<area shape="rect" id="node4" href="$classrc_movie_converter_to_q_t.html#ad76ebb33252df1ff7af4984a729c9dba" title="rcMovieConverterToQT\l::addVideoSamplesToMedia" alt="" coords="404,73,591,117"/>
+<area shape="rect" id="node6" href="$classrc_kinetoscope.html#a30274b84c57f86e667b614556f6c569b" title="rcKinetoscope::step" alt="" coords="653,271,792,299"/>
+<area shape="rect" id="node7" href="$classrc_kinetoscope.html#ae0addfc3a10c4c69ba027d9bfc351217" title="rcKinetoscope::stepContractile" alt="" coords="396,141,598,169"/>
+<area shape="rect" id="node8" href="$classrc_kinetoscope.html#a431144623d201c5aeb857893d8460ca2" title="rcKinetoscope::stepEpi" alt="" coords="418,245,576,273"/>
+<area shape="rect" id="node9" href="$classrc_kinetoscope.html#ade990e6e3582a1e363aad1549d0117b2" title="rcKinetoscope::stepDirectedFlow" alt="" coords="389,297,605,325"/>
+<area shape="rect" id="node10" href="$classrc_kinetoscope.html#a773e884a84eb4f6d97ef71eb1c95aeda" title="rcKinetoscope::start" alt="" coords="428,193,567,221"/>
+<area shape="rect" id="node13" href="$rc__imageintegrals_8cpp.html#a20b33654ff01ced109f050e9a8bbdcd8" title="rfImageACfield" alt="" coords="840,571,949,599"/>
+<area shape="rect" id="node14" href="$classrc_row_func_two_source.html#a3bf8b014acbb16110abce215bb4da25f" title="rcRowFuncTwoSource\l::checkAssigned" alt="" coords="420,503,575,547"/>
+<area shape="rect" id="node15" href="$classrc_frame.html#a12be4afaa975295a6df8fe22c53986f2" title="rcFrame::operator()" alt="" coords="429,451,566,479"/>
+<area shape="rect" id="node17" href="$classrc_window.html#a8bad48552f0db28803089113326911de" title="rcWindow::pelPointer" alt="" coords="424,623,571,651"/>
+<area shape="rect" id="node18" href="$rc__imageintegrals_8cpp.html#a4c9e78ee8f8128ed6ba82aea9e2b5d7e" title="rfImageIntegrals" alt="" coords="664,623,782,651"/>
+<area shape="rect" id="node22" href="$bcnvrt__main_8cpp.html#a00a4dac924291e9ba2f484741e4abc19" title="rfCompareReifyMovies" alt="" coords="419,2423,576,2451"/>
+<area shape="rect" id="node21" href="$bcnvrt__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="698,2397,748,2425"/>
+<area shape="rect" id="node24" href="$classrc_correlation_window.html#a49a7cce1e36532fd77d515fafe4746d7" title="rcCorrelationWindow\l\&lt; uint8 \&gt;::rowPointer" alt="" coords="425,1615,570,1659"/>
+<area shape="rect" id="node25" href="$classrc_correlation_window.html#a8afd1ff96d9b8f9fd5eca1ab15f7a09b" title="rcCorrelationWindow\l\&lt; uint8 \&gt;::rowPelPointer" alt="" coords="416,1683,579,1727"/>
+<area shape="rect" id="node26" href="$classrc_basic_corr_row_func.html#a4760884d4fe4e207082edffdf8533774" title="rcBasicCorrRowFunc\l::rcBasicCorrRowFunc" alt="" coords="420,1751,575,1795"/>
+<area shape="rect" id="node27" href="$classrc_basic_pixel_map.html#ad18faf69314eb6f99843fd7e80ae04f6" title="rcBasicPixelMap::rcBasic\lPixelMap" alt="" coords="412,1819,583,1863"/>
+<area shape="rect" id="node28" href="$classrc_mutual_info.html#a45b7fc763edc28a4c8c0e20aa1a4a777" title="rcMutualInfo::add" alt="" coords="435,1887,560,1915"/>
+<area shape="rect" id="node29" href="$rc__analysis_8h.html#ad502b5b11d75de45c2c0f634e837abd1" title="rfGetComponents" alt="" coords="434,1939,561,1967"/>
+<area shape="rect" id="node30" href="$rc__analysis_8h.html#acd06a7f611ec4deb1d3b90bf12a3822c" title="rfGetRects" alt="" coords="455,1991,540,2019"/>
+<area shape="rect" id="node31" href="$rc__imageintegrals_8cpp.html#a16236d13d8eadd27401c0c2e3bd8c179" title="rfImageOrthogonalProjections" alt="" coords="398,2043,597,2071"/>
+<area shape="rect" id="node32" href="$classrc_moment_generator.html#a7b8dba1194147838b9ddadd80fb12c47" title="rcMomentGenerator::\lupdate" alt="" coords="423,2095,571,2139"/>
+<area shape="rect" id="node33" href="$rc__ip_8cpp.html#a54d94fa650e57fe06612ec8a91a20d69" title="gaussEdge" alt="" coords="453,2163,541,2191"/>
+<area shape="rect" id="node34" href="$rc__ip_8cpp.html#aa1a6d4d9ba9c2ee7accc173232fe09ac" title="rfGauss3" alt="" coords="685,2267,760,2295"/>
+<area shape="rect" id="node35" href="$rc__ip_8cpp.html#ab144102eb846bcc24817450991e5a57f" title="rfGauss3by3" alt="" coords="449,2267,546,2295"/>
+<area shape="rect" id="node36" href="$rc__ip_8cpp.html#ae9db2a72045d64d64bc724d246af6c85" title="rfGauss163by3" alt="" coords="441,2319,553,2347"/>
+<area shape="rect" id="node37" href="$rc__kineticimage_8h.html#ad78a2d848ed09d08c0481b964e29ce8e" title="segPoint" alt="" coords="461,727,534,755"/>
+<area shape="rect" id="node38" href="$rc__kineticimage_8h.html#a4fd150ac4366c6ed539ad9d0f45ec67c" title="genSpatialSDImg" alt="" coords="435,779,560,807"/>
+<area shape="rect" id="node39" href="$rc__kineticimage_8cpp.html#a7fe945030e20c7cc5e0b67f69eb9c115" title="binarize" alt="" coords="463,831,531,859"/>
+<area shape="rect" id="node40" href="$classrc_opto_kinetic_image.html#ad13dd3d1f50bb9a8c77b1ef9dccf8d31" title="rcOptoKineticImage\l::genKineticStats" alt="" coords="428,883,567,927"/>
+<area shape="rect" id="node41" href="$classrc_opto_kinetic_image.html#a182b7956724fc573550277810ae37d11" title="rcOptoKineticImage\l::genEightBitDFT" alt="" coords="653,914,792,958"/>
+<area shape="rect" id="node42" href="$classrc_opto_kinetic_image.html#a1d1715dc28a0eea84834c136e02c26c4" title="rcOptoKineticImage\l::genDFT" alt="" coords="428,1003,567,1047"/>
+<area shape="rect" id="node43" href="$classrc_opto_kinetic_image.html#ab8c6bd963086ef561d0f65ec8240e139" title="rcOptoKineticImage\l::genFreqImg" alt="" coords="428,1071,567,1115"/>
+<area shape="rect" id="node44" href="$classrc_opto_kinetic_image.html#a3fd72217752fe521e6e7aad3b3db8a52" title="rcOptoKineticImage\l::gen1DCorrKineticImgs" alt="" coords="416,1139,579,1183"/>
+<area shape="rect" id="node45" href="$classrc_opto_kinetic_image.html#a0a1f97d37fdfc2454fafcfaab3e28a9e" title="rcOptoKineticImage\l::genEightBitFreq" alt="" coords="428,1207,567,1251"/>
+<area shape="rect" id="node46" href="$classrc_opto_kinetic_image.html#aa7778606ebdff2a3f26470b3a2e75486" title="rcOptoKineticImage\l::genEightBitImg" alt="" coords="428,1275,567,1319"/>
+<area shape="rect" id="node47" href="$classrc_opto_kinetic_image.html#a98709035909c6137fdb83d5747b79234" title="rcOptoKineticImage\l::genVarImg" alt="" coords="428,1343,567,1387"/>
+<area shape="rect" id="node48" href="$classrc_opto_kinetic_image.html#a2cec8a6e6f2c3dd69693b6d3d86c239d" title="rcOptoKineticImage\l::genStdDevImg" alt="" coords="428,1411,567,1455"/>
+<area shape="rect" id="node49" href="$classrc_opto_kinetic_image.html#adb97737d4121118afee01d122f7dfc43" title="rcOptoKineticImage\l::genVelEntropyImg" alt="" coords="428,1479,567,1523"/>
+<area shape="rect" id="node50" href="$classrc_opto_kinetic_image.html#a3e5ce919e618710e7563016ae0ba986d" title="rcOptoKineticImage\l::genAccelEntropyImg" alt="" coords="421,1547,573,1591"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="TIFFFillStrip" name="TIFFFillStrip">
+<area shape="rect" id="node2" href="$tif__apple_8c.html#adcb814cdc66530ea86553b6840c19819" title="_TIFFfree" alt="" coords="360,5,440,33"/>
+<area shape="rect" id="node3" href="$tif__error_8c.html#a2e8b77a2d4e7b7283b55b963dd67ec31" title="TIFFErrorExt" alt="" coords="351,109,449,137"/>
+<area shape="rect" id="node4" href="$tif__read_8c.html#a5c43d4f9b4290bba3f190090d1100c40" title="TIFFReadBufferSetup" alt="" coords="147,57,298,85"/>
+<area shape="rect" id="node6" href="$tif__read_8c.html#af8b0b74a11a6584a2dad1472354cbc48" title="TIFFReadRawStrip1" alt="" coords="151,161,294,189"/>
+<area shape="rect" id="node8" href="$tif__swab_8c.html#a96ad4adba41a35b63c5f739441265359" title="TIFFReverseBits" alt="" coords="162,213,283,241"/>
+<area shape="rect" id="node9" href="$tif__read_8c.html#a32c19f9a6a10e0ebeff90b935bd019e1" title="TIFFStartStrip" alt="" coords="170,265,275,293"/>
+<area shape="rect" id="node5" href="$tif__apple_8c.html#aaa739de67506b8254e9d150190425b4f" title="_TIFFmalloc" alt="" coords="352,57,448,85"/>
+<area shape="rect" id="node7" href="$tif__apple_8c.html#aacf23567597faf7b8f01f31f397217f0" title="_TIFFmemcpy" alt="" coords="346,161,454,189"/>
+</map>

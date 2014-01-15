@@ -1,0 +1,27 @@
+<map id="rcLicenseManager::unhexifyTime" name="rcLicenseManager::unhexifyTime">
+<area shape="rect" id="node2" href="$classrc_license_manager.html#a7951a7232263f28f46a09780f28ec55c" title="rcLicenseManager::license\lTimeHasValidFormat" alt="" coords="273,350,453,394"/>
+<area shape="rect" id="node3" href="$classrc_license_manager.html#a097c8caad5e7412fd72b3940091c8e7c" title="rcLicenseManager::validFile" alt="" coords="502,358,690,386"/>
+<area shape="rect" id="node4" href="$classrc_license_manager.html#a087ba85687092ffd42282e8c46feda35" title="rcLicenseManager::validHost" alt="" coords="1019,279,1213,307"/>
+<area shape="rect" id="node19" href="$classrc_license_manager.html#a22a56af2af120559a7ede1cfa28beea3" title="rcLicenseManager::validTime" alt="" coords="757,331,952,359"/>
+<area shape="rect" id="node20" href="$classrc_license_manager.html#aa723d038b3a441faf7f096c8ac32150d" title="rcLicenseManager::getLicense\lExpirationTime" alt="" coords="753,517,956,561"/>
+<area shape="rect" id="node25" href="$classrc_license_manager.html#a3cbb7c89fc488b6000733d783a16333f" title="rcLicenseManager::getLicenseHost" alt="" coords="739,383,970,411"/>
+<area shape="rect" id="node5" href="$classrc_model_domain.html#a447d02c7e390deab240b01e66ff501b1" title="rcModelDomain::vl" alt="" coords="1283,305,1415,333"/>
+<area shape="rect" id="node6" href="$classrc_model_domain.html#afb470cea2cec9467ef2b23b7ca1c71b4" title="rcModelDomain::requestStart" alt="" coords="1504,5,1699,33"/>
+<area shape="rect" id="node7" href="$classrc_model_domain.html#ab4bf2c2c8ad4d84a29c99a63ab41b930" title="rcModelDomain::requestProcess" alt="" coords="1494,57,1709,85"/>
+<area shape="rect" id="node8" href="$classrc_model_domain.html#aa5bff6b4d973fc9aa44516d9ecaf8876" title="rcModelDomain::requestTracking\lPause" alt="" coords="1493,109,1710,153"/>
+<area shape="rect" id="node9" href="$classrc_model_domain.html#a5d280d4d96c00d1d6e14f64a3f4874ed" title="rcModelDomain::stopTracking\lPause" alt="" coords="1502,177,1700,221"/>
+<area shape="rect" id="node10" href="$classrc_model_domain.html#a13bae0fdfe648f4b69bfbba62de82ea4" title="rcModelDomain::requestOpen" alt="" coords="1502,245,1701,273"/>
+<area shape="rect" id="node14" href="$classrc_model_domain.html#a3cd29a42f9a6ecee727339585064fb94" title="rcModelDomain::requestImage\lImport" alt="" coords="1500,297,1703,341"/>
+<area shape="rect" id="node15" href="$classrc_model_domain.html#ab03e17b637966431091a8bcbd097a1de" title="rcModelDomain::requestTif\lDirImport" alt="" coords="1511,365,1692,409"/>
+<area shape="rect" id="node16" href="$classrc_model_domain.html#a1514fd1ccd23c50f4cce7d6ebf5a923d" title="rcModelDomain::requestMovie\lImport" alt="" coords="1500,433,1702,477"/>
+<area shape="rect" id="node17" href="$classrc_model_domain.html#a96030af9e5c0e469a57555fa2e89bd4c" title="rcModelDomain::requestSTKImport" alt="" coords="1486,501,1716,529"/>
+<area shape="rect" id="node18" href="$classrc_model_domain.html#ab41cf756969a580e0cc71991178adaa0" title="rcModelDomain::requestMovieSave" alt="" coords="1485,553,1718,581"/>
+<area shape="rect" id="node11" href="$classrc_menu_bar.html#a6c16d367445a29969c123644d9d92ede" title="rcMenuBar::doOpen" alt="" coords="1789,245,1931,273"/>
+<area shape="rect" id="node13" href="$classrc_menu_bar.html#a1c0076a5a7b2cff029d0db7976a8fdc8" title="rcMenuBar::doOpenSettings" alt="" coords="1765,297,1955,325"/>
+<area shape="rect" id="node12" href="$classrc_menu_bar.html#ac519f881b1d9d23fbc907d1c50ea9651" title="rcMenuBar::rcMenuBar" alt="" coords="2003,297,2162,325"/>
+<area shape="rect" id="node21" href="$classrc_model_domain.html#a934a67a508ec1d9be6b727380a7992f9" title="rcModelDomain::getLicense\lExpirationTime" alt="" coords="1023,597,1209,641"/>
+<area shape="rect" id="node22" href="$classrc_about.html#a0eb7734c09233a4c7d7438de399f238a" title="rcAbout::languageChange" alt="" coords="1261,605,1437,633"/>
+<area shape="rect" id="node24" href="$classrc_menu_bar.html#a789a96fcc48b47d6ef01345445bfc33a" title="rcMenuBar::about" alt="" coords="1796,502,1924,530"/>
+<area shape="rect" id="node23" href="$classrc_about.html#a62ddd2830b39f145ddff49fb46ba3256" title="rcAbout::rcAbout" alt="" coords="1541,605,1662,633"/>
+<area shape="rect" id="node26" href="$classrc_model_domain.html#a9e173c449dfb42752a97758b588d956b" title="rcModelDomain::rle" alt="" coords="1048,383,1184,411"/>
+</map>

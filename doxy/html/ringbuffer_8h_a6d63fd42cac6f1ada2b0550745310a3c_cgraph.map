@@ -1,0 +1,5 @@
+<map id="RingBuffer_Read" name="RingBuffer_Read">
+<area shape="rect" id="node2" href="$ringbuffer_8c.html#a5d3acc39303ac36ab0ca909cefa7bf30" title="RingBuffer_AdvanceReadIndex" alt="" coords="179,5,387,33"/>
+<area shape="rect" id="node3" href="$ringbuffer_8c.html#adaac7cc69fc4525cce77ee54e15f5b02" title="RingBuffer_GetReadRegions" alt="" coords="186,57,380,85"/>
+<area shape="rect" id="node4" href="$ringbuffer_8c.html#ac59988c5961a99288adef3d759f697eb" title="RingBuffer_GetReadAvailable" alt="" coords="435,57,634,85"/>
+</map>

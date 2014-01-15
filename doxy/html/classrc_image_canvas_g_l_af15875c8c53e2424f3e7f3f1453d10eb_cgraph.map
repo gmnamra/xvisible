@@ -1,0 +1,24 @@
+<map id="rcImageCanvasGL::drawRubberBandRect" name="rcImageCanvasGL::drawRubberBandRect">
+<area shape="rect" id="node2" href="$classrc_image_canvas_g_l.html#a8ece60ad522ba10ca561729adff567be" title="rcImageCanvasGL::devToModel\lCoord" alt="" coords="277,107,489,151"/>
+<area shape="rect" id="node4" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="810,146,910,174"/>
+<area shape="rect" id="node6" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="810,295,910,323"/>
+<area shape="rect" id="node7" href="$rc__imagecanvasgl_8cpp.html#a06bdf4d459280ad8056cd35cb117966a" title="displayOpenGLError" alt="" coords="311,503,454,531"/>
+<area shape="rect" id="node20" href="$classrc_image_canvas_g_l.html#afb8bd2211dd5052de546442c93422583" title="rcImageCanvasGL::drawModelRect" alt="" coords="266,295,499,323"/>
+<area shape="rect" id="node22" href="$classrc_image_canvas_g_l.html#a66fa650171152fa4e33c5303ff34c037" title="rcImageCanvasGL::modelTo\lWorldCoord" alt="" coords="560,227,750,271"/>
+<area shape="rect" id="node3" href="$classrc_image_canvas_g_l.html#a13d56c0353ab393915bfb11a4f131603" title="rcImageCanvasGL::devToWorld\lCoord" alt="" coords="550,39,760,83"/>
+<area shape="rect" id="node5" href="$classrc_image_canvas_g_l.html#a79b23acf7bf6e15eac33dc73e43d2c7a" title="rcImageCanvasGL::worldTo\lPixel" alt="" coords="562,107,748,151"/>
+<area shape="rect" id="node8" href="$textio_8cpp.html#a905a4c61e365d406069f00eb68db1ca5" title="endl" alt="" coords="631,503,678,531"/>
+<area shape="rect" id="node9" href="$classotext.html#a5086c0fd5e3f551eae3027e5d23d3c30" title="otext::put" alt="" coords="822,503,898,531"/>
+<area shape="rect" id="node10" href="$classotext.html#ab52b059090ba70eeeac469f9051d3a22" title="otext::flush" alt="" coords="986,372,1072,400"/>
+<area shape="rect" id="node12" href="$classobuff.html#a069bcd2767c0d7c8e2bc8cd26d91e267" title="obuff::increment" alt="" coords="971,424,1088,452"/>
+<area shape="rect" id="node13" href="$classobuff.html#a51efd4e8e00303842fa762940aad86ec" title="obuff::line_buffer" alt="" coords="969,476,1089,504"/>
+<area shape="rect" id="node14" href="$classobuff.html#a0711113beee11f9793f5ba9e8e64c641" title="obuff::newline_mode" alt="" coords="957,528,1101,556"/>
+<area shape="rect" id="node15" href="$classobuff.html#a5bbb61ac15c672da7f7b2002bef6b128" title="obuff::put" alt="" coords="991,580,1068,608"/>
+<area shape="rect" id="node16" href="$classotext.html#a2a2435d80cce60cb88360c7bfe3f8445" title="otext::set_error" alt="" coords="974,632,1085,660"/>
+<area shape="rect" id="node11" href="$classobuff.html#a8fb8969c450f4fdc037f8c51d35c87c7" title="obuff::flush" alt="" coords="1162,372,1248,400"/>
+<area shape="rect" id="node17" href="$classobuff.html#ae388e9608d1c873d1feaf621f4044c25" title="obuff::set_error" alt="" coords="1150,632,1261,660"/>
+<area shape="rect" id="node18" href="$class_t_c_p__client__data.html#a970f6bf6bb6e6166615813c5f7768381" title="TCP_client_data::error" alt="" coords="1310,632,1466,660"/>
+<area shape="rect" id="node19" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="1515,632,1645,660"/>
+<area shape="rect" id="node21" href="$classrc_image_canvas_g_l.html#a0eac88670f9fca73723f947f6d81973b" title="rcImageCanvasGL::modelRotate" alt="" coords="547,295,762,323"/>
+<area shape="rect" id="node23" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="620,399,690,427"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="rcBidirectionalRing::releaseResource" name="rcBidirectionalRing::releaseResource">
+<area shape="rect" id="node2" href="$classrc_engine_movie_saver.html#a4ef503c9179ab338e87c6db7e5838090" title="rcEngineMovieSaver\l::error_cleanup" alt="" coords="197,5,342,49"/>
+<area shape="rect" id="node3" href="$classrc_engine_movie_saver.html#a6abf59057b5ba519217a1f5f43853046" title="rcEngineMovieSaver\l::saveHdlr" alt="" coords="420,35,564,79"/>
+<area shape="rect" id="node6" href="$classrc_engine_movie_capture.html#a39dcd2ab530e0ecb29ad00df2a23ef0f" title="rcEngineMovieCapture\l::rcEngineMovieCapture" alt="" coords="187,125,352,169"/>
+<area shape="rect" id="node7" href="$classrc_engine_movie_capture.html#ac35da60d880240d3634b0768a7d6b3bf" title="rcEngineMovieCapture\l::saveComplete" alt="" coords="191,193,348,237"/>
+<area shape="rect" id="node4" href="$classrc_engine_movie_saver.html#a1bb43ad35af079b3c901552205cd176d" title="rcEngineMovieSaver\l::uninitializedHdlr" alt="" coords="632,5,776,49"/>
+<area shape="rect" id="node5" href="$classrc_engine_movie_saver.html#a216e88884a3dd557507ea93dc3609a91" title="rcEngineMovieSaver::run" alt="" coords="824,43,995,71"/>
+<area shape="rect" id="node8" href="$classrc_engine_movie_capture.html#a0d8bfe4fd32e11bdbdb2c0ad113425ff" title="rcEngineMovieCapture::run" alt="" coords="400,201,584,229"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="rcAnalyzer" name="rcAnalyzer">
+<area shape="rect" id="node2" href="$classrc_frame_grabber.html" title="rcFrameGrabber" alt="" coords="4,369,123,397"/>
+<area shape="rect" id="node3" href="$classrc_analyzer_options.html" title="rcAnalyzerOptions" alt="" coords="148,369,277,397"/>
+<area shape="rect" id="node4" href="$classrc_rect.html" title="rcRect" alt="" coords="127,275,187,303"/>
+<area shape="rect" id="node5" href="$classrc_rectangle.html" title="rcIRect" alt="" coords="126,195,188,223"/>
+<area shape="rect" id="node6" href="$classrc_pair.html" title="rcPair\&lt; int32 \&gt;" alt="" coords="103,86,211,114"/>
+<area shape="rect" id="node8" href="$structrs_corr_params.html" title="rsCorrParams" alt="" coords="217,275,321,303"/>
+</map>

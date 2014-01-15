@@ -1,0 +1,12 @@
+<map id="rcWindow::vImage" name="rcWindow::vImage">
+<area shape="rect" id="node2" href="$classrc_window.html#a3286f93b0d223617111f3ac62b854b2f" title="rcWindow::isBound" alt="" coords="192,5,328,33"/>
+<area shape="rect" id="node3" href="$classrc_window.html#a8bad48552f0db28803089113326911de" title="rcWindow::pelPointer" alt="" coords="186,57,334,85"/>
+<area shape="rect" id="node10" href="$classrc_window.html#a5cddcde6594113f6d8bb2dfb1f498c0a" title="rcWindow::rowUpdate" alt="" coords="184,109,336,137"/>
+<area shape="rect" id="node11" href="$classrc_window.html#a0ae0c2adbe34085eb07c93edd60b342a" title="rcWindow::width" alt="" coords="201,161,319,189"/>
+<area shape="rect" id="node4" href="$classrc_frame.html#a8005eafc78f0008a7df596d55c2b23b9" title="rcFrame::pelPointer" alt="" coords="384,5,523,33"/>
+<area shape="rect" id="node6" href="$classrc_rect.html#ac0f95519a41dcf7e33bec85ccb8e7aff" title="rcRect::x" alt="" coords="416,57,490,85"/>
+<area shape="rect" id="node8" href="$classrc_rect.html#a50236160751c949d8718f8d4d17f7923" title="rcRect::y" alt="" coords="416,109,490,137"/>
+<area shape="rect" id="node5" href="$classrc_frame.html#aaef8303c840834284eb9c60d33bf40c1" title="rcFrame::depth" alt="" coords="571,5,683,33"/>
+<area shape="rect" id="node7" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="592,57,662,85"/>
+<area shape="rect" id="node9" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="592,109,662,137"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="folder_subdirectories" name="folder_subdirectories">
+<area shape="rect" id="node2" href="$file__system_8cpp.html#a98cfc7b7a7288df295314c2fe9f31bc5" title="folder_wildcard" alt="" coords="200,83,312,111"/>
+<area shape="rect" id="node3" href="$file__system_8cpp.html#a62475ca973dfe0094c00d60286c7c286" title="create_filespec" alt="" coords="362,5,473,33"/>
+<area shape="rect" id="node5" href="$file__system_8cpp.html#a4bf41553eb34f21058b17faf699b5a4f" title="is_folder" alt="" coords="381,57,453,85"/>
+<area shape="rect" id="node6" href="$file__system_8cpp.html#a896521b0391b7bcdd8057eaec72fa0a1" title="is_file" alt="" coords="390,109,445,137"/>
+<area shape="rect" id="node7" href="$string__utilities_8cpp.html#a9083169d662611e6a848ceae73bfff00" title="match_wildcard" alt="" coords="360,161,474,189"/>
+<area shape="rect" id="node4" href="$file__system_8cpp.html#a99e06c76afffe1f1d77f01c905b1a5fd" title="is_separator" alt="" coords="538,57,633,85"/>
+<area shape="rect" id="node8" href="$string__utilities_8cpp.html#add874a470a590a1c4a00898f447ac3d8" title="match_remainder" alt="" coords="523,161,648,189"/>
+<area shape="rect" id="node9" href="$string__utilities_8cpp.html#a5892db7121e88ced58311f4a3968331f" title="match_set" alt="" coords="696,161,779,189"/>
+</map>

@@ -1,0 +1,43 @@
+<map id="atan2" name="atan2">
+<area shape="rect" id="node2" href="$classrc2d_vector.html#a0033dce9c132d9913b1e608fb8686bbb" title="rc2dVector::angle" alt="" coords="136,297,261,325"/>
+<area shape="rect" id="node18" href="$rc__math_8h.html#abb07e43e701a45f610abbb8bdf58bb1f" title="arctan" alt="" coords="169,353,228,381"/>
+<area shape="rect" id="node19" href="$nrutil__nr_8h.html#a0ce5286f20e0c0ef4ee6c921ffe10074" title="atan2" alt="" coords="171,405,226,433"/>
+<area shape="rect" id="node20" href="$classrc_ls_fit.html#a929116a33b52f3984d5fe547960f5d93" title="rcLsFit::fit" alt="" coords="159,457,238,485"/>
+<area shape="rect" id="node23" href="$classrc_opto_kinetic_image.html#a1d1715dc28a0eea84834c136e02c26c4" title="rcOptoKineticImage\l::genDFT" alt="" coords="129,509,268,553"/>
+<area shape="rect" id="node24" href="$classrc2_xform.html#aa834d8d2a5e3a112d1c0ae5e4553c372" title="rc2Xform::mapAngle" alt="" coords="127,577,270,605"/>
+<area shape="rect" id="node25" href="$rc__draw_8h.html#ac7a13240630229d53492c3fad4e4d5a0" title="rcDrawLine" alt="" coords="154,629,243,657"/>
+<area shape="rect" id="node26" href="$rc__analysis_8h.html#aba9fa9ef0666aeb4960a8a5f031fdce5" title="rf1DFourierAnalysis" alt="" coords="129,681,268,709"/>
+<area shape="rect" id="node33" href="$rc__analysis_8h.html#ae51d37ad5797d5b59058fafde4fb4248" title="rf1DFourierAnalysisVoxels" alt="" coords="110,733,288,761"/>
+<area shape="rect" id="node34" href="$classrc_ls_fit.html#aa45b577b5e86ef32954a5051b7896f4a" title="rcLsFit::solve3p" alt="" coords="141,785,256,813"/>
+<area shape="rect" id="node35" href="$class_l_l_s_q.html#a6a261d5ce8a751b239bc56649fe35322" title="LLSQ::vector_fit_angle" alt="" coords="120,837,277,865"/>
+<area shape="rect" id="node37" href="$classrc_matrix_3_012_01_4.html#a686bd92276e1fbd1461af15d4d85b325" title="rcMatrix\&lt; 2 \&gt;::xRot" alt="" coords="132,889,266,917"/>
+<area shape="rect" id="node38" href="$classrc_matrix__2d.html#a4fd5a354f84f0924b813b92501023013" title="rcMatrix_2d::xRot" alt="" coords="136,941,262,969"/>
+<area shape="rect" id="node40" href="$classrc_matrix_3_012_01_4.html#ac06406ceb3eb2cc1628b91379841693c" title="rcMatrix\&lt; 2 \&gt;::yRot" alt="" coords="132,993,266,1021"/>
+<area shape="rect" id="node41" href="$classrc_matrix__2d.html#a27faf8be8f1c7030f935eb2a971b9273" title="rcMatrix_2d::yRot" alt="" coords="136,1045,262,1073"/>
+<area shape="rect" id="node3" href="$classrc_motion_path.html#ad6be3a3ebad20eaf46fc1fd9252b0e37" title="rcMotionPath::add" alt="" coords="381,401,510,429"/>
+<area shape="rect" id="node4" href="$classrc_inf_line.html#a01649dfab68422fa9b4f0a615906db24" title="rcInfLine::angle" alt="" coords="389,453,502,481"/>
+<area shape="rect" id="node6" href="$classrc_lattice_similarator.html#af730cb72756862796fafbd4cfad1109b" title="rcLatticeSimilarator::ttc" alt="" coords="367,505,524,533"/>
+<area shape="rect" id="node7" href="$classrc_kinetoscope.html#a8c9f1992e0fe194bb0b30a4c060a2df1" title="rcKinetoscope::preSegmented\lBodies" alt="" coords="345,5,546,49"/>
+<area shape="rect" id="node8" href="$classrc_visual_function.html#a60c456dafac1e2842e1356274b928a08" title="rcVisualFunction::update" alt="" coords="361,73,529,101"/>
+<area shape="rect" id="node9" href="$classrc_visual_function.html#a04eb9c01ca4b2312588770f5033455ad" title="rcVisualFunction::rcVisual\lFunction" alt="" coords="358,125,532,169"/>
+<area shape="rect" id="node10" href="$classrc_image_canvas_g_l.html#ae182b135a9cabd5bc949fb6e670b3a93" title="rcImageCanvasGL::draw" alt="" coords="361,193,530,221"/>
+<area shape="rect" id="node11" href="$rc__imageprocessing_8cpp.html#af5e2c1824379cbd789341ffae4a9a8ae" title="rfMutualChannel" alt="" coords="386,245,505,273"/>
+<area shape="rect" id="node12" href="$classrc_polygon.html#a392686f03ee969c7f83bdc366b03af96" title="rcPolygon::genMinEnclosingRect" alt="" coords="337,297,554,325"/>
+<area shape="rect" id="node13" href="$classrc_polygon.html#a21a2848e4600d69f1eab1d05143f000c" title="rcPolygon::discBuffer" alt="" coords="372,349,519,377"/>
+<area shape="rect" id="node5" href="$classrc_inf_line.html#a8cbe4e1d34b3a02d53e1171e9f4a8676" title="rcInfLine::angle" alt="" coords="642,457,755,485"/>
+<area shape="rect" id="node14" href="$classrc_kinetoscope.html#a3cabc9a20a2426314710f1f3d8908f75" title="rcKinetoscope::visualDebug\lGraphics" alt="" coords="605,337,792,381"/>
+<area shape="rect" id="node17" href="$rc__polygongroup_8h.html#aef640fc26e2a3c85a5ae68abb68fc251" title="rfPolygonGroupMutualMerge" alt="" coords="602,405,795,433"/>
+<area shape="rect" id="node15" href="$classrc_kinetoscope.html#a7eb12d336c7e47b947f4a3ddf480b710" title="rcKinetoscope::visualDebug\lGraphics" alt="" coords="843,397,1029,441"/>
+<area shape="rect" id="node16" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1078,462,1271,490"/>
+<area shape="rect" id="node21" href="$classrc_opto_kinetic_image.html#a0e3358132ecf2bed7e0dcb5c7460550e" title="rcOptoKineticImage\l::genLogRMS" alt="" coords="376,557,515,601"/>
+<area shape="rect" id="node22" href="$classrc_opto_kinetic_image.html#ad2976aa250b041101bea90c7bbb1a0bd" title="rcOptoKineticImage\l::rcOptoKineticImage" alt="" coords="626,557,772,601"/>
+<area shape="rect" id="node27" href="$rc__kineticimage_8h.html#a37fdff5165799a39ff0e7807bf05a1a3" title="calcMusclePeriod" alt="" coords="382,677,508,705"/>
+<area shape="rect" id="node30" href="$classrc_opto_kinetic_image.html#ab8c6bd963086ef561d0f65ec8240e139" title="rcOptoKineticImage\l::genFreqImg" alt="" coords="376,729,515,773"/>
+<area shape="rect" id="node31" href="$classrc_visual_function.html#a76bcc401f54c5578f2962cd77cb11a63" title="rcVisualFunction::beatProcess" alt="" coords="345,625,546,653"/>
+<area shape="rect" id="node28" href="$classrc_muscle_segmenter.html#a61c65559f55fd9fa632b96e09ef50b2e" title="rcMuscleSegmenter::\lgenFrequencySegmentation" alt="" coords="604,677,793,721"/>
+<area shape="rect" id="node29" href="$classrc_muscle_segmenter.html#a660d7b3d1c240efa0b725e0db65154e3" title="rcMuscleSegmenter::\lfilterByActivity" alt="" coords="862,570,1010,614"/>
+<area shape="rect" id="node32" href="$classrc_visual_function.html#a653fd69af532714b01f9c0b5cabc96c6" title="rcVisualFunction::reconcile" alt="" coords="608,625,789,653"/>
+<area shape="rect" id="node36" href="$class_l_l_s_q.html#a83e18776ce1c392d23c147ef827ef9fb" title="LLSQ::vector_fit" alt="" coords="387,837,504,865"/>
+<area shape="rect" id="node39" href="$classrc2_xform.html#a1ea482a2907e673b7ecbcf202920d1dc" title="rc2Xform::xRot" alt="" coords="390,941,500,969"/>
+<area shape="rect" id="node42" href="$classrc2_xform.html#ac93d19ad945460d5381c49e7a0ce9281" title="rc2Xform::yRot" alt="" coords="390,1045,500,1073"/>
+</map>

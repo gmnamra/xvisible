@@ -1,0 +1,25 @@
+<map id="operator&lt;&lt;" name="operator&lt;&lt;">
+<area shape="rect" id="node2" href="$classrc_base_motion_path.html#a260a6d39a3ea2744edd77db22cd31f7c" title="rcBaseMotionPath::anchor" alt="" coords="144,5,323,33"/>
+<area shape="rect" id="node3" href="$classrc_visual_target.html#a85db527fc5da1ad244402472495a79fd" title="rcVisualTarget::area" alt="" coords="163,57,303,85"/>
+<area shape="rect" id="node4" href="$classrc_visual_target.html#a21a1a9de7995e33477f2f05d16301d6e" title="rcVisualTarget::distance" alt="" coords="152,109,315,137"/>
+<area shape="rect" id="node5" href="$textio_8cpp.html#a905a4c61e365d406069f00eb68db1ca5" title="endl" alt="" coords="210,161,257,189"/>
+<area shape="rect" id="node17" href="$classrc_visual_target.html#a33eb8cdff3596ab26f6a0808eda6589d" title="rcVisualTarget::persistence" alt="" coords="143,213,324,241"/>
+<area shape="rect" id="node18" href="$classrc_base_motion_path.html#aeaf5d8ff4cb3257f888f5f9eedf8986f" title="dob &#160;:Return date of birth relative to kinetoscope start" alt="" coords="142,265,325,293"/>
+<area shape="rect" id="node19" href="$classrc_visual_target.html#a825a73f65f7548b986fc4e8baf9f533f" title="rcVisualTarget::rectSnaps" alt="" coords="147,317,320,345"/>
+<area shape="rect" id="node20" href="$classrc_visual_target.html#a847c972a5ea863c7527c7ab8366f0104" title="rcVisualTarget::rmsQuality" alt="" coords="145,369,322,397"/>
+<area shape="rect" id="node21" href="$classrc_visual_target.html#ad70ff3aa4dc65b9e9348e12595ae73c1" title="rcVisualTarget::speed" alt="" coords="159,421,308,449"/>
+<area shape="rect" id="node24" href="$classrc_visual_target.html#a384392902036db7bedecf0b5b74025af" title="rcVisualTarget::velocity" alt="" coords="155,473,312,501"/>
+<area shape="rect" id="node6" href="$classotext.html#a5086c0fd5e3f551eae3027e5d23d3c30" title="otext::put" alt="" coords="385,161,461,189"/>
+<area shape="rect" id="node7" href="$classotext.html#a2a2435d80cce60cb88360c7bfe3f8445" title="otext::set_error" alt="" coords="536,30,648,58"/>
+<area shape="rect" id="node11" href="$classobuff.html#a5bbb61ac15c672da7f7b2002bef6b128" title="obuff::put" alt="" coords="554,82,630,110"/>
+<area shape="rect" id="node12" href="$classobuff.html#a069bcd2767c0d7c8e2bc8cd26d91e267" title="obuff::increment" alt="" coords="534,134,650,162"/>
+<area shape="rect" id="node13" href="$classobuff.html#a0711113beee11f9793f5ba9e8e64c641" title="obuff::newline_mode" alt="" coords="520,186,664,214"/>
+<area shape="rect" id="node14" href="$classobuff.html#a51efd4e8e00303842fa762940aad86ec" title="obuff::line_buffer" alt="" coords="532,238,652,266"/>
+<area shape="rect" id="node15" href="$classotext.html#ab52b059090ba70eeeac469f9051d3a22" title="otext::flush" alt="" coords="549,290,635,318"/>
+<area shape="rect" id="node8" href="$classobuff.html#ae388e9608d1c873d1feaf621f4044c25" title="obuff::set_error" alt="" coords="712,30,824,58"/>
+<area shape="rect" id="node9" href="$class_t_c_p__client__data.html#a970f6bf6bb6e6166615813c5f7768381" title="TCP_client_data::error" alt="" coords="873,30,1028,58"/>
+<area shape="rect" id="node10" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="1078,30,1207,58"/>
+<area shape="rect" id="node16" href="$classobuff.html#a8fb8969c450f4fdc037f8c51d35c87c7" title="obuff::flush" alt="" coords="725,290,811,318"/>
+<area shape="rect" id="node22" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="373,395,472,423"/>
+<area shape="rect" id="node23" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="373,447,472,475"/>
+</map>

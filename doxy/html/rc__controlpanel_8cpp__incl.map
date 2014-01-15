@@ -1,0 +1,25 @@
+<map id="src/visible/qt/rc_controlpanel.cpp" name="src/visible/qt/rc_controlpanel.cpp">
+<area shape="rect" id="node11" href="$rc__modeldomain_8h.html" title="rc_modeldomain.h" alt="" coords="1197,83,1328,111"/>
+<area shape="rect" id="node47" href="$rc__controlpanel_8h.html" title="rc_controlpanel.h" alt="" coords="1609,161,1732,189"/>
+<area shape="rect" id="node15" href="$rc__model_8h.html" title="rc_model.h" alt="" coords="995,238,1081,266"/>
+<area shape="rect" id="node22" href="$rc__affine_8h.html" title="rc_affine.h" alt="" coords="160,470,243,498"/>
+<area shape="rect" id="node43" href="$rc__security_8h.html" title="rc_security.h" alt="" coords="1447,625,1541,653"/>
+<area shape="rect" id="node44" href="$rc__customeventmanager_8h.html" title="rc_customeventmanager.h" alt="" coords="900,161,1077,189"/>
+<area shape="rect" id="node16" href="$rc__value_8h.html" title="rc_value.h" alt="" coords="465,393,548,421"/>
+<area shape="rect" id="node25" href="$rc__graphics_8h.html" title="rc_graphics.h" alt="" coords="459,547,560,575"/>
+<area shape="rect" id="node27" href="$rc__uitypes_8h.html" title="rc_uitypes.h" alt="" coords="267,470,359,498"/>
+<area shape="rect" id="node28" href="$rc__setting_8h.html" title="rc_setting.h" alt="" coords="372,315,461,343"/>
+<area shape="rect" id="node30" href="$rc__timestamp_8h.html" title="rc_timestamp.h" alt="" coords="1350,470,1463,498"/>
+<area shape="rect" id="node32" href="$rc__xml_8h.html" title="rc_xml.h" alt="" coords="909,315,980,343"/>
+<area shape="rect" id="node40" href="$rc__persistencemanager_8h.html" title="rc_persistencemanager.h" alt="" coords="1057,315,1228,343"/>
+<area shape="rect" id="node42" href="$rc__polygongroup_8h.html" title="rc_polygongroup.h" alt="" coords="1302,315,1433,343"/>
+<area shape="rect" id="node19" href="$rc__exception_8h.html" title="rc_exception.h" alt="" coords="497,470,604,498"/>
+<area shape="rect" id="node20" href="$rc__rect_8h.html" title="rc_rect.h" alt="" coords="603,625,676,653"/>
+<area shape="rect" id="node21" href="$rc__types_8h.html" title="rc_types.h" alt="" coords="825,702,908,730"/>
+<area shape="rect" id="node23" href="$rc__xforms_8h.html" title="rc_xforms.h" alt="" coords="5,547,96,575"/>
+<area shape="rect" id="node26" href="$rc__style_8h.html" title="rc_style.h" alt="" coords="470,625,548,653"/>
+<area shape="rect" id="node29" href="$rc__atomic_8h.html" title="rc_atomic.h" alt="" coords="351,393,440,421"/>
+<area shape="rect" id="node37" href="$rc__xmldefs_8h.html" title="rc_xmldefs.h" alt="" coords="724,393,820,421"/>
+<area shape="rect" id="node38" href="$rc__xmldefs__v0_8h.html" title="rc_xmldefs_v0.h" alt="" coords="1070,393,1188,421"/>
+<area shape="rect" id="node39" href="$rc__xmlelem_8h.html" title="rc_xmlelem.h" alt="" coords="895,393,995,421"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="LLSQ::rms_orth" name="LLSQ::rms_orth">
+<area shape="rect" id="node2" href="$class_l_l_s_q.html#a36d6bf1e469425fc4f9b97521aee481e" title="LLSQ::covariance" alt="" coords="194,5,321,33"/>
+<area shape="rect" id="node3" href="$classrc2d_vector.html#a4ac7026b3b1505026361cec507a7baa5" title="rc2dVector::perpendicular" alt="" coords="171,57,344,85"/>
+<area shape="rect" id="node4" href="$classrc2d_vector.html#abab2c3c86b8521897010eb2d92f6cdcd" title="rc2dVector::unit" alt="" coords="200,109,314,137"/>
+<area shape="rect" id="node5" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="208,161,307,189"/>
+<area shape="rect" id="node6" href="$class_l_l_s_q.html#a27994b02b1ea16d8e3a6c951c90205dd" title="LLSQ::x_variance" alt="" coords="194,213,321,241"/>
+<area shape="rect" id="node7" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="208,265,307,293"/>
+<area shape="rect" id="node8" href="$class_l_l_s_q.html#a3e386f3db4343cca32ac4a4f028c6ea4" title="LLSQ::y_variance" alt="" coords="194,317,321,345"/>
+</map>

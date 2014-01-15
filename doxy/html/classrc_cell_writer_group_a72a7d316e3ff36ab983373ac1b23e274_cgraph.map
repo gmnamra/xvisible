@@ -1,0 +1,14 @@
+<map id="rcCellWriterGroup::writeValues" name="rcCellWriterGroup::writeValues">
+<area shape="rect" id="node2" href="$classrc_visual_target.html#a21a1a9de7995e33477f2f05d16301d6e" title="rcVisualTarget::distance" alt="" coords="200,5,363,33"/>
+<area shape="rect" id="node3" href="$classrc_degree.html#ae76b7fa2fd358a1fcdc5716c3f7dfea9" title="rcDegree::Double" alt="" coords="218,57,344,85"/>
+<area shape="rect" id="node4" href="$classrc_cell_writer_group.html#a390bffcd1a03f04567069abb4a349a76" title="rcCellWriterGroup::\lgetWriter" alt="" coords="214,109,349,153"/>
+<area shape="rect" id="node5" href="$classrc_degree.html#a9995884ee1d9ede6120e0eccb8e541dd" title="rcDegree::norm" alt="" coords="224,177,338,205"/>
+<area shape="rect" id="node6" href="$classrc_visual_target.html#a33eb8cdff3596ab26f6a0808eda6589d" title="rcVisualTarget::persistence" alt="" coords="191,229,372,257"/>
+<area shape="rect" id="node7" href="$classrc_base_motion_path.html#aeaf5d8ff4cb3257f888f5f9eedf8986f" title="dob &#160;:Return date of birth relative to kinetoscope start" alt="" coords="190,281,373,309"/>
+<area shape="rect" id="node8" href="$classrc_visual_target.html#a847c972a5ea863c7527c7ab8366f0104" title="rcVisualTarget::rmsQuality" alt="" coords="193,333,370,361"/>
+<area shape="rect" id="node9" href="$classrc_visual_target.html#a384392902036db7bedecf0b5b74025af" title="rcVisualTarget::velocity" alt="" coords="203,385,360,413"/>
+<area shape="rect" id="node10" href="$classrc_scalar_writer.html#a249e6bb37b9d4f4ac3494f4568a7ddf5" title="rcScalarWriter::writeValue" alt="" coords="194,437,368,465"/>
+<area shape="rect" id="node11" href="$classrc_position_writer.html#a2d85ab6a7a533668922969d6c4db3372" title="rcPositionWriter::writeValue" alt="" coords="189,489,373,517"/>
+<area shape="rect" id="node12" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="232,541,331,569"/>
+<area shape="rect" id="node13" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="232,593,331,621"/>
+</map>

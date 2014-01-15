@@ -1,0 +1,6 @@
+<map id="rsPlayElement" name="rsPlayElement">
+<area shape="rect" id="node2" href="$classrc_shared_frame_buf_ptr.html" title="rcSharedFrameBufPtr" alt="" coords="30,193,180,221"/>
+<area shape="rect" id="node3" href="$classrc_frame.html" title="rcFrame" alt="" coords="18,99,88,127"/>
+<area shape="rect" id="node4" href="$classrc_timestamp.html" title="rcTimestamp" alt="" coords="4,6,101,34"/>
+<area shape="rect" id="node5" href="$classrc_mutex.html" title="rcMutex" alt="" coords="123,99,191,127"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="rf1DAutoCorr" name="rf1DAutoCorr">
+<area shape="rect" id="node2" href="$classrc_visual_function.html#a76bcc401f54c5578f2962cd77cb11a63" title="rcVisualFunction::beatProcess" alt="" coords="155,5,357,33"/>
+<area shape="rect" id="node4" href="$classrc_engine_impl.html#a1ec71befab88914b35b700cd5fe03ba2" title="rcEngineImpl::entropyTracker\lWindow" alt="" coords="158,57,354,101"/>
+<area shape="rect" id="node3" href="$classrc_visual_function.html#a653fd69af532714b01f9c0b5cabc96c6" title="rcVisualFunction::reconcile" alt="" coords="424,5,605,33"/>
+<area shape="rect" id="node5" href="$classrc_engine_impl.html#a3ad6dbc54b2a53acae4d345ff14974ae" title="rcEngineImpl::analyzeFocusArea" alt="" coords="406,65,623,93"/>
+<area shape="rect" id="node6" href="$classrc_engine_impl.html#ae320706cbcafd64f219018b9842c8290" title="rcEngineImpl::analyze" alt="" coords="672,65,824,93"/>
+<area shape="rect" id="node7" href="$classrc_engine_impl.html#a507e034c1e43ae1dd6ec95a11ec0bb02" title="rcEngineImpl::process" alt="" coords="873,38,1026,66"/>
+<area shape="rect" id="node8" href="$classrc_engine_analyzer.html#a064037f0ec3e68fcb11dabbcba790cdd" title="rcEngineAnalyzer::run" alt="" coords="873,90,1026,118"/>
+</map>

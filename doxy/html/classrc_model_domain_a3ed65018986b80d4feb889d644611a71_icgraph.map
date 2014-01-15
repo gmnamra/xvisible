@@ -1,0 +1,10 @@
+<map id="rcModelDomain::notifyCursorTime" name="rcModelDomain::notifyCursorTime">
+<area shape="rect" id="node2" href="$classrc_timeline.html#aeaaccfa10a612c29679497245a78cf87" title="rcTimeline::keyNavigateEvent" alt="" coords="277,5,475,33"/>
+<area shape="rect" id="node4" href="$classrc_timeline.html#a82ab1ac96dab1bfd044d01d83b333e24" title="rcTimeline::mouseMoveEvent" alt="" coords="278,57,474,85"/>
+<area shape="rect" id="node6" href="$classrc_timeline.html#a523bca4791c80ae8dd4a8124aabe2c40" title="rcTimeline::mouseRelease\lEvent" alt="" coords="287,109,465,153"/>
+<area shape="rect" id="node7" href="$classrc_timeline.html#a224a6014855d7d1c8e487985187588b9" title="rcTimeline::updateSettings" alt="" coords="287,177,465,205"/>
+<area shape="rect" id="node9" href="$classrc_timeline.html#ae1d325a5cc6be57427005e98c4b613c2" title="rcTimeline::updateState" alt="" coords="295,229,457,257"/>
+<area shape="rect" id="node3" href="$classrc_timeline.html#a54f33ca884fce920f42c3643c305d341" title="rcTimeline::keyPressEvent" alt="" coords="532,5,711,33"/>
+<area shape="rect" id="node5" href="$classrc_timeline.html#a8a5755070cda22ee7307093bb95f5824" title="rcTimeline::mousePressEvent" alt="" coords="522,57,720,85"/>
+<area shape="rect" id="node8" href="$classrc_timeline.html#a2c00780677d2ffdaf294ec1b830c4da9" title="rcTimeline::rcTimeline" alt="" coords="546,202,697,230"/>
+</map>

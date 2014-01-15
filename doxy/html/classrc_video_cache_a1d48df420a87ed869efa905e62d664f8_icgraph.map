@@ -1,0 +1,16 @@
+<map id="rcVideoCache::cacheUnlock" name="rcVideoCache::cacheUnlock">
+<area shape="rect" id="node2" href="$classrc_shared_frame_buf_ptr.html#a30c0a06c7d1834be21ecc2e2dabfa109" title="rcSharedFrameBufPtr\l::internalUnlock" alt="" coords="243,73,394,117"/>
+<area shape="rect" id="node3" href="$classrc_shared_frame_buf_ptr.html#a96929f97d48f28c5f21aed02e75ef889" title="rcSharedFrameBufPtr\l::operator=" alt="" coords="451,5,602,49"/>
+<area shape="rect" id="node4" href="$classrc_shared_frame_buf_ptr.html#a7139d46af60fdd793ab17817824568c3" title="rcSharedFrameBufPtr\l::unlock" alt="" coords="451,73,602,117"/>
+<area shape="rect" id="node15" href="$classrc_shared_frame_buf_ptr.html#aee7264919c0a92ab400c7a0eefcd2146" title="rcSharedFrameBufPtr\l::~rcSharedFrameBufPtr" alt="" coords="444,141,610,185"/>
+<area shape="rect" id="node5" href="$classrc_similarator.html#afc32d63dc053c8180fa96ca34a3202ea" title="rcSimilarator::internalUpdate" alt="" coords="660,81,850,109"/>
+<area shape="rect" id="node6" href="$classrc_similarator.html#a778a5f9764b8b49df3ded912bafbfcaf" title="rcSimilarator::update" alt="" coords="898,81,1043,109"/>
+<area shape="rect" id="node7" href="$rc__kineticimage_8h.html#a37fdff5165799a39ff0e7807bf05a1a3" title="calcMusclePeriod" alt="" coords="1101,19,1227,47"/>
+<area shape="rect" id="node11" href="$classrc_muscle_segmenter.html#ab797a355a4e18e94b3e482fbbff932ea" title="rcMuscleSegmenter::\lgetEMI" alt="" coords="1090,73,1238,117"/>
+<area shape="rect" id="node14" href="$rc__kineticimage_8h.html#a74f16cb8db93e0991685b7e04ac2d18d" title="segPointByEnergy" alt="" coords="1098,141,1230,169"/>
+<area shape="rect" id="node8" href="$classrc_muscle_segmenter.html#a61c65559f55fd9fa632b96e09ef50b2e" title="rcMuscleSegmenter::\lgenFrequencySegmentation" alt="" coords="1286,7,1474,51"/>
+<area shape="rect" id="node9" href="$classrc_muscle_segmenter.html#a660d7b3d1c240efa0b725e0db65154e3" title="rcMuscleSegmenter::\lfilterByActivity" alt="" coords="1522,7,1670,51"/>
+<area shape="rect" id="node10" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1718,50,1911,78"/>
+<area shape="rect" id="node12" href="$classrc_muscle_segmenter.html#a248fccb8fc46afa10c1a0a0cb240e72a" title="rcMuscleSegmenter::\lgenSpatialSegmentation" alt="" coords="1297,75,1463,119"/>
+<area shape="rect" id="node13" href="$classrc_muscle_segmenter.html#a86d108c38d0bcb7a7eb47021b7ab0308" title="rcMuscleSegmenter::\lsegment" alt="" coords="1522,75,1670,119"/>
+</map>

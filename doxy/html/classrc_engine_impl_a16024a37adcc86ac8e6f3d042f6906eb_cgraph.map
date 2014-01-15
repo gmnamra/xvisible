@@ -1,0 +1,13 @@
+<map id="rcEngineImpl::produceMuscleDebugResults" name="rcEngineImpl::produceMuscleDebugResults">
+<area shape="rect" id="node2" href="$classrc_muscle_segmenter.html#a436d92308ce8d7b7092fabdd96b8d689" title="rcMuscleSegmenter::\lrejectRange" alt="" coords="282,123,430,167"/>
+<area shape="rect" id="node3" href="$rc__polygon_8cpp.html#a06948955956b9284b296503566aea6d7" title="rfPolygonToSegmentsCollection" alt="" coords="251,191,461,219"/>
+<area shape="rect" id="node4" href="$classrc_polygon.html#a0a8c11eb20dc1d4c721199adf34887af" title="rcPolygon::centerOf" alt="" coords="558,62,698,90"/>
+<area shape="rect" id="node5" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="813,23,912,51"/>
+<area shape="rect" id="node6" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="813,87,912,115"/>
+<area shape="rect" id="node7" href="$classrc_rectangle.html#abe44205fccdffe80fbfdd4de79b406dc" title="rcRectangle::height" alt="" coords="795,164,931,192"/>
+<area shape="rect" id="node8" href="$classrc_polygon.html#a3b329b2284d10654a83d0c856bbd7db3" title="rcPolygon::orthogonalEnclosingRect" alt="" coords="510,216,746,244"/>
+<area shape="rect" id="node10" href="$classrc_rectangle.html#a37c8043dcda3dc1076e57c4a1c219263" title="rcRectangle::width" alt="" coords="797,268,928,296"/>
+<area shape="rect" id="node11" href="$classrc_polygon.html#a029d9a2ae49f52dedd12c650a2ba628d" title="rcPolygon::vertexAt" alt="" coords="560,320,696,348"/>
+<area shape="rect" id="node12" href="$classrc_polygon.html#a41869bd1a096e2b77d7304242e2c1e1e" title="rcPolygon::vertexCnt" alt="" coords="555,372,701,400"/>
+<area shape="rect" id="node9" href="$classrc_rectangle.html#a503fad35feaa849fc21d0c5895cf9b63" title="rcRectangle::ul" alt="" coords="808,216,918,244"/>
+</map>

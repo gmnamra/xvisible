@@ -1,0 +1,8 @@
+<map id="rcKinetoscope::isWithin" name="rcKinetoscope::isWithin">
+<area shape="rect" id="node2" href="$classrc_rectangle.html#ad69317345e356a2e6f70362c50dd543d" title="rcRectangle::contains" alt="" coords="215,57,364,85"/>
+<area shape="rect" id="node3" href="$classrc_rectangle.html#a503fad35feaa849fc21d0c5895cf9b63" title="rcRectangle::ul" alt="" coords="414,5,524,33"/>
+<area shape="rect" id="node5" href="$classrc_rectangle.html#a26a3c3d069b38d7a2e57c7e0c765c82a" title="rcRectangle::translate" alt="" coords="214,109,365,137"/>
+<area shape="rect" id="node4" href="$classrc_rectangle.html#aad573ed10aad598b8ca0a6a351fbe72f" title="rcRectangle::lr" alt="" coords="416,57,523,85"/>
+<area shape="rect" id="node6" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="434,109,504,137"/>
+<area shape="rect" id="node7" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="434,161,504,189"/>
+</map>

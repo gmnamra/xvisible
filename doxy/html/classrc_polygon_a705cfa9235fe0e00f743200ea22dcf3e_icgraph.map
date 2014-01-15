@@ -1,0 +1,12 @@
+<map id="rcPolygon::perimeter" name="rcPolygon::perimeter">
+<area shape="rect" id="node2" href="$classrc_polygon.html#a431db120e3a0da5b3c5521f0f2be07fc" title="rcPolygon::circularity" alt="" coords="208,5,352,33"/>
+<area shape="rect" id="node5" href="$classrc_visual_function.html#a60c456dafac1e2842e1356274b928a08" title="rcVisualFunction::update" alt="" coords="416,57,584,85"/>
+<area shape="rect" id="node6" href="$classrc_polygon.html#a57c6415d5f35d5516fe75b2c623ac340" title="rcPolygon::ellipseRatio" alt="" coords="202,109,358,137"/>
+<area shape="rect" id="node9" href="$classrc_shape.html#a82b0967ec378cc747feff8a833c7196f" title="rcShape::needPerimeter" alt="" coords="197,161,363,189"/>
+<area shape="rect" id="node11" href="$rc__polygon_8cpp.html#a88bcd24ac2562a88e7585b3e18784ea7" title="operator\&lt;\&lt;" alt="" coords="237,213,323,241"/>
+<area shape="rect" id="node3" href="$classrc_shape.html#ab5b1c04b05f84241d5ec01ecb0eb01e8" title="rcShape::needCircularity" alt="" coords="416,5,584,33"/>
+<area shape="rect" id="node4" href="$classrc_shape.html#aaafce55ccd515ba96813d0f18830bd1c" title="rcShape::circularity" alt="" coords="643,5,778,33"/>
+<area shape="rect" id="node7" href="$classrc_shape.html#a06e0b3d01387e2b8512a3386d5e5645b" title="rcShape::needEllipseRatio" alt="" coords="411,109,589,137"/>
+<area shape="rect" id="node8" href="$classrc_shape.html#abaf9aff51b6ab713ce8e6f98bc4495cf" title="rcShape::ellipseRatio" alt="" coords="637,109,784,137"/>
+<area shape="rect" id="node10" href="$classrc_shape.html#a07529531aea65474351f3870b2c9e88c" title="rcShape::perimeter" alt="" coords="433,161,567,189"/>
+</map>

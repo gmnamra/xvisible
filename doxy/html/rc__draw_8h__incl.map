@@ -1,0 +1,24 @@
+<map id="include/visual/rc_draw.h" name="include/visual/rc_draw.h">
+<area shape="rect" id="node3" href="$rc__types_8h.html" title="rc_types.h" alt="" coords="1059,795,1141,823"/>
+<area shape="rect" id="node8" href="$rc__window_8h.html" title="rc_window.h" alt="" coords="473,315,567,343"/>
+<area shape="rect" id="node32" href="$rc__polygon_8h.html" title="rc_polygon.h" alt="" coords="1043,83,1140,111"/>
+<area shape="rect" id="node33" href="$rc__affine_8h.html" title="rc_affine.h" alt="" coords="854,161,937,189"/>
+<area shape="rect" id="node6" href="$rc__platform_8h.html" title="rc_platform.h" alt="" coords="888,873,987,901"/>
+<area shape="rect" id="node9" href="$rc__framebuf_8h.html" title="rc_framebuf.h" alt="" coords="302,641,404,669"/>
+<area shape="rect" id="node17" href="$rc__rect_8h.html" title="rc_rect.h" alt="" coords="771,401,844,429"/>
+<area shape="rect" id="node10" href="$rc__timestamp_8h.html" title="rc_timestamp.h" alt="" coords="93,718,205,746"/>
+<area shape="rect" id="node13" href="$rc__thread_8h.html" title="rc_thread.h" alt="" coords="460,718,548,746"/>
+<area shape="rect" id="node15" href="$rc__macro_8h.html" title="rc_macro.h" alt="" coords="572,718,660,746"/>
+<area shape="rect" id="node18" href="$rc__rectangle_8h.html" title="rc_rectangle.h" alt="" coords="752,563,857,591"/>
+<area shape="rect" id="node19" href="$rc__pair_8h.html" title="rc_pair.h" alt="" coords="1004,718,1076,746"/>
+<area shape="rect" id="node20" href="$rc__vector2d_8h.html" title="rc_vector2d.h" alt="" coords="984,641,1085,669"/>
+<area shape="rect" id="node21" href="$rc__exception_8h.html" title="rc_exception.h" alt="" coords="770,718,877,746"/>
+<area shape="rect" id="node24" href="$rc__math_8h.html" title="rc_math.h" alt="" coords="1301,718,1381,746"/>
+<area shape="rect" id="node25" href="$rc__limits_8h.html" title="rc_limits.h" alt="" coords="1347,795,1428,823"/>
+<area shape="rect" id="node34" href="$rc__xforms_8h.html" title="rc_xforms.h" alt="" coords="1291,486,1381,514"/>
+<area shape="rect" id="node37" href="$rc__graphics_8h.html" title="rc_graphics.h" alt="" coords="757,238,859,266"/>
+<area shape="rect" id="node40" href="$rc__polygon__edge_8h.html" title="rc_polygon_edge.h" alt="" coords="1089,161,1223,189"/>
+<area shape="rect" id="node35" href="$rc__matrix_8h.html" title="rc_matrix.h" alt="" coords="1192,563,1279,591"/>
+<area shape="rect" id="node38" href="$rc__style_8h.html" title="rc_style.h" alt="" coords="979,315,1057,343"/>
+<area shape="rect" id="node39" href="$rc__line_8h.html" title="rc_line.h" alt="" coords="1199,401,1269,429"/>
+</map>

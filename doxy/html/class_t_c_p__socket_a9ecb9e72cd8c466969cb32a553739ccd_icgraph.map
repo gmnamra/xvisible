@@ -1,0 +1,6 @@
+<map id="TCP_socket::send" name="TCP_socket::send">
+<area shape="rect" id="node2" href="$class_t_c_p__connection__data.html#a3af1620d1ec5c6a66f407f82c004d030" title="TCP_connection_data\l::send" alt="" coords="186,5,339,49"/>
+<area shape="rect" id="node4" href="$class_t_c_p__client__data.html#a3f05f06c99a02da27bb79aedab339c13" title="TCP_client_data::send" alt="" coords="185,73,341,101"/>
+<area shape="rect" id="node3" href="$class_t_c_p__connection.html#a1dd3d31e97343a77fe80b103b278e8e0" title="TCP_connection::send" alt="" coords="390,13,546,41"/>
+<area shape="rect" id="node5" href="$class_t_c_p__client.html#a908824784778da9ec7f4a9da2b1219a9" title="TCP_client::send" alt="" coords="407,73,529,101"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classerror__handler__fatal__error.html" title="error_handler_fatal\l_error" alt="" coords="168,5,302,49"/>
+<area shape="rect" id="node3" href="$classerror__handler__format__error.html" title="error_handler_format\l_error" alt="" coords="161,73,308,117"/>
+<area shape="rect" id="node4" href="$classerror__handler__id__error.html" title="error_handler_id_error" alt="" coords="157,141,312,169"/>
+<area shape="rect" id="node5" href="$classerror__handler__limit__error.html" title="error_handler_limit\l_error" alt="" coords="168,193,301,237"/>
+<area shape="rect" id="node6" href="$classerror__handler__read__error.html" title="error_handler_read\l_error" alt="" coords="167,261,302,305"/>
+<area shape="rect" id="node7" href="$classpersistent__dump__failed.html" title="persistent_dump_failed" alt="" coords="155,329,314,357"/>
+<area shape="rect" id="node8" href="$classpersistent__restore__failed.html" title="persistent_restore\l_failed" alt="" coords="171,381,299,425"/>
+</map>
