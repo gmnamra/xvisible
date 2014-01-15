@@ -83,10 +83,10 @@ bool rfIsPowerOf2 (uint32);
 template <class T>
 inline T rfSqr(T x) {return x*x;}
 
-inline bool rfRealEq(double x,double y,double epsilon = 1.e-15  )
+inline bool real_equal(double x,double y,double epsilon = 1.e-15  )
 {return rmABS (x - y) <= epsilon;}
 
-inline bool rfRealEq(float x,float y,float epsilon = 1.e-10  )
+inline bool real_equal(float x,float y,float epsilon = 1.e-10  )
 {return rmABS (x - y) <= epsilon;}
 
 template<class T>
@@ -257,7 +257,7 @@ public:
   rcRadian normSigned () const;	// result range is [-PI, PI)
 };
 
-bool rfRealEq (rcRadian x, rcRadian y, rcRadian epsilon = rcRadian(1.e-15));
+bool real_equal (rcRadian x, rcRadian y, rcRadian epsilon = rcRadian(1.e-15));
 
 class rcDegree
 {

@@ -86,8 +86,8 @@ public:
    /*
     * effect   Returns the vector length.
     */
-   bool isNull() const { return ((rfRealEq (mX[0], 0)) && (rfRealEq (mX[1], 0)));}
-   bool isLenNull() const { return rfRealEq (len(), 0); }
+   bool isNull() const { return ((real_equal (mX[0], 0)) && (real_equal (mX[1], 0)));}
+   bool isLenNull() const { return real_equal (len(), 0); }
 
 
    T& operator [] (int d)       {assert(d >= 0 && d < 2); return mX[d];}
