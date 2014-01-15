@@ -14,6 +14,8 @@
 // Rectangle geometry class
 // It is drived from the template class rcRectangle.
 
+
+
 class rcRect : public rcIRect
 {
 public:
@@ -26,12 +28,6 @@ public:
   rcRect( const rcIRect& other)
     : rcIRect (other) {}
 
-#ifdef rcQUICKTIME_RECT_COMPATIBILITY            
-    // Construct our Rect from QuickDraw/Time's Rect
-  rcRect(Rect bounds)
-    : rcIRect (bounds.left, bounds.top, (bounds.right - bounds.left), (bounds.bottom - bounds.top)) {}
-#endif
-    
     // Accessors
   int32 x() const { return mUpperLeft.x(); }
   int32 y() const { return mUpperLeft.y(); }
@@ -39,13 +35,6 @@ public:
   // Emptiness test
   bool empty() const { return isNull (); }
 
-#ifdef rcQUICKTIME_RECT_COMPATIBILITY        
-    void bound (Rect& bounds) const {
-      bounds.right = short (x() + width());
-      bounds.top = short (y() + height());
-      bounds.left = short (x());
-      bounds.bottom = short (y() + height()); }
-#endif
     
     // Legacy Mutators: Use rcRectangle Instead
     int32 setX( int32 x ) { mUpperLeft.x() = x; return x; }

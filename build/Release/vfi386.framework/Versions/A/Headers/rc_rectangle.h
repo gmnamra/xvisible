@@ -60,9 +60,12 @@
 #include <rc_types.h>
 #include <rc_vector2d.h>
 #include <rc_math.h>
-#include<rc_exception.h>
+#include <rc_exception.h>
 #include <deque>
+
+
 using namespace std;
+
 
 // Rectangle Class
 // There are 2 uncoverntional operator overloads: & and | for intersect and enclose member functions
@@ -104,6 +107,7 @@ public:
          Makes this rectangle the minimum enclosing rectangle
 	       of the indicated two points.
   */
+
 
   /* default copy ctor, assignment, dtor OK */
 

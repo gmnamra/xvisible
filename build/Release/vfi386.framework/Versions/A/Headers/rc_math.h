@@ -83,11 +83,24 @@ bool rfIsPowerOf2 (uint32);
 template <class T>
 inline T rfSqr(T x) {return x*x;}
 
-inline bool rfRealEq(double x,double y,double epsilon = 1.e-15  )
-{return rmABS (x - y) <= epsilon;}
+/** \brief Check if val1 and val2 are equals to an epsilon extent
+ * \param[in] val1 first number to check
+ * \param[in] val2 second number to check
+ * \param[in] eps epsilon
+ * \return true if val1 is equal to val2, false otherwise.
+ */
+template<typename T> bool
+equal (T val1, T val2, T eps = std::numeric_limits<T>::epsilon() )
+{
+    return (fabs (val1 - val2) < eps);
+}
 
-inline bool rfRealEq(float x,float y,float epsilon = 1.e-10  )
-{return rmABS (x - y) <= epsilon;}
+inline bool real_equal(double x,double y,double epsilon = 1.e-15  )
+{return std::abs (x - y) <= epsilon;}
+
+inline bool real_equal(float x,float y,float epsilon = 1.e-10  )
+{return std::abs (x - y) <= epsilon;}
+
 
 template<class T>
 T rfSigmoid(T x)
@@ -257,7 +270,7 @@ public:
   rcRadian normSigned () const;	// result range is [-PI, PI)
 };
 
-bool rfRealEq (rcRadian x, rcRadian y, rcRadian epsilon = rcRadian(1.e-15));
+bool real_equal (rcRadian x, rcRadian y, rcRadian epsilon = rcRadian(1.e-15));
 
 class rcDegree
 {
