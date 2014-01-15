@@ -13,8 +13,7 @@
 #include <rc_analyzer.h>
 #include <rc_engine.h>
 #include <rc_writermanager.h>
-#include <rc_kinetoscope.h>
-#include <rc_visualtarget.h>
+
 
 // @note touch here when adding new tracking objects
 #include <map>
@@ -37,16 +36,7 @@ static const int cAnalysisACI = 1;
 static const int cAnalysisCellTracking = 2;
 static const int cAnalysisTemplateTracking = 3;
 
-// Cell type options
-static const int cAnalysisCellGeneral = rcOrganismInfo::eUnknown;
-static const int cAnalysisCellMuscle = rcOrganismInfo::eCardioMyocyte;
-static const int cAnalysisCellMuscleCalcium = rcOrganismInfo::eCardioMyocyteCalcium;
-static const int cAnalysisCellMuscleSelected = rcOrganismInfo::eCardioMyocyteSelected;
-static const int cAnalysisLabeledFluorescence = rcOrganismInfo::eProtein;
-static const int cAnalysisOrganismCell = rcOrganismInfo::eCell;
-static const int cAnalysisOrganismFluCluster = rcOrganismInfo::eFluorescenceCluster;
-static const int cAnalysisOrganismModel = rcOrganismInfo::eModel;
-static const int cAnalysisOrganismZf = rcOrganismInfo::eDanioRerio;
+
 
 static const int cAnalysisStatMean = 0;
 static const int cAnalysisStatMedian = 1;
@@ -127,11 +117,13 @@ typedef uint32 rcCellKey;
  *       running kinetoscope
  */
 
+#if 0
 // A class encapsulating the group and its writers for a cell
 class rcCellWriterGroup {
   public:
     // ctors
     rcCellWriterGroup();
+
     rcCellWriterGroup( rcWriterManager* manager, const rcVisualFunction& bfun, const rcRect& imageRect,
                        const rcRect& analysisRect, const rcTimestamp& trackStart,
                        const char* label);
@@ -139,7 +131,8 @@ class rcCellWriterGroup {
     rcCellWriterGroup( rcWriterManager* manager, const rcVisualTarget& bfun, const rcRect& imageRect,
                        const rcRect& analysisRect, const rcTimestamp& trackStart,
                        const char* label);
-	
+
+    
     // dtor
     ~rcCellWriterGroup();
 
@@ -182,7 +175,7 @@ class rcCellWriterGroupCollection {
     rcRect           mImageRect;     // Whole image rect
     rcRect           mAnalysisRect;  // Analysis area rect
 };
-
+#endif
 /******************************************************************************
 *  Class to encapsulate the state for each focus area
 ******************************************************************************/
@@ -282,7 +275,7 @@ private:
     rcGraphicsWriter*    mPlotterWriter;                   // Graphics for Plotting 1D signals
     rcVideoWriter*       mDevelopmentVideoWriter;          // Images for development and debugging
     rcGraphicsWriter*    mDevelopmentGraphicsWriter;       // Graphics for development and debugging
-    rcCellWriterGroupCollection* mCellWriters;             // Collection of individual cell result writers
+
     // Muscle cell demo writers
     rcScalarWriter*      mCellLengthWriter; // Cell length
     rcPositionWriter*    mCellBoundsWriter; // Cell bounds (edges)

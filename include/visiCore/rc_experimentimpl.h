@@ -15,13 +15,16 @@ using namespace std;
 #endif
 
 #include <rc_types.h>
-
+#include <rc_thread.h>
 #include <rc_setting.h>
 #include <rc_engine.h>
 #include <rc_model.h>
 #include <rc_movieconverter.h>
+#include <rc_framegrabber.h>
 
 #include "rc_trackgroupimpl.h"
+
+using namespace qtime;
 
 /******************************************************************************
 *	Constants

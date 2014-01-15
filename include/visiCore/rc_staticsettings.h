@@ -7,8 +7,8 @@
 //#define SLIDING_WINDOW_DURATION
 //#define CONTRACTION_DURATION
 
-#include <rc_capture.hpp>
-#include <rc_kinetoscope.h>
+    //#include <rc_capture.hpp>
+    //#include <rc_kinetoscope.h>
 
 // input mode constant definitions
 
@@ -164,25 +164,6 @@ static const rcSettingChoice statChoices[] =
     rcSettingChoice( 0 , 0 , 0 )
   };
 
-// Choices for analysis operations
-static const rcSettingChoice cellChoices[] = 
-  {
-#ifdef rc_build_option_general_cell
-    rcSettingChoice( cAnalysisCellGeneral, "General Organism", "General Organism" ),
-#endif rc_build_option_general_cell
-#ifdef rc_build_option_paced_myocyte
-    rcSettingChoice( cAnalysisCellMuscle, "Paced Cardiomyocyte", "Paced Cardiomyocyte"),
-    rcSettingChoice( cAnalysisCellMuscleSelected , "Selected Cardiomyocyte", "Selected Cardiomyocyte"),
-#endif rc_build_option_paced_myocyte
-#ifdef rc_build_option_general_fluorescence
-    rcSettingChoice( cAnalysisLabeledFluorescence, "Fluorescence Labled",  "Fluorescence Labled"),
-#endif rc_build_option_general_fluorescence
-#ifdef rc_build_option_new_development
-    rcSettingChoice( cAnalysisOrganismZf, "Blood Flow", "Magnitude and Direction"),
-#endif
-    //    rcSettingChoice( cAnalysisCellSmoothMuscle, "Smooth Muscle", "Smooth Muscle"),
-    rcSettingChoice( 0 , 0 , 0 )
-  };
 
 // Choices for ACI settings
 static const rcSettingChoice ACIOptions[] = 
@@ -262,10 +243,7 @@ static const rcSettingChoice channelChoices[] =
 //
 
 // ctor args for spinboxes
-static rcSpinBoxArgs cCameraFramerateArgs = { (1000/rcDEFAULT_FRAMES_PER_SEC), false, true, 0, 150 };
-//static rcSpinBoxArgs cMotionTargetSizeArgs = { 1, false, false, rcKinetoscopeParams::eMinMobSizeInPixels, 10000 };
-//static rcSpinBoxArgs cMotionMaxSpeedArgs = { 1, false, false, rcKinetoscopeParams::eMinSpeedInPixels, rcKinetoscopeParams::eMaxSpeedInPixels };
-
+static rcSpinBoxArgs cCameraFramerateArgs = { (1000/30), false, true, 0, 150 };
 
 
 static rcSpinBoxArgs cACIStepArgs = { 1, false, false, 1, 10};
@@ -541,15 +519,6 @@ static const rcSettingInfoSpec analysisSettings[] =
       slidingWindowOriginChoices, 4
     },
 #endif
-    {	// setting to select the analysis operation
-      cAnalysisCellTypeId,
-      "cell-type",
-      "Type ",
-      "Selects the assay type",
-      eMenuChoice,
-      0,
-      cellChoices, 5
-    },
     {	// setting to select the treatment object type
       cAnalysisObjectSettingId,
       "Enable ",

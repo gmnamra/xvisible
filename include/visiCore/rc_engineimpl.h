@@ -22,17 +22,15 @@
 #include <rc_imagegrabber.h>
 #include <rc_moviegrabber.h>
 #include <rc_reifymoviegrabber.h>
-#include <rc_qvideograbber.h>
 #include <rc_qtime.h>
-
-#include <rc_dcam_capture.h>
+    // #include <rc_dcam_capture.h>
 
 
 #include <rc_framebuf.h>
 #include <rc_moviefileformat.h>
 #include <rc_imageprocessing.h>
 #include <rc_gen_movie_file.h>
-#include <rc_capture.hpp>
+    // #include <rc_capture.hpp>
 #include <rc_persistencemanager.h>
 
 // Analysis
@@ -44,7 +42,7 @@
 #include <rc_ip.h>
 #include <rc_ipconvert.h>
 #include <rc_1dcorr.h>
-
+#include <rc_find.hpp>
 // Common
 #include <rc_systeminfo.h>
 #include <rc_setting.h>
@@ -55,8 +53,8 @@
 #include <rc_engineimplbase.h>
 #include <rc_timinginfo.h>
 
-#include "rc_engineimplcapture.h"
-#include "rc_engineimplsave.h"
+    //#include "rc_engineimplcapture.h"
+    //#include "rc_engineimplsave.h"
 #include "rc_engineimplplayback.h"
 #include "rc_featuredefs.h"
 #include "rc_staticsettings.h"
@@ -64,6 +62,8 @@
 #if WIN32
 using namespace std;
 #endif
+
+using namespace qtime;
 
 extern bool developerDebugging ();
 extern bool developerDebugging (bool);
@@ -359,13 +359,7 @@ protected:
                              uint32 missedFramesOnSave,
                              bool frameSaved );
 
-    // Produce cell-specific results
-    void produceCellResults( rcEngineFocusData* focus,
-                             rcKinetoscope& motionTracker,
-                             const rcRect& focusRect, const rcTimestamp& curTimeStamp,
-                             bool& firstCell );
-
-    void postTrackingResults( rcEngineFocusData* focus, rcFindList&, bool found,
+    void postTrackingResults( rcEngineFocusData* focus, rcLocation&, bool found,
                               const rcRect& focusRect, const rc2Xform& mx, const rcTimestamp& curTimeStamp, const rcVisualSegmentCollection& );
 
 	
@@ -514,9 +508,6 @@ protected:
 
     // Video capture/save specific
     rcThread*		  _captureThread;
-    rcEngineMovieCapture* _movieCapture;
-    rcVideoCaptureCtrl    _captureCtrl;
-    rcMovieSaveCtrl       _saveCtrl;
     rcAtomicValue<bool>   _firstFrameSaved;
     rcWriterGroup*        mPreviewWriterGroup; // Camera preview writer group
     rcScalarWriter*       mSlidingEnergyPreviewWriter; // Total sliding energy, camera preview
@@ -560,6 +551,7 @@ protected:
 	
     // Template to use @todo
     std::string _model2useAbsPathFileName;
+    rcIRect _rect2use;
     rcWindow _model2use;
     std::string _resourceFolderPath;
     std::string _installPath;

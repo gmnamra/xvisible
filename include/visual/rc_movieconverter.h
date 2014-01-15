@@ -10,11 +10,11 @@
 #ifndef _rcMOVIE_CONVERTER_H_
 #define _rcMOVIE_CONVERTER_H_
 
-#include <QuickTime/QuickTime.h>
-
 #include <rc_qtime.h>
 #include <rc_gen_movie_file.h>
 #include <rc_moviegrabber.h>
+
+    //using namespace qtime;
 
 enum rcMovieConverterError {
   eMovieConverterErrorOK = 0,

@@ -21,6 +21,8 @@
 #include <boost/tuple/tuple.hpp>
 #include <boost/dynamic_bitset.hpp>
 
+namespace qtime
+{
 using namespace std;
 class rcMovieFileCamExt;
 using namespace boost;
@@ -233,6 +235,7 @@ ostream& operator << ( ostream& os, const dcamCameraListStruct& cam );
 ostream& operator << ( ostream& os, const CameraCapabilitiesStruct& cap );
 
 
+}
 
 
 

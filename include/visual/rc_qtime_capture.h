@@ -8,8 +8,11 @@
 #include <rc_atomic.h>
 #include <rc_gen_capture.h>
 
+namespace qtime
+{
 class rcSharedMemoryUser;
 
 void rfQTVideoCapture(rcSharedMemoryUser& shMem);
+}
 
 #endif // _rcQTIME_CAPTURE_H_

@@ -22,6 +22,8 @@
 #include <vector>
 using namespace std;
 
+namespace qtime
+{
 //
 // Image Utilities
 //
@@ -41,7 +43,7 @@ OSErr rfMovieFileToRcWindow (vector <rcWindow>& images, const std::string& fileN
 void getPixelInfoFromImageDesc (ImageDescriptionHandle anImageDesc, rcPixel& pd,
                                 uint32& pixelFormat, bool& isGray, bool& isWhiteReversed,
                                 CTabHandle *ctb);
-OSErr getNextVideoSample( Movie theMovie, rcWindow& image, Media media, TimeValue fromTimePoint,
+    OSErr getNextVideoSample( ::Movie theMovie, rcWindow& image, ::Media media, ::TimeValue fromTimePoint,
                           bool reduceGrayTo8bit = FALSE );
 
 //
@@ -63,5 +65,7 @@ void rfImageNameSort( vector <std::string>& fileNames );
 OSErr ValidFSSpec(const FSSpec *spec);
 // Given a Posix file path, return a correspondng FSSpec
 FSSpec rfMakeFSSpecFromPosixPath(const char* file_name, bool isDirectory);
+}
+
 
 #endif // _rcQTIME_H_
