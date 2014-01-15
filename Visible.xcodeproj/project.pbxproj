@@ -10,6 +10,9 @@
 		C20F5F52131838C100E0EAC0 /* rc_persistencemanagerimpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20F5F4F131838C100E0EAC0 /* rc_persistencemanagerimpl.cpp */; };
 		C20F5F53131838C100E0EAC0 /* rc_setting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20F5F50131838C100E0EAC0 /* rc_setting.cpp */; };
 		C20F5F54131838C100E0EAC0 /* rc_value.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20F5F51131838C100E0EAC0 /* rc_value.cpp */; };
+		C22837FA1885AE11000CAB15 /* libopencv_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C22837F31885AE11000CAB15 /* libopencv_core.a */; };
+		C22837FF1885AE11000CAB15 /* libopencv_highgui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C22837F81885AE11000CAB15 /* libopencv_highgui.a */; };
+		C22838001885AE12000CAB15 /* libopencv_imgproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C22837F91885AE11000CAB15 /* libopencv_imgproc.a */; };
 		C2351D8E131364E30023D576 /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C245B0D7130F61140065941E /* vfi386_d.framework */; };
 		C238646F0F32BA0700423241 /* releasenotes.html in Resources */ = {isa = PBXBuildFile; fileRef = C23864410F32BA0600423241 /* releasenotes.html */; };
 		C23864700F32BA0700423241 /* visible.html in Resources */ = {isa = PBXBuildFile; fileRef = C23864420F32BA0600423241 /* visible.html */; };
@@ -186,12 +189,10 @@
 		C2EC98910F37845600E49E22 /* rc_csvexporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98500F37845400E49E22 /* rc_csvexporter.cpp */; };
 		C2EC98920F37845600E49E22 /* rc_engineimpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98510F37845400E49E22 /* rc_engineimpl.cpp */; };
 		C2EC98930F37845600E49E22 /* rc_engineimplbase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98520F37845400E49E22 /* rc_engineimplbase.cpp */; };
-		C2EC98940F37845600E49E22 /* rc_engineimplcapture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98530F37845400E49E22 /* rc_engineimplcapture.cpp */; };
 		C2EC98960F37845600E49E22 /* rc_engineimplcmdline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98550F37845400E49E22 /* rc_engineimplcmdline.cpp */; };
 		C2EC98970F37845600E49E22 /* rc_engineimplfocus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98560F37845400E49E22 /* rc_engineimplfocus.cpp */; };
 		C2EC98980F37845600E49E22 /* rc_engineimplload.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98570F37845400E49E22 /* rc_engineimplload.cpp */; };
 		C2EC989A0F37845600E49E22 /* rc_engineimplplayback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98590F37845400E49E22 /* rc_engineimplplayback.cpp */; };
-		C2EC989B0F37845600E49E22 /* rc_engineimplsave.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC985A0F37845400E49E22 /* rc_engineimplsave.cpp */; };
 		C2EC989C0F37845600E49E22 /* rc_engineimplsettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC985B0F37845400E49E22 /* rc_engineimplsettings.cpp */; };
 		C2EC989D0F37845600E49E22 /* rc_experimentdomainimpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC985C0F37845400E49E22 /* rc_experimentdomainimpl.cpp */; };
 		C2EC989E0F37845600E49E22 /* rc_experimentimpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC985D0F37845400E49E22 /* rc_experimentimpl.cpp */; };
@@ -385,6 +386,9 @@
 		C2224E1513026AF000A71A96 /* rc_dcam_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_dcam_main.cpp; sourceTree = "<group>"; };
 		C2224E1613026AF000A71A96 /* rc_movie_generator_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_movie_generator_main.cpp; sourceTree = "<group>"; };
 		C2224E1713026AF000A71A96 /* rc_qtime_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_qtime_main.cpp; sourceTree = "<group>"; };
+		C22837F31885AE11000CAB15 /* libopencv_core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_core.a; path = usr/local/OpenCV/lib/macosx/libopencv_core.a; sourceTree = "<group>"; };
+		C22837F81885AE11000CAB15 /* libopencv_highgui.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_highgui.a; path = usr/local/OpenCV/lib/macosx/libopencv_highgui.a; sourceTree = "<group>"; };
+		C22837F91885AE11000CAB15 /* libopencv_imgproc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_imgproc.a; path = usr/local/OpenCV/lib/macosx/libopencv_imgproc.a; sourceTree = "<group>"; };
 		C22DD1F113158BEF00801DE4 /* dcamInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dcamInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22DD1F313158BEF00801DE4 /* dcamInfo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dcamInfo-Info.plist"; sourceTree = "<group>"; };
 		C23864410F32BA0600423241 /* releasenotes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = releasenotes.html; sourceTree = "<group>"; };
@@ -690,7 +694,6 @@
 		C2B2ABD10F37F44900ECA6E1 /* test.pro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.pro; sourceTree = "<group>"; };
 		C2B8E96C187CCBF90060D961 /* libvf32_vf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvf32_vf.a; path = build/Release/libvf32_vf.a; sourceTree = "<group>"; };
 		C2B8E96E187CCC250060D961 /* vfi386.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386.framework; path = build/Release/vfi386.framework; sourceTree = "<group>"; };
-		C2B8EA21187F18070060D961 /* RCDCAM */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = RCDCAM; path = build/Debug/RCDCAM; sourceTree = "<group>"; };
 		C2B8EA24188102920060D961 /* vfi386_d.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386_d.framework; path = build/Debug/vfi386_d.framework; sourceTree = "<group>"; };
 		C2C301220F34FBAC0057B45E /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		C2C4466F0F3A61C400C2BDAE /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = examples/callback/main.cpp; sourceTree = "<group>"; };
@@ -920,6 +923,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C22837FA1885AE11000CAB15 /* libopencv_core.a in Frameworks */,
+				C22837FF1885AE11000CAB15 /* libopencv_highgui.a in Frameworks */,
+				C22838001885AE12000CAB15 /* libopencv_imgproc.a in Frameworks */,
 				C2B8EA26188103F20060D961 /* vfi386.framework in Frameworks */,
 				C29AFA8318404494005B0754 /* OpenGL.framework in Frameworks */,
 				C29AFA8618404494005B0754 /* PreferencePanes.framework in Frameworks */,
@@ -967,8 +973,10 @@
 		0867D691FE84028FC02AAC07 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C22837F31885AE11000CAB15 /* libopencv_core.a */,
+				C22837F81885AE11000CAB15 /* libopencv_highgui.a */,
+				C22837F91885AE11000CAB15 /* libopencv_imgproc.a */,
 				C2B8EA24188102920060D961 /* vfi386_d.framework */,
-				C2B8EA21187F18070060D961 /* RCDCAM */,
 				C2B8E96E187CCC250060D961 /* vfi386.framework */,
 				C2B8E96C187CCBF90060D961 /* libvf32_vf.a */,
 				C2850D3D131A1DDC002C8918 /* Visible-Info.plist */,
@@ -2500,12 +2508,10 @@
 				C2EC98910F37845600E49E22 /* rc_csvexporter.cpp in Sources */,
 				C2EC98920F37845600E49E22 /* rc_engineimpl.cpp in Sources */,
 				C2EC98930F37845600E49E22 /* rc_engineimplbase.cpp in Sources */,
-				C2EC98940F37845600E49E22 /* rc_engineimplcapture.cpp in Sources */,
 				C2EC98960F37845600E49E22 /* rc_engineimplcmdline.cpp in Sources */,
 				C2EC98970F37845600E49E22 /* rc_engineimplfocus.cpp in Sources */,
 				C2EC98980F37845600E49E22 /* rc_engineimplload.cpp in Sources */,
 				C2EC989A0F37845600E49E22 /* rc_engineimplplayback.cpp in Sources */,
-				C2EC989B0F37845600E49E22 /* rc_engineimplsave.cpp in Sources */,
 				C2EC989C0F37845600E49E22 /* rc_engineimplsettings.cpp in Sources */,
 				C2EC989D0F37845600E49E22 /* rc_experimentdomainimpl.cpp in Sources */,
 				C2EC989E0F37845600E49E22 /* rc_experimentimpl.cpp in Sources */,
@@ -2813,7 +2819,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/resources/visible/resources/Visible-Info.plist";
 				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks @loader_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = /Users/arman/gwc/visibleqt105/usr/local/OpenCV/lib/macosx;
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = (
@@ -2913,7 +2919,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/resources/visible/resources/Visible-Info.plist";
 				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks @loader_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = /Users/arman/gwc/visibleqt105/usr/local/OpenCV/lib/macosx;
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = (
