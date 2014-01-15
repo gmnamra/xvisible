@@ -78,7 +78,6 @@
 		C24B8C98183E62D30010E3C2 /* rc_peak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E460F21135D0046570D /* rc_peak.cpp */; };
 		C24B8C99183E62D30010E3C2 /* rc_polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E470F21135D0046570D /* rc_polygon.cpp */; };
 		C24B8C9A183E62D30010E3C2 /* rc_polygongroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E480F21135D0046570D /* rc_polygongroup.cpp */; };
-		C24B8C9B183E62D30010E3C2 /* rc_qvideograbber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E4E0F21135D0046570D /* rc_qvideograbber.cpp */; };
 		C24B8C9C183E62D30010E3C2 /* rc_reifymoviegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E4F0F21135D0046570D /* rc_reifymoviegrabber.cpp */; };
 		C24B8C9D183E62D30010E3C2 /* rc_style.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E500F21135D0046570D /* rc_style.cpp */; };
 		C24B8C9E183E62D30010E3C2 /* rc_tiff.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E510F21135D0046570D /* rc_tiff.cpp */; };
@@ -91,7 +90,6 @@
 		C24B8CA5183E62D30010E3C2 /* rc_qtime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E4C0F21135D0046570D /* rc_qtime.cpp */; };
 		C24B8CA6183E62D30010E3C2 /* avevar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D8B0F21135D0046570D /* avevar.cpp */; };
 		C24B8CA7183E62D30010E3C2 /* rc_analyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D970F21135D0046570D /* rc_analyzer.cpp */; };
-		C24B8CA8183E62D30010E3C2 /* rc_associate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D980F21135D0046570D /* rc_associate.cpp */; };
 		C24B8CA9183E62D30010E3C2 /* rc_chaincode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9A0F21135D0046570D /* rc_chaincode.cpp */; };
 		C24B8CAA183E62D30010E3C2 /* vbigdsp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DD30F21135D0046570D /* vbigdsp.cpp */; };
 		C24B8CAB183E62D30010E3C2 /* rc_connect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9C0F21135D0046570D /* rc_connect.cpp */; };
@@ -105,12 +103,9 @@
 		C24B8CB3183E62D30010E3C2 /* rc_median.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB30F21135D0046570D /* rc_median.cpp */; };
 		C24B8CB4183E62D30010E3C2 /* rc_moments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB40F21135D0046570D /* rc_moments.cpp */; };
 		C24B8CB5183E62D30010E3C2 /* rc_moreip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB50F21135D0046570D /* rc_moreip.cpp */; };
-		C24B8CB6183E62D30010E3C2 /* rc_muscletracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB90F21135D0046570D /* rc_muscletracker.cpp */; };
 		C24B8CB7183E62D30010E3C2 /* rc_pmcorr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DBB0F21135D0046570D /* rc_pmcorr.cpp */; };
-		C24B8CB8183E62D30010E3C2 /* rc_point_corr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DBD0F21135D0046570D /* rc_point_corr.cpp */; };
 		C24B8CB9183E62D30010E3C2 /* rc_rowfuncs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DC60F21135D0046570D /* rc_rowfuncs.cpp */; };
 		C24B8CBA183E62D30010E3C2 /* rc_seglevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DC70F21135D0046570D /* rc_seglevel.cpp */; };
-		C24B8CBB183E62D30010E3C2 /* rc_shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DC80F21135D0046570D /* rc_shape.cpp */; };
 		C24B8CBC183E62D30010E3C2 /* rc_similarity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DC90F21135D0046570D /* rc_similarity.cpp */; };
 		C24B8CBD183E62D30010E3C2 /* rc_tempdir.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A9A7800F2A636E00DA781F /* rc_tempdir.cpp */; };
 		C24B8CBE183E62D30010E3C2 /* rc_assemblyfcts_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DDD0F21135D0046570D /* rc_assemblyfcts_mac.cpp */; };
@@ -272,7 +267,6 @@
 		C24EA8561842FD0D00E88B0A /* rc_affine.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5A0F21135D0046570D /* rc_affine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C24EA8571842FD0D00E88B0A /* rc_affinewindow.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5B0F21135D0046570D /* rc_affinewindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C24EA8581842FD0D00E88B0A /* rc_cubic_generators.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5D0F21135D0046570D /* rc_cubic_generators.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C24EA8591842FD0D00E88B0A /* rc_dcam_capture.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5E0F21135D0046570D /* rc_dcam_capture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C24EA85A1842FD0D00E88B0A /* rc_def_generators.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5F0F21135D0046570D /* rc_def_generators.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C24EA85B1842FD0D00E88B0A /* rc_draw.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D600F21135D0046570D /* rc_draw.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C24EA85C1842FD0D00E88B0A /* rc_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D610F21135D0046570D /* rc_edge.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -299,7 +293,6 @@
 		C24EA8711842FD0D00E88B0A /* rc_polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D770F21135D0046570D /* rc_polygon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C24EA8721842FD0D00E88B0A /* rc_polygon_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D780F21135D0046570D /* rc_polygon_edge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C24EA8731842FD0D00E88B0A /* rc_polygongroup.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D790F21135D0046570D /* rc_polygongroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C24EA8741842FD0D00E88B0A /* rc_qvideograbber.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D7D0F21135D0046570D /* rc_qvideograbber.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C24EA8751842FD0D00E88B0A /* rc_rect.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D7E0F21135D0046570D /* rc_rect.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C24EA8761842FD0D00E88B0A /* rc_reifymoviegrabber.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D7F0F21135D0046570D /* rc_reifymoviegrabber.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C24EA8771842FD0D00E88B0A /* rc_style.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D800F21135D0046570D /* rc_style.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -409,7 +402,6 @@
 		C24EA8E31842FD0D00E88B0A /* rc_peak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E460F21135D0046570D /* rc_peak.cpp */; };
 		C24EA8E41842FD0D00E88B0A /* rc_polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E470F21135D0046570D /* rc_polygon.cpp */; };
 		C24EA8E51842FD0D00E88B0A /* rc_polygongroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E480F21135D0046570D /* rc_polygongroup.cpp */; };
-		C24EA8E61842FD0D00E88B0A /* rc_qvideograbber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E4E0F21135D0046570D /* rc_qvideograbber.cpp */; };
 		C24EA8E71842FD0D00E88B0A /* rc_reifymoviegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E4F0F21135D0046570D /* rc_reifymoviegrabber.cpp */; };
 		C24EA8E81842FD0D00E88B0A /* rc_style.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E500F21135D0046570D /* rc_style.cpp */; };
 		C24EA8E91842FD0D00E88B0A /* rc_tiff.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E510F21135D0046570D /* rc_tiff.cpp */; };
@@ -422,7 +414,6 @@
 		C24EA8F01842FD0D00E88B0A /* rc_qtime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E4C0F21135D0046570D /* rc_qtime.cpp */; };
 		C24EA8F11842FD0D00E88B0A /* avevar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D8B0F21135D0046570D /* avevar.cpp */; };
 		C24EA8F21842FD0D00E88B0A /* rc_analyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D970F21135D0046570D /* rc_analyzer.cpp */; };
-		C24EA8F31842FD0D00E88B0A /* rc_associate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D980F21135D0046570D /* rc_associate.cpp */; };
 		C24EA8F41842FD0D00E88B0A /* rc_chaincode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9A0F21135D0046570D /* rc_chaincode.cpp */; };
 		C24EA8F51842FD0D00E88B0A /* vbigdsp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DD30F21135D0046570D /* vbigdsp.cpp */; };
 		C24EA8F61842FD0D00E88B0A /* rc_connect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9C0F21135D0046570D /* rc_connect.cpp */; };
@@ -436,12 +427,9 @@
 		C24EA8FE1842FD0D00E88B0A /* rc_median.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB30F21135D0046570D /* rc_median.cpp */; };
 		C24EA8FF1842FD0D00E88B0A /* rc_moments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB40F21135D0046570D /* rc_moments.cpp */; };
 		C24EA9001842FD0D00E88B0A /* rc_moreip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB50F21135D0046570D /* rc_moreip.cpp */; };
-		C24EA9011842FD0D00E88B0A /* rc_muscletracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB90F21135D0046570D /* rc_muscletracker.cpp */; };
 		C24EA9021842FD0D00E88B0A /* rc_pmcorr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DBB0F21135D0046570D /* rc_pmcorr.cpp */; };
-		C24EA9031842FD0D00E88B0A /* rc_point_corr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DBD0F21135D0046570D /* rc_point_corr.cpp */; };
 		C24EA9041842FD0D00E88B0A /* rc_rowfuncs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DC60F21135D0046570D /* rc_rowfuncs.cpp */; };
 		C24EA9051842FD0D00E88B0A /* rc_seglevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DC70F21135D0046570D /* rc_seglevel.cpp */; };
-		C24EA9061842FD0D00E88B0A /* rc_shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DC80F21135D0046570D /* rc_shape.cpp */; };
 		C24EA9071842FD0D00E88B0A /* rc_similarity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DC90F21135D0046570D /* rc_similarity.cpp */; };
 		C24EA9081842FD0D00E88B0A /* rc_tempdir.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A9A7800F2A636E00DA781F /* rc_tempdir.cpp */; };
 		C24EA9091842FD0D00E88B0A /* rc_assemblyfcts_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DDD0F21135D0046570D /* rc_assemblyfcts_mac.cpp */; };
@@ -637,7 +625,6 @@
 		C26F9F180F21135D0046570D /* rc_affine.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5A0F21135D0046570D /* rc_affine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C26F9F190F21135D0046570D /* rc_affinewindow.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5B0F21135D0046570D /* rc_affinewindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C26F9F1B0F21135D0046570D /* rc_cubic_generators.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5D0F21135D0046570D /* rc_cubic_generators.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C26F9F1C0F21135D0046570D /* rc_dcam_capture.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5E0F21135D0046570D /* rc_dcam_capture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C26F9F1D0F21135D0046570D /* rc_def_generators.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5F0F21135D0046570D /* rc_def_generators.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C26F9F1E0F21135D0046570D /* rc_draw.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D600F21135D0046570D /* rc_draw.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C26F9F1F0F21135D0046570D /* rc_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D610F21135D0046570D /* rc_edge.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -664,7 +651,6 @@
 		C26F9F350F21135D0046570D /* rc_polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D770F21135D0046570D /* rc_polygon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C26F9F360F21135D0046570D /* rc_polygon_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D780F21135D0046570D /* rc_polygon_edge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C26F9F370F21135D0046570D /* rc_polygongroup.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D790F21135D0046570D /* rc_polygongroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C26F9F3B0F21135D0046570D /* rc_qvideograbber.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D7D0F21135D0046570D /* rc_qvideograbber.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C26F9F3C0F21135D0046570D /* rc_rect.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D7E0F21135D0046570D /* rc_rect.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C26F9F3D0F21135D0046570D /* rc_reifymoviegrabber.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D7F0F21135D0046570D /* rc_reifymoviegrabber.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C26F9F3E0F21135D0046570D /* rc_style.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D800F21135D0046570D /* rc_style.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -692,7 +678,6 @@
 		C26F9FFC0F21135D0046570D /* rc_peak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E460F21135D0046570D /* rc_peak.cpp */; };
 		C26F9FFD0F21135D0046570D /* rc_polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E470F21135D0046570D /* rc_polygon.cpp */; };
 		C26F9FFE0F21135D0046570D /* rc_polygongroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E480F21135D0046570D /* rc_polygongroup.cpp */; };
-		C26FA0040F21135D0046570D /* rc_qvideograbber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E4E0F21135D0046570D /* rc_qvideograbber.cpp */; };
 		C26FA0050F21135D0046570D /* rc_reifymoviegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E4F0F21135D0046570D /* rc_reifymoviegrabber.cpp */; };
 		C26FA0060F21135D0046570D /* rc_style.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E500F21135D0046570D /* rc_style.cpp */; };
 		C26FA0070F21135D0046570D /* rc_tiff.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E510F21135D0046570D /* rc_tiff.cpp */; };
@@ -764,10 +749,19 @@
 		C2B8EA19187E4E620060D961 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA04E0F212E170046570D /* QuickTime.framework */; };
 		C2B8EA1F187E526B0060D961 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EA1E187E526B0060D961 /* gtest-all.cc */; };
 		C2B8EA20187E548E0060D961 /* libvf32_dvf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C24B8D0C183E62D30010E3C2 /* libvf32_dvf.a */; };
+		C2B8EA2918846B420060D961 /* rc_find.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EA2818846B410060D961 /* rc_find.cpp */; };
+		C2B8EA2B18846EA80060D961 /* rc_find.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EA2818846B410060D961 /* rc_find.cpp */; };
+		C2B8EA2C18846EA90060D961 /* rc_find.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EA2818846B410060D961 /* rc_find.cpp */; };
+		C2B8EA3D1884AA800060D961 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B8EA3C1884AA800060D961 /* libz.dylib */; };
+		C2B8EA471884BA690060D961 /* libopencv_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B8EA401884BA690060D961 /* libopencv_core.a */; };
+		C2B8EA4C1884BA690060D961 /* libopencv_highgui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B8EA451884BA690060D961 /* libopencv_highgui.a */; };
+		C2B8EA4D1884BA690060D961 /* libopencv_imgproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B8EA461884BA690060D961 /* libopencv_imgproc.a */; };
+		C2B8EA4E1884BA9C0060D961 /* libopencv_core.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2B8EA401884BA690060D961 /* libopencv_core.a */; };
+		C2B8EA531884BA9C0060D961 /* libopencv_highgui.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2B8EA451884BA690060D961 /* libopencv_highgui.a */; };
+		C2B8EA541884BA9C0060D961 /* libopencv_imgproc.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2B8EA461884BA690060D961 /* libopencv_imgproc.a */; };
 		C2EC976F0F37838200E49E22 /* avevar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D8B0F21135D0046570D /* avevar.cpp */; };
 		C2EC97700F37838200E49E22 /* blitz.txt in Resources */ = {isa = PBXBuildFile; fileRef = C26F9D8C0F21135D0046570D /* blitz.txt */; };
 		C2EC977B0F37838200E49E22 /* rc_analyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D970F21135D0046570D /* rc_analyzer.cpp */; };
-		C2EC977C0F37838200E49E22 /* rc_associate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D980F21135D0046570D /* rc_associate.cpp */; };
 		C2EC977E0F37838200E49E22 /* rc_chaincode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9A0F21135D0046570D /* rc_chaincode.cpp */; };
 		C2EC977F0F37838200E49E22 /* rc_chaincode.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D9B0F21135D0046570D /* rc_chaincode.h */; };
 		C2EC97800F37838200E49E22 /* rc_connect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9C0F21135D0046570D /* rc_connect.cpp */; };
@@ -781,13 +775,10 @@
 		C2EC97970F37838200E49E22 /* rc_median.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB30F21135D0046570D /* rc_median.cpp */; };
 		C2EC97980F37838200E49E22 /* rc_moments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB40F21135D0046570D /* rc_moments.cpp */; };
 		C2EC97990F37838200E49E22 /* rc_moreip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB50F21135D0046570D /* rc_moreip.cpp */; };
-		C2EC979D0F37838200E49E22 /* rc_muscletracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB90F21135D0046570D /* rc_muscletracker.cpp */; };
 		C2EC979F0F37838200E49E22 /* rc_pmcorr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DBB0F21135D0046570D /* rc_pmcorr.cpp */; };
 		C2EC97A00F37838200E49E22 /* rc_pmcorr.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9DBC0F21135D0046570D /* rc_pmcorr.h */; };
-		C2EC97A10F37838200E49E22 /* rc_point_corr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DBD0F21135D0046570D /* rc_point_corr.cpp */; };
 		C2EC97AA0F37838200E49E22 /* rc_rowfuncs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DC60F21135D0046570D /* rc_rowfuncs.cpp */; };
 		C2EC97AB0F37838200E49E22 /* rc_seglevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DC70F21135D0046570D /* rc_seglevel.cpp */; };
-		C2EC97AC0F37838200E49E22 /* rc_shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DC80F21135D0046570D /* rc_shape.cpp */; };
 		C2EC97AD0F37838200E49E22 /* rc_similarity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DC90F21135D0046570D /* rc_similarity.cpp */; };
 		C2EC97C80F37839900E49E22 /* rc_tempdir.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A9A7800F2A636E00DA781F /* rc_tempdir.cpp */; };
 		C2EC97CC0F37839900E49E22 /* rc_assemblyfcts_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DDD0F21135D0046570D /* rc_assemblyfcts_mac.cpp */; };
@@ -891,7 +882,6 @@
 		C2EC9C00183E692A00AC3300 /* rc_peak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E460F21135D0046570D /* rc_peak.cpp */; };
 		C2EC9C01183E692A00AC3300 /* rc_polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E470F21135D0046570D /* rc_polygon.cpp */; };
 		C2EC9C02183E692A00AC3300 /* rc_polygongroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E480F21135D0046570D /* rc_polygongroup.cpp */; };
-		C2EC9C03183E692A00AC3300 /* rc_qvideograbber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E4E0F21135D0046570D /* rc_qvideograbber.cpp */; };
 		C2EC9C04183E692A00AC3300 /* rc_reifymoviegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E4F0F21135D0046570D /* rc_reifymoviegrabber.cpp */; };
 		C2EC9C05183E692A00AC3300 /* rc_style.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E500F21135D0046570D /* rc_style.cpp */; };
 		C2EC9C06183E692A00AC3300 /* rc_tiff.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E510F21135D0046570D /* rc_tiff.cpp */; };
@@ -904,7 +894,6 @@
 		C2EC9C0D183E692A00AC3300 /* rc_qtime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E4C0F21135D0046570D /* rc_qtime.cpp */; };
 		C2EC9C0E183E692A00AC3300 /* avevar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D8B0F21135D0046570D /* avevar.cpp */; };
 		C2EC9C0F183E692A00AC3300 /* rc_analyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D970F21135D0046570D /* rc_analyzer.cpp */; };
-		C2EC9C10183E692A00AC3300 /* rc_associate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D980F21135D0046570D /* rc_associate.cpp */; };
 		C2EC9C11183E692A00AC3300 /* rc_chaincode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9A0F21135D0046570D /* rc_chaincode.cpp */; };
 		C2EC9C12183E692A00AC3300 /* vbigdsp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DD30F21135D0046570D /* vbigdsp.cpp */; };
 		C2EC9C13183E692A00AC3300 /* rc_connect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9C0F21135D0046570D /* rc_connect.cpp */; };
@@ -918,12 +907,9 @@
 		C2EC9C1B183E692A00AC3300 /* rc_median.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB30F21135D0046570D /* rc_median.cpp */; };
 		C2EC9C1C183E692A00AC3300 /* rc_moments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB40F21135D0046570D /* rc_moments.cpp */; };
 		C2EC9C1D183E692A00AC3300 /* rc_moreip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB50F21135D0046570D /* rc_moreip.cpp */; };
-		C2EC9C1E183E692A00AC3300 /* rc_muscletracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB90F21135D0046570D /* rc_muscletracker.cpp */; };
 		C2EC9C1F183E692A00AC3300 /* rc_pmcorr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DBB0F21135D0046570D /* rc_pmcorr.cpp */; };
-		C2EC9C20183E692A00AC3300 /* rc_point_corr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DBD0F21135D0046570D /* rc_point_corr.cpp */; };
 		C2EC9C21183E692A00AC3300 /* rc_rowfuncs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DC60F21135D0046570D /* rc_rowfuncs.cpp */; };
 		C2EC9C22183E692A00AC3300 /* rc_seglevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DC70F21135D0046570D /* rc_seglevel.cpp */; };
-		C2EC9C23183E692A00AC3300 /* rc_shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DC80F21135D0046570D /* rc_shape.cpp */; };
 		C2EC9C24183E692A00AC3300 /* rc_similarity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DC90F21135D0046570D /* rc_similarity.cpp */; };
 		C2EC9C25183E692A00AC3300 /* rc_tempdir.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A9A7800F2A636E00DA781F /* rc_tempdir.cpp */; };
 		C2EC9C26183E692A00AC3300 /* rc_assemblyfcts_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DDD0F21135D0046570D /* rc_assemblyfcts_mac.cpp */; };
@@ -1079,6 +1065,21 @@
 		EBD7A644187C952B0052C9A4 /* stlplus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC9CD9183E6BA100AC3300 /* stlplus.cpp */; };
 		EBD7A645187C952B0052C9A4 /* stlplus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC9CD9183E6BA100AC3300 /* stlplus.cpp */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C2B8EA371884A7730060D961 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C2B8EA4E1884BA9C0060D961 /* libopencv_core.a in CopyFiles */,
+				C2B8EA531884BA9C0060D961 /* libopencv_highgui.a in CopyFiles */,
+				C2B8EA541884BA9C0060D961 /* libopencv_imgproc.a in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		089C1667FE841158C02AAC07 /* English.lproj */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = folder; name = English.lproj; path = resources/Visible/English.lproj; sourceTree = "<group>"; };
@@ -1266,10 +1267,8 @@
 		C26F9D770F21135D0046570D /* rc_polygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_polygon.h; sourceTree = "<group>"; };
 		C26F9D780F21135D0046570D /* rc_polygon_edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_polygon_edge.h; sourceTree = "<group>"; };
 		C26F9D790F21135D0046570D /* rc_polygongroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_polygongroup.h; sourceTree = "<group>"; };
-		C26F9D7A0F21135D0046570D /* rc_qimaging_capture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_qimaging_capture.h; sourceTree = "<group>"; };
 		C26F9D7B0F21135D0046570D /* rc_qtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_qtime.h; sourceTree = "<group>"; };
 		C26F9D7C0F21135D0046570D /* rc_qtime_capture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_qtime_capture.h; sourceTree = "<group>"; };
-		C26F9D7D0F21135D0046570D /* rc_qvideograbber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_qvideograbber.h; sourceTree = "<group>"; };
 		C26F9D7E0F21135D0046570D /* rc_rect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_rect.h; sourceTree = "<group>"; };
 		C26F9D7F0F21135D0046570D /* rc_reifymoviegrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_reifymoviegrabber.h; sourceTree = "<group>"; };
 		C26F9D800F21135D0046570D /* rc_style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_style.h; sourceTree = "<group>"; };
@@ -1611,8 +1610,18 @@
 		C2B8E9FF187E0F880060D961 /* rc_unittest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_unittest.h; sourceTree = "<group>"; };
 		C2B8EA11187E48BB0060D961 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/gcc/i686-apple-darwin9/4.0.1/libstdc++.dylib"; sourceTree = SDKROOT; };
 		C2B8EA13187E49110060D961 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = 3rdparty/googletest/gtest.framework; sourceTree = "<group>"; };
-		C2B8EA15187E4B470060D961 /* libvf32_vf.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libvf32_vf.a; path = build/Release/libvf32_vf.a; sourceTree = "<group>"; };
+		C2B8EA15187E4B470060D961 /* libvf32_vf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvf32_vf.a; path = build/Release/libvf32_vf.a; sourceTree = "<group>"; };
 		C2B8EA1E187E526B0060D961 /* gtest-all.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "gtest-all.cc"; path = "usr/local/googletest-read-only/src/gtest-all.cc"; sourceTree = "<group>"; };
+		C2B8EA2718846B320060D961 /* rc_find.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rc_find.hpp; sourceTree = "<group>"; };
+		C2B8EA2818846B410060D961 /* rc_find.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_find.cpp; sourceTree = "<group>"; };
+		C2B8EA3C1884AA800060D961 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		C2B8EA401884BA690060D961 /* libopencv_core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_core.a; path = usr/local/OpenCV/lib/macosx/libopencv_core.a; sourceTree = "<group>"; };
+		C2B8EA411884BA690060D961 /* libopencv_features2d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_features2d.a; path = usr/local/OpenCV/lib/macosx/libopencv_features2d.a; sourceTree = "<group>"; };
+		C2B8EA421884BA690060D961 /* libopencv_flann.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_flann.a; path = usr/local/OpenCV/lib/macosx/libopencv_flann.a; sourceTree = "<group>"; };
+		C2B8EA431884BA690060D961 /* libopencv_gpu.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_gpu.a; path = usr/local/OpenCV/lib/macosx/libopencv_gpu.a; sourceTree = "<group>"; };
+		C2B8EA441884BA690060D961 /* libopencv_haartraining_engine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_haartraining_engine.a; path = usr/local/OpenCV/lib/macosx/libopencv_haartraining_engine.a; sourceTree = "<group>"; };
+		C2B8EA451884BA690060D961 /* libopencv_highgui.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_highgui.a; path = usr/local/OpenCV/lib/macosx/libopencv_highgui.a; sourceTree = "<group>"; };
+		C2B8EA461884BA690060D961 /* libopencv_imgproc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_imgproc.a; path = usr/local/OpenCV/lib/macosx/libopencv_imgproc.a; sourceTree = "<group>"; };
 		C2C301220F34FBAC0057B45E /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		C2EC91B00F37755700E49E22 /* batch_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = batch_main.cpp; sourceTree = "<group>"; };
 		C2EC91B10F37755700E49E22 /* bcnvrt_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bcnvrt_main.cpp; sourceTree = "<group>"; };
@@ -1755,6 +1764,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2B8EA471884BA690060D961 /* libopencv_core.a in Frameworks */,
+				C2B8EA4C1884BA690060D961 /* libopencv_highgui.a in Frameworks */,
+				C2B8EA4D1884BA690060D961 /* libopencv_imgproc.a in Frameworks */,
+				C2B8EA3D1884AA800060D961 /* libz.dylib in Frameworks */,
 				C26FA0450F212DEC0046570D /* IOKit.framework in Frameworks */,
 				C26FA0490F212DF40046570D /* CoreServices.framework in Frameworks */,
 				C26FA04F0F212E170046570D /* QuickTime.framework in Frameworks */,
@@ -1845,6 +1858,14 @@
 		0867D691FE84028FC02AAC07 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C2B8EA401884BA690060D961 /* libopencv_core.a */,
+				C2B8EA411884BA690060D961 /* libopencv_features2d.a */,
+				C2B8EA421884BA690060D961 /* libopencv_flann.a */,
+				C2B8EA431884BA690060D961 /* libopencv_gpu.a */,
+				C2B8EA441884BA690060D961 /* libopencv_haartraining_engine.a */,
+				C2B8EA451884BA690060D961 /* libopencv_highgui.a */,
+				C2B8EA461884BA690060D961 /* libopencv_imgproc.a */,
+				C2B8EA3C1884AA800060D961 /* libz.dylib */,
 				C2B8EA1E187E526B0060D961 /* gtest-all.cc */,
 				C2B8EA15187E4B470060D961 /* libvf32_vf.a */,
 				C2B8EA13187E49110060D961 /* gtest.framework */,
@@ -2126,6 +2147,7 @@
 		C26F9C940F21135D0046570D /* analysis */ = {
 			isa = PBXGroup;
 			children = (
+				C2B8EA2718846B320060D961 /* rc_find.hpp */,
 				C2578FB70FF6D81800DAF613 /* rc_visualtarget.h */,
 				C26F9C950F21135D0046570D /* kalman.h */,
 				C26F9C960F21135D0046570D /* nr.h */,
@@ -2288,10 +2310,8 @@
 				C26F9D770F21135D0046570D /* rc_polygon.h */,
 				C26F9D780F21135D0046570D /* rc_polygon_edge.h */,
 				C26F9D790F21135D0046570D /* rc_polygongroup.h */,
-				C26F9D7A0F21135D0046570D /* rc_qimaging_capture.h */,
 				C26F9D7B0F21135D0046570D /* rc_qtime.h */,
 				C26F9D7C0F21135D0046570D /* rc_qtime_capture.h */,
-				C26F9D7D0F21135D0046570D /* rc_qvideograbber.h */,
 				C26F9D7E0F21135D0046570D /* rc_rect.h */,
 				C26F9D7F0F21135D0046570D /* rc_reifymoviegrabber.h */,
 				C26F9D800F21135D0046570D /* rc_style.h */,
@@ -2328,6 +2348,7 @@
 		C26F9D8A0F21135D0046570D /* code */ = {
 			isa = PBXGroup;
 			children = (
+				C2B8EA2818846B410060D961 /* rc_find.cpp */,
 				C2ED4D1F183DBC23008599E0 /* svdfit.cpp */,
 				C25790210FF6E41F00DAF613 /* rc_visualtarget.cpp */,
 				C26F9D8B0F21135D0046570D /* avevar.cpp */,
@@ -3127,7 +3148,6 @@
 				C26F9F180F21135D0046570D /* rc_affine.h in Headers */,
 				C26F9F190F21135D0046570D /* rc_affinewindow.h in Headers */,
 				C26F9F1B0F21135D0046570D /* rc_cubic_generators.h in Headers */,
-				C26F9F1C0F21135D0046570D /* rc_dcam_capture.h in Headers */,
 				C26F9F1D0F21135D0046570D /* rc_def_generators.h in Headers */,
 				C26F9F1E0F21135D0046570D /* rc_draw.h in Headers */,
 				C26F9F1F0F21135D0046570D /* rc_edge.h in Headers */,
@@ -3156,7 +3176,6 @@
 				C26F9F350F21135D0046570D /* rc_polygon.h in Headers */,
 				C26F9F360F21135D0046570D /* rc_polygon_edge.h in Headers */,
 				C26F9F370F21135D0046570D /* rc_polygongroup.h in Headers */,
-				C26F9F3B0F21135D0046570D /* rc_qvideograbber.h in Headers */,
 				C26F9F3C0F21135D0046570D /* rc_rect.h in Headers */,
 				C26F9F3D0F21135D0046570D /* rc_reifymoviegrabber.h in Headers */,
 				C26F9F3E0F21135D0046570D /* rc_style.h in Headers */,
@@ -3275,7 +3294,6 @@
 				C24EA8561842FD0D00E88B0A /* rc_affine.h in Headers */,
 				C24EA8571842FD0D00E88B0A /* rc_affinewindow.h in Headers */,
 				C24EA8581842FD0D00E88B0A /* rc_cubic_generators.h in Headers */,
-				C24EA8591842FD0D00E88B0A /* rc_dcam_capture.h in Headers */,
 				C24EA85A1842FD0D00E88B0A /* rc_def_generators.h in Headers */,
 				C24EA85B1842FD0D00E88B0A /* rc_draw.h in Headers */,
 				C24EA85C1842FD0D00E88B0A /* rc_edge.h in Headers */,
@@ -3302,7 +3320,6 @@
 				C24EA8711842FD0D00E88B0A /* rc_polygon.h in Headers */,
 				C24EA8721842FD0D00E88B0A /* rc_polygon_edge.h in Headers */,
 				C24EA8731842FD0D00E88B0A /* rc_polygongroup.h in Headers */,
-				C24EA8741842FD0D00E88B0A /* rc_qvideograbber.h in Headers */,
 				C24EA8751842FD0D00E88B0A /* rc_rect.h in Headers */,
 				C24EA8761842FD0D00E88B0A /* rc_reifymoviegrabber.h in Headers */,
 				C24EA8771842FD0D00E88B0A /* rc_style.h in Headers */,
@@ -3389,6 +3406,7 @@
 				8D07F2BF0486CC7A007CD1D0 /* Resources */,
 				8D07F2C10486CC7A007CD1D0 /* Sources */,
 				8D07F2C30486CC7A007CD1D0 /* Frameworks */,
+				C2B8EA371884A7730060D961 /* CopyFiles */,
 				C2FDA4321002E38400A36E5F /* ShellScript */,
 			);
 			buildRules = (
@@ -3744,7 +3762,6 @@
 				C26F9FFC0F21135D0046570D /* rc_peak.cpp in Sources */,
 				C26F9FFD0F21135D0046570D /* rc_polygon.cpp in Sources */,
 				C26F9FFE0F21135D0046570D /* rc_polygongroup.cpp in Sources */,
-				C26FA0040F21135D0046570D /* rc_qvideograbber.cpp in Sources */,
 				C26FA0050F21135D0046570D /* rc_reifymoviegrabber.cpp in Sources */,
 				C26FA0060F21135D0046570D /* rc_style.cpp in Sources */,
 				C26FA0070F21135D0046570D /* rc_tiff.cpp in Sources */,
@@ -3757,7 +3774,6 @@
 				C2A9AAF60F2EC1A800DA781F /* rc_qtime.cpp in Sources */,
 				C2EC976F0F37838200E49E22 /* avevar.cpp in Sources */,
 				C2EC977B0F37838200E49E22 /* rc_analyzer.cpp in Sources */,
-				C2EC977C0F37838200E49E22 /* rc_associate.cpp in Sources */,
 				C2EC977E0F37838200E49E22 /* rc_chaincode.cpp in Sources */,
 				EBD7A642187C95270052C9A4 /* string_arithmetic.cpp in Sources */,
 				C2ED4D22183DBED8008599E0 /* vbigdsp.cpp in Sources */,
@@ -3775,12 +3791,9 @@
 				C2EC97980F37838200E49E22 /* rc_moments.cpp in Sources */,
 				C2EC97990F37838200E49E22 /* rc_moreip.cpp in Sources */,
 				EBD7A61D187C94BF0052C9A4 /* dprintf.cpp in Sources */,
-				C2EC979D0F37838200E49E22 /* rc_muscletracker.cpp in Sources */,
 				C2EC979F0F37838200E49E22 /* rc_pmcorr.cpp in Sources */,
-				C2EC97A10F37838200E49E22 /* rc_point_corr.cpp in Sources */,
 				C2EC97AA0F37838200E49E22 /* rc_rowfuncs.cpp in Sources */,
 				C2EC97AB0F37838200E49E22 /* rc_seglevel.cpp in Sources */,
-				C2EC97AC0F37838200E49E22 /* rc_shape.cpp in Sources */,
 				C2EC97AD0F37838200E49E22 /* rc_similarity.cpp in Sources */,
 				C2EC97C80F37839900E49E22 /* rc_tempdir.cpp in Sources */,
 				C2EC97CC0F37839900E49E22 /* rc_assemblyfcts_mac.cpp in Sources */,
@@ -3801,6 +3814,7 @@
 				EBD7A628187C94E10052C9A4 /* ini_manager.cpp in Sources */,
 				C2EC97E40F37839900E49E22 /* rc_simd_mac.cpp in Sources */,
 				C2EC97E50F37839900E49E22 /* rc_sparsehist.cpp in Sources */,
+				C2B8EA2B18846EA80060D961 /* rc_find.cpp in Sources */,
 				C2EC97E70F37839900E49E22 /* rc_systeminfo_mac.cpp in Sources */,
 				C2EC97E90F37839900E49E22 /* rc_thread_mac.cpp in Sources */,
 				C2EC97EB0F37839900E49E22 /* rc_timestamp.cpp in Sources */,
@@ -3895,12 +3909,12 @@
 				C24B8C98183E62D30010E3C2 /* rc_peak.cpp in Sources */,
 				C24B8C99183E62D30010E3C2 /* rc_polygon.cpp in Sources */,
 				C24B8C9A183E62D30010E3C2 /* rc_polygongroup.cpp in Sources */,
-				C24B8C9B183E62D30010E3C2 /* rc_qvideograbber.cpp in Sources */,
 				C24B8C9C183E62D30010E3C2 /* rc_reifymoviegrabber.cpp in Sources */,
 				C24B8C9D183E62D30010E3C2 /* rc_style.cpp in Sources */,
 				C24B8C9E183E62D30010E3C2 /* rc_tiff.cpp in Sources */,
 				C24B8C9F183E62D30010E3C2 /* rc_videocache.cpp in Sources */,
 				C24B8CA0183E62D30010E3C2 /* rc_window.cpp in Sources */,
+				C2B8EA2C18846EA90060D961 /* rc_find.cpp in Sources */,
 				C24B8CA1183E62D30010E3C2 /* rc_window2jpg.cpp in Sources */,
 				C24B8CA2183E62D30010E3C2 /* rc_window2tiff.cpp in Sources */,
 				C24B8CA3183E62D30010E3C2 /* rc_windowhist.cpp in Sources */,
@@ -3911,7 +3925,6 @@
 				EBD7A639187C950F0052C9A4 /* textio.cpp in Sources */,
 				EBD7A61C187C94BF0052C9A4 /* dprintf.cpp in Sources */,
 				C24B8CA7183E62D30010E3C2 /* rc_analyzer.cpp in Sources */,
-				C24B8CA8183E62D30010E3C2 /* rc_associate.cpp in Sources */,
 				C24B8CA9183E62D30010E3C2 /* rc_chaincode.cpp in Sources */,
 				C24B8CAA183E62D30010E3C2 /* vbigdsp.cpp in Sources */,
 				C24B8CAB183E62D30010E3C2 /* rc_connect.cpp in Sources */,
@@ -3929,12 +3942,9 @@
 				EBD7A619187C94B20052C9A4 /* cli_parser.cpp in Sources */,
 				C24B8CB5183E62D30010E3C2 /* rc_moreip.cpp in Sources */,
 				C2B8E971187D033A0060D961 /* rc_lattice.cpp in Sources */,
-				C24B8CB6183E62D30010E3C2 /* rc_muscletracker.cpp in Sources */,
 				C24B8CB7183E62D30010E3C2 /* rc_pmcorr.cpp in Sources */,
-				C24B8CB8183E62D30010E3C2 /* rc_point_corr.cpp in Sources */,
 				C24B8CB9183E62D30010E3C2 /* rc_rowfuncs.cpp in Sources */,
 				C24B8CBA183E62D30010E3C2 /* rc_seglevel.cpp in Sources */,
-				C24B8CBB183E62D30010E3C2 /* rc_shape.cpp in Sources */,
 				C24B8CBC183E62D30010E3C2 /* rc_similarity.cpp in Sources */,
 				C24B8CBD183E62D30010E3C2 /* rc_tempdir.cpp in Sources */,
 				C24B8CBE183E62D30010E3C2 /* rc_assemblyfcts_mac.cpp in Sources */,
@@ -4035,7 +4045,6 @@
 				C24EA8E31842FD0D00E88B0A /* rc_peak.cpp in Sources */,
 				C24EA8E41842FD0D00E88B0A /* rc_polygon.cpp in Sources */,
 				C24EA8E51842FD0D00E88B0A /* rc_polygongroup.cpp in Sources */,
-				C24EA8E61842FD0D00E88B0A /* rc_qvideograbber.cpp in Sources */,
 				C24EA8E71842FD0D00E88B0A /* rc_reifymoviegrabber.cpp in Sources */,
 				C24EA8E81842FD0D00E88B0A /* rc_style.cpp in Sources */,
 				C24EA8E91842FD0D00E88B0A /* rc_tiff.cpp in Sources */,
@@ -4049,7 +4058,6 @@
 				C24EA8F01842FD0D00E88B0A /* rc_qtime.cpp in Sources */,
 				C24EA8F11842FD0D00E88B0A /* avevar.cpp in Sources */,
 				C24EA8F21842FD0D00E88B0A /* rc_analyzer.cpp in Sources */,
-				C24EA8F31842FD0D00E88B0A /* rc_associate.cpp in Sources */,
 				C24EA8F41842FD0D00E88B0A /* rc_chaincode.cpp in Sources */,
 				C24EA8F51842FD0D00E88B0A /* vbigdsp.cpp in Sources */,
 				C24EA8F61842FD0D00E88B0A /* rc_connect.cpp in Sources */,
@@ -4063,12 +4071,9 @@
 				C24EA8FE1842FD0D00E88B0A /* rc_median.cpp in Sources */,
 				C24EA8FF1842FD0D00E88B0A /* rc_moments.cpp in Sources */,
 				C24EA9001842FD0D00E88B0A /* rc_moreip.cpp in Sources */,
-				C24EA9011842FD0D00E88B0A /* rc_muscletracker.cpp in Sources */,
 				C24EA9021842FD0D00E88B0A /* rc_pmcorr.cpp in Sources */,
-				C24EA9031842FD0D00E88B0A /* rc_point_corr.cpp in Sources */,
 				C24EA9041842FD0D00E88B0A /* rc_rowfuncs.cpp in Sources */,
 				C24EA9051842FD0D00E88B0A /* rc_seglevel.cpp in Sources */,
-				C24EA9061842FD0D00E88B0A /* rc_shape.cpp in Sources */,
 				C24EA9071842FD0D00E88B0A /* rc_similarity.cpp in Sources */,
 				C24EA9081842FD0D00E88B0A /* rc_tempdir.cpp in Sources */,
 				C24EA9091842FD0D00E88B0A /* rc_assemblyfcts_mac.cpp in Sources */,
@@ -4166,6 +4171,7 @@
 				C2B8EA0D187E446A0060D961 /* ut_line.cpp in Sources */,
 				C2B8EA02187E11F20060D961 /* ut_timestamp.cpp in Sources */,
 				C2B8EA07187E13880060D961 /* ut_window.cpp in Sources */,
+				C2B8EA2918846B420060D961 /* rc_find.cpp in Sources */,
 				C2B8EA09187E13A80060D961 /* ut_thread.cpp in Sources */,
 				C2B8EA03187E13170060D961 /* ut_atomic.cpp in Sources */,
 				C2B8E99C187DDC510060D961 /* main.cpp in Sources */,
@@ -4200,7 +4206,6 @@
 				C2EC9C00183E692A00AC3300 /* rc_peak.cpp in Sources */,
 				C2EC9C01183E692A00AC3300 /* rc_polygon.cpp in Sources */,
 				C2EC9C02183E692A00AC3300 /* rc_polygongroup.cpp in Sources */,
-				C2EC9C03183E692A00AC3300 /* rc_qvideograbber.cpp in Sources */,
 				C2EC9C04183E692A00AC3300 /* rc_reifymoviegrabber.cpp in Sources */,
 				C2EC9C05183E692A00AC3300 /* rc_style.cpp in Sources */,
 				C2EC9C06183E692A00AC3300 /* rc_tiff.cpp in Sources */,
@@ -4213,7 +4218,6 @@
 				C2EC9C0D183E692A00AC3300 /* rc_qtime.cpp in Sources */,
 				C2EC9C0E183E692A00AC3300 /* avevar.cpp in Sources */,
 				C2EC9C0F183E692A00AC3300 /* rc_analyzer.cpp in Sources */,
-				C2EC9C10183E692A00AC3300 /* rc_associate.cpp in Sources */,
 				C2EC9C11183E692A00AC3300 /* rc_chaincode.cpp in Sources */,
 				C2EC9C12183E692A00AC3300 /* vbigdsp.cpp in Sources */,
 				C2EC9C13183E692A00AC3300 /* rc_connect.cpp in Sources */,
@@ -4227,12 +4231,9 @@
 				C2EC9C1B183E692A00AC3300 /* rc_median.cpp in Sources */,
 				C2EC9C1C183E692A00AC3300 /* rc_moments.cpp in Sources */,
 				C2EC9C1D183E692A00AC3300 /* rc_moreip.cpp in Sources */,
-				C2EC9C1E183E692A00AC3300 /* rc_muscletracker.cpp in Sources */,
 				C2EC9C1F183E692A00AC3300 /* rc_pmcorr.cpp in Sources */,
-				C2EC9C20183E692A00AC3300 /* rc_point_corr.cpp in Sources */,
 				C2EC9C21183E692A00AC3300 /* rc_rowfuncs.cpp in Sources */,
 				C2EC9C22183E692A00AC3300 /* rc_seglevel.cpp in Sources */,
-				C2EC9C23183E692A00AC3300 /* rc_shape.cpp in Sources */,
 				C2EC9C24183E692A00AC3300 /* rc_similarity.cpp in Sources */,
 				C2EC9C25183E692A00AC3300 /* rc_tempdir.cpp in Sources */,
 				C2EC9C26183E692A00AC3300 /* rc_assemblyfcts_mac.cpp in Sources */,
@@ -4381,6 +4382,7 @@
 				);
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
+					"$(OPENCV_PATH)/include",
 					"$(BOOST_PATH)/include",
 					"$(SRCROOT)/include/**",
 				);
@@ -4390,11 +4392,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/3rdParty/mpeg2/libs",
 					"$(BOOST_PATH)/lib",
+					"$(OPENCV_PATH)/lib/macosx",
+					/Users/arman/gwc/visibleqt105/usr/local/OpenCV/lib/macosx,
+					"$(SDKROOT)/usr/lib/powerpc-apple-darwin9/4.2.1",
 				);
 				MACH_O_TYPE = mh_dylib;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCV";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
-				OpenCV = "$(SRCROOT)/frameworks/OpenCV.framework";
 				PRODUCT_NAME = vfi386_d;
 				RFY_DLL_EXPORT = "";
 				SDKROOT = macosx10.5;
@@ -4442,6 +4448,7 @@
 				GCC_THREADSAFE_STATICS = YES;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
+					"$(OPENCV_PATH)/include",
 					"$(BOOST_PATH)/include",
 					"$(SRCROOT)/include/**",
 				);
@@ -4451,13 +4458,17 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/3rdParty/mpeg2/libs",
 					"$(BOOST_PATH)/lib",
+					"$(OPENCV_PATH)/lib/macosx",
+					/Users/arman/gwc/visibleqt105/usr/local/OpenCV/lib/macosx,
+					"$(SDKROOT)/usr/lib/powerpc-apple-darwin9/4.2.1",
 				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				MACH_O_TYPE = mh_dylib;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = NO;
+				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCV";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
-				OpenCV = "$(SRCROOT)/frameworks/OpenCV.framework";
 				PRODUCT_NAME = vfi386;
 				RFY_DLL_EXPORT = "";
 				SDKROOT = macosx10.5;
