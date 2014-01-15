@@ -6,8 +6,6 @@
 #include <deque>
 using namespace std;
 
-#include <Carbon/Carbon.h>
-#include <QuickTime/QuickTime.h>
 #include <rc_types.h>
 #include <rc_pair.h>
 #include <rc_window.h>
@@ -444,83 +442,7 @@ void rfImageFind (const rcWindow& moving, const rcWindow& fixed,
 
 #define mQuantz 65000
 
-class rcPointScan
-{
-private:
-  static const uint16 mNotProcessed = (uint16) mQuantz+1;
-
- public:
-  rcPointScan (const rcWindow& moving, const rcWindow& fixed, rcIPair& peak, 
-	       vector< vector<float> >& cspace, int32 maxTravel = 4);
-  rcPointScan (const rcWindow& moving, const rcWindow& fixed, rcIPair& peak, 
-	       rcWindow& space, int32 maxTravel = 4);
-
-  /*
-   * @class rcPointScan
-   * fixed was found at edge (peak) of correlation space (cspace) 
-   * follow this peak once per scan call and if it is a peak (4 way), 
-   * interpolate and return frameBuf position + interpolate position
-   */
-
-  bool setMask (const rcWindow& mask);
-
-  bool peakAndInterpolate (rc2Fvector&);
-  bool scan ();
-  float maxScore () { return mMaxScore; }
-  int16 imaxScore () { return (uint16) (mMaxScore * 1000); }
 
 
-  void dump ()
-  {
-    cerr << mTrace << endl;
-  }
-
- private:
-  rcIPair mMovingPeak;
-  rcIPair mFrameStart;
-  rcIPair mFramePeak;
-  rcIRect mFrame;
-  float mMaxScore;
-  float mLeft, mRight, mCenter, mTop, mBottom;
-  rcIPair mMad;
-  const rcWindow& mMoving;
-  const rcWindow& mFixed;
-  rcWindow mTrace;
-  rcWindow mMask;
-  bool mMaskValid;
-  int32 mMaskN;
-  rsCorrParams mCorrParams;
-
-  bool checkOffset (rcIPair& point)
-  {
-    return mFrame.contains (point);
-  }
-
-  void clear ()
-  {
-    mCenter = mRight = mLeft = mTop = mBottom = mNotProcessed;
-    if (mTrace.isBound())
-      mTrace.setAllPixels (uint16 (mNotProcessed));      
-  }
-};
-
-template <class T>
-void rfPrintCorrSpace (rcWindow& space, T precision)
-{
-  int32 i;
-  cerr << ">>>>>>>>>>>>>>>>>>>>>>>>>" << endl;
-  for (int32 j = 0; j < space.height(); j++)
-    {
-      for (i = 0; i < space.width() - 1; i++)
-	cerr << setw(3) << (*((T *) (space.pelPointer(i, j)))) * precision  << "-";
-      cerr << setw(3) << (*((T *) (space.pelPointer(i, j)))) * precision  << endl;
-    }
-  cerr << "<<<<<<<<<<<<<<<<<<<<<<<<<" << endl;
-}  
-
-
-void rfPrintFindList (const rcFindList& l, ostream& os);
-
-void rfImageACF (const rcWindow& moving, rcIPair& range, rcWindow& space);
 
 #endif // _RC_ANALYSIS_H_

@@ -11,14 +11,16 @@
 
 #include <vector>
 
-#include <QuickTime/QuickTimeComponents.h> // for GraphicsImportComponent support
-
+#include <rc_qtime.h>
 #include <rc_framegrabber.h>
 #include <rc_filegrabber.h>
 
 
 using namespace std;
+using namespace qtime;
 
+namespace qtime
+{
 //
 // Class to grab frames from a movie file
 // in seconds (calls setTimestamp())
@@ -81,12 +83,14 @@ class rcMovieGrabber : public rcFileGrabber {
     // our format from QuickTime definitions
     rcPixel m_pd; 
     uint32 m_pf;
-   CTabHandle m_ctb;
+    CTabHandle m_ctb;
     bool m_isGray;
     bool m_isWhiteReversed;
-	Rect m_qt_movie_rect;
+	::Rect m_qt_movie_rect;
 	int16 m_width, m_height;
 };
+
+}
 
 #endif // _rcMOVIEGRABBER_H_
 

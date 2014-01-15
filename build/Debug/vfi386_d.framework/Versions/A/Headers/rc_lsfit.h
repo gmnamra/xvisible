@@ -250,7 +250,7 @@ bool rcLsFit<T>::solve5p (rc2Xform& xform)
       return false;
 
     T det = k1 * k2 - pos * pos;
-    if (rfRealEq (det, (T) 0.0)) return false;
+    if (real_equal (det, (T) 0.0)) return false;
 
     rcMatrix_2d mat;
     rc2dVector<T> trans;
@@ -312,7 +312,7 @@ bool rcLsFit<T>::solve6p (rc2Xform& xform)
   T c4 = mSvy - mSv * mSy / mN;
 
   T det = k1 * k4 - k2 * k2;
-  if (rfRealEq (det, (T) 0.0)) return false;
+  if (real_equal (det, (T) 0.0)) return false;
 
   rcMatrix_2d mat;
   rc2dVector<T> trans;

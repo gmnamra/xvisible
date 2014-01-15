@@ -15,7 +15,7 @@
 #include <rc_types.h>
 #include <rc_rect.h>
 #include <rc_window.h>
-#include <rc_analysis.h>
+
 
 #define VALID_1D_MOM_INT_WIDTH(IMG_WIDTH) ((IMG_WIDTH)*2)
 #define VALID_1D_MOM_INT_HEIGHT(IMG_HEIGHT) ((IMG_HEIGHT) + 2)

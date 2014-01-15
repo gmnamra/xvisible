@@ -142,10 +142,10 @@ private:
   double mOffset;
 };
 
-inline bool rfRealEq(const rc1Xform& x1, const rc1Xform& x2,
+inline bool real_equal(const rc1Xform& x1, const rc1Xform& x2,
 				     double epsilon = 1e-15)
-{ return rfRealEq(x1.scale(),  x2.scale(),  epsilon) &&
-         rfRealEq(x1.offset(), x2.offset(), epsilon);
+{ return real_equal(x1.scale(),  x2.scale(),  epsilon) &&
+         real_equal(x1.offset(), x2.offset(), epsilon);
 }
 
 // Minimal 2Dxform for now:
