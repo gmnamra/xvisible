@@ -816,12 +816,12 @@ void UT_moreip::testIntegral()
 		
     rcUTCheck (var.contentCompare (ac));
 
-    rcUTCheck (rfRealEq (*((float *) ac.pelPointer (0,0)), 0.0f, 0.0001f));
-    rcUTCheck (rfRealEq (*((float *) ac.pelPointer (1,0)), 24.0f, 0.0001f));
-    rcUTCheck (rfRealEq (*((float *) ac.pelPointer (0,1)), 24.0f, 0.0001f));
-    rcUTCheck (rfRealEq (*((float *) ac.pelPointer (1,1)), 0.0f, 0.0001f));
-    rcUTCheck (rfRealEq (*((float *) ac.pelPointer (0,2)), 24.0f, 0.0001f));
-    rcUTCheck (rfRealEq (*((float *) ac.pelPointer (1,2)), 0.0f, 0.0001f));
+    rcUTCheck (real_equal (*((float *) ac.pelPointer (0,0)), 0.0f, 0.0001f));
+    rcUTCheck (real_equal (*((float *) ac.pelPointer (1,0)), 24.0f, 0.0001f));
+    rcUTCheck (real_equal (*((float *) ac.pelPointer (0,1)), 24.0f, 0.0001f));
+    rcUTCheck (real_equal (*((float *) ac.pelPointer (1,1)), 0.0f, 0.0001f));
+    rcUTCheck (real_equal (*((float *) ac.pelPointer (0,2)), 24.0f, 0.0001f));
+    rcUTCheck (real_equal (*((float *) ac.pelPointer (1,2)), 0.0f, 0.0001f));
 
     printSuccessMessage( "Basic Small Pixel Variance Unit test unit test" , mErrors); 
   }
@@ -845,12 +845,12 @@ void UT_moreip::testIntegral()
 
     rcUTCheck (var.contentCompare (ac));
 
-    rcUTCheck (rfRealEq (*((float *) ac.pelPointer (0,0)), 0.0f, 0.0001f));
-    rcUTCheck (rfRealEq (*((float *) ac.pelPointer (1,0)), 24.0f, 0.0001f));
-    rcUTCheck (rfRealEq (*((float *) ac.pelPointer (0,1)), 24.0f, 0.0001f));
-    rcUTCheck (rfRealEq (*((float *) ac.pelPointer (1,1)), 0.0f, 0.0001f));
-    rcUTCheck (rfRealEq (*((float *) ac.pelPointer (0,2)), 24.0f, 0.0001f));
-    rcUTCheck (rfRealEq (*((float *) ac.pelPointer (1,2)), 0.0f, 0.0001f));
+    rcUTCheck (real_equal (*((float *) ac.pelPointer (0,0)), 0.0f, 0.0001f));
+    rcUTCheck (real_equal (*((float *) ac.pelPointer (1,0)), 24.0f, 0.0001f));
+    rcUTCheck (real_equal (*((float *) ac.pelPointer (0,1)), 24.0f, 0.0001f));
+    rcUTCheck (real_equal (*((float *) ac.pelPointer (1,1)), 0.0f, 0.0001f));
+    rcUTCheck (real_equal (*((float *) ac.pelPointer (0,2)), 24.0f, 0.0001f));
+    rcUTCheck (real_equal (*((float *) ac.pelPointer (1,2)), 0.0f, 0.0001f));
 
     printSuccessMessage( "Basic Large Pixel Variance Unit test unit test" , mErrors); 
   }
@@ -877,7 +877,7 @@ void UT_moreip::testIntegral()
 		rcWindow var (tmp2, field.ul().x(), field.ul().y(), field.width (), field.height ());
 
 
-		rcUTCheck (rfRealEq (maxvar, truemax, 0.1f));
+		rcUTCheck (real_equal (maxvar, truemax, 0.1f));
 		rcUTCheck (var.contentCompare (ac));
 	}
 

@@ -175,8 +175,8 @@ void UT_shape::testMoment()
     rc2Dvector unit;
 
     rcUTCheck (mass == smass);
-    rcUTCheck (rfRealEq (dcog.x(), cog.x(), 0.0001));
-    rcUTCheck (rfRealEq (dcog.y(), cog.y(), 0.0001));
+    rcUTCheck (real_equal (dcog.x(), cog.x(), 0.0001));
+    rcUTCheck (real_equal (dcog.y(), cog.y(), 0.0001));
     rcUTCheck (dcog != unit);
   }
 
@@ -243,11 +243,11 @@ void UT_shape::testBasic()
       rcUTCheck (col->isBound() == true);
       rcUTCheck (col->isBound(rcShape::eAffine) == true);
       rcUTCheck (col->isBound(rcShape::eImage) == false);
-      rcUTCheck (rfRealEq (col->area(), 28.0, 0.1));
-      rcUTCheck (rfRealEq (col->perimeter(), 19.3137, 0.1));
+      rcUTCheck (real_equal (col->area(), 28.0, 0.1));
+      rcUTCheck (real_equal (col->perimeter(), 19.3137, 0.1));
       rc2Fvector com = col->centerOfmass (rcShape::eAffine);
-      rcUTCheck (rfRealEq (com.x(), 5.0f, 0.1f));
-      rcUTCheck (rfRealEq (com.y(), 5.0f, 0.1f));
+      rcUTCheck (real_equal (com.x(), 5.0f, 0.1f));
+      rcUTCheck (real_equal (com.y(), 5.0f, 0.1f));
 
     }
 
@@ -332,12 +332,12 @@ void UT_shape::testAffine()
       rcUTCheck (com.y() == 3.5f);
 
       rc2Fvector med = col->median ();
-      rcUTCheck (rfRealEq (med.x(), 3.977f, 0.001f));
-      rcUTCheck (rfRealEq (med.y(), 3.968f, 0.001f));
+      rcUTCheck (real_equal (med.x(), 3.977f, 0.001f));
+      rcUTCheck (real_equal (med.y(), 3.968f, 0.001f));
 
       com = col->centerOfmass (rcShape::eImage);
-      rcUTCheck (rfRealEq (col->majorDimension (), 3.5f, 0.001f));
-      rcUTCheck (rfRealEq (col->minorDimension (), 3.5f, 0.001f));
+      rcUTCheck (real_equal (col->majorDimension (), 3.5f, 0.001f));
+      rcUTCheck (real_equal (col->minorDimension (), 3.5f, 0.001f));
     }
 
     // Test copy and assignment
@@ -356,8 +356,8 @@ void UT_shape::testAffine()
       rcUTCheck (com.y() == 3.5f);
 
       com = col->centerOfmass (rcShape::eImage);
-      rcUTCheck (rfRealEq (col->majorDimension (), 3.5f, 0.001f));
-      rcUTCheck (rfRealEq (col->minorDimension (), 3.5f, 0.001f));
+      rcUTCheck (real_equal (col->majorDimension (), 3.5f, 0.001f));
+      rcUTCheck (real_equal (col->minorDimension (), 3.5f, 0.001f));
 
       // Test Ref counted a copy. col2 will be a reference counted pointer to col
       rcShapeRef col2 = col;
@@ -429,7 +429,7 @@ void UT_shape::testAffine()
        rcUTCheck (col->isBound(rcShape::eImage) == false);
 
        rcUTCheck (col->area() == 13.0f);
-       rcUTCheck (rfRealEq ((float) col->perimeter(), 15.6569f, 0.01f));
+       rcUTCheck (real_equal ((float) col->perimeter(), 15.6569f, 0.01f));
        rc2Fvector com = col->centerOfmass (rcShape::eAffine);
        rcUTCheck (com.x() == 8.0f);
        rcUTCheck (com.y() == 5.0f);
@@ -443,15 +443,15 @@ void UT_shape::testAffine()
        rcUTCheck (col->isBound(rcShape::eAffine) == true);
        rcUTCheck (col->isBound(rcShape::eImage) == true);
        rcUTCheck (col->area() == 13.0f);
-       rcUTCheck (rfRealEq ((float) col->perimeter(), 15.6569f, 0.01f));
+       rcUTCheck (real_equal ((float) col->perimeter(), 15.6569f, 0.01f));
        rc2Fvector com = col->centerOfmass (rcShape::eImage);
-       rcUTCheck (rfRealEq (com.x(), 9.025f, 0.01f));
-       rcUTCheck (rfRealEq (com.y(), 5.675f, 0.01f));
-       rcUTCheck (rfRealEq (col->majorDimension (), 6.1f, 0.1f));
-       rcUTCheck (rfRealEq (col->minorDimension (), 3.5f, 0.1f));
+       rcUTCheck (real_equal (com.x(), 9.025f, 0.01f));
+       rcUTCheck (real_equal (com.y(), 5.675f, 0.01f));
+       rcUTCheck (real_equal (col->majorDimension (), 6.1f, 0.1f));
+       rcUTCheck (real_equal (col->minorDimension (), 3.5f, 0.1f));
 
        rcDegree dg (col->angle());
-       rcUTCheck (rfRealEq (dg.Double(), 36.86, 0.01));
+       rcUTCheck (real_equal (dg.Double(), 36.86, 0.01));
 
 //        cout << dg.Double() << " degrees " << endl;
 //        cout << col->majorDimension () << endl;
@@ -529,11 +529,11 @@ void UT_shape::testAffine()
        rcUTCheck (col->isBound(rcShape::eAffine) == true);
        rcUTCheck (col->isBound(rcShape::eImage) == false);
 
-       rcUTCheck (rfRealEq ((float) col->area(), 13.5f, 0.01f));
-       rcUTCheck (rfRealEq ((float) col->perimeter(), 17.1356f, 0.01f));
+       rcUTCheck (real_equal ((float) col->area(), 13.5f, 0.01f));
+       rcUTCheck (real_equal ((float) col->perimeter(), 17.1356f, 0.01f));
        rc2Fvector com = col->centerOfmass (rcShape::eAffine);
-       rcUTCheck (rfRealEq (com.x(), 8.14f, 0.1f));
-       rcUTCheck (rfRealEq (com.y(), 5.28f, 0.1f));
+       rcUTCheck (real_equal (com.x(), 8.14f, 0.1f));
+       rcUTCheck (real_equal (com.y(), 5.28f, 0.1f));
      }
 
      {
@@ -542,20 +542,20 @@ void UT_shape::testAffine()
        rcUTCheck (col->isBound(rcShape::eAffine) == true);
        rcUTCheck (col->isBound(rcShape::eImage) == true);
 
-       rcUTCheck (rfRealEq ((float) col->area(), 13.5f, 0.01f));
-       rcUTCheck (rfRealEq ((float) col->perimeter(), 17.1356f, 0.01f));
+       rcUTCheck (real_equal ((float) col->area(), 13.5f, 0.01f));
+       rcUTCheck (real_equal ((float) col->perimeter(), 17.1356f, 0.01f));
        rc2Fvector com = col->centerOfmass (rcShape::eAffine);
-       rcUTCheck (rfRealEq (com.x(), 8.14f, 0.1f));
-       rcUTCheck (rfRealEq (com.y(), 5.28f, 0.1f));
+       rcUTCheck (real_equal (com.x(), 8.14f, 0.1f));
+       rcUTCheck (real_equal (com.y(), 5.28f, 0.1f));
 
        com = col->centerOfmass (rcShape::eImage);
-       rcUTCheck (rfRealEq (com.x(), 7.947f, 0.1f));
-       rcUTCheck (rfRealEq (com.y(), 5.535f, 0.1f));
+       rcUTCheck (real_equal (com.x(), 7.947f, 0.1f));
+       rcUTCheck (real_equal (com.y(), 5.535f, 0.1f));
 
-       rcUTCheck (rfRealEq (col->majorDimension (), 7.0f, 0.01f));
-       rcUTCheck (rfRealEq (col->minorDimension (), 2.0f, 0.01f));
+       rcUTCheck (real_equal (col->majorDimension (), 7.0f, 0.01f));
+       rcUTCheck (real_equal (col->minorDimension (), 2.0f, 0.01f));
        rcDegree dg (col->angle());
-       rcUTCheck (rfRealEq (dg.Double(), 135.0, 0.01));
+       rcUTCheck (real_equal (dg.Double(), 135.0, 0.01));
 
    //     col->printCache ();
 //        cout << dg.Double() << " degrees " << endl;
@@ -592,10 +592,10 @@ void UT_shape::testFilter()
   double dummy;
   rfCtfDiff1d (signal, 3, output, dummy, false);
 
-  rcUTCheck (rfRealEq (output[3], -3.0f, 0.00001f));  
-  rcUTCheck (rfRealEq (output[4], -3.0f, 0.00001f));  
-  rcUTCheck (rfRealEq (output[10], 3.0f, 0.00001f));  
-  rcUTCheck (rfRealEq (output[11], 3.0f, 0.00001f));  
+  rcUTCheck (real_equal (output[3], -3.0f, 0.00001f));  
+  rcUTCheck (real_equal (output[4], -3.0f, 0.00001f));  
+  rcUTCheck (real_equal (output[10], 3.0f, 0.00001f));  
+  rcUTCheck (real_equal (output[11], 3.0f, 0.00001f));  
 
 }
 

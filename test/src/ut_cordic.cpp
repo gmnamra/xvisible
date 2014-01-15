@@ -136,21 +136,21 @@ void UT_cordic::testUnits()
   eCount = 0;
   double d (3.3);
   rcFixed16 p16 (d);
-  if (!rfRealEq ((double) p16.real(), d, (double) 1/255.))
+  if (!real_equal ((double) p16.real(), d, (double) 1/255.))
     ++eCount;
 
   d += 2.0;
   p16 += 2.0;
-  if (!rfRealEq ((double) p16.real(), d, (double) 1/255.))
+  if (!real_equal ((double) p16.real(), d, (double) 1/255.))
     ++eCount;
 
   rcUTCheck (eCount == 0);
 
   radian = rcDegree(1.0);
-  rcUTCheck (rfRealEq(rcDegree(1.0),rcDegree(radian) ,rcDegree(1e-15)));
+  rcUTCheck (real_equal(rcDegree(1.0),rcDegree(radian) ,rcDegree(1e-15)));
 
   // Test rfSigmoid
-  rcUTCheck (rfRealEq (rfSigmoid (0.0), 0.5));
-  rcUTCheck (rfRealEq (rfSigmoid (1.0), 0.731, 0.0001));
+  rcUTCheck (real_equal (rfSigmoid (0.0), 0.5));
+  rcUTCheck (real_equal (rfSigmoid (1.0), 0.731, 0.0001));
 }
 

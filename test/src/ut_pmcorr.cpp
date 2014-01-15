@@ -21,8 +21,8 @@
 #include <rc_diamondscan.h>
 
 #define UTCHECKVEC(a, b, c, d) {\
-rcUTCheck (rfRealEq((a).x(), (b), (d)));	\
-rcUTCheck (rfRealEq((a).y(), (c), (d))); }
+rcUTCheck (real_equal((a).x(), (b), (d)));	\
+rcUTCheck (real_equal((a).y(), (c), (d))); }
 
 
 using namespace std;
@@ -104,23 +104,23 @@ void UT_Correlation::test1dcorr ()
     }
 
 	// The first peak correlation corresponding to the first valley
-	rcUTCheck (rfRealEq(cspace[11], 0.9020523, 0.0001));
+	rcUTCheck (real_equal(cspace[11], 0.9020523, 0.0001));
 
 	double pose (-100.0);
 	ms = signal.begin(); me = signal.end ();
 	double alignment = rf1DRegister (ms, me, ms, me, 32, pose);
-	rcUTCheck (rfRealEq(alignment, 32.0, 0.001));
-	rcUTCheck (rfRealEq(pose, 1.0, 0.001));
+	rcUTCheck (real_equal(alignment, 32.0, 0.001));
+	rcUTCheck (real_equal(pose, 1.0, 0.001));
 
 	ms = signal.begin(); me = signal.end ();
 	alignment = rf1DRegister (ms, me, ms, me, 16, 1, pose);
-	rcUTCheck (rfRealEq(alignment, 1.0, 0.001));
-	rcUTCheck (rfRealEq(pose, 1.0, 0.001));
+	rcUTCheck (real_equal(alignment, 1.0, 0.001));
+	rcUTCheck (real_equal(pose, 1.0, 0.001));
 
 	ms = signal.begin(); me = signal.end ();
 	alignment = rf1DRegister (ms, me, ms, me, 1, 16, pose);
-	rcUTCheck (rfRealEq(alignment, 16.0, 0.001));
-	rcUTCheck (rfRealEq(pose, 1.0, 0.001));
+	rcUTCheck (real_equal(alignment, 16.0, 0.001));
+	rcUTCheck (real_equal(pose, 1.0, 0.001));
 
 	printSuccessMessage("1d correlation and registration tests ", mErrors - oldErrors);
 }

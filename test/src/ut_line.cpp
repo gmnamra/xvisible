@@ -42,14 +42,14 @@
 
 #define UTCHECKLINE(a,b,c) \
 { \
-  rcUTCheck(rfRealEq((a).angle(),(b)));		  \
-  rcUTCheck(rfRealEq((a).distance(),(c)));		  \
-  rcUTCheck(rfRealEq((a).Sin(),sin((b))));		  \
-  rcUTCheck(rfRealEq((a).Cos(),cos((b)))); }
+  rcUTCheck(real_equal((a).angle(),(b)));		  \
+  rcUTCheck(real_equal((a).distance(),(c)));		  \
+  rcUTCheck(real_equal((a).Sin(),sin((b))));		  \
+  rcUTCheck(real_equal((a).Cos(),cos((b)))); }
 
 #define UTCHECKVEC(a, b, c) {   \
-    rcUTCheck (rfRealEq((a).x(), (b)));		\
-    rcUTCheck (rfRealEq((a).y(), (c))); }
+    rcUTCheck (real_equal((a).x(), (b)));		\
+    rcUTCheck (real_equal((a).y(), (c))); }
 
 UT_line::UT_line ()
 {}
@@ -93,9 +93,9 @@ void UT_line::test()
   rc2Dvector pt = line.closestPoint(rc2Dvector(1,1));
   UTCHECKVEC(pt,-1,1);
 
-  rcUTCheck (rfRealEq(line.distanceFrom(rc2Dvector(1,1)), 2));
-  rcUTCheck (rfRealEq(line.distanceFrom(rc2Dvector(-2,1)), -1));
-  rcUTCheck (rfRealEq(line.distanceAlong(rc2Dvector(1,1)), 1));
+  rcUTCheck (real_equal(line.distanceFrom(rc2Dvector(1,1)), 2));
+  rcUTCheck (real_equal(line.distanceFrom(rc2Dvector(-2,1)), -1));
+  rcUTCheck (real_equal(line.distanceAlong(rc2Dvector(1,1)), 1));
 
   vector<rc2Dvector> intpt = line.intersection(rcLineSegment<double>(rcRadian(rkPI/2.),0.0));
   rcUTCheck (intpt.size() == 0);

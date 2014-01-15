@@ -475,8 +475,8 @@ void UT_Polygon::testGeomProperties()
     p.pushVertex(p0); p.pushVertex(p1); p.pushVertex(p2);
     p.pushVertex(p3); p.pushVertex(p4); p.pushVertex(p5); p.pushVertex(p6);
 
-    rcUNITTEST_ASSERT(rfRealEq(p.area(), 89.5));
-    rcUNITTEST_ASSERT(rfRealEq(p.perimeter(), 42.8124713, 1e-7));
+    rcUNITTEST_ASSERT(real_equal(p.area(), 89.5));
+    rcUNITTEST_ASSERT(real_equal(p.perimeter(), 42.8124713, 1e-7));
   }
 
   {
@@ -484,39 +484,39 @@ void UT_Polygon::testGeomProperties()
     p.pushVertex(p0); p.pushVertex(p1); p.pushVertex(p2);
     p.pushVertex(p3); p.pushVertex(p4); p.pushVertex(p5);
 
-    rcUNITTEST_ASSERT(rfRealEq(p.area(), 95.5));
-    rcUNITTEST_ASSERT(rfRealEq(p.perimeter(), 37.7321083, 1e-7));
+    rcUNITTEST_ASSERT(real_equal(p.area(), 95.5));
+    rcUNITTEST_ASSERT(real_equal(p.perimeter(), 37.7321083, 1e-7));
   }
 
   {
     rcPolygon p;
     p.pushVertex(p2); p.pushVertex(p3); p.pushVertex(p5);
 
-    rcUNITTEST_ASSERT(rfRealEq(p.area(), 34.5));
-    rcUNITTEST_ASSERT(rfRealEq(p.perimeter(), 27.6519714, 1e-7));
+    rcUNITTEST_ASSERT(real_equal(p.area(), 34.5));
+    rcUNITTEST_ASSERT(real_equal(p.perimeter(), 27.6519714, 1e-7));
   }
 
   {
     rcPolygon p;
 
-    rcUNITTEST_ASSERT(rfRealEq(p.area(), 0));
-    rcUNITTEST_ASSERT(rfRealEq(p.perimeter(), 0));
+    rcUNITTEST_ASSERT(real_equal(p.area(), 0));
+    rcUNITTEST_ASSERT(real_equal(p.perimeter(), 0));
   }
 
   {
     rcPolygon p;
     p.pushVertex(p0);
 
-    rcUNITTEST_ASSERT(rfRealEq(p.area(), 0));
-    rcUNITTEST_ASSERT(rfRealEq(p.perimeter(), 0));
+    rcUNITTEST_ASSERT(real_equal(p.area(), 0));
+    rcUNITTEST_ASSERT(real_equal(p.perimeter(), 0));
   }
 
   {
     rcPolygon p;
     p.pushVertex(p0); p.pushVertex(p1);
 
-    rcUNITTEST_ASSERT(rfRealEq(p.area(), 0));
-    rcUNITTEST_ASSERT(rfRealEq(p.perimeter(), 16));
+    rcUNITTEST_ASSERT(real_equal(p.area(), 0));
+    rcUNITTEST_ASSERT(real_equal(p.perimeter(), 16));
   }
 }
 
@@ -2698,11 +2698,11 @@ void UT_Polygon::testMinEncRect()
     rcUNITTEST_ASSERT(rect.origin() == rc2Dvector(-1000000, -1000000));
     rcUNITTEST_ASSERT((rect.cannonicalSize().x() == 1) &&
 		       (rect.cannonicalSize().y() == 1));
-    rcUNITTEST_ASSERT(rfRealEq(rect.angle().Double(),
+    rcUNITTEST_ASSERT(real_equal(rect.angle().Double(),
 				rcDegree(0.0).Double(), 1e-7));
-    rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().x(),
+    rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().x(),
 				rect.xyScale().x(), 1e-7));
-    rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().y(),
+    rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().y(),
 				rect.xyScale().y(), 1e-7));
 
     p.pushVertex(p1);
@@ -2712,11 +2712,11 @@ void UT_Polygon::testMinEncRect()
     rcUNITTEST_ASSERT(rect.origin() == p1);
     rcUNITTEST_ASSERT((rect.cannonicalSize().x() == 1) &&
 		       (rect.cannonicalSize().y() == 1));
-    rcUNITTEST_ASSERT(rfRealEq(rect.angle().Double(),
+    rcUNITTEST_ASSERT(real_equal(rect.angle().Double(),
 				rcDegree(0.0).Double(), 1e-7));
-    rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().x(),
+    rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().x(),
 				rect.xyScale().x(), 1e-7));
-    rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().y(),
+    rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().y(),
 				rect.xyScale().y(), 1e-7));
 
     p.pushVertex(p2);
@@ -2726,10 +2726,10 @@ void UT_Polygon::testMinEncRect()
     rcUNITTEST_ASSERT(rect.origin() == p1);
     rcUNITTEST_ASSERT((rect.cannonicalSize().x() == 3) &&
 		       (rect.cannonicalSize().y() == 1));
-    rcUNITTEST_ASSERT(rfRealEq(rect.angle().norm().Double(), rkPI/2, 1e-7));
-    rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().x(),
+    rcUNITTEST_ASSERT(real_equal(rect.angle().norm().Double(), rkPI/2, 1e-7));
+    rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().x(),
 				rect.xyScale().x(), 1e-7));
-    rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().y(),
+    rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().y(),
 				rect.xyScale().y(), 1e-7));
 
     p.popVertex(); p.pushVertex(p0);
@@ -2739,10 +2739,10 @@ void UT_Polygon::testMinEncRect()
     rcUNITTEST_ASSERT(rect.origin() == p1);
     rcUNITTEST_ASSERT((rect.cannonicalSize().x() == 3) &&
 		       (rect.cannonicalSize().y() == 1));
-    rcUNITTEST_ASSERT(rfRealEq(rect.angle().norm().Double(), rkPI, 1e-7));
-    rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().x(),
+    rcUNITTEST_ASSERT(real_equal(rect.angle().norm().Double(), rkPI, 1e-7));
+    rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().x(),
 				rect.xyScale().x(), 1e-7));
-    rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().y(),
+    rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().y(),
 				rect.xyScale().y(), 1e-7));
 
     p.popVertex(); p.popVertex();
@@ -2753,10 +2753,10 @@ void UT_Polygon::testMinEncRect()
     rcUNITTEST_ASSERT(rect.origin() == p0);
     rcUNITTEST_ASSERT((rect.cannonicalSize().x() == (int32)sqrt(9.+9.)) &&
 		       (rect.cannonicalSize().y() == 1));
-    rcUNITTEST_ASSERT(rfRealEq(rect.angle().norm().Double(), rkPI/4, 1e-7));
-    rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().x(),
+    rcUNITTEST_ASSERT(real_equal(rect.angle().norm().Double(), rkPI/4, 1e-7));
+    rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().x(),
 				rect.xyScale().x(), 1e-7));
-    rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().y(),
+    rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().y(),
 				rect.xyScale().y(), 1e-7));
   }
 
@@ -2785,9 +2785,9 @@ void UT_Polygon::testMinEncRect()
 			 ((rect.cannonicalSize().x() == 7) &&
 			  (rect.cannonicalSize().y() == 10)));
 
-      rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().x(),
+      rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().x(),
 				  rect.xyScale().x(), 0.5));
-      rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().y(),
+      rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().y(),
 				  rect.xyScale().y(), 0.5));
 	
       rect = p.minimumAreaEnclosingRect();
@@ -2796,9 +2796,9 @@ void UT_Polygon::testMinEncRect()
 			  (rect.cannonicalSize().y() == 7)) ||
 			 ((rect.cannonicalSize().x() == 7) &&
 			  (rect.cannonicalSize().y() == 10)));
-      rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().x(),
+      rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().x(),
 				  rect.xyScale().x(), 0.5));
-      rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().y(),
+      rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().y(),
 				  rect.xyScale().y(), 0.5));
     }
   }
@@ -2832,9 +2832,9 @@ void UT_Polygon::testMinEncRect()
 			  (rect.cannonicalSize().y() == 6)) ||
 			 ((rect.cannonicalSize().x() == 6) &&
 			  (rect.cannonicalSize().y() == 11)));
-      rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().x(),
+      rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().x(),
 				  rect.xyScale().x(), 1e-7));
-      rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().y(),
+      rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().y(),
 				  rect.xyScale().y(), 1e-7));
 
       rect = p.minimumAreaEnclosingRect();
@@ -2848,9 +2848,9 @@ void UT_Polygon::testMinEncRect()
 			  (rect.cannonicalSize().y() == 6)) ||
 			 ((rect.cannonicalSize().x() == 6) &&
 			  (rect.cannonicalSize().y() == 11)));
-      rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().x(),
+      rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().x(),
 				  rect.xyScale().x(), 1e-7));
-      rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().y(),
+      rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().y(),
 				  rect.xyScale().y(), 1e-7));
     }
   }
@@ -2882,9 +2882,9 @@ void UT_Polygon::testMinEncRect()
 
       rcUNITTEST_ASSERT(rect.cannonicalSize().x() == 8);
       rcUNITTEST_ASSERT(rect.cannonicalSize().y() == 8);
-      rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().x(),
+      rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().x(),
 				  rect.xyScale().x(), 0.5));
-      rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().y(),
+      rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().y(),
 				  rect.xyScale().y(), 0.5));
 
       rect = p.minimumAreaEnclosingRect();
@@ -2896,9 +2896,9 @@ void UT_Polygon::testMinEncRect()
 
       rcUNITTEST_ASSERT(rect.cannonicalSize().x() == 8);
       rcUNITTEST_ASSERT(rect.cannonicalSize().y() == 8);
-      rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().x(),
+      rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().x(),
 				  rect.xyScale().x(), 0.5));
-      rcUNITTEST_ASSERT(rfRealEq(rect.cannonicalSize().y(),
+      rcUNITTEST_ASSERT(real_equal(rect.cannonicalSize().y(),
 				  rect.xyScale().y(), 0.5));
     }
   }
@@ -3075,18 +3075,18 @@ void UT_Polygon::testDiscBuffer ()
     rcUNITTEST_ASSERT(b.isValid() == true);
     rcUNITTEST_ASSERT(b.isConvex() == true);
 
-    rcUTCheck (rfRealEq (b.vertexAt(0).x(), 96.0));
-    rcUTCheck (rfRealEq (b.vertexAt(0).y(), 96.0));
-    rcUTCheck (rfRealEq (b.vertexAt(1).x(), 104.0));
-    rcUTCheck (rfRealEq (b.vertexAt(1).y(), 96.0));
-    rcUTCheck (rfRealEq (b.vertexAt(2).x(), 155.0));
-    rcUTCheck (rfRealEq (b.vertexAt(2).y(), 150.0));
-    rcUTCheck (rfRealEq (b.vertexAt(3).x(), 154.0));
-    rcUTCheck (rfRealEq (b.vertexAt(3).y(), 154.0));
-    rcUTCheck (rfRealEq (b.vertexAt(4).x(), 46.0));
-    rcUTCheck (rfRealEq (b.vertexAt(4).y(), 154.0));
-    rcUTCheck (rfRealEq (b.vertexAt(5).x(), 45.0));
-    rcUTCheck (rfRealEq (b.vertexAt(5).y(), 150.0));
+    rcUTCheck (real_equal (b.vertexAt(0).x(), 96.0));
+    rcUTCheck (real_equal (b.vertexAt(0).y(), 96.0));
+    rcUTCheck (real_equal (b.vertexAt(1).x(), 104.0));
+    rcUTCheck (real_equal (b.vertexAt(1).y(), 96.0));
+    rcUTCheck (real_equal (b.vertexAt(2).x(), 155.0));
+    rcUTCheck (real_equal (b.vertexAt(2).y(), 150.0));
+    rcUTCheck (real_equal (b.vertexAt(3).x(), 154.0));
+    rcUTCheck (real_equal (b.vertexAt(3).y(), 154.0));
+    rcUTCheck (real_equal (b.vertexAt(4).x(), 46.0));
+    rcUTCheck (real_equal (b.vertexAt(4).y(), 154.0));
+    rcUTCheck (real_equal (b.vertexAt(5).x(), 45.0));
+    rcUTCheck (real_equal (b.vertexAt(5).y(), 150.0));
   }
 }
 

@@ -2362,7 +2362,7 @@ void UT_moments::testAutoCorrGeneralAnd16 ()
 	{
 	  float a8 =  (*(results8.score[2][2] + i ));
 	  float a16 =  (*(results16.score[2][2] + i  ));
-	  rcUTCheck (rfRealEq (a8, a16, 0.00001f));
+	  rcUTCheck (real_equal (a8, a16, 0.00001f));
 	}
     }
 }

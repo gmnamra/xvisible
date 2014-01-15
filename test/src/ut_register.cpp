@@ -20,8 +20,8 @@
 static float sEpsilon = 1.e-4;
 
 #define UTCHECKVEC(a, b, c, d) {				\
-    rcUTCheck (rfRealEq((a).x(), (b), d));	\
-    rcUTCheck (rfRealEq((a).y(), (c), d)); }
+    rcUTCheck (real_equal((a).x(), (b), d));	\
+    rcUTCheck (real_equal((a).y(), (c), d)); }
 
 UT_register::UT_register()
 {

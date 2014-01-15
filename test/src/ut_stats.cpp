@@ -34,22 +34,22 @@ void UT_stats::testfit()
   vector<float> first (9);
   for (int32 i = 0; i < 9; i++) first[i] = data [i];
   rfParfit2DR3 (first, xy);
-  rcUTCheck (rfRealEq (xy.x(), 0.3275f, 0.001f));
-  rcUTCheck (rfRealEq (xy.y(), 0.4827f, 0.001f));
+  rcUTCheck (real_equal (xy.x(), 0.3275f, 0.001f));
+  rcUTCheck (real_equal (xy.y(), 0.4827f, 0.001f));
 
   float xx (-3.0f), yy (-3.0f);
   rc2Fvector vv (xx, yy);
   rfParfit2DR3 (first[0], first[1], first[2], first[3], first[4], first[5], first[6],
 		first[7], first[8], vv);
-  rcUTCheck (rfRealEq (vv.x(), xy.x(), 0.001f));
-  rcUTCheck (rfRealEq (vv.y(), xy.y(), 0.001f));
+  rcUTCheck (real_equal (vv.x(), xy.x(), 0.001f));
+  rcUTCheck (real_equal (vv.y(), xy.y(), 0.001f));
   
   vector<double> space (3);
   space[0] = first[3]; space[1] = first[4]; space[2] = first[5];
-  rcUTCheck (rfRealEq (rfParabolicFit (space), 0.3, 0.001));
+  rcUTCheck (real_equal (rfParabolicFit (space), 0.3, 0.001));
 
   space[0] = first[1]; space[1] = first[4]; space[2] = first[7];
-  rcUTCheck (rfRealEq (rfParabolicFit (space), (double) -0.1666, (double) 0.001));
+  rcUTCheck (real_equal (rfParabolicFit (space), (double) -0.1666, (double) 0.001));
 
 
   float sx (0), sy (0);
@@ -58,8 +58,8 @@ void UT_stats::testfit()
 
   float dx (0), dy (0);
   rfMomentFit(first, dx, dy);
-  rcUTCheck (rfRealEq (dy, sy/9.0f, 0.001f));
-  rcUTCheck (rfRealEq (dx, sx/9.0f, 0.001f));
+  rcUTCheck (real_equal (dy, sy/9.0f, 0.001f));
+  rcUTCheck (real_equal (dx, sx/9.0f, 0.001f));
 
   {
     rcLsFit<float> fit3;
@@ -84,9 +84,9 @@ void UT_stats::testfit()
     bool success = fit3.solve3p (trans, rad);
 
     rcUTCheck (success == true);
-    rcUTCheck (rfRealEq (trans.x(), -0.5f, 0.001f));
-    rcUTCheck (rfRealEq (trans.y(), -0.5f, 0.001f));
-    rcUTCheck (rfRealEq (rad.Double(), 0.0, 0.001));
+    rcUTCheck (real_equal (trans.x(), -0.5f, 0.001f));
+    rcUTCheck (real_equal (trans.y(), -0.5f, 0.001f));
+    rcUTCheck (real_equal (rad.Double(), 0.0, 0.001));
   }
 
 #if 0 	// Currently buggy
@@ -123,12 +123,12 @@ void UT_stats::testfit()
       }
 
     rcUTCheck (success == true);
-    rcUTCheck (rfRealEq ((float) mat.element(0,0), 0.7f, 0.001f));    
-    rcUTCheck (rfRealEq ((float) mat.element(0,1), -0.7f, 0.001f));    
-    rcUTCheck (rfRealEq ((float) mat.element(1,0), 0.7f, 0.001f));    
-    rcUTCheck (rfRealEq ((float) mat.element(1,1), 0.7f, 0.001f));    
-    rcUTCheck (rfRealEq (trans.x(), 0.0f, 0.001f));
-    rcUTCheck (rfRealEq (trans.y(), -0.7f, 0.01f));
+    rcUTCheck (real_equal ((float) mat.element(0,0), 0.7f, 0.001f));    
+    rcUTCheck (real_equal ((float) mat.element(0,1), -0.7f, 0.001f));    
+    rcUTCheck (real_equal ((float) mat.element(1,0), 0.7f, 0.001f));    
+    rcUTCheck (real_equal ((float) mat.element(1,1), 0.7f, 0.001f));    
+    rcUTCheck (real_equal (trans.x(), 0.0f, 0.001f));
+    rcUTCheck (real_equal (trans.y(), -0.7f, 0.01f));
   }
 #endif
 }
@@ -261,13 +261,13 @@ void UT_stats::test()
       rfRMS( v1, v2);
       rcUNITTEST_ASSERT(  v2.size() == 2 && v2[0] == 1 
 			   && 
-			   rfRealEq (v2[1], s5, 0.01));
+			   real_equal (v2[1], s5, 0.01));
       v1.push_back( 3.0 );
       v2.push_back( 0.0 );v2[0] = 0;v2[1] = 0;
       rfRMS( v1, v2);
       rcUNITTEST_ASSERT(  v2.size() == 3 && v2[0] == 1 &&
-			   rfRealEq (v2[1], s5, 0.01) &&
-			   rfRealEq (v2[2], s14, 0.01));
+			   real_equal (v2[1], s5, 0.01) &&
+			   real_equal (v2[2], s14, 0.01));
 
     }
 
@@ -287,14 +287,14 @@ void UT_stats::test()
       rfRevRMS( v1, v2);
       rcUNITTEST_ASSERT(  v2.size() == 2 && v2[0] == 2
 			   && 
-			   rfRealEq (v2[1], s13, 0.01));
+			   real_equal (v2[1], s13, 0.01));
       v1.push_back( 1.0 );
       v2.push_back( 0.0 );v2[0] = 0;v2[1] = 0;
       rfRevRMS( v1, v2);
       rcUNITTEST_ASSERT(  v2.size() == 3 && v2[0] == 1 &&
-			   rfRealEq (v2[1], s5, 0.01) &&
-			   rfRealEq (v2[2], s14, 0.01));
-      rcUTCheck (rfRealEq (rfRMS (v1), s14, 0.01));
+			   real_equal (v2[1], s5, 0.01) &&
+			   real_equal (v2[2], s14, 0.01));
+      rcUTCheck (real_equal (rfRMS (v1), s14, 0.01));
     }
       
     // Tests for basic least square fitting
@@ -307,7 +307,7 @@ void UT_stats::test()
 	}
 
       rcLineSegment<float> l = ls.fit();
-      rcUTCheck (rfRealEq ((float) l.angle().Double(), 0.785358f, 0.001f));
+      rcUTCheck (real_equal ((float) l.angle().Double(), 0.785358f, 0.001f));
     }
 
     {
@@ -319,7 +319,7 @@ void UT_stats::test()
 	}
 
       rcLineSegment<float> l = ls.fit();
-      rcUTCheck (rfRealEq ((float) l.angle().normSigned().Double(), -0.785358f, 0.001f));
+      rcUTCheck (real_equal ((float) l.angle().normSigned().Double(), -0.785358f, 0.001f));
     }
 	  
 }

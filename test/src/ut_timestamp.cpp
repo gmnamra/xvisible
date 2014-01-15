@@ -68,7 +68,7 @@ void UT_Timestamp::testBasic()
             rcTimestamp result;
             
             rcUNITTEST_ASSERT( convertStringToTimestamp( result, seconds ) );
-			rcUTCheck(rfRealEq(result.secs(), 5.0 ));
+			rcUTCheck(real_equal(result.secs(), 5.0 ));
             string << result << ends;
             rcUNITTEST_ASSERT( seconds == string.str() );
             string.freeze( false ); // Without freeze(), strstream::str() leaks the string it returns
@@ -84,7 +84,7 @@ void UT_Timestamp::testBasic()
             rcTimestamp result;
 
             rcUNITTEST_ASSERT( convertStringToTimestamp( result, seconds ) );
-			rcUTCheck(rfRealEq(result.secs(), 4294.967296));
+			rcUTCheck(real_equal(result.secs(), 4294.967296));
             string << result << ends;
             rcUNITTEST_ASSERT( seconds == string.str() );
             string.freeze( false ); // Without freeze(), strstream::str() leaks the string it returns

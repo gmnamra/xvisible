@@ -177,7 +177,7 @@ void UT_motion::testBasic()
         rcUTCheck (watch.frames () == 9);    
         rcUTCheck (watch.sample () == 1);  
         rcUTCheck (watch.phase () == 0);  
-        rcUTCheck (rfRealEq (watch.laminarSuppression (), 0.8, 0.00001));
+        rcUTCheck (real_equal (watch.laminarSuppression (), 0.8, 0.00001));
 
         // Before calling step the first time, ctor has fetched one frame
         rcUTCheck (watch.count() == 1);
@@ -213,8 +213,8 @@ void UT_motion::testBasic()
             rcUTCheck (watch.use4moving().isBound());
             rcUTCheck (watch.fixed().contentCompare (images()[i-1]));
             rcUTCheck (watch.moving().contentCompare (images()[i]));
-            rcUTCheck (rfRealEq (watch.deltaTime(), 33.0, 0.001));
-            rcUTCheck (rfRealEq (watch.elapsedTime(), 33.0 * i , 0.001));
+            rcUTCheck (real_equal (watch.deltaTime(), 33.0, 0.001));
+            rcUTCheck (real_equal (watch.elapsedTime(), 33.0 * i , 0.001));
             rcWindow tmp; 
             watch.fieldMap (tmp);
             watch.advance ();
@@ -297,7 +297,7 @@ void UT_motion::testfile()
             rcUTCheck (watch.frames () == 9);    
             rcUTCheck (watch.sample () == 1);  
             rcUTCheck (watch.phase () == 0);  
-            rcUTCheck (rfRealEq (watch.laminarSuppression (), 0.8, 0.00001));
+            rcUTCheck (real_equal (watch.laminarSuppression (), 0.8, 0.00001));
 
             // Before calling step the first time, ctor has fetched one frame
             rcUTCheck (watch.count() == 1);
@@ -313,8 +313,8 @@ void UT_motion::testfile()
                 rcUTCheck (watch.use4moving().isBound());
                 rcUTCheck (watch.fixed().contentCompare (images()[i-1]));
                 rcUTCheck (watch.moving().contentCompare (images()[i]));
-                rcUTCheck (rfRealEq (watch.deltaTime(), 33.0, 0.001));
-                rcUTCheck (rfRealEq (watch.elapsedTime(), 33.0 * i , 0.001));
+                rcUTCheck (real_equal (watch.deltaTime(), 33.0, 0.001));
+                rcUTCheck (real_equal (watch.elapsedTime(), 33.0 * i , 0.001));
                 watch.advance ();
             }
         }
@@ -354,7 +354,7 @@ void UT_motion::testfile()
       rcUTCheck (watch.frames () == 9);    
       rcUTCheck (watch.sample () == 1);  
       rcUTCheck (watch.phase () == 0);  
-      rcUTCheck (rfRealEq (watch.laminarSuppression (), 0.8, 0.00001));
+      rcUTCheck (real_equal (watch.laminarSuppression (), 0.8, 0.00001));
 
       // Before calling step the first time, ctor has fetched one frame
       rcUTCheck (watch.count() == 1);
@@ -380,8 +380,8 @@ void UT_motion::testfile()
           rcUTCheck (watch.use4moving().isBound());
           rcUTCheck (watch.fixed().contentCompare (images[i-1]));
           rcUTCheck (watch.moving().contentCompare (images[i]));
-          rcUTCheck (rfRealEq (watch.deltaTime(), 33.0, 0.001));
-          rcUTCheck (rfRealEq (watch.elapsedTime(), 33.0 * i , 0.001));
+          rcUTCheck (real_equal (watch.deltaTime(), 33.0, 0.001));
+          rcUTCheck (real_equal (watch.elapsedTime(), 33.0 * i , 0.001));
 #if 0
           const list<rcVisualFunction>& visualBodies =watch.visualBodies();
           list<rcVisualFunction>::const_iterator cell;

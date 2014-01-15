@@ -10,7 +10,7 @@
 #include <rc_draw.h>
 
 
-#define rfRealEqFloat(A,B,D) rfRealEq((float)(A), (float)(B), (float)(D))
+#define real_equalFloat(A,B,D) real_equal((float)(A), (float)(B), (float)(D))
 
 UT_kineticimage::UT_kineticimage() 
 {
@@ -162,10 +162,10 @@ void UT_kineticimage::testVarianceGenerator()
     
     float* r0 = (float*)actual.rowPointer(0);
     float* r1 = (float*)actual.rowPointer(1);
-    rcUNITTEST_ASSERT(rfRealEqFloat((5./3.), r0[0], 0.000001));
-    rcUNITTEST_ASSERT(rfRealEqFloat((20./3.), r0[1], 0.000001));
-    rcUNITTEST_ASSERT(rfRealEqFloat(15., r1[0], 0.000001));
-    rcUNITTEST_ASSERT(rfRealEqFloat((80./3.), r1[1], 0.000001));
+    rcUNITTEST_ASSERT(real_equalFloat((5./3.), r0[0], 0.000001));
+    rcUNITTEST_ASSERT(real_equalFloat((20./3.), r0[1], 0.000001));
+    rcUNITTEST_ASSERT(real_equalFloat(15., r1[0], 0.000001));
+    rcUNITTEST_ASSERT(real_equalFloat((80./3.), r1[1], 0.000001));
   }
 
   /* Do some random tests
@@ -222,7 +222,7 @@ void UT_kineticimage::testVarianceGenerator()
     for (int32 y = 0; y < height; y++) {
       float* actualP = (float*)actual.rowPointer(y);
       for (int32 x = 0; x < width; x++) {
-	rcUNITTEST_ASSERT(rfRealEqFloat(expected[y][x], *actualP, 0.000001));
+	rcUNITTEST_ASSERT(real_equalFloat(expected[y][x], *actualP, 0.000001));
 	actualP++;
       }
     }
@@ -259,10 +259,10 @@ void UT_kineticimage::testStdDevGenerator()
     
     float* r0 = (float*)actual.rowPointer(0);
     float* r1 = (float*)actual.rowPointer(1);
-    rcUNITTEST_ASSERT(rfRealEqFloat(1.2909944, r0[0], 0.000001));
-    rcUNITTEST_ASSERT(rfRealEqFloat(2.5819889, r0[1], 0.000001));
-    rcUNITTEST_ASSERT(rfRealEqFloat(3.8729833, r1[0], 0.000001));
-    rcUNITTEST_ASSERT(rfRealEqFloat(5.1639778, r1[1], 0.000001));
+    rcUNITTEST_ASSERT(real_equalFloat(1.2909944, r0[0], 0.000001));
+    rcUNITTEST_ASSERT(real_equalFloat(2.5819889, r0[1], 0.000001));
+    rcUNITTEST_ASSERT(real_equalFloat(3.8729833, r1[0], 0.000001));
+    rcUNITTEST_ASSERT(real_equalFloat(5.1639778, r1[1], 0.000001));
   }
 
   /* Do some random tests
@@ -319,7 +319,7 @@ void UT_kineticimage::testStdDevGenerator()
     for (int32 y = 0; y < height; y++) {
       float* actualP = (float*)actual.rowPointer(y);
       for (int32 x = 0; x < width; x++) {
-	rcUNITTEST_ASSERT(rfRealEqFloat(expected[y][x], *actualP, 0.000001));
+	rcUNITTEST_ASSERT(real_equalFloat(expected[y][x], *actualP, 0.000001));
 	actualP++;
       }
     }
@@ -368,7 +368,7 @@ void UT_kineticimage::testVelEntropyGenerator()
     for (int32 y = 0; y < height; y++) {
       float* act = (float*)actual.rowPointer(y);
       for (int32 x = 0; x < width; x++)
-	rcUNITTEST_ASSERT(rfRealEqFloat(*act++, 1.0, 0.000001));
+	rcUNITTEST_ASSERT(real_equalFloat(*act++, 1.0, 0.000001));
     }
 
     vector<rcWindow> img2(imgCnt);
@@ -392,12 +392,12 @@ void UT_kineticimage::testVelEntropyGenerator()
     
     genKinetics.genKineticImg(actual);
     float exp = *((float*)actual.rowPointer(0));
-    rcUNITTEST_ASSERT(!rfRealEqFloat(1.0, exp, 0.000001)); // pretty lame, huh?
+    rcUNITTEST_ASSERT(!real_equalFloat(1.0, exp, 0.000001)); // pretty lame, huh?
     
     for (int32 y = 0; y < height; y++) {
       float* act = (float*)actual.rowPointer(y);
       for (int32 x = 0; x < width; x++)
-	rcUNITTEST_ASSERT(rfRealEqFloat(*act++, exp, 0.000001));
+	rcUNITTEST_ASSERT(real_equalFloat(*act++, exp, 0.000001));
     }
 
     vector<rcWindow> img3(imgCnt);
@@ -424,12 +424,12 @@ void UT_kineticimage::testVelEntropyGenerator()
     genKinetics.genKineticImg(actual);
     float oldExp = exp;
     exp = *((float*)actual.rowPointer(0));
-    rcUNITTEST_ASSERT(rfRealEqFloat(oldExp, exp, 0.000001));
+    rcUNITTEST_ASSERT(real_equalFloat(oldExp, exp, 0.000001));
     
     for (int32 y = 0; y < height; y++) {
       float* act = (float*)actual.rowPointer(y);
       for (int32 x = 0; x < width; x++)
-	rcUNITTEST_ASSERT(rfRealEqFloat(*act++, exp, 0.000001));
+	rcUNITTEST_ASSERT(real_equalFloat(*act++, exp, 0.000001));
     }
   }
 
@@ -454,7 +454,7 @@ void UT_kineticimage::testVelEntropyGenerator()
     for (int32 y = 0; y < height; y++) {
       float* act = (float*)actual.rowPointer(y);
       for (int32 x = 0; x < width; x++)
-	rcUNITTEST_ASSERT(rfRealEqFloat(*act++, 1.0, 0.000001));
+	rcUNITTEST_ASSERT(real_equalFloat(*act++, 1.0, 0.000001));
     }
   }
 }
@@ -484,7 +484,7 @@ void UT_kineticimage::testAccelEntropyGenerator()
     for (int32 y = 0; y < height; y++) {
       float* act = (float*)actual.rowPointer(0);
       for (int32 x = 0; x < width; x++)
-	rcUNITTEST_ASSERT(rfRealEqFloat(*act++, 1.0, 0.000001));
+	rcUNITTEST_ASSERT(real_equalFloat(*act++, 1.0, 0.000001));
     }
 
     vector<rcWindow> img2(imgCnt);
@@ -502,7 +502,7 @@ void UT_kineticimage::testAccelEntropyGenerator()
     for (int32 y = 0; y < height; y++) {
       float* act = (float*)actual.rowPointer(0);
       for (int32 x = 0; x < width; x++)
-	rcUNITTEST_ASSERT(rfRealEqFloat(*act++, 1.0, 0.000001));
+	rcUNITTEST_ASSERT(real_equalFloat(*act++, 1.0, 0.000001));
     }
   }
 
@@ -559,7 +559,7 @@ void UT_kineticimage::testAccelEntropyGenerator()
     for (int32 y = 0; y < height; y++) {
       float* actualP = (float*)actual.rowPointer(y);
       for (int32 x = 0; x < width; x++) {
-	rcUNITTEST_ASSERT(rfRealEqFloat(expected[y][x], *actualP, 0.000001));
+	rcUNITTEST_ASSERT(real_equalFloat(expected[y][x], *actualP, 0.000001));
 	actualP++;
       }
     }
@@ -591,7 +591,7 @@ void UT_kineticimage::testThetaEntropyGenerator()
     for (int32 y = 0; y < height; y++) {
       float* act = (float*)actual.rowPointer(0);
       for (int32 x = 0; x < width; x++)
-	rcUNITTEST_ASSERT(rfRealEqFloat(*act++, 1.0, 0.000001));
+	rcUNITTEST_ASSERT(real_equalFloat(*act++, 1.0, 0.000001));
     }
 
     vector<rcWindow> img2(imgCnt);
@@ -609,7 +609,7 @@ void UT_kineticimage::testThetaEntropyGenerator()
     for (int32 y = 0; y < height; y++) {
       float* act = (float*)actual.rowPointer(0);
       for (int32 x = 0; x < width; x++)
-	rcUNITTEST_ASSERT(rfRealEqFloat(*act++, 1.0, 0.000001));
+	rcUNITTEST_ASSERT(real_equalFloat(*act++, 1.0, 0.000001));
     }
   }
 
@@ -675,7 +675,7 @@ void UT_kineticimage::testThetaEntropyGenerator()
     for (int32 y = 0; y < height; y++) {
       float* actualP = (float*)actual.rowPointer(y);
       for (int32 x = 0; x < width; x++) {
-	rcUNITTEST_ASSERT(rfRealEqFloat(expected[y][x], *actualP, 0.000001));
+	rcUNITTEST_ASSERT(real_equalFloat(expected[y][x], *actualP, 0.000001));
 	actualP++;
       }
     }

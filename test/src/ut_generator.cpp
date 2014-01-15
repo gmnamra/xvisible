@@ -398,14 +398,14 @@ void UT_generator::bilinear()
   double xloc = 0.5, yloc = 0.5;
   double expValue = (0.0*0.5 + 1.0*0.5)*0.5 + (3.0*0.5 + 4.0*0.5)*0.5;
 
-  rcUNITTEST_ASSERT(rfRealEq(pGen.genPixel(&win8, xloc, yloc),expValue,0.0000001));
-  rcUNITTEST_ASSERT(rfRealEq(pGen.genPixel(&winD, xloc, yloc),expValue,0.0000001));
+  rcUNITTEST_ASSERT(real_equal(pGen.genPixel(&win8, xloc, yloc),expValue,0.0000001));
+  rcUNITTEST_ASSERT(real_equal(pGen.genPixel(&winD, xloc, yloc),expValue,0.0000001));
 
   xloc = 0.9, yloc = 0.2;
   expValue = (0.0*0.1 + 1.0*0.9)*0.8 + (3.0*0.1 + 4.0*0.9)*0.2;
 
-  rcUNITTEST_ASSERT(rfRealEq(pGen.genPixel(&win8, xloc, yloc),expValue,0.0000001));
-  rcUNITTEST_ASSERT(rfRealEq(pGen.genPixel(&winD, xloc, yloc),expValue,0.0000001));
+  rcUNITTEST_ASSERT(real_equal(pGen.genPixel(&win8, xloc, yloc),expValue,0.0000001));
+  rcUNITTEST_ASSERT(real_equal(pGen.genPixel(&winD, xloc, yloc),expValue,0.0000001));
 
   printSuccessMessage( "rcLinGeneratePixel", mErrors-oldErrors );
 }
@@ -449,19 +449,19 @@ void UT_generator::cubic()
   double expValue = (0.0*0.5 + 1.0*0.5)*0.5 + (3.0*0.5 + 4.0*0.5)*0.5;
 
   pGen.clear();
-  rcUNITTEST_ASSERT(rfRealEq(pGen.genPixel(&win8, xloc, yloc),expValue,0.0000001));
+  rcUNITTEST_ASSERT(real_equal(pGen.genPixel(&win8, xloc, yloc),expValue,0.0000001));
 
   pGen.clear();
-  rcUNITTEST_ASSERT(rfRealEq(pGen.genPixel(&winD, xloc, yloc),expValue,0.0000001));
+  rcUNITTEST_ASSERT(real_equal(pGen.genPixel(&winD, xloc, yloc),expValue,0.0000001));
 
   xloc = 0.9, yloc = 0.2;
   expValue = (0.0*0.1 + 1.0*0.9)*0.8 + (3.0*0.1 + 4.0*0.9)*0.2;
 
   pGen.clear();
-  rcUNITTEST_ASSERT(rfRealEq(pGen.genPixel(&win8, xloc, yloc),expValue,0.0000001));
+  rcUNITTEST_ASSERT(real_equal(pGen.genPixel(&win8, xloc, yloc),expValue,0.0000001));
 
   pGen.clear();
-  rcUNITTEST_ASSERT(rfRealEq(pGen.genPixel(&winD, xloc, yloc),expValue,0.0000001));
+  rcUNITTEST_ASSERT(real_equal(pGen.genPixel(&winD, xloc, yloc),expValue,0.0000001));
   printSuccessMessage( "rcCubicGeneratePixel", mErrors-oldErrors );
 }
 

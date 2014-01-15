@@ -75,12 +75,12 @@ void UT_affine::basic()
 
     rc2Dvector d0(1.0, 1.0);
     rc2Dvector d1 = ar.affineToImage(d0);
-    rcUTCheck(rfRealEq(d1.x(), 4.0, 0.0000001));
-    rcUTCheck(rfRealEq(d1.y(), 3.0, 0.0000001));
+    rcUTCheck(real_equal(d1.x(), 4.0, 0.0000001));
+    rcUTCheck(real_equal(d1.y(), 3.0, 0.0000001));
     d0 = rc2Dvector(4.0, 2.0);
     rc2Dvector d2 = ar.imageToAffine(d0);
-    rcUTCheck(rfRealEq(d2.x(), 1.0, 0.0000001));
-    rcUTCheck(rfRealEq(d2.y(), 0.5, 0.0000001));
+    rcUTCheck(real_equal(d2.x(), 1.0, 0.0000001));
+    rcUTCheck(real_equal(d2.y(), 0.5, 0.0000001));
   }
 
   {
@@ -97,11 +97,11 @@ void UT_affine::basic()
 
     rc2Dvector d0(1.0, 1.0);
     rc2Dvector d1 = ar.affineToImage(d0);
-    rcUTCheck(rfRealEq(d1.x(), 3.0, 0.0000001));
-    rcUTCheck(rfRealEq(d1.y(), 2.0, 0.0000001));
+    rcUTCheck(real_equal(d1.x(), 3.0, 0.0000001));
+    rcUTCheck(real_equal(d1.y(), 2.0, 0.0000001));
     rc2Dvector d2 = ar.imageToAffine(d0);
-    rcUTCheck(rfRealEq(d2.x(), 0.0, 0.0000001));
-    rcUTCheck(rfRealEq(d2.y(), 0.5, 0.0000001));
+    rcUTCheck(real_equal(d2.x(), 0.0, 0.0000001));
+    rcUTCheck(real_equal(d2.y(), 0.5, 0.0000001));
   }
 
   {
@@ -118,11 +118,11 @@ void UT_affine::basic()
 
     rc2Dvector d0(1.0, 1.0);
     rc2Dvector d1 = ar.affineToImage(d0);
-    rcUTCheck(rfRealEq(d1.x(), 1, 0.0000001));
-    rcUTCheck(rfRealEq(d1.y(), 1 + sqrt(2.0)*2, 0.0000001));
+    rcUTCheck(real_equal(d1.x(), 1, 0.0000001));
+    rcUTCheck(real_equal(d1.y(), 1 + sqrt(2.0)*2, 0.0000001));
     rc2Dvector d2 = ar.imageToAffine(d0);
-    rcUTCheck(rfRealEq(d2.y(), 0, 0.0000001));
-    rcUTCheck(rfRealEq(d2.x(), 0, 0.0000001));
+    rcUTCheck(real_equal(d2.y(), 0, 0.0000001));
+    rcUTCheck(real_equal(d2.x(), 0, 0.0000001));
   }
 
   {
@@ -139,11 +139,11 @@ void UT_affine::basic()
 
     rc2Dvector d0(1.0, 1.0);
     rc2Dvector d1 = ar.affineToImage(d0);
-    rcUTCheck(rfRealEq(d1.x(), 1, 0.0000001));
-    rcUTCheck(rfRealEq(d1.y(), 1 + sqrt(2.0), 0.0000001));
+    rcUTCheck(real_equal(d1.x(), 1, 0.0000001));
+    rcUTCheck(real_equal(d1.y(), 1 + sqrt(2.0), 0.0000001));
     rc2Dvector d2 = ar.imageToAffine(d0);
-    rcUTCheck(rfRealEq(d2.y(), 0.5, 0.0000001));
-    rcUTCheck(rfRealEq(d2.x(), 0.5, 0.0000001));
+    rcUTCheck(real_equal(d2.y(), 0.5, 0.0000001));
+    rcUTCheck(real_equal(d2.x(), 0.5, 0.0000001));
   }
 
   {
@@ -160,11 +160,11 @@ void UT_affine::basic()
 
     rc2Dvector d0(1.0, 1.0);
     rc2Dvector d1 = ar.affineToImage(d0);
-    rcUTCheck(rfRealEq(d1.x(), 7.59807, 0.0001));
-    rcUTCheck(rfRealEq(d1.y(), 4.23205, 0.0001));
+    rcUTCheck(real_equal(d1.x(), 7.59807, 0.0001));
+    rcUTCheck(real_equal(d1.y(), 4.23205, 0.0001));
     rc2Dvector d2 = ar.imageToAffine(rc2Dvector(5.00000, 2.73205));
-    rcUTCheck(rfRealEq(d2.y(), 1.0, 0.0001));
-    rcUTCheck(rfRealEq(d2.x(), 0.0, 0.0001));
+    rcUTCheck(real_equal(d2.y(), 1.0, 0.0001));
+    rcUTCheck(real_equal(d2.x(), 0.0, 0.0001));
   }
 
   {
@@ -181,11 +181,11 @@ void UT_affine::basic()
 
     rc2Dvector d0(1.0, 1.0);
     rc2Dvector d1 = ar.affineToImage(d0);
-    rcUTCheck(rfRealEq(d1.x(), 6.79904, 0.0001));
-    rcUTCheck(rfRealEq(d1.y(), 2.61603, 0.0001));
+    rcUTCheck(real_equal(d1.x(), 6.79904, 0.0001));
+    rcUTCheck(real_equal(d1.y(), 2.61603, 0.0001));
     rc2Dvector d2 = ar.imageToAffine(rc2Dvector(6.79904, 2.61603));
-    rcUTCheck(rfRealEq(d2.y(), 1.0, 0.0001));
-    rcUTCheck(rfRealEq(d2.x(), 1.0, 0.0001));
+    rcUTCheck(real_equal(d2.y(), 1.0, 0.0001));
+    rcUTCheck(real_equal(d2.x(), 1.0, 0.0001));
   }
 
   {
@@ -200,20 +200,20 @@ void UT_affine::basic()
 
     rcUTCheck(ar.xyScale() == sc);
 
-    rcUTCheck (rfRealEq (ar.matrix().element(0,0), 0.707107, 0.000001));
-    rcUTCheck (rfRealEq (ar.matrix().element(0,1), - 0.707107, 0.000001));
-    rcUTCheck (rfRealEq (ar.matrix().element(1, 0), 0.707107, 0.000001));
-    rcUTCheck (rfRealEq (ar.matrix().element(1, 1), 0.707107, 0.000001));
+    rcUTCheck (real_equal (ar.matrix().element(0,0), 0.707107, 0.000001));
+    rcUTCheck (real_equal (ar.matrix().element(0,1), - 0.707107, 0.000001));
+    rcUTCheck (real_equal (ar.matrix().element(1, 0), 0.707107, 0.000001));
+    rcUTCheck (real_equal (ar.matrix().element(1, 1), 0.707107, 0.000001));
     rcUTCheck (ar.origin().x() == 0);
     rcUTCheck (ar.origin().y() == 0);
 
     rc2Dvector d0 (1.0, 1.0);
     rc2Dvector d1 = ar.mapPoint (d0);
-    rcUTCheck (rfRealEq (d1.x(), 0, 0.0000001));
-    rcUTCheck (rfRealEq (d1.y(), sqrt(2.0), 0.0000001));
+    rcUTCheck (real_equal (d1.x(), 0, 0.0000001));
+    rcUTCheck (real_equal (d1.y(), sqrt(2.0), 0.0000001));
     rc2Dvector d2 = ar.invMapPoint (d0);
-    rcUTCheck (rfRealEq (d2.y(), 0, 0.0000001));
-    rcUTCheck (rfRealEq (d2.x(), sqrt(2.0), 0.0000001));
+    rcUTCheck (real_equal (d2.y(), 0, 0.0000001));
+    rcUTCheck (real_equal (d2.x(), sqrt(2.0), 0.0000001));
   }
 
   {
@@ -233,22 +233,22 @@ void UT_affine::basic()
     rcIPair steps (3, 3);
     rcAffineRectangle art = ar2.expand (steps);
 
-    rcUTCheck(rfRealEq(ar2.affineToImage(ul).x() - 
+    rcUTCheck(real_equal(ar2.affineToImage(ul).x() - 
 		       art.affineToImage(ul).x(), 9, 0.01));
-    rcUTCheck(rfRealEq(ar2.affineToImage(ul).y() - 
+    rcUTCheck(real_equal(ar2.affineToImage(ul).y() - 
 		       art.affineToImage(ul).y(), -1, 0.01));
-    rcUTCheck(rfRealEq(ar2.affineToImage(ur).x() - 
+    rcUTCheck(real_equal(ar2.affineToImage(ur).x() - 
 		       art.affineToImage(ur).x(), -9, 0.01));
-    rcUTCheck(rfRealEq(ar2.affineToImage(ur).y() - 
+    rcUTCheck(real_equal(ar2.affineToImage(ur).y() - 
 		       art.affineToImage(ur).y(), -1, 0.01));
 
-    rcUTCheck(rfRealEq(ar2.affineToImage(ll).x() - 
+    rcUTCheck(real_equal(ar2.affineToImage(ll).x() - 
 		       art.affineToImage(ll).x(), 9, 0.01));
-    rcUTCheck(rfRealEq(ar2.affineToImage(ll).y() - 
+    rcUTCheck(real_equal(ar2.affineToImage(ll).y() - 
 		       art.affineToImage(ll).y(), 1, 0.01));
-    rcUTCheck(rfRealEq(ar2.affineToImage(lr).x() - 
+    rcUTCheck(real_equal(ar2.affineToImage(lr).x() - 
 		       art.affineToImage(lr).x(), -9, 0.01));
-    rcUTCheck(rfRealEq(ar2.affineToImage(lr).y() - 
+    rcUTCheck(real_equal(ar2.affineToImage(lr).y() - 
 		       art.affineToImage(lr).y(), 1, 0.01));
   }
 
@@ -277,15 +277,15 @@ void UT_affine::basic()
 	  rc2Dvector atl (0.0, 0.0); 
 	  CGPoint tlp = {(float)	ar2.affineToImage(atl).x(), (float)	ar2.affineToImage(atl).y() };
 
-	  rcUTCheck(rfRealEq (tlp.x, (float) o.x(), 0.001f));
-	  rcUTCheck(rfRealEq (tlp.y, (float) o.y(), 0.001f));
+	  rcUTCheck(real_equal (tlp.x, (float) o.x(), 0.001f));
+	  rcUTCheck(real_equal (tlp.y, (float) o.y(), 0.001f));
 
 	  // Map top left of the CGAffine to the image
 	  CGPoint gtl = {- aw/2.0, - ah/2.0};
 	  CGPoint tl = CGPointApplyAffineTransform (gtl, va);
 
-	  rcUTCheck(rfRealEq (tlp.x, tl.x, 0.001f));
-	  rcUTCheck(rfRealEq (tlp.y, tl.y, 0.001f));
+	  rcUTCheck(real_equal (tlp.x, tl.x, 0.001f));
+	  rcUTCheck(real_equal (tlp.y, tl.y, 0.001f));
 	}
 
 	// Map bottom right of the affine to image
@@ -297,8 +297,8 @@ void UT_affine::basic()
 	  CGPoint gtl = {aw/2.0, ah/2.0};
 	  CGPoint tl = CGPointApplyAffineTransform (gtl, va);
 
-	  rcUTCheck(rfRealEq (tlp.x, tl.x, 0.001f));
-	  rcUTCheck(rfRealEq (tlp.y, tl.y, 0.001f));
+	  rcUTCheck(real_equal (tlp.x, tl.x, 0.001f));
+	  rcUTCheck(real_equal (tlp.y, tl.y, 0.001f));
 	}
 
       }
@@ -372,15 +372,15 @@ void UT_affine::getpixelloc()
     for (int32 x = 0; x < sz.x(); x++)
       for (int32 y = 0; y < sz.y(); y++) {
 	loc = ar.getPixelLoc(x, y);
-	rcUTCheck(rfRealEq(loc.x(), o.x() + x, 0.0000001));
-	rcUTCheck(rfRealEq(loc.y(), o.y() + y, 0.0000001));
+	rcUTCheck(real_equal(loc.x(), o.x() + x, 0.0000001));
+	rcUTCheck(real_equal(loc.y(), o.y() + y, 0.0000001));
       }
 
     for (double x = 0; x < (double)sz.x(); x += 1.0)
       for (double y = 0; y < (double)sz.y(); y += 1.0) {
 	loc = ar.getPixelLoc(x, y);
-	rcUTCheck(rfRealEq(loc.x(), o.x() + x, 0.0000001));
-	rcUTCheck(rfRealEq(loc.y(), o.y() + y, 0.0000001));
+	rcUTCheck(real_equal(loc.x(), o.x() + x, 0.0000001));
+	rcUTCheck(real_equal(loc.y(), o.y() + y, 0.0000001));
       }
   }
   {
@@ -404,8 +404,8 @@ void UT_affine::getpixelloc()
     for (int32 x = 0; x < sz.x(); x++)
       for (int32 y = 0; y < sz.y(); y++) {
 	loc = ar.getPixelLoc(x, y);
-	rcUTCheck(rfRealEq(loc.x(), o.x() + expgpclX[x][y], 0.0000001));
-	rcUTCheck(rfRealEq(loc.y(), o.y() + expgpclY[x][y], 0.0000001));
+	rcUTCheck(real_equal(loc.x(), o.x() + expgpclX[x][y], 0.0000001));
+	rcUTCheck(real_equal(loc.y(), o.y() + expgpclY[x][y], 0.0000001));
       }
 
     double expgplX[3][3], expgplY[3][3];
@@ -419,13 +419,13 @@ void UT_affine::getpixelloc()
     for (double x = 0; x < (double)sz.x(); x += 1.0)
       for (double y = 0; y < (double)sz.y(); y += 1.0) {
 	loc = ar.getPixelLoc(x, y);
-	rcUTCheck(rfRealEq(loc.x(), o.x() + expgplX[(int)x][(int)y], 0.0000001));
-	rcUTCheck(rfRealEq(loc.y(), o.y() + expgplY[(int)x][(int)y], 0.0000001));
+	rcUTCheck(real_equal(loc.x(), o.x() + expgplX[(int)x][(int)y], 0.0000001));
+	rcUTCheck(real_equal(loc.y(), o.y() + expgplY[(int)x][(int)y], 0.0000001));
       }
 
     loc = ar.getPixelLoc(1.93, 1.22);
-    rcUTCheck(rfRealEq(loc.x(), o.x() + .50204581, 0.0000001));
-    rcUTCheck(rfRealEq(loc.y(), o.y() + 2.22738636, 0.0000001));
+    rcUTCheck(real_equal(loc.x(), o.x() + .50204581, 0.0000001));
+    rcUTCheck(real_equal(loc.y(), o.y() + 2.22738636, 0.0000001));
   }
 }
 

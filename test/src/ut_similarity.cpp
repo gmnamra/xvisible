@@ -56,7 +56,7 @@ void UT_similarity::testBasics()
   rcUNITTEST_ASSERT(ent.size() == images.size());
 
   for (uint32 i = 0; i < ent.size(); i++)
-    rcUNITTEST_ASSERT(rfRealEq(ent[i], 0.0, 1.e-9));
+    rcUNITTEST_ASSERT(real_equal(ent[i], 0.0, 1.e-9));
 
 
   for (uint32 i = 0; i < images.size(); i++) {
@@ -175,7 +175,7 @@ void UT_similarity::testUpdate()
 	if (!matGen && i > (winSz-1) && update)
 	  {
 	    rcUTCheck (simu.longTermEntropy().size() == (entu.size()+i));
-	    rcUTCheck (rfRealEq((double) simu.longTermEntropy().back(), entu.back (), 1.e-5));
+	    rcUTCheck (real_equal((double) simu.longTermEntropy().back(), entu.back (), 1.e-5));
 	  }
 
 	if (entu.size() != entf.size())
