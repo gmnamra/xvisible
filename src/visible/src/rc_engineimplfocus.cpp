@@ -48,7 +48,7 @@ rcEngineFocusData::rcEngineFocusData( rcWriterManager* writerManager, const rcRe
         mTipDistanceWriter( 0 ),
         mDevelopmentVideoWriter( 0 ),
         mDevelopmentGraphicsWriter( 0 ),
-        mCellWriters( 0 ),
+    //        mCellWriters( 0 ),
         mCellLengthWriter( 0 ),
         mCellBoundsWriter( 0 ),
         mAnalysisRect( analysisRect ),

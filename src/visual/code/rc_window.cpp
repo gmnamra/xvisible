@@ -1,136 +1,9 @@
-/* @file
- *
- *$Header $
- *$Id $
- *$Log$
- *Revision 1.44  2006/01/01 21:33:27  arman
- *kinetoscope ut
- *
- *Revision 1.43  2005/11/21 00:58:33  arman
- *modified output operator formating
- *
- *Revision 1.42  2005/10/31 09:47:23  arman
- *added throws to set/get functions
- *
- *Revision 1.41  2005/10/27 17:13:37  arman
- *added zVal and cleaned up
- *
- *Revision 1.40  2005/10/25 03:54:49  arman
- *added peek outside
- *
- *Revision 1.39  2005/08/30 21:08:52  arman
- *Cell Lineage
- *
- *Revision 1.40  2005/08/23 00:00:56  arman
- *Added bits() and bytes() accessors
- *
- *Revision 1.39  2005/07/31 14:38:36  arman
- *switched to exception error handling
- *
- *Revision 1.38  2005/05/12 19:21:30  arman
- *adding operator () (x,y)
- *
- *Revision 1.37  2005/01/17 14:50:30  arman
- *corrected exception throw
- *
- *Revision 1.36  2005/01/07 16:33:04  arman
- *fixed incorrect exception macro call
- *
- *Revision 1.35  2004/12/09 20:12:26  arman
- *re-wrote clipping and sub windowing support.
- *
- *Revision 1.34  2004/12/09 16:49:27  arman
- *added @file
- *
- *Revision 1.33  2004/09/15 14:44:18  arman
- *added == and !=
- *
- *Revision 1.32  2004/08/08 22:43:42  arman
- *added clip support to subwindow functions
- *
- *Revision 1.31  2004/07/21 21:22:26  arman
- *added comments
- *
- *Revision 1.30  2004/04/29 21:10:53  arman
- *added vImage accessor
- *
- *Revision 1.29  2004/01/28 23:05:53  sami
- *Fixed width and height asserts
- *
- *Revision 1.28  2004/01/13 17:58:02  sami
- *Fixed debug compilation error
- *
- *Revision 1.27  2004/01/08 16:32:15  arman
- *added support for IRect in parentwindow
- *
- *Revision 1.26  2003/11/14 16:31:38  arman
- *added an output streaming operation
- *
- *Revision 1.25  2003/10/17 19:31:51  sami
- *Some speed improvements in ramdomFill()
- *
- *Revision 1.24  2003/08/27 22:28:13  sami
- *Use int32 for all frame/window geometry values
- *
- *Revision 1.23  2003/08/06 19:35:50  sami
- *Removed debug code
- *
- *Revision 1.22  2003/08/06 18:56:15  sami
- *randomFill() tweaks
- *
- *Revision 1.21  2003/05/28 21:26:49  arman
- *added parent window iCenter window setting
- *
- *Revision 1.20  2003/05/22 22:19:01  sami
- *Added mirror argument to copyPixelsFromWindow()
- *
- *Revision 1.19  2003/05/20 21:54:38  sami
- *Added mirror() method for vertical row mirroring
- *
- *Revision 1.18  2003/04/26 03:00:20  arman
- *added a new check arg to center/span window ctor
- *
- *Revision 1.17  2003/04/16 15:23:45  arman
- *added window selection by span and center
- *added get/set using a pair
- *
- *Revision 1.16  2003/04/08 19:19:18  sami
- *Inlining changes
- *
- *Revision 1.15  2003/03/22 12:57:57  arman
- *added ctor with rcIPair size
- *
- *Revision 1.14  2003/03/11 00:12:28  sami
- *const correctness improved
- *
- *Revision 1.13  2003/03/06 19:49:00  proberts
- *Reify movie grabber uses video cache - rcSimilarator now uses cache aware algorithm for exhaustive correlation
- *
- *Revision 1.12  2003/02/25 04:26:47  arman
- * added image<double> support
- *
- *Revision 1.11  2003/02/24 00:11:37  arman
- *added contains ptr
- *
- *Revision 1.10  2003/01/15 16:23:09  arman
- *Added new ctor (pos, size, depth)
- *
- *Revision 1.9  2003/01/12 21:14:38  arman
- *added self trim and translate
- *
- *Revision 1.8  2003/01/12 06:01:44  arman
- *Supports new rcRect. Added new member functions.
- *
- *
- *
- * Copyright (c) 2002-2003 Reify Corp. All rights reserved.
- */
+
 
 #include <rc_window.h>
 #include <rc_videocache.h>
 #include <sys/param.h>
 #include <rc_macro.h>
-#include <rc_qtime.h>
 #include <rc_tiff.h>
 #include <tiff.h>
 #include <rc_systeminfo.h>
@@ -813,7 +686,7 @@ double rcWindow::getDoublePixel( int32 x, int32 y ) const
 	  int32 x = w;\
 	  while (x--)\
 	    {\
-	      if (!rfRealEq (*pSrc1++,*pOther++,Epsilon))	\
+	      if (!real_equal (*pSrc1++,*pOther++,Epsilon))	\
 		{cerr << x << "," << y << " " << pSrc1[-1] << " ?? " << pOther[-1] << endl;\
 		  return 0;}						\
 	    }\

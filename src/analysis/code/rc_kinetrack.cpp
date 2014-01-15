@@ -598,7 +598,7 @@ void rcKinetoscope::newGeneration (list<rcVisualFunction>& cells, vector<rcPolyg
        // If I am dividing these could be the daughters
        vector<rcPolygon> groupIntersects;
        if (aliveCell->isState (rcVisualFunction::eIsDividing) && cpg.intersects (regions, groupIntersects, 0.1f) && 
-	   groupIntersects.size() == 2 &&  rfRealEq (aliveCell->cQuality (), 1.0f, 0.01f))
+	   groupIntersects.size() == 2 &&  real_equal (aliveCell->cQuality (), 1.0f, 0.01f))
 	 {
 	   // Do these polys belong to any other cells ? 
 	   // Create daughter cells and set the cell to divided

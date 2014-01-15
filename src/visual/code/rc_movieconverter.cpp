@@ -894,8 +894,8 @@ rcMovieConverterError rcMovieConverterToQT::createQTMovie( rcVideoCache* inputCa
 
     lock();
 	bool isDir;
-    myFile = rfMakeFSSpecFromPosixPath(destFullName.c_str(), isDir);
-    myErr = ValidFSSpec(&myFile);
+    myFile = qtime::rfMakeFSSpecFromPosixPath(destFullName.c_str(), isDir);
+    myErr = qtime::ValidFSSpec(&myFile);
     unlock();
     if (myErr != noErr)
         return eMovieConverterErrorWriteOpen;
@@ -1002,11 +1002,11 @@ OSErr rcMovieConverterToQT::addVideoSamplesToMedia(Media theMedia, rcVideoCache&
     long			myMaxComprSize = 0L;
     Handle		    myComprDataHdl = NULL;
     CTabHandle      ctabHdl = NULL;
-    Ptr			    myComprDataPtr = NULL;
+    ::Ptr			    myComprDataPtr = NULL;
     ImageDescriptionHandle myImageDesc = NULL;
     CGrafPtr		mySavedPort = NULL;
     GDHandle		mySavedDevice = NULL;
-    Rect			myRect;
+    ::Rect			myRect;
     OSErr			myErr = noErr;
 
     MacSetRect(&myRect, 0, 0, movieSize.width(), movieSize.height());

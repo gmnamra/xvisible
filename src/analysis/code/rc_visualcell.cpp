@@ -238,11 +238,11 @@ void rcVisualFunction::populationMigration  ()
   vector<float>::const_iterator maxd = max_element (distances.begin(),
 						    distances.end());
   // If all cells are attached to me, we are undetermined
-  if (rfRealEq (*maxd, 0.0f)) return;
+  if (real_equal (*maxd, 0.0f)) return;
 
   // Find min and max distances; if there is no range, pick max
   float scale (*maxd - *mind);
-  if (rfRealEq (scale, 0.0f)) scale = *maxd;
+  if (real_equal (scale, 0.0f)) scale = *maxd;
 
   // Sum persistence towards me or away from me scale pro closest to me.
   // Use a linear map to use distance
@@ -436,8 +436,8 @@ void rcVisualFunction::measure ()
 	  float distance = dD.distance (mCurrentPosition);
 	  float radius = sqrt (area() / rkPI) * 1.5f;
 
-	  if (rfRealEq (cQuality (), 1.0f, 0.001f) && 
-	      rfRealEq (circularity (), (float) vc->circularity(), 0.067f) &&
+	  if (real_equal (cQuality (), 1.0f, 0.001f) && 
+	      real_equal (circularity (), (float) vc->circularity(), 0.067f) &&
 	      distance < radius)
 	    {
 	      direct (dD);	      

@@ -51,6 +51,7 @@ bool developerDebugging (bool b)
   return developerDebugging ();
 }
 
+using namespace qtime;
 
 
 /******************************************************************************
@@ -137,7 +138,7 @@ _firstFrameSaved(true), _isPausedToggle (false)
   PRINT_STATE_CHANGE("ctor", getState(), eEngineUninitialized);
   _captureThread = 0;
   _importThread = 0;
-  _movieCapture = 0;
+        //  _movieCapture = 0;
   _analyzerThread = 0;
   _observer = 0;
   _writerManager = 0;
@@ -157,7 +158,7 @@ rcEngineImpl::~rcEngineImpl()
   delete _analyzerThread;
   delete _playbackThread;
   delete _importer;
-  delete _movieCapture;
+        //  delete _movieCapture;
   delete _player;
   rcEngineFocusData* temp;
   delete _frameFocus.getValue(temp);
@@ -191,10 +192,10 @@ void rcEngineImpl::initialize( rcEngineObserver* observer )
   _analyzerThread = 0;
   _playbackThread = 0;
 
-  _movieCapture = new rcEngineMovieCapture( this, _captureCtrl,
-																					 _saveCtrl, _observer );
-  _captureThread = new rcThread( _movieCapture );
-  _captureThread->setPriority( eHighPriority );
+        //  _movieCapture = new rcEngineMovieCapture( this, _captureCtrl,
+        //																					 _saveCtrl, _observer );
+        //  _captureThread = new rcThread( _movieCapture );
+        //  _captureThread->setPriority( eHighPriority );
   _importer = new rcEngineImporter( this );
   _importThread = new rcThread( _importer );
   _importThread->setPriority( eHighPriority );
@@ -263,8 +264,8 @@ void rcEngineImpl::shutdown( void )
   _importThread = 0;
   delete _importer;
   _importer = 0;
-  delete _movieCapture;
-  _movieCapture = 0;
+        //  delete _movieCapture;
+        // _movieCapture = 0;
   delete _analyzer;
   _analyzer = 0;
   delete _playbackThread;
@@ -346,7 +347,7 @@ bool rcEngineImpl::operatingOnLiveInput ( void )
 
 bool rcEngineImpl::storingLiveInput ( void )
 {
-  return ( _movieCapture->saveState() == eMovieFileState_Save );
+    return false; // return ( _movieCapture->saveState() == eMovieFileState_Save );
 }
 
 bool rcEngineImpl::pauseTracking ( void )
@@ -383,7 +384,10 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
   rcEngineAttributes attr;
 
   int inputMode = getSettingValue( cInputModeSettingId );
-  if ( inputMode != eFile && inputMode != eCmd) {
+    rmAssert ( inputMode == eFile || inputMode == eCmd);
+#if 0
+  if ( inputMode != eFile && inputMode != eCmd)
+  {
     rmAssert(_movieCapture);
     rcRect captureRect = _movieCapture->captureStatus().getCaptureRect();
     rcPixel captureDepth = _movieCapture->captureStatus().getCaptureDepth();
@@ -399,6 +403,8 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
     attr.inputName = (std::string) getSettingValue( cOutputMovieFileSettingId );
   }
   else {
+#endif
+
     attr.frameWidth = _frameWidth;
     attr.frameHeight = _frameHeight;
     attr.frameDepth = _frameDepth;
@@ -411,7 +417,6 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
       attr.inputName = (std::string) getSettingValue( cInputMovieFileSettingId );
     else if ( isSettingEnabled( cInputImageFilesSettingId ) )
       attr.inputName = (std::string) getSettingValue( cInputImageFilesSettingId );
-  }
 
   return attr;
 }
@@ -527,7 +532,7 @@ void rcEngineImpl::internalReset()
   _slidingWindowSize = 3;
   _slidingWindowOrigin = eAnalyzerResultOriginCenter;
   _analysisMode = cAnalysisACISlidingWindow;
-  _cellType = cAnalysisCellGeneral;
+        // _cellType = cAnalysisCellGeneral;
   _statType = cAnalysisStatMedian;
   _msPerContraction = cAnalysisMuscleMsPerContractionDefault;
   _aciOptions = rcSimilarator::eACI;
@@ -539,8 +544,8 @@ void rcEngineImpl::internalReset()
   _frameRate = 0;
   _movieFile = "";
   _imageFileNames = "";
-  _saveCtrl.outputFileName("");
-  _saveCtrl.movieFileName("");
+        //_saveCtrl.outputFileName("");
+        // _saveCtrl.movieFileName("");
   _imageFileNames = "";
   _writerSizeLimit = INT_MAX;
   _previewWriterSizeLimit = 512;
@@ -584,9 +589,9 @@ void rcEngineImpl::unlockedReset()
   _currentTime = 0.0;
   _fileImages.clear();
   _movieFile = "";
-  _saveCtrl.outputFileName("");
-  if (_movieCapture)
-    _movieCapture->saveReset();
+        //  _saveCtrl.outputFileName("");
+        // if (_movieCapture)
+        //   _movieCapture->saveReset();
   _analysisRect = rcRect(0, 0, 0, 0);
   _motionVectorWriter = 0;
   _bodyVectorWriter = 0;
@@ -740,8 +745,8 @@ void rcEngineImpl::setCaptureInfo( const rcMovieFileOrgExt& org,
 void rcEngineImpl::setTimeLineRange()
 {
   // Set preview timeline range to 200 frames at current speed
-  int rate = (int)_captureCtrl.getDecimationRate();
-  double rangeLen =  100 * (1/rcDEFAULT_FRAMES_PER_SEC) * rate;
+    int rate = 15; //(int)_captureCtrl.getDecimationRate();
+  double rangeLen =  100 * (1/15.0) * rate;
   rcTimestamp elapsed = getElapsedTime();
   _observer->notifyTimelineRange( elapsed-rangeLen, elapsed );
 }
@@ -854,9 +859,10 @@ void rcEngineImpl::frameInterrupt(const rcAnalyzerResult& result,
 																	uint32 missedFramesOnSave,
 																	bool frameSaved )
 {
-  if (!result.frameBuf())
-    return;
+    rmAssert (!result.frameBuf());
+        //    return;
 
+#if 0
   // process the frame interrupt
   try {
     // Calculate average capture speed
@@ -882,6 +888,7 @@ void rcEngineImpl::frameInterrupt(const rcAnalyzerResult& result,
 												cameraStatus, result, delay,
 												missedFramesOnCapture, missedFramesOnSave,
 												frameSaved );
+
   }
 
 
@@ -892,6 +899,8 @@ void rcEngineImpl::frameInterrupt(const rcAnalyzerResult& result,
   catch (...) {
     engineAbort("unknown exception type");
   }
+#endif
+
 }
 
 // Flush writers after capture has ended
@@ -950,8 +959,9 @@ void rcEngineImpl::processCapturedData(rcEngineFocusData* focus,
 				}
       }
     }
-
-    if (delay) {
+#if 0
+    if (delay)
+    {
       rmAssert(_movieCapture);
       uint32 tenthsSecondsLeft = _movieCapture->delayLeft();
       uint32 minLeft = tenthsSecondsLeft / 600;
@@ -999,17 +1009,18 @@ void rcEngineImpl::processCapturedData(rcEngineFocusData* focus,
 						}
 					}
 				}
-#if 0
+
 				else {
 					cerr << "rcEngineImpl::processCapturedData notification: frame " << result.frameBuf() << " at ";
 					cerr << result.frameBuf()->timestamp() << " unsaved, ";
 					cerr << "result " << result.entropy() << " not stored" << endl;
 				}
-#endif
+
       }
       // Notify elapsed time
       _observer->notifyTime(timestamp);
     }
+#endif
   }
   else {
     if ( frameSaved ) {
@@ -1985,12 +1996,8 @@ void rcEngineImpl::reportOnBadGrabber (const rcVectorGrabber& imageGrabber) cons
 
 void rcEngineImpl::model2use ()
 {
-   _model2use = rcWindow ();
+    _rect2use = rcIRect (308, 34, 24, 24);
+        //  _model2use = rcWindow ();
 
-  rcWindow foo (152, 128);
-	for (int i = 0; i < 128; i++)
-		memcpy (foo.rowPointer (i),  sTarget_Image_tip [i], 152);
-
-	_model2use = foo;
-}
+ }
 

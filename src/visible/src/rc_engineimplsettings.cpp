@@ -31,6 +31,7 @@ std::string rcEngineImpl::focusScript ()
     case cAnalysisACI:
 				script += std::string (" -analysis ") + std::string ("aci");
 			break;
+#if 0
     case cAnalysisCellTracking:
       script += std::string (" -analysis ") + std::string ("cell");
       int32 ct = getSettingValue( cAnalysisCellTypeId );
@@ -41,6 +42,7 @@ std::string rcEngineImpl::focusScript ()
       else if (ct == cAnalysisLabeledFluorescence)
 				script += std::string (" -type ") += std::string ("Flu");
       break;
+#endif
 	}
 	
   script += std::string (" -use ") += std::string ("<your Visible.app>");
@@ -60,6 +62,58 @@ const rcValue rcEngineImpl::getSettingValue( int settingId )
 	
 	switch (settingId)
 	{
+#if 0
+		case cCameraFrameRateSettingId:
+			return (int)_captureCtrl.getDecimationRate();
+
+		case cCameraAcquireTimeSettingId:
+			return (int)_saveCtrl.getFrameCaptureTime();
+
+		case cCameraAcquireDelayTimeSettingId:
+			return (int)_saveCtrl.getFrameCaptureDelayTime();
+
+		case cOutputMovieFileSettingId:
+			return _saveCtrl.getOutputFileName();
+        case cAnalysisRectSettingId:
+			if (_inputMode == eCamera)
+            {
+				rmAssert(_movieCapture);
+				return _movieCapture->captureStatus().getCaptureRect();
+			}
+			else
+				return _analysisRect;
+            
+        case cAnalysisACISlidingWindowSizeSettingId:
+			if (_inputMode == eCamera)
+				return _captureCtrl.getSlidingWindowSize();
+			else
+				return _slidingWindowSize;
+
+		case cAnalysisACISlidingWindowOriginSettingId:
+			if (_inputMode == eCamera)
+				return int(_captureCtrl.getSlidingWindowOrigin());
+			else
+				return int(_slidingWindowOrigin);
+        case cInputGainSettingId:
+		{
+			int gain = _captureCtrl.getGain();
+			return gain;
+		}
+		case cInputShutterSettingId:
+		{
+			int shutter = _captureCtrl.getShutter();
+			return shutter;
+		}
+		case cInputBinningSettingId:
+		{
+			int binning = _captureCtrl.getBinning();
+			return binning;
+		}
+
+
+
+#endif
+
 		case cInputModeSettingId:
                     return _inputMode;
 
@@ -68,46 +122,22 @@ const rcValue rcEngineImpl::getSettingValue( int settingId )
 			
 		case cFrameRateSettingId:
 			return _frameRate;
-			
-		case cCameraFrameRateSettingId:
-			return (int)_captureCtrl.getDecimationRate();
-			
-		case cCameraAcquireTimeSettingId:
-			return (int)_saveCtrl.getFrameCaptureTime();
-			
-		case cCameraAcquireDelayTimeSettingId:
-			return (int)_saveCtrl.getFrameCaptureDelayTime();
-			
 		case cInputMovieFileSettingId:
 			return _movieFile;
-			
-		case cOutputMovieFileSettingId:
-			return _saveCtrl.getOutputFileName();
-			
+
 		case cInputImageFilesSettingId:
 			return _imageFileNames;
 			
 		case cAnalysisRectSettingId:
-			if (_inputMode == eCamera) {
-				rmAssert(_movieCapture);
-				return _movieCapture->captureStatus().getCaptureRect();
-			}
-			else
-				return _analysisRect;
+			return _analysisRect;
 			
 		case cAnalysisACIOptionSettingId:
 			return _aciOptions;
 			
 		case cAnalysisACISlidingWindowSizeSettingId:
-			if (_inputMode == eCamera)
-				return _captureCtrl.getSlidingWindowSize();
-			else
 				return _slidingWindowSize;
 			
 		case cAnalysisACISlidingWindowOriginSettingId:
-			if (_inputMode == eCamera)
-				return int(_captureCtrl.getSlidingWindowOrigin());
-			else
 				return int(_slidingWindowOrigin);
 			
     case cAnalysisMotionTrackingSampleSettingId:
@@ -145,21 +175,6 @@ const rcValue rcEngineImpl::getSettingValue( int settingId )
 		case cAnalysisMotionTrackingStepSettingId:
 			return _aciTemporalSampling;
 			
-		case cInputGainSettingId:
-		{
-			int gain = _captureCtrl.getGain();
-			return gain;
-		}
-		case cInputShutterSettingId:
-		{
-			int shutter = _captureCtrl.getShutter();
-			return shutter;
-		}
-		case cInputBinningSettingId:
-		{
-			int binning = _captureCtrl.getBinning();
-			return binning;
-		}
 
 		case cPlaybackCtrlSettingId:
 			if (_player && _player->playbackStatus().getState() ==
@@ -222,9 +237,6 @@ const rcValue rcEngineImpl::getSettingValue( int settingId )
     case cAnalysisObjectSettingId:
       return _analysisTreatmentObject;
 			
-	    //        case cAnalysisTreatmentObjectSizeSettingId:
-	    //            return _analysisTreatmentObjectSize;
-			
 		case cAnalysisDevelopmentVideoDisplaySettingId:
 			return _developmentVideoEnabled;
 			break;
@@ -265,8 +277,10 @@ void rcEngineImpl::setSettingValue( int settingId , const rcValue& value )
 				
 				_inputMode = (rcInputMode)(int)value;
 				
-				switch (_inputMode) {
-					case eCamera:
+				switch (_inputMode)
+            {
+#if 0
+                case eCamera:
 					{
 						_fpsCalculator.reset();
 						_cameraInfo = "";
@@ -278,7 +292,7 @@ void rcEngineImpl::setSettingValue( int settingId , const rcValue& value )
 						_aciOptions = static_cast<rcSimilarator::rcEntropyDefinition> (static_cast<int> (value));
 						break;
 					}
-						
+#endif
 					case eFile:
 					{
 						_frameRate = 0;
@@ -306,16 +320,19 @@ void rcEngineImpl::setSettingValue( int settingId , const rcValue& value )
 			case cCameraFrameRateSettingId:
 			{
 				int inputValue = (int)value;
+                setTimeLineRange();
+#if 0
 				if (inputValue >= 1) {
 					_captureCtrl.decimationRate((uint32)(int)value);
 					// Update timeline range in camera mode when
 					// frame rate changes
 					if ( _inputMode != eFile )
-						setTimeLineRange();
-				}
+
+                        }
+#endif
 			}
 				break;
-				
+#if 0
 			case cCameraAcquireTimeSettingId:
 			{
 				int inputValue = (int)value;
@@ -339,7 +356,8 @@ void rcEngineImpl::setSettingValue( int settingId , const rcValue& value )
 					_saveCtrl.frameCaptureDelayTime((uint32)inputValue);
 			}
 				break;
-				
+#endif
+
 			case cInputMovieFileSettingId:
 				_movieFile = (std::string) value;
 				_inputMode = (_batchMode) ? eCmd : eFile;
@@ -359,14 +377,15 @@ void rcEngineImpl::setSettingValue( int settingId , const rcValue& value )
 				captureThreadStop = true;
 				playbackThreadStop = true;
 				break;
-				
+#if 0
 			case cOutputMovieFileSettingId:
 				// Set capture output file name as movie input file name
 				_movieFile = (std::string) value;
 				_saveCtrl.outputFileName(_movieFile);
 				_saveCtrl.movieFileName(_movieFile);
 				break;
-				
+#endif
+
 			case cAnalysisRectSettingId:
 				if (_inputMode == eFile || _inputMode == eCmd)
 					_analysisRect = value;
@@ -382,9 +401,9 @@ void rcEngineImpl::setSettingValue( int settingId , const rcValue& value )
 				// Zero size window is not allowed
 				if ( newSize < 2 )
 					newSize = 2;
-				if (_inputMode == eCamera)
-					_captureCtrl.slidingWindowSize(value);
-				else
+                    //		if (_inputMode == eCamera)
+                    //			_captureCtrl.slidingWindowSize(value);
+                    //		else
 					_slidingWindowSize = value;
 			}
 				break;
@@ -392,9 +411,9 @@ void rcEngineImpl::setSettingValue( int settingId , const rcValue& value )
 			case cAnalysisACISlidingWindowOriginSettingId:
 			{
 				int val = value;
-				if (_inputMode == eCamera)
-					_captureCtrl.slidingWindowOrigin((rcAnalyzerResultOrigin)val);
-				else
+                    //	if (_inputMode == eCamera)
+                    //		_captureCtrl.slidingWindowOrigin((rcAnalyzerResultOrigin)val);
+                    //	else
 					_slidingWindowOrigin = rcAnalyzerResultOrigin(val);
 			}
 				break;
@@ -510,12 +529,13 @@ void rcEngineImpl::setSettingValue( int settingId , const rcValue& value )
               
 			case cAnalysisModeSettingId:
 				_analysisMode = value;
-				if (_analysisMode != cAnalysisCellTracking) {
-					_cellType = cAnalysisCellGeneral;
+				if (_analysisMode != cAnalysisCellTracking) 
+                {
+                        //					_cellType = cAnalysisCellGeneral;
 					_msPerContraction = cAnalysisMuscleMsPerContractionDefault;
 				}
 				break;
-				
+#if 0
 			case cAnalysisCellTypeId:
 				_cellType = value;
 				if (! (_cellType == cAnalysisCellMuscle || _cellType == cAnalysisCellMuscleSelected) )
@@ -524,7 +544,7 @@ void rcEngineImpl::setSettingValue( int settingId , const rcValue& value )
 					}
 				_motionTrackingTargetSize = 5;
 				break;
-				
+#endif
 			case cAnalysisMuscleAutoGenPeriodId:
 	      _msPerContraction = value;
 	      break;
@@ -611,7 +631,7 @@ void rcEngineImpl::setSettingValue( int settingId , const rcValue& value )
 			case   cGlobalMotionEstId:
 				_enableGlobalMotionEst = value;
 				break;
-				
+#if 0
 			case cInputGainSettingId:
 				_captureCtrl.gain(int(value));
 				break;
@@ -621,6 +641,7 @@ void rcEngineImpl::setSettingValue( int settingId , const rcValue& value )
 			case cInputBinningSettingId:
 	      _captureCtrl.binning(int(value));
 				break;
+#endif
 		} // End of: switch (settingId)
 	} // End of: Locked block
 	
@@ -717,9 +738,9 @@ bool rcEngineImpl::isSettingEnabled( int settingId )
 			
     case cAnalysisACISlidingWindowSizeSettingId:
     case cAnalysisACISlidingWindowOriginSettingId:
-      if (_inputMode == eCamera)
-				return  _captureCtrl.getSlidingWindowEnabled();
-      else
+                //    if (_inputMode == eCamera)
+                //			return  _captureCtrl.getSlidingWindowEnabled();
+                //    else
 				return _analysisMode == cAnalysisACISlidingWindow;
 			
 			
@@ -742,6 +763,7 @@ bool rcEngineImpl::isSettingEnabled( int settingId )
 			
     case cAnalysisObjectSettingId:   // Used to indicate Lineage Processing and other options
 		{
+#if 0
 			switch (_analysisTreatmentObject)
 			{
 				case eLineageProcessing:
@@ -758,6 +780,7 @@ bool rcEngineImpl::isSettingEnabled( int settingId )
 					 ||
 					 (_analysisMode == cAnalysisCellTracking && _cellType == cAnalysisCellGeneral));
 			}
+#endif
 		}
 			
     case cAnalysisMotionTrackingMotionVectorDisplaySettingId:
@@ -766,20 +789,20 @@ bool rcEngineImpl::isSettingEnabled( int settingId )
     case cAnalysisCellTypeId:
       return getState() != eEngineUninitialized &&  _analysisMode == cAnalysisCellTracking;
 			
-    case cAnalysisMotionTrackingSpeedSettingId:
-      return getState() != eEngineUninitialized &&  _analysisMode == cAnalysisCellTracking &&
-			! (_cellType == cAnalysisCellMuscle || _cellType == cAnalysisCellMuscleSelected);
+                //   case cAnalysisMotionTrackingSpeedSettingId:
+                //     return getState() != eEngineUninitialized &&  _analysisMode == cAnalysisCellTracking &&
+                //			! (_cellType == cAnalysisCellMuscle || _cellType == cAnalysisCellMuscleSelected);
 			
     case cAnalysisMuscleAutoGenPeriodId:
     case cAnalysisMuscleSegmentationVectorDisplaySettingId:
-      return getState() != eEngineUninitialized &&
-			_analysisMode == cAnalysisCellTracking &&
-			(_cellType == cAnalysisCellMuscle || _cellType == cAnalysisCellMuscleSelected);
+                // return getState() != eEngineUninitialized &&
+                //	_analysisMode == cAnalysisCellTracking &&
+                //	(_cellType == cAnalysisCellMuscle || _cellType == cAnalysisCellMuscleSelected);
 			
     case cAnalysisMusclePeriodId:
-      return getState() != eEngineUninitialized &&
-			_analysisMode == cAnalysisCellTracking &&
-			_cellType == cAnalysisCellMuscle;
+                //     return getState() != eEngineUninitialized &&
+                //		_analysisMode == cAnalysisCellTracking &&
+                //		_cellType == cAnalysisCellMuscle;
 			
       // This is not needed now, it can be enabled for internal debugging
     case cAnalysisMotionTrackingBodyHistoryVectorDisplaySettingId:
@@ -871,12 +894,11 @@ bool rcEngineImpl::isSettingEditable( int settingId )
 			
 		case cAnalysisACISlidingWindowSizeSettingId:
 		case cAnalysisACISlidingWindowOriginSettingId:
-			if (_inputMode != eFile) {
-				if ( _movieCapture->saveState() == eMovieFileState_Save )
-					return false;
-			}
-			break;
-			
+                //		if (_inputMode != eFile) {
+                //			if ( _movieCapture->saveState() == eMovieFileState_Save )
+                //			return false;
+            return true;
+
 		case cAnalysisFirstFrameSettingId:
 		case cAnalysisLastFrameSettingId:
 			return (framesLoaded() > 0);

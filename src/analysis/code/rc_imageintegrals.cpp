@@ -7,7 +7,7 @@
  * Copyright (c) 2002 Reify Corp. All rights reserved.
  */
 #include <rc_window.h>
-#include <rc_moments.h>
+
 
 // An example image
 // [  0]  1  1  1  1  1  2           s25,ss25 s26, ss28

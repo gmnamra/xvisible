@@ -76,7 +76,7 @@ rc2Dvector rcInfLine::intersect(const rcInfLine& l, bool isPar) const
   isPar = false;
   double d = dir().x() * l.dir().y() - dir().y() * l.dir().x();
 
-  isPar = rfRealEq (d, 0.0);
+  isPar = real_equal (d, 0.0);
 
   if (isPar) return rc2Dvector ();
 

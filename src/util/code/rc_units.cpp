@@ -61,7 +61,7 @@ int32 rfLog2max(int32 n)
   return power;
 }
 
-bool rfRealEq (rcRadian x, rcRadian y, rcRadian epsilon)
+bool real_equal (rcRadian x, rcRadian y, rcRadian epsilon)
 { 
   return abs((x - y).normSigned()) <= epsilon;
 }

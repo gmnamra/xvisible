@@ -64,8 +64,8 @@ rcMovieGrabber::rcMovieGrabber( const std::string fileName, rcCarbonLock* cLock,
     else
     {
         bool isDir = false;
-        mFileSpec = rfMakeFSSpecFromPosixPath( mFileName.c_str(), isDir);
-        err = ValidFSSpec( &mFileSpec );
+        mFileSpec = qtime::rfMakeFSSpecFromPosixPath( mFileName.c_str(), isDir);
+        err = qtime::ValidFSSpec( &mFileSpec );
         // Cannot access file for some reason
         if ( err != noErr )
             setLastError( eFrameErrorFileInit );
@@ -117,7 +117,7 @@ bool rcMovieGrabber::start()
             getPixelInfoFromImageDesc ( (ImageDescriptionHandle) anImageDesc);
 					
             mTimeScale = GetMovieTimeScale(mMovie);
-            Rect tmp = {0,0,0,0};
+            ::Rect tmp = {0,0,0,0};
             GetMovieBox(mMovie, &tmp);
             m_width =  tmp.right - tmp.left;
             m_height = tmp.bottom - tmp.top;
@@ -370,7 +370,7 @@ OSErr rcMovieGrabber::getNextVideoSample(rcWindow& image, Media media, TimeValue
             rcSharedFrameBufPtr buf8(new rcFrame (m_width, m_height, depth));
             buf8->setIsGray(m_isGray);
             // Produce color map
-            rfFillColorMap( m_ctb, buf8 );
+            qtime::rfFillColorMap( m_ctb, buf8 );
             rcWindow image8(buf8);
             // Reduce image depth
             rfRcWindow32to8( tmp, image8 );
@@ -378,7 +378,7 @@ OSErr rcMovieGrabber::getNextVideoSample(rcWindow& image, Media media, TimeValue
         } else {
             // Produce color map if necessary
             if ( depth < rcPixel32 && !m_isWhiteReversed) {
-                rfFillColorMap( m_ctb, buf );              
+                qtime::rfFillColorMap( m_ctb, buf );              
             }
         }
     }

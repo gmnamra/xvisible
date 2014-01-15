@@ -18,6 +18,9 @@
 
 #include <rc_resource_ctrl.h>
 
+using namespace qtime;
+
+
 #if 0
 // Force symbols from core foundation and agl to be loaded to get
 // around linker bug in Dec 2002 tool release.

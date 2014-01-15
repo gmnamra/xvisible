@@ -2,7 +2,7 @@
 
 #include <strstream>
 
-#include <rc_movieconverter.h>
+    //#include <rc_movieconverter.h>
 
 #include "rc_scalartrackimpl.h"
 #include "rc_videotrackimpl.h"

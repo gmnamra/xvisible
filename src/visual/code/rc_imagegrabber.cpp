@@ -59,7 +59,7 @@ static OSErr rfImageFileToRcWindow (const FSSpec* pfsspecImage, rcWindow& rcwin,
      return (bdNamErr);
    }
    desc = *imageDescH;
-   getPixelInfoFromImageDesc (imageDescH, pd, pf, isGray, isWhiteReversed, &ctb);
+   qtime::getPixelInfoFromImageDesc (imageDescH, pd, pf, isGray, isWhiteReversed, &ctb);
    
 #ifdef DEBUG_LOG
    for (int i = 0; i < 256; i++)
@@ -67,7 +67,7 @@ static OSErr rfImageFileToRcWindow (const FSSpec* pfsspecImage, rcWindow& rcwin,
 #endif
       
    // Get size and format information we need
-   Rect boundsRect = { 0, 0, desc->height, desc->width };
+    ::Rect boundsRect = { 0, 0, desc->height, desc->width };
    imageWidth = desc->width;
    imageHeight = desc->height;
    overEightSize = imageWidth * imageHeight;
@@ -89,7 +89,7 @@ static OSErr rfImageFileToRcWindow (const FSSpec* pfsspecImage, rcWindow& rcwin,
          buf->setIsGray(isGray);
 
          if ( pd < rcPixel16 ) {
-             rfFillColorMap( ctb, buf );
+             qtime::rfFillColorMap( ctb, buf );
          }
          // set a rcWindow to be an entire window in to this
          rcWindow rw (buf);
@@ -168,7 +168,7 @@ rcImageGrabber::rcImageGrabber( const vector<std::string>& fileNames, rcCarbonLo
         
     // Sort names just in case
     if (nameSort)
-      rfImageNameSort( mFileNames );
+      qtime::rfImageNameSort( mFileNames );
 
 #ifdef DEBUG
     // Paranoia, verify sort order
@@ -184,9 +184,9 @@ rcImageGrabber::rcImageGrabber( const vector<std::string>& fileNames, rcCarbonLo
     for( vector<std::string>::iterator file = mFileNames.begin(); file < mFileNames.end(); ++file )
 		{
 			bool isdir = false;
-			FSSpec spec = rfMakeFSSpecFromPosixPath( file->c_str(), isdir);
+			FSSpec spec = qtime::rfMakeFSSpecFromPosixPath( file->c_str(), isdir);
 
-        if ( ValidFSSpec( &spec ) == noErr )
+        if ( qtime::ValidFSSpec( &spec ) == noErr )
         {
             FSSpec* newSpec = new FSSpec( spec );
 

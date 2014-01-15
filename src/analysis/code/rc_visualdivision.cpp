@@ -251,7 +251,7 @@ bool rcVisualFunction::dividingProcess  ()
     }
 
   rcRadian play (rkPI / 4.0);
-  if (!rfRealEq (links[0].angle(), links[1].angle(), play)) return false;
+  if (!real_equal (links[0].angle(), links[1].angle(), play)) return false;
 
    // go ahead an multiply
   return grow (bRects);

@@ -342,7 +342,7 @@ void rcVisualFunction::beatProcess  ()
        minIntL = mBeatMedian - minIntL;
 
        // If Interpolated is too close or inconclusive/degenerate use the measured minimum
-       if (rfRealEq (minIntL, 0.0f) || rfRealEq (minIntT, 0.0f) || rfRealEq (*minL, minIntL, 1.0f))
+       if (real_equal (minIntL, 0.0f) || real_equal (minIntT, 0.0f) || real_equal (*minL, minIntL, 1.0f))
 	 minIntL = *minL;
        mBeatShortenning = 1.0f - minIntL / mBeatMedian;
 
