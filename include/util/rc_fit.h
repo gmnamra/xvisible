@@ -42,8 +42,8 @@ inline T parabolicFit ( const T left, const T center, const T right, T *maxp = N
 template<> 
 inline double parabolicFit (const double left, const double center, const double right, double *maxp)
 {
-  const bool cl (rfRealEq (center - left, (double) (1.e-15)));
-  const bool cr (rfRealEq (center - right, (double) (1.e-15)));
+  const bool cl (real_equal (center - left, (double) (1.e-15)));
+  const bool cr (real_equal (center - right, (double) (1.e-15)));
 
   if ((!(center > left || cl ) && !(center > right || cr )) &&
       (!(center < left || cl ) && !(center < right || cr )))
@@ -73,8 +73,8 @@ inline double parabolicFit (const double left, const double center, const double
 template<> 
 inline float parabolicFit (const float left, const float center, const float right, float *maxp)
 {
-  const bool cl (rfRealEq (center - left, (float) (1.e-10)));
-  const bool cr (rfRealEq (center - right, (float) (1.e-10)));
+  const bool cl (real_equal (center - left, (float) (1.e-10)));
+  const bool cr (real_equal (center - right, (float) (1.e-10)));
 
   if ((!(center > left || cl ) && !(center > right || cr )) &&
       (!(center < left || cl ) && !(center < right || cr )))

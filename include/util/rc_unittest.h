@@ -29,13 +29,13 @@
     __LINE__ ) )
 
 #define rcUTCheckRealEq(A, B)				\
-  ( rcUnitTest::Assert( (rfRealEq((A), (B))),		\
+  ( rcUnitTest::Assert( (real_equal((A), (B))),		\
     (#A),       \
     __FILE__,           \
     __LINE__ ) )
 
 #define rcUTCheckRealDelta(A, B, C)				\
-  ( rcUnitTest::Assert( (rfRealEq((A), (B), (C))),		\
+  ( rcUnitTest::Assert( (real_equal((A), (B), (C))),		\
     (#A),       \
     __FILE__,           \
     __LINE__ ) )
