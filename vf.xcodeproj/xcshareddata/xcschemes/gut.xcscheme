@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C2B8E97A187DD7880060D961"
+               BlueprintIdentifier = "C2B8E992187DDC2B0060D961"
                BuildableName = "gut"
                BlueprintName = "gut"
                ReferencedContainer = "container:vf.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C2B8E97A187DD7880060D961"
+            BlueprintIdentifier = "C2B8E992187DDC2B0060D961"
             BuildableName = "gut"
             BlueprintName = "gut"
             ReferencedContainer = "container:vf.xcodeproj">
@@ -51,7 +51,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C2B8E97A187DD7880060D961"
+            BlueprintIdentifier = "C2B8E992187DDC2B0060D961"
             BuildableName = "gut"
             BlueprintName = "gut"
             ReferencedContainer = "container:vf.xcodeproj">
@@ -69,7 +69,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C2B8E97A187DD7880060D961"
+            BlueprintIdentifier = "C2B8E992187DDC2B0060D961"
             BuildableName = "gut"
             BlueprintName = "gut"
             ReferencedContainer = "container:vf.xcodeproj">

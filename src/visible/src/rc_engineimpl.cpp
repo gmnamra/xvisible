@@ -1284,80 +1284,89 @@ void rcEngineImpl::assertInitialized( void )
   if (getState() == eEngineUninitialized)
     throw rcEngineException( "engine uninitialized" );
 }
-
-// Perform ACI computation
-uint32 rcEngineImpl::entropyTracker( rcEngineFocusData* focus,
-																			vector<rcWindow>& focusImages,
-																			int32 cacheSz )
-{
-  // Compute entropy
-
-  uint32 analysisCount = 0;
-  vector<double> results;
-  double statusUpdateInterval = 1.5;
-
-  // Write Appropriate Track Titles
-  rcWriterManager::renameEntropyTrack( focus->energyWriter()->down_cast(), _aciOptions,
-																			rcPixel(_frameDepth), _channelConversion );
-  // Construct progress message string
-  std::string progressMsg = "Computing ";
-  progressMsg += focus->energyWriter()->down_cast()->getName();
-  progressMsg += "...%.2f%% complete";
-
-  // Create graphics writers if applicable
-  createGraphicsWriters();
-
-  rcEngineProgress progressIndicator( this, _observer,
-																		 progressMsg,
-																		 statusUpdateInterval );
-
-  rcSimilarator::rcCorrelationDefinition cdl =  rcSimilarator::eNorm;
-
-  // @note optimization if range has stayed the same but not now.
-  // @note handle reusing the vectors better
-  int32 range = (int) getSettingValue(cGlobalMotionEstId);
-  int32 pOpt =  getSettingValue( cAnalysisObjectSettingId);
-
-
-	if ( progressIndicator.progress( (100.0 * (analysisCount))/focusImages.size() ) ) {
-		// Abort
-		_observer->notifyStatus( "Analysis stopped" );
-	return 0;	}
+    
+    // Perform ACI computation
+    uint32 rcEngineImpl::entropyTracker( rcEngineFocusData* focus,
+                                        vector<rcWindow>& focusImages,
+                                        int32 cacheSz )
+    {
+        // Compute entropy
+        
+        uint32 analysisCount = 0;
+        vector<double> results;
+        double statusUpdateInterval = 1.5;
+        
+        // Write Appropriate Track Titles
+        rcWriterManager::renameEntropyTrack( focus->energyWriter()->down_cast(), _aciOptions,
+                                            rcPixel(_frameDepth), _channelConversion );
+        // Construct progress message string
+        std::string progressMsg = "Computing ";
+        progressMsg += focus->energyWriter()->down_cast()->getName();
+        progressMsg += "...%.2f%% complete";
+        
+        // Create graphics writers if applicable
+        createGraphicsWriters();
+        
+        rcEngineProgress progressIndicator( this, _observer,
+                                           progressMsg,
+                                           statusUpdateInterval );
+        
+        rcSimilarator::rcCorrelationDefinition cdl =  rcSimilarator::eNorm;
+        
+        // @note optimization if range has stayed the same but not now.
+        // @note handle reusing the vectors better
+        int32 range = (int) getSettingValue(cGlobalMotionEstId);
+        int32 pOpt =  getSettingValue( cAnalysisObjectSettingId);
+        
+        
+        if ( progressIndicator.progress( (100.0 * (analysisCount))/focusImages.size() ) ) {
+            // Abort
+            _observer->notifyStatus( "Analysis stopped" );
+            return 0;	}
 #ifdef FIXED
-    if (range && ! pOpt)
-    {
-      rfRegisteredWindows (focusImages, range);
-      vector<rcWindow>::iterator wItr = focusImages.begin();
-      vector<float> sums;
-      for (; wItr !=  focusImages.end(); wItr++)
-				{
-					rcHistoStats h (*wItr);
-					sums.push_back ((float) h.mean());
-				}
-
-  
-    }
+        if (range && ! pOpt)
+        {
+            rfRegisteredWindows (focusImages, range);
+            vector<rcWindow>::iterator wItr = focusImages.begin();
+            vector<float> sums;
+            for (; wItr !=  focusImages.end(); wItr++)
+            {
+                rcHistoStats h (*wItr);
+                sums.push_back ((float) h.mean());
+            }
+            
+            
+        }
 #endif
-	
-
-  rcSimilarator sim(rcSimilarator::eExhaustive,
-										focusImages[0].depth(), focusImages.size(),
-										cacheSz, cdl, true, &progressIndicator);
-
-  deque<double> signal;
-  sim.fill(focusImages);
-
-  if (sim.entropies(signal, _aciOptions))
-    {
+        
+        
+        rcSimilarator sim(rcSimilarator::eExhaustive,
+                          focusImages[0].depth(), focusImages.size(),
+                          cacheSz, cdl, true, &progressIndicator);
+        
+        deque<double> signal;
+        sim.fill(focusImages);
+        
+        if (sim.entropies(signal, _aciOptions))
+        {
+            deque<double>::const_iterator bot = std::min_element (signal.begin (), signal.end() );
+            deque<double>::const_iterator top = std::max_element (signal.begin (), signal.end() );
+            double scaleBy = *top - *bot;
+            for (int ii = 0; ii < signal.size (); ii++)
+            {
+                signal[ii] = pow ((signal[ii] - *bot) / scaleBy, 1 / 8. );
+            }
+            
+            
 			results.resize(0);
-      copy(signal.begin(), signal.end(),
-					 back_inserter(results));
-      rmAssert( results.size() == focusImages.size() );
-      analysisCount = results.size();
-      writeEntropyData( focus, focusImages, results );
+            copy(signal.begin(), signal.end(),
+                 back_inserter(results));
+            rmAssert( results.size() == focusImages.size() );
+            analysisCount = results.size();
+            writeEntropyData( focus, focusImages, results );
+        }
+        return analysisCount;
     }
-  return analysisCount;
-}
 
 // Perform ACI computation for a sliding temporal window
 uint32 rcEngineImpl::entropyTrackerWindow( rcEngineFocusData* focus,

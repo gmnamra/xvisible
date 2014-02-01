@@ -23,6 +23,8 @@
 /* Begin PBXBuildFile section */
 		8D07F2C00486CC7A007CD1D0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		C21B5582130B38B3001E8521 /* rc_dcam.h in Headers */ = {isa = PBXBuildFile; fileRef = C21B5581130B38B3001E8521 /* rc_dcam.h */; };
+		C2248976189D56A900034CDF /* persistence1d.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2248975189D56A900034CDF /* persistence1d.hpp */; };
+		C224897C189D5AA700034CDF /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C224897B189D5AA700034CDF /* vfi386_d.framework */; };
 		C22DCF1E1314D01300801DE4 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAED60F421FE2003CC197 /* Carbon.framework */; };
 		C22DD1A113157D8800801DE4 /* svn_version.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DD1A013157D8800801DE4 /* svn_version.h */; };
 		C22DD3D61316364400801DE4 /* rc_cubic_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E310F21135D0046570D /* rc_cubic_generators.cpp */; };
@@ -748,7 +750,6 @@
 		C2B8EA18187E4DD10060D961 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0530F212E300046570D /* Accelerate.framework */; };
 		C2B8EA19187E4E620060D961 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA04E0F212E170046570D /* QuickTime.framework */; };
 		C2B8EA1F187E526B0060D961 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EA1E187E526B0060D961 /* gtest-all.cc */; };
-		C2B8EA20187E548E0060D961 /* libvf32_dvf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C24B8D0C183E62D30010E3C2 /* libvf32_dvf.a */; };
 		C2B8EA2918846B420060D961 /* rc_find.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EA2818846B410060D961 /* rc_find.cpp */; };
 		C2B8EA2B18846EA80060D961 /* rc_find.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EA2818846B410060D961 /* rc_find.cpp */; };
 		C2B8EA2C18846EA90060D961 /* rc_find.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EA2818846B410060D961 /* rc_find.cpp */; };
@@ -1066,6 +1067,16 @@
 		EBD7A645187C952B0052C9A4 /* stlplus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC9CD9183E6BA100AC3300 /* stlplus.cpp */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C2248979189D5A0100034CDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D07F2BC0486CC7A007CD1D0;
+			remoteInfo = vf;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		C2B8EA371884A7730060D961 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -1092,6 +1103,8 @@
 		C21CAED60F421FE2003CC197 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		C21CAEE00F42239D003CC197 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		C21CAEEB0F4223E9003CC197 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		C2248975189D56A900034CDF /* persistence1d.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = persistence1d.hpp; sourceTree = "<group>"; };
+		C224897B189D5AA700034CDF /* vfi386_d.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386_d.framework; path = build/Debug/vfi386_d.framework; sourceTree = "<group>"; };
 		C22DCE881314C17700801DE4 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = frameworks/gtest.framework; sourceTree = "<group>"; };
 		C22DD1A013157D8800801DE4 /* svn_version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = svn_version.h; path = build_scripts/svn_version.h; sourceTree = "<group>"; };
 		C22DD24813159A2C00801DE4 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
@@ -1600,8 +1613,6 @@
 		C2B60C99184AB4DA00683D11 /* histogram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = histogram.h; sourceTree = "<group>"; };
 		C2B60C9B184AB4F300683D11 /* histogram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = histogram.cpp; path = src/vsigmatch/histogram.cpp; sourceTree = "<group>"; };
 		C2B8E993187DDC2B0060D961 /* gut */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gut; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2B8E995187DDC2B0060D961 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		C2B8E997187DDC2B0060D961 /* gut.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = gut.1; sourceTree = "<group>"; };
 		C2B8E9A0187DDD240060D961 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = gtest.framework; sourceTree = "<group>"; };
 		C2B8E9A1187DDD240060D961 /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgtest.a; sourceTree = "<group>"; };
 		C2B8E9A2187DDD240060D961 /* libgtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgtest_main.a; sourceTree = "<group>"; };
@@ -1815,7 +1826,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2B8EA20187E548E0060D961 /* libvf32_dvf.a in Frameworks */,
+				C224897C189D5AA700034CDF /* vfi386_d.framework in Frameworks */,
 				C2B8EA19187E4E620060D961 /* QuickTime.framework in Frameworks */,
 				C2B8EA18187E4DD10060D961 /* Accelerate.framework in Frameworks */,
 				C2B8EA17187E4D800060D961 /* IOKit.framework in Frameworks */,
@@ -1858,6 +1869,7 @@
 		0867D691FE84028FC02AAC07 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C224897B189D5AA700034CDF /* vfi386_d.framework */,
 				C2B8EA401884BA690060D961 /* libopencv_core.a */,
 				C2B8EA411884BA690060D961 /* libopencv_features2d.a */,
 				C2B8EA421884BA690060D961 /* libopencv_flann.a */,
@@ -1880,7 +1892,6 @@
 				08FB77ACFE841707C02AAC07 /* vf */,
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
-				C2B8E994187DDC2B0060D961 /* gut */,
 				034768DDFF38A45A11DB9C8B /* Products */,
 				C24EA96E1842FD0D00E88B0A /* vsigmatch copy-Info.plist */,
 			);
@@ -2212,6 +2223,7 @@
 		C26F9D070F21135D0046570D /* util */ = {
 			isa = PBXGroup;
 			children = (
+				C2248975189D56A900034CDF /* persistence1d.hpp */,
 				C2B8E9FF187E0F880060D961 /* rc_unittest.h */,
 				C26DB1D5184E61B100879A31 /* linlsq.h */,
 				C2444EB618407047004E7AA4 /* rc_stlplus.h */,
@@ -2840,15 +2852,6 @@
 			path = 3rdparty/outcastsoft/framework;
 			sourceTree = "<group>";
 		};
-		C2B8E994187DDC2B0060D961 /* gut */ = {
-			isa = PBXGroup;
-			children = (
-				C2B8E995187DDC2B0060D961 /* main.cpp */,
-				C2B8E997187DDC2B0060D961 /* gut.1 */,
-			);
-			path = gut;
-			sourceTree = "<group>";
-		};
 		C2B8E99E187DDCF40060D961 /* gtest */ = {
 			isa = PBXGroup;
 			children = (
@@ -3094,6 +3097,7 @@
 				C26F9E7C0F21135D0046570D /* rc_visualcell.h in Headers */,
 				C26F9E7E0F21135D0046570D /* vbigdsp.h in Headers */,
 				C26F9E830F21135D0046570D /* mpeg2.h in Headers */,
+				C2248976189D56A900034CDF /* persistence1d.hpp in Headers */,
 				C26F9E840F21135D0046570D /* mpeg2convert.h in Headers */,
 				C26F9ECB0F21135D0046570D /* rc_assemblyfcts.h in Headers */,
 				C26F9ECC0F21135D0046570D /* rc_assemblymacros.h in Headers */,
@@ -3467,6 +3471,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C224897A189D5A0100034CDF /* PBXTargetDependency */,
 			);
 			name = gut;
 			productName = gut;
@@ -4329,6 +4334,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C224897A189D5A0100034CDF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D07F2BC0486CC7A007CD1D0 /* vf */;
+			targetProxy = C2248979189D5A0100034CDF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		089C1666FE841158C02AAC07 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -4353,7 +4366,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -4394,7 +4407,6 @@
 					"$(BOOST_PATH)/lib",
 					"$(OPENCV_PATH)/lib/macosx",
 					/Users/arman/gwc/visibleqt105/usr/local/OpenCV/lib/macosx,
-					"$(SDKROOT)/usr/lib/powerpc-apple-darwin9/4.2.1",
 				);
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
@@ -4416,7 +4428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
@@ -4460,7 +4472,6 @@
 					"$(BOOST_PATH)/lib",
 					"$(OPENCV_PATH)/lib/macosx",
 					/Users/arman/gwc/visibleqt105/usr/local/OpenCV/lib/macosx,
-					"$(SDKROOT)/usr/lib/powerpc-apple-darwin9/4.2.1",
 				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				MACH_O_TYPE = mh_dylib;
@@ -4490,7 +4501,8 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				New_Setting1 = "";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-mmacosx-version-min=10.5";
 				PREBINDING = NO;
@@ -4509,7 +4521,8 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				New_Setting1 = "";
 				OTHER_CFLAGS = "-mmacosx-version-min=10.5";
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
@@ -4832,7 +4845,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++98";
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -4848,6 +4861,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/arman/gwc/visibleqt105/3rdparty/googletest,
+					/Users/arman/gwc/visibleqt105/build/Debug,
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -4879,7 +4893,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				MACH_O_TYPE = mh_execute;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = " -lpthread";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.5;
@@ -4891,7 +4905,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++98";
 				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -4909,6 +4923,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/arman/gwc/visibleqt105/3rdparty/googletest,
+					/Users/arman/gwc/visibleqt105/build/Debug,
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -4936,6 +4951,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				MACH_O_TYPE = mh_execute;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = " -lpthread";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.5;
