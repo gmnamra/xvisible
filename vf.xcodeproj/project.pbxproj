@@ -24,7 +24,6 @@
 		C21B5582130B38B3001E8521 /* rc_dcam.h in Headers */ = {isa = PBXBuildFile; fileRef = C21B5581130B38B3001E8521 /* rc_dcam.h */; };
 		C2248976189D56A900034CDF /* persistence1d.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2248975189D56A900034CDF /* persistence1d.hpp */; };
 		C224897C189D5AA700034CDF /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C224897B189D5AA700034CDF /* vfi386_d.framework */; };
-		C2248997189D6AF500034CDF /* OpenCV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2248996189D6AF500034CDF /* OpenCV.framework */; };
 		C2248998189D6AFE00034CDF /* OpenCV.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2248996189D6AF500034CDF /* OpenCV.framework */; };
 		C224899A189DA66D00034CDF /* OpenCV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2248996189D6AF500034CDF /* OpenCV.framework */; };
 		C224899C189DA9E300034CDF /* libstdc++.6.0.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C224899B189DA9E300034CDF /* libstdc++.6.0.4.dylib */; };
@@ -1449,7 +1448,6 @@
 		C26FA2370F2135640046570D /* ut_correlationwindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_correlationwindow.h; sourceTree = "<group>"; };
 		C26FA2380F2135640046570D /* ut_edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_edge.h; sourceTree = "<group>"; };
 		C26FA2390F2135640046570D /* ut_framebuf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_framebuf.h; sourceTree = "<group>"; };
-		C26FA23A0F2135640046570D /* ut_freq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_freq.h; sourceTree = "<group>"; };
 		C26FA23B0F2135640046570D /* ut_generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_generator.h; sourceTree = "<group>"; };
 		C26FA23C0F2135640046570D /* ut_grabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_grabber.h; sourceTree = "<group>"; };
 		C26FA23D0F2135640046570D /* ut_graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_graphics.h; sourceTree = "<group>"; };
@@ -1458,13 +1456,10 @@
 		C26FA2400F2135640046570D /* ut_imagegrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_imagegrabber.h; sourceTree = "<group>"; };
 		C26FA2410F2135640046570D /* ut_imageprocessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_imageprocessing.h; sourceTree = "<group>"; };
 		C26FA2420F2135640046570D /* ut_ip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_ip.h; sourceTree = "<group>"; };
-		C26FA2430F2135640046570D /* ut_kalman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_kalman.h; sourceTree = "<group>"; };
-		C26FA2440F2135640046570D /* ut_kineticimage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_kineticimage.h; sourceTree = "<group>"; };
 		C26FA2450F2135640046570D /* ut_line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_line.h; sourceTree = "<group>"; };
 		C26FA2460F2135640046570D /* ut_model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_model.h; sourceTree = "<group>"; };
 		C26FA2470F2135640046570D /* ut_moments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_moments.h; sourceTree = "<group>"; };
 		C26FA2480F2135640046570D /* ut_motion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_motion.h; sourceTree = "<group>"; };
-		C26FA2490F2135640046570D /* ut_motionanalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_motionanalyzer.h; sourceTree = "<group>"; };
 		C26FA24A0F2135640046570D /* ut_movieconverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_movieconverter.h; sourceTree = "<group>"; };
 		C26FA24B0F2135640046570D /* ut_moviefileformat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_moviefileformat.h; sourceTree = "<group>"; };
 		C26FA24C0F2135640046570D /* ut_moviegrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_moviegrabber.h; sourceTree = "<group>"; };
@@ -1474,7 +1469,6 @@
 		C26FA2500F2135640046570D /* ut_pmcorr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_pmcorr.h; sourceTree = "<group>"; };
 		C26FA2510F2135640046570D /* ut_point_corr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_point_corr.h; sourceTree = "<group>"; };
 		C26FA2520F2135640046570D /* ut_polygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_polygon.h; sourceTree = "<group>"; };
-		C26FA2530F2135640046570D /* ut_portaudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_portaudio.h; sourceTree = "<group>"; };
 		C26FA2540F2135640046570D /* ut_pyr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_pyr.h; sourceTree = "<group>"; };
 		C26FA2550F2135640046570D /* ut_qtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_qtime.h; sourceTree = "<group>"; };
 		C26FA2560F2135640046570D /* ut_rect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_rect.h; sourceTree = "<group>"; };
@@ -1495,7 +1489,6 @@
 		C26FA2650F2135640046570D /* ut_window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_window.h; sourceTree = "<group>"; };
 		C26FA2660F2135640046570D /* ut_windowhist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ut_windowhist.h; sourceTree = "<group>"; };
 		C26FA26D0F21357A0046570D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		C26FA26E0F21357A0046570D /* test_vbigdsp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test_vbigdsp.cpp; sourceTree = "<group>"; };
 		C26FA2700F21357A0046570D /* ut_affine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_affine.cpp; sourceTree = "<group>"; };
 		C26FA2710F21357A0046570D /* ut_analyzer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_analyzer.cpp; sourceTree = "<group>"; };
 		C26FA2720F21357A0046570D /* ut_atomic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_atomic.cpp; sourceTree = "<group>"; };
@@ -1531,7 +1524,6 @@
 		C26FA2910F21357A0046570D /* ut_playback_utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_playback_utils.cpp; sourceTree = "<group>"; };
 		C26FA2920F21357A0046570D /* ut_pmcorr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_pmcorr.cpp; sourceTree = "<group>"; };
 		C26FA2930F21357A0046570D /* ut_point_corr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_point_corr.cpp; sourceTree = "<group>"; };
-		C26FA2960F21357A0046570D /* ut_pyr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_pyr.cpp; sourceTree = "<group>"; };
 		C26FA2970F21357A0046570D /* ut_qtime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_qtime.cpp; sourceTree = "<group>"; };
 		C26FA2980F21357A0046570D /* ut_rect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_rect.cpp; sourceTree = "<group>"; };
 		C26FA2990F21357A0046570D /* ut_register.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_register.cpp; sourceTree = "<group>"; };
@@ -1543,7 +1535,6 @@
 		C26FA29F0F21357A0046570D /* ut_shape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_shape.cpp; sourceTree = "<group>"; };
 		C26FA2A00F21357A0046570D /* ut_similarity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_similarity.cpp; sourceTree = "<group>"; };
 		C26FA2A10F21357A0046570D /* ut_sparsehist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_sparsehist.cpp; sourceTree = "<group>"; };
-		C26FA2A20F21357A0046570D /* ut_sptr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_sptr.cpp; sourceTree = "<group>"; };
 		C26FA2A30F21357A0046570D /* ut_stats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_stats.cpp; sourceTree = "<group>"; };
 		C26FA2A40F21357A0046570D /* ut_systeminfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_systeminfo.cpp; sourceTree = "<group>"; };
 		C26FA2A50F21357A0046570D /* ut_thread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_thread.cpp; sourceTree = "<group>"; };
@@ -1764,7 +1755,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2248997189D6AF500034CDF /* OpenCV.framework in Frameworks */,
 				C26FA0450F212DEC0046570D /* IOKit.framework in Frameworks */,
 				C26FA0490F212DF40046570D /* CoreServices.framework in Frameworks */,
 				C26FA04F0F212E170046570D /* QuickTime.framework in Frameworks */,
@@ -2549,7 +2539,6 @@
 				C26FA2370F2135640046570D /* ut_correlationwindow.h */,
 				C26FA2380F2135640046570D /* ut_edge.h */,
 				C26FA2390F2135640046570D /* ut_framebuf.h */,
-				C26FA23A0F2135640046570D /* ut_freq.h */,
 				C26FA23B0F2135640046570D /* ut_generator.h */,
 				C26FA23C0F2135640046570D /* ut_grabber.h */,
 				C26FA23D0F2135640046570D /* ut_graphics.h */,
@@ -2558,13 +2547,10 @@
 				C26FA2400F2135640046570D /* ut_imagegrabber.h */,
 				C26FA2410F2135640046570D /* ut_imageprocessing.h */,
 				C26FA2420F2135640046570D /* ut_ip.h */,
-				C26FA2430F2135640046570D /* ut_kalman.h */,
-				C26FA2440F2135640046570D /* ut_kineticimage.h */,
 				C26FA2450F2135640046570D /* ut_line.h */,
 				C26FA2460F2135640046570D /* ut_model.h */,
 				C26FA2470F2135640046570D /* ut_moments.h */,
 				C26FA2480F2135640046570D /* ut_motion.h */,
-				C26FA2490F2135640046570D /* ut_motionanalyzer.h */,
 				C26FA24A0F2135640046570D /* ut_movieconverter.h */,
 				C26FA24B0F2135640046570D /* ut_moviefileformat.h */,
 				C26FA24C0F2135640046570D /* ut_moviegrabber.h */,
@@ -2574,7 +2560,6 @@
 				C26FA2500F2135640046570D /* ut_pmcorr.h */,
 				C26FA2510F2135640046570D /* ut_point_corr.h */,
 				C26FA2520F2135640046570D /* ut_polygon.h */,
-				C26FA2530F2135640046570D /* ut_portaudio.h */,
 				C26FA2540F2135640046570D /* ut_pyr.h */,
 				C26FA2550F2135640046570D /* ut_qtime.h */,
 				C26FA2560F2135640046570D /* ut_rect.h */,
@@ -2603,7 +2588,6 @@
 			isa = PBXGroup;
 			children = (
 				C26FA26D0F21357A0046570D /* main.cpp */,
-				C26FA26E0F21357A0046570D /* test_vbigdsp.cpp */,
 				C26FA2700F21357A0046570D /* ut_affine.cpp */,
 				C26FA2710F21357A0046570D /* ut_analyzer.cpp */,
 				C26FA2720F21357A0046570D /* ut_atomic.cpp */,
@@ -2640,7 +2624,6 @@
 				C26FA2910F21357A0046570D /* ut_playback_utils.cpp */,
 				C26FA2920F21357A0046570D /* ut_pmcorr.cpp */,
 				C26FA2930F21357A0046570D /* ut_point_corr.cpp */,
-				C26FA2960F21357A0046570D /* ut_pyr.cpp */,
 				C26FA2970F21357A0046570D /* ut_qtime.cpp */,
 				C26FA2980F21357A0046570D /* ut_rect.cpp */,
 				C26FA2990F21357A0046570D /* ut_register.cpp */,
@@ -2652,7 +2635,6 @@
 				C26FA29F0F21357A0046570D /* ut_shape.cpp */,
 				C26FA2A00F21357A0046570D /* ut_similarity.cpp */,
 				C26FA2A10F21357A0046570D /* ut_sparsehist.cpp */,
-				C26FA2A20F21357A0046570D /* ut_sptr.cpp */,
 				C26FA2A30F21357A0046570D /* ut_stats.cpp */,
 				C26FA2A40F21357A0046570D /* ut_systeminfo.cpp */,
 				C26FA2A50F21357A0046570D /* ut_thread.cpp */,
@@ -4358,7 +4340,7 @@
 				EXPORTED_SYMBOLS_FILE = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/3rdparty/outcastsoft/framework",
-					/Users/arman/gwc/visibleqt105/usr/local,
+					"$(SRCROOT)/usr/local",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_VERSION = A;
@@ -4390,8 +4372,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/3rdParty/mpeg2/libs",
 					"$(BOOST_PATH)/lib",
-					"$(OPENCV_PATH)/lib/macosx",
-					/Users/arman/gwc/visibleqt105/usr/local/OpenCV/lib/macosx,
 				);
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
@@ -4425,7 +4405,7 @@
 				EXPORTED_SYMBOLS_FILE = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/3rdparty/outcastsoft/framework",
-					/Users/arman/gwc/visibleqt105/usr/local,
+					"$(SRCROOT)/usr/local",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_VERSION = A;
@@ -4458,8 +4438,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/3rdParty/mpeg2/libs",
 					"$(BOOST_PATH)/lib",
-					"$(OPENCV_PATH)/lib/macosx",
-					/Users/arman/gwc/visibleqt105/usr/local/OpenCV/lib/macosx,
 				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				MACH_O_TYPE = mh_dylib;
