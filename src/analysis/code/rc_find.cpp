@@ -1,11 +1,13 @@
 
-#include <opencv2/core/core.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
+#include <OpenCV/cv.h>
+#include <OpenCV/highgui.h>
+
 #include "rc_find.hpp"
 #include <limits>
 #include <rc_vector2d.h>
 
-
+using namespace std;
+using namespace cv;
 
 /*
  * Find template defined by fixedROI of fixed within movingROI of moving. 
@@ -25,6 +27,7 @@ void to_cv (const rcFRect& f, cv::Rect& r)
     r.height = (int) f.height ();
 }
 
+#if 0
 /*
  OpenCv Support
  */
@@ -39,9 +42,10 @@ rcLocation rcFind (const cv::Mat& fixed, const rcFRect & fixedROI, const cv::Mat
     cv::Mat corr_space_m = cv::Mat(cspaceSize, CV_32FC1);
     cv::Mat fmat (fixed, r);
     cv::Mat mmat (moving, s);
+    
     cv::matchTemplate (fmat, mmat, corr_space_m, CV_TM_CCORR_NORMED);
     
-    cout << "CS = "<< endl << " "  << setprecision(3) << corr_space_m << endl << endl;
+//    cout << "CS = "<< endl << " "  << setprecision(3) << corr_space_m << endl << endl;
 
     cv::Point mi, ma; double miv, mav;
     cv::minMaxLoc (corr_space_m, &miv, &mav, &mi, &ma);
@@ -73,8 +77,9 @@ rcLocation rcFind (const cv::Mat& fixed, const rcFRect & fixedROI, const cv::Mat
     return res;
 }
 
+#endif
 
-#if 0
+#if 1
 
 void rfFind ( const sharedIpl& moving, const sharedIpl& model, std::vector<rcLocation >& peaks, rcFindHelper& info)
 {

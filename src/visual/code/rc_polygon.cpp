@@ -18,6 +18,7 @@
 #define DBGPRT2 0
 #define DBGPRT3 0
 
+using namespace std;
 
 void rfPolygonToSegmentsCollection(const rcPolygon& p,
 				   rcVisualSegmentCollection& v, bool drawCOM)

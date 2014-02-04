@@ -5,8 +5,9 @@
 #include <bitset>
 #include <vector>
 #include <rc_find.hpp>
-#include <opencv2/core/core.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
+#include <OpenCV/cv.h>
+//#include <opencv2/core/core.hpp>
+//#include <opencv2/imgproc/imgproc.hpp>
 
 using namespace cv;
 

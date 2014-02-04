@@ -21,10 +21,13 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		8D07F2C00486CC7A007CD1D0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		C21B5582130B38B3001E8521 /* rc_dcam.h in Headers */ = {isa = PBXBuildFile; fileRef = C21B5581130B38B3001E8521 /* rc_dcam.h */; };
 		C2248976189D56A900034CDF /* persistence1d.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2248975189D56A900034CDF /* persistence1d.hpp */; };
 		C224897C189D5AA700034CDF /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C224897B189D5AA700034CDF /* vfi386_d.framework */; };
+		C2248997189D6AF500034CDF /* OpenCV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2248996189D6AF500034CDF /* OpenCV.framework */; };
+		C2248998189D6AFE00034CDF /* OpenCV.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2248996189D6AF500034CDF /* OpenCV.framework */; };
+		C224899A189DA66D00034CDF /* OpenCV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2248996189D6AF500034CDF /* OpenCV.framework */; };
+		C224899C189DA9E300034CDF /* libstdc++.6.0.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C224899B189DA9E300034CDF /* libstdc++.6.0.4.dylib */; };
 		C22DCF1E1314D01300801DE4 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAED60F421FE2003CC197 /* Carbon.framework */; };
 		C22DD1A113157D8800801DE4 /* svn_version.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DD1A013157D8800801DE4 /* svn_version.h */; };
 		C22DD3D61316364400801DE4 /* rc_cubic_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E310F21135D0046570D /* rc_cubic_generators.cpp */; };
@@ -750,16 +753,6 @@
 		C2B8EA18187E4DD10060D961 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0530F212E300046570D /* Accelerate.framework */; };
 		C2B8EA19187E4E620060D961 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA04E0F212E170046570D /* QuickTime.framework */; };
 		C2B8EA1F187E526B0060D961 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EA1E187E526B0060D961 /* gtest-all.cc */; };
-		C2B8EA2918846B420060D961 /* rc_find.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EA2818846B410060D961 /* rc_find.cpp */; };
-		C2B8EA2B18846EA80060D961 /* rc_find.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EA2818846B410060D961 /* rc_find.cpp */; };
-		C2B8EA2C18846EA90060D961 /* rc_find.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EA2818846B410060D961 /* rc_find.cpp */; };
-		C2B8EA3D1884AA800060D961 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B8EA3C1884AA800060D961 /* libz.dylib */; };
-		C2B8EA471884BA690060D961 /* libopencv_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B8EA401884BA690060D961 /* libopencv_core.a */; };
-		C2B8EA4C1884BA690060D961 /* libopencv_highgui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B8EA451884BA690060D961 /* libopencv_highgui.a */; };
-		C2B8EA4D1884BA690060D961 /* libopencv_imgproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B8EA461884BA690060D961 /* libopencv_imgproc.a */; };
-		C2B8EA4E1884BA9C0060D961 /* libopencv_core.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2B8EA401884BA690060D961 /* libopencv_core.a */; };
-		C2B8EA531884BA9C0060D961 /* libopencv_highgui.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2B8EA451884BA690060D961 /* libopencv_highgui.a */; };
-		C2B8EA541884BA9C0060D961 /* libopencv_imgproc.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2B8EA461884BA690060D961 /* libopencv_imgproc.a */; };
 		C2EC976F0F37838200E49E22 /* avevar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D8B0F21135D0046570D /* avevar.cpp */; };
 		C2EC97700F37838200E49E22 /* blitz.txt in Resources */ = {isa = PBXBuildFile; fileRef = C26F9D8C0F21135D0046570D /* blitz.txt */; };
 		C2EC977B0F37838200E49E22 /* rc_analyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D970F21135D0046570D /* rc_analyzer.cpp */; };
@@ -1084,9 +1077,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C2B8EA4E1884BA9C0060D961 /* libopencv_core.a in CopyFiles */,
-				C2B8EA531884BA9C0060D961 /* libopencv_highgui.a in CopyFiles */,
-				C2B8EA541884BA9C0060D961 /* libopencv_imgproc.a in CopyFiles */,
+				C2248998189D6AFE00034CDF /* OpenCV.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1105,6 +1096,11 @@
 		C21CAEEB0F4223E9003CC197 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		C2248975189D56A900034CDF /* persistence1d.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = persistence1d.hpp; sourceTree = "<group>"; };
 		C224897B189D5AA700034CDF /* vfi386_d.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386_d.framework; path = build/Debug/vfi386_d.framework; sourceTree = "<group>"; };
+		C2248986189D625D00034CDF /* libopencv_core.2.4.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.2.4.6.dylib; path = usr/local/OpenCV/lib/macosx/libopencv_core.2.4.6.dylib; sourceTree = "<group>"; };
+		C2248988189D627B00034CDF /* libopencv_objdetect.2.4.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_objdetect.2.4.6.dylib; path = usr/local/OpenCV/lib/macosx/libopencv_objdetect.2.4.6.dylib; sourceTree = "<group>"; };
+		C224898C189D679500034CDF /* libopencv_highgui.2.4.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.2.4.6.dylib; path = usr/local/OpenCV/lib/macosx/libopencv_highgui.2.4.6.dylib; sourceTree = "<group>"; };
+		C2248996189D6AF500034CDF /* OpenCV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCV.framework; path = usr/local/OpenCV.framework; sourceTree = "<group>"; };
+		C224899B189DA9E300034CDF /* libstdc++.6.0.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.4.dylib"; path = "usr/lib/libstdc++.6.0.4.dylib"; sourceTree = SDKROOT; };
 		C22DCE881314C17700801DE4 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = frameworks/gtest.framework; sourceTree = "<group>"; };
 		C22DD1A013157D8800801DE4 /* svn_version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = svn_version.h; path = build_scripts/svn_version.h; sourceTree = "<group>"; };
 		C22DD24813159A2C00801DE4 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
@@ -1626,13 +1622,6 @@
 		C2B8EA2718846B320060D961 /* rc_find.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rc_find.hpp; sourceTree = "<group>"; };
 		C2B8EA2818846B410060D961 /* rc_find.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_find.cpp; sourceTree = "<group>"; };
 		C2B8EA3C1884AA800060D961 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		C2B8EA401884BA690060D961 /* libopencv_core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_core.a; path = usr/local/OpenCV/lib/macosx/libopencv_core.a; sourceTree = "<group>"; };
-		C2B8EA411884BA690060D961 /* libopencv_features2d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_features2d.a; path = usr/local/OpenCV/lib/macosx/libopencv_features2d.a; sourceTree = "<group>"; };
-		C2B8EA421884BA690060D961 /* libopencv_flann.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_flann.a; path = usr/local/OpenCV/lib/macosx/libopencv_flann.a; sourceTree = "<group>"; };
-		C2B8EA431884BA690060D961 /* libopencv_gpu.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_gpu.a; path = usr/local/OpenCV/lib/macosx/libopencv_gpu.a; sourceTree = "<group>"; };
-		C2B8EA441884BA690060D961 /* libopencv_haartraining_engine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_haartraining_engine.a; path = usr/local/OpenCV/lib/macosx/libopencv_haartraining_engine.a; sourceTree = "<group>"; };
-		C2B8EA451884BA690060D961 /* libopencv_highgui.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_highgui.a; path = usr/local/OpenCV/lib/macosx/libopencv_highgui.a; sourceTree = "<group>"; };
-		C2B8EA461884BA690060D961 /* libopencv_imgproc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_imgproc.a; path = usr/local/OpenCV/lib/macosx/libopencv_imgproc.a; sourceTree = "<group>"; };
 		C2C301220F34FBAC0057B45E /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		C2EC91B00F37755700E49E22 /* batch_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = batch_main.cpp; sourceTree = "<group>"; };
 		C2EC91B10F37755700E49E22 /* bcnvrt_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bcnvrt_main.cpp; sourceTree = "<group>"; };
@@ -1775,10 +1764,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2B8EA471884BA690060D961 /* libopencv_core.a in Frameworks */,
-				C2B8EA4C1884BA690060D961 /* libopencv_highgui.a in Frameworks */,
-				C2B8EA4D1884BA690060D961 /* libopencv_imgproc.a in Frameworks */,
-				C2B8EA3D1884AA800060D961 /* libz.dylib in Frameworks */,
+				C2248997189D6AF500034CDF /* OpenCV.framework in Frameworks */,
 				C26FA0450F212DEC0046570D /* IOKit.framework in Frameworks */,
 				C26FA0490F212DF40046570D /* CoreServices.framework in Frameworks */,
 				C26FA04F0F212E170046570D /* QuickTime.framework in Frameworks */,
@@ -1795,6 +1781,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C224899C189DA9E300034CDF /* libstdc++.6.0.4.dylib in Frameworks */,
+				C224899A189DA66D00034CDF /* OpenCV.framework in Frameworks */,
 				C24B8CFF183E62D30010E3C2 /* IOKit.framework in Frameworks */,
 				C24B8D00183E62D30010E3C2 /* CoreServices.framework in Frameworks */,
 				C24B8D01183E62D30010E3C2 /* QuickTime.framework in Frameworks */,
@@ -1869,14 +1857,12 @@
 		0867D691FE84028FC02AAC07 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C224899B189DA9E300034CDF /* libstdc++.6.0.4.dylib */,
+				C2248996189D6AF500034CDF /* OpenCV.framework */,
+				C224898C189D679500034CDF /* libopencv_highgui.2.4.6.dylib */,
+				C2248988189D627B00034CDF /* libopencv_objdetect.2.4.6.dylib */,
+				C2248986189D625D00034CDF /* libopencv_core.2.4.6.dylib */,
 				C224897B189D5AA700034CDF /* vfi386_d.framework */,
-				C2B8EA401884BA690060D961 /* libopencv_core.a */,
-				C2B8EA411884BA690060D961 /* libopencv_features2d.a */,
-				C2B8EA421884BA690060D961 /* libopencv_flann.a */,
-				C2B8EA431884BA690060D961 /* libopencv_gpu.a */,
-				C2B8EA441884BA690060D961 /* libopencv_haartraining_engine.a */,
-				C2B8EA451884BA690060D961 /* libopencv_highgui.a */,
-				C2B8EA461884BA690060D961 /* libopencv_imgproc.a */,
 				C2B8EA3C1884AA800060D961 /* libz.dylib */,
 				C2B8EA1E187E526B0060D961 /* gtest-all.cc */,
 				C2B8EA15187E4B470060D961 /* libvf32_vf.a */,
@@ -3543,7 +3529,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D07F2C00486CC7A007CD1D0 /* InfoPlist.strings in Resources */,
 				C2A39BD10F33999A00845D59 /* releasenotes.html in Resources */,
 				C2A39BD20F33999A00845D59 /* visible.html in Resources */,
 				C2A39BD30F33999A00845D59 /* analyze.png in Resources */,
@@ -3819,7 +3804,6 @@
 				EBD7A628187C94E10052C9A4 /* ini_manager.cpp in Sources */,
 				C2EC97E40F37839900E49E22 /* rc_simd_mac.cpp in Sources */,
 				C2EC97E50F37839900E49E22 /* rc_sparsehist.cpp in Sources */,
-				C2B8EA2B18846EA80060D961 /* rc_find.cpp in Sources */,
 				C2EC97E70F37839900E49E22 /* rc_systeminfo_mac.cpp in Sources */,
 				C2EC97E90F37839900E49E22 /* rc_thread_mac.cpp in Sources */,
 				C2EC97EB0F37839900E49E22 /* rc_timestamp.cpp in Sources */,
@@ -3919,7 +3903,6 @@
 				C24B8C9E183E62D30010E3C2 /* rc_tiff.cpp in Sources */,
 				C24B8C9F183E62D30010E3C2 /* rc_videocache.cpp in Sources */,
 				C24B8CA0183E62D30010E3C2 /* rc_window.cpp in Sources */,
-				C2B8EA2C18846EA90060D961 /* rc_find.cpp in Sources */,
 				C24B8CA1183E62D30010E3C2 /* rc_window2jpg.cpp in Sources */,
 				C24B8CA2183E62D30010E3C2 /* rc_window2tiff.cpp in Sources */,
 				C24B8CA3183E62D30010E3C2 /* rc_windowhist.cpp in Sources */,
@@ -4176,7 +4159,6 @@
 				C2B8EA0D187E446A0060D961 /* ut_line.cpp in Sources */,
 				C2B8EA02187E11F20060D961 /* ut_timestamp.cpp in Sources */,
 				C2B8EA07187E13880060D961 /* ut_window.cpp in Sources */,
-				C2B8EA2918846B420060D961 /* rc_find.cpp in Sources */,
 				C2B8EA09187E13A80060D961 /* ut_thread.cpp in Sources */,
 				C2B8EA03187E13170060D961 /* ut_atomic.cpp in Sources */,
 				C2B8E99C187DDC510060D961 /* main.cpp in Sources */,
@@ -4374,7 +4356,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = "";
 				EXPORTED_SYMBOLS_FILE = "";
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/3rdparty/outcastsoft/framework";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/3rdparty/outcastsoft/framework",
+					/Users/arman/gwc/visibleqt105/usr/local,
+				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -4410,7 +4395,7 @@
 				);
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCV";
+				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCV.framework";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = vfi386_d;
@@ -4438,7 +4423,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = "";
 				EXPORTED_SYMBOLS_FILE = "";
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/3rdparty/outcastsoft/framework";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/3rdparty/outcastsoft/framework",
+					/Users/arman/gwc/visibleqt105/usr/local,
+				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_VERSION = A;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -4477,7 +4465,7 @@
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = NO;
-				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCV";
+				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCV.framework";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = vfi386;
@@ -4533,7 +4521,7 @@
 		C24B8D0A183E62D30010E3C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
 				COPY_PHASE_STRIP = NO;
@@ -4543,9 +4531,10 @@
 				EXPORTED_SYMBOLS_FILE = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\"$(SRCROOT)/3rdparty/outcastsoft\\\\\\\"",
-					"\\\\\\\"$(SRCROOT)/3rdparty/outcastsoft/framework\\\\\\\"",
-					"\\\\\\\"$(SRCROOT)/frameworks\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/3rdparty/outcastsoft\\\\\\\\\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/3rdparty/outcastsoft/framework\\\\\\\\\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/frameworks\\\\\\\\\\\\\\\"",
+					/Users/arman/gwc/visibleqt105/usr/local,
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_VERSION = A;
@@ -4597,7 +4586,7 @@
 		C24B8D0B183E62D30010E3C2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
 				COPY_PHASE_STRIP = NO;
@@ -4610,9 +4599,10 @@
 				EXPORTED_SYMBOLS_FILE = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\"$(SRCROOT)/3rdparty/outcastsoft\\\\\\\"",
-					"\\\\\\\"$(SRCROOT)/3rdparty/outcastsoft/framework\\\\\\\"",
-					"\\\\\\\"$(SRCROOT)/frameworks\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/3rdparty/outcastsoft\\\\\\\\\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/3rdparty/outcastsoft/framework\\\\\\\\\\\\\\\"",
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/frameworks\\\\\\\\\\\\\\\"",
+					/Users/arman/gwc/visibleqt105/usr/local,
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_VERSION = A;
@@ -4860,8 +4850,7 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/arman/gwc/visibleqt105/3rdparty/googletest,
-					/Users/arman/gwc/visibleqt105/build/Debug,
+					/Users/arman/gwc/visibleqt105/usr/local/lib,
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -4889,8 +4878,12 @@
 					"$(SRCROOT)/test/include",
 					"$(SRCROOT)//usr/local/googletest-read-only/",
 					"$(SRCROOT)//usr/local/googletest-read-only/include",
+					"$(SRCROOT)/usr/local/OpenCV/",
 				);
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/usr/local/OpenCV/lib/macosx",
+					/Users/arman/gwc/visibleqt105/usr/local/OpenCV/lib/macosx,
+				);
 				MACH_O_TYPE = mh_execute;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = NO;
@@ -4922,8 +4915,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/arman/gwc/visibleqt105/3rdparty/googletest,
-					/Users/arman/gwc/visibleqt105/build/Debug,
+					/Users/arman/gwc/visibleqt105/usr/local/lib,
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -4947,8 +4939,12 @@
 					"$(SRCROOT)/test/include",
 					"$(SRCROOT)//usr/local/googletest-read-only/",
 					"$(SRCROOT)//usr/local/googletest-read-only/include",
+					"$(SRCROOT)/usr/local/OpenCV/",
 				);
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/usr/local/OpenCV/lib/macosx",
+					/Users/arman/gwc/visibleqt105/usr/local/OpenCV/lib/macosx,
+				);
 				MACH_O_TYPE = mh_execute;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = NO;

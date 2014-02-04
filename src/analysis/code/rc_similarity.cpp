@@ -14,6 +14,22 @@
 #include <rc_edge.h>
 #include <rc_macro.h>
 
+
+
+void rcSimilarator::norm_scale (const std::deque<double>& src, std::deque<double>& dst, double pw) const
+{
+    deque<double>::const_iterator bot = std::min_element (src.begin (), src.end() );
+    deque<double>::const_iterator top = std::max_element (src.begin (), src.end() );
+	
+    double scaleBy = *top - *bot;
+    dst.resize (src.size ());
+    for (int ii = 0; ii < src.size (); ii++)
+    {
+        double dd = (src[ii] - *bot) / scaleBy;
+        dst[ii] = pow (dd, 1.0 / pw);
+    }
+}
+
 static int32 log2max(int32 n);
 
 rcSimilarator::rcSimilarator() : _matrixSz (0), _maskValid(false), _cacheSz (0), 
@@ -871,9 +887,11 @@ bool rcSimilarator::genMatrixEntropy(uint32 tWinSz)
     }
     _entropies[i] = _entropies[i]/_log2MSz;// Normalize for cnt of samples
   }
-    
-    for (uint32  i = 0; i < _matrixSz; i++)
-        _sums[i] = _sums[i] / _matrixSz;
+
+    for (int ii = 0; ii < _sums.size (); ii++)
+    {
+        _sums[ii] = _sums[ii] - 1;
+    }
 
   return true;
 }
