@@ -18,10 +18,13 @@
 #include <gtest/gtest.h>
 
 
-
 std::string gTestData ("/Users/arman/WorkingCopies/test-content/");
 
-
+TEST (UT_1dp, run)
+{
+    UT_1dp test;
+    EXPECT_EQ (0, test.run());
+}
 
 
 TEST( UT_WindowMutator, run )
