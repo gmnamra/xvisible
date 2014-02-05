@@ -1,8 +1,8 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_trackmanager.h'
 **
-** Created: Tue Jan 7 14:57:24 2014
-**      by: The Qt Meta Object Compiler version 59 (Qt 4.4.3)
+** Created: Tue Feb 4 20:58:11 2014
+**      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -10,8 +10,8 @@
 #include "../include/visUI/rc_trackmanager.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'rc_trackmanager.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 59
-#error "This file was generated using the moc from 4.4.3. It"
+#elif Q_MOC_OUTPUT_REVISION != 62
+#error "This file was generated using the moc from 4.6.4. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,12 +20,15 @@ QT_BEGIN_MOC_NAMESPACE
 static const uint qt_meta_data_rcTrackManager[] = {
 
  // content:
-       1,       // revision
+       4,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   10, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       1,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
       16,   15,   15,   15, 0x05,
@@ -50,9 +53,13 @@ const QMetaObject rcTrackManager::staticMetaObject = {
       qt_meta_data_rcTrackManager, 0 }
 };
 
+#ifdef Q_NO_DATA_RELOCATION
+const QMetaObject &rcTrackManager::getStaticMetaObject() { return staticMetaObject; }
+#endif //Q_NO_DATA_RELOCATION
+
 const QMetaObject *rcTrackManager::metaObject() const
 {
-    return &staticMetaObject;
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
 void *rcTrackManager::qt_metacast(const char *_clname)
@@ -75,6 +82,7 @@ int rcTrackManager::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 2: addTracks(); break;
         case 3: setColors(); break;
         case 4: rebuildTracks(); break;
+        default: ;
         }
         _id -= 5;
     }

@@ -1,8 +1,8 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_controlpanel.h'
 **
-** Created: Tue Jan 7 14:56:58 2014
-**      by: The Qt Meta Object Compiler version 59 (Qt 4.4.3)
+** Created: Tue Feb 4 20:57:42 2014
+**      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -10,8 +10,8 @@
 #include "../include/visUI/rc_controlpanel.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'rc_controlpanel.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 59
-#error "This file was generated using the moc from 4.4.3. It"
+#elif Q_MOC_OUTPUT_REVISION != 62
+#error "This file was generated using the moc from 4.6.4. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,12 +20,15 @@ QT_BEGIN_MOC_NAMESPACE
 static const uint qt_meta_data_rcControlPanel[] = {
 
  // content:
-       1,       // revision
+       4,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   10, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
       21,   16,   15,   15, 0x0a,
@@ -55,9 +58,13 @@ const QMetaObject rcControlPanel::staticMetaObject = {
       qt_meta_data_rcControlPanel, 0 }
 };
 
+#ifdef Q_NO_DATA_RELOCATION
+const QMetaObject &rcControlPanel::getStaticMetaObject() { return staticMetaObject; }
+#endif //Q_NO_DATA_RELOCATION
+
 const QMetaObject *rcControlPanel::metaObject() const
 {
-    return &staticMetaObject;
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
 void *rcControlPanel::qt_metacast(const char *_clname)
@@ -83,6 +90,7 @@ int rcControlPanel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 5: inputSource((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 6: updateCursorTime(); break;
         case 7: updateSelectionState((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        default: ;
         }
         _id -= 8;
     }
