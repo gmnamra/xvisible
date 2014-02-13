@@ -26,7 +26,7 @@ static const rcWriterInfo sWriterInfoArray[] = {
     rcWriterInfo( eWriterACI, eScalarWriter, "change-index", "Aggregate Change Index", "Aggregate Change Index", "%-8.8f" ),
     rcWriterInfo( eWriterACIWindow, eScalarWriter,"sliding-change-index", "Aggregate Change Index Short Term", "Aggregate Change Index Short Term", "%-8.8f" ),
     rcWriterInfo( eWriterACIPeriod, eScalarWriter, "Periodicity", "ACI Periodicity", "ACI Periodicity", "%-8.8f" ),
-    rcWriterInfo( eWriterLuminanceSum, eScalarWriter, "Luminance", "Luminance Sum", "Luminance Sum", "%-8.8f" ),	
+    rcWriterInfo( eWriterContraction, eScalarWriter, "Contraction", "Contraction", "Contraction", "%-3.3f" ),	
     rcWriterInfo( eWriterCellCount, eScalarWriter, "locomotive-body-count", "Locomotive Body Count", "Total Locomotive Body Count", "%-4.0f" ),
     rcWriterInfo( eWriterBodyPosition, ePositionWriter, "locomotive-body-position", "Locomotive Body Position", "Locomotive Body Position (x y)", "(%-4.0f, %-4.0f)" ),
     rcWriterInfo( eWriterBodySpeedMean, eScalarWriter, "aggregate-locomotive-body-speed-mean", "Average Locomotive Body Speed", "Average Locomotive Body Speed (pixels/s)", "%-8.2f" ),
@@ -70,7 +70,6 @@ static const rcWriterInfo sWriterInfoArray[] = {
 
     rcWriterInfo( eWriterSegmentVector, eGraphicsWriter, "cell-segmentation-info", "Cell Segmentation Info", "Cell Segmentation", "%i" ),
     rcWriterInfo( eWriterPlotter, eGraphicsWriter, "Time Series Plot", "Time Series Plot", "Time Series Plot Visual Analysis", "%i" ),
-    rcWriterInfo( eWriterTipDistance, eScalarWriter, "tip-distance", "Tip Distance Traveled", "Tip Distance Traveled (pixels)", "%-6.2f" ),    
 };
 
 // Writer name-type mapper instance

@@ -2,9 +2,9 @@
 #ifndef __rcSTATICSETTINGS_H
 #define __rcSTATICSETTINGS_H
 
-#define rcROTATION_CTRL
+//#define rcROTATION_CTRL
 //#define SLIDING_WINDOW_ORIGIN
-//#define SLIDING_WINDOW_DURATION
+#define SLIDING_WINDOW_DURATION
 //#define CONTRACTION_DURATION
 
     //#include <rc_capture.hpp>
@@ -86,7 +86,7 @@ static const int cVisualizeDevelopmentSettingId = 40;
 
 // Muscle analysis
 static const int cAnalysisMuscleAutoGenPeriodId = 41;
-static const int cAnalysisMusclePeriodId = 42;
+static const int cAnalysisContractionThresholdId = 42;
 
 static const int cAnalysisCellTypeId = 43;
 static const int cAnalysisStatTypeId = 44;
@@ -107,7 +107,7 @@ static const int cAnalysisSlidingWindowOriginRight = 50;
 // ACI options
 static const int cAnalysisACIStepSettingId = 51;
 static const int cGlobalMotionEstId = 52;
-static const int cAnalysisACIMaskSettingId = 53;
+static const int cAnalysisACINormalizeSettingId = 53;
 // Input Image Mapping Option
 static const int cImagePreMappingSettingId = 54;
 static const int   cAnalysisMotionTrackingMultiplierSettingId = 55;
@@ -128,7 +128,7 @@ static const int cAnalysisDevelopmentGraphicsDisplaySettingId = 1001;
 static const rcSettingChoice inputModeChoices[] = 
   {
     rcSettingChoice( eFile	,	"File import" , "Select a data file as the input source to analyze" ),
-    rcSettingChoice( eCamera,	"Camera"	  , "Select the camera as the input source to analyze" ),
+   // rcSettingChoice( eCamera,	"Camera"	  , "Select the camera as the input source to analyze" ),
     rcSettingChoice( 0 , 0 , 0 )
   };
 
@@ -147,12 +147,10 @@ static const rcSettingChoice frameRateChoices[] =
 // Choices for analysis operations
 static const rcSettingChoice analysisChoices[] = 
   {
-#ifdef rc_build_option_morphometry
-    rcSettingChoice( cAnalysisCellTracking,	    "Morphometry", "Morphometry" ),
-#endif rc_build_option_morphometry
+//    rcSettingChoice( cAnalysisCellTracking,	    "Morphometry", "Morphometry" ),
     rcSettingChoice( cAnalysisACISlidingWindow, "Short Term ACI"	    , "Short Term ACI" ),
     rcSettingChoice( cAnalysisACI,	            "Long Term ACI" , "Long Term ACI" ),
-    rcSettingChoice( cAnalysisTemplateTracking,	            "Target Tracking" , "Target Tracking" ),
+//    rcSettingChoice( cAnalysisTemplateTracking,	            "Target Tracking" , "Target Tracking" ),
     rcSettingChoice( 0 , 0 , 0 )
   };
 
@@ -181,17 +179,6 @@ static const rcSettingChoice processOptions[] =
     rcSettingChoice( 0 , 0 , 0 )
   };
 
-// Choices for selecting the capture frame rate
-static const rcSettingChoice globalMotionRangeChoices[] = 
-  {
-    rcSettingChoice( 5	,	"+/- 5 pixels"	, "Within +/- 5 Pixels" ),
-    rcSettingChoice( 4	,   "+/- 4 pixels"	,"Within +/- 4 Pixels" ),
-    rcSettingChoice( 3	,	"+/- 3 pixels" ,"Within +/- 3 Pixels" ),
-    rcSettingChoice( 2	,	"+/- 2 pixels", "Within +/- 2 Pixels" ),
-    rcSettingChoice( 1		,	"Custom"	, "Within +/- Pixels" ),
-    rcSettingChoice( 0		,	"None"	, "do not measure global motion" ),    
-    rcSettingChoice( 0 , 0 , 0 )
-  };
 
 
 // TODO: hook these up with rcPersistenceManager
@@ -248,11 +235,10 @@ static rcSpinBoxArgs cCameraFramerateArgs = { (1000/30), false, true, 0, 150 };
 
 static rcSpinBoxArgs cACIStepArgs = { 1, false, false, 1, 10};
 
-#ifdef rc_build_option_selected_myocyte
 // rotation thumwheel args
-//static rcThumbWheelArgs cRotationArgs = { 0, 360, 1.0, 0, 1 };
-#endif
+static rcThumbWheelArgs cRotationArgs = { 0, 360, 1.0, 0, 1 };
 
+#if 0
 // Choices for selecting pacing Frequency
 static const rcSettingChoice pacingFreqChoices[] = 
   {
@@ -264,9 +250,10 @@ static const rcSettingChoice pacingFreqChoices[] =
     rcSettingChoice( 0		,	"Auto"	, "Automatically Measure Pacing Frequency" ),    
     rcSettingChoice( 0 , 0 , 0 )
   };
+#endif
 
 
-// static rcSpinBoxArgs cMusclePeriodArgs = { 1, false, false, 1, rcINT32_MAX };
+static rcSpinBoxArgs cContractionThresholdArgs = { 1, false, false, 1, 100 };
 
 // text area args
 static rcTextAreaArgs cCameraHeaderArgs= { 5 };
@@ -412,6 +399,42 @@ static const rcSettingInfoSpec captureSettings[] =
 // analysis setting specs
 static const rcSettingInfoSpec analysisSettings[] =
   {
+      {	// setting to select the input source
+          cInputModeSettingId,
+          "input-source",
+          "Source",
+          "Selects the input source",
+          eMenuChoice,
+          0,
+          inputModeChoices, 1
+      },
+      {   // setting to show the movie file to analyze
+          cInputMovieFileSettingId,
+          "movie-file",
+          "Input data",
+          "Input data file to analyze",
+          eFileChoice,
+          0,
+          movieFileFilterChoices, 4
+      },
+      {   // setting to show the image files to analyze
+          cInputImageFilesSettingId,
+          "image-files",
+          "Input images",
+          "Input image files to analyze",
+          eDirectoryChoice,
+          0,
+          imageFileFilterChoices, 4
+      },
+      {   // setting to show the image files to analyze
+          cInputImageFilesSettingId,
+          "image-files",
+          "Input images",
+          "Input image files to analyze",
+          eDirectoryChoice,
+          0,
+          imageFileFilterChoices, 1
+      },
     {   // I don't know what this is, just a dummy boolean checkbox setting
       cAnalysisRectSettingId,
       "analysis-rect",
@@ -421,7 +444,7 @@ static const rcSettingInfoSpec analysisSettings[] =
       0,
       0, 1
     },
-#if 0 //rc_build_option_selected_myocyte
+#ifdef ROTATED_ROI //rc_build_option_selected_myocyte
     {	
       cVisualizeFocusRotationSettingId,
       "visualize-focus-rotation",
@@ -432,7 +455,6 @@ static const rcSettingInfoSpec analysisSettings[] =
       0, 1
     },
 #endif    
-
     {	// setting to select the first frame to analyze
       cAnalysisFirstFrameSettingId,
       "analysis-first-frame",
@@ -487,16 +509,7 @@ static const rcSettingInfoSpec analysisSettings[] =
       0,
       ACIOptions, 4
     },
-  {	// setting to select input files frame rate
-      cGlobalMotionEstId,
-      "Range",
-      "Range",
-      "Sets the search range",
-      eRateChoice,
-      0,
-      globalMotionRangeChoices, 4
-    },
-#ifdef SLIDING_WINDOW_SIZE
+  #ifdef SLIDING_WINDOW_SIZE
     {	
       cAnalysisACISlidingWindowSizeSettingId,
       "aci-sw-size",
@@ -528,16 +541,7 @@ static const rcSettingInfoSpec analysisSettings[] =
       0,
       processOptions, 9
     },
-    {	// setting to select input files frame rate
-      cAnalysisMuscleAutoGenPeriodId,
-      "pacing-rate",
-      "Pacing Rate ",
-      "Pacing Frequency Options",
-      eMenuChoice,
-      0,
-      pacingFreqChoices, 6
-    },
-   {	
+     {	
       cAnalysisACIStepSettingId,
       "frame-step",
       "Use Every ",
@@ -547,27 +551,23 @@ static const rcSettingInfoSpec analysisSettings[] =
       0, 4
     },
    {	
-      cAnalysisACIMaskSettingId,
-      "auto-mask",
-      "Auto Mask ",
-      "Generate and use mask if possible",
+      cAnalysisACINormalizeSettingId,
+      "auto norm",
+      "Auto Norm",
+      "Normalized",
       eCheckbox,
       0,
       0, 4
     },
-
-#ifdef CONTRACTION_DURATION
     {	
-      cAnalysisMusclePeriodId,
-      "contraction-cycle-length",
-      "Contraction cycle length",
-      "Number of milliseconds between cell contractions",
+      cAnalysisContractionThresholdId,
+      "contraction-detection-threshold",
+      "Contraction Relaxation Threshold",
+      " 0.0 - 1.0",
       eSpinbox,
-      &cMusclePeriodArgs,
+      &cContractionThresholdArgs,
       0, 6
     },
-#endif
-
     { 0 , 0 , 0 , 0 , 0 , 0 , 0, 0}
   };
 
@@ -691,7 +691,6 @@ static const rcSettingInfoSpec visualizationSettings[] =
       0,
       0, 4
     },
-
     { 0 , 0 , 0 , 0 , 0 , 0 , 0, 0 }
   };
 

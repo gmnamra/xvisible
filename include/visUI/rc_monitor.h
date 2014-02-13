@@ -73,6 +73,7 @@ class rcMonitor : public QWidget
     void updateState( rcExperimentState );
     void updateScale( double );
     void updateMonitorSize( const rcRect& size );
+    void doPlot (const CurveData* );
 
     // For monitor widgets
     void scaleChanged( int );

@@ -28,6 +28,7 @@ rcEngineFocusData::rcEngineFocusData( rcWriterManager* writerManager, const rcRe
                                       rcAnalyzerResultOrigin slidingWindowOrigin, uint32& groupCount,
                                       uint32 maxSpeed, int treatmentObjectType, int cellType) :
         mWriterManager( writerManager ),
+    mContractionMarker (0),
 	mcShortnWriter (0),
 	mcMeanShortnWriter (0),
         mCfreqWriter (0),
@@ -35,22 +36,9 @@ rcEngineFocusData::rcEngineFocusData( rcWriterManager* writerManager, const rcRe
         mEnergyWriter( 0 ),
         mSlidingEnergyWriter( 0 ),
         mPeriodEnergyWriter( 0 ),
-        mCellCountWriter( 0 ),
-        mCellSpeedMeanWriter( 0 ),
-        mCellPersistenceMeanWriter( 0 ),
-        mCellObjectPersistenceMeanWriter( 0 ),
-        mCellCellPersistenceMeanWriter( 0 ),
-        mCellMeanSquareDisplacementWriter( 0 ),
-        mCellAxisXMeanWriter( 0 ),
-        mCellAxisYMeanWriter( 0 ),
-        mCellMajorMeanWriter( 0 ),
-        mCellMinorMeanWriter( 0 ),
-        mTipDistanceWriter( 0 ),
+        mLengthWriter( 0 ),
         mDevelopmentVideoWriter( 0 ),
         mDevelopmentGraphicsWriter( 0 ),
-    //        mCellWriters( 0 ),
-        mCellLengthWriter( 0 ),
-        mCellBoundsWriter( 0 ),
         mAnalysisRect( analysisRect ),
         mImageRect( imageRect ),
         mWriterGroup( 0 ),
@@ -126,13 +114,13 @@ rcEngineFocusData::rcEngineFocusData( rcWriterManager* writerManager, const rcRe
 
 			case eAnalysisTemplateTracking:
         {
-            mTipDistanceWriter = mWriterManager->createScalarWriter( mWriterGroup,
-                                                                eWriterTipDistance,
+            mLengthWriter = mWriterManager->createScalarWriter( mWriterGroup,
+                                                                eWriterBodyLength,
                                                                 sizeLimit,
                                                                 analysisRect,
                                                                 0.0,   // expected min
                                                                 256.0 ); // expected max
-            rcWriter* writer =  mTipDistanceWriter->down_cast();
+            rcWriter* writer =  mLengthWriter->down_cast();
             mGlobalWriters.push_back(writer);
             // Add a human-readable string listing window options to track name and description
             std::string nameWithOptions = writer->getName();
@@ -153,14 +141,15 @@ rcEngineFocusData::rcEngineFocusData( rcWriterManager* writerManager, const rcRe
                                                                 1.0 ); // expected max
             rcWriter* writer =  mEnergyWriter->down_cast();
             mGlobalWriters.push_back(writer);
-            mPeriodEnergyWriter = mWriterManager->createScalarWriter( mWriterGroup,
-                                                                       eWriterACIPeriod,
+            
+            mContractionMarker = mWriterManager->createScalarWriter( mWriterGroup,
+                                                                       eWriterContraction,
                                                                        sizeLimit,
                                                                        analysisRect,
                                                                        0.0,   // expected min
                                                                        1.0 ); // expected max
 
-            writer =  mPeriodEnergyWriter->down_cast();
+            writer =  mContractionMarker->down_cast();
             mGlobalWriters.push_back( writer );
             // Add a human-readable string listing window options to track name and description
             std::string nameWithOptions = writer->getName();
@@ -168,146 +157,11 @@ rcEngineFocusData::rcEngineFocusData( rcWriterManager* writerManager, const rcRe
             writer->setName( nameWithOptions.c_str() );
             writer->setDescription( descrWithOptions.c_str() );
 
-            // TODO: add a human-readable string listing analysis options to track name and description
         }
         break;
         
             default:
             break;
-
-#if 0
-        case eAnalysisCellTracking:
-        {
-            // Writer for total cell count
-            mCellCountWriter = mWriterManager->createScalarWriter( mWriterGroup,
-                                                                   eWriterCellCount,
-                                                                   sizeLimit,
-                                                                   analysisRect,
-                                                                   0.0,     // expected min
-                                                                   300.0 ); // expected max
-            mGlobalCellWriters.push_back( mCellCountWriter->down_cast() );
-
-	    switch (cellType)
-	      {
-	      case cAnalysisCellGeneral:
-	      case cAnalysisOrganismFluCluster:
-	      case cAnalysisLabeledFluorescence:
-
-		// Writer for square of cell displacements
-		mCellMeanSquareDisplacementWriter = mWriterManager->createScalarWriter( mWriterGroup,
-											eWriterBodyMeanSquareDisplacements,
-											sizeLimit,
-											analysisRect,
-											0.0,
-											20.0 );
-		mGlobalCellWriters.push_back( mCellMeanSquareDisplacementWriter->down_cast() );
-		// Writer for mean cell speed
-		// TODO: get better min/max values from kinetoscope params
-		mCellSpeedMeanWriter = mWriterManager->createScalarWriter( mWriterGroup,
-									   eWriterBodySpeedMean,
-									   sizeLimit,
-									   analysisRect,
-									   0.0,    // expected min
-									   10.0 ); // expected max
-		mGlobalCellWriters.push_back( mCellSpeedMeanWriter->down_cast() );
-
-		mCellPersistenceMeanWriter = mWriterManager->createScalarWriter( mWriterGroup,
-										 eWriterBodyPersistenceMean,
-										 sizeLimit,
-										 analysisRect,
-										 -1.0,     // expected min
-										 1.0 );    // expected max
-		mGlobalCellWriters.push_back( mCellPersistenceMeanWriter->down_cast() );
-
-		// Cell-to-cell persistence
-		mCellCellPersistenceMeanWriter = mWriterManager->createScalarWriter( mWriterGroup,
-										     eWriterBodyBodyPersistenceMean,
-										     sizeLimit,
-										     analysisRect,
-										     -1.0,     // expected min
-										     1.0 );    // expected max
-		mGlobalCellWriters.push_back( mCellCellPersistenceMeanWriter->down_cast() );
-
-		// Writer for mean X axis scale percentage
-		// TODO: get better min/max values from kinetoscope params
-		mCellAxisXMeanWriter = mWriterManager->createScalarWriter( mWriterGroup,
-									   eWriterBodyScaleXMean,
-									   sizeLimit,
-									   analysisRect,
-									   50.0,    // expected min
-									   200.0 ); // expected max
-		mGlobalCellWriters.push_back( mCellAxisXMeanWriter->down_cast() );
-
-		// Writer for mean Y axis scale percentage
-		// TODO: get better min/max values from kinetoscope params
-		mCellAxisYMeanWriter = mWriterManager->createScalarWriter( mWriterGroup,
-									   eWriterBodyScaleYMean,
-									   sizeLimit,
-									   analysisRect,
-									   50.0,    // expected min
-									   200.0 ); // expected max
-		mGlobalCellWriters.push_back( mCellAxisYMeanWriter->down_cast() );
-
-
-		// Circularity Ratio
-		mCellCircMeanWriter = mWriterManager->createScalarWriter( mWriterGroup,
-									  eWriterBodyCircularityMean,
-									  sizeLimit,
-									  analysisRect,
-									  0.0,    // expected min
-									  1.0 ); // expected max
-		mGlobalCellWriters.push_back( mCellCircMeanWriter->down_cast() );
-
-		// Ellipse Ratio
-		mCellEllipseMeanWriter = mWriterManager->createScalarWriter( mWriterGroup,
-									     eWriterBodyEllipseRatioMean,
-									     sizeLimit,
-									     analysisRect,
-									     0.1,    // expected min
-									     10.0 ); // expected max
-		mGlobalCellWriters.push_back( mCellEllipseMeanWriter->down_cast() );
-
-		break;
-
-	      case cAnalysisCellMuscle:
-	      case cAnalysisCellMuscleSelected:
-	      case cAnalysisCellMuscleCalcium:
-		{
-	    
-		  // TODO: get better min/max values from kinetoscope params
-		  mCellMajorMeanWriter = mWriterManager->createScalarWriter( mWriterGroup,
-									     eWriterBodyMajorMean,
-									     sizeLimit,
-									     analysisRect,
-									     10.0,    // expected min
-									     200.0 ); // expected max
-		  mGlobalCellWriters.push_back( mCellMajorMeanWriter->down_cast() );
-
-		  mcMeanShortnWriter = mWriterManager->createScalarWriter( mWriterGroup,
-									     eWriterCardiacShorteningMean,
-									     sizeLimit,
-									     analysisRect,
-									     0.01,    // expected min
-									     1.0 ); // expected max
-		  mGlobalCellWriters.push_back( mcMeanShortnWriter->down_cast() );
-
-		  // TODO: get better min/max values from kinetoscope params
-		  mcMeanFreqWriter = mWriterManager->createScalarWriter( mWriterGroup,
-									     eWriterContractionFreqMean,
-									     sizeLimit,
-									     analysisRect,
-									     0.1,    // expected min
-									     10.0 ); // expected max
-		  mGlobalCellWriters.push_back( mcMeanFreqWriter->down_cast() );
-
-	    
-		  break;
-		}
-	      }
-            createCellWriters();
-        }
-        break;
-#endif
 
     }
 
@@ -364,21 +218,9 @@ rcEngineFocusData::~rcEngineFocusData()
     mEnergyWriter = 0;
     mSlidingEnergyWriter = 0;
     mPeriodEnergyWriter = 0;
-    mCellCountWriter = 0;
-    mCellSpeedMeanWriter = 0;
-    mCellPersistenceMeanWriter = 0;
-    mCellObjectPersistenceMeanWriter = 0;
-    mCellCellPersistenceMeanWriter = 0;
-    mCellMeanSquareDisplacementWriter = 0;
-    mCellBoundsWriter = 0;
     mCellLengthWriter = 0;
     mDevelopmentVideoWriter = 0;
     mDevelopmentGraphicsWriter = 0;
-    mCellCircMeanWriter = 0;
-    mCellEllipseMeanWriter = 0;
-    mCellAxisYMeanWriter = 0;
-    mCellAxisXMeanWriter = 0;
-    
     mGlobalWriters.clear();
     mGlobalCellWriters.clear();
 
@@ -394,16 +236,7 @@ void rcEngineFocusData::clearFocusData()
 // Write gathered data to writer(s)
 void rcEngineFocusData::writeFocusData( rcTimestamp currentTime, int32 i )
 {
-    if ( i >= 0 ) {
-        // Locomotive Body count
-        if ( mCellCountWriter != 0 ) {
-            if ( uint32(i) < mCellCountResults.size() ) {
-                mCellCountWriter->writeValue( currentTime, focusRect(), mCellCountResults[i] );
-            }
-        }
-    } else {
-        flushFocusData();
-    }
+
 }
 
 // Flush all writers

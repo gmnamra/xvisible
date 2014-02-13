@@ -4,7 +4,7 @@
 #include <qpushbutton.h>
 #include <qlabel.h>
 #include <q3vbox.h>
-
+#include <QKeyEvent>
 #include <rc_model.h>
 
 #include "rc_modeldomain.h"
@@ -13,29 +13,39 @@
 #include "rc_trackmanager.h"
 
 rcTrackPanel::rcTrackPanel( QWidget* parent, const char* name, Qt::WFlags f )
-        : Q3ScrollView( parent, name ), mContents( 0 ), mOldState(eExperimentEmpty),
-          mManagedGroups( 0 ), mLiveInput( false ), mLiveStorage( false )
+: Q3ScrollView( parent, name ), mContents( 0 ), mOldState(eExperimentEmpty),
+mManagedGroups( 0 ), mLiveInput( false ), mLiveStorage( false )
 {
     rcUNUSED( f );
+    if(viewport())
+      {
+         viewport()->setMouseTracking(true);
+      }
+    setMouseTracking(true);
 
-	setMinimumWidth( 250 );
-	setMaximumWidth( 300 );
-    setVScrollBarMode( AlwaysOn );
-    setHScrollBarMode( AlwaysOff );
-    setResizePolicy( Q3ScrollView::AutoOneFit );
+    viewport()->setEraseColor(QColor(0,0,0));
+    setVScrollBarMode(Q3ScrollView::AlwaysOn);
+    setHScrollBarMode(Q3ScrollView::AlwaysOff);
+    setMinimumWidth( 250 );
+    setMaximumWidth( 300 );
+     setFocusPolicy(Qt::WheelFocus);
+    viewport()->setBackgroundColor(backgroundColor());
+    setMargin(0);
 
+       //    setResizePolicy( Q3ScrollView::AutoOneFit );
+    
 	rcModelDomain* domain = rcModelDomain::getModelDomain();
 	connect( domain , SIGNAL( newState( rcExperimentState ) ) ,
-			 this   , SLOT( updateState( rcExperimentState ) ) );
-
+            this   , SLOT( updateState( rcExperimentState ) ) );
+    
     connect( domain , SIGNAL( updateInputSource( int ) ) ,
-			 this   , SLOT( updateSource( int ) ) );
-
+            this   , SLOT( updateSource( int ) ) );
+    
     connect( domain , SIGNAL( updateCameraState( bool, bool ) ) ,
-			 this   , SLOT( updateCamera( bool, bool ) ) );
-
+            this   , SLOT( updateCamera( bool, bool ) ) );
+    
     connect( domain , SIGNAL( updateDebugging() ) ,
-			 this   , SLOT( updateTrackGroups() ) );
+            this   , SLOT( updateTrackGroups() ) );
     
     updateState( eExperimentEmpty );
 }
@@ -63,7 +73,7 @@ void rcTrackPanel::updateState( rcExperimentState state )
 #endif
     // Ignore video playback states
     if ( state == eExperimentPlayback ||
-         (mOldState == eExperimentPlayback && state == eExperimentEnded)) {
+        (mOldState == eExperimentPlayback && state == eExperimentEnded)) {
         mOldState = state;
         return;
     }
@@ -71,10 +81,10 @@ void rcTrackPanel::updateState( rcExperimentState state )
     mOldState = state;
     // when the state of the experiment changes, the
     // track group list needs to be recomputed.
-
+    
     if ( mLiveStorage && state == eExperimentEnded )
-        mLiveStorage = false;
-      
+    mLiveStorage = false;
+    
     updateTrackGroups( mLiveInput, mLiveStorage );
 }
 
@@ -85,16 +95,16 @@ void rcTrackPanel::updateSource( int source )
 #endif    
     // when the state of the experiment changes, the
     // track group list needs to be recomputed.
-
+    
     if ( source > 0 ) {
         // Ignore redundant calls if we have a track list already
         if ( mLiveInput && mContents && mManagedGroups )
-            return;
+        return;
         mLiveInput = true;
         mLiveStorage = false;
     } else {
         if ( !mLiveInput )
-            return;
+        return;
         mLiveInput = false;
         mLiveStorage = false;
     }
@@ -129,40 +139,54 @@ void rcTrackPanel::updateTrackGroups( bool cameraInput, bool cameraStorage )
         delete mContents;
         mContents = 0;
     }
-
+    
     if ( nTrackGroups == 0 )
     {
         hide();
         return;
     }
-
+    
     // Add new groups
     Q3VBox* vBox = new Q3VBox( viewport() );
     addChild( vBox );
     mContents = vBox;
-
+    
     mManagedGroups = 0;
 	for (int i = 0; i < nTrackGroups; i++)
 	{
-        if ( rcTrackManager::hasManageableTracks( i, cameraInput, cameraStorage ) ) {
+        if ( rcTrackManager::hasManageableTracks( i, cameraInput, cameraStorage ) )
+          {
             // Create a widget only for groups that have manageable tracks
             new rcTrackGroupWidget( vBox , i );
             ++mManagedGroups;
         }
 	}
-
+    
     if ( mManagedGroups ) {
         show();
         vBox->show();
-    } else {
+    } else
         hide();
-#ifdef DEBUG_LOG        
-        if ( cameraInput )
-            if ( cameraStorage )
-                cerr << "rcTrackPanel::updateTrackGroups: camera enabled but no storage track(s) found" << endl;
-            else
-                cerr << "rcTrackPanel::updateTrackGroups: camera enabled but no preview track(s) found" << endl;
-#endif        
+
+    updateContents();
+    updateScrollBars();
+}
+
+void rcTrackPanel::keyPressEvent( QKeyEvent* keyEvent )
+{
+  
+    switch ( keyEvent->key () ) 
+    {
+        case Qt::Key_Plus:
+        scroll(0,1);
+        updateTrackGroups();
+        break;
+        
+        case Qt::Key_Minus:
+        scroll(0,-1);
+        updateTrackGroups();        
+        break;
 
     }
 }
+

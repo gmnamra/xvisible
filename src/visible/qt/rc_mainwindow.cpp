@@ -18,6 +18,7 @@
 #include <Q3HBoxLayout>
 #include <Q3VBoxLayout>
 #include <QCloseEvent>
+#include <QScrollArea>
 
 #include "rc_appconstants.h"
 #include "rc_monitor.h"
@@ -75,7 +76,7 @@ rcMainWindow::rcMainWindow( QWidget* parent,  const char* name, Qt::WFlags fl )
 	// Create a Track Panel
 	rcTrackPanel* trackPanel = new rcTrackPanel( this, "trackPanel" );
 	tpTlLayout->addWidget( trackPanel );
-
+   
 	// Create a Timeline
 	rcTimeline* timeline = new rcTimeline( this, "timeline" );
 	tpTlLayout->addWidget( timeline , 2 );
@@ -87,11 +88,11 @@ rcMainWindow::rcMainWindow( QWidget* parent,  const char* name, Qt::WFlags fl )
     // Stretch factors for resizing
     topLayout->setStretchFactor( setMonLayout , 10 );
     topLayout->setStretchFactor( tlCpLayout , 1 );
-    topLayout->setStretchFactor( tpTlLayout , 1 );
+    topLayout->setStretchFactor( tpTlLayout , 2 );
     topLayout->setStretchFactor( mStatusBar , 0 );
     
     setMonLayout->setStretchFactor( monitor , 10 ); 
-    tpTlLayout->setStretchFactor( trackPanel, 1 );
+    tpTlLayout->setStretchFactor( trackPanel, 2 );
     tpTlLayout->setStretchFactor( timeline, 2 );
     tlCpLayout->setStretchFactor( settingPanel, 1 );
     tlCpLayout->setStretchFactor( controlPanel, 0 );

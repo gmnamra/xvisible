@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_frameratechoicesettingwidget.h'
 **
-** Created: Tue Feb 4 20:58:18 2014
+** Created: Thu Feb 13 00:42:04 2014
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
 **
 ** WARNING! All changes made in this file will be lost!

@@ -24,8 +24,6 @@
 		C21B5582130B38B3001E8521 /* rc_dcam.h in Headers */ = {isa = PBXBuildFile; fileRef = C21B5581130B38B3001E8521 /* rc_dcam.h */; };
 		C2248976189D56A900034CDF /* persistence1d.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2248975189D56A900034CDF /* persistence1d.hpp */; };
 		C224897C189D5AA700034CDF /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C224897B189D5AA700034CDF /* vfi386_d.framework */; };
-		C2248998189D6AFE00034CDF /* OpenCV.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2248996189D6AF500034CDF /* OpenCV.framework */; };
-		C224899A189DA66D00034CDF /* OpenCV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2248996189D6AF500034CDF /* OpenCV.framework */; };
 		C224899C189DA9E300034CDF /* libstdc++.6.0.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C224899B189DA9E300034CDF /* libstdc++.6.0.4.dylib */; };
 		C22DCF1E1314D01300801DE4 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAED60F421FE2003CC197 /* Carbon.framework */; };
 		C22DD1A113157D8800801DE4 /* svn_version.h in Headers */ = {isa = PBXBuildFile; fileRef = C22DD1A013157D8800801DE4 /* svn_version.h */; };
@@ -1087,7 +1085,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C2248998189D6AFE00034CDF /* OpenCV.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1109,7 +1106,6 @@
 		C2248986189D625D00034CDF /* libopencv_core.2.4.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.2.4.6.dylib; path = usr/local/OpenCV/lib/macosx/libopencv_core.2.4.6.dylib; sourceTree = "<group>"; };
 		C2248988189D627B00034CDF /* libopencv_objdetect.2.4.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_objdetect.2.4.6.dylib; path = usr/local/OpenCV/lib/macosx/libopencv_objdetect.2.4.6.dylib; sourceTree = "<group>"; };
 		C224898C189D679500034CDF /* libopencv_highgui.2.4.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.2.4.6.dylib; path = usr/local/OpenCV/lib/macosx/libopencv_highgui.2.4.6.dylib; sourceTree = "<group>"; };
-		C2248996189D6AF500034CDF /* OpenCV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCV.framework; path = usr/local/OpenCV.framework; sourceTree = "<group>"; };
 		C224899B189DA9E300034CDF /* libstdc++.6.0.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.4.dylib"; path = "usr/lib/libstdc++.6.0.4.dylib"; sourceTree = SDKROOT; };
 		C22DCE881314C17700801DE4 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = frameworks/gtest.framework; sourceTree = "<group>"; };
 		C22DD1A013157D8800801DE4 /* svn_version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = svn_version.h; path = build_scripts/svn_version.h; sourceTree = "<group>"; };
@@ -1200,7 +1196,7 @@
 		C26F9CB90F21135D0046570D /* rc_visualcell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_visualcell.h; sourceTree = "<group>"; };
 		C26F9CBB0F21135D0046570D /* vbigdsp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vbigdsp.h; sourceTree = "<group>"; };
 		C26F9CBD0F21135D0046570D /* rc_persistencemanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_persistencemanager.h; sourceTree = "<group>"; };
-		C26F9CBE0F21135D0046570D /* rc_setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_setting.h; sourceTree = "<group>"; };
+		C26F9CBE0F21135D0046570D /* rc_setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_setting.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C26F9CBF0F21135D0046570D /* rc_uitypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_uitypes.h; sourceTree = "<group>"; };
 		C26F9CC00F21135D0046570D /* rc_value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_value.h; sourceTree = "<group>"; };
 		C26F9CC20F21135D0046570D /* mpeg2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mpeg2.h; sourceTree = "<group>"; };
@@ -1594,7 +1590,7 @@
 		C2A39B8B0F33999800845D59 /* videomonitor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = videomonitor.png; sourceTree = "<group>"; };
 		C2A39B8C0F33999800845D59 /* visualize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visualize.png; sourceTree = "<group>"; };
 		C2A39B8D0F33999800845D59 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		C2A39B8F0F33999800845D59 /* data_tracks.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = data_tracks.html; sourceTree = "<group>"; };
+		C2A39B8F0F33999800845D59 /* data_tracks.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; lineEnding = 0; path = data_tracks.html; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.html; };
 		C2A39B900F33999800845D59 /* rfyeml.dtd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = rfyeml.dtd; sourceTree = "<group>"; };
 		C2A39B910F33999800845D59 /* xml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = xml.html; sourceTree = "<group>"; };
 		C2A39B930F33999800845D59 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1786,7 +1782,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C224899C189DA9E300034CDF /* libstdc++.6.0.4.dylib in Frameworks */,
-				C224899A189DA66D00034CDF /* OpenCV.framework in Frameworks */,
 				C24B8CFF183E62D30010E3C2 /* IOKit.framework in Frameworks */,
 				C24B8D00183E62D30010E3C2 /* CoreServices.framework in Frameworks */,
 				C24B8D01183E62D30010E3C2 /* QuickTime.framework in Frameworks */,
@@ -1871,7 +1866,6 @@
 			children = (
 				C297DD4D18A1D85A00F217A5 /* persistence1d */,
 				C224899B189DA9E300034CDF /* libstdc++.6.0.4.dylib */,
-				C2248996189D6AF500034CDF /* OpenCV.framework */,
 				C224898C189D679500034CDF /* libopencv_highgui.2.4.6.dylib */,
 				C2248988189D627B00034CDF /* libopencv_objdetect.2.4.6.dylib */,
 				C2248986189D625D00034CDF /* libopencv_core.2.4.6.dylib */,
@@ -5255,6 +5249,7 @@
 				C297DD4A18A1D7B400F217A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		C2A39C190F339AF000845D59 /* Build configuration list for PBXAggregateTarget "Doxygen" */ = {
 			isa = XCConfigurationList;

@@ -201,23 +201,11 @@ public:
     rcScalarWriter*      cMeanFreqWriter() { return mcMeanFreqWriter; }
     rcScalarWriter*      cShortnWriter () { return mcShortnWriter;  }
     rcScalarWriter*      cMeanShortnWriter() { return mcMeanShortnWriter;  }
-
+    rcScalarWriter*      contractionMarker () { return mContractionMarker; }
     rcScalarWriter*      energyWriter() { return mEnergyWriter; }
     rcScalarWriter*      slidingEnergyWriter() { return mSlidingEnergyWriter; }
     rcScalarWriter*      energyPeriodWriter() { return mPeriodEnergyWriter; }
-    rcScalarWriter*      cellCountWriter() { return mCellCountWriter; }
-    rcScalarWriter*      cellSpeedMeanWriter() { return mCellSpeedMeanWriter; }
-    rcScalarWriter*      cellMeanSquareDisplacement() { return mCellMeanSquareDisplacementWriter; }
-    rcScalarWriter*      cellPersistenceMeanWriter() { return mCellPersistenceMeanWriter; }
-    rcScalarWriter*      cellObjectPersistenceMeanWriter() { return mCellObjectPersistenceMeanWriter; }
-    rcScalarWriter*      cellCellPersistenceMeanWriter() { return mCellCellPersistenceMeanWriter; }
-    rcScalarWriter*      cellAxisXMeanWriter() { return mCellAxisXMeanWriter; }
-    rcScalarWriter*      cellAxisYMeanWriter() { return mCellAxisYMeanWriter; }
-    rcScalarWriter*      cellMajorMeanWriter() {return mCellMajorMeanWriter;}
-    rcScalarWriter*      cellMinorMeanWriter() {return mCellMinorMeanWriter;}
-    rcScalarWriter*      cellCircMeanWriter() { return mCellCircMeanWriter; }
-    rcScalarWriter*      cellEllipseMeanWriter() { return mCellEllipseMeanWriter; }
-    rcScalarWriter*      tipDistanceWriter () { return mTipDistanceWriter;}
+    rcScalarWriter*      tipDistanceWriter () { return mLengthWriter;}
     rcGraphicsWriter*    plotterWriter() { return mPlotterWriter; }
     rcVideoWriter*       developmentVideoWriter() { return mDevelopmentVideoWriter; }
     rcGraphicsWriter*    developmentGraphicsWriter() { return mDevelopmentGraphicsWriter; }
@@ -259,19 +247,8 @@ private:
     rcScalarWriter*      mEnergyWriter;                    // Total derivative energy
     rcScalarWriter*      mSlidingEnergyWriter;             // Total sliding energy
     rcScalarWriter*      mPeriodEnergyWriter;             // AutoCorrelation of Energy or other derived time series
-    rcScalarWriter*      mCellCountWriter;                 // Total number of cells
-    rcScalarWriter*      mCellSpeedMeanWriter;             // Mean speed
-    rcScalarWriter*      mCellPersistenceMeanWriter;       // Mean cell persistence
-    rcScalarWriter*      mCellObjectPersistenceMeanWriter; // Mean cell-to-object persistence
-    rcScalarWriter*      mCellCellPersistenceMeanWriter;   // Mean cell-to-cell persistence
-    rcScalarWriter*      mCellMeanSquareDisplacementWriter;// Mean square of cell displacements
-    rcScalarWriter*      mCellAxisXMeanWriter;             // Mean X axis scale
-    rcScalarWriter*      mCellAxisYMeanWriter;             // Mean Y axis scale
-    rcScalarWriter*      mCellMajorMeanWriter;             // Major axis
-    rcScalarWriter*      mCellMinorMeanWriter;             // Minor axis
-    rcScalarWriter*      mCellCircMeanWriter;              // Mean Circularity
-    rcScalarWriter*      mCellEllipseMeanWriter;           // Mean Ellipse Ratio
-    rcScalarWriter*      mTipDistanceWriter;               // Tip Distance over time
+    rcScalarWriter*      mContractionMarker;      // Contraction Marker
+    rcScalarWriter*      mLengthWriter;               // Tip Distance over time
     rcGraphicsWriter*    mPlotterWriter;                   // Graphics for Plotting 1D signals
     rcVideoWriter*       mDevelopmentVideoWriter;          // Images for development and debugging
     rcGraphicsWriter*    mDevelopmentGraphicsWriter;       // Graphics for development and debugging

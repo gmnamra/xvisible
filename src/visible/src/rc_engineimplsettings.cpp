@@ -62,58 +62,10 @@ const rcValue rcEngineImpl::getSettingValue( int settingId )
 	
 	switch (settingId)
 	{
-#if 0
-		case cCameraFrameRateSettingId:
-			return (int)_captureCtrl.getDecimationRate();
-
-		case cCameraAcquireTimeSettingId:
-			return (int)_saveCtrl.getFrameCaptureTime();
-
-		case cCameraAcquireDelayTimeSettingId:
-			return (int)_saveCtrl.getFrameCaptureDelayTime();
-
-		case cOutputMovieFileSettingId:
-			return _saveCtrl.getOutputFileName();
-        case cAnalysisRectSettingId:
-			if (_inputMode == eCamera)
-            {
-				rmAssert(_movieCapture);
-				return _movieCapture->captureStatus().getCaptureRect();
-			}
-			else
-				return _analysisRect;
+         
+        case cAnalysisContractionThresholdId:
+        return _contractionThreshold;
             
-        case cAnalysisACISlidingWindowSizeSettingId:
-			if (_inputMode == eCamera)
-				return _captureCtrl.getSlidingWindowSize();
-			else
-				return _slidingWindowSize;
-
-		case cAnalysisACISlidingWindowOriginSettingId:
-			if (_inputMode == eCamera)
-				return int(_captureCtrl.getSlidingWindowOrigin());
-			else
-				return int(_slidingWindowOrigin);
-        case cInputGainSettingId:
-		{
-			int gain = _captureCtrl.getGain();
-			return gain;
-		}
-		case cInputShutterSettingId:
-		{
-			int shutter = _captureCtrl.getShutter();
-			return shutter;
-		}
-		case cInputBinningSettingId:
-		{
-			int binning = _captureCtrl.getBinning();
-			return binning;
-		}
-
-
-
-#endif
-
 		case cInputModeSettingId:
                     return _inputMode;
 
@@ -143,8 +95,8 @@ const rcValue rcEngineImpl::getSettingValue( int settingId )
     case cAnalysisMotionTrackingSampleSettingId:
     case cAnalysisACIStepSettingId:
       return _aciTemporalSampling;
-    case cAnalysisACIMaskSettingId:
-      return _useMask;
+    case cAnalysisACINormalizeSettingId:
+      return _doNormalize;
     case cImagePreMappingSettingId:
       return (_ippMode);
 			
@@ -425,10 +377,10 @@ void rcEngineImpl::setSettingValue( int settingId , const rcValue& value )
 				break;
 			}
 				
-			case cAnalysisACIMaskSettingId:
+			case cAnalysisACINormalizeSettingId:
 			{
 				int val = value;
-				_useMask = val;
+				_doNormalize = val;
 				break;
 			}
 			case cAnalysisMotionTrackingTargetSettingId:
@@ -624,6 +576,9 @@ void rcEngineImpl::setSettingValue( int settingId , const rcValue& value )
 				_visualizeDevelopment = value;
 				break;
 				
+            case cAnalysisContractionThresholdId:
+            _contractionThreshold = value;
+            
 			case cAnalysisStatTypeId:
 	      _statType = value;
 	      break;
@@ -763,24 +718,6 @@ bool rcEngineImpl::isSettingEnabled( int settingId )
 			
     case cAnalysisObjectSettingId:   // Used to indicate Lineage Processing and other options
 		{
-#if 0
-			switch (_analysisTreatmentObject)
-			{
-				case eLineageProcessing:
-					return getState() != eEngineUninitialized &&
-					_analysisMode == cAnalysisCellTracking && _cellType == cAnalysisCellGeneral;
-					
-				case eMacroDRGdiffusionProcessing:
-					return getState() != eEngineUninitialized && _analysisMode == cAnalysisACI;
-					
-				case eNoProcessingSelected:
-				default:
-					return getState() != eEngineUninitialized &&
-					(_analysisMode == cAnalysisACI
-					 ||
-					 (_analysisMode == cAnalysisCellTracking && _cellType == cAnalysisCellGeneral));
-			}
-#endif
 		}
 			
     case cAnalysisMotionTrackingMotionVectorDisplaySettingId:
@@ -795,11 +732,10 @@ bool rcEngineImpl::isSettingEnabled( int settingId )
 			
     case cAnalysisMuscleAutoGenPeriodId:
     case cAnalysisMuscleSegmentationVectorDisplaySettingId:
-                // return getState() != eEngineUninitialized &&
-                //	_analysisMode == cAnalysisCellTracking &&
-                //	(_cellType == cAnalysisCellMuscle || _cellType == cAnalysisCellMuscleSelected);
+        return getState() != eEngineUninitialized;
 			
-    case cAnalysisMusclePeriodId:
+    case cAnalysisContractionThresholdId:
+        return true;
                 //     return getState() != eEngineUninitialized &&
                 //		_analysisMode == cAnalysisCellTracking &&
                 //		_cellType == cAnalysisCellMuscle;
@@ -875,7 +811,6 @@ bool rcEngineImpl::isSettingEditable( int settingId )
 		case cAnalysisMotionTrackingTargetSettingId:
 		case cAnalysisMuscleAutoGenPeriodId:
 		case cAnalysisMuscleSegmentationVectorDisplaySettingId:
-		case cAnalysisMusclePeriodId:
 		case cAnalysisCellTypeId:
 		case cAnalysisModeSettingId:
 		case cAnalysisMotionTrackingSpeedSettingId:
@@ -894,9 +829,10 @@ bool rcEngineImpl::isSettingEditable( int settingId )
 			
 		case cAnalysisACISlidingWindowSizeSettingId:
 		case cAnalysisACISlidingWindowOriginSettingId:
-                //		if (_inputMode != eFile) {
-                //			if ( _movieCapture->saveState() == eMovieFileState_Save )
-                //			return false;
+		case cAnalysisContractionThresholdId:        
+             //	if (_inputMode != eFile) {
+              //			if ( _movieCapture->saveState() == eMovieFileState_Save )
+               	//		return false;
             return true;
 
 		case cAnalysisFirstFrameSettingId:
@@ -951,7 +887,7 @@ void rcEngineImpl::focusMyocyteSelection (const rcIRect& rect, vector<rc2Fvector
   ends.clear ();
   bool side = rect.width() > rect.height();
 	
-#if 0
+#if 1
   // Focus images are just the windows so ul of the rect has to be subtracted
   if (_focusRotation == 0)
     {

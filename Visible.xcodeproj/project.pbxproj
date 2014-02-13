@@ -10,9 +10,6 @@
 		C20F5F52131838C100E0EAC0 /* rc_persistencemanagerimpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20F5F4F131838C100E0EAC0 /* rc_persistencemanagerimpl.cpp */; };
 		C20F5F53131838C100E0EAC0 /* rc_setting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20F5F50131838C100E0EAC0 /* rc_setting.cpp */; };
 		C20F5F54131838C100E0EAC0 /* rc_value.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20F5F51131838C100E0EAC0 /* rc_value.cpp */; };
-		C22837FA1885AE11000CAB15 /* libopencv_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C22837F31885AE11000CAB15 /* libopencv_core.a */; };
-		C22837FF1885AE11000CAB15 /* libopencv_highgui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C22837F81885AE11000CAB15 /* libopencv_highgui.a */; };
-		C22838001885AE12000CAB15 /* libopencv_imgproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C22837F91885AE11000CAB15 /* libopencv_imgproc.a */; };
 		C2351D8E131364E30023D576 /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C245B0D7130F61140065941E /* vfi386_d.framework */; };
 		C238646F0F32BA0700423241 /* releasenotes.html in Resources */ = {isa = PBXBuildFile; fileRef = C23864410F32BA0600423241 /* releasenotes.html */; };
 		C23864700F32BA0700423241 /* visible.html in Resources */ = {isa = PBXBuildFile; fileRef = C23864420F32BA0600423241 /* visible.html */; };
@@ -52,7 +49,28 @@
 		C245C51C130E36DE00EFE5A4 /* mpeg2dec-0.4.1.tar in Resources */ = {isa = PBXBuildFile; fileRef = C245C4E5130E36DD00EFE5A4 /* mpeg2dec-0.4.1.tar */; };
 		C245C535130E36DE00EFE5A4 /* ASC DCAM API 2.0 Documentation.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C245C50C130E36DD00EFE5A4 /* ASC DCAM API 2.0 Documentation.pdf */; };
 		C245C536130E36DE00EFE5A4 /* ASC DCAM Read Me.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = C245C50D130E36DD00EFE5A4 /* ASC DCAM Read Me.rtfd */; };
-		C2592E6F0FF6736F008AC46F /* rc_engineimpl_modeltracker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2592E6E0FF6736F008AC46F /* rc_engineimpl_modeltracker.cpp */; };
+		C25952F518AA1C5A00BBD892 /* QtXmlPatterns.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6630F310B9000DC9AAC /* QtXmlPatterns.framework */; };
+		C25952F618AA1C5A00BBD892 /* QtXml.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6640F310B9000DC9AAC /* QtXml.framework */; };
+		C25952F718AA1C5A00BBD892 /* QtWebKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6650F310B9000DC9AAC /* QtWebKit.framework */; };
+		C25952F818AA1C5A00BBD892 /* QtSvg.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6660F310B9000DC9AAC /* QtSvg.framework */; };
+		C25952F918AA1C5A00BBD892 /* QtSql.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6670F310B9000DC9AAC /* QtSql.framework */; };
+		C25952FA18AA1C5A00BBD892 /* QtScript.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6680F310B9000DC9AAC /* QtScript.framework */; };
+		C25952FB18AA1C5A00BBD892 /* QtOpenGL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6690F310B9000DC9AAC /* QtOpenGL.framework */; };
+		C25952FC18AA1C5A00BBD892 /* QtNetwork.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC66A0F310B9000DC9AAC /* QtNetwork.framework */; };
+		C25952FD18AA1C5A00BBD892 /* QtGui.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC66B0F310B9000DC9AAC /* QtGui.framework */; };
+		C25952FE18AA1C5A00BBD892 /* QtDBus.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC66C0F310B9000DC9AAC /* QtDBus.framework */; };
+		C25952FF18AA1C5A00BBD892 /* QtCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC66D0F310B9000DC9AAC /* QtCore.framework */; };
+		C259530018AA1C5A00BBD892 /* Qt3Support.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC66E0F310B9000DC9AAC /* Qt3Support.framework */; };
+		C259530218AA1C5A00BBD892 /* QtTest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6700F310B9000DC9AAC /* QtTest.framework */; };
+		C259530318AA1C5A00BBD892 /* QtHelp.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6710F310B9000DC9AAC /* QtHelp.framework */; };
+		C259530418AA1C5A00BBD892 /* QtDesignerComponents.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6720F310B9000DC9AAC /* QtDesignerComponents.framework */; };
+		C259530518AA1C5A00BBD892 /* QtDesigner.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6730F310B9000DC9AAC /* QtDesigner.framework */; };
+		C259530618AA1C5A00BBD892 /* QtAssistant.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6740F310B9000DC9AAC /* QtAssistant.framework */; };
+		C259531118AB449900BBD892 /* libopencv_core.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C259531018AB449900BBD892 /* libopencv_core.2.2.0.dylib */; };
+		C259531918AB44F700BBD892 /* libopencv_objdetect.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C259531818AB44F700BBD892 /* libopencv_objdetect.2.2.0.dylib */; };
+		C259531C18AB451A00BBD892 /* libopencv_highgui.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C259531A18AB451A00BBD892 /* libopencv_highgui.2.2.0.dylib */; };
+		C259531D18AB451A00BBD892 /* libopencv_imgproc.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C259531B18AB451A00BBD892 /* libopencv_imgproc.2.2.0.dylib */; };
+		C259532118ABEB4C00BBD892 /* lpwidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C259531F18ABEA3900BBD892 /* lpwidget.cpp */; };
 		C26B50C9130E24CB0059FA8B /* rc_dcam_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2224E1513026AF000A71A96 /* rc_dcam_main.cpp */; };
 		C26CA0900F61E68900549A3C /* moc_rc_about.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA06D0F61E68900549A3C /* moc_rc_about.cpp */; };
 		C26CA0920F61E68900549A3C /* moc_rc_checkboxsettingwidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA06F0F61E68900549A3C /* moc_rc_checkboxsettingwidget.cpp */; };
@@ -88,6 +106,11 @@
 		C26CA0B10F61E68900549A3C /* moc_rc_trackmanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA08E0F61E68900549A3C /* moc_rc_trackmanager.cpp */; };
 		C26CA0B20F61E68900549A3C /* moc_rc_trackpanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA08F0F61E68900549A3C /* moc_rc_trackpanel.cpp */; };
 		C2850D3E131A1DDC002C8918 /* Visible-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2850D3D131A1DDC002C8918 /* Visible-Info.plist */; };
+		C299374718ACCD89000EAD7D /* liblightplot2d.1.0.1.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2F1963818ACA917008D996D /* liblightplot2d.1.0.1.dylib */; };
+		C299374818ACCD89000EAD7D /* libopencv_highgui.2.2.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C259531A18AB451A00BBD892 /* libopencv_highgui.2.2.0.dylib */; };
+		C299374918ACCD89000EAD7D /* libopencv_imgproc.2.2.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C259531B18AB451A00BBD892 /* libopencv_imgproc.2.2.0.dylib */; };
+		C299374A18ACCD89000EAD7D /* libopencv_objdetect.2.2.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C259531818AB44F700BBD892 /* libopencv_objdetect.2.2.0.dylib */; };
+		C299374B18ACCD89000EAD7D /* libopencv_core.2.2.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C259531018AB449900BBD892 /* libopencv_core.2.2.0.dylib */; };
 		C29AFA7618404422005B0754 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29AFA7318404421005B0754 /* CoreData.framework */; };
 		C29AFA7718404422005B0754 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29AFA7418404422005B0754 /* CoreFoundation.framework */; };
 		C29AFA8318404494005B0754 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29AFA7918404494005B0754 /* OpenGL.framework */; };
@@ -208,6 +231,8 @@
 		C2EC98A80F37845600E49E22 /* rc_videotrackimpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98670F37845400E49E22 /* rc_videotrackimpl.cpp */; };
 		C2EC98A90F37845600E49E22 /* rc_writermanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98680F37845400E49E22 /* rc_writermanager.cpp */; };
 		C2EC98AA0F37845600E49E22 /* rc_xml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98690F37845400E49E22 /* rc_xml.cpp */; };
+		C2F1963918ACA918008D996D /* liblightplot2d.1.0.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F1963818ACA917008D996D /* liblightplot2d.1.0.1.dylib */; };
+		C2F1963C18ACB8DE008D996D /* moc_widget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F1963A18ACB8D6008D996D /* moc_widget.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -246,19 +271,19 @@
 			remoteGlobalIDString = C2EC9C74183E692A00AC3300;
 			remoteInfo = vsigmatch;
 		};
+		C2A1E22818A9F97500D76DD7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C245B0D0130F61140065941E /* vf.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C297DD4218A1D7B400F217A5;
+			remoteInfo = persistence1d;
+		};
 		C2B8E9AA187DE11D0060D961 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C245B0D0130F61140065941E /* vf.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C2B8E993187DDC2B0060D961;
 			remoteInfo = gut;
-		};
-		C2B8E9AC187DE1B00060D961 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C245B0D0130F61140065941E /* vf.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8D07F2BC0486CC7A007CD1D0;
-			remoteInfo = vf;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -279,6 +304,28 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C299374718ACCD89000EAD7D /* liblightplot2d.1.0.1.dylib in CopyFiles */,
+				C299374818ACCD89000EAD7D /* libopencv_highgui.2.2.0.dylib in CopyFiles */,
+				C299374918ACCD89000EAD7D /* libopencv_imgproc.2.2.0.dylib in CopyFiles */,
+				C299374A18ACCD89000EAD7D /* libopencv_objdetect.2.2.0.dylib in CopyFiles */,
+				C299374B18ACCD89000EAD7D /* libopencv_core.2.2.0.dylib in CopyFiles */,
+				C25952F518AA1C5A00BBD892 /* QtXmlPatterns.framework in CopyFiles */,
+				C25952F618AA1C5A00BBD892 /* QtXml.framework in CopyFiles */,
+				C25952F718AA1C5A00BBD892 /* QtWebKit.framework in CopyFiles */,
+				C25952F818AA1C5A00BBD892 /* QtSvg.framework in CopyFiles */,
+				C25952F918AA1C5A00BBD892 /* QtSql.framework in CopyFiles */,
+				C25952FA18AA1C5A00BBD892 /* QtScript.framework in CopyFiles */,
+				C25952FB18AA1C5A00BBD892 /* QtOpenGL.framework in CopyFiles */,
+				C25952FC18AA1C5A00BBD892 /* QtNetwork.framework in CopyFiles */,
+				C25952FD18AA1C5A00BBD892 /* QtGui.framework in CopyFiles */,
+				C25952FE18AA1C5A00BBD892 /* QtDBus.framework in CopyFiles */,
+				C25952FF18AA1C5A00BBD892 /* QtCore.framework in CopyFiles */,
+				C259530018AA1C5A00BBD892 /* Qt3Support.framework in CopyFiles */,
+				C259530218AA1C5A00BBD892 /* QtTest.framework in CopyFiles */,
+				C259530318AA1C5A00BBD892 /* QtHelp.framework in CopyFiles */,
+				C259530418AA1C5A00BBD892 /* QtDesignerComponents.framework in CopyFiles */,
+				C259530518AA1C5A00BBD892 /* QtDesigner.framework in CopyFiles */,
+				C259530618AA1C5A00BBD892 /* QtAssistant.framework in CopyFiles */,
 				C2B8E973187D0A3C0060D961 /* vfi386.framework in CopyFiles */,
 				C2B16EEA130E384700C8050C /* ASC_DCAM_DEV.framework in CopyFiles */,
 			);
@@ -293,7 +340,7 @@
 		C20F5F50131838C100E0EAC0 /* rc_setting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_setting.cpp; sourceTree = "<group>"; };
 		C20F5F51131838C100E0EAC0 /* rc_value.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_value.cpp; sourceTree = "<group>"; };
 		C20F5F56131838D500E0EAC0 /* rc_persistencemanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_persistencemanager.h; sourceTree = "<group>"; };
-		C20F5F57131838D500E0EAC0 /* rc_setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_setting.h; sourceTree = "<group>"; };
+		C20F5F57131838D500E0EAC0 /* rc_setting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_setting.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C20F5F58131838D500E0EAC0 /* rc_uitypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_uitypes.h; sourceTree = "<group>"; };
 		C20F5F59131838D500E0EAC0 /* rc_value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_value.h; sourceTree = "<group>"; };
 		C211A7D40FFDD01C00162208 /* tip.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = tip.tif; path = ../../Visible/resources/tip.tif; sourceTree = "<group>"; };
@@ -421,7 +468,7 @@
 		C23864610F32BA0600423241 /* videomonitor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = videomonitor.png; sourceTree = "<group>"; };
 		C23864620F32BA0600423241 /* visualize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visualize.png; sourceTree = "<group>"; };
 		C23864630F32BA0600423241 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		C23864650F32BA0600423241 /* data_tracks.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = data_tracks.html; sourceTree = "<group>"; };
+		C23864650F32BA0600423241 /* data_tracks.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; lineEnding = 0; path = data_tracks.html; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.html; };
 		C23864660F32BA0600423241 /* rfyeml.dtd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = rfyeml.dtd; sourceTree = "<group>"; };
 		C23864670F32BA0600423241 /* xml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = xml.html; sourceTree = "<group>"; };
 		C23864690F32BA0600423241 /* Visible-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Visible-Info.plist"; path = "../../Visible/resources/Visible-Info.plist"; sourceTree = "<group>"; };
@@ -441,38 +488,44 @@
 		C245C50F130E36DD00EFE5A4 /* ASC_DCAM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ASC_DCAM.framework; sourceTree = "<group>"; };
 		C245C511130E36DD00EFE5A4 /* ASC_DCAM_DEV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ASC_DCAM_DEV.framework; sourceTree = "<group>"; };
 		C2592E6E0FF6736F008AC46F /* rc_engineimpl_modeltracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_engineimpl_modeltracker.cpp; sourceTree = "<group>"; };
+		C259531018AB449900BBD892 /* libopencv_core.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.2.2.0.dylib; path = usr/local/OpenCv_2.2_i386/lib/libopencv_core.2.2.0.dylib; sourceTree = "<group>"; };
+		C259531818AB44F700BBD892 /* libopencv_objdetect.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_objdetect.2.2.0.dylib; path = usr/local/OpenCv_2.2_i386/lib/libopencv_objdetect.2.2.0.dylib; sourceTree = "<group>"; };
+		C259531A18AB451A00BBD892 /* libopencv_highgui.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.2.2.0.dylib; path = usr/local/OpenCv_2.2_i386/lib/libopencv_highgui.2.2.0.dylib; sourceTree = "<group>"; };
+		C259531B18AB451A00BBD892 /* libopencv_imgproc.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.2.2.0.dylib; path = usr/local/OpenCv_2.2_i386/lib/libopencv_imgproc.2.2.0.dylib; sourceTree = "<group>"; };
+		C259531E18ABE98300BBD892 /* lpwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = lpwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C259531F18ABEA3900BBD892 /* lpwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = lpwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C26B50C4130E24AA0059FA8B /* RCDCAM */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RCDCAM; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26CA06D0F61E68900549A3C /* moc_rc_about.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_about.cpp; sourceTree = "<group>"; };
-		C26CA06F0F61E68900549A3C /* moc_rc_checkboxsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_checkboxsettingwidget.cpp; sourceTree = "<group>"; };
+		C26CA06F0F61E68900549A3C /* moc_rc_checkboxsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_checkboxsettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C26CA0700F61E68900549A3C /* moc_rc_choiceradiobutton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_choiceradiobutton.cpp; sourceTree = "<group>"; };
 		C26CA0710F61E68900549A3C /* moc_rc_controlpanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_controlpanel.cpp; sourceTree = "<group>"; };
-		C26CA0720F61E68900549A3C /* moc_rc_filechoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_filechoicesettingwidget.cpp; sourceTree = "<group>"; };
-		C26CA0730F61E68900549A3C /* moc_rc_filesavesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_filesavesettingwidget.cpp; sourceTree = "<group>"; };
-		C26CA0740F61E68900549A3C /* moc_rc_frameratechoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_frameratechoicesettingwidget.cpp; sourceTree = "<group>"; };
-		C26CA0750F61E68900549A3C /* moc_rc_imagecanvasgl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_imagecanvasgl.cpp; sourceTree = "<group>"; };
+		C26CA0720F61E68900549A3C /* moc_rc_filechoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_filechoicesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C26CA0730F61E68900549A3C /* moc_rc_filesavesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_filesavesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C26CA0740F61E68900549A3C /* moc_rc_frameratechoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_frameratechoicesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C26CA0750F61E68900549A3C /* moc_rc_imagecanvasgl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_imagecanvasgl.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C26CA0760F61E68900549A3C /* moc_rc_lineedit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_lineedit.cpp; sourceTree = "<group>"; };
-		C26CA0770F61E68900549A3C /* moc_rc_mainwindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_mainwindow.cpp; sourceTree = "<group>"; };
+		C26CA0770F61E68900549A3C /* moc_rc_mainwindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_mainwindow.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C26CA0780F61E68900549A3C /* moc_rc_menubar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_menubar.cpp; sourceTree = "<group>"; };
-		C26CA0790F61E68900549A3C /* moc_rc_menuchoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_menuchoicesettingwidget.cpp; sourceTree = "<group>"; };
+		C26CA0790F61E68900549A3C /* moc_rc_menuchoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_menuchoicesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C26CA07A0F61E68900549A3C /* moc_rc_modeldomain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_modeldomain.cpp; sourceTree = "<group>"; };
-		C26CA07B0F61E68900549A3C /* moc_rc_monitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_monitor.cpp; sourceTree = "<group>"; };
-		C26CA07C0F61E68900549A3C /* moc_rc_numericchoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_numericchoicesettingwidget.cpp; sourceTree = "<group>"; };
-		C26CA07D0F61E68900549A3C /* moc_rc_playbacksettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_playbacksettingwidget.cpp; sourceTree = "<group>"; };
-		C26CA07E0F61E68900549A3C /* moc_rc_radiochoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_radiochoicesettingwidget.cpp; sourceTree = "<group>"; };
-		C26CA07F0F61E68900549A3C /* moc_rc_rectsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_rectsettingwidget.cpp; sourceTree = "<group>"; };
-		C26CA0800F61E68900549A3C /* moc_rc_scalartrackwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_scalartrackwidget.cpp; sourceTree = "<group>"; };
-		C26CA0810F61E68900549A3C /* moc_rc_settingpage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_settingpage.cpp; sourceTree = "<group>"; };
-		C26CA0820F61E68900549A3C /* moc_rc_settingpanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_settingpanel.cpp; sourceTree = "<group>"; };
-		C26CA0830F61E68900549A3C /* moc_rc_settingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_settingwidget.cpp; sourceTree = "<group>"; };
-		C26CA0840F61E68900549A3C /* moc_rc_spinboxsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_spinboxsettingwidget.cpp; sourceTree = "<group>"; };
+		C26CA07B0F61E68900549A3C /* moc_rc_monitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_monitor.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C26CA07C0F61E68900549A3C /* moc_rc_numericchoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_numericchoicesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C26CA07D0F61E68900549A3C /* moc_rc_playbacksettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_playbacksettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C26CA07E0F61E68900549A3C /* moc_rc_radiochoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_radiochoicesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C26CA07F0F61E68900549A3C /* moc_rc_rectsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_rectsettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C26CA0800F61E68900549A3C /* moc_rc_scalartrackwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_scalartrackwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C26CA0810F61E68900549A3C /* moc_rc_settingpage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_settingpage.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C26CA0820F61E68900549A3C /* moc_rc_settingpanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_settingpanel.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C26CA0830F61E68900549A3C /* moc_rc_settingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_settingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C26CA0840F61E68900549A3C /* moc_rc_spinboxsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_spinboxsettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C26CA0850F61E68900549A3C /* moc_rc_statusbar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_statusbar.cpp; sourceTree = "<group>"; };
-		C26CA0860F61E68900549A3C /* moc_rc_textareasettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_textareasettingwidget.cpp; sourceTree = "<group>"; };
-		C26CA0870F61E68900549A3C /* moc_rc_textchoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_textchoicesettingwidget.cpp; sourceTree = "<group>"; };
+		C26CA0860F61E68900549A3C /* moc_rc_textareasettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_textareasettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C26CA0870F61E68900549A3C /* moc_rc_textchoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_textchoicesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C26CA0880F61E68900549A3C /* moc_rc_textedit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_textedit.cpp; sourceTree = "<group>"; };
-		C26CA0890F61E68900549A3C /* moc_rc_textlinesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_textlinesettingwidget.cpp; sourceTree = "<group>"; };
-		C26CA08A0F61E68900549A3C /* moc_rc_thumbwheelsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_thumbwheelsettingwidget.cpp; sourceTree = "<group>"; };
-		C26CA08C0F61E68900549A3C /* moc_rc_timeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_timeline.cpp; sourceTree = "<group>"; };
-		C26CA08D0F61E68900549A3C /* moc_rc_trackgroupwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_trackgroupwidget.cpp; sourceTree = "<group>"; };
+		C26CA0890F61E68900549A3C /* moc_rc_textlinesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_textlinesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C26CA08A0F61E68900549A3C /* moc_rc_thumbwheelsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_thumbwheelsettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C26CA08C0F61E68900549A3C /* moc_rc_timeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_timeline.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C26CA08D0F61E68900549A3C /* moc_rc_trackgroupwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_trackgroupwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C26CA08E0F61E68900549A3C /* moc_rc_trackmanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_trackmanager.cpp; sourceTree = "<group>"; };
 		C26CA08F0F61E68900549A3C /* moc_rc_trackpanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_trackpanel.cpp; sourceTree = "<group>"; };
 		C26FA00F0F21139C0046570D /* ASC DCAM API 2.0 Documentation.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ASC DCAM API 2.0 Documentation.pdf"; sourceTree = "<group>"; };
@@ -668,7 +721,7 @@
 		C2A39B8B0F33999800845D59 /* videomonitor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = videomonitor.png; sourceTree = "<group>"; };
 		C2A39B8C0F33999800845D59 /* visualize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visualize.png; sourceTree = "<group>"; };
 		C2A39B8D0F33999800845D59 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		C2A39B8F0F33999800845D59 /* data_tracks.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = data_tracks.html; sourceTree = "<group>"; };
+		C2A39B8F0F33999800845D59 /* data_tracks.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; lineEnding = 0; path = data_tracks.html; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.html; };
 		C2A39B900F33999800845D59 /* rfyeml.dtd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = rfyeml.dtd; sourceTree = "<group>"; };
 		C2A39B910F33999800845D59 /* xml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = xml.html; sourceTree = "<group>"; };
 		C2A39B930F33999800845D59 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -701,65 +754,65 @@
 		C2C450100F3B638400C2BDAE /* multiView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = multiView.cpp; path = examples/multiView/multiView.cpp; sourceTree = "<group>"; };
 		C2C4511D0F3B943800C2BDAE /* mouseGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mouseGrabber.h; path = examples/mouseGrabber/mouseGrabber.h; sourceTree = "<group>"; };
 		C2C4511E0F3B943800C2BDAE /* mouseGrabber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = mouseGrabber.cpp; path = examples/mouseGrabber/mouseGrabber.cpp; sourceTree = "<group>"; };
-		C2EC92240F37760300E49E22 /* rc_about.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_about.h; sourceTree = "<group>"; };
+		C2EC92240F37760300E49E22 /* rc_about.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_about.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C2EC92250F37760300E49E22 /* rc_appconstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_appconstants.h; sourceTree = "<group>"; };
-		C2EC92260F37760300E49E22 /* rc_cellinfowidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_cellinfowidget.h; sourceTree = "<group>"; };
-		C2EC92270F37760300E49E22 /* rc_checkboxsettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_checkboxsettingwidget.h; sourceTree = "<group>"; };
-		C2EC92280F37760300E49E22 /* rc_choiceradiobutton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_choiceradiobutton.h; sourceTree = "<group>"; };
-		C2EC92290F37760300E49E22 /* rc_controlpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_controlpanel.h; sourceTree = "<group>"; };
+		C2EC92260F37760300E49E22 /* rc_cellinfowidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_cellinfowidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92270F37760300E49E22 /* rc_checkboxsettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_checkboxsettingwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92280F37760300E49E22 /* rc_choiceradiobutton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_choiceradiobutton.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92290F37760300E49E22 /* rc_controlpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_controlpanel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C2EC922A0F37760300E49E22 /* rc_customeventmanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_customeventmanager.h; sourceTree = "<group>"; };
-		C2EC922B0F37760300E49E22 /* rc_filechoicesettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_filechoicesettingwidget.h; sourceTree = "<group>"; };
-		C2EC922C0F37760300E49E22 /* rc_filesavesettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_filesavesettingwidget.h; sourceTree = "<group>"; };
-		C2EC922D0F37760300E49E22 /* rc_frameratechoicesettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_frameratechoicesettingwidget.h; sourceTree = "<group>"; };
-		C2EC922E0F37760300E49E22 /* rc_hippoWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_hippoWidget.h; sourceTree = "<group>"; };
-		C2EC922F0F37760300E49E22 /* rc_imagecanvasgl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_imagecanvasgl.h; sourceTree = "<group>"; };
-		C2EC92300F37760300E49E22 /* rc_lineedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_lineedit.h; sourceTree = "<group>"; };
-		C2EC92310F37760300E49E22 /* rc_mainwindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_mainwindow.h; sourceTree = "<group>"; };
-		C2EC92320F37760300E49E22 /* rc_menubar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_menubar.h; sourceTree = "<group>"; };
-		C2EC92330F37760300E49E22 /* rc_menuchoicesettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_menuchoicesettingwidget.h; sourceTree = "<group>"; };
-		C2EC92340F37760300E49E22 /* rc_modeldomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_modeldomain.h; sourceTree = "<group>"; };
+		C2EC922B0F37760300E49E22 /* rc_filechoicesettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_filechoicesettingwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC922C0F37760300E49E22 /* rc_filesavesettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_filesavesettingwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC922D0F37760300E49E22 /* rc_frameratechoicesettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_frameratechoicesettingwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC922E0F37760300E49E22 /* rc_hippoWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_hippoWidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC922F0F37760300E49E22 /* rc_imagecanvasgl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_imagecanvasgl.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92300F37760300E49E22 /* rc_lineedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_lineedit.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92310F37760300E49E22 /* rc_mainwindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_mainwindow.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92320F37760300E49E22 /* rc_menubar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_menubar.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92330F37760300E49E22 /* rc_menuchoicesettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_menuchoicesettingwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92340F37760300E49E22 /* rc_modeldomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_modeldomain.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C2EC92350F37760300E49E22 /* rc_modifierkeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_modifierkeys.h; sourceTree = "<group>"; };
-		C2EC92360F37760300E49E22 /* rc_monitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_monitor.h; sourceTree = "<group>"; };
-		C2EC92370F37760300E49E22 /* rc_numericchoicesettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_numericchoicesettingwidget.h; sourceTree = "<group>"; };
-		C2EC92380F37760300E49E22 /* rc_playbacksettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_playbacksettingwidget.h; sourceTree = "<group>"; };
-		C2EC92390F37760300E49E22 /* rc_positionwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_positionwidget.h; sourceTree = "<group>"; };
+		C2EC92360F37760300E49E22 /* rc_monitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_monitor.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92370F37760300E49E22 /* rc_numericchoicesettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_numericchoicesettingwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92380F37760300E49E22 /* rc_playbacksettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_playbacksettingwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92390F37760300E49E22 /* rc_positionwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_positionwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C2EC923A0F37760300E49E22 /* rc_preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_preferences.h; sourceTree = "<group>"; };
-		C2EC923B0F37760300E49E22 /* rc_radiochoicesettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_radiochoicesettingwidget.h; sourceTree = "<group>"; };
-		C2EC923C0F37760300E49E22 /* rc_rectsettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_rectsettingwidget.h; sourceTree = "<group>"; };
-		C2EC923D0F37760300E49E22 /* rc_scalartrackwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_scalartrackwidget.h; sourceTree = "<group>"; };
-		C2EC923E0F37760300E49E22 /* rc_settingpage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_settingpage.h; sourceTree = "<group>"; };
-		C2EC923F0F37760300E49E22 /* rc_settingpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_settingpanel.h; sourceTree = "<group>"; };
-		C2EC92400F37760300E49E22 /* rc_settingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_settingwidget.h; sourceTree = "<group>"; };
-		C2EC92410F37760300E49E22 /* rc_spinboxsettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_spinboxsettingwidget.h; sourceTree = "<group>"; };
-		C2EC92420F37760300E49E22 /* rc_statusbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_statusbar.h; sourceTree = "<group>"; };
-		C2EC92430F37760300E49E22 /* rc_textareasettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_textareasettingwidget.h; sourceTree = "<group>"; };
-		C2EC92440F37760300E49E22 /* rc_textchoicesettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_textchoicesettingwidget.h; sourceTree = "<group>"; };
-		C2EC92450F37760300E49E22 /* rc_textedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_textedit.h; sourceTree = "<group>"; };
-		C2EC92460F37760300E49E22 /* rc_textlinesettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_textlinesettingwidget.h; sourceTree = "<group>"; };
-		C2EC92470F37760300E49E22 /* rc_thumbwheelsettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_thumbwheelsettingwidget.h; sourceTree = "<group>"; };
-		C2EC92480F37760300E49E22 /* rc_timedisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_timedisplay.h; sourceTree = "<group>"; };
-		C2EC92490F37760300E49E22 /* rc_timeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_timeline.h; sourceTree = "<group>"; };
-		C2EC924A0F37760300E49E22 /* rc_trackgroupwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_trackgroupwidget.h; sourceTree = "<group>"; };
+		C2EC923B0F37760300E49E22 /* rc_radiochoicesettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_radiochoicesettingwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC923C0F37760300E49E22 /* rc_rectsettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_rectsettingwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC923D0F37760300E49E22 /* rc_scalartrackwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_scalartrackwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC923E0F37760300E49E22 /* rc_settingpage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_settingpage.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC923F0F37760300E49E22 /* rc_settingpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_settingpanel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92400F37760300E49E22 /* rc_settingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_settingwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92410F37760300E49E22 /* rc_spinboxsettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_spinboxsettingwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92420F37760300E49E22 /* rc_statusbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_statusbar.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92430F37760300E49E22 /* rc_textareasettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_textareasettingwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92440F37760300E49E22 /* rc_textchoicesettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_textchoicesettingwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92450F37760300E49E22 /* rc_textedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_textedit.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92460F37760300E49E22 /* rc_textlinesettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_textlinesettingwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92470F37760300E49E22 /* rc_thumbwheelsettingwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_thumbwheelsettingwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92480F37760300E49E22 /* rc_timedisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_timedisplay.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92490F37760300E49E22 /* rc_timeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_timeline.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC924A0F37760300E49E22 /* rc_trackgroupwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_trackgroupwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C2EC924B0F37760300E49E22 /* rc_trackmanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_trackmanager.h; sourceTree = "<group>"; };
-		C2EC924C0F37760300E49E22 /* rc_trackpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_trackpanel.h; sourceTree = "<group>"; };
-		C2EC924D0F37760300E49E22 /* rc_trackrender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_trackrender.h; sourceTree = "<group>"; };
-		C2EC924E0F37760300E49E22 /* rc_uiconstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_uiconstants.h; sourceTree = "<group>"; };
+		C2EC924C0F37760300E49E22 /* rc_trackpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_trackpanel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC924D0F37760300E49E22 /* rc_trackrender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_trackrender.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC924E0F37760300E49E22 /* rc_uiconstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_uiconstants.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C2EC924F0F37760300E49E22 /* rc_xmlparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_xmlparser.h; sourceTree = "<group>"; };
 		C2EC92540F37761600E49E22 /* rc_batchexperimentobserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_batchexperimentobserver.h; sourceTree = "<group>"; };
 		C2EC92550F37761600E49E22 /* rc_captureregs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_captureregs.h; sourceTree = "<group>"; };
 		C2EC92560F37761600E49E22 /* rc_csvexporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_csvexporter.h; sourceTree = "<group>"; };
-		C2EC92570F37761600E49E22 /* rc_engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_engine.h; sourceTree = "<group>"; };
-		C2EC92580F37761600E49E22 /* rc_engineimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_engineimpl.h; sourceTree = "<group>"; };
+		C2EC92570F37761600E49E22 /* rc_engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_engine.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		C2EC92580F37761600E49E22 /* rc_engineimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_engineimpl.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C2EC92590F37761600E49E22 /* rc_engineimplbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_engineimplbase.h; sourceTree = "<group>"; };
 		C2EC925A0F37761600E49E22 /* rc_engineimplcapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_engineimplcapture.h; sourceTree = "<group>"; };
 		C2EC925B0F37761600E49E22 /* rc_engineimplplayback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_engineimplplayback.h; sourceTree = "<group>"; };
 		C2EC925C0F37761600E49E22 /* rc_engineimplsave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_engineimplsave.h; sourceTree = "<group>"; };
-		C2EC925D0F37761600E49E22 /* rc_experimentdomainimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_experimentdomainimpl.h; sourceTree = "<group>"; };
+		C2EC925D0F37761600E49E22 /* rc_experimentdomainimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_experimentdomainimpl.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C2EC925E0F37761600E49E22 /* rc_experimentimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_experimentimpl.h; sourceTree = "<group>"; };
 		C2EC925F0F37761600E49E22 /* rc_exporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_exporter.h; sourceTree = "<group>"; };
 		C2EC92600F37761600E49E22 /* rc_featuredefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_featuredefs.h; sourceTree = "<group>"; };
 		C2EC92610F37761600E49E22 /* rc_graphicstrackimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_graphicstrackimpl.h; sourceTree = "<group>"; };
-		C2EC92620F37761600E49E22 /* rc_model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_model.h; sourceTree = "<group>"; };
+		C2EC92620F37761600E49E22 /* rc_model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 2; path = rc_model.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C2EC92630F37761600E49E22 /* rc_nativeexporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_nativeexporter.h; sourceTree = "<group>"; };
 		C2EC92640F37761600E49E22 /* rc_nativeimporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_nativeimporter.h; sourceTree = "<group>"; };
 		C2EC92650F37761600E49E22 /* rc_playbackregs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_playbackregs.h; sourceTree = "<group>"; };
@@ -773,49 +826,49 @@
 		C2EC926D0F37761600E49E22 /* rc_tree.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rc_tree.hh; sourceTree = "<group>"; };
 		C2EC926E0F37761600E49E22 /* rc_videotrackimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_videotrackimpl.h; sourceTree = "<group>"; };
 		C2EC926F0F37761600E49E22 /* rc_writermanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_writermanager.h; sourceTree = "<group>"; };
-		C2EC92700F37761600E49E22 /* rc_writermanagerimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_writermanagerimpl.h; sourceTree = "<group>"; };
+		C2EC92700F37761600E49E22 /* rc_writermanagerimpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = rc_writermanagerimpl.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C2EC92710F37761600E49E22 /* rc_xml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_xml.h; sourceTree = "<group>"; };
 		C2EC92720F37761600E49E22 /* rc_xmldefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_xmldefs.h; sourceTree = "<group>"; };
 		C2EC92730F37761600E49E22 /* rc_xmldefs_v0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_xmldefs_v0.h; sourceTree = "<group>"; };
 		C2EC92740F37761600E49E22 /* rc_xmlelem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_xmlelem.h; sourceTree = "<group>"; };
 		C2EC97570F3781E200E49E22 /* ASC_DCAM_API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASC_DCAM_API.h; path = 3rdparty/outcastsoft/ASC_DCAM.framework/Headers/ASC_DCAM_API.h; sourceTree = SOURCE_ROOT; };
-		C2EC98280F37845400E49E22 /* rc_about.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_about.cpp; sourceTree = "<group>"; };
-		C2EC982A0F37845400E49E22 /* rc_checkboxsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_checkboxsettingwidget.cpp; sourceTree = "<group>"; };
-		C2EC982B0F37845400E49E22 /* rc_controlpanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_controlpanel.cpp; sourceTree = "<group>"; };
+		C2EC98280F37845400E49E22 /* rc_about.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_about.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC982A0F37845400E49E22 /* rc_checkboxsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_checkboxsettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC982B0F37845400E49E22 /* rc_controlpanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = rc_controlpanel.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C2EC982C0F37845400E49E22 /* rc_customeventmanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_customeventmanager.cpp; sourceTree = "<group>"; };
-		C2EC982D0F37845400E49E22 /* rc_filechoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_filechoicesettingwidget.cpp; sourceTree = "<group>"; };
-		C2EC982E0F37845400E49E22 /* rc_filesavesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_filesavesettingwidget.cpp; sourceTree = "<group>"; };
-		C2EC982F0F37845400E49E22 /* rc_frameratechoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_frameratechoicesettingwidget.cpp; sourceTree = "<group>"; };
-		C2EC98310F37845400E49E22 /* rc_imagecanvasgl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_imagecanvasgl.cpp; sourceTree = "<group>"; };
-		C2EC98320F37845400E49E22 /* rc_mainwindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_mainwindow.cpp; sourceTree = "<group>"; };
-		C2EC98330F37845400E49E22 /* rc_menubar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_menubar.cpp; sourceTree = "<group>"; };
-		C2EC98340F37845400E49E22 /* rc_menuchoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_menuchoicesettingwidget.cpp; sourceTree = "<group>"; };
-		C2EC98350F37845400E49E22 /* rc_modeldomain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_modeldomain.cpp; sourceTree = "<group>"; };
+		C2EC982D0F37845400E49E22 /* rc_filechoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_filechoicesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC982E0F37845400E49E22 /* rc_filesavesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_filesavesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC982F0F37845400E49E22 /* rc_frameratechoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_frameratechoicesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98310F37845400E49E22 /* rc_imagecanvasgl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_imagecanvasgl.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98320F37845400E49E22 /* rc_mainwindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_mainwindow.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98330F37845400E49E22 /* rc_menubar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_menubar.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98340F37845400E49E22 /* rc_menuchoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_menuchoicesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98350F37845400E49E22 /* rc_modeldomain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_modeldomain.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C2EC98360F37845400E49E22 /* rc_modifierkeys.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_modifierkeys.cpp; sourceTree = "<group>"; };
-		C2EC98370F37845400E49E22 /* rc_monitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_monitor.cpp; sourceTree = "<group>"; };
-		C2EC98380F37845400E49E22 /* rc_numericchoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_numericchoicesettingwidget.cpp; sourceTree = "<group>"; };
-		C2EC98390F37845400E49E22 /* rc_playbacksettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_playbacksettingwidget.cpp; sourceTree = "<group>"; };
-		C2EC983C0F37845400E49E22 /* rc_radiochoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_radiochoicesettingwidget.cpp; sourceTree = "<group>"; };
-		C2EC983D0F37845400E49E22 /* rc_rectsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_rectsettingwidget.cpp; sourceTree = "<group>"; };
-		C2EC983E0F37845400E49E22 /* rc_scalartrackwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_scalartrackwidget.cpp; sourceTree = "<group>"; };
-		C2EC983F0F37845400E49E22 /* rc_settingpage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_settingpage.cpp; sourceTree = "<group>"; };
-		C2EC98400F37845400E49E22 /* rc_settingpanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_settingpanel.cpp; sourceTree = "<group>"; };
-		C2EC98410F37845400E49E22 /* rc_settingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_settingwidget.cpp; sourceTree = "<group>"; };
-		C2EC98420F37845400E49E22 /* rc_spinboxsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_spinboxsettingwidget.cpp; sourceTree = "<group>"; };
-		C2EC98430F37845400E49E22 /* rc_statusbar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_statusbar.cpp; sourceTree = "<group>"; };
-		C2EC98440F37845400E49E22 /* rc_textareasettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_textareasettingwidget.cpp; sourceTree = "<group>"; };
-		C2EC98450F37845400E49E22 /* rc_textchoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_textchoicesettingwidget.cpp; sourceTree = "<group>"; };
-		C2EC98460F37845400E49E22 /* rc_textlinesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_textlinesettingwidget.cpp; sourceTree = "<group>"; };
-		C2EC98470F37845400E49E22 /* rc_thumbwheelsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_thumbwheelsettingwidget.cpp; sourceTree = "<group>"; };
-		C2EC98480F37845400E49E22 /* rc_timeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_timeline.cpp; sourceTree = "<group>"; };
-		C2EC98490F37845400E49E22 /* rc_trackgroupwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_trackgroupwidget.cpp; sourceTree = "<group>"; };
-		C2EC984A0F37845400E49E22 /* rc_trackmanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_trackmanager.cpp; sourceTree = "<group>"; };
-		C2EC984B0F37845400E49E22 /* rc_trackpanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_trackpanel.cpp; sourceTree = "<group>"; };
-		C2EC984C0F37845400E49E22 /* rc_trackrender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_trackrender.cpp; sourceTree = "<group>"; };
+		C2EC98370F37845400E49E22 /* rc_monitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = rc_monitor.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98380F37845400E49E22 /* rc_numericchoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_numericchoicesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98390F37845400E49E22 /* rc_playbacksettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_playbacksettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC983C0F37845400E49E22 /* rc_radiochoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_radiochoicesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC983D0F37845400E49E22 /* rc_rectsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_rectsettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC983E0F37845400E49E22 /* rc_scalartrackwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = rc_scalartrackwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC983F0F37845400E49E22 /* rc_settingpage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_settingpage.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98400F37845400E49E22 /* rc_settingpanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = rc_settingpanel.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98410F37845400E49E22 /* rc_settingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_settingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98420F37845400E49E22 /* rc_spinboxsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_spinboxsettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98430F37845400E49E22 /* rc_statusbar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = rc_statusbar.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98440F37845400E49E22 /* rc_textareasettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_textareasettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98450F37845400E49E22 /* rc_textchoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_textchoicesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98460F37845400E49E22 /* rc_textlinesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_textlinesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98470F37845400E49E22 /* rc_thumbwheelsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_thumbwheelsettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98480F37845400E49E22 /* rc_timeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_timeline.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98490F37845400E49E22 /* rc_trackgroupwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = rc_trackgroupwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC984A0F37845400E49E22 /* rc_trackmanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = rc_trackmanager.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC984B0F37845400E49E22 /* rc_trackpanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = rc_trackpanel.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC984C0F37845400E49E22 /* rc_trackrender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_trackrender.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C2EC984D0F37845400E49E22 /* rc_xmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_xmlparser.cpp; sourceTree = "<group>"; };
 		C2EC984F0F37845400E49E22 /* rc_captureregs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_captureregs.cpp; sourceTree = "<group>"; };
 		C2EC98500F37845400E49E22 /* rc_csvexporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_csvexporter.cpp; sourceTree = "<group>"; };
-		C2EC98510F37845400E49E22 /* rc_engineimpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_engineimpl.cpp; sourceTree = "<group>"; };
+		C2EC98510F37845400E49E22 /* rc_engineimpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_engineimpl.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C2EC98520F37845400E49E22 /* rc_engineimplbase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_engineimplbase.cpp; sourceTree = "<group>"; };
 		C2EC98530F37845400E49E22 /* rc_engineimplcapture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_engineimplcapture.cpp; sourceTree = "<group>"; };
 		C2EC98540F37845400E49E22 /* rc_engineimplcells.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_engineimplcells.cpp; sourceTree = "<group>"; };
@@ -826,11 +879,11 @@
 		C2EC98590F37845400E49E22 /* rc_engineimplplayback.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_engineimplplayback.cpp; sourceTree = "<group>"; };
 		C2EC985A0F37845400E49E22 /* rc_engineimplsave.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_engineimplsave.cpp; sourceTree = "<group>"; };
 		C2EC985B0F37845400E49E22 /* rc_engineimplsettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_engineimplsettings.cpp; sourceTree = "<group>"; };
-		C2EC985C0F37845400E49E22 /* rc_experimentdomainimpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_experimentdomainimpl.cpp; sourceTree = "<group>"; };
+		C2EC985C0F37845400E49E22 /* rc_experimentdomainimpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_experimentdomainimpl.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C2EC985D0F37845400E49E22 /* rc_experimentimpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_experimentimpl.cpp; sourceTree = "<group>"; };
 		C2EC985E0F37845400E49E22 /* rc_exporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_exporter.cpp; sourceTree = "<group>"; };
 		C2EC985F0F37845400E49E22 /* rc_graphicstrackimpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_graphicstrackimpl.cpp; sourceTree = "<group>"; };
-		C2EC98600F37845400E49E22 /* rc_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_main.cpp; sourceTree = "<group>"; };
+		C2EC98600F37845400E49E22 /* rc_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_main.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C2EC98610F37845400E49E22 /* rc_nativeexporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_nativeexporter.cpp; sourceTree = "<group>"; };
 		C2EC98620F37845400E49E22 /* rc_nativeimporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_nativeimporter.cpp; sourceTree = "<group>"; };
 		C2EC98630F37845400E49E22 /* rc_positiontrackimpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_positiontrackimpl.cpp; sourceTree = "<group>"; };
@@ -840,6 +893,8 @@
 		C2EC98670F37845400E49E22 /* rc_videotrackimpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_videotrackimpl.cpp; sourceTree = "<group>"; };
 		C2EC98680F37845400E49E22 /* rc_writermanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_writermanager.cpp; sourceTree = "<group>"; };
 		C2EC98690F37845400E49E22 /* rc_xml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_xml.cpp; sourceTree = "<group>"; };
+		C2F1963818ACA917008D996D /* liblightplot2d.1.0.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = liblightplot2d.1.0.1.dylib; path = usr/local/lightplot_i386/lib/liblightplot2d.1.0.1.dylib; sourceTree = "<group>"; };
+		C2F1963A18ACB8D6008D996D /* moc_widget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_widget.cpp; sourceTree = "<group>"; };
 		C2F6AC140F49E09C00D03C6F /* 01-EF3M0.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "01-EF3M0.tif"; sourceTree = "<group>"; };
 		C2F6AC150F49E09C00D03C6F /* 10xcalib.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = 10xcalib.tif; sourceTree = "<group>"; };
 		C2F6AC160F49E09C00D03C6F /* a_movie.mpg */ = {isa = PBXFileReference; lastKnownFileType = video.mpeg; path = a_movie.mpg; sourceTree = "<group>"; };
@@ -921,9 +976,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C22837FA1885AE11000CAB15 /* libopencv_core.a in Frameworks */,
-				C22837FF1885AE11000CAB15 /* libopencv_highgui.a in Frameworks */,
-				C22838001885AE12000CAB15 /* libopencv_imgproc.a in Frameworks */,
+				C2F1963918ACA918008D996D /* liblightplot2d.1.0.1.dylib in Frameworks */,
+				C259531C18AB451A00BBD892 /* libopencv_highgui.2.2.0.dylib in Frameworks */,
+				C259531D18AB451A00BBD892 /* libopencv_imgproc.2.2.0.dylib in Frameworks */,
+				C259531918AB44F700BBD892 /* libopencv_objdetect.2.2.0.dylib in Frameworks */,
+				C259531118AB449900BBD892 /* libopencv_core.2.2.0.dylib in Frameworks */,
 				C2B8EA26188103F20060D961 /* vfi386.framework in Frameworks */,
 				C29AFA8318404494005B0754 /* OpenGL.framework in Frameworks */,
 				C29AFA8618404494005B0754 /* PreferencePanes.framework in Frameworks */,
@@ -971,6 +1028,11 @@
 		0867D691FE84028FC02AAC07 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C2F1963818ACA917008D996D /* liblightplot2d.1.0.1.dylib */,
+				C259531A18AB451A00BBD892 /* libopencv_highgui.2.2.0.dylib */,
+				C259531B18AB451A00BBD892 /* libopencv_imgproc.2.2.0.dylib */,
+				C259531818AB44F700BBD892 /* libopencv_objdetect.2.2.0.dylib */,
+				C259531018AB449900BBD892 /* libopencv_core.2.2.0.dylib */,
 				034768DDFF38A45A11DB9C8B /* Products */,
 				C2B8EA24188102920060D961 /* vfi386_d.framework */,
 				C2B8E96E187CCC250060D961 /* vfi386.framework */,
@@ -1368,6 +1430,7 @@
 				C29AFA701840435E005B0754 /* vBina32.app */,
 				C2728EED187B9BFC00476945 /* batch_convert.app */,
 				C2B8E9AB187DE11D0060D961 /* gut */,
+				C2A1E22918A9F97500D76DD7 /* persistence1d */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1463,6 +1526,7 @@
 		C26CA06C0F61E68900549A3C /* moc */ = {
 			isa = PBXGroup;
 			children = (
+				C2F1963A18ACB8D6008D996D /* moc_widget.cpp */,
 				C26CA06D0F61E68900549A3C /* moc_rc_about.cpp */,
 				C26CA06F0F61E68900549A3C /* moc_rc_checkboxsettingwidget.cpp */,
 				C26CA0700F61E68900549A3C /* moc_rc_choiceradiobutton.cpp */,
@@ -1900,6 +1964,7 @@
 		C2EC92230F37760300E49E22 /* visiUI */ = {
 			isa = PBXGroup;
 			children = (
+				C259531E18ABE98300BBD892 /* lpwidget.h */,
 				C2EC92240F37760300E49E22 /* rc_about.h */,
 				C2EC92250F37760300E49E22 /* rc_appconstants.h */,
 				C2EC92260F37760300E49E22 /* rc_cellinfowidget.h */,
@@ -2002,6 +2067,7 @@
 		C2EC98270F37845400E49E22 /* qt */ = {
 			isa = PBXGroup;
 			children = (
+				C259531F18ABEA3900BBD892 /* lpwidget.cpp */,
 				C2EC98280F37845400E49E22 /* rc_about.cpp */,
 				C2EC982A0F37845400E49E22 /* rc_checkboxsettingwidget.cpp */,
 				C2EC982B0F37845400E49E22 /* rc_controlpanel.cpp */,
@@ -2225,7 +2291,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				C2B8E9AD187DE1B00060D961 /* PBXTargetDependency */,
 			);
 			name = Visible;
 			productName = vUT;
@@ -2305,6 +2370,13 @@
 			fileType = wrapper.application;
 			path = vBina32.app;
 			remoteRef = C29AFA6F1840435E005B0754 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C2A1E22918A9F97500D76DD7 /* persistence1d */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = persistence1d;
+			remoteRef = C2A1E22818A9F97500D76DD7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		C2B8E9AB187DE11D0060D961 /* gut */ = {
@@ -2428,7 +2500,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Parse arguments\nDYLIB=\"vfi386.framework/Versions/A/vfi386\"\napplicationExecutable=\"${CONFIGURATION_BUILD_DIR}/Visible.app/Contents/MacOS/Visible\"\necho \"${LINENO} ${applicationExecutable}\"\nframeworksLocation=\"`dirname ${applicationExecutable}`/../Frameworks\"\necho \" ${LINENO} Relocating ${frameworksLocation}\"\nframeworkExecutable=\"${frameworksLocation}/${DYLIB}\"\n\n# Rewrite install_name of framework\nnewInstallName=\"@executable_path/../Frameworks/${DYLIB}\"\necho \"${LINENO}  Relocating ${frameworkExecutable} as ${newInstallName}\"\ninstall_name_tool -id \"${newInstallName}\" \"${frameworkExecutable}\"\n\n # Rewrite install_name in the app\necho \"${LINENO}  Relocating ${frameworkExecutable} as ${newInstallName} in application\"\n\n# We re-search originalInstallName, in application, because might be different.\n  originalInstallName=`otool -L ${applicationExecutable}| grep  ${DYLIB} | sed -e 's/^\\([[:blank:]]*\\)\\(.*\\)\\( (.*\\)$/\\2/'`\n  echo \"${LINENO}  install_name_tool -change ${originalInstallName} ${newInstallName} ${applicationExecutable}\"\n  install_name_tool -change \"${originalInstallName}\" \"${newInstallName}\" \"${applicationExecutable}\"\n\n\n\n# Rewrite install_name of framework\nSUBDYLIB=\"ASC_DCAM_DEV.framework/Versions/A/ASC_DCAM_DEV\"\nSUBframeworkExecutable=\"${frameworksLocation}/${SUBDYLIB}\"\necho \"${LINENO}  Relocating ${SUBframeworkExecutable}\"\nnewInstallName=\"@executable_path/../Frameworks/${SUBDYLIB}\"\necho \"${LINENO}  Relocating ${SUBframeworkExecutable} as ${newInstallName}\"\ninstall_name_tool -id \"${newInstallName}\" \"${SUBframeworkExecutable}\"\n\n # Rewrite install_name in the app\necho \"${LINENO}  Relocating ${SUBframeworkExecutable} as ${newInstallName} in application\"\n\n# We re-search originalInstallName, in application, because might be different.\n  originalInstallName=`otool -L ${applicationExecutable}| grep  ${SUBDYLIB} | sed -e 's/^\\([[:blank:]]*\\)\\(.*\\)\\( (.*\\)$/\\2/'`\n  echo \"${LINENO}  install_name_tool -change ${originalInstallName} ${newInstallName} ${applicationExecutable}\"\n  install_name_tool -change \"${originalInstallName}\" \"${newInstallName}\" \"${applicationkExecutable}\"\n\n# finally mark DYLIB and SUBDYLIB\n# originalInstallName=`otool -L ${frameworksExecutable}| grep  ${SUBDYLIB} | sed -e 's/^\\([[:blank:]]*\\)\\(.*\\)\\( (.*\\)$/\\2/'`\n\n  echo \"${LINENO}  install_name_tool -change ${originalInstallName} ${newInstallName} ${frameworkExecutable}\"\n\n install_name_tool -change \"${originalInstallName}\" \"${newInstallName}\" \"${frameworkExecutable}\"\n\n";
+			shellScript = "\n## register executable to framework and framework to executable in the application Bundle\n\n## $1 framework executable\n## $2 application executable in MacOS folder\n## $3 path to frameworks in Frameworks\n## $4 core framework executable if != $1\n\n\n\n\nfunction _register_in_parent_framework ()\n{\n    echo \"install_name_tool -change $1 $2 $3\"\n    install_name_tool -change $1 $2 $3\n}\n\n\n## i.e. 2.2 to 2.2.x\nfunction _link_framework ()\n{\n    pushd \"$3\"\n    src=\"$1\"\n    dst=\"$2\"\n    echo \"Linking Canonical Name with Versioned Name $src <-> $dst\"\n    ln -s \"$src\" \"$dst\"\n    popd\n}\n\n\n\nfunction relocate_and_register_()\n{\n    echo \"arg1 is $1\"\n    echo \"arg2 is $2\"\n    echo \"arg3 is $3\"\n    local lastarg=${!#}\n        local extraOpArgN=3\n        \n        ## path to where frameworks go in the bundle\n        echo 'step 1:'\n        local frameworksLocation=\"`dirname $2`/../Frameworks\"\n        echo \"Relocating ${frameworksLocation}\"\n        local frameworkExecutable=\"${frameworksLocation}/$1\"\n        \n        ## Rewrite install_name of framework\n        echo 'step 2:'\n        local newInstallName=\"@executable_path/../Frameworks/$1\"\n        echo \"Relocating ${frameworkExecutable} as ${newInstallName}\" \n        install_name_tool -id \"${newInstallName}\" \"${frameworkExecutable}\"\n        ## Rewrite install_name in the app\n        echo 'step 3:'\n        \n        echo \"Relocating ${frameworkExecutable} as ${newInstallName} in application\" \n        ## We re-search originalInstallName, in application, because might be different.\n        local originalInstallName=`otool -L $2 | grep  $1 | sed -e 's/^\\([[:blank:]]*\\)\\(.*\\)\\( (.*\\)$/\\2/'`\n        echo \"install_name_tool -change ${originalInstallName} ${newInstallName} $2 \"\n        install_name_tool -change \"${originalInstallName}\" \"${newInstallName}\" \"$2\"\n        \n        ## if we have to also register this framework in the core framework\n        if [ $# = \"$extraOpArgN\" ]\n        then\n        originalInstallName=`otool -L \"$frameworksLocation/$3\"| grep  $1 | sed -e 's/^\\([[:blank:]]*\\)\\(.*\\)\\( (.*\\)$/\\2/'`\n        _register_in_parent_framework ${originalInstallName} ${newInstallName} $frameworksLocation/$3\n        fi\n    }\n    \n    DYLIB=\"vfi386.framework/Versions/A/vfi386\"\n    applicationExecutable=\"${CONFIGURATION_BUILD_DIR}/Visible.app/Contents/MacOS/Visible\"\n    frameworksLocation=\"`dirname ${applicationExecutable}`/../Frameworks\"\n    ASCDYLIB=\"ASC_DCAM_DEV.framework/Versions/A/ASC_DCAM_DEV\"\n    \n    CVCORE_ALIAS=libopencv_core.2.2.dylib\n    CVHG_ALIAS=libopencv_highgui.2.2.dylib\n    CVIP_ALIAS=libopencv_imgproc.2.2.dylib\n    CVOD_ALIAS=libopencv_objdetect.2.2.dylib\n    \n    CVCORE=libopencv_core.2.2.0.dylib\n    CVHG=libopencv_highgui.2.2.0.dylib\n    CVIP=libopencv_imgproc.2.2.0.dylib\n    CVOD=libopencv_objdetect.2.2.0.dylib\n    \n    _link_framework $CVCORE $CVCORE_ALIAS $frameworksLocation\n    _link_framework $CVIP $CVIP_ALIAS $frameworksLocation\n    _link_framework $CVHG $CVHG_ALIAS $frameworksLocation\n    _link_framework $CVOD $CVOD_ALIAS $frameworksLocation\n    \n    relocate_and_register_ $DYLIB $applicationExecutable\n    relocate_and_register_ $ASCDYLIB $applicationExecutable $DYLIB\n    relocate_and_register_ $CVCORE_ALIAS $applicationExecutable \n    relocate_and_register_ $CVHG_ALIAS $applicationExecutable\n    relocate_and_register_ $CVIP_ALIAS $applicationExecutable \n    relocate_and_register_ $CVOD_ALIAS $applicationExecutable \n    \n    relocate_and_register_ $CVHG_ALIAS $CVCORE\n    relocate_and_register_ $CVIP_ALIAS $CVCORE \n    relocate_and_register_ $CVOD_ALIAS $CVCORE\n    \n    relocate_and_register_ $CVIP_ALIAS $CVOD \n    relocate_and_register_ $CVOD_ALIAS $CVOD\n    \n    \n";
 			showEnvVarsInLog = 0;
 		};
 		C2B8E9B0187DE8040060D961 /* ShellScript */ = {
@@ -2481,10 +2553,12 @@
 				C2EC98780F37845600E49E22 /* rc_modifierkeys.cpp in Sources */,
 				C2EC98790F37845600E49E22 /* rc_monitor.cpp in Sources */,
 				C2EC987A0F37845600E49E22 /* rc_numericchoicesettingwidget.cpp in Sources */,
+				C259532118ABEB4C00BBD892 /* lpwidget.cpp in Sources */,
 				C2EC987B0F37845600E49E22 /* rc_playbacksettingwidget.cpp in Sources */,
 				C2EC987E0F37845600E49E22 /* rc_radiochoicesettingwidget.cpp in Sources */,
 				C2EC987F0F37845600E49E22 /* rc_rectsettingwidget.cpp in Sources */,
 				C2EC98800F37845600E49E22 /* rc_scalartrackwidget.cpp in Sources */,
+				C2F1963C18ACB8DE008D996D /* moc_widget.cpp in Sources */,
 				C2EC98810F37845600E49E22 /* rc_settingpage.cpp in Sources */,
 				C2EC98820F37845600E49E22 /* rc_settingpanel.cpp in Sources */,
 				C2EC98830F37845600E49E22 /* rc_settingwidget.cpp in Sources */,
@@ -2556,7 +2630,6 @@
 				C26CA0B00F61E68900549A3C /* moc_rc_trackgroupwidget.cpp in Sources */,
 				C26CA0B10F61E68900549A3C /* moc_rc_trackmanager.cpp in Sources */,
 				C26CA0B20F61E68900549A3C /* moc_rc_trackpanel.cpp in Sources */,
-				C2592E6F0FF6736F008AC46F /* rc_engineimpl_modeltracker.cpp in Sources */,
 				C20F5F52131838C100E0EAC0 /* rc_persistencemanagerimpl.cpp in Sources */,
 				C20F5F53131838C100E0EAC0 /* rc_setting.cpp in Sources */,
 				C20F5F54131838C100E0EAC0 /* rc_value.cpp in Sources */,
@@ -2564,14 +2637,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C2B8E9AD187DE1B00060D961 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = vf;
-			targetProxy = C2B8E9AC187DE1B00060D961 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C1666FE841158C02AAC07 /* InfoPlist.strings */ = {
@@ -2811,11 +2876,15 @@
 					/System/Library/Frameworks/AGL.framework/Headers,
 					/usr/local/include,
 					/System/Library/Frameworks/CarbonCore.framework/Headers,
+					"$(SRCROOT)/usr/local/lightplot_i386/include",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/resources/visible/resources/Visible-Info.plist";
 				INSTALL_PATH = "@rpath";
-				LD_RUNPATH_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks @loader_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = /Users/arman/gwc/visibleqt105/usr/local/OpenCV/lib/macosx;
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/usr/local/OpenCv_2.2_i386/lib",
+					"$(SRCROOT)/usr/local/lightplot_i386/lib",
+					/Users/arman/gwc/visibleqt105/usr/local/lightplot_i386/lib,
+				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = (
@@ -2914,8 +2983,11 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/resources/visible/resources/Visible-Info.plist";
 				INSTALL_PATH = "@rpath";
-				LD_RUNPATH_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks @loader_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = /Users/arman/gwc/visibleqt105/usr/local/OpenCV/lib/macosx;
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/usr/local/OpenCv_2.2_i386/lib",
+					"$(SRCROOT)/usr/local/lightplot_i386/lib",
+					/Users/arman/gwc/visibleqt105/usr/local/lightplot_i386/lib,
+				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = (

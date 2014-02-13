@@ -173,6 +173,10 @@ public:
     // tell the observer to put the polys
 	virtual void getPolys ( rcPolygonGroupRef& polys );
 
+	// if the observer is accepting polys, this is called to
+    // tell the observer to put the polys
+	virtual void notifyPlotRequest ( const CurveData * );
+    
 
     //////////////// rcCarbonLock implementation ////////////////
     

@@ -7,7 +7,6 @@
 #include <math.h>
 #include <stdio.h>
 #include <errno.h>
-#include <string>
 #include <iostream>
 #include <fstream>
 #include <strstream>
@@ -58,6 +57,10 @@
 #include "rc_engineimplplayback.h"
 #include "rc_featuredefs.h"
 #include "rc_staticsettings.h"
+
+// For plotting widget
+#include <QVector>
+#include <QPoint>
 
 #if WIN32
 using namespace std;
@@ -239,6 +242,9 @@ public:
     virtual bool resumeTracking ();
 
     virtual void notifyEngineOfPolys ( const rcPolygonGroupRef * polys );
+    
+    virtual void notifyEngineOfPlotRequests ( const CurveData * );    
+    
 
     // Model access
     rcEngineObserver&	observer() { rmAssert(_observer); return *_observer; };
@@ -334,6 +340,9 @@ protected:
     // Perform analysis on a focus area
     uint32 analyzeFocusArea( rcEngineFocusData* focus );
 
+    int32 convertToQpointData ( const rcEngineFocusData* focus, const vector<double>& signal,
+                         const vector<rcWindow>& focusImages, QVector<QPointF>& dst);
+    
     // Write entropy data from vector
     void writeEntropyData( rcEngineFocusData* focus,
                            const vector<rcWindow>& images,
@@ -345,6 +354,9 @@ protected:
 
     int writeTimedFloats ( const rcEngineFocusData* focus, const vector<float>& signal,
                            const vector<rcWindow>& focusImages, rcScalarWriter* writer);
+    
+    int writeTimedIndexScalarPairs ( const rcEngineFocusData* focus, const vector<int>& mins, 
+                                    const vector<int>& maxs, const vector<rcWindow>& focusImages, rcScalarWriter* writer); 
 
     // Construct experiment attributes from movie header
     rcExperimentAttributes attributes( const rcMovieFileExpExt& exp ) const;
@@ -432,6 +444,7 @@ protected:
     std::string makeTmpName(std::string exten);
 
     // Setting variables
+    float              _contractionThreshold;
     bool                _batchMode; // Are we running from cmd line or the UI
     rcInputSource           _inputSource;
     rcInputMode		    _inputMode;
@@ -448,7 +461,9 @@ protected:
     int                 _slidingWindowSize;
     rcAnalyzerResultOrigin _slidingWindowOrigin;
     rcMutex             _settingMutex;
-    int32             _useMask;
+    int32             _doNormalize;    
+    int32             _focusRotation;
+    
     int32             _aciTemporalSampling;
     int32             _motionTrackingTargetSize;
     int32             _motionTrackingTargetSizeMultiplier;
@@ -559,6 +574,7 @@ protected:
     // Toggle Mechanism
     rcAtomicValue<bool>   _isPausedToggle;
     rcPolygonGroupRef _selectedPolys; // Polygon Collection
+    boost::shared_ptr<CurveData> _curveDataRef;
 
 };
 

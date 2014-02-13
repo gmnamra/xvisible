@@ -160,6 +160,12 @@ public:
   // if the observer is accepting polys, this is called to
   // tell the observer to get the possible changed polys    
   virtual void getPolys (rcPolygonGroupRef& polys );	
+    
+    
+  // if the observer is accepting plot data, this is called to
+  // tell the observer to put them up
+  virtual void notifyPlotRequest (const CurveData* );
+    
 	
   rcPolygonGroupRef polys ()
   {
@@ -230,6 +236,7 @@ signals:
     void updateMonitorScale( double scaleFactor );
     void updateMonitorDisplay();
     void updateVideoRect( const rcRect& rect );
+    void requestPlot (const CurveData * );
     void updateCameraState( bool liveCamera, bool liveStorage );
     void updateDebugging();
     void updateSelectionState (bool b);

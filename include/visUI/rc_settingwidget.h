@@ -28,6 +28,8 @@ public:
                      bool createTopLayout = true );
     virtual ~rcSettingWidget();
 
+    QSize sizeHint () const { return fontMetrics().size (0, text () ); }
+    
 public slots:
     // Update widget visibility/editability state based on setting state
     void updateWidgetState();
@@ -39,7 +41,9 @@ protected:
     Q3BoxLayout*     mTopLayout;    // Top level widget layout
     QLabel*         mDisplayLabel; // Display label
 private:
-   
+    QString text () const { return QString (mSetting.getDisplayName()); }
+    
+    
 };
 
 #endif // _rcSETTINGWIDGET_H_

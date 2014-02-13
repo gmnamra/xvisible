@@ -444,6 +444,14 @@ void rcExperimentDomainImpl::notifyBlitData( const rcWindow* image )
     _observer->notifyBlitData( image );
 }
 
+// if the observer is accepting requests for plot, this is called to
+// tell the observer to request plot
+void rcExperimentDomainImpl::notifyPlotRequest ( const CurveData* plotinfo )
+{
+    _observer->notifyPlotRequest(plotinfo);
+}
+
+
 // if the observer is accepting image blits, this is called to
 // tell the observer to blit the image
 void rcExperimentDomainImpl::notifyPolys ( const rcPolygonGroupRef* polys )

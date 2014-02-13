@@ -46,25 +46,6 @@ void rcSettingPanel::updateState( rcExperimentState state )
     }
 }
 
-#ifdef HIPPOW
-// Request OpenGL tracking window display
-// @todo create new pages in the canvas for different trackplots
-void rcSettingPanel::requestTrackingDisplayGL()
-{
-  rcModelDomain* domain = rcModelDomain::getModelDomain();
-  CanvasWindow * window = new CanvasWindow (0, "Untitled", 0);
-  window -> show ();
-  window->setGeometry (50, 50, 480, 320);
-  domain-> getHippWindowCtl ()-> createInspector ();
-  domain-> getHippWindowCtl ()->newWindow (window);
-  domain-> getHippWindowCtl ()->quitOnLastWindowClose ();
-
-  QWidget* tab = new rcSettingPage( this,
-				    domain-> getHippWindowCtl ()-> getInspector ());
-  insertTab( tab , QString ("Track Inspector"));
-  setTabToolTip(tab, QString ("Track Visualization"));
-}
-#endif
 
 void rcSettingPanel::updatePages( void )
 {
@@ -84,7 +65,8 @@ void rcSettingPanel::updatePages( void )
     // add the new settings pages
 	rcModelDomain* domain = rcModelDomain::getModelDomain();
 	rcExperiment* experiment = domain->getExperiment();
-	int nPages = experiment->getNSettingCategories();
+	int nPages = experiment->getNSettingCategories();    
+#if 0    
 	for (i = 0; i < nPages; i++)
 	{
 	  rcSettingCategory category = experiment->getSettingCategory(i);
@@ -95,7 +77,8 @@ void rcSettingPanel::updatePages( void )
 	      setTabToolTip( tab , category.getDescription() );
 	    }
 	}
-
+#endif
+    
 
 	for (i = 0; i < nPages; i++)
 	{
@@ -108,6 +91,7 @@ void rcSettingPanel::updatePages( void )
 	    }
 	}
 
+#if 0
 	for (i = 0; i < nPages; i++)
 	{
 	  rcSettingCategory category = experiment->getSettingCategory(i);
@@ -119,19 +103,7 @@ void rcSettingPanel::updatePages( void )
 	    }
 	}
 
-#ifdef EXPR
-	for (i = 0; i < nPages; i++)
-	{
-	  rcSettingCategory category = experiment->getSettingCategory(i);
-	  if (category.getName () == "Experiment")
-	    {
-	      QWidget* tab = new rcSettingPage( this, category );
-	      insertTab( tab , category.getName() );
-	      setTabToolTip( tab , category.getDescription() );
-	    }
-	}
-#endif
-    
+#endif    
 
     // Restore selected tab
     if ( currentPage >= 0 )

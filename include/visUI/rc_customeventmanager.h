@@ -39,6 +39,8 @@ enum rcCustomEvent
   , eNotifyExperimentChange
   , eNotifyVideoRectEvent
   , eNotifyAnalysisRectRotationEvent
+  , eNotifyPlotRequestEvent
+  , eNotifyPolygonGroupEvent
   , eNotifyMaxEvent // Sentinel
 };
 
@@ -68,6 +70,9 @@ typedef rcBaseEvent<rcRect, eNotifyVideoRectEvent> rcBaseVideoRectEvent;
 typedef rcBaseEvent<double, eNotifyMultiplierEvent> rcBaseMultiplierEvent;
 typedef rcBaseEvent<rcAffineRectangle, eNotifyAnalysisRectRotationEvent> rcBaseAnalysisRectRotationEvent;
 typedef rcBaseEvent<int32, eNotifyExperimentChange> rcBaseExperimentChangeEvent;
+typedef rcBaseEvent<CurveData, eNotifyPlotRequestEvent> rcBasePlotRequestEvent;
+typedef rcBaseEvent<rcPolygonGroupRef, eNotifyPolygonGroupEvent> rcBasePolysEvent;
+
 
 //
 // Class for custom event (queue) management

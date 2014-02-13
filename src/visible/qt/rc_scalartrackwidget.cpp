@@ -66,7 +66,7 @@ rcScalarTrackWidget::rcScalarTrackWidget( QWidget* parent , int trackGroupNo , i
     // Set big bold "graph" font for better visibility
     QFont font;
     font.setWeight( QFont::Black );
-    font.setPointSize( 28 );
+    font.setPointSize( 20 );
     _legend->setFont( font );
 	layout->addWidget( _legend );
 
@@ -83,7 +83,7 @@ rcScalarTrackWidget::rcScalarTrackWidget( QWidget* parent , int trackGroupNo , i
     _name->setAlignment( cUIWordBreakAlignment );
     _name->setFrameStyle( Q3Frame::Panel );
 	_name->setFrameShadow( Q3Frame::Sunken );
-	_name->setFixedWidth( 80 );
+	_name->setFixedWidth( 180 );
     _name->setFont( textFont );
 	layout->addWidget( _name );
 
@@ -93,12 +93,12 @@ rcScalarTrackWidget::rcScalarTrackWidget( QWidget* parent , int trackGroupNo , i
     //_value->setAlignment( cUIWordBreakAlignment );
     _value->setFrameStyle( Q3Frame::Panel );
 	_value->setFrameShadow( Q3Frame::Sunken );
-	_value->setFixedWidth( 80 );
+	_value->setFixedWidth( 180 );
     _value->setFont( textFont );
 	layout->addWidget( _value );
 
 	layout->addSpacing( 10 );
-	layout->addStretch();
+	layout->addStretch(1);
 
 	// use the track description as a tool tip
 	QToolTip::add( _name , track->getDescription() );

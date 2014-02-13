@@ -29,6 +29,8 @@ signals:
 
 protected:
 
+    void keyPressEvent( QKeyEvent* keyEvent );
+    
 private:
     // repopulate the panel with track group widgets
     void updateTrackGroups( bool cameraInput, bool cameraStorage );

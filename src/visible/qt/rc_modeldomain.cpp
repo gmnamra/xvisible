@@ -33,26 +33,26 @@ const char* cModelDomainName = "modelDomain";
 static rcModelDomain* _modelDomainSingleton = 0;
 
 rcModelDomain::rcModelDomain( QObject* parent, const char* modelName )
-        : QObject( parent, cModelDomainName ),
-          mLicenseManager( cLicenseFilePath, true ),
-			mEventQueueManager( this ),
-          mCursorTime( 0.0 )
+: QObject( parent, cModelDomainName ),
+mLicenseManager( cLicenseFilePath, true ),
+mEventQueueManager( this ),
+mCursorTime( 0.0 )
 {
-  rcUNUSED( modelName );
-
-  mDomain = (rcExperimentDomain*)	rcExperimentDomainFactory::getExperimentDomain( "testDomain" );
-  if (mDomain == 0)
-    rmExceptionMacro ( "Can't find experiment domain" );
-  mDomain->initialize( this );
-  _modelDomainSingleton = this;
-
-  // Optimize all Qt pixmaps for speed
-//  QPixmap::setDefaultOptimization( QPixmap::BestOptim );
-
+    rcUNUSED( modelName );
+    
+    mDomain = (rcExperimentDomain*)	rcExperimentDomainFactory::getExperimentDomain( "testDomain" );
+    if (mDomain == 0)
+        rmExceptionMacro ( "Can't find experiment domain" );
+    mDomain->initialize( this );
+    _modelDomainSingleton = this;
+    
+    // Optimize all Qt pixmaps for speed
+    //  QPixmap::setDefaultOptimization( QPixmap::BestOptim );
+    
 	rcSharedPolygonGroupPtr c0 (new rcPolygonGroup );
-  rcPolygonGroupRef cellsRef (c0) ;
-  mSelectPolygons = cellsRef;
-  installEventFilter (this);
+    rcPolygonGroupRef cellsRef (c0) ;
+    mSelectPolygons = cellsRef;
+    installEventFilter (this);
 }
 
 rcModelDomain::~rcModelDomain()
@@ -68,7 +68,7 @@ rcModelDomain* rcModelDomain::getModelDomain( void )
 	//	just to be sure....
 	if (_modelDomainSingleton == 0)
 		rmExceptionMacro ( "Fatal error: null model domain singleton" );
-
+    
 	return _modelDomainSingleton;
 }
 
@@ -82,7 +82,7 @@ rcExperiment* rcModelDomain::getExperiment( void )
 #ifdef HIPPOW
 WindowController* rcModelDomain::getHippWindowCtl ( void )
 {
-  return mHippWctl;
+    return mHippWctl;
 }
 #endif
 
@@ -93,22 +93,22 @@ const rcExperimentAttributes rcModelDomain::getExperimentAttributes( void )
 }
 
 
-	// get the engine live attributes
+// get the engine live attributes
 bool rcModelDomain::operatingOnLiveInput ( void )
 {
-  return mDomain->operatingOnLiveInput ();
+    return mDomain->operatingOnLiveInput ();
 }
 
 bool rcModelDomain::storingLiveInput ( void )
 {
-  return mDomain->storingLiveInput ();
+    return mDomain->storingLiveInput ();
 }
 
 
 // set current experiment attributes
 void rcModelDomain::setExperimentAttributes( const rcExperimentAttributes& attrs )
 {
-     mDomain->setExperimentAttributes( attrs );
+    mDomain->setExperimentAttributes( attrs );
 }
 
 // get the current experiment state
@@ -155,7 +155,7 @@ void rcModelDomain::notifyUpdateDisplay( void )
 
 // called to notify observer of a timeline range change
 void rcModelDomain::notifyTimelineRange( const rcTimestamp& start,
-                                         const rcTimestamp& end )
+                                        const rcTimestamp& end )
 {
     emit updateTimelineRange( start, end );
 }
@@ -225,20 +225,20 @@ void rcModelDomain::notifyStatus( const char* statusString )
 
 // called to notify observer of a state change.
 void rcModelDomain::notifyState( rcExperimentState state,
-                                 bool immediateDispatch )
+                                bool immediateDispatch )
 {
     if ( immediateDispatch ) {
         emit newState( state );
         emit updateSettings();
     } else {
-			rcBaseStateEvent *ev = new rcBaseStateEvent (state);
-			mEventQueueManager.postEvent( dynamic_cast <QEvent *> (ev) );	
+        rcBaseStateEvent *ev = new rcBaseStateEvent (state);
+        mEventQueueManager.postEvent( dynamic_cast <QEvent *> (ev) );	
     }
 }
 
 // called periodically to notify observer of a time change.
 void rcModelDomain::notifyEngineTimelineRange( const rcTimestamp& start,
-                                               const rcTimestamp& end )
+                                              const rcTimestamp& end )
 {
 	rcBaseTimelineRangeEvent *ev = new rcBaseTimelineRangeEvent (rcTimestampPair (start, end));
 	mEventQueueManager.postEvent( dynamic_cast <QEvent *> (ev) );	
@@ -248,19 +248,19 @@ void rcModelDomain::notifyEngineTimelineRange( const rcTimestamp& start,
 void rcModelDomain::notifyTime( const rcTimestamp& cTime )
 {
     const int32 queued = mEventQueueManager.queuedEvents( eNotifyTimeEvent );
-
+    
 	// Drop time events during live camera input if they start
     // queuing up
     if ( queued > 1 ) {
 		if (mDomain->operatingOnLiveInput ())
 			return;
-
+        
     }
 	
 	rcBaseTimeEvent *ev = new rcBaseTimeEvent (cTime);
 	mEventQueueManager.postEvent( dynamic_cast <QEvent *> (ev) );	
 	
-  }
+}
 
 // called periodically to notify observer of a programatic cursor change.
 void rcModelDomain::notifyProgCursorTime( const rcTimestamp& cTime )
@@ -272,9 +272,9 @@ void rcModelDomain::notifyProgCursorTime( const rcTimestamp& cTime )
 // Returns the number of eNotifyCursorEvent events queued up for processing
 int32 rcModelDomain::progCursorTimeEventCount( ) const
 {
-  rcModelDomain* ptr = const_cast<rcModelDomain*>(this);
-
-  return ptr->mEventQueueManager.queuedEvents( eNotifyCursorEvent );
+    rcModelDomain* ptr = const_cast<rcModelDomain*>(this);
+    
+    return ptr->mEventQueueManager.queuedEvents( eNotifyCursorEvent );
 }
 
 // called to notify observer of a analysis focus rect change.
@@ -290,20 +290,20 @@ void rcModelDomain::notifyAnalysisRectRotation( const rcAffineRectangle& affine 
 {
 	rcBaseAnalysisRectRotationEvent *ev = new rcBaseAnalysisRectRotationEvent (affine);
 	mEventQueueManager.postEvent( dynamic_cast <QEvent *> (ev) );	
-
+    
 }
 
 // called to ask the observer if it should blast an image to
 //	a part of the screen of the observer's choosing.
 bool rcModelDomain::acceptingImageBlits( void )
 {
-  return true;
+    return true;
 }
 
 // called to ask the observer if it should send us segmentation polys
 bool rcModelDomain::acceptingPolys( void )
 {
-  return true;
+    return true;
 }
 
 // if the observer is accepting image blits, this is called to
@@ -311,13 +311,13 @@ bool rcModelDomain::acceptingPolys( void )
 void rcModelDomain::notifyBlitData( const rcWindow* image )
 {
     int32 queued = mEventQueueManager.queuedEvents( eNotifyBlitEvent );
-
+    
     // Post new event only if queue is empty
     if ( queued < 1 ) {
-			
-			rcBaseBlitEvent *ev = new rcBaseBlitEvent (*image);
-			mEventQueueManager.postEvent( dynamic_cast <QEvent *> (ev) );	
-
+        
+        rcBaseBlitEvent *ev = new rcBaseBlitEvent (*image);
+        mEventQueueManager.postEvent( dynamic_cast <QEvent *> (ev) );	
+        
     }
 }
 
@@ -326,26 +326,35 @@ void rcModelDomain::notifyBlitData( const rcWindow* image )
 void rcModelDomain::notifyBlitGraphics( const rcVisualGraphicsCollection* graphics )
 {
     int32 queued = mEventQueueManager.queuedEvents( eNotifyBlitGraphicsEvent );
-
+    
     // Post new event only if queue has less than 2 pending events
     if ( queued < 2 ) {
-			
-			rcBaseBlitGraphicsEvent *ev = new rcBaseBlitGraphicsEvent (*graphics);
-			mEventQueueManager.postEvent( dynamic_cast <QEvent *> (ev) );	
-
+        
+        rcBaseBlitGraphicsEvent *ev = new rcBaseBlitGraphicsEvent (*graphics);
+        mEventQueueManager.postEvent( dynamic_cast <QEvent *> (ev) );	
+        
     }
 }
+
+
+// if the observer is accepting plot requests, this is called to
+// tell the observer to send it over to the engine
+//void rcModelDomain::requestPlot (const CurveData* plotinfo )
+//{
+//    rcBasePlotRequestEvent *ev = new rcBasePlotRequestEvent (*plotinfo);
+//    mEventQueueManager.postEvent (dynamic_cast<QEvent*> (ev) );
+//}
 
 // if the observer is accepting polygon group, this is called to
 // tell the observer to send it over to the engine
 void rcModelDomain::notifyPolys ()
 {
-  mDomain->notifyPolys (&mSelectPolygons);
+    mDomain->notifyPolys (&mSelectPolygons);
 }
 
 void rcModelDomain::getPolys (rcPolygonGroupRef& pgs )
 {
-  pgs = mSelectPolygons;
+    pgs = mSelectPolygons;
 }
 
 // called to notify observer of a change in multiplier
@@ -353,7 +362,7 @@ void rcModelDomain::notifyMultiplier( const double& multiplier )
 {
 	rcBaseMultiplierEvent *ev = new rcBaseMultiplierEvent (multiplier);
 	mEventQueueManager.postEvent( dynamic_cast <QEvent *> (ev) );	
-
+    
 }
 
 // called to notify that experiment has changed, all widgets need to update themselves
@@ -369,6 +378,13 @@ void rcModelDomain::notifyVideoRect( const rcRect& rect )
 {
 	rcBaseVideoRectEvent *ev = new rcBaseVideoRectEvent (rect);
 	mEventQueueManager.postEvent( dynamic_cast <QEvent *> (ev) );	
+}
+
+void rcModelDomain::notifyPlotRequest(const CurveData* cv)
+{
+    rcBasePlotRequestEvent *ev = new rcBasePlotRequestEvent (* cv);
+    mEventQueueManager.postEvent (dynamic_cast<QEvent*> (ev) );
+
 }
 
 // Global app lock
@@ -430,15 +446,15 @@ void rcModelDomain::requestTrackingPause ( void )
 {
     try
     {
-      if ( vl() )
-	{
-	  mDomain->pauseTrackingExperiment();
-
-	}
+        if ( vl() )
+        {
+            mDomain->pauseTrackingExperiment();
+            
+        }
     }
     catch (general_exception& x)
     {
-      QMessageBox::critical( 0 , cAppName , x.what() , 1 , 0 );
+        QMessageBox::critical( 0 , cAppName , x.what() , 1 , 0 );
     }
 }
 
@@ -446,14 +462,14 @@ void rcModelDomain::stopTrackingPause ( void )
 {
     try
     {
-      if ( vl() )
-	{
-	  mDomain->doneSelecting ();
-	}
+        if ( vl() )
+        {
+            mDomain->doneSelecting ();
+        }
     }
     catch (general_exception& x)
     {
-      QMessageBox::critical( 0 , cAppName , x.what() , 1 , 0 );
+        QMessageBox::critical( 0 , cAppName , x.what() , 1 , 0 );
     }
 }
 
@@ -462,14 +478,14 @@ void rcModelDomain::requestNew( void )
     try
     {
         rcExperimentState state = getExperimentState();
-
+        
         if ( state != eExperimentEmpty && state != eExperimentLocked ) {
             // No data has been saved, prompt user
             switch( QMessageBox::warning( 0, cAppName,
-                                          "Do you want to save experiment data before starting a new experiment?\n\n"
-                                          "If you don't save, your data will be lost.",
-                                          "&Don't Save", "Cancel", "&Save",
-                                          2, 1 ) ) {
+                                         "Do you want to save experiment data before starting a new experiment?\n\n"
+                                         "If you don't save, your data will be lost.",
+                                         "&Don't Save", "Cancel", "&Save",
+                                         2, 1 ) ) {
                 case 0: // Don't Save clicked or Alt+D pressed
                     mDomain->newExperiment();
                     break;
@@ -495,13 +511,13 @@ void rcModelDomain::requestNew( void )
 void rcModelDomain::requestNewApp( void )
 {
     // TODO: we should use multiple document window architecture
-
+    
     QString cmd;
     const char* appName = qApp->argv()[0];
-
+    
     // Background task
     cmd.sprintf("%s -psn &", appName );
-
+    
     // Launch a new application instance
     system( cmd.latin1() );
 }
@@ -512,23 +528,23 @@ void rcModelDomain::requestOpen( rcExperimentImportMode mode )
     {
         if ( !vl() )
             return;
-
+        
         notifyStatus( "Loading experiment data..." );
-
+        
         rcPersistenceManager* persistenceManager = rcPersistenceManagerFactory::getPersistenceManager();
         rcExperimentFileFormat format =  eExperimentNativeFormat;
-
+        
         // First, prompt for unsaved data from current experiment
         rcExperimentState state = getExperimentState();
-
+        
         if ( state != eExperimentEmpty && state != eExperimentLocked ) {
             // No data has been saved, prompt user
-
+            
             switch( QMessageBox::warning( 0, cAppName,
-                                          "Do you want to save experiment data before opening a new experiment?\n\n"
-                                          "If you don't save, your data will be lost.",
-                                          "&Don't Save", "Cancel", "&Save",
-                                          2, 1 ) ) {
+                                         "Do you want to save experiment data before opening a new experiment?\n\n"
+                                         "If you don't save, your data will be lost.",
+                                         "&Don't Save", "Cancel", "&Save",
+                                         2, 1 ) ) {
                 case 0: // Don't Save clicked or Alt+D pressed
                     break;
                 case 1: // Cancel clicked or Alt+C pressed or Escape pressed
@@ -540,10 +556,10 @@ void rcModelDomain::requestOpen( rcExperimentImportMode mode )
                     break;
             }
         }
-
+        
         // TODO: query (some of) these from engine settings
         QString caption = QStrFrcStr (persistenceManager->fileFormatImportCaption( format ));
-
+        
         switch ( mode ) {
             case eExperimentImportAllSettings:
                 caption += " Settings";
@@ -558,26 +574,26 @@ void rcModelDomain::requestOpen( rcExperimentImportMode mode )
             default:
                 break;
         }
-
+        
         QString filter = QStrFrcStr (persistenceManager->fileFormatImportFilter( eExperimentNativeFormat ));
-
+        
         // Ready to choose a file to open
         QString s = Q3FileDialog::getOpenFileName(
-            "Untitled",
-            filter,
-            0,
-            caption,
-            caption );
-
+                                                  "Untitled",
+                                                  filter,
+                                                  0,
+                                                  caption,
+                                                  caption );
+        
         if (s != QString::null)
         {
             rcModelProgress prepareProgress( this, "Preparing to load experiment data...%.2f%% complete", 1.0, qApp );
             rcModelProgress loadProgress( this, "Loading experiment data...%.2f%% complete", 2.5, qApp );
-
+            
             prepareProgress.progress( 30.0 );
             // Import from file to XML tree
             QApplication::setOverrideCursor(Qt::waitCursor );
-
+            
             // Determine import directory
             int idx = s.findRev( '/' );
             if ( idx != -1 ) {
@@ -586,16 +602,16 @@ void rcModelDomain::requestOpen( rcExperimentImportMode mode )
                 // Set import directory so that engine can access it
                 persistenceManager->setImportDirectory( d );
             }
-
+            
             // Input file
             QFile xmlFile( s );
-
+            
             // Special Reify handlers
             rcXMLErrorHandler errorHandler( s );
             rcXMLParser parser( mode, countLines( xmlFile ),
-                                &loadProgress, &errorHandler );
+                               &loadProgress, &errorHandler );
             prepareProgress.progress( 60.0 );
-
+            
             // Setup parser
             QXmlInputSource source( &xmlFile );
             QXmlSimpleReader reader;
@@ -606,28 +622,28 @@ void rcModelDomain::requestOpen( rcExperimentImportMode mode )
             reader.parse( source );
             qApp->processEvents( QEventLoop::ExcludeUserInputEvents, 10 );
             QApplication::restoreOverrideCursor();
-
+            
             if ( errorHandler.fatalErrors() > 0 ) {
                 // Fatal errors, do not import
                 QString message = QString( "Experiment loading aborted: %1 fatal error(s):\n\n%2\n" )
-                    .arg( errorHandler.fatalErrors() )
-                    .arg( errorHandler.errorString() );
+                .arg( errorHandler.fatalErrors() )
+                .arg( errorHandler.errorString() );
                 // Display error dialog
                 QMessageBox::critical( 0 , cAppName , message , 1 , 0 );
             } else {
                 // Import from tree to experiment
                 rcModelProgress treeIndicator( this, "Processing experiment data...%.2f%% complete",
-                                               2.5, qApp, true );
+                                              2.5, qApp, true );
                 notifyStatus( "Processing experiment data..." );
                 QApplication::setOverrideCursor( Qt::waitCursor );
                 qApp->processEvents(QEventLoop::ExcludeUserInputEvents, 10 );
-
+                
                 int errors = mDomain->loadExperiment( s.latin1(), parser.elementTree(), mode, &treeIndicator );
                 QApplication::restoreOverrideCursor();
                 if ( errors > 0 ) {
                     // Errors during import, display warning
                     QString message = QString( "Experiment loading aborted: %1 fatal error(s) during XML tree import.\n\nExperiment data file may contain unsupported elements or it may be corrupted.\n" )
-                        .arg( errors );
+                    .arg( errors );
                     // Display error dialog
                     QMessageBox::critical( 0, cAppName, message, 1, 0 );
                 }
@@ -646,17 +662,17 @@ void rcModelDomain::requestClose( void )
     try
     {
         notifyStatusInternal( "Closing experiment..." );
-
+        
         rcExperimentState state = getExperimentState();
-
+        
         if ( state != eExperimentEmpty && state != eExperimentLocked ) {
             // No data has been saved, prompt user
-
+            
             switch( QMessageBox::warning( 0, cAppName,
-                                          "Do you want to save experiment data before closing?\n\n"
-                                          "If you don't save, your data will be lost.",
-                                          "&Don't Save", "Cancel", "&Save",
-                                          2, 1 ) ) {
+                                         "Do you want to save experiment data before closing?\n\n"
+                                         "If you don't save, your data will be lost.",
+                                         "&Don't Save", "Cancel", "&Save",
+                                         2, 1 ) ) {
                 case 0: // Don't Save clicked or Alt+D pressed
                     mDomain->newExperiment();
                     break;
@@ -671,7 +687,7 @@ void rcModelDomain::requestClose( void )
             }
         } else {
             QApplication::setOverrideCursor( Qt::waitCursor );
-
+            
             mDomain->newExperiment();
             QApplication::restoreOverrideCursor();
         }
@@ -684,8 +700,8 @@ void rcModelDomain::requestClose( void )
 
 // Replace native extension with current extension if necessary
 static void processExtension( QString& defaultName,
-                              const QString& currentExt,
-                              const QString& nativeExt )
+                             const QString& currentExt,
+                             const QString& nativeExt )
 {
     // Purge native extension from name
     if ( defaultName.endsWith( nativeExt ) ) {
@@ -701,13 +717,13 @@ void rcModelDomain::requestSave( rcExperimentFileFormat format )
     try
     {
         notifyStatusInternal( "Saving experiment data..." );
-
+        
         rcPersistenceManager* persistenceManager = rcPersistenceManagerFactory::getPersistenceManager();
         rcExperimentAttributes attr =  mDomain->getExperimentAttributes();
         QString defaultName;
-
-	if ( !attr.inputName.empty() )
-	  defaultName = attr.inputName.c_str();
+        
+        if ( !attr.inputName.empty() )
+            defaultName = attr.inputName.c_str();
         else if ( !attr.fileName.empty() )
             defaultName = attr.fileName.c_str();
         else if (! attr.title.empty() ) {
@@ -715,7 +731,7 @@ void rcModelDomain::requestSave( rcExperimentFileFormat format )
             // We need to replace slashes with something else
             defaultName.replace( QChar('/'), "-" );
         }
-
+        
         QString filter = QStrFrcStr (persistenceManager->fileFormatExportFilter( format ));
         QString ext = QStrFrcStr (persistenceManager->fileFormatExportExtension( format ));
         QString caption = QStrFrcStr (persistenceManager->fileFormatExportCaption( format ));
@@ -724,77 +740,77 @@ void rcModelDomain::requestSave( rcExperimentFileFormat format )
         // Native file format extension
         QString nativeExt = QStrFrcStr (persistenceManager->fileFormatExportExtension( eExperimentNativeFormat ));
         std::string progressMessage( "Saving experiment data...%.2f%% complete" );
-
+        
         switch ( format ) {
             case eExperimentCSVFormat:
                 widgetName = QString( "export-dialog" );
                 progressMessage = std::string( "Exporting experiment data...%.2f%% complete" );
                 processExtension( defaultName, ext, nativeExt );
-
+                
             case eExperimentNativeFormat:
                 widgetName = QString( "save-dialog" );
                 progressMessage = std::string( "Saving experiment data...%.2f%% complete" );
                 break;
-
+                
             case eExperimentMolDevSTKFormat :
                 widgetName = QString( "save-dialog" );
                 progressMessage = std::string( "Saving stk data...%.2f%% complete" );
                 processExtension( defaultName, ext, nativeExt );
                 break;
-
+                
             case eExperimentQuickTimeMovieFormat:
                 widgetName = QString( "export-dialog" );
                 progressMessage = std::string( "Exporting image data...%.2f%% complete" );
                 processExtension( defaultName, ext, nativeExt );
                 break;
-
+                
             case eExperimentNativeMovieFormat:
                 widgetName = QString( "save-dialog" );
                 progressMessage = std::string( "Saving image data...%.2f%% complete" );
                 processExtension( defaultName, ext, nativeExt );
                 break;
-
+                
             default:
                 rmAssert( 0 );
                 break;
         };
-
+        
         QString fileName = Q3FileDialog::getSaveFileName(
-            defaultName,
-            filter,
-            0,
-            widgetName,
-            caption,
-            &filter,
-            true );
-
+                                                         defaultName,
+                                                         filter,
+                                                         0,
+                                                         widgetName,
+                                                         caption,
+                                                         &filter,
+                                                         true );
+        
         // If user canceled, the fileName will be QString::null
         if (fileName == QString::null) {
             notifyStatusInternal( "Ready" );
             return;
         }
-
+        
         // Add extension if necessary
         if (!fileName.endsWith( ext ))
             fileName += ext;
-
+        
         // Warn if file already exists
         if (QFile::exists( fileName ))
         {
             if (QMessageBox::warning( 0 , cAppName , "File already exists: overwrite?" ,
-                                      QMessageBox::Ok , QMessageBox::Cancel ) == QMessageBox::Cancel) {
+                                     QMessageBox::Ok , QMessageBox::Cancel ) == QMessageBox::Cancel) {
                 notifyStatusInternal( "Ready" );
                 return;
             }
         }
-
+        
         // Export the experiment data.
         QApplication::setOverrideCursor(Qt::waitCursor );
         rcModelProgress progressIndicator( this, progressMessage, 2.5, qApp );
-
+        
         int err = mDomain->saveExperiment( fileName.latin1(), format, &progressIndicator );
         QApplication::restoreOverrideCursor();
-
+        
         if ( err ) {
             // Error during export/save!
             QString error( caption );
@@ -845,7 +861,7 @@ void rcModelDomain::requestSTKImport( void )
 void rcModelDomain::requestMovieSave( void )
 {
     if ( vl() ) {
-         // Scale monitor to fit
+        // Scale monitor to fit
         emit updateMonitorScale( -1.0 );
         // Change timeline mode
         emit updateTimelineScale( eResultScaleCurrentMinToMax );
@@ -864,18 +880,18 @@ void rcModelDomain::requestInputSource( int i )
 #ifdef HIPPOW
 void rcModelDomain::requestTrackingDisplayGL()
 {
-  emit updateTrackingDisplayGL ();
+    emit updateTrackingDisplayGL ();
 }
 #endif
 
 void rcModelDomain::timerTick( void )
 {
 	rcTimestamp time = mDomain->getExperimentLength();
-
+    
 #ifdef DEBUG_LOG
     cout << "timerTick " << time.secs() << endl;
 #endif
-
+    
 	emit elapsedTime( time );
 }
 
@@ -885,7 +901,7 @@ void rcModelDomain::timerTick( void )
 void rcModelDomain::customEvent( QEvent* e )
 {
     int type = e->type();
-
+    
 #ifdef DEBUG_LOG
     cout << "rcModelDomain user event " << type << endl;
 #endif
@@ -893,20 +909,20 @@ void rcModelDomain::customEvent( QEvent* e )
     switch ( type ) {
         case eNotifyErrorEvent:
         {
-					rcBaseErrorEvent* ev = static_cast<rcBaseErrorEvent *> (e);
-					const QString& string = ev->myData ();
-					 QMessageBox::critical( 0 , cAppName , string , 1 , 0 );
+            rcBaseErrorEvent* ev = static_cast<rcBaseErrorEvent *> (e);
+            const QString& string = ev->myData ();
+            QMessageBox::critical( 0 , cAppName , string , 1 , 0 );
         }
-        break;
-
+            break;
+            
         case eNotifyWarningEvent:
         {
 			rcBaseWarningEvent* ev = static_cast<rcBaseWarningEvent *> (e);					
 			const QString& string = ev->myData ();					
             QMessageBox::warning( 0 , cAppName , string , 1 , 0 );
         }
-        break;
-
+            break;
+            
         case eNotifyStatusEvent:
         {
 			rcBaseStatusEvent* ev = static_cast<rcBaseStatusEvent *> (e);		
@@ -914,26 +930,26 @@ void rcModelDomain::customEvent( QEvent* e )
             // Use status bar widget
             notifyStatusInternal( string.latin1() );
         }
-        break;
-
+            break;
+            
         case eNotifyTimeEvent:
         {
-					rcBaseTimeEvent* ev = static_cast<rcBaseTimeEvent *> (e);							
+            rcBaseTimeEvent* ev = static_cast<rcBaseTimeEvent *> (e);							
             // Produce elapsed time notification
-					const rcTimestamp& time = ev->myData();
+            const rcTimestamp& time = ev->myData();
             emit elapsedTime( time );
         }
-        break;
-
+            break;
+            
         case eNotifyCursorEvent:
         {
             // Produce cursor movement notification
-					rcBaseCursorEvent* ev = static_cast<rcBaseCursorEvent *> (e);												
+            rcBaseCursorEvent* ev = static_cast<rcBaseCursorEvent *> (e);												
 			const rcTimestamp& time = ev->myData();					
             emit cursorTime( time );
         }
-        break;
-
+            break;
+            
         case eNotifyTimelineRangeEvent:
         {
             // Notify timeline range change
@@ -941,78 +957,82 @@ void rcModelDomain::customEvent( QEvent* e )
             rcTimestampPair timePair = ev->myData();
             emit updateTimelineRange( timePair.first(), timePair.second() );
         }
-        break;
-
+            break;
+            
         case eNotifyStateEvent:
         {
 			rcBaseStateEvent* ev = static_cast<rcBaseStateEvent *> (e);																	
 			const rcExperimentState& state = ev->myData();
-
+            
             // Notify the rest
             emit newState( state );
             emit updateSettings();
         }
-        break;
-
+            break;
+            
         case eNotifyBlitEvent:
         {
 			rcBaseBlitEvent* ev = static_cast<rcBaseBlitEvent *> (e);																	
 			const rcWindow& image = ev->myData();
-
+            
             emit updateDisplay( &image );
         }
-        break;
-
+            break;
+            
         case eNotifyBlitGraphicsEvent:
         {
 			rcBaseBlitGraphicsEvent* ev = static_cast<rcBaseBlitGraphicsEvent *> (e);				
             const rcVisualGraphicsCollection& graphics = ev->myData();
             emit updateDisplay( & graphics );
         }
-        break;
-
+            break;
+            
         case eNotifyAnalysisRectEvent:
         {
 			rcBaseAnalysisRectEvent* ev = static_cast<rcBaseAnalysisRectEvent *> (e);	
             const rcRect& rect = ev->myData();
             emit updateAnalysisRect( rect );
         }
-        break;
-
+            break;
+            
         case eNotifyAnalysisRectRotationEvent:
         {
 			rcBaseAnalysisRectRotationEvent* ev = static_cast<rcBaseAnalysisRectRotationEvent *> (e);	
-					const rcAffineRectangle& affine = ev->myData();
-					
-	  emit updateAnalysisRectRotation( affine );
+            const rcAffineRectangle& affine = ev->myData();
+            
+            emit updateAnalysisRectRotation( affine );
         }
-        break;
-
+            break;
+            
         case eNotifyMultiplierEvent:
         {
 			rcBaseMultiplierEvent* ev = static_cast<rcBaseMultiplierEvent *> (e);	
 			const double& multiplier = ev->myData();
             emit updateMultiplier( multiplier );
         }
-        break;
-
+            break;
+            
         case eNotifyExperimentChange:
             emit updateSettings();
             break;
-
+            
         case eNotifyVideoRectEvent:
         {
 			rcBaseVideoRectEvent* ev = static_cast<rcBaseVideoRectEvent *> (e);	
 			const rcRect& rect = ev->myData();
 			emit updateVideoRect( rect );
         }
-        break;
-
+            break;
+        case eNotifyPlotRequestEvent: 
+            rcBasePlotRequestEvent* ev = static_cast<rcBasePlotRequestEvent *> (e);
+            const CurveData& cv = ev->myData();
+            emit requestPlot (&cv);
+            
     }
-
-   mEventQueueManager.processedEvent( e );
-
-
+    
+    mEventQueueManager.processedEvent( e );
+    
+    
 }
 
 // private
@@ -1036,7 +1056,7 @@ void rcModelDomain::rle( rcSecurityError status )
     // Concatenate license file name
     errorString += "\n\nLicense file: ";
     errorString += cLicenseFilePath;
-
+    
     QMessageBox::critical( 0 , cAppName , errorString.c_str() , 1 , 0 );
 }
 
@@ -1045,14 +1065,14 @@ void rcModelDomain::rle( rcSecurityError status )
 bool rcModelDomain::vl()
 {
     bool valid = true; // @Danger: takes this out
-
+    
     // Check host validity
     rcSecurityError status = mLicenseManager.validHost();
-
+    
     if ( status == eSecurityErrorOK ) {
         // Check expiration time
         status = mLicenseManager.validTime();
-
+        
         if ( status == eSecurityErrorOK ) {
             // Lucky, everything is valid
             valid = true;
@@ -1064,7 +1084,7 @@ bool rcModelDomain::vl()
         // Invalid host
         rle( status );
     }
-
+    
     return valid;
 }
 

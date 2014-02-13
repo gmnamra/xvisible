@@ -105,14 +105,6 @@ bool rcEngineImpl::setFromArgs (int32 argc, char **argv)
 
   _saveFormat = (rcExperimentFileFormat) sformat;
 
- 
-
-  if (advanced == DRG)
-    {
-      setSettingValue (cAnalysisObjectSettingId, eMacroDRGdiffusionProcessing);
-      _useMask = 0;
-    }
-
  	
   //  Set to the default
 

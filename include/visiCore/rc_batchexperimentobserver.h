@@ -174,6 +174,8 @@ public:
     virtual void getPolys ( rcPolygonGroupRef& polys ) {rmUnused (polys); }
 	
   virtual bool doneSelecting ( void ) { return true; }
+    
+     virtual void notifyPlotRequest (  ) {  }
 
 private:
     uint32 mErrors;

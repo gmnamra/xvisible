@@ -71,10 +71,6 @@ rcMenuBar::rcMenuBar( QWidget* parent, const char* name, Qt::WFlags f )
 
     // create and populate the view menu
     _viewMenu = new Q3PopupMenu( this );
-//    _viewTrackingGLId  = _viewMenu->insertItem( "&Measurement Inspector" , domain , SLOT( requestTrackingDisplayGL() ) ,  tr("(CTRL+Key_T" ));
-//    _viewMenu->setItemEnabled( _viewTrackingGLId, true );
-//     _viewCellInfoId = _viewMenu->insertItem( "&Locomotive Body Text" , this , SLOT( requestCellInfoDisplay() ) ,  tr("(CTRL+Key_X" ));
-//    _viewMenu->setItemEnabled( _viewCellInfoId, true );
 
     // create and populate the capture menu
     _captureMenu = new Q3PopupMenu( this );
@@ -84,8 +80,8 @@ rcMenuBar::rcMenuBar( QWidget* parent, const char* name, Qt::WFlags f )
     // Populate the menu bar
     insertItem( "&File", _fileMenu );
     insertItem( "&Analysis", _analysisMenu );
-    insertItem( "&Capture", _captureMenu );
-    insertItem( "&View", _viewMenu );
+   // insertItem( "&Capture", _captureMenu );
+//    insertItem( "&View", _viewMenu );
     insertItem( "&Help", help );
 
     // create help browser

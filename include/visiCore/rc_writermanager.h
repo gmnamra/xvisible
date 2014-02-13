@@ -77,9 +77,8 @@ enum rcWriterSemantics
     eWriterBodyMinorMean,            // Mean Minor Dimension
     eWriterSegmentVector,             // Cell Segmentation Info
     eWriterPlotter,                   // Time Series information
-    eWriterTipDistance,               // Tracker
     eWriterACIPeriod,
-    eWriterLuminanceSum,
+    eWriterContraction,
     eWriterContractionFreq,           // Contraction Frequency
     eWriterContractionFreqMean,       // Mean Contraction Frequency
     eWriterCardiacShortening,           // Cardiac Shortening

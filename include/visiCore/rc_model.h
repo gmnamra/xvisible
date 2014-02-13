@@ -18,6 +18,8 @@
 #include <rc_graphics.h>
 #include <rc_affine.h>
 #include <rc_polygongroup.h>
+#include <lightplot2d.h>  // For Plotter Data
+
 
 /******************************************************************************
 *	Forwards
@@ -184,6 +186,7 @@ public:
 	// if the observer is accepting polys, this is called to
     // tell the observer to put the polys
 	virtual void notifyPolys (const rcPolygonGroupRef * polys  ) = 0;
+    
 
 
 };
@@ -272,6 +275,10 @@ public:
 	// if the observer is accepting polys, this is called to
     // tell the observer to get the possible changed polys
   virtual void getPolys ( rcPolygonGroupRef& polys ) = 0;
+    
+    // if the observer is accepting polys, this is called to
+    // tell the observer to put the polys
+	virtual void notifyPlotRequest (const CurveData* ) = 0;
 
 };
 

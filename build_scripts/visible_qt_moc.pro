@@ -66,7 +66,8 @@ HEADERS = $${INCLUDE_DIR}/include/visUI/rc_about.h \
            $${INCLUDE_DIR}/include/visUI/rc_thumbwheelsettingwidget.h \
            $${INCLUDE_DIR}/include/visUI/rc_textchoicesettingwidget.h \
            $${INCLUDE_DIR}/include/visUI/rc_numericchoicesettingwidget.h \
-           $${INCLUDE_DIR}/include/visUI/rc_trackrender.h
+           $${INCLUDE_DIR}/include/visUI/rc_trackrender.h\
+           $${INCLUDE_DIR}/include/visUI/lpwidget.h\
 
 
 SOURCES = $${SOURCES_DIR}/src/visible/qt/rc_about.cpp \
@@ -103,7 +104,8 @@ SOURCES = $${SOURCES_DIR}/src/visible/qt/rc_about.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_thumbwheelsettingwidget.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_textchoicesettingwidget.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_numericchoicesettingwidget.cpp \
-           $${SOURCES_DIR}/src/visible/qt/rc_trackrender.cpp
+           $${SOURCES_DIR}/src/visible/qt/rc_trackrender.cpp\
+           $${SOURCES_DIR}/src/visible/qt/lpwidget.cpp
 
 INCLUDEPATH =   $${INCLUDE_DIR}/include/util  $${INCLUDE_DIR}/include/visual  $${INCLUDE_DIR}/include/analysis  $${INCLUDE_DIR}/include/stlplus  $${INCLUDE_DIR}/include/test  $${INCLUDE_DIR}/include/baseUI  $${INCLUDE_DIR}/include/visUI  $${INCLUDE_DIR}/include/visiCore $${INCLUDE_DIR}/usr/local/boost/include
 

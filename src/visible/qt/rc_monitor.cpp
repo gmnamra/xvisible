@@ -27,6 +27,7 @@
 #include <QMouseEvent>
 #include <Q3VBoxLayout>
 #include <QPaintEvent>
+#include <QMessageBox>
 
 #include <rc_window.h>
 #include <rc_math.h>
@@ -35,6 +36,7 @@
 #include "rc_trackmanager.h"
 #include "rc_modeldomain.h"
 #include "rc_monitor.h"
+#include "lpwidget.h"
 
 // Min/max widget size
 static const int cMaxWidth = 1600;
@@ -166,6 +168,9 @@ rcMonitor::rcMonitor( QWidget* parent, const char* name, Qt::WFlags f )
     connect( domain , SIGNAL( updateVideoRect( const rcRect& ) ) ,
              this   , SLOT( updateMonitorSize( const rcRect& ) ) );
 
+    connect( domain , SIGNAL( requestPlot( const CurveData* ) ) ,
+            this   , SLOT( doPlot ( const CurveData* ) ) );
+    
     connect( domain , SIGNAL( newState( rcExperimentState ) ) ,
              mCanvas   , SLOT( updateState( rcExperimentState ) ) );
 
@@ -288,6 +293,21 @@ void rcMonitor::updateScale( double scale )
             setMaximumSize( QSize( cMaxWidth, cMaxHeight ) );
         }
     }
+}
+
+
+// Resize video canvas to nSize
+void rcMonitor::doPlot ( const CurveData* data )
+{
+
+    LPWidget *w = new LPWidget (0, data);
+    w->raise();
+    w->activateWindow();
+    
+    
+//    QMessageBox msgBox;
+//    msgBox.setText(" Plotting Request Received ");
+//    msgBox.exec();
 }
 
 // Resize video canvas to nSize

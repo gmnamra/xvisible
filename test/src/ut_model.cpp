@@ -179,6 +179,8 @@ public:
     virtual bool acceptingPolys ( void )  { return true; }
     
   virtual void notifyPolys ( /* const rcPolygonGroupRef * polys */ ) { /* rmUnused (polys); */ }
+    
+    virtual void notifyPlotRequest ( /* const void * polys */ ) { /* rmUnused (polys); */ }
 
     virtual void getPolys ( rcPolygonGroupRef& polys ) { rmUnused (polys); }
 	

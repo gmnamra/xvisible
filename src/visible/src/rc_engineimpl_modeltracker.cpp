@@ -84,7 +84,7 @@ uint32 rcEngineImpl::modelTracker( rcEngineFocusData* focus,
     rcLocation anch = rcFind (fixed, fixedroi , moving, movingroi);
     
     rcStatistics xstats, rstats;
-        bool enableMonitor = false;
+
 
     // Add this data point
     xstats.add (anch.x());
@@ -167,10 +167,11 @@ void rcEngineImpl::postTrackingResults( rcEngineFocusData* focus,
                                        const rcTimestamp& curTimeStamp, const rcVisualSegmentCollection& vism)
 
 {
+    rmUnused(focus);
     const rc2Fvector focusOffset( static_cast<int>(focusRect.x()),
                                  static_cast<int>(focusRect.y()) ); // Origin offset
 
-    rcRect boundingBox = focusRect;  // Same as analysis area for now
+   // rcRect boundingBox = focusRect;  // Same as analysis area for now
     rc2Fvector  lr ((float) _rect2use.width(), (float) _rect2use.height());
     rc2Fvector  center = lr / 2.0f;
 
