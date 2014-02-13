@@ -1,9 +1,7 @@
-#ifndef rcTRACK_PANEL_H
-#define rcTRACK_PANEL_H
+#ifndef RC_TRACK_PANEL_H
+#define RC_TRACK_PANEL_H
 
 #include <q3scrollview.h>
-//Added by qt3to4:
-#include <QLabel>
 
 #include <rc_timestamp.h>
 #include <rc_model.h>
@@ -23,14 +21,11 @@ public slots:
 	void updateState( rcExperimentState state );
     void updateCamera( bool live, bool storage );
     void updateSource( int source );
-    void updateTrackGroups();
-    
+
 signals:
 
 protected:
 
-    void keyPressEvent( QKeyEvent* keyEvent );
-    
 private:
     // repopulate the panel with track group widgets
     void updateTrackGroups( bool cameraInput, bool cameraStorage );
@@ -43,4 +38,4 @@ private:
 };
 
 
-#endif // rcTRACK_PANEL_H
+#endif // RC_TRACK_PANEL_H
