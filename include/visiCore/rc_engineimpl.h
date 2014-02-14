@@ -461,6 +461,7 @@ protected:
     int                 _slidingWindowSize;
     rcAnalyzerResultOrigin _slidingWindowOrigin;
     rcMutex             _settingMutex;
+    rcMutex             _utilMutex;
     int32             _doNormalize;    
     int32             _focusRotation;
     

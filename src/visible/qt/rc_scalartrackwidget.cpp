@@ -144,8 +144,8 @@ void rcScalarTrackWidget::setEnabled( bool isEnabled )
     else {
         // Enabling some tracks can affect video monitor
         rcTrackInfo info = tmp->getTrackInfo( _trackGroupNo , _trackNo );
-        if ( tmp->monitorableTrack( info.track() ) )
-             domain->notifyUpdateMonitor();
+//        if ( tmp->monitorableTrack( info.track() ) )
+//             domain->notifyUpdateMonitor();
     }
 }
 
@@ -250,13 +250,7 @@ void rcScalarTrackWidget::keyPressEvent( QKeyEvent* keyEvent )
                 tmp->copyTrackToClipboard( tmp->getHiliteTrack() );
             }
             break;
-
-        case Qt::Key_M:
-            if ( cmdKeyDown ) {
-                // Copy track contents to clipboard
-	      tmp->copyTrackToClipboard( tmp->getHiliteTrack(), rcTrackManager::eMathematica );
-            }
-            break;
+    
     }
 }
 

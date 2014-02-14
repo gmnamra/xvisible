@@ -263,7 +263,7 @@ rcExperimentImpl::rcExperimentImpl( void )
 
     rcLock lock( _settingMutex );
 	rcSettingCategory generalSettings( this , &generalSettingsSpec );
-	_settings.push_back( generalSettings );
+	//_settings.push_back( generalSettings );
 
 	rcEngine* engine = rcEngineFactory::getEngine();
 	for (int i = 0; i < engine->getNSettingCategories(); i++)

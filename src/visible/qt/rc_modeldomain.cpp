@@ -19,6 +19,8 @@
 #include "rc_xmlparser.h"
 #include "rc_trackmanager.h"
 #include <boost/shared_ptr.hpp>
+#include "lpwidget.h"
+
 #define QStrFrcStr(foo) QString ((foo).c_str())
 
 //#define DEBUG_LOG
@@ -337,14 +339,6 @@ void rcModelDomain::notifyBlitGraphics( const rcVisualGraphicsCollection* graphi
 }
 
 
-// if the observer is accepting plot requests, this is called to
-// tell the observer to send it over to the engine
-//void rcModelDomain::requestPlot (const CurveData* plotinfo )
-//{
-//    rcBasePlotRequestEvent *ev = new rcBasePlotRequestEvent (*plotinfo);
-//    mEventQueueManager.postEvent (dynamic_cast<QEvent*> (ev) );
-//}
-
 // if the observer is accepting polygon group, this is called to
 // tell the observer to send it over to the engine
 void rcModelDomain::notifyPolys ()
@@ -380,11 +374,13 @@ void rcModelDomain::notifyVideoRect( const rcRect& rect )
 	mEventQueueManager.postEvent( dynamic_cast <QEvent *> (ev) );	
 }
 
-void rcModelDomain::notifyPlotRequest(const CurveData* cv)
+void rcModelDomain::notifyPlotRequest(SharedCurveDataRef& cv)
 {
-    rcBasePlotRequestEvent *ev = new rcBasePlotRequestEvent (* cv);
+    if ( cv )
+    {
+    rcBasePlotRequestEvent *ev = new rcBasePlotRequestEvent ( cv );
     mEventQueueManager.postEvent (dynamic_cast<QEvent*> (ev) );
-
+    }
 }
 
 // Global app lock
@@ -1025,8 +1021,8 @@ void rcModelDomain::customEvent( QEvent* e )
             break;
         case eNotifyPlotRequestEvent: 
             rcBasePlotRequestEvent* ev = static_cast<rcBasePlotRequestEvent *> (e);
-            const CurveData& cv = ev->myData();
-            emit requestPlot (&cv);
+            SharedCurveDataRef cv = ev->myData();
+            emit requestPlot ( cv.get () );
             
     }
     

@@ -413,11 +413,7 @@ void rcTimeline::keyPressEvent( QKeyEvent* keyEvent )
         tmp->copyTrackToClipboard( tmp->getHiliteTrack() );
     }
 
-    if ( ctrlDown && key == Qt::Key_M ) {
-        // Copy to clipboard
-        rcTrackManager* tmp = rcTrackManager::getTrackManager();
-        tmp->copyTrackToClipboard( tmp->getHiliteTrack(), rcTrackManager::eMathematica );
-    }
+   
 
 
     if ( ctrlDown && shiftDown && altDown && key == Qt::Key_D ) {

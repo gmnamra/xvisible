@@ -30,7 +30,7 @@ using namespace std;
 #include <rc_typedefs.h>
 #include <rc_polygon.h>
 #include <lightplot2d.h>  // For Plotter Data
-
+#include "lpwidget.h"
 
 class rcSharedFrameBufPtr;
 
@@ -186,7 +186,6 @@ class rcEngine
 
     virtual void notifyEngineOfPolys ( const rcPolygonGroupRef * polys ) = 0;
 
-    virtual void notifyEngineOfPlotRequests ( const CurveData * polys ) = 0;
 };
 
 /******************************************************************************
@@ -297,7 +296,7 @@ public:
 
     // if the observer is accepting polys, this is called to
     // tell the observer to put the polys
-    virtual void notifyPlotRequest ( const CurveData *  ) = 0;
+    virtual void notifyPlotRequest ( SharedCurveDataRef& ) = 0;
     
 	// if the observer is accepting polys, this is called to
     // tell the observer to put the polys

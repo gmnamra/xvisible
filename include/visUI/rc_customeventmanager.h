@@ -12,6 +12,7 @@
 #include <rc_model.h>
 #include <QMutex>
 #include <QEvent>
+#include "lpwidget.h"
 
 // Forward declarations
 
@@ -70,7 +71,7 @@ typedef rcBaseEvent<rcRect, eNotifyVideoRectEvent> rcBaseVideoRectEvent;
 typedef rcBaseEvent<double, eNotifyMultiplierEvent> rcBaseMultiplierEvent;
 typedef rcBaseEvent<rcAffineRectangle, eNotifyAnalysisRectRotationEvent> rcBaseAnalysisRectRotationEvent;
 typedef rcBaseEvent<int32, eNotifyExperimentChange> rcBaseExperimentChangeEvent;
-typedef rcBaseEvent<CurveData, eNotifyPlotRequestEvent> rcBasePlotRequestEvent;
+typedef rcBaseEvent<SharedCurveDataRef, eNotifyPlotRequestEvent> rcBasePlotRequestEvent;
 typedef rcBaseEvent<rcPolygonGroupRef, eNotifyPolygonGroupEvent> rcBasePolysEvent;
 
 

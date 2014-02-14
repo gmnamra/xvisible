@@ -28,10 +28,11 @@
 #include <Q3VBoxLayout>
 #include <QPaintEvent>
 #include <QMessageBox>
-
+#include <QDockWidget>
 #include <rc_window.h>
 #include <rc_math.h>
 #include <rc_writermanager.h>
+#include <rc_mainwindow.h>
 
 #include "rc_trackmanager.h"
 #include "rc_modeldomain.h"
@@ -168,14 +169,15 @@ rcMonitor::rcMonitor( QWidget* parent, const char* name, Qt::WFlags f )
     connect( domain , SIGNAL( updateVideoRect( const rcRect& ) ) ,
              this   , SLOT( updateMonitorSize( const rcRect& ) ) );
 
-    connect( domain , SIGNAL( requestPlot( const CurveData* ) ) ,
-            this   , SLOT( doPlot ( const CurveData* ) ) );
-    
     connect( domain , SIGNAL( newState( rcExperimentState ) ) ,
              mCanvas   , SLOT( updateState( rcExperimentState ) ) );
 
     connect( domain , SIGNAL( updateAnalysisRectRotation( const rcAffineRectangle& ) ) ,
              this   , SLOT( updateAnalysisRectRotation( const rcAffineRectangle& ) ) );
+    
+    
+   // connect( domain , SIGNAL( requestPlot ( SharedCurveDataRef&) ) ,
+    //        this  , SLOT( reload_plotter ( SharedCurveDataRef& ) ) );    
 
     // Use a fixed color to erase background, it's faster than default widget erase pixmap
     mBackgroundColor = QColor( 238, 238, 238 );
@@ -191,7 +193,10 @@ rcMonitor::rcMonitor( QWidget* parent, const char* name, Qt::WFlags f )
     mSaturationWidget->setBackgroundMode( cWidgetBackgroundMode, cWidgetBackgroundMode );
     mScaleWidget->setPaletteBackgroundColor( mBackgroundColor );
     mScaleWidget->setBackgroundMode( cWidgetBackgroundMode, cWidgetBackgroundMode );
+   
+    
 }
+
 
 rcMonitor::~rcMonitor()
 {
@@ -295,20 +300,6 @@ void rcMonitor::updateScale( double scale )
     }
 }
 
-
-// Resize video canvas to nSize
-void rcMonitor::doPlot ( const CurveData* data )
-{
-
-    LPWidget *w = new LPWidget (0, data);
-    w->raise();
-    w->activateWindow();
-    
-    
-//    QMessageBox msgBox;
-//    msgBox.setText(" Plotting Request Received ");
-//    msgBox.exec();
-}
 
 // Resize video canvas to nSize
 void rcMonitor::updateMonitorSize( const rcRect& nSize )
@@ -956,14 +947,15 @@ QRect rcMonitor::imageRect() const
 }
 
 // Update image display with a cached frame
+// displayTrackFocus of scalar tracks will cause flicker
 void rcMonitor::internalUpdateDisplay( void )
 {
     if ( !inputIsCamera() ) {
         // This method updates cached image if appropriate
         displayTrackFocus( eVideoTrack );
-#if 0    
-        displayTrackFocus( eScalarTrack );
-#endif
+
+//        displayTrackFocus( eScalarTrack );
+
     }
     
     updateStatus();

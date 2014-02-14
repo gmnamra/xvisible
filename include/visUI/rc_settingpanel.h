@@ -4,8 +4,6 @@
 #include <qtabwidget.h>
 
 #include <rc_model.h>
-//    void requestTrackingDisplayGL();
-
 
 class rcSettingPanel : public QTabWidget
 {
@@ -14,18 +12,16 @@ class rcSettingPanel : public QTabWidget
 public:
     rcSettingPanel( QWidget* parent=0, const char* name=0, Qt::WFlags f=0 );
     ~rcSettingPanel();
-
-public slots:
-    void updateState( rcExperimentState state );
     void updatePages( void );
+public slots:
+	void updateState( rcExperimentState state );
 
-    
 signals:
 
 protected:
 
 private:
-    
+//    void updatePages( void );
 };
 
 

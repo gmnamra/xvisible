@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_monitor.h'
 **
-** Created: Thu Feb 13 00:41:35 2014
+** Created: Fri Feb 14 08:48:13 2014
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_rcMonitor[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -42,9 +42,8 @@ static const uint qt_meta_data_rcMonitor[] = {
      290,   10,   10,   10, 0x0a,
      315,  310,   10,   10, 0x0a,
      341,   10,   10,   10, 0x0a,
-     366,   10,   10,   10, 0x0a,
-     384,   10,   10,   10, 0x0a,
-     401,   10,   10,   10, 0x0a,
+     359,   10,   10,   10, 0x0a,
+     376,   10,   10,   10, 0x0a,
 
        0        // eod
 };
@@ -58,8 +57,7 @@ static const char qt_meta_stringdata_rcMonitor[] = {
     "updateCursorTime(rcTimestamp)\0"
     "updateState(rcExperimentState)\0"
     "updateScale(double)\0size\0"
-    "updateMonitorSize(rcRect)\0"
-    "doPlot(const CurveData*)\0scaleChanged(int)\0"
+    "updateMonitorSize(rcRect)\0scaleChanged(int)\0"
     "settingChanged()\0saturationChanged(bool)\0"
 };
 
@@ -102,13 +100,12 @@ int rcMonitor::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 7: updateState((*reinterpret_cast< rcExperimentState(*)>(_a[1]))); break;
         case 8: updateScale((*reinterpret_cast< double(*)>(_a[1]))); break;
         case 9: updateMonitorSize((*reinterpret_cast< const rcRect(*)>(_a[1]))); break;
-        case 10: doPlot((*reinterpret_cast< const CurveData*(*)>(_a[1]))); break;
-        case 11: scaleChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 12: settingChanged(); break;
-        case 13: saturationChanged((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 10: scaleChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 11: settingChanged(); break;
+        case 12: saturationChanged((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
-        _id -= 14;
+        _id -= 13;
     }
     return _id;
 }

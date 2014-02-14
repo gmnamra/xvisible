@@ -59,7 +59,7 @@ rcRectSettingWidget::rcRectSettingWidget( QWidget* parent, const rcSettingInfo& 
     mTopLayout->addSpacing( 5 );
         
     _selectWidget = new QPushButton( "Entire" , this );
-    //    _selectWidget->setFixedWidth( 40 );
+    _selectWidget->setFixedWidth( 40 );
     QToolTip::add( _selectWidget , "Click to select whole input frame for analysis" );
     grid->addWidget( _selectWidget , 0, 0);
     

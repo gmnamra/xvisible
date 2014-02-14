@@ -10,28 +10,38 @@
 #ifndef UI_RCMAINWINDOW_H
 #define UI_RCMAINWINDOW_H
 
-#include <qwidget.h>
-//Added by qt3to4:
-#include <QCloseEvent>
+#include <QMainWindow>
+#include <QListWidget>
+#include <rc_model.h>
+#include "lpwidget.h"
+
+#include "rc_imagecanvasgl.h"
 
 class rcStatusBar;
 
-class rcMainWindow : public QWidget
+class rcMainWindow : public QMainWindow
 { 
     Q_OBJECT
 
 public:
-    rcMainWindow( QWidget* parent = 0, const char* name = 0, Qt::WFlags fl = Qt::WType_TopLevel );
+    rcMainWindow(QWidget* parent = 0);
     ~rcMainWindow();
 
 public slots:
     void settingChanged();
+    void reload_plotter (const CurveData* );
     
   protected:
     void closeEvent( QCloseEvent* );
 
   private:
+    void createDockWindows ();
     rcStatusBar*         mStatusBar;
+    QListWidget *plotlist;
+
+    
+    QMenu *viewMenu;
+    
 };
 
 #endif // UI_RCMAINWINDOW_H

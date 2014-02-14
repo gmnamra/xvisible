@@ -446,9 +446,9 @@ void rcExperimentDomainImpl::notifyBlitData( const rcWindow* image )
 
 // if the observer is accepting requests for plot, this is called to
 // tell the observer to request plot
-void rcExperimentDomainImpl::notifyPlotRequest ( const CurveData* plotinfo )
+void rcExperimentDomainImpl::notifyPlotRequest ( SharedCurveDataRef& cv )
 {
-    _observer->notifyPlotRequest(plotinfo);
+   _observer->notifyPlotRequest(cv);
 }
 
 

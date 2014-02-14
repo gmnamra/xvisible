@@ -27,7 +27,8 @@ rcSettingWidget::rcSettingWidget( QWidget *parent,
 	if (strlen (setting.getDisplayName()))
 	  {
 	    mDisplayLabel = new QLabel( setting.getDisplayName() , this );
-	    mDisplayLabel->setFixedWidth( cUIsettingLabelWidth );
+
+	    mDisplayLabel->setFixedWidth( cUIsettingLabelWidth * 2);
 	    mDisplayLabel->setAlignment( cUIWordBreakAlignment );
 	    mTopLayout->addWidget( mDisplayLabel );
 	    mTopLayout->addSpacing( cUIsettingLabelSpacing );

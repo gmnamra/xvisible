@@ -111,11 +111,6 @@ void rcTrackPanel::updateSource( int source )
     updateTrackGroups( mLiveInput, mLiveStorage );
 }
 
-// repopulate the panel with track group widgets
-void rcTrackPanel::updateTrackGroups( )
-{
-    updateTrackGroups( mLiveInput, mLiveStorage );
-}
 
 // repopulate the panel with track group widgets
 void rcTrackPanel::updateTrackGroups( bool cameraInput, bool cameraStorage )
@@ -172,21 +167,5 @@ void rcTrackPanel::updateTrackGroups( bool cameraInput, bool cameraStorage )
     updateScrollBars();
 }
 
-void rcTrackPanel::keyPressEvent( QKeyEvent* keyEvent )
-{
-  
-    switch ( keyEvent->key () ) 
-    {
-        case Qt::Key_Plus:
-        scroll(0,1);
-        updateTrackGroups();
-        break;
-        
-        case Qt::Key_Minus:
-        scroll(0,-1);
-        updateTrackGroups();        
-        break;
 
-    }
-}
 

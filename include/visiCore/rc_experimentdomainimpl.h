@@ -175,7 +175,7 @@ public:
 
 	// if the observer is accepting polys, this is called to
     // tell the observer to put the polys
-	virtual void notifyPlotRequest ( const CurveData * );
+	virtual void notifyPlotRequest ( SharedCurveDataRef& );
     
 
     //////////////// rcCarbonLock implementation ////////////////

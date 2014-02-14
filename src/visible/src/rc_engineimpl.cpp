@@ -171,10 +171,8 @@ void rcEngineImpl::initialize( rcEngineObserver* observer )
     // create writer manager
     _writerManager = new rcWriterManager( observer );
     
-    // create setting categories given the specs defined above
+    // create setting categories given the spec: Analysis
     _settings.clear ();
-    _settings.insert (_settings.begin(), rcSettingCategory( this , &visualizationSettingsSpec ));
-    _settings.insert (_settings.begin (), rcSettingCategory( this , &captureSettingsSpec ));
     _settings.insert (_settings.begin(), rcSettingCategory( this , &analysisSettingsSpec ));
     
     // set the initial state once we're done setting up
@@ -1336,16 +1334,14 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
             QVector<QPointF> data;
             if (convertToQpointData(focus, results, focusImages, data))
             {
+                rcLock lock (_utilMutex);
                 QString legend ("Plot Req From Engine ");
-                CurveData* cv = new CurveData (data, legend);
-                
-                rcExperimentDomainImpl* domain = dynamic_cast<rcExperimentDomainImpl*>(rcExperimentDomainFactory::getExperimentDomain());
-                domain->notifyPlotRequest (cv);
-            }
+                SharedCurveDataRef cv ( new CurveData (data, legend) );
+                _observer->notifyPlotRequest (cv);
+
             
             
-#if 1
-            {
+
                 Persistence1D p;
                 vector<float> floats;
                 floats.resize(0);
@@ -1504,6 +1500,7 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
     int rcEngineImpl::convertToQpointData ( const rcEngineFocusData* focus, const vector<double>& signal,
                                         const vector<rcWindow>& focusImages, QVector<QPointF>& dst)
     {
+        rcUNUSED(focus);
         int32 count (0);
         dst.resize(0);
 

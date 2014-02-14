@@ -1,14 +1,8 @@
-#include <qapplication.h>
-#include <qtooltip.h>
-#include <qobject.h>
-
 #include "rc_model.h"
-
 #include "rc_menubar.h"
 #include "rc_modeldomain.h"
 #include "rc_settingpage.h"
 #include "rc_settingpanel.h"
-
 
 rcSettingPanel::rcSettingPanel( QWidget* parent, const char* name, Qt::WFlags f )
 	: QTabWidget( parent, name )
@@ -20,12 +14,6 @@ rcSettingPanel::rcSettingPanel( QWidget* parent, const char* name, Qt::WFlags f 
 	rcModelDomain* domain = rcModelDomain::getModelDomain();
 	connect( domain , SIGNAL( newState( rcExperimentState ) ) ,
 			 this   , SLOT( updateState( rcExperimentState ) ) );
-    connect( domain , SIGNAL( updateDebugging( void ) ) ,
-             this   , SLOT( updatePages( void ) ) );
-#ifdef HIPPOW
-    connect ( domain, SIGNAL (updateTrackingDisplayGL (void)),
-	     this, SLOT (requestTrackingDisplayGL(void)));
-#endif
 }
 
 rcSettingPanel::~rcSettingPanel()
@@ -46,7 +34,6 @@ void rcSettingPanel::updateState( rcExperimentState state )
     }
 }
 
-
 void rcSettingPanel::updatePages( void )
 {
     int i;
@@ -65,45 +52,15 @@ void rcSettingPanel::updatePages( void )
     // add the new settings pages
 	rcModelDomain* domain = rcModelDomain::getModelDomain();
 	rcExperiment* experiment = domain->getExperiment();
-	int nPages = experiment->getNSettingCategories();    
-#if 0    
+	int nPages = experiment->getNSettingCategories();
 	for (i = 0; i < nPages; i++)
 	{
-	  rcSettingCategory category = experiment->getSettingCategory(i);
-	  if (category.getName () == "Capture")
-	    {
-	      QWidget* tab = new rcSettingPage( this, category );
-	      insertTab( tab , category.getName() );
-	      setTabToolTip( tab , category.getDescription() );
-	    }
-	}
-#endif
-    
+		rcSettingCategory category = experiment->getSettingCategory( i );
+		QWidget* tab = new rcSettingPage( this, category );
+		insertTab( tab , category.getName() );
 
-	for (i = 0; i < nPages; i++)
-	{
-	  rcSettingCategory category = experiment->getSettingCategory(i);
-	  if (category.getName () == "Analyze")
-	    {
-	      QWidget* tab = new rcSettingPage( this, category );
-	      insertTab( tab , category.getName() );
-	      setTabToolTip( tab , category.getDescription() );
-	    }
+		setTabToolTip( tab , category.getDescription() );
 	}
-
-#if 0
-	for (i = 0; i < nPages; i++)
-	{
-	  rcSettingCategory category = experiment->getSettingCategory(i);
-	  if (category.getName () == "Visualize")
-	    {
-	      QWidget* tab = new rcSettingPage( this, category );
-	      insertTab( tab , category.getName() );
-	      setTabToolTip( tab , category.getDescription() );
-	    }
-	}
-
-#endif    
 
     // Restore selected tab
     if ( currentPage >= 0 )

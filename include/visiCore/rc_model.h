@@ -19,7 +19,7 @@
 #include <rc_affine.h>
 #include <rc_polygongroup.h>
 #include <lightplot2d.h>  // For Plotter Data
-
+#include "lpwidget.h"
 
 /******************************************************************************
 *	Forwards
@@ -278,7 +278,7 @@ public:
     
     // if the observer is accepting polys, this is called to
     // tell the observer to put the polys
-	virtual void notifyPlotRequest (const CurveData* ) = 0;
+	virtual void notifyPlotRequest (SharedCurveDataRef& ) = 0;
 
 };
 

@@ -24,6 +24,7 @@
 
 #include <rc_window.h>
 #include <rc_model.h>
+#include "lpwidget.h"
 
 #include "rc_imagecanvasgl.h"
 
@@ -73,12 +74,14 @@ class rcMonitor : public QWidget
     void updateState( rcExperimentState );
     void updateScale( double );
     void updateMonitorSize( const rcRect& size );
-    void doPlot (const CurveData* );
+  //  void reload_plotter (SharedCurveDataRef&);
+
 
     // For monitor widgets
     void scaleChanged( int );
     void settingChanged();
     void saturationChanged( bool );
+    
     
   signals:
 
@@ -129,6 +132,9 @@ class rcMonitor : public QWidget
 
     bool showDevelopmentData() const;
     
+
+    
+    
     // Data members
     rcTimestamp mCursorTime;       // Current cursor time
 
@@ -139,7 +145,7 @@ class rcMonitor : public QWidget
     QLabel          *mStatusWidget;     // Status bar
     QCheckBox       *mSaturationWidget; // Checkbox for saturation detector
     QLabel          *mSaturationWidgetLabel; // Label for saturation detector
-      
+    LPWidget        *mPlotter; // Plotting Widget
     rcFpsCalculator  mSpeedCalc;         // Used to calculate display speed in FPS
     QColor           mBackgroundColor;   // Widget background color
     bool             mCellText;          // Cell text display

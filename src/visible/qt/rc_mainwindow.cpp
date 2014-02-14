@@ -19,6 +19,8 @@
 #include <Q3VBoxLayout>
 #include <QCloseEvent>
 #include <QScrollArea>
+#include <QDockWidget>
+#include <QListWidget>
 
 #include "rc_appconstants.h"
 #include "rc_monitor.h"
@@ -31,6 +33,7 @@
 #include "rc_modeldomain.h"
 #include "rc_mainwindow.h"
 
+
 // Spacing between layout groups
 static const int cLayoutSpacing = 3;
 
@@ -41,13 +44,17 @@ static const int cLayoutSpacing = 3;
  *	name 'name' and widget flags set to 'f'.
  *
  */
-rcMainWindow::rcMainWindow( QWidget* parent,  const char* name, Qt::WFlags fl )
- 	: QWidget( parent, name, fl )
+rcMainWindow::rcMainWindow(QWidget* parent)
 {
+    rcUNUSED(parent);
     // Make the top-level layout; a vertical box to contain all widgets
     // and sub-layouts.
-    Q3BoxLayout *topLayout = new Q3VBoxLayout( this , cLayoutSpacing );
-
+    QWidget* dummy = new QWidget (this);
+    setCentralWidget (dummy);
+    Q3BoxLayout *topLayout = new Q3VBoxLayout( dummy , cLayoutSpacing );
+      
+    viewMenu = menuBar()->addMenu(tr("&View"));    
+ 
     // Create a menubar and tell the layout about it.
 	rcMenuBar* menuBar = new rcMenuBar( this , "menubar" );
     topLayout->setMenuBar( menuBar );
@@ -101,9 +108,14 @@ rcMainWindow::rcMainWindow( QWidget* parent,  const char* name, Qt::WFlags fl )
     rcModelDomain* domain = rcModelDomain::getModelDomain();
     // connect this widget to be notified by the updateSettings()
 	//	signal from the model domain
-	connect( domain , SIGNAL( updateSettings() ) ,
-			 this   , SLOT( settingChanged() ) );
+	connect( domain , SIGNAL( updateSettings() ) , this, SLOT( settingChanged() ) );
 
+    connect( domain , SIGNAL( requestPlot ( const CurveData *) ) ,
+            this  , SLOT( reload_plotter ( const CurveData *  ) ) );    
+    
+    
+    setUnifiedTitleAndToolBarOnMac (true);
+    
     // Set application (generator) info
     rcPersistenceManager* persistenceManager = rcPersistenceManagerFactory::getPersistenceManager();
     // Concatenate application name, version and build date
@@ -114,6 +126,9 @@ rcMainWindow::rcMainWindow( QWidget* parent,  const char* name, Qt::WFlags fl )
     comment += cAppBuildDate;
     
     persistenceManager->setGeneratorComment( comment );
+    
+    createDockWindows();
+    
 }
 
 /*	
@@ -201,4 +216,24 @@ void rcMainWindow::closeEvent( QCloseEvent* event )
 
     } else
         event->accept();
+}
+
+void rcMainWindow::reload_plotter (const CurveData * cv)
+{
+    LPWidget* plotter = new LPWidget (plotlist, cv);
+    plotlist->insertItem (plotlist->count()+1, (QListWidgetItem*) plotter);
+    plotlist->repaint();
+    
+}
+
+
+void rcMainWindow::createDockWindows()
+{
+    QDockWidget *dock = new QDockWidget(tr("Plots"), this);
+    dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+    plotlist = new QListWidget(dock);
+    dock->setWidget(plotlist);
+    addDockWidget(Qt::RightDockWidgetArea, dock);
+    viewMenu->addAction(dock->toggleViewAction());
+  
 }
