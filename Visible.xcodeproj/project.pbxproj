@@ -2980,6 +2980,7 @@
 					/System/Library/Frameworks/AGL.framework/Headers,
 					/usr/local/include,
 					/System/Library/Frameworks/CarbonCore.framework/Headers,
+					"$(SRCROOT)/include/util",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/resources/visible/resources/Visible-Info.plist";
 				INSTALL_PATH = "@rpath";

@@ -22,7 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		C21B5582130B38B3001E8521 /* rc_dcam.h in Headers */ = {isa = PBXBuildFile; fileRef = C21B5581130B38B3001E8521 /* rc_dcam.h */; };
-		C2248976189D56A900034CDF /* persistence1d.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2248975189D56A900034CDF /* persistence1d.hpp */; };
+		C2248976189D56A900034CDF /* persistence1d.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2248975189D56A900034CDF /* persistence1d.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		C224897C189D5AA700034CDF /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C224897B189D5AA700034CDF /* vfi386_d.framework */; };
 		C224899C189DA9E300034CDF /* libstdc++.6.0.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C224899B189DA9E300034CDF /* libstdc++.6.0.4.dylib */; };
 		C22DCF1E1314D01300801DE4 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAED60F421FE2003CC197 /* Carbon.framework */; };

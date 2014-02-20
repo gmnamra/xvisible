@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_trackpanel.h'
 **
-** Created: Thu Feb 13 15:37:08 2014
+** Created: Fri Feb 14 19:23:48 2014
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_rcTrackPanel[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -34,6 +34,7 @@ static const uint qt_meta_data_rcTrackPanel[] = {
       20,   14,   13,   13, 0x0a,
       64,   51,   13,   13, 0x0a,
       95,   88,   13,   13, 0x0a,
+     113,   13,   13,   13, 0x0a,
 
        0        // eod
 };
@@ -41,7 +42,7 @@ static const uint qt_meta_data_rcTrackPanel[] = {
 static const char qt_meta_stringdata_rcTrackPanel[] = {
     "rcTrackPanel\0\0state\0updateState(rcExperimentState)\0"
     "live,storage\0updateCamera(bool,bool)\0"
-    "source\0updateSource(int)\0"
+    "source\0updateSource(int)\0updateTrackGroups()\0"
 };
 
 const QMetaObject rcTrackPanel::staticMetaObject = {
@@ -76,9 +77,10 @@ int rcTrackPanel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 0: updateState((*reinterpret_cast< rcExperimentState(*)>(_a[1]))); break;
         case 1: updateCamera((*reinterpret_cast< bool(*)>(_a[1])),(*reinterpret_cast< bool(*)>(_a[2]))); break;
         case 2: updateSource((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 3: updateTrackGroups(); break;
         default: ;
         }
-        _id -= 3;
+        _id -= 4;
     }
     return _id;
 }
