@@ -890,7 +890,8 @@ bool rcSimilarator::genMatrixEntropy(uint32 tWinSz)
 
     for (int ii = 0; ii < _sums.size (); ii++)
     {
-        _sums[ii] = _sums[ii] - 1;
+        _sums[ii] /= _matrixSz;
+//        _sums[ii] = _sums[ii] - 1;
     }
 
   return true;

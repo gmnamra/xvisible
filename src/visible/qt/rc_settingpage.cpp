@@ -68,7 +68,7 @@ rcSettingPage::rcSettingPage( QWidget* parent, const rcSettingCategory& category
 			break;
 
 		case eRect:			// setting is a rectangle (text + "define" button)
-			widget = new rcRectSettingWidget( this , setting );
+		//	widget = new rcRectSettingWidget( this , setting );
 			break;
             
 		case eSpinbox:			// setting is a spinbox (int value)

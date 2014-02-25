@@ -42,7 +42,7 @@ rcTrackGroupWidget::rcTrackGroupWidget( QWidget* parent , int trackGroupNo )
     // add the group enable toggle pushbutton
     _enableButton = new rcTrackGroupEnableButton( this );
     _enableButton->setToggleButton( true );
-    _enableButton->setMinimumWidth( 20 );
+    _enableButton->setMinimumWidth( 7 );
     _enableButton->setSizePolicy( QSizePolicy( QSizePolicy::Minimum , QSizePolicy::Minimum ) );
     if (tmp->isTrackGroupEnabled( _trackGroupNo ))
     {
@@ -111,12 +111,13 @@ void rcTrackGroupWidget::setEnabled( bool isEnabled )
     rcTrackManager* tmp = rcTrackManager::getTrackManager();
     tmp->setTrackGroupEnabled( _trackGroupNo , isEnabled );
 
-#ifndef rcHIDE_TRACKS        
+
     // Enable/disable all group members, too
     rcExperiment* experiment = domain->getExperiment();
     rcTrackGroup* trackGroup = experiment->getTrackGroup( _trackGroupNo );
     
     int nTracks = trackGroup->getNTracks();
+#ifndef rcHIDE_TRACKS            
 	for (int i = 0; i < nTracks; i++)
 	{
         tmp->setTrackEnabled( _trackGroupNo, i, isEnabled );

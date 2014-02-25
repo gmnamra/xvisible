@@ -17,22 +17,12 @@ rcTrackPanel::rcTrackPanel( QWidget* parent, const char* name, Qt::WFlags f )
 mManagedGroups( 0 ), mLiveInput( false ), mLiveStorage( false )
 {
     rcUNUSED( f );
-    if(viewport())
-      {
-         viewport()->setMouseTracking(true);
-      }
-    setMouseTracking(true);
-
-    viewport()->setEraseColor(QColor(0,0,0));
-    setVScrollBarMode(Q3ScrollView::AlwaysOn);
-    setHScrollBarMode(Q3ScrollView::AlwaysOff);
-    setMinimumWidth( 250 );
-    setMaximumWidth( 300 );
-     setFocusPolicy(Qt::WheelFocus);
-    viewport()->setBackgroundColor(backgroundColor());
-    setMargin(0);
-
-       //    setResizePolicy( Q3ScrollView::AutoOneFit );
+	setMinimumWidth( 250 );
+	setMaximumWidth( 300 );
+    setVScrollBarMode( AlwaysOn );
+    setHScrollBarMode( AlwaysOff );
+    setResizePolicy( Q3ScrollView::AutoOneFit );    
+    setResizePolicy( Q3ScrollView::AutoOneFit );
     
 	rcModelDomain* domain = rcModelDomain::getModelDomain();
 	connect( domain , SIGNAL( newState( rcExperimentState ) ) ,
@@ -111,6 +101,13 @@ void rcTrackPanel::updateSource( int source )
     updateTrackGroups( mLiveInput, mLiveStorage );
 }
 
+// repopulate the panel with track group widgets
+void rcTrackPanel::updateTrackGroups( )
+{
+    updateTrackGroups( mLiveInput, mLiveStorage );
+}
+
+
 
 // repopulate the panel with track group widgets
 void rcTrackPanel::updateTrackGroups( bool cameraInput, bool cameraStorage )
@@ -149,8 +146,7 @@ void rcTrackPanel::updateTrackGroups( bool cameraInput, bool cameraStorage )
     mManagedGroups = 0;
 	for (int i = 0; i < nTrackGroups; i++)
 	{
-        if ( rcTrackManager::hasManageableTracks( i, cameraInput, cameraStorage ) )
-          {
+        if ( rcTrackManager::hasManageableTracks( i, cameraInput, cameraStorage ) ) {
             // Create a widget only for groups that have manageable tracks
             new rcTrackGroupWidget( vBox , i );
             ++mManagedGroups;
@@ -160,12 +156,17 @@ void rcTrackPanel::updateTrackGroups( bool cameraInput, bool cameraStorage )
     if ( mManagedGroups ) {
         show();
         vBox->show();
-    } else
+    } else {
         hide();
-
-    updateContents();
-    updateScrollBars();
+#ifdef DEBUG_LOG        
+        if ( cameraInput )
+            if ( cameraStorage )
+                cerr << "rcTrackPanel::updateTrackGroups: camera enabled but no storage track(s) found" << endl;
+            else
+                cerr << "rcTrackPanel::updateTrackGroups: camera enabled but no preview track(s) found" << endl;
+#endif        
+        
+    }
 }
-
-
-
+    
+   

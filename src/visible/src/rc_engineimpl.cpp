@@ -1323,49 +1323,28 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
         
         if (sim.entropies(signal, _aciOptions))
         {
-                       
+               
+            deque<double>normed;
+            norm_scale (signal, normed, 1.0);
+            
+            
             results.resize(0);
-            copy(signal.begin(), signal.end(), back_inserter(results));
+            copy(normed.begin(), normed.end(), back_inserter(results));
+            
             rmAssert( results.size() == focusImages.size() );
             analysisCount = results.size();
-            
+
             writeEntropyData( focus, focusImages, results );
             
             QVector<QPointF> data;
             if (convertToQpointData(focus, results, focusImages, data))
             {
                 rcLock lock (_utilMutex);
-                QString legend ("Plot Req From Engine ");
+                QString legend = focus->energyWriter()->down_cast()->getName();
                 SharedCurveDataRef cv ( new CurveData (data, legend) );
                 _observer->notifyPlotRequest (cv);
 
-            
-            
-
-                Persistence1D p;
-                vector<float> floats;
-                floats.resize(0);
-                copy(results.begin(), results.end(), back_inserter(floats));
-                p.RunPersistence(floats);
-                double threshold = getSettingValue(cAnalysisContractionThresholdId);
-                threshold /= 100.0;
-                vector<int> mins;
-                vector<int> maxs;
-                p.GetExtremaIndices(mins, maxs, threshold, 0);
-                p.PrintResults();
-                
-                rcScalarWriter* sWriter = focus->contractionMarker ();
-                rcWriter* writer = sWriter->down_cast();
-                
-                // Add a human-readable string listing window options to track name and description
-                std::string name = writer->getName();
-                std::string nameWithOptions = writer->getName();
-                std::string descrWithOptions = writer->getDescription();
-                writer->setName( nameWithOptions.c_str() );
-                writer->setDescription( descrWithOptions.c_str() );
-             //   writeTimedIndexScalarPairs (focus, mins, maxs, focusImages, sWriter);
             }
-#endif            
             
         }
         return analysisCount;
@@ -1506,10 +1485,12 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
 
         if (signal.size())
         {
+            float scaling_step = 1.0f / signal.size ();
+            float ttime = 0.0f;
             for ( uint32 i = 0; i < focusImages.size(); ++i )
             {
-                float time = (double) (focusImages[i].frameBuf()->timestamp().secs () );
-                dst.append (QPointF (time, (float) signal[i]));
+                dst.append (QPointF (ttime, (float) signal[i]));
+                ttime += scaling_step;
                 count++;
             }
         }
@@ -2032,4 +2013,22 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
         //  _model2use = rcWindow ();
         
     }
+    
+    
+    
+    
+    void rcEngineImpl::norm_scale (const std::deque<double>& src, std::deque<double>& dst, double pw) 
+    {
+        deque<double>::const_iterator bot = std::min_element (src.begin (), src.end() );
+        deque<double>::const_iterator top = std::max_element (src.begin (), src.end() );
+        
+        double scaleBy = *top - *bot;
+        dst.resize (src.size ());
+        for (int ii = 0; ii < src.size (); ii++)
+        {
+            double dd = (src[ii] - *bot) / scaleBy;
+            dst[ii] = pow (dd, 1.0 / pw);
+        }
+    }
+
     

@@ -163,6 +163,16 @@ rcControlPanel::rcControlPanel( QWidget* parent, const char* name, Qt::WFlags f 
     Q3BoxLayout* layout = new Q3HBoxLayout( topLayout, 0, 0 );
     QPushButton* button;
 
+    button = new QPushButton( "Select Entire Frame" , this , "select entire frame"  );
+    QToolTip::add( button, "Select focus area" );
+    layout->addWidget( button );
+    connect( button , SIGNAL( clicked( void ) ) ,
+            domain , SLOT( requestProcess( void ) ) );
+    // TODO: button should activate only after succesful data import
+    button->setEnabled( false );
+    _SellectAllButton  = button;
+    
+    
     button = new QPushButton( "Analyze" , this , "analyzeButton"  );
     QToolTip::add( button, "Analyze focus area" );
     layout->addWidget( button );
@@ -247,6 +257,7 @@ rcControlPanel::~rcControlPanel()
     QToolTip::remove( _startButton );
     QToolTip::remove( _stopButton );
     QToolTip::remove( _elapsedTime );
+    QToolTip::remove( _SellectAllButton );    
 }
 
 //public slots:
@@ -304,6 +315,8 @@ void rcControlPanel::updateState( rcExperimentState state )
         // File input
         switch( state ) {
             case eExperimentEmpty:
+                _SellectAllButton->setEnabled( true );
+                _SellectAllButton->show();                
                 _processButton->setEnabled( true );
                 _processButton->show();
                 // Disable start + stop button
@@ -319,6 +332,8 @@ void rcControlPanel::updateState( rcExperimentState state )
             case eExperimentLocked:
                 _processButton->setEnabled( true );
                 _processButton->show();
+                _SellectAllButton->setEnabled( true );
+                _SellectAllButton->show();                                
                 // Disable start + stop button
                 _startButton->setEnabled( false );
                 _startButton->hide();
@@ -332,6 +347,8 @@ void rcControlPanel::updateState( rcExperimentState state )
             case eExperimentPlayback:
                 _processButton->setEnabled( false );
                 _processButton->hide();
+                _SellectAllButton->setEnabled( false );
+                _SellectAllButton->show();                                
                 // Enable stop button
                 _startButton->setEnabled( false );
                 _startButton->hide();
@@ -449,6 +466,22 @@ QString rcControlPanel::timestampToString( const rcTimestamp& time )
 		string.sprintf( "%dd %02d:%02d:%02d.%03d" , nDays , nHours , nMinutes , nSecs , nMillis );
 	return string;
 }
+
+
+
+// Select the whole image
+void rcControlPanel::selectAll()
+{
+    rcModelDomain* domain = rcModelDomain::getModelDomain();
+    uint32 maxX = domain->getExperimentAttributes().frameWidth;
+    uint32 maxY = domain->getExperimentAttributes().frameHeight;
+    
+    rcRect wholeImage( 0, 0, maxX, maxY );
+    
+    // notify widgets who want to draw this rect
+    rcModelDomain::getModelDomain()->notifyAnalysisRect( wholeImage );
+}
+
 
 
 

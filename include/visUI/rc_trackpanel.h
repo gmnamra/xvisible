@@ -21,7 +21,8 @@ public slots:
 	void updateState( rcExperimentState state );
     void updateCamera( bool live, bool storage );
     void updateSource( int source );
-
+    void updateTrackGroups();
+    
 signals:
 
 protected:

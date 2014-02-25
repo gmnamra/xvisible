@@ -127,7 +127,7 @@ rcMainWindow::rcMainWindow(QWidget* parent)
     
     persistenceManager->setGeneratorComment( comment );
     
-    createDockWindows();
+   // createDockWindows();
     
 }
 
@@ -220,16 +220,21 @@ void rcMainWindow::closeEvent( QCloseEvent* event )
 
 void rcMainWindow::reload_plotter (const CurveData * cv)
 {
-    LPWidget* plotter = new LPWidget (plotlist, cv);
-    plotlist->insertItem (plotlist->count()+1, (QListWidgetItem*) plotter);
-    plotlist->repaint();
+    LPWidget* plotter = new LPWidget (this, cv);
+    
+    QDockWidget *dock = new QDockWidget(this);
+    dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+    dock->setWidget(plotter);
+    addDockWidget(Qt::RightDockWidgetArea, dock);
+    viewMenu->addAction(dock->toggleViewAction());
+    update ();
     
 }
 
 
 void rcMainWindow::createDockWindows()
 {
-    QDockWidget *dock = new QDockWidget(tr("Plots"), this);
+    QDockWidget *dock = new QDockWidget(this);
     dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
     plotlist = new QListWidget(dock);
     dock->setWidget(plotlist);

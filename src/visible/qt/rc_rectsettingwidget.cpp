@@ -166,6 +166,7 @@ void rcRectSettingWidget::settingChanged( const rcRect& currentValue )
     rcModelDomain::getModelDomain()->notifySettingChange();
 }
 
+
 // Select the whole image
 void rcRectSettingWidget::selectAll()
 {
@@ -179,6 +180,7 @@ void rcRectSettingWidget::selectAll()
     // notify widgets who want to draw this rect
     rcModelDomain::getModelDomain()->notifyAnalysisRect( wholeImage );
 }
+
 
 // private
 

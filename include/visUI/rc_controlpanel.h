@@ -27,7 +27,8 @@ public slots:
     void settingChanged();
     void inputSource( int i );
     void updateCursorTime();
-  void updateSelectionState (bool trueIsSelect);  
+    void updateSelectionState (bool trueIsSelect);  
+    void selectAll ();    
 
 signals:
 
@@ -42,6 +43,7 @@ private:
     QPushButton* _stopButton;
     QPushButton* _processButton;
     QPushButton* _stopAnalysisButton;
+    QPushButton* _SellectAllButton;    
     rcRect       _analysisRect;
     rcExperimentState _lastState;
   bool _selectionState;
