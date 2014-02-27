@@ -8,6 +8,7 @@
 #include <iostream>
 #include <iterator>
 #include <vector>
+#include <cmath> 
 
 #define NO_COLOR -1
 #define RESIZE_FACTOR 20
@@ -165,7 +166,7 @@ public:
 
 		//If a user runs this on an empty vector, then they should not get the results of the previous run.
 		if (Data.empty()) return false;
-
+        DiffrentiateTwice(Data, SecondDerivative);
 		CreateIndexValueVector();
 		Watershed();
 		SortPairedExtrema();
@@ -388,7 +389,12 @@ protected:
 		Contain a copy of the original input data.
 	*/
 	std::vector<float> Data;
-	
+    
+    /*!
+     Contain a copy of the original input data.
+     */
+	std::vector<float> SecondDerivative;
+
 	
 	/*!
 		Contains a copy the value and index pairs of Data, sorted according to the data values.
@@ -402,13 +408,6 @@ protected:
 		The Component values in this vector are invalid at the end of the algorithm.
 	*/
 	std::vector<int> Colors;		//need to init to empty
-
-    /*!
-     A vector of Contractions. 
-     The component index within the vector is used as its Colors in the Watershed function.
-     */
-	std::vector<TContraction> Contractions;
-    
 
 	/*!
 		A vector of Components. 
@@ -428,6 +427,33 @@ protected:
 	
     unsigned int TotalContractions;	//keeps track of contraction vector size and newest component "color"
 	bool AliveContractionsVerified;	
+
+    /*!
+        Central Difference. F" = (d[+1] - 2 * d[0] / 2 + d[-1]) / 1 
+        a 1 x 3 operation
+     */
+    
+    void DiffrentiateTwice (std::vector<float>& data, std::vector<float>& deriv )
+    {
+        deriv.resize (data.size ());
+        std::vector<float>::const_iterator dm1 = data.begin();
+        std::vector<float>::const_iterator dend = data.end ();
+        dend--;        dend--;        dend--;
+        std::vector<float>::iterator d1 = deriv.begin(); 
+        d1++; // first place we compute
+        for (; dm1 < dend; d1++)
+        {
+            float s = *dm1++;
+            float c = *dm1++;
+            s -= (c + c);
+            s += (*dm1++);
+            *d1 = s;
+        }
+
+        // use replicates for first and last 
+        deriv.at(0) = deriv.at(1);
+        deriv.at(data.size()-1) = deriv.at(data.size()-2);
+    }
     
 	/*!
 		Merges two components by doing the following:
@@ -763,7 +789,7 @@ protected:
 	}
 
     /*!
-     Main Contraction salgorithm - all of Contration work happen here.
+     Main Contraction algorithm - all of Contration work happen here.
      
      Use only after calling CreateIndexValueVector and Init functions and fetching extremas
 
@@ -914,9 +940,7 @@ protected:
 	}
 };
     
-    
-#include <iostream> 
-#include <cmath> 
+
     
     class fpad // forward propagating automatic differentiation 
     { 
