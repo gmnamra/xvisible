@@ -8,11 +8,12 @@
 #include <iostream>
 #include <iterator>
 #include <vector>
-#include <cmath> 
+#include <cmath>
 
 #define NO_COLOR -1
 #define RESIZE_FACTOR 20
 #define MATLAB_INDEX_FACTOR 1
+
 
 namespace p1d 
 {
@@ -65,7 +66,14 @@ struct TComponent
 	bool Alive;
 };
 
-    /*! Defines a contraction within the data domain. 
+    enum contraction_phase
+    {
+        eNeither = 0,
+        eContraction = eNeither - 1,
+        eRelaxation = eNeither + 1
+    };
+
+    /*! Defines a contraction within the data domain.
      A contraction is created at a local minimum - a vertex whose value is smaller than both of its neighboring 
      vertices' values.
      */
@@ -166,17 +174,46 @@ public:
 
 		//If a user runs this on an empty vector, then they should not get the results of the previous run.
 		if (Data.empty()) return false;
-        DiffrentiateTwice(Data, SecondDerivative);
+
 		CreateIndexValueVector();
 		Watershed();
 		SortPairedExtrema();
-        GetContractionsCandidates ();
-        
+        DiffrentiateTwice(Data, SecondDerivative);
+
 #ifdef _DEBUG
 		VerifyAliveComponents();	
 #endif
 		return true;
 	}
+    
+    /*!
+     Call this function with a vector of one dimensional data to find Contractions in the data.
+     The function runs once for, results can be retrieved with different persistent thresholds without
+     further data processing.
+
+     Input data vector is assumed to be of legal size and legal values.
+
+     Use PrintResults, GetPairedExtrema or GetExtremaIndices to get results of the function.
+
+     @param[in] InputData Vector of data to find features on, ordered according to its axis.
+     */
+	bool RunContraction(const std::vector<float>& InputData)
+	{
+        bool check = RunPersistence (InputData);
+        if (! check ) return check;
+
+		InitContractionProcessing ();
+
+            //If a user runs this on an empty vector, then they should not get the results of the previous run.
+        DiffrentiateTwice(Data, SecondDerivative);
+            //        GetContractionsCandidates ();
+
+#ifdef _DEBUG
+		VerifyAliveComponents();
+#endif
+		return true;
+	}
+
 
     void GetContractionsCandidates ()
     {
@@ -377,6 +414,9 @@ public:
 
 		return flag;
 	}
+    
+    const std::vector<float>& secondDerivative () { return SecondDerivative; }
+
 
 protected:
     /*!
@@ -408,6 +448,12 @@ protected:
 		The Component values in this vector are invalid at the end of the algorithm.
 	*/
 	std::vector<int> Colors;		//need to init to empty
+
+    /*!
+     Contains the Contraction assignment for each vertex in Data.
+     Initially - 0 or + indicating contraction, un/yet assigned, relaxation
+     */
+	std::vector<int> Labels;		//need to init to empty
 
 	/*!
 		A vector of Components. 
@@ -663,9 +709,9 @@ protected:
 	void InitContractionProcessing()
 	{
 		
-		Colors.clear();
-		Colors.resize(Data.size());
-		std::fill(Colors.begin(), Colors.end(), NO_COLOR);
+		Labels.clear();
+		Labels.resize(Data.size());
+		std::fill(Labels.begin(), Labels.end(), eNeither);
 		
 		int vectorSize = (int)(Data.size()/RESIZE_FACTOR) + 1; //starting reserved size >= 1 at least
 		
@@ -675,9 +721,7 @@ protected:
 		TotalContractions = 0;
 		AliveContractionsVerified = false;
         
-        // compute 2nd derivative for the entire length of the data
-        // TBD !!!!!!!!!!!!!!!
-	}    
+	}
 
 	/*!
 		Creates SortedData vector.
@@ -955,6 +999,7 @@ protected:
         const fpad& equalsTransform(double newVal, double outer_deriv) 
         { deriv_ = deriv_ * outer_deriv; // Kettenregel 
             value_ = newVal; 
+            return *this;
         } 
         
         const fpad& operator+=(fpad const& x) 

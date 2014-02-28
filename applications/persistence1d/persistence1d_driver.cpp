@@ -30,6 +30,7 @@
 using namespace std;
 using namespace p1d;
 
+int fpad_main ();
 
 /*!
 	Tries to open the input file and read its contents to a float vector.
@@ -56,6 +57,8 @@ bool ReadFileToVector (char * filename, vector<float> & data);
 	
 */
 void WriteMinMaxPairsToFile (char * filename, vector<TPairedExtrema> pairs);
+void WriteVectorToFile (char * filename, vector<float> singles);
+
 /*!
 	Parses user command line.
 	Checks if the user set a threshold value or wants MATLAB indexing.
@@ -112,7 +115,8 @@ int main(int argc, char* argv[])
 	
 	p.RunPersistence(data);
 	p.GetPairedExtrema(pairs, threshold , matlabIndexing);
-	WriteMinMaxPairsToFile(outfilename, pairs);
+        //	WriteMinMaxPairsToFile(outfilename, pairs);
+	WriteVectorToFile (outfilename, p.secondDerivative () );
 
 	delete outfilename;
 		
@@ -162,6 +166,26 @@ void WriteMinMaxPairsToFile (char * filename, vector<TPairedExtrema> pairs)
 
 	datafile.close();
 }
+
+void WriteVectorToFile (char * filename, vector<float> singles)
+{
+	ofstream datafile;
+	datafile.open(filename);
+
+	if (!datafile)
+	{
+		cout << "Cannot open file " << filename << " for writing." << endl;
+		return;
+	}
+
+	for (vector<float>::iterator p = singles.begin(); p != singles.end(); p++)
+	{
+		datafile << to_string((float)(*p)) << endl;
+    }
+
+	datafile.close();
+}
+
 bool ParseCmdLine(int argc, char* argv[], float &threshold, bool & matlabIndexing)
 {	
 	bool noErrors = true;
@@ -237,5 +261,6 @@ int fpad_main()
     std::cout << "f(x) = x*x - 3*sin(x) + 2\n" 
     "fuer x=0.123 ist f (x) = " << y.value() << "\n" 
     "             ist f'(x) = " << y.derivative() << "\n"; 
+    return 0;
 }
 
