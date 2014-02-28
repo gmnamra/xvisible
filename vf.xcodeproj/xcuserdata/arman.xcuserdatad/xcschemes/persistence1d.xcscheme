@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C28DC4AA0F3108AA00DC9AAC"
-               BuildableName = "Visible.app"
-               BlueprintName = "Visible"
-               ReferencedContainer = "container:Visible.xcodeproj">
+               BlueprintIdentifier = "C297DD4118A1D7B400F217A5"
+               BuildableName = "persistence1d"
+               BlueprintName = "persistence1d"
+               ReferencedContainer = "container:vf.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C28DC4AA0F3108AA00DC9AAC"
-            BuildableName = "Visible.app"
-            BlueprintName = "Visible"
-            ReferencedContainer = "container:Visible.xcodeproj">
+            BlueprintIdentifier = "C297DD4118A1D7B400F217A5"
+            BuildableName = "persistence1d"
+            BlueprintName = "persistence1d"
+            ReferencedContainer = "container:vf.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -51,10 +51,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C28DC4AA0F3108AA00DC9AAC"
-            BuildableName = "Visible.app"
-            BlueprintName = "Visible"
-            ReferencedContainer = "container:Visible.xcodeproj">
+            BlueprintIdentifier = "C297DD4118A1D7B400F217A5"
+            BuildableName = "persistence1d"
+            BlueprintName = "persistence1d"
+            ReferencedContainer = "container:vf.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -69,10 +69,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C28DC4AA0F3108AA00DC9AAC"
-            BuildableName = "Visible.app"
-            BlueprintName = "Visible"
-            ReferencedContainer = "container:Visible.xcodeproj">
+            BlueprintIdentifier = "C297DD4118A1D7B400F217A5"
+            BuildableName = "persistence1d"
+            BlueprintName = "persistence1d"
+            ReferencedContainer = "container:vf.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,3 +1,9 @@
 *.o
 .svn
 .DS_Store
+.app
+/Debug/*
+/Release/*
+build
+
+

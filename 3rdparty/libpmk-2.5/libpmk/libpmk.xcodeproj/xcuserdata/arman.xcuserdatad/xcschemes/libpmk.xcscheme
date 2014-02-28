@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C22DD1F013158BEF00801DE4"
-               BuildableName = "dcamInfo.app"
-               BlueprintName = "dcamInfo"
-               ReferencedContainer = "container:Visible.xcodeproj">
+               BlueprintIdentifier = "C24EA7F31842B85400E88B0A"
+               BuildableName = "libpmk"
+               BlueprintName = "libpmk"
+               ReferencedContainer = "container:libpmk.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,15 +29,6 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C22DD1F013158BEF00801DE4"
-            BuildableName = "dcamInfo.app"
-            BlueprintName = "dcamInfo"
-            ReferencedContainer = "container:Visible.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -48,15 +39,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C22DD1F013158BEF00801DE4"
-            BuildableName = "dcamInfo.app"
-            BlueprintName = "dcamInfo"
-            ReferencedContainer = "container:Visible.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -66,15 +48,6 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C22DD1F013158BEF00801DE4"
-            BuildableName = "dcamInfo.app"
-            BlueprintName = "dcamInfo"
-            ReferencedContainer = "container:Visible.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
