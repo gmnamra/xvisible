@@ -8,6 +8,7 @@
 #include <iostream>
 #include <iterator>
 #include <vector>
+#include <cmath> 
 
 #define NO_COLOR -1
 #define RESIZE_FACTOR 20
@@ -64,6 +65,41 @@ struct TComponent
 	bool Alive;
 };
 
+    /*! Defines a contraction within the data domain. 
+     A contraction is created at a local minimum - a vertex whose value is smaller than both of its neighboring 
+     vertices' values.
+     */
+    struct TContraction
+    {
+        ///A contraction is defined by the indices of its edges.
+        ///Both variables hold the respective indices of the vertices in Data vector.
+        ///All vertices between them are considered to belong to this contraction.
+        ///The minimum is walked in both directions until instantenous 2nd derivative is 
+        /// within "threshold" of zero. 
+        int MinusEdgeIndex;
+        int PlusEdgeIndex;
+        
+        ///The index of the local minimum within the component as longs as its alive. 
+        int MinIndex;
+        
+        ///The value of the Data[MinIndex].
+        float MinValue; //redundant, but makes life easier
+        
+        ///Set to true when a component is created. Once components are merged,
+        ///the destroyed component Alive value is set to false. 
+        ///Used to verify correctness of algorithm.
+        bool Alive;
+        
+        float Persistence; //copy of the threshold. redundant, but makes life easier
+        
+        bool operator<(const TContraction& other) const
+        {
+            if (Persistence < other.Persistence) return true;
+            if (Persistence > other.Persistence) return false;
+            return (MinIndex < other.MinIndex);
+        }        
+        
+    };
 
 /** A pair of matched local minimum and local maximum
 	that define a component above a certain persistence threshold.
@@ -130,17 +166,22 @@ public:
 
 		//If a user runs this on an empty vector, then they should not get the results of the previous run.
 		if (Data.empty()) return false;
-
+        DiffrentiateTwice(Data, SecondDerivative);
 		CreateIndexValueVector();
 		Watershed();
 		SortPairedExtrema();
+        GetContractionsCandidates ();
+        
 #ifdef _DEBUG
 		VerifyAliveComponents();	
 #endif
 		return true;
 	}
 
-
+    void GetContractionsCandidates ()
+    {
+        
+    }
 
 	/*!
 		Prints the contents of the TPairedExtrema vector.
@@ -338,11 +379,22 @@ public:
 	}
 
 protected:
+    /*!
+     A vector of Contractions. 
+     The component index within the vector is used as its Colors in the Watershed function.
+     */
+    std::vector<TContraction> Contractions;
+    
 	/*!
 		Contain a copy of the original input data.
 	*/
 	std::vector<float> Data;
-	
+    
+    /*!
+     Contain a copy of the original input data.
+     */
+	std::vector<float> SecondDerivative;
+
 	
 	/*!
 		Contains a copy the value and index pairs of Data, sorted according to the data values.
@@ -356,7 +408,6 @@ protected:
 		The Component values in this vector are invalid at the end of the algorithm.
 	*/
 	std::vector<int> Colors;		//need to init to empty
-
 
 	/*!
 		A vector of Components. 
@@ -372,9 +423,38 @@ protected:
 	
 		
 	unsigned int TotalComponents;	//keeps track of component vector size and newest component "color"
-	bool AliveComponentsVerified;	//Index of global minimum in Data vector. This minimum is never paired.
+	bool AliveComponentsVerified;	
 	
-	
+    unsigned int TotalContractions;	//keeps track of contraction vector size and newest component "color"
+	bool AliveContractionsVerified;	
+
+    /*!
+        Central Difference. F" = (d[+1] - 2 * d[0] / 2 + d[-1]) / 1 
+        a 1 x 3 operation
+     */
+    
+    void DiffrentiateTwice (std::vector<float>& data, std::vector<float>& deriv )
+    {
+        deriv.resize (data.size ());
+        std::vector<float>::const_iterator dm1 = data.begin();
+        std::vector<float>::const_iterator dend = data.end ();
+        dend--;        dend--;        dend--;
+        std::vector<float>::iterator d1 = deriv.begin(); 
+        d1++; // first place we compute
+        for (; dm1 < dend; d1++)
+        {
+            float s = *dm1++;
+            float c = *dm1++;
+            s -= (c + c);
+            s += (*dm1++);
+            *d1 = s;
+        }
+
+        // use replicates for first and last 
+        deriv.at(0) = deriv.at(1);
+        deriv.at(data.size()-1) = deriv.at(data.size()-2);
+    }
+    
 	/*!
 		Merges two components by doing the following:
 
@@ -573,6 +653,31 @@ protected:
 		AliveComponentsVerified = false;
 	}
 
+    /*!
+     Initializes main data structures used in class:
+     - Sets Colors[] to NO_COLOR
+     - Components and PairedExtrema area assumed to have raw persistence processing results
+           
+
+     */
+	void InitContractionProcessing()
+	{
+		
+		Colors.clear();
+		Colors.resize(Data.size());
+		std::fill(Colors.begin(), Colors.end(), NO_COLOR);
+		
+		int vectorSize = (int)(Data.size()/RESIZE_FACTOR) + 1; //starting reserved size >= 1 at least
+		
+		Contractions.clear();
+		Contractions.reserve(vectorSize);
+        
+		TotalContractions = 0;
+		AliveContractionsVerified = false;
+        
+        // compute 2nd derivative for the entire length of the data
+        // TBD !!!!!!!!!!!!!!!
+	}    
 
 	/*!
 		Creates SortedData vector.
@@ -683,6 +788,92 @@ protected:
 		}
 	}
 
+    /*!
+     Main Contraction algorithm - all of Contration work happen here.
+     
+     Use only after calling CreateIndexValueVector and Init functions and fetching extremas
+
+     Iterates over each local minima 
+     - Creates a segment for each local minima
+     - Extends a segment in both directions until the 2nd derivative value is within persistence
+     - threshold of 0. 
+     - Merges segments and creates new contraction when a vertex has two neighboring components:
+     -  one in each direction. 
+     */
+	void ContractionWatershed()
+	{
+        std::vector<int> mins;
+        std::vector<int> maxs;   
+        InitContractionProcessing();
+        
+        
+		for (std::vector<int>::iterator p = mins.begin(); p != mins.end(); p++)
+		{
+			int i = (*p);
+            
+			//left most vertex - no left neighbor
+			//two options - either local minimum, or extend component
+			if (i==0)
+			{
+				if (Colors[i+1] == NO_COLOR) 
+				{
+					CreateComponent(i);
+				}
+				else
+				{
+					ExtendComponent(Colors[i+1], i);  //in this case, local max as well
+				}
+				
+				continue;
+			}
+			else if (i == Colors.size()-1) //right most vertex - look only to the left
+			{
+				if (Colors[i-1] == NO_COLOR) 
+				{
+					CreateComponent(i);
+				}
+				else
+				{
+					ExtendComponent(Colors[i-1], i);
+				}				
+				continue;
+			}
+            
+			//look left and right
+			if (Colors[i-1] == NO_COLOR && Colors[i+1] == NO_COLOR) //local minimum - create new component
+			{
+				CreateComponent(i);
+			}
+			else if (Colors[i-1] != NO_COLOR && Colors[i+1] == NO_COLOR) //single neighbor on the left - extnd
+			{
+				ExtendComponent(Colors[i-1], i);
+			}
+			else if (Colors[i-1] == NO_COLOR && Colors[i+1] != NO_COLOR) //single component on the right - extend
+			{
+				ExtendComponent(Colors[i+1], i);
+			}
+			else if (Colors[i-1] != NO_COLOR && Colors[i+1] != NO_COLOR) //local maximum - merge components
+			{
+				int leftComp, rightComp; 
+                
+				leftComp = Colors[i-1];
+				rightComp = Colors[i+1]; 
+                
+				//choose component with smaller hub destroyed component
+				if (Components[rightComp].MinValue < Components[leftComp].MinValue) //left component has smaller hub
+				{
+					CreatePairedExtrema(Components[leftComp].MinIndex, i);
+				}
+				else	//either right component has smaller hub, or hubs are equal - destroy right component. 
+				{
+					CreatePairedExtrema(Components[rightComp].MinIndex, i);
+				}
+                
+				MergeComponents(leftComp, rightComp);
+				Colors[i] = Colors[i-1]; //color should be correct at both sides at this point
+			}
+		}
+	}    
 
 	/*!
 		Sorts the PairedExtrema list according to the persistence of the features. 
@@ -748,5 +939,61 @@ protected:
 		return true;
 	}
 };
+    
+
+    
+    class fpad // forward propagating automatic differentiation 
+    { 
+        double value_; 
+        double deriv_; 
+    public: 
+        fpad(double v, double d=0) : value_(v), deriv_(d) {} 
+        
+        double value() const {return value_;} 
+        double derivative() const {return deriv_;} 
+        
+        const fpad& equalsTransform(double newVal, double outer_deriv) 
+        { deriv_ = deriv_ * outer_deriv; // Kettenregel 
+            value_ = newVal; 
+        } 
+        
+        const fpad& operator+=(fpad const& x) 
+        { value_ += x.value_; 
+            deriv_ += x.deriv_; 
+            return *this; 
+        } 
+        
+        const fpad& operator-=(fpad const& x) 
+        { value_ -= x.value_; 
+            deriv_ -= x.deriv_; 
+            return *this; 
+        } 
+        
+        const fpad& operator*=(fpad const& x) 
+        { // Produkt-Regel: 
+            deriv_ = deriv_ * x.value_ + value_ * x.deriv_; 
+            value_ *= x.value_; 
+            return *this; 
+        } 
+        
+        friend const fpad operator+(fpad const& a, fpad const& b) 
+        { fpad r(a); r+=b; return r; } 
+        
+        friend const fpad operator-(fpad const& a, fpad const& b) 
+        { fpad r(a); r-=b; return r; } 
+        
+        friend const fpad operator*(fpad const& a, fpad const& b) 
+        { fpad r(a); r*=b; return r; } 
+    }; 
+    
+    fpad sin(fpad t) 
+    { 
+        using std::sin; 
+        using std::cos; 
+        double v = t.value(); 
+        t.equalsTransform(sin(v),cos(v)); // Verkettung 
+        return t; 
+    } 
+ 
 }
 #endif

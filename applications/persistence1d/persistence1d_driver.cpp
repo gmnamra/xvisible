@@ -83,6 +83,10 @@ int main(int argc, char* argv[])
 	{
 		cout << "No filename" << endl;
 		cout << "Usage: " << argv[0] << " <filename> [threshold] [-MATLAB]" << endl;
+
+		cout << "Running cpad demo " << endl;        
+        fpad_main();
+        
 		return false;
 	}
 
@@ -221,3 +225,17 @@ bool ParseCmdLine(int argc, char* argv[], float &threshold, bool & matlabIndexin
 	}
 	return noErrors;
 }
+
+
+
+
+int fpad_main() 
+{ 
+    fpad x (0.123, 1.0); // Identitaet für x=0.123 
+    // 1.0 ist die Ableitung der Identitaet 
+    fpad y = x*x - 3*sin(x) + 2; 
+    std::cout << "f(x) = x*x - 3*sin(x) + 2\n" 
+    "fuer x=0.123 ist f (x) = " << y.value() << "\n" 
+    "             ist f'(x) = " << y.derivative() << "\n"; 
+}
+
