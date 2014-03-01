@@ -24,12 +24,36 @@
 
 #include <fstream>
 #include <string>
+#include <vector>
+#include <iterator>
 
 #define MATLAB "-MATLAB"
 
 using namespace std;
 using namespace p1d;
 
+
+
+
+struct norm_scaler
+{
+    void operator()(const std::vector<float>& src, std::vector<float>& dst, float pw)
+    {
+        vector<float>::const_iterator bot = std::min_element (src.begin (), src.end() );
+        vector<float>::const_iterator top = std::max_element (src.begin (), src.end() );
+        
+        float scaleBy = *top - *bot;
+        dst.resize (src.size ());
+        for (int ii = 0; ii < src.size (); ii++)
+        {
+            float dd = (src[ii] - *bot) / scaleBy;
+            dst[ii] = pow (dd, 1.0 / pw);
+        }
+    }
+};
+
+
+int fpad_main ();
 
 /*!
 	Tries to open the input file and read its contents to a float vector.
@@ -56,6 +80,8 @@ bool ReadFileToVector (char * filename, vector<float> & data);
 	
 */
 void WriteMinMaxPairsToFile (char * filename, vector<TPairedExtrema> pairs);
+bool WriteVectorToFile (char * filename, vector<float> singles);
+
 /*!
 	Parses user command line.
 	Checks if the user set a threshold value or wants MATLAB indexing.
@@ -91,30 +117,45 @@ int main(int argc, char* argv[])
 	}
 
 	//filename processing, easier done here.
-	char * filename = argv[1];
-	char * outfilename = new char[strlen(filename) + strlen("_res.txt")];
-	strcpy(outfilename, filename);
-
-	outfilename[strlen(filename)-4] = '\0';
-	strcat(outfilename, "_res.txt");
-	
+    std::string ffullname (argv[1]);
+    std::string fname = ffullname.substr(0, ffullname.length()-4);
+    std::string outfilename = fname + "_res.txt";
+    std::string nfname = fname + "_norm.txt";
+    std::string d2fname = fname + "_d2.txt";    
+    
 	if (!ParseCmdLine(argc, argv, threshold, matlabIndexing))
 	{
 		cout << "Usage: " << argv[0] << " <filename> [threshold] [-MATLAB]" << endl;
 		return -1; 
 	}
 	
-	if(!ReadFileToVector(filename, data))
+	if(!ReadFileToVector(((char*)ffullname.c_str()), data))
 	{
 		cout << "Error reading data to file." << endl; 
 		return -2;
 	}
 	
+    vector<float> normed (data.size ());
+    std::copy_n (data.begin(), data.size (), normed.begin () );
+    norm_scaler ns;
+    ns.operator()(normed, data, 1.0f);
+    
+    
+	if(!WriteVectorToFile(((char*)nfname.c_str()), data))
+	{
+		cout << "Error reading data to file." << endl; 
+		return -2;
+	}
+    
 	p.RunPersistence(data);
 	p.GetPairedExtrema(pairs, threshold , matlabIndexing);
-	WriteMinMaxPairsToFile(outfilename, pairs);
+    WriteMinMaxPairsToFile(((char*)outfilename.c_str()), pairs);
+	if (! WriteVectorToFile (((char*)d2fname.c_str()), p.secondDerivative () ) )
+    {
+		cout << "Error reading data to file." << endl; 
+		return -2;
+	}
 
-	delete outfilename;
 		
 	return 0;
 }
@@ -162,6 +203,27 @@ void WriteMinMaxPairsToFile (char * filename, vector<TPairedExtrema> pairs)
 
 	datafile.close();
 }
+
+bool WriteVectorToFile (char * filename, vector<float> singles)
+{
+	ofstream datafile;
+	datafile.open(filename);
+
+	if (!datafile)
+	{
+		cout << "Cannot open file " << filename << " for writing." << endl;
+		return false;
+	}
+
+	for (vector<float>::iterator p = singles.begin(); p != singles.end(); p++)
+	{
+		datafile << to_string((float)(*p)) << endl;
+    }
+
+	datafile.close();
+    return true;
+}
+
 bool ParseCmdLine(int argc, char* argv[], float &threshold, bool & matlabIndexing)
 {	
 	bool noErrors = true;
@@ -237,5 +299,6 @@ int fpad_main()
     std::cout << "f(x) = x*x - 3*sin(x) + 2\n" 
     "fuer x=0.123 ist f (x) = " << y.value() << "\n" 
     "             ist f'(x) = " << y.derivative() << "\n"; 
+    return 0;
 }
 

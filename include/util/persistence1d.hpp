@@ -167,6 +167,7 @@ public:
 		//If a user runs this on an empty vector, then they should not get the results of the previous run.
 		if (Data.empty()) return false;
         DiffrentiateTwice(Data, SecondDerivative);
+        std::copy_n(secondDerivative().begin (), Data.size(), Data.begin () );
 		CreateIndexValueVector();
 		Watershed();
 		SortPairedExtrema();
@@ -378,6 +379,8 @@ public:
 		return flag;
 	}
 
+    const std::vector<float>& secondDerivative () const { return SecondDerivative; }
+    
 protected:
     /*!
      A vector of Contractions. 
@@ -441,12 +444,12 @@ protected:
         dend--;        dend--;        dend--;
         std::vector<float>::iterator d1 = deriv.begin(); 
         d1++; // first place we compute
-        for (; dm1 < dend; d1++)
+        for (; dm1 < dend; d1++, dm1++)
         {
-            float s = *dm1++;
-            float c = *dm1++;
+            float s = dm1[0];
+            float c = dm1[1];
             s -= (c + c);
-            s += (*dm1++);
+            s += (dm1[2]);
             *d1 = s;
         }
 
@@ -955,6 +958,7 @@ protected:
         const fpad& equalsTransform(double newVal, double outer_deriv) 
         { deriv_ = deriv_ * outer_deriv; // Kettenregel 
             value_ = newVal; 
+            return *this;
         } 
         
         const fpad& operator+=(fpad const& x) 
