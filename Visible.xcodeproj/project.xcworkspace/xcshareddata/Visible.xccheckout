@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CA32289C-CBBC-4769-B038-4C03E2587703</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Visible</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>444B391E-0A96-4757-8BA7-C5FA65908C03</key>
+		<string>ssh://feynman.local/git/visibleqt105.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Visible.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>444B391E-0A96-4757-8BA7-C5FA65908C03</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://feynman.local/git/visibleqt105.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>444B391E-0A96-4757-8BA7-C5FA65908C03</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>444B391E-0A96-4757-8BA7-C5FA65908C03</string>
+			<key>IDESourceControlWCCName</key>
+			<string>visiqt105</string>
+		</dict>
+	</array>
+</dict>
+</plist>
