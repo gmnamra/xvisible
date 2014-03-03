@@ -62,6 +62,10 @@
             argument = "$SRCROOT/applications/persistence1d/test.txt "
             isEnabled = "YES">
          </CommandLineArgument>
+         <CommandLineArgument
+            argument = "0.009"
+            isEnabled = "YES">
+         </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>

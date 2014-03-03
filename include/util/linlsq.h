@@ -28,6 +28,7 @@ class LLSQ
     return static_cast<int>(total_weight + 0.5);
   }
 
+    
   double m() const;  // get gradient
   double c(double m) const;            // get constant
   double rms(double m, double c) const;            // get error

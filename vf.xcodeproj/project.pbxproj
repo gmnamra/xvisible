@@ -693,6 +693,7 @@
 		C26FA0490F212DF40046570D /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0480F212DF40046570D /* CoreServices.framework */; };
 		C26FA04F0F212E170046570D /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA04E0F212E170046570D /* QuickTime.framework */; };
 		C26FA0540F212E300046570D /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0530F212E300046570D /* Accelerate.framework */; };
+		C274E55B18C38BE500B7666B /* linlsq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26DB1D2184E618B00879A31 /* linlsq.cpp */; };
 		C2850D0D131A1920002C8918 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2850D0A131A1920002C8918 /* InfoPlist.strings */; };
 		C290D0FA187B9CAA00135E01 /* linlsq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26DB1D2184E618B00879A31 /* linlsq.cpp */; };
 		C292A6641845BCF30067FA2B /* peakspotter.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C292A6621845BCF30067FA2B /* peakspotter.hpp */; };
@@ -4183,6 +4184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C274E55B18C38BE500B7666B /* linlsq.cpp in Sources */,
 				C297DD5018A1D86D00F217A5 /* persistence1d_driver.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -127,6 +127,14 @@ struct TPairedExtrema
 };
 
 
+enum  contraction_state
+    {
+        eUnknown = 0,
+        eContraction = eUnknown+1,
+        eRelaxation = eContraction+1,
+        ePeakContraction = eRelaxation+1,
+        eNumStates = ePeakContraction+1
+    };
 
 /*! Finds extrema and their persistence in one-dimensional data.
 
@@ -159,15 +167,25 @@ public:
 
 		@param[in] InputData Vector of data to find features on, ordered according to its axis.
 	*/
-	bool RunPersistence(const std::vector<float>& InputData)
+	void operator () (const std::vector<float>& InputData)
 	{	
 		Data = InputData; 
 		Init();
 
 		//If a user runs this on an empty vector, then they should not get the results of the previous run.
-		if (Data.empty()) return false;
+        valid = ! data.empty ();
+		if (!valid) return;
+        
+        // Run persistence on raw data
+        CreateIndexValueVector();
+		Watershed();
+		SortPairedExtrema();
+        
+        // Get the second derivative. Square it so that we can just find local peaks
         DiffrentiateTwice(Data, SecondDerivative);
-        std::copy_n(secondDerivative().begin (), Data.size(), Data.begin () );
+        std::transform(Array.begin(), Array.end(), Array.begin(), 
+                       std::bind2nd(std::ptr_fun<double, double>(squares));
+
 		CreateIndexValueVector();
 		Watershed();
 		SortPairedExtrema();
@@ -382,6 +400,10 @@ public:
     const std::vector<float>& secondDerivative () const { return SecondDerivative; }
     
 protected:
+	/*!
+     do we have valid data
+     */    
+    volatile bool valid;
     /*!
      A vector of Contractions. 
      The component index within the vector is used as its Colors in the Watershed function.
@@ -411,6 +433,13 @@ protected:
 		The Component values in this vector are invalid at the end of the algorithm.
 	*/
 	std::vector<int> Colors;		//need to init to empty
+    
+	/*!
+     Contains the Component assignment for each vertex in Data. 
+     Only edges of destroyed components are updated to the new component color.
+     The Component values in this vector are invalid at the end of the algorithm.
+     */
+	std::vector<int> ContractionStates;		//need to init to empty    
 
 	/*!
 		A vector of Components. 
@@ -665,10 +694,11 @@ protected:
      */
 	void InitContractionProcessing()
 	{
-		
-		Colors.clear();
-		Colors.resize(Data.size());
-		std::fill(Colors.begin(), Colors.end(), NO_COLOR);
+        Init ();
+        
+		ContractionStates.clear();
+		ContractionStates.resize(Data.size());
+		std::fill(ContractionStates.begin(), ContractionStates.end(), eUnknown);
 		
 		int vectorSize = (int)(Data.size()/RESIZE_FACTOR) + 1; //starting reserved size >= 1 at least
 		
@@ -678,8 +708,6 @@ protected:
 		TotalContractions = 0;
 		AliveContractionsVerified = false;
         
-        // compute 2nd derivative for the entire length of the data
-        // TBD !!!!!!!!!!!!!!!
 	}    
 
 	/*!
@@ -941,6 +969,9 @@ protected:
 		
 		return true;
 	}
+    
+    
+    static inline double squares (double x) { return x*x; }
 };
     
 

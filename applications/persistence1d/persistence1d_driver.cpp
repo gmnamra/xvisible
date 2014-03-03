@@ -21,7 +21,7 @@
 
 
 #include "persistence1d.hpp"
-
+#include "linlsq.h"
 #include <fstream>
 #include <string>
 #include <vector>
@@ -51,6 +51,35 @@ struct norm_scaler
         }
     }
 };
+
+
+
+struct detrender
+{
+    struct lsqres
+    {
+        float r;
+        double angle_in_radian;
+        double constant;
+        rc2Fvector mean_point;
+    };
+    void operator()(const std::vector<float>& src, lsqres& res)
+    {
+        LLSQ lsqr;
+        double dsize = (double) src.size ();        
+        for (uint ii = 0; ii < src.size (); ii++)
+        {
+            lsqr.add(ii / dsize, src[ii]);
+        }
+        res.angle_in_radian = lsqr.vector_fit_angle().Double();
+        res.r = lsqr.pearson();
+        res.constant = lsqr.c(lsqr.m());
+        res.mean_point = lsqr.mean_point();
+
+    }
+
+};
+
 
 
 int fpad_main ();
@@ -140,8 +169,11 @@ int main(int argc, char* argv[])
     norm_scaler ns;
     ns.operator()(normed, data, 1.0f);
     
+    detrender dt;
+    detrender::lsqres lsres;
+    dt.operator()(data, lsres);
     
-	if(!WriteVectorToFile(((char*)nfname.c_str()), data))
+	if(!WriteVectorToFile(((char*)nfname.c_str()), normed))
 	{
 		cout << "Error reading data to file." << endl; 
 		return -2;
@@ -152,7 +184,7 @@ int main(int argc, char* argv[])
     WriteMinMaxPairsToFile(((char*)outfilename.c_str()), pairs);
 	if (! WriteVectorToFile (((char*)d2fname.c_str()), p.secondDerivative () ) )
     {
-		cout << "Error reading data to file." << endl; 
+		cout << "Error reading data to file ." << endl; 
 		return -2;
 	}
 

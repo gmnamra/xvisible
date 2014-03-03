@@ -244,5 +244,5 @@ double LLSQ::rms_orth(const rc2Fvector &dir) const {
 rc2Fvector LLSQ::vector_fit  () const
 {
 	rcRadian theta = vector_fit_angle ();
-	rc2Fvector result(cos(theta), sin(theta));
+	return rc2Fvector (cos(theta), sin(theta));
 }
