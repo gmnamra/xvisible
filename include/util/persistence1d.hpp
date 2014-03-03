@@ -4,11 +4,12 @@
 #define PERSISTENCE_H
 
 #include <assert.h>
-#include <algorithm>
 #include <iostream>
 #include <iterator>
 #include <vector>
 #include <cmath> 
+#include <algorithm>     // std::transform
+#include <functional>    // std::bind2nd, std::divides
 
 #define NO_COLOR -1
 #define RESIZE_FACTOR 20
@@ -148,6 +149,8 @@ enum  contraction_state
 class Persistence1D
 {
 public:
+    
+    
 	Persistence1D()
 	{
 	}
@@ -155,9 +158,39 @@ public:
 	~Persistence1D()
 	{
 	}
-			
+		
 	/*!
-		Call this function with a vector of one dimensional data to find extrema features in the data.
+	 Call this function with a vector of one dimensional data to find extrema features in the data.
+	 The function runs once for, results can be retrieved with different persistent thresholds without
+	 further data processing.
+
+	 Input data vector is assumed to be of legal size and legal values.
+
+	 Use PrintResults, GetPairedExtrema or GetExtremaIndices to get results of the function.
+
+	 @param[in] InputData Vector of data to find features on, ordered according to its axis.
+	 */
+	bool RunPersistence(const std::vector<float>& InputData)
+	{
+		Data = InputData;
+		Init();
+
+		//If a user runs this on an empty vector, then they should not get the results of the previous run.
+		if (Data.empty()) return false;
+
+		CreateIndexValueVector();
+		Watershed();
+		SortPairedExtrema();
+#ifdef _DEBUG
+		VerifyAliveComponents();
+#endif
+		return true;
+	}
+	
+
+	/*!
+		Call this function with a vector of one dimensional data to find
+	       Contractions in the data.
 		The function runs once for, results can be retrieved with different persistent thresholds without
 		further data processing.		
 						
@@ -167,34 +200,26 @@ public:
 
 		@param[in] InputData Vector of data to find features on, ordered according to its axis.
 	*/
+    static inline float squares (const float x) { return x*x; }
+    
 	void operator () (const std::vector<float>& InputData)
 	{	
-		Data = InputData; 
-		Init();
-
-		//If a user runs this on an empty vector, then they should not get the results of the previous run.
-        valid = ! data.empty ();
+        // Run persistence on raw data        
+		valid = RunPersistence (InputData);
 		if (!valid) return;
         
-        // Run persistence on raw data
-        CreateIndexValueVector();
-		Watershed();
-		SortPairedExtrema();
-        
         // Get the second derivative. Square it so that we can just find local peaks
-        DiffrentiateTwice(Data, SecondDerivative);
-        std::transform(Array.begin(), Array.end(), Array.begin(), 
-                       std::bind2nd(std::ptr_fun<double, double>(squares));
+        DiffrentiateTwice(Data, mSecondDerivative);
+        std::transform(mSecondDerivative.begin(), mSecondDerivative.end(), mSecondDerivative.begin(), 
+                       std::bind2nd(std::ptr_fun<float, float>(Persistence1D::squares)));
 
-		CreateIndexValueVector();
-		Watershed();
-		SortPairedExtrema();
+	
         GetContractionsCandidates ();
         
 #ifdef _DEBUG
 		VerifyAliveComponents();	
 #endif
-		return true;
+
 	}
 
     void GetContractionsCandidates ()
@@ -397,7 +422,7 @@ public:
 		return flag;
 	}
 
-    const std::vector<float>& secondDerivative () const { return SecondDerivative; }
+    const std::vector<float>& secondDerivative () const { return mSecondDerivative; }
     
 protected:
 	/*!
@@ -418,7 +443,7 @@ protected:
     /*!
      Contain a copy of the original input data.
      */
-	std::vector<float> SecondDerivative;
+	std::vector<float> mSecondDerivative;
 
 	
 	/*!
@@ -970,8 +995,7 @@ protected:
 		return true;
 	}
     
-    
-    static inline double squares (double x) { return x*x; }
+
 };
     
 
