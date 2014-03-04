@@ -26,6 +26,7 @@
 #include <string>
 #include <vector>
 #include <iterator>
+#include <rc_stats.h>
 
 #define MATLAB "-MATLAB"
 
@@ -54,7 +55,7 @@ struct norm_scaler
 
 
 
-struct detrender
+struct peaker
 {
     struct lsqres
     {
@@ -63,18 +64,47 @@ struct detrender
         double constant;
         rc2Fvector mean_point;
     };
-    void operator()(const std::vector<float>& src, lsqres& res)
+    typedef std::pair<uint, float> peak_pos;
+    
+    void operator()(std::vector<float>& src, std::vector<peak_pos>& peaks, int half_window = 4)
     {
+        int fw = 2 * half_window + 1;
+        if (src.size() <= fw) return;
+        
+        // use regression to find a flat threshold
         LLSQ lsqr;
         double dsize = (double) src.size ();        
         for (uint ii = 0; ii < src.size (); ii++)
-        {
             lsqr.add(ii / dsize, src[ii]);
+
+        // Check if we have a plausible fit. Check to see if the angle is less than a degree
+        rcRadian onedegree (rcDegree (1.0 ));
+        float low_threshold = lsqr.vector_fit_angle().Double() < onedegree.Double() ?
+        lsqr.c(lsqr.m()) : rfMedian (src);
+        
+        peaks.resize (0);
+
+        vector<float>::iterator left = src.begin();
+        vector<float>::iterator right = src.begin();
+        int peak_index = half_window;
+        std::advance(right, fw);
+        do
+        {
+            vector<float>::iterator maxItr = max_element (left, right);
+            if (maxItr == src.end()) continue;
+            if (*maxItr < low_threshold) continue;
+            vector<float>::difference_type ds = std::distance (left, maxItr);
+            if (ds == half_window)
+            {
+                peak_pos pp (peak_index, src[peak_index]);
+                peaks.push_back (pp);
+                std::cerr << "# " << peaks.size() << " peak @ [ " << peak_index << " ] = " << src[peak_index] << std::endl;
+            }
+            peak_index++;
+            
         }
-        res.angle_in_radian = lsqr.vector_fit_angle().Double();
-        res.r = lsqr.pearson();
-        res.constant = lsqr.c(lsqr.m());
-        res.mean_point = lsqr.mean_point();
+        while (left++ < right && right++ < src.end());
+        
 
     }
 
@@ -169,9 +199,6 @@ int main(int argc, char* argv[])
     norm_scaler ns;
     ns.operator()(normed, data, 1.0f);
     
-    detrender dt;
-    detrender::lsqres lsres;
-    dt.operator()(data, lsres);
     
 	if(!WriteVectorToFile(((char*)nfname.c_str()), normed))
 	{

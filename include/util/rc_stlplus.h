@@ -51,7 +51,7 @@
 #include <iterator>
 #include <rc_types.h>
 #include <sstream>
-#include <file_system.hpp>
+#include "file_system.hpp"
 
 using namespace std;
 
@@ -69,6 +69,38 @@ using namespace std;
 
 #define dirokandreadable(a) ( ! ( (a).empty() || ! folder_exists ((a)) || \
 ! folder_readable ((a)) || ! is_full_path ((a))))
+
+
+/**
+ * Famous Constants
+ */
+template <typename T>
+class Constants
+{
+public:
+    typedef T value_type;
+    
+    // Pi, the ratio of a circle's circumference to its diameter.
+    static inline value_type pi() { return static_cast<value_type>
+        (3.14159265358979323846264338327950288419716939937510);
+    }
+    
+    // Base of natural logarithm
+    static inline value_type e() { return static_cast<value_type>
+        (2.71828182845904523536028747135266249775724709369995);
+    }
+    
+    // Euler's (Euler-Mascheroni) Constant
+    static inline value_type g() { return static_cast<value_type>
+        (0.57721566490153286060651209008240243104215933593992);
+    }
+    
+    static inline value_type goldenRatio()
+    {
+        return static_cast<value_type>
+        (1.61803398874989484820458683436563811);
+    }
+};
 
 
 template <typename Array>
@@ -237,189 +269,90 @@ public:
 	int size() { return lst.size(); }
 };
 
-
-
-#if 0
-template<typename AccumulatorType>
-class order_2_accumulator
+template <typename T>
+class LinearFunc
 {
-  public:
-    typedef AccumulatorType value_type;
+public:
+    typedef T value_type;
+    typedef T result_type;
+    
+    LinearFunc(const T a, const T b) : _a(a), _b(b) {}
+    
+    T operator()(const T &x) const { return _a*x + _b; }
+    
+private:
+    const T _a, _b;
+};
 
-    order_2_accumulator():
-      Count(),
-      Sum(),
-      Sum2()
-    {}
-    order_2_accumulator(unsigned int count_,
-                        const value_type& sum_,
-                        const value_type& sum2_):
-      Count(count_),
-      Sum(sum_),
-      Sum2(sum2_)
-    {}
+// A quadratic function: y = a*x^2 + b*x + c
+template <typename T>
+class QuadraticFunc
+{
+public:
+    typedef T value_type;
+    typedef T result_type;
+    
+    QuadraticFunc(const T a, const T b, const T c) :
+    _a(a), _b(b), _c(c) {}
+    
+    T operator()(const T &x) const { return _a*x*x + _b*x + _c; }
+    
+private:
+    const T _a, _b, _c;
+};
 
-    unsigned int count() const     { return Count; }
-    value_type sum() const         { return Sum; }
-    value_type sum_squares() const { return Sum2; }
-    value_type mean() const        { return Sum/Count; }
-    value_type variance() const    { return Sum2/Count - (Sum*Sum)/(Count*Count); }
+template <typename T>
+struct Square
+{
+	typedef T value_type;
+	typedef T result_type;
+    
+	T operator()(const T &x) const { return x*x; }
+};
 
-    // Scott Kirkwood: added these - would require sqrt() though.
-    value_type std() const         { return std::sqrt(variance); }
-    value_type std_error_of_mean() { return std() / std::sqrt(Count); }
-    value_type root_mean_square()  { return std::sqrt(Sum2 / Count); }
-    value_type coefficient_of_variation() { return 100 * std() / mean(); }
-
-    template<typename T>
-    order_2_accumulator<value_type> bump(const T& value_)
+// Gaussian Normal
+template <typename T>
+class Gaussian
+{
+public:
+    typedef T value_type;
+    typedef T result_type;
+    
+    Gaussian(const T mu, const T sigmaSq):_mu(mu),
+    _OneOver2SigmaSq(T(1) / (T(2) * sigmaSq)),
+    _OneOverSigma(T(1) / std::sqrt(sigmaSq)) { }
+    
+    T operator()(const T &x) const
     {
-      ++Count;
-      Sum  += value_;
-      Sum2 += value_*value_;
-      return *this;
+        const T OneOverSqrt2Pi = T(1) /
+        std::sqrt( T(2)*Constants<T>::pi() );
+        const T xmu = x - _mu;
+        
+        return OneOverSqrt2Pi * _OneOverSigma *
+        std::exp(- xmu*xmu * _OneOver2SigmaSq );
     }
-  private:
-    unsigned int Count;
-    value_type   Sum;
-    value_type   Sum2;
+    
+private:
+    const T _mu, _OneOver2SigmaSq, _OneOverSigma;
+};
+
+template <typename T>
+class Clamp
+{
+public:
+    typedef T value_type;
+    typedef T result_type;
+    
+    Clamp(const T low, const T high) : _low(low), _high(high) { }
+    
+    T operator()(const T &x) const
+    { return std::min(_high, std::max(x, _low)); }
+    
+private:
+    const T _low, _high;
 };
 
 
-// Default operator used by std::accumulate
-template<typename AccumulatorType, typename T>
-AccumulatorType operator+(const AccumulatorType& init_, const T& value_)
-{
-  AccumulatorType accum(init_);
-  return accum.bump(value_);
-}
-
-
-
-#include <iostream>
-#include <numeric>
-int main()
-{
-  int seq[] ={1, 2, 3, 4};
-  order_2_accumulator<double> sum=std::accumulate(seq, seq+4, order_2_accumulator<double>());
-  std::cout << sum.count() << ' ' << sum.sum() << ' ' << sum.sum_squares() << std::endl;
-  std::cout << sum.mean() << ' ' << sum.variance() << std::endl;
-
-  double seq2[] = {1., 2., 3., 4.};
-  sum=std::accumulate(seq2, seq2+4, sum);
-  std::cout << sum.count() << ' ' << sum.sum() << ' ' << sum.sum_squares() << std::endl;
-  std::cout << sum.mean() << ' ' << sum.variance() << std::endl;
-
-}
-
-
- #include <cmath>
-
- template<class InputIterator>
- inline
- typename std::iterator_traits<InputIterator>::value_type
- mean(InputIterator begin,
-      InputIterator end,
-      typename std::iterator_traits<InputIterator>::value_type zero = 0)     
- {
-   unsigned int count = 0;
-   typename std::iterator_traits<InputIterator>::value_type sum = zero;
-   for(InputIterator i=begin; i < end; ++i) {
-     sum += *i;
-     count++;
-   }
-   return sum/count;
- }
-
-
- template<class InputIterator>
- inline
- typename std::iterator_traits<InputIterator>::value_type
- variance(InputIterator begin,
-          InputIterator end,
-          typename std::iterator_traits<InputIterator>::value_type zero = 0)
- {
-   typename std::iterator_traits<InputIterator>::value_type
-     mn = mean(begin,end);
-   unsigned int count = 0;
-   typename std::iterator_traits<InputIterator>::value_type sum = zero;
-   for(InputIterator i=begin; i < end; ++i) {
-     sum += std::pow(*i - mn, 2);
-     count++;
-   }
-   return sum/(count-1);
- }
- 
- template<class InputIterator>
- inline
- typename std::iterator_traits<InputIterator>::value_type
- standard_deviation(InputIterator begin,
-                    InputIterator end,
-                    typename std::iterator_traits<InputIterator>::value_type zero = 0)   
- {
-   return std::sqrt(variance(begin, end, zero));
- } 
-
-
-
-
-/*******************************************************************************
-* APPLICATION:  scientific & fixed
-*
-* COMMENTS:
-*
-* The standards of the C++ Library say that there are many stream manipulators
-* in ios, but I found some to be absent from the platform that I am using.  Two
-* are scientific and fixed, the manipulators that control the appearance of
-* floating-point numbers.  Therefore, we shall try to provide these two
-* ourselves.
-*
-* We shall implement these so that each sets its corresponding bit flag in the
-* format state and resets the other.  Also, each has an istream and ostream
-* version.  The istream version is useless since ios:scientific and ios::fixed
-* do not affect input streams; however, we can see how they look.
-*
-* This is an example of a user-defined manipulator.  Notice that these
-* manipulators require no argument from the user.
-*
-* ACTION:
-*
-* Provide the other manipulators missing from your platform.
-*/ 
-
-/*
-******************************************************************************/
-
-// #include // iostream
-// #include // stdlib.h:  EXIT_SUCCESS
-
-/******************************************************************************/
-const char SIXTEEN[] = " (in base 16)";
-
-void rfDisplayStreamFlags (long flag) {
- cout << hex << flag << SIXTEEN << endl;
- cout << "========================" << endl;
- cout << "  skipws     = " << ((flag & ios::skipws    ) ? "ON" : "OFF") << endl;
- cout << "  left       = " << ((flag & ios::left      ) ? "ON" : "OFF") << endl;
- cout << "  right      = " << ((flag & ios::right     ) ? "ON" : "OFF") << endl;
- cout << "  internal   = " << ((flag & ios::internal  ) ? "ON" : "OFF") << endl;
- cout << "  dec        = " << ((flag & ios::dec       ) ? "ON" : "OFF") << endl;
- cout << "  oct        = " << ((flag & ios::oct       ) ? "ON" : "OFF") << endl;
- cout << "  hex        = " << ((flag & ios::hex       ) ? "ON" : "OFF") << endl;
- cout << "  showbase   = " << ((flag & ios::showbase  ) ? "ON" : "OFF") << endl;
- cout << "  showpoint  = " << ((flag & ios::showpoint ) ? "ON" : "OFF") << endl;
- cout << "  uppercase  = " << ((flag & ios::uppercase ) ? "ON" : "OFF") << endl;
- cout << "  showpos    = " << ((flag & ios::showpos   ) ? "ON" : "OFF") << endl;
- cout << "  scientific = " << ((flag & ios::scientific) ? "ON" : "OFF") << endl;
- cout << "  fixed      = " << ((flag & ios::fixed     ) ? "ON" : "OFF") << endl;
- cout << "  unitbuf    = " << ((flag & ios::unitbuf   ) ? "ON" : "OFF") << endl;
- // cout << "  stdio      = " << ((flag & ios::stdio     ) ? "ON" : "OFF") << endl;
- cout << endl;
- cout.flags(flag);   // restore format flag settings disturbed by '<< hex'.
-}
-/******************************************************************************/
-
-#endif
 
 
 #endif /* __rcSTLPLUS_H */

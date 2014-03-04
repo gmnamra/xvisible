@@ -10,7 +10,7 @@
 #include <cmath> 
 #include <algorithm>     // std::transform
 #include <functional>    // std::bind2nd, std::divides
-
+#include <rc_stlplus.h>
 #define NO_COLOR -1
 #define RESIZE_FACTOR 20
 #define MATLAB_INDEX_FACTOR 1
@@ -137,6 +137,7 @@ enum  contraction_state
         eNumStates = ePeakContraction+1
     };
 
+    
 /*! Finds extrema and their persistence in one-dimensional data.
 
 	Local minima and local maxima are extracted, paired,
@@ -200,7 +201,7 @@ public:
 
 		@param[in] InputData Vector of data to find features on, ordered according to its axis.
 	*/
-    static inline float squares (const float x) { return x*x; }
+    static inline float squares (float x) { return x*x; }
     
 	void operator () (const std::vector<float>& InputData)
 	{	
@@ -211,7 +212,8 @@ public:
         // Get the second derivative. Square it so that we can just find local peaks
         DiffrentiateTwice(Data, mSecondDerivative);
         std::transform(mSecondDerivative.begin(), mSecondDerivative.end(), mSecondDerivative.begin(), 
-                       std::bind2nd(std::ptr_fun<float, float>(Persistence1D::squares)));
+                       mSecondDerivative.begin (), std::multiplies<double>());
+
 
 	
         GetContractionsCandidates ();
