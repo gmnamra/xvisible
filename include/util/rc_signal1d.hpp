@@ -50,10 +50,21 @@ struct valley_detector
     typedef std::vector<float> Container;
     typedef Container::iterator Iterator;
     
-    void operator()(Container& src, std::vector<peak_pos>& peaks, int half_window = 4, float high_threshold = 0.00009)
+    void operator()(Container& src, std::vector<peak_pos>& peaks, int half_window = 4)
     {
         int fw = 2 * half_window + 1;
         if (src.size() <= fw) return;
+
+        // use regression to find a flat threshold
+        LLSQ lsqr;
+        double dsize = (double) src.size ();        
+        for (uint ii = 0; ii < src.size (); ii++)
+            lsqr.add(ii / dsize, src[ii]);
+        
+        // Check if we have a plausible fit. Check to see if the angle is less than a degree
+        rcRadian onedegree (rcDegree (1.0 ));
+        float high_threshold = lsqr.vector_fit_angle().Double() < onedegree.Double() ?
+        lsqr.c(lsqr.m()) : rfMedian (src);
         
         peaks.resize (0);
         
