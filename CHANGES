@@ -1,0 +1,84 @@
+Version 0.1.0
+ - removed obsolete headers
+ - fixed linking issues with OpenCv using 32bit built off 2.2 fixed issues with rcFind. added git version script
+ - Implemented valley_detector for raw signal and peak detector for 2nd derivative
+ - wip
+ - adding test file
+ - wip
+ - wip
+ - wip
+ - persistence scheme
+ - wip
+ - added more output files and switched to std::string
+ - Merge branch 'master' of ssh://feynman.local/git/visibleqt105
+ - xcode user state
+ - adding contraction to persistence1d
+ - adding contraction to persistence1d
+ - Merge remote-tracking branch 'origin/master'
+ - wip
+ - updated ignores. resolved post build script
+ - fixed issues with registering producer frameworks in consumer frameworks and so on.
+ - wip
+ - added clad and contraction api adds
+ - added clad demo
+ - updated
+ - wip
+ - update
+ - wip
+ - Added light plotting removed unused guy pieces wip for persistence 1d
+ - updated mods and built new Visible
+ - added ut for persistencefixed an assertion in similarity ut for options no longer supported
+ - removing obsolete files
+ - using an earlier OpenCV
+ - adding 1dpersistence and fixing issues in gut project setting
+ - ignores
+ - cleaning up Xcode folders
+ -  refactored
+ -  build products
+ -  refactored
+ -  removed .svn files
+ -  OpenCV 2.4.6 32bit build
+ -  removed Products build dir
+ -  removed Products build dir
+ -  removed Products build dir
+ -  refactored beta
+ -  refactored beta
+ -  refactored beta
+ -  refactored beta
+ -  refactored beta
+ -  refactored beta
+ -  refactored beta
+ -  refactored beta
+ -  refactored beta
+ -  refactored beta
+ -  refactored beta
+ -  refactored beta
+ - update project file
+ - Removed experiment tab
+ - incremental
+ - ut updates
+ - moved guest in to usr/local off the build pruned build to work by compiling gtest-all.cc in the project. Symbols Hidden by Default  Inline Methods Hidden
+ - adding ut files
+ - gtest
+ - test harness
+ - added mean projection of sm
+ - test
+ - checking products
+ - fixed issues with shell script for install names
+ -  adding moc files
+ -  removing build files
+ -  removing build files
+ - deleting .o and .dia files
+ - modified install shell script to fetch name from PRODUCT_NAME
+ -  removing vf_release
+ -  adding new scheme files
+ -  vf release scheme cont.
+ -  vf release scheme
+ -  vf release scheme
+ -  vf release scheme
+ -  vf release update and name change
+ -  added stlplus sources
+ - git adding
+ - added stlplus support
+ -  refactored qt based visible
+
