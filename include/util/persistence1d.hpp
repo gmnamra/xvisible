@@ -11,6 +11,8 @@
 #include <algorithm>     // std::transform
 #include <functional>    // std::bind2nd, std::divides
 #include <rc_stlplus.h>
+#include <rc_signal1d.hpp>
+
 #define NO_COLOR -1
 #define RESIZE_FACTOR 20
 #define MATLAB_INDEX_FACTOR 1
@@ -18,6 +20,7 @@
 namespace p1d 
 {
 
+    
 /** Used to sort data according to its absolute value and refer to its original index in the Data vector.
 
 	A collection of TIdxAndData is sorted according to its data value (if values are equal, according
@@ -201,9 +204,9 @@ public:
 
 		@param[in] InputData Vector of data to find features on, ordered according to its axis.
 	*/
-    static inline float squares (float x) { return x*x; }
+
     
-	void operator () (const std::vector<float>& InputData)
+	void operator () (const std::vector<float>& InputData, int half_window)
 	{	
         // Run persistence on raw data        
 		valid = RunPersistence (InputData);
@@ -211,10 +214,20 @@ public:
         
         // Get the second derivative. Square it so that we can just find local peaks
         DiffrentiateTwice(Data, mSecondDerivative);
-        std::transform(mSecondDerivative.begin(), mSecondDerivative.end(), mSecondDerivative.begin(), 
-                       mSecondDerivative.begin (), std::multiplies<double>());
+        std::vector<float>::iterator d2 = mSecondDerivative.begin ();
+        std::vector<float>::iterator de = mSecondDerivative.end ();
+        std::vector<float> zcm (mSecondDerivative.size (), float (0) );
+        std::vector<float>::iterator dzc = zcm.begin ();
+        d2++;de--;dzc++;
+        for (; d2 < de; d2++) { float zcv (*d2 * d2[-1]); *dzc++ = zcv < 0 ? -zcv : 0; }
 
+        std::vector<peak_detector::peak_pos> zcpeaks;
+        std::vector<peak_detector::peak_pos> peaks;        
+        peak_detector pk;
+        pk.operator() (zcm, zcpeaks, half_window);
 
+        valley_detector vd;
+        vd.operator () (Data, peaks, half_window);
 	
         GetContractionsCandidates ();
         
@@ -1000,61 +1013,7 @@ protected:
 
 };
     
-
-    
-    class fpad // forward propagating automatic differentiation 
-    { 
-        double value_; 
-        double deriv_; 
-    public: 
-        fpad(double v, double d=0) : value_(v), deriv_(d) {} 
-        
-        double value() const {return value_;} 
-        double derivative() const {return deriv_;} 
-        
-        const fpad& equalsTransform(double newVal, double outer_deriv) 
-        { deriv_ = deriv_ * outer_deriv; // Kettenregel 
-            value_ = newVal; 
-            return *this;
-        } 
-        
-        const fpad& operator+=(fpad const& x) 
-        { value_ += x.value_; 
-            deriv_ += x.deriv_; 
-            return *this; 
-        } 
-        
-        const fpad& operator-=(fpad const& x) 
-        { value_ -= x.value_; 
-            deriv_ -= x.deriv_; 
-            return *this; 
-        } 
-        
-        const fpad& operator*=(fpad const& x) 
-        { // Produkt-Regel: 
-            deriv_ = deriv_ * x.value_ + value_ * x.deriv_; 
-            value_ *= x.value_; 
-            return *this; 
-        } 
-        
-        friend const fpad operator+(fpad const& a, fpad const& b) 
-        { fpad r(a); r+=b; return r; } 
-        
-        friend const fpad operator-(fpad const& a, fpad const& b) 
-        { fpad r(a); r-=b; return r; } 
-        
-        friend const fpad operator*(fpad const& a, fpad const& b) 
-        { fpad r(a); r*=b; return r; } 
-    }; 
-    
-    fpad sin(fpad t) 
-    { 
-        using std::sin; 
-        using std::cos; 
-        double v = t.value(); 
-        t.equalsTransform(sin(v),cos(v)); // Verkettung 
-        return t; 
-    } 
+  
  
 }
 #endif

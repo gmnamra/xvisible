@@ -694,6 +694,7 @@
 		C26FA04F0F212E170046570D /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA04E0F212E170046570D /* QuickTime.framework */; };
 		C26FA0540F212E300046570D /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0530F212E300046570D /* Accelerate.framework */; };
 		C274E55B18C38BE500B7666B /* linlsq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26DB1D2184E618B00879A31 /* linlsq.cpp */; };
+		C27E579E18C56BEA00DF8BA1 /* rc_signal1d.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C27E579D18C56BEA00DF8BA1 /* rc_signal1d.hpp */; };
 		C2850D0D131A1920002C8918 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2850D0A131A1920002C8918 /* InfoPlist.strings */; };
 		C290D0FA187B9CAA00135E01 /* linlsq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26DB1D2184E618B00879A31 /* linlsq.cpp */; };
 		C292A6641845BCF30067FA2B /* peakspotter.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C292A6621845BCF30067FA2B /* peakspotter.hpp */; };
@@ -1553,6 +1554,7 @@
 		C26FA2AA0F21357A0046570D /* ut_visual_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_visual_main.cpp; sourceTree = "<group>"; };
 		C26FA2AB0F21357A0046570D /* ut_window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_window.cpp; sourceTree = "<group>"; };
 		C26FA2AC0F21357A0046570D /* ut_windowhist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_windowhist.cpp; sourceTree = "<group>"; };
+		C27E579D18C56BEA00DF8BA1 /* rc_signal1d.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rc_signal1d.hpp; sourceTree = "<group>"; };
 		C2850D03131A18EC002C8918 /* vf-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = "vf-Info.plist"; path = "resources/vf/vf-Info.plist"; sourceTree = "<group>"; };
 		C2850D0B131A1920002C8918 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C2850D0C131A1920002C8918 /* vf-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = "vf-Info.plist"; sourceTree = "<group>"; };
@@ -2217,6 +2219,7 @@
 		C26F9D070F21135D0046570D /* util */ = {
 			isa = PBXGroup;
 			children = (
+				C27E579D18C56BEA00DF8BA1 /* rc_signal1d.hpp */,
 				C2248975189D56A900034CDF /* persistence1d.hpp */,
 				C2B8E9FF187E0F880060D961 /* rc_unittest.h */,
 				C26DB1D5184E61B100879A31 /* linlsq.h */,
@@ -3068,6 +3071,7 @@
 				C26F9E610F21135D0046570D /* rc_correlationwindow.h in Headers */,
 				C26F9E620F21135D0046570D /* rc_dbdt.h in Headers */,
 				C26F9E630F21135D0046570D /* rc_diamondscan.h in Headers */,
+				C27E579E18C56BEA00DF8BA1 /* rc_signal1d.hpp in Headers */,
 				C26F9E640F21135D0046570D /* rc_filter1d.h in Headers */,
 				C26F9E650F21135D0046570D /* rc_ip.h in Headers */,
 				C26F9E660F21135D0046570D /* rc_kinepyr.h in Headers */,
@@ -4855,6 +4859,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/include/util\n",
+					"$(BOOST_PATH)/include",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = NO;
@@ -4895,6 +4900,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/include/util\n",
+					"$(BOOST_PATH)/include",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_CFLAGS = "";

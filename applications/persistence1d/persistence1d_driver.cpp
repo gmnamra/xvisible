@@ -55,61 +55,6 @@ struct norm_scaler
 
 
 
-struct peaker
-{
-    struct lsqres
-    {
-        float r;
-        double angle_in_radian;
-        double constant;
-        rc2Fvector mean_point;
-    };
-    typedef std::pair<uint, float> peak_pos;
-    
-    void operator()(std::vector<float>& src, std::vector<peak_pos>& peaks, int half_window = 4)
-    {
-        int fw = 2 * half_window + 1;
-        if (src.size() <= fw) return;
-        
-        // use regression to find a flat threshold
-        LLSQ lsqr;
-        double dsize = (double) src.size ();        
-        for (uint ii = 0; ii < src.size (); ii++)
-            lsqr.add(ii / dsize, src[ii]);
-
-        // Check if we have a plausible fit. Check to see if the angle is less than a degree
-        rcRadian onedegree (rcDegree (1.0 ));
-        float low_threshold = lsqr.vector_fit_angle().Double() < onedegree.Double() ?
-        lsqr.c(lsqr.m()) : rfMedian (src);
-        
-        peaks.resize (0);
-
-        vector<float>::iterator left = src.begin();
-        vector<float>::iterator right = src.begin();
-        int peak_index = half_window;
-        std::advance(right, fw);
-        do
-        {
-            vector<float>::iterator maxItr = max_element (left, right);
-            if (maxItr == src.end()) continue;
-            if (*maxItr < low_threshold) continue;
-            vector<float>::difference_type ds = std::distance (left, maxItr);
-            if (ds == half_window)
-            {
-                peak_pos pp (peak_index, src[peak_index]);
-                peaks.push_back (pp);
-                std::cerr << "# " << peaks.size() << " peak @ [ " << peak_index << " ] = " << src[peak_index] << std::endl;
-            }
-            peak_index++;
-            
-        }
-        while (left++ < right && right++ < src.end());
-        
-
-    }
-
-};
-
 
 
 int fpad_main ();
@@ -197,23 +142,23 @@ int main(int argc, char* argv[])
     vector<float> normed (data.size ());
     std::copy_n (data.begin(), data.size (), normed.begin () );
     norm_scaler ns;
-    ns.operator()(normed, data, 1.0f);
+    ns.operator()(data, normed, 1.0f);
     
-    
-	if(!WriteVectorToFile(((char*)nfname.c_str()), normed))
-	{
-		cout << "Error reading data to file." << endl; 
-		return -2;
-	}
+   
     
 	p.RunPersistence(data);
 	p.GetPairedExtrema(pairs, threshold , matlabIndexing);
     WriteMinMaxPairsToFile(((char*)outfilename.c_str()), pairs);
-	if (! WriteVectorToFile (((char*)d2fname.c_str()), p.secondDerivative () ) )
-    {
-		cout << "Error reading data to file ." << endl; 
+
+    std::vector<peak_detector::peak_pos> peaks;
+    p.operator() (data, 10);
+    
+	if(!WriteVectorToFile(((char*)d2fname.c_str()), p.secondDerivative()))
+	{
+		cout << "Error reading data to file." << endl; 
 		return -2;
 	}
+
 
 		
 	return 0;
