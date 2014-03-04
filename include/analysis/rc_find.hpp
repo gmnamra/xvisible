@@ -4,10 +4,8 @@
 #include <rc_diamondscan.h>
 #include <bitset>
 #include <vector>
-#include <rc_find.hpp>
-#include <OpenCV/cv.h>
-//#include <opencv2/core/core.hpp>
-//#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 
 using namespace cv;
 

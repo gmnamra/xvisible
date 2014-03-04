@@ -1,6 +1,4 @@
 
-#include <OpenCV/cv.h>
-#include <OpenCV/highgui.h>
 
 #include "rc_find.hpp"
 #include <limits>
@@ -27,7 +25,7 @@ void to_cv (const rcFRect& f, cv::Rect& r)
     r.height = (int) f.height ();
 }
 
-#if 0
+#if 1
 /*
  OpenCv Support
  */
@@ -79,7 +77,7 @@ rcLocation rcFind (const cv::Mat& fixed, const rcFRect & fixedROI, const cv::Mat
 
 #endif
 
-#if 1
+#if 0
 
 void rfFind ( const sharedIpl& moving, const sharedIpl& model, std::vector<rcLocation >& peaks, rcFindHelper& info)
 {
