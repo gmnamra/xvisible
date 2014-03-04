@@ -1,7 +1,6 @@
-Version 0.2.0:
-
-
 Version 0.1.0
+ - Version bump to 0.2.0
+ - Added VERSION and CHANGES files, Version bump to v0.1.0
  - removed obsolete headers
  - fixed linking issues with OpenCv using 32bit built off 2.2 fixed issues with rcFind. added git version script
  - Implemented valley_detector for raw signal and peak detector for 2nd derivative
