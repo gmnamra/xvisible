@@ -3709,8 +3709,8 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/Users/arman/gwc/vqt105/visibleqt105/build_scripts/xcode-git-version.sh";
+			shellPath = /bin/bash;
+			shellScript = /Users/arman/gwc/vqt105/visibleqt105/build_scripts/bump_git_plist.sh;
 		};
 		C2A39C150F339AD100845D59 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

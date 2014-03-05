@@ -5,16 +5,14 @@
 		<key>CFBundleDevelopmentRegion</key>
 		<string>English</string>
 		<key>CFBundleIdentifier</key>
-		<string>com.apple.xcode.dsym.vfi386_d.framework</string>
+		<string>com.apple.xcode.dsym.FMWK</string>
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
 		<key>CFBundlePackageType</key>
 		<string>dSYM</string>
 		<key>CFBundleSignature</key>
 		<string>????</string>
-		<key>CFBundleShortVersionString</key>
-		<string>1.0</string>
 		<key>CFBundleVersion</key>
-		<string>1</string>
+		<string>2</string>
 	</dict>
 </plist>

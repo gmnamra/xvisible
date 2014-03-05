@@ -301,15 +301,6 @@ private:
     const T _a, _b, _c;
 };
 
-template <typename T>
-struct Square
-{
-	typedef T value_type;
-	typedef T result_type;
-    
-	T operator()(const T &x) const { return x*x; }
-};
-
 // Gaussian Normal
 template <typename T>
 class Gaussian

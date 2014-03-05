@@ -1,3 +1,7 @@
+#ifndef __SIGNAL1D__
+#define __SIGNAL1D__
+
+
 #include "linlsq.h"
 #include <fstream>
 #include <string>
@@ -6,6 +10,77 @@
 #include <rc_stats.h>
 #include <boost/function.hpp>
 
+
+
+
+struct norm_scaler
+{
+    typedef std::vector<float> Container;
+    typedef Container::iterator Iterator;
+    typedef Container::const_iterator constIterator;
+    
+    
+    void operator()(const Container& src, Container& dst, float pw)
+    {
+        constIterator bot = std::min_element (src.begin (), src.end() );
+        constIterator top = std::max_element (src.begin (), src.end() );
+        
+        float scaleBy = *top - *bot;
+        dst.resize (src.size ());
+        for (int ii = 0; ii < src.size (); ii++)
+        {
+            float dd = (src[ii] - *bot) / scaleBy;
+            dst[ii] = pow (dd, 1.0 / pw);
+        }
+    }
+};
+
+
+
+
+struct second_derivative_producer
+{
+    typedef std::pair<uint, float> peak_pos;
+    typedef std::vector<float> Container;
+    typedef Container::iterator Iterator;
+    typedef Container::const_iterator constIterator;
+
+    /*!
+     Central Difference. F" = (d[+1] - 2 * d[0] / 2 + d[-1]) / 1 
+     a 1 x 3 operation
+     */
+    
+   void operator () (Container& data, Container& deriv, Container& zcm )
+    {  
+            deriv.resize (data.size ());
+            constIterator dm1 = data.begin();
+            constIterator dend = data.end ();
+            dend--;        dend--;        dend--;
+            Iterator d1 = deriv.begin(); 
+            d1++; // first place we compute
+            for (; dm1 < dend; d1++, dm1++)
+            {
+                float s = dm1[0];
+                float c = dm1[1];
+                s -= (c + c);
+                s += (dm1[2]);
+                *d1 = s;
+            }
+            
+            // use replicates for first and last 
+            deriv.at(0) = deriv.at(1);
+            deriv.at(data.size()-1) = deriv.at(data.size()-2);
+        
+        Iterator d2 = deriv.begin ();
+        Iterator de = deriv.end ();
+        zcm.resize (deriv.size ());
+        Iterator dzc = zcm.begin ();
+        d2++;de--;dzc++;
+        for (; d2 < de; d2++) { float zcv (*d2 * d2[-1]); *dzc++ = zcv < 0 ? -zcv : 0; }
+     }
+    
+};
+    
 struct peak_detector
 {
     typedef std::pair<uint, float> peak_pos;
@@ -147,3 +222,6 @@ fpad sin(fpad t)
     t.equalsTransform(sin(v),cos(v)); // Verkettung 
     return t; 
 } 
+
+
+#endif

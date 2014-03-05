@@ -23,24 +23,28 @@ INFO_PLIST="${TARGET_BUILD_DIR}/${INFOPLIST_PATH}"
 BUILD_VERSION=$(git describe --tags --always --dirty=+)
 
 # Use the latest tag for short version (expected tag format "n[.n[.n]]")
-LATEST_TAG=$(git describe --tags --abbrev=0)
-COMMIT_COUNT_SINCE_TAG=$(git rev-list --count ${LATEST_TAG}..)
-if [ $LATEST_TAG = "start" ]
-  then LATEST_TAG=0
-fi
-if [ $COMMIT_COUNT_SINCE_TAG = 0 ]; then
-  SHORT_VERSION="$LATEST_TAG"
+if [ $(git tag) = "" ]; then
+ SHORT_VERSION="0d0"
 else
+    LATEST_TAG=$(git describe --tags --abbrev=0)
+    COMMIT_COUNT_SINCE_TAG=$(git rev-list --count ${LATEST_TAG}..)
+    if [ $LATEST_TAG = "start" ]
+    then LATEST_TAG=0
+    fi
+    if [ $COMMIT_COUNT_SINCE_TAG = 0 ]; then
+        SHORT_VERSION="$LATEST_TAG"
+    else
   # increment final digit of tag and append "d" + commit-count-since-tag
   # e.g. commit after 1.0 is 1.1d1, commit after 1.0.0 is 1.0.1d1
   # this is the bit that requires /bin/bash
-  OLD_IFS=$IFS
-  IFS="."
-  VERSION_PARTS=($LATEST_TAG)
-  LAST_PART=$((${#VERSION_PARTS[@]}-1))
-  VERSION_PARTS[$LAST_PART]=$((${VERSION_PARTS[${LAST_PART}]}+1))
-  SHORT_VERSION="${VERSION_PARTS[*]}d${COMMIT_COUNT_SINCE_TAG}"
-  IFS=$OLD_IFS
+        OLD_IFS=$IFS
+        IFS="."
+        VERSION_PARTS=($LATEST_TAG)
+        LAST_PART=$((${#VERSION_PARTS[@]}-1))
+        VERSION_PARTS[$LAST_PART]=$((${VERSION_PARTS[${LAST_PART}]}+1))
+        SHORT_VERSION="${VERSION_PARTS[*]}d${COMMIT_COUNT_SINCE_TAG}"
+        IFS=$OLD_IFS
+    fi
 fi
 
 # Bundle version (commits-on-master[-until-branch "." commits-on-branch])
@@ -62,11 +66,11 @@ defaults write "$INFO_PLIST" CFBundleBuildVersion "$BUILD_VERSION"
 defaults write "$INFO_PLIST" CFBundleShortVersionString "$SHORT_VERSION"
 defaults write "$INFO_PLIST" CFBundleVersion "$BUNDLE_VERSION"
 
-# For debugging:
-#echo "BUILD VERSION: $BUILD_VERSION"
-#echo "LATEST_TAG: $LATEST_TAG"
-#echo "COMMIT_COUNT_SINCE_TAG: $COMMIT_COUNT_SINCE_TAG"
-#echo "SHORT VERSION: $SHORT_VERSION"
-#echo "MASTER_COMMIT_COUNT: $MASTER_COMMIT_COUNT"
-#echo "BRANCH_COMMIT_COUNT: $BRANCH_COMMIT_COUNT"
-#echo "BUNDLE_VERSION: $BUNDLE_VERSION"
+For debugging:
+echo "BUILD VERSION: $BUILD_VERSION"
+echo "LATEST_TAG: $LATEST_TAG"
+echo "COMMIT_COUNT_SINCE_TAG: $COMMIT_COUNT_SINCE_TAG"
+echo "SHORT VERSION: $SHORT_VERSION"
+echo "MASTER_COMMIT_COUNT: $MASTER_COMMIT_COUNT"
+echo "BRANCH_COMMIT_COUNT: $BRANCH_COMMIT_COUNT"
+echo "BUNDLE_VERSION: $BUNDLE_VERSION"

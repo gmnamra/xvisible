@@ -4,6 +4,18 @@
 <dict>
 	<key>BuildMachineOSBuild</key>
 	<string>12F45</string>
+	<key>CFBundleDisplayName</key>
+	<string>com.reifycorp.vf</string>
+	<key>CFBundleExecutable</key>
+	<string>vf</string>
+	<key>CFBundleIdentifier</key>
+	<string>FMWK</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>APPL</string>
+	<key>CFBundleSignature</key>
+	<string>Reify Corp.</string>
+	<key>CFBundleVersion</key>
+	<string>2</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>

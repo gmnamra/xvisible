@@ -1,5 +1,5 @@
 4d424f1245f66f71d5beb9f7eb869ee5 91d01033fbbb371a17917fad064aabd1 ffffffffffffffffffffffffffffffff 238 /Users/arman/gwc/vqt105/visibleqt105/build/Debug/vfi386_d.framework
-0000000052fe927700000000000000b5 d230f4a992da0e327d1fbff65bcb6e59 ffffffffffffffffffffffffffffffff 8 /Users/arman/gwc/vqt105/visibleqt105/build/Debug/vfi386_d.framework/PkgInfo
+00000000531664da0000000000000216 d230f4a992da0e327d1fbff65bcb6e59 ffffffffffffffffffffffffffffffff 8 /Users/arman/gwc/vqt105/visibleqt105/build/Debug/vfi386_d.framework/PkgInfo
 0000000053124257000000000000005a fe110fb0db9a4721c721fdbf7a8e8829 ffffffffffffffffffffffffffffffff 90 /Users/arman/gwc/vqt105/visibleqt105/build/Debug/vfi386_d.framework/Versions/A/Resources/English.lproj/InfoPlist.strings
 0000000052fe91ef0000000000255800 d2b125f05df697b4a75de6444a9332d5 ffffffffffffffffffffffffffffffff 2447360 /Users/arman/gwc/vqt105/visibleqt105/build/Debug/vfi386_d.framework/Versions/A/Resources/mpeg2dec-0.4.1.tar
 0000000052fe91ef00000000000001cf 3eb3ac90aa11d9de11d830e0e81d2e9b ffffffffffffffffffffffffffffffff 463 /Users/arman/gwc/vqt105/visibleqt105/build/Debug/vfi386_d.framework/Versions/A/Resources/mpeg2.sh
@@ -133,8 +133,8 @@
 0000000052fe92770000000000001c6a 0a0cdcd643867ac2dce2ad0a0f08a63f ffffffffffffffffffffffffffffffff 7274 /Users/arman/gwc/vqt105/visibleqt105/build/Debug/vfi386_d.framework/Versions/A/Headers/rc_analyzer.h
 0000000052fe92770000000000003699 3b9a031a8cc3decce715f98c3d531e94 ffffffffffffffffffffffffffffffff 13977 /Users/arman/gwc/vqt105/visibleqt105/build/Debug/vfi386_d.framework/Versions/A/Headers/rc_analysis.h
 0000000052fe92770000000000002cb3 bd0ad1a54cbb5d43dc616071158741bc ffffffffffffffffffffffffffffffff 11443 /Users/arman/gwc/vqt105/visibleqt105/build/Debug/vfi386_d.framework/Versions/A/Headers/rc_1dcorr.h
-8d9637cab565df59e3cb06b957827030 a56f785eb413f6a79311f5c868067a08 ffffffffffffffffffffffffffffffff 102 /Users/arman/gwc/vqt105/visibleqt105/build/Debug/vfi386_d.framework.dSYM
-0000000052fe927700000000000000b5 d230f4a992da0e327d1fbff65bcb6e59 ffffffffffffffffffffffffffffffff 610 /Users/arman/gwc/vqt105/visibleqt105/build/Debug/vfi386_d.framework/Versions/A/Resources/Info.plist
+8d9637cab48d29f4e3cb06b957827293 a56f785eb413f6a79311f5c868067a08 ffffffffffffffffffffffffffffffff 102 /Users/arman/gwc/vqt105/visibleqt105/build/Debug/vfi386_d.framework.dSYM
+00000000531664da0000000000000216 d230f4a992da0e327d1fbff65bcb6e59 ffffffffffffffffffffffffffffffff 956 /Users/arman/gwc/vqt105/visibleqt105/build/Debug/vfi386_d.framework/Versions/A/Resources/Info.plist
 000000000f1906a100000000000568ce 5fa6c3637a5845bd9ed4b94f0c4c7612 ffffffffffffffffffffffffffffffff 6050872 /Users/arman/gwc/vqt105/visibleqt105/build/Debug/vfi386_d.framework/Versions/A/vfi386_d
 0000000048a3988a0000000000006190 8e74ec45dc5e51b3173caa4bf38f70ff ffffffffffffffffffffffffffffffff 40556 /Users/arman/gwc/vqt105/visibleqt105/build/Intermediates/vf.build/Debug/vf.build/Objects-normal/i386/stringio.o
 0000000048a3988a0000000000006e90 66a39ce1a391969f8c4732b7281f2671 ffffffffffffffffffffffffffffffff 149868 /Users/arman/gwc/vqt105/visibleqt105/build/Intermediates/vf.build/Debug/vf.build/Objects-normal/i386/multiio.o
@@ -146,7 +146,7 @@
 000000001a5d0af60000000000007e9f 606fac8d51cff23343451cf7f308b859 ffffffffffffffffffffffffffffffff 185092 /Users/arman/gwc/vqt105/visibleqt105/build/Intermediates/vf.build/Debug/vf.build/Objects-normal/i386/rc_affine.o
 0000000048a3988a0000000000007de1 c37eeb34aed7574edae764b73ddf5da6 ffffffffffffffffffffffffffffffff 564960 /Users/arman/gwc/vqt105/visibleqt105/build/Intermediates/vf.build/Debug/vf.build/Objects-normal/i386/persistent.o
 0000000048a3988100000000000073f0 0c6272a4a4c00323f508525a5612f1fe ffffffffffffffffffffffffffffffff 251880 /Users/arman/gwc/vqt105/visibleqt105/build/Intermediates/vf.build/Debug/vf.build/Objects-normal/i386/rc_cubic_generators.o
-000000001a5d097800000000000004f5 1eeb2daf3af0351abd25474d38964c8b ffffffffffffffffffffffffffffffff 1664 /Users/arman/gwc/vqt105/visibleqt105/build/Intermediates/vf.build/Debug/vf.build/Objects-normal/i386/tiff_aux.o
+0000000048a3988a0000000000000485 1eeb2daf3af0351abd25474d38964c8b ffffffffffffffffffffffffffffffff 1664 /Users/arman/gwc/vqt105/visibleqt105/build/Intermediates/vf.build/Debug/vf.build/Objects-normal/i386/tiff_aux.o
 0000000048a3988a000000000000fcdf de0541a49d8c658f9c0b82ef70cc30af ffffffffffffffffffffffffffffffff 26964 /Users/arman/gwc/vqt105/visibleqt105/build/Intermediates/vf.build/Debug/vf.build/Objects-normal/i386/tif_write.o
 0000000048a3988a000000000000fcdf fd16c063f630e2e37cde3ad671b0719f ffffffffffffffffffffffffffffffff 4336 /Users/arman/gwc/vqt105/visibleqt105/build/Intermediates/vf.build/Debug/vf.build/Objects-normal/i386/tif_warning.o
 0000000048a3988a000000000000fcdf df9532bb6e107f2a1f27c89b1e00ce5e ffffffffffffffffffffffffffffffff 2532 /Users/arman/gwc/vqt105/visibleqt105/build/Intermediates/vf.build/Debug/vf.build/Objects-normal/i386/tif_version.o
@@ -271,4 +271,3 @@
 000000001a5d0af600000000000056cd 377ebe0ef6b4890401cee0e3fa717a32 ffffffffffffffffffffffffffffffff 86180 /Users/arman/gwc/vqt105/visibleqt105/build/Intermediates/vf.build/Debug/vf.build/Objects-normal/i386/rc_fill.o
 000000001a5d0af60000000000004b08 543d599a463baddd5282b0fa478d7231 ffffffffffffffffffffffffffffffff 38792 /Users/arman/gwc/vqt105/visibleqt105/build/Intermediates/vf.build/Debug/vf.build/Objects-normal/i386/rc_filegrabber.o
 0000000048a398810000000000004cc4 9baf5fbe5582bc420651e43f118f6d76 ffffffffffffffffffffffffffffffff 318176 /Users/arman/gwc/vqt105/visibleqt105/build/Intermediates/vf.build/Debug/vf.build/Objects-normal/i386/rc_edge.o
-0000000048a39b0f0000000000002726 3780693622a90e89eb75b87c75e92de6 ffffffffffffffffffffffffffffffff 0 /Users/arman/gwc/vqt105/visibleqt105/build/Intermediates/vf.build/Debug/vf.build/Objects-normal/i386/rc_chaincode.o
