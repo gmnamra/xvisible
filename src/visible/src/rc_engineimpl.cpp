@@ -3,12 +3,11 @@
 #include <rc_fileutils.h>
 #include <file_system.hpp>
 #include <boost/shared_ptr.hpp>
-#include <persistence1d.hpp>
 #include <rc_engineimpl.h>
 #include <rc_experimentdomainimpl.h>
 
 
-using namespace p1d;
+
 /******************************************************************************
  *	Debugging
  ******************************************************************************/
@@ -1325,8 +1324,9 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
         {
                
             deque<double>normed;
-            norm_scale (signal, normed, 1.0);
-            
+            norm_scaler<double, std::deque> ns;
+            ns.operator () (signal, normed, 1);
+          
             
             results.resize(0);
             copy(normed.begin(), normed.end(), back_inserter(results));
@@ -2014,21 +2014,4 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
         
     }
     
-    
-    
-    
-    void rcEngineImpl::norm_scale (const std::deque<double>& src, std::deque<double>& dst, double pw) 
-    {
-        deque<double>::const_iterator bot = std::min_element (src.begin (), src.end() );
-        deque<double>::const_iterator top = std::max_element (src.begin (), src.end() );
-        
-        double scaleBy = *top - *bot;
-        dst.resize (src.size ());
-        for (int ii = 0; ii < src.size (); ii++)
-        {
-            double dd = (src[ii] - *bot) / scaleBy;
-            dst[ii] = pow (dd, 1.0 / pw);
-        }
-    }
-
     

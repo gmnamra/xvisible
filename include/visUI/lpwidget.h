@@ -84,9 +84,9 @@ public Q_SLOTS:
     
     ~LPWidget();
 private:
-    peak_detector::Container m_signal;
-    peak_detector::Container m_dsdt;
-    peak_detector::Container m_zcm;
+    std::deque<double> m_signal;
+    std::deque<double> m_dsdt;
+    std::deque<double> m_zcm;
     
     void demo ();
     void setupUi(QWidget *Form);
@@ -95,8 +95,8 @@ private:
     QDial  *dial;
     QSplitter *splitter;
     QLabel *contraction_threshold_input;
-    std::vector<peak_detector::peak_pos> m_valleys;
-    std::vector<peak_detector::peak_pos> m_peaks;
+    std::vector<extrema_pos> m_valleys;
+    std::vector<extrema_pos> m_peaks;
     
 };
 

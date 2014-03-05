@@ -11,46 +11,50 @@
 #include <boost/function.hpp>
 
 
+typedef std::pair<uint,double> extrema_pos; 
 
 
+
+template<typename Elem, template<typename T, typename = std::allocator<T> > class Container>
 struct norm_scaler
 {
-    typedef std::vector<float> Container;
-    typedef Container::iterator Iterator;
-    typedef Container::const_iterator constIterator;
+    typedef typename Container<Elem>::iterator Iterator;
+    typedef typename Container<Elem>::const_iterator constIterator;
     
     
-    void operator()(const Container& src, Container& dst, float pw)
+    void operator()(Container<Elem>& src, Container<Elem>& dst, int pw)
     {
         constIterator bot = std::min_element (src.begin (), src.end() );
         constIterator top = std::max_element (src.begin (), src.end() );
         
         float scaleBy = *top - *bot;
         dst.resize (src.size ());
-        for (int ii = 0; ii < src.size (); ii++)
+        Elem bias = 1.0 / std::min (1, pw);
+        for (uint ii = 0; ii < src.size (); ii++)
         {
-            float dd = (src[ii] - *bot) / scaleBy;
-            dst[ii] = pow (dd, 1.0 / pw);
-        }
+            Elem dd = (src[ii] - *bot) / scaleBy;
+            dst[ii] = std::pow (dd, bias);
+       }
     }
 };
 
 
 
 
+
+template<typename Elem, template<typename T, typename = std::allocator<T> > class Container>
 struct second_derivative_producer
 {
-    typedef std::pair<uint, float> peak_pos;
-    typedef std::vector<float> Container;
-    typedef Container::iterator Iterator;
-    typedef Container::const_iterator constIterator;
+    typedef typename Container<Elem>::iterator Iterator;
+    typedef typename Container<Elem>::const_iterator constIterator;
+
 
     /*!
      Central Difference. F" = (d[+1] - 2 * d[0] / 2 + d[-1]) / 1 
      a 1 x 3 operation
      */
     
-   void operator () (Container& data, Container& deriv, Container& zcm )
+   void operator () (Container<Elem>& data, Container<Elem>& deriv, Container<Elem>& zcm )
     {  
             deriv.resize (data.size ());
             constIterator dm1 = data.begin();
@@ -60,8 +64,8 @@ struct second_derivative_producer
             d1++; // first place we compute
             for (; dm1 < dend; d1++, dm1++)
             {
-                float s = dm1[0];
-                float c = dm1[1];
+                Elem s = dm1[0];
+                Elem c = dm1[1];
                 s -= (c + c);
                 s += (dm1[2]);
                 *d1 = s;
@@ -81,13 +85,17 @@ struct second_derivative_producer
     
 };
     
+
+
+template<typename Elem, template<typename T, typename = std::allocator<T> > class Container>
 struct peak_detector
 {
-    typedef std::pair<uint, float> peak_pos;
-    typedef std::vector<float> Container;
-    typedef Container::iterator Iterator;
+    typedef typename Container<Elem>::iterator Iterator;
+    typedef typename Container<Elem>::const_iterator constIterator;
     
-    void operator()(Container& src, std::vector<peak_pos>& peaks, int half_window = 4, float low_threshold = 0.00009)
+
+    
+    void operator()(Container<Elem>& src, std::vector<extrema_pos>& peaks, int half_window = 4, float low_threshold = 0.00009)
     {
         int fw = 2 * half_window + 1;
         if (src.size() <= fw) return;
@@ -106,7 +114,7 @@ struct peak_detector
             vector<float>::difference_type ds = std::distance (left, maxItr);
             if (ds == half_window)
             {
-                peak_pos pp (peak_index, src[peak_index]);
+                extrema_pos pp (peak_index, src[peak_index]);
                 peaks.push_back (pp);
                 std::cerr << peak_index << "," << std::endl;
             }
@@ -118,14 +126,14 @@ struct peak_detector
     
 };
 
-
+template<typename Elem, template<typename T, typename = std::allocator<T> > class Container>
 struct valley_detector
 {
-    typedef std::pair<uint, float> peak_pos;
-    typedef std::vector<float> Container;
-    typedef Container::iterator Iterator;
+
+    typedef typename Container<Elem>::iterator Iterator;
+    typedef typename Container<Elem>::const_iterator constIterator;
     
-    void operator()(Container& src, std::vector<peak_pos>& peaks, int half_window = 4)
+    void operator()(Container<Elem>& src, std::vector<extrema_pos>& peaks, int half_window = 4)
     {
         int fw = 2 * half_window + 1;
         if (src.size() <= fw) return;
@@ -157,7 +165,7 @@ struct valley_detector
             vector<float>::difference_type ds = std::distance (left, maxItr);
             if (ds == half_window)
             {
-                peak_pos pp (peak_index, src[peak_index]);
+                extrema_pos pp (peak_index, src[peak_index]);
                 peaks.push_back (pp);
                 std::cerr << peak_index << "," << std::endl;
             }

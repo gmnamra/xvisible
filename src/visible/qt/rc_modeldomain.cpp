@@ -80,13 +80,7 @@ rcExperiment* rcModelDomain::getExperiment( void )
 	return mDomain->getExperiment();
 }
 
-// get the current experiment
-#ifdef HIPPOW
-WindowController* rcModelDomain::getHippWindowCtl ( void )
-{
-    return mHippWctl;
-}
-#endif
+
 
 // get the current experiment attributes
 const rcExperimentAttributes rcModelDomain::getExperimentAttributes( void )

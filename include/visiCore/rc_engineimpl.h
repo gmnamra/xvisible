@@ -440,8 +440,6 @@ protected:
                                     rcVisualSegmentCollection& segments);
 
 
-    void norm_scale (const std::deque<double>& src, std::deque<double>& dst, double pw);
-       
     // Construct a temporary file name
     std::string makeTmpName(std::string exten);
 

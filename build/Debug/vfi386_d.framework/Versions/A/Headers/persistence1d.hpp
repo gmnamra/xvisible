@@ -221,8 +221,8 @@ public:
         d2++;de--;dzc++;
         for (; d2 < de; d2++) { float zcv (*d2 * d2[-1]); *dzc++ = zcv < 0 ? -zcv : 0; }
 
-        std::vector<peak_detector::peak_pos> zcpeaks;
-        std::vector<peak_detector::peak_pos> peaks;        
+        std::vector<extrema_pos> zcpeaks;
+        std::vector<extrema_pos> peaks;        
         peak_detector pk;
         pk.operator() (zcm, zcpeaks, half_window);
 

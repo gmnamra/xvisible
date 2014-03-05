@@ -56,12 +56,12 @@ void LPWidget::new_plot(const CurveData*  cref)
 void LPWidget::add_contractions (int thr)
 {
     int half_window = 10;
-    second_derivative_producer sdp;
+    second_derivative_producer<double, std::deque> sdp;
     sdp.operator()(m_signal, m_dsdt, m_zcm);
     m_valleys.clear ();
     m_peaks.clear ();
-    peak_detector pk;
-    valley_detector vd;    
+    peak_detector<double, std::deque> pk;
+    valley_detector<double, std::deque> vd;    
     pk.operator() (m_zcm, m_peaks, half_window);
     vd.operator () (m_signal, m_valleys, half_window);
     

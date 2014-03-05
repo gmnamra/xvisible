@@ -105,6 +105,7 @@
 		C26CA0B00F61E68900549A3C /* moc_rc_trackgroupwidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA08D0F61E68900549A3C /* moc_rc_trackgroupwidget.cpp */; };
 		C26CA0B10F61E68900549A3C /* moc_rc_trackmanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA08E0F61E68900549A3C /* moc_rc_trackmanager.cpp */; };
 		C26CA0B20F61E68900549A3C /* moc_rc_trackpanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA08F0F61E68900549A3C /* moc_rc_trackpanel.cpp */; };
+		C27E57C218C6D52700DF8BA1 /* vfi386.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B8E96E187CCC250060D961 /* vfi386.framework */; };
 		C2850D3E131A1DDC002C8918 /* Visible-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2850D3D131A1DDC002C8918 /* Visible-Info.plist */; };
 		C299374718ACCD89000EAD7D /* liblightplot2d.1.0.1.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2F1963818ACA917008D996D /* liblightplot2d.1.0.1.dylib */; };
 		C299374818ACCD89000EAD7D /* libopencv_highgui.2.2.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C259531A18AB451A00BBD892 /* libopencv_highgui.2.2.0.dylib */; };
@@ -172,7 +173,6 @@
 		C2AD53DB11554CE700467A9B /* QtXmlPatterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28DC6630F310B9000DC9AAC /* QtXmlPatterns.framework */; };
 		C2B16EEA130E384700C8050C /* ASC_DCAM_DEV.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C21252B0130D9B1500B6C967 /* ASC_DCAM_DEV.framework */; };
 		C2B8E973187D0A3C0060D961 /* vfi386.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2B8E96E187CCC250060D961 /* vfi386.framework */; };
-		C2B8EA26188103F20060D961 /* vfi386.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B8E96E187CCC250060D961 /* vfi386.framework */; };
 		C2C301230F34FBAC0057B45E /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C301220F34FBAC0057B45E /* ApplicationServices.framework */; };
 		C2EC986A0F37845600E49E22 /* rc_about.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98280F37845400E49E22 /* rc_about.cpp */; };
 		C2EC986C0F37845600E49E22 /* rc_checkboxsettingwidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC982A0F37845400E49E22 /* rc_checkboxsettingwidget.cpp */; };
@@ -976,12 +976,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C27E57C218C6D52700DF8BA1 /* vfi386.framework in Frameworks */,
 				C2F1963918ACA918008D996D /* liblightplot2d.1.0.1.dylib in Frameworks */,
 				C259531C18AB451A00BBD892 /* libopencv_highgui.2.2.0.dylib in Frameworks */,
 				C259531D18AB451A00BBD892 /* libopencv_imgproc.2.2.0.dylib in Frameworks */,
 				C259531918AB44F700BBD892 /* libopencv_objdetect.2.2.0.dylib in Frameworks */,
 				C259531118AB449900BBD892 /* libopencv_core.2.2.0.dylib in Frameworks */,
-				C2B8EA26188103F20060D961 /* vfi386.framework in Frameworks */,
 				C29AFA8318404494005B0754 /* OpenGL.framework in Frameworks */,
 				C29AFA8618404494005B0754 /* PreferencePanes.framework in Frameworks */,
 				C29AFA8818404494005B0754 /* QTKit.framework in Frameworks */,
@@ -2835,11 +2835,11 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/3rdparty/outcastsoft/framework",
-					/Users/arman/gwc/visibleqt105/build/Release,
-					/Users/arman/gwc/visibleqt105/build/Debug,
+					/Users/arman/gwc/vqt105/visibleqt105/build/Release,
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -2883,10 +2883,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/usr/local/OpenCv_2.2_i386/lib",
 					"$(SRCROOT)/usr/local/lightplot_i386/lib",
-					/Users/arman/gwc/visibleqt105/usr/local/lightplot_i386/lib,
 				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				ONLY_ACTIVE_ARCH = NO;
+				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCv_2.2_i386";
 				OTHER_CFLAGS = (
 					"-pipe",
 					"-g",
@@ -2937,12 +2937,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/3rdparty/outcastsoft/framework",
-					/Users/arman/gwc/visibleqt105/build/Release,
-					/Users/arman/gwc/visibleqt105/build/Debug,
+					/Users/arman/gwc/vqt105/visibleqt105/build/Release,
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -2987,10 +2987,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/usr/local/OpenCv_2.2_i386/lib",
 					"$(SRCROOT)/usr/local/lightplot_i386/lib",
-					/Users/arman/gwc/visibleqt105/usr/local/lightplot_i386/lib,
 				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				ONLY_ACTIVE_ARCH = NO;
+				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCv_2.2_i386";
 				OTHER_CFLAGS = (
 					"-pipe",
 					"-Wall",

@@ -150,7 +150,7 @@ int main(int argc, char* argv[])
 	p.GetPairedExtrema(pairs, threshold , matlabIndexing);
     WriteMinMaxPairsToFile(((char*)outfilename.c_str()), pairs);
 
-    std::vector<peak_detector::peak_pos> peaks;
+    std::vector<extrema_pos> peaks;
     p.operator() (data, 10);
     
 	if(!WriteVectorToFile(((char*)d2fname.c_str()), p.secondDerivative()))
