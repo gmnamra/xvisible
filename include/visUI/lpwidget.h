@@ -7,7 +7,6 @@
 #include <lightplot2d.h>
 #include <boost/shared_ptr.hpp>
 #include <deque>
-#include "persistence1d.hpp"
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
@@ -18,7 +17,7 @@
 #include <QtGui/QDial>
 #include <QtGui/QLabel>
 #include <assert.h>
-
+#include <rc_signal1d.hpp>
 using namespace std;
 
 class CurveData2d 
@@ -85,7 +84,10 @@ public Q_SLOTS:
     
     ~LPWidget();
 private:
-    vector<float> m_signal;
+    peak_detector::Container m_signal;
+    peak_detector::Container m_dsdt;
+    peak_detector::Container m_zcm;
+    
     void demo ();
     void setupUi(QWidget *Form);
     void retranslateUi(QWidget *Form);
@@ -93,8 +95,8 @@ private:
     QDial  *dial;
     QSplitter *splitter;
     QLabel *contraction_threshold_input;
-    std::vector<int> mini;
-    std::vector<int> maxi;
+    std::vector<peak_detector::peak_pos> m_valleys;
+    std::vector<peak_detector::peak_pos> m_peaks;
     
 };
 

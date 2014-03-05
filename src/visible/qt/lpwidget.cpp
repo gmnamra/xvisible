@@ -55,20 +55,24 @@ void LPWidget::new_plot(const CurveData*  cref)
 
 void LPWidget::add_contractions (int thr)
 {
-    float fthr = (thr % 100) / 100.0f;
-    mini.clear ();
-    maxi.clear ();
-    p1d::Persistence1D pd;
-    pd.RunPersistence (m_signal);
-    pd.GetExtremaIndices (mini, maxi, fthr, false);
-    QVector<QPointF> data;
-    for (uint32 ii = 0; ii < mini.size(); ii++)
-        data.push_back (QPointF(mini[ii], m_signal[mini[ii]]));
+    int half_window = 10;
+    second_derivative_producer sdp;
+    sdp.operator()(m_signal, m_dsdt, m_zcm);
+    m_valleys.clear ();
+    m_peaks.clear ();
+    peak_detector pk;
+    valley_detector vd;    
+    pk.operator() (m_zcm, m_peaks, half_window);
+    vd.operator () (m_signal, m_valleys, half_window);
+    
+    //   QVector<QPointF> data;
+    //    for (uint32 ii = 0; ii < mini.size(); ii++)
+    //       data.push_back (QPointF(mini[ii], m_signal[mini[ii]]));
 
-    QString legend = QString::fromUtf8("Contractions");
-    CurveData* contractions = new CurveData (data,legend );
-    _plot->addCurveData (*contractions);
-    update ();
+    //  QString legend = QString::fromUtf8("Contractions");
+    //  CurveData* contractions = new CurveData (data,legend );
+    //   _plot->addCurveData (*contractions);
+    //   update ();
    
     
 }
