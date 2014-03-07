@@ -212,6 +212,18 @@ public:
         return *this; 
     } 
     
+    
+    fpad sin(fpad t) 
+    { 
+        using std::sin; 
+        using std::cos; 
+        double v = t.value(); 
+        t.equalsTransform(sin(v),cos(v)); // Verkettung 
+        return t; 
+    } 
+    
+    
+    
     friend const fpad operator+(fpad const& a, fpad const& b) 
     { fpad r(a); r+=b; return r; } 
     
@@ -221,15 +233,5 @@ public:
     friend const fpad operator*(fpad const& a, fpad const& b) 
     { fpad r(a); r*=b; return r; } 
 }; 
-
-fpad sin(fpad t) 
-{ 
-    using std::sin; 
-    using std::cos; 
-    double v = t.value(); 
-    t.equalsTransform(sin(v),cos(v)); // Verkettung 
-    return t; 
-} 
-
 
 #endif

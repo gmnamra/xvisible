@@ -10,7 +10,6 @@
 		C20F5F52131838C100E0EAC0 /* rc_persistencemanagerimpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20F5F4F131838C100E0EAC0 /* rc_persistencemanagerimpl.cpp */; };
 		C20F5F53131838C100E0EAC0 /* rc_setting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20F5F50131838C100E0EAC0 /* rc_setting.cpp */; };
 		C20F5F54131838C100E0EAC0 /* rc_value.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20F5F51131838C100E0EAC0 /* rc_value.cpp */; };
-		C2351D8E131364E30023D576 /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C245B0D7130F61140065941E /* vfi386_d.framework */; };
 		C238646F0F32BA0700423241 /* releasenotes.html in Resources */ = {isa = PBXBuildFile; fileRef = C23864410F32BA0600423241 /* releasenotes.html */; };
 		C23864700F32BA0700423241 /* visible.html in Resources */ = {isa = PBXBuildFile; fileRef = C23864420F32BA0600423241 /* visible.html */; };
 		C23864710F32BA0700423241 /* analyze.png in Resources */ = {isa = PBXBuildFile; fileRef = C23864440F32BA0600423241 /* analyze.png */; };
@@ -42,13 +41,9 @@
 		C23864940F32BA0700423241 /* rfymov.icns in Resources */ = {isa = PBXBuildFile; fileRef = C238646C0F32BA0600423241 /* rfymov.icns */; };
 		C23864950F32BA0700423241 /* rfymovicon.tiff in Resources */ = {isa = PBXBuildFile; fileRef = C238646D0F32BA0600423241 /* rfymovicon.tiff */; };
 		C23864960F32BA0700423241 /* Visible.icns in Resources */ = {isa = PBXBuildFile; fileRef = C238646E0F32BA0600423241 /* Visible.icns */; };
-		C245B03B130F5AE40065941E /* ASC_DCAM_DEV.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C245C511130E36DD00EFE5A4 /* ASC_DCAM_DEV.framework */; };
-		C245B105130F64190065941E /* ASC_DCAM_DEV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C245C511130E36DD00EFE5A4 /* ASC_DCAM_DEV.framework */; };
 		C245C518130E36DD00EFE5A4 /* extract_m2v in Resources */ = {isa = PBXBuildFile; fileRef = C245C4E0130E36DD00EFE5A4 /* extract_m2v */; };
 		C245C51B130E36DE00EFE5A4 /* mpeg2.sh in Resources */ = {isa = PBXBuildFile; fileRef = C245C4E4130E36DD00EFE5A4 /* mpeg2.sh */; };
 		C245C51C130E36DE00EFE5A4 /* mpeg2dec-0.4.1.tar in Resources */ = {isa = PBXBuildFile; fileRef = C245C4E5130E36DD00EFE5A4 /* mpeg2dec-0.4.1.tar */; };
-		C245C535130E36DE00EFE5A4 /* ASC DCAM API 2.0 Documentation.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C245C50C130E36DD00EFE5A4 /* ASC DCAM API 2.0 Documentation.pdf */; };
-		C245C536130E36DE00EFE5A4 /* ASC DCAM Read Me.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = C245C50D130E36DD00EFE5A4 /* ASC DCAM Read Me.rtfd */; };
 		C25952F518AA1C5A00BBD892 /* QtXmlPatterns.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6630F310B9000DC9AAC /* QtXmlPatterns.framework */; };
 		C25952F618AA1C5A00BBD892 /* QtXml.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6640F310B9000DC9AAC /* QtXml.framework */; };
 		C25952F718AA1C5A00BBD892 /* QtWebKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6650F310B9000DC9AAC /* QtWebKit.framework */; };
@@ -71,7 +66,6 @@
 		C259531C18AB451A00BBD892 /* libopencv_highgui.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C259531A18AB451A00BBD892 /* libopencv_highgui.2.2.0.dylib */; };
 		C259531D18AB451A00BBD892 /* libopencv_imgproc.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C259531B18AB451A00BBD892 /* libopencv_imgproc.2.2.0.dylib */; };
 		C259532118ABEB4C00BBD892 /* lpwidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C259531F18ABEA3900BBD892 /* lpwidget.cpp */; };
-		C26B50C9130E24CB0059FA8B /* rc_dcam_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2224E1513026AF000A71A96 /* rc_dcam_main.cpp */; };
 		C26CA0900F61E68900549A3C /* moc_rc_about.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA06D0F61E68900549A3C /* moc_rc_about.cpp */; };
 		C26CA0920F61E68900549A3C /* moc_rc_checkboxsettingwidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA06F0F61E68900549A3C /* moc_rc_checkboxsettingwidget.cpp */; };
 		C26CA0930F61E68900549A3C /* moc_rc_choiceradiobutton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA0700F61E68900549A3C /* moc_rc_choiceradiobutton.cpp */; };
@@ -171,7 +165,6 @@
 		C2AD53D911554CE700467A9B /* QtWebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28DC6650F310B9000DC9AAC /* QtWebKit.framework */; };
 		C2AD53DA11554CE700467A9B /* QtXml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28DC6640F310B9000DC9AAC /* QtXml.framework */; };
 		C2AD53DB11554CE700467A9B /* QtXmlPatterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28DC6630F310B9000DC9AAC /* QtXmlPatterns.framework */; };
-		C2B16EEA130E384700C8050C /* ASC_DCAM_DEV.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C21252B0130D9B1500B6C967 /* ASC_DCAM_DEV.framework */; };
 		C2B8E973187D0A3C0060D961 /* vfi386.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2B8E96E187CCC250060D961 /* vfi386.framework */; };
 		C2C301230F34FBAC0057B45E /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C301220F34FBAC0057B45E /* ApplicationServices.framework */; };
 		C2EC986A0F37845600E49E22 /* rc_about.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98280F37845400E49E22 /* rc_about.cpp */; };
@@ -288,16 +281,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C245B03F130F5B1A0065941E /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				C245B03B130F5AE40065941E /* ASC_DCAM_DEV.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C28DC52D0F3108AA00DC9AAC /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -327,7 +310,6 @@
 				C259530518AA1C5A00BBD892 /* QtDesigner.framework in CopyFiles */,
 				C259530618AA1C5A00BBD892 /* QtAssistant.framework in CopyFiles */,
 				C2B8E973187D0A3C0060D961 /* vfi386.framework in CopyFiles */,
-				C2B16EEA130E384700C8050C /* ASC_DCAM_DEV.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +326,6 @@
 		C20F5F58131838D500E0EAC0 /* rc_uitypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_uitypes.h; sourceTree = "<group>"; };
 		C20F5F59131838D500E0EAC0 /* rc_value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_value.h; sourceTree = "<group>"; };
 		C211A7D40FFDD01C00162208 /* tip.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = tip.tif; path = ../../Visible/resources/tip.tif; sourceTree = "<group>"; };
-		C21252B0130D9B1500B6C967 /* ASC_DCAM_DEV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ASC_DCAM_DEV.framework; path = 3rdparty/outcastsoft/framework/ASC_DCAM_DEV.framework; sourceTree = "<group>"; };
 		C21CB1820F4236E7003CC197 /* moc_camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_camera.cpp; sourceTree = "<group>"; };
 		C21CB1830F4236E7003CC197 /* moc_frame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_frame.cpp; sourceTree = "<group>"; };
 		C21CB1840F4236E7003CC197 /* moc_keyFrameInterpolator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_keyFrameInterpolator.cpp; sourceTree = "<group>"; };
@@ -436,7 +417,6 @@
 		C22837F31885AE11000CAB15 /* libopencv_core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_core.a; path = usr/local/OpenCV/lib/macosx/libopencv_core.a; sourceTree = "<group>"; };
 		C22837F81885AE11000CAB15 /* libopencv_highgui.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_highgui.a; path = usr/local/OpenCV/lib/macosx/libopencv_highgui.a; sourceTree = "<group>"; };
 		C22837F91885AE11000CAB15 /* libopencv_imgproc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_imgproc.a; path = usr/local/OpenCV/lib/macosx/libopencv_imgproc.a; sourceTree = "<group>"; };
-		C22DD1F113158BEF00801DE4 /* dcamInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dcamInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C23864410F32BA0600423241 /* releasenotes.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = releasenotes.html; sourceTree = "<group>"; };
 		C23864420F32BA0600423241 /* visible.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = visible.html; sourceTree = "<group>"; };
 		C23864440F32BA0600423241 /* analyze.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = analyze.png; sourceTree = "<group>"; };
@@ -483,10 +463,6 @@
 		C245C4E3130E36DD00EFE5A4 /* libmpeg2convert.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmpeg2convert.a; sourceTree = "<group>"; };
 		C245C4E4130E36DD00EFE5A4 /* mpeg2.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mpeg2.sh; sourceTree = "<group>"; };
 		C245C4E5130E36DD00EFE5A4 /* mpeg2dec-0.4.1.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = "mpeg2dec-0.4.1.tar"; sourceTree = "<group>"; };
-		C245C50C130E36DD00EFE5A4 /* ASC DCAM API 2.0 Documentation.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ASC DCAM API 2.0 Documentation.pdf"; sourceTree = "<group>"; };
-		C245C50D130E36DD00EFE5A4 /* ASC DCAM Read Me.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "ASC DCAM Read Me.rtfd"; sourceTree = "<group>"; };
-		C245C50F130E36DD00EFE5A4 /* ASC_DCAM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ASC_DCAM.framework; sourceTree = "<group>"; };
-		C245C511130E36DD00EFE5A4 /* ASC_DCAM_DEV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ASC_DCAM_DEV.framework; sourceTree = "<group>"; };
 		C2592E6E0FF6736F008AC46F /* rc_engineimpl_modeltracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_engineimpl_modeltracker.cpp; sourceTree = "<group>"; };
 		C259531018AB449900BBD892 /* libopencv_core.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.2.2.0.dylib; path = usr/local/OpenCv_2.2_i386/lib/libopencv_core.2.2.0.dylib; sourceTree = "<group>"; };
 		C259531818AB44F700BBD892 /* libopencv_objdetect.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_objdetect.2.2.0.dylib; path = usr/local/OpenCv_2.2_i386/lib/libopencv_objdetect.2.2.0.dylib; sourceTree = "<group>"; };
@@ -494,7 +470,6 @@
 		C259531B18AB451A00BBD892 /* libopencv_imgproc.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.2.2.0.dylib; path = usr/local/OpenCv_2.2_i386/lib/libopencv_imgproc.2.2.0.dylib; sourceTree = "<group>"; };
 		C259531E18ABE98300BBD892 /* lpwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = lpwidget.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		C259531F18ABEA3900BBD892 /* lpwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = lpwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
-		C26B50C4130E24AA0059FA8B /* RCDCAM */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = RCDCAM; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26CA06D0F61E68900549A3C /* moc_rc_about.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_about.cpp; sourceTree = "<group>"; };
 		C26CA06F0F61E68900549A3C /* moc_rc_checkboxsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_checkboxsettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C26CA0700F61E68900549A3C /* moc_rc_choiceradiobutton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_choiceradiobutton.cpp; sourceTree = "<group>"; };
@@ -528,10 +503,6 @@
 		C26CA08D0F61E68900549A3C /* moc_rc_trackgroupwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_trackgroupwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C26CA08E0F61E68900549A3C /* moc_rc_trackmanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_trackmanager.cpp; sourceTree = "<group>"; };
 		C26CA08F0F61E68900549A3C /* moc_rc_trackpanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_trackpanel.cpp; sourceTree = "<group>"; };
-		C26FA00F0F21139C0046570D /* ASC DCAM API 2.0 Documentation.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "ASC DCAM API 2.0 Documentation.pdf"; sourceTree = "<group>"; };
-		C26FA0100F21139C0046570D /* ASC DCAM Read Me.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "ASC DCAM Read Me.rtfd"; sourceTree = "<group>"; };
-		C26FA0110F21139C0046570D /* ASC_DCAM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ASC_DCAM.framework; sourceTree = "<group>"; };
-		C26FA0120F21139C0046570D /* ASC_DCAM_DEV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ASC_DCAM_DEV.framework; sourceTree = "<group>"; };
 		C26FA0140F21139C0046570D /* rc_dcam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_dcam.h; sourceTree = "<group>"; };
 		C26FA0150F21139C0046570D /* Reify_20090108_Universal_IIDCFWK.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Reify_20090108_Universal_IIDCFWK.zip; sourceTree = "<group>"; };
 		C26FA0220F2114140046570D /* libmpeg2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmpeg2.a; path = 3rdparty/mpeg2/libs/libmpeg2.a; sourceTree = "<group>"; };
@@ -657,6 +628,9 @@
 		C26FA2AA0F21357A0046570D /* ut_visual_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_visual_main.cpp; sourceTree = "<group>"; };
 		C26FA2AB0F21357A0046570D /* ut_window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_window.cpp; sourceTree = "<group>"; };
 		C26FA2AC0F21357A0046570D /* ut_windowhist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_windowhist.cpp; sourceTree = "<group>"; };
+		C27E57DB18C84D8100DF8BA1 /* libopencv_features2d.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_features2d.2.2.0.dylib; path = usr/local/OpenCv_2.2_i386/lib/libopencv_features2d.2.2.0.dylib; sourceTree = "<group>"; };
+		C27E57DD18C854E200DF8BA1 /* libopencv_calib3d.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_calib3d.2.2.0.dylib; path = usr/local/OpenCv_2.2_i386/lib/libopencv_calib3d.2.2.0.dylib; sourceTree = "<group>"; };
+		C27E57DF18C8554500DF8BA1 /* libopencv_flann.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_flann.2.2.0.dylib; path = usr/local/OpenCv_2.2_i386/lib/libopencv_flann.2.2.0.dylib; sourceTree = "<group>"; };
 		C2850D3D131A1DDC002C8918 /* Visible-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Visible-Info.plist"; path = "resources/Visible/resources/Visible-Info.plist"; sourceTree = "<group>"; };
 		C28DC5320F3108AA00DC9AAC /* Visible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Visible.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28DC6630F310B9000DC9AAC /* QtXmlPatterns.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtXmlPatterns.framework; path = /Library/Frameworks/QtXmlPatterns.framework; sourceTree = "<absolute>"; };
@@ -734,15 +708,6 @@
 		C2A9A6730F29200900DA781F /* ut_analysis_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_analysis_main.cpp; sourceTree = "<group>"; };
 		C2A9AB790F2FD4B000DA781F /* ut_simd.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ut_simd.h; path = ../src/ut_simd.h; sourceTree = "<group>"; };
 		C2A9AB7A0F2FD4B000DA781F /* ut_simd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_simd.cpp; sourceTree = "<group>"; };
-		C2B2ABC60F37F44900ECA6E1 /* code.pro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = code.pro; sourceTree = "<group>"; };
-		C2B2ABC70F37F44900ECA6E1 /* rc_dcam.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_dcam.cpp; sourceTree = "<group>"; };
-		C2B2ABC90F37F44900ECA6E1 /* ASC_DCAM_Sample1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ASC_DCAM_Sample1.cpp; sourceTree = "<group>"; };
-		C2B2ABCA0F37F44900ECA6E1 /* sample1.pro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample1.pro; sourceTree = "<group>"; };
-		C2B2ABCC0F37F44900ECA6E1 /* ASC_DCAM_Sample2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ASC_DCAM_Sample2.cpp; sourceTree = "<group>"; };
-		C2B2ABCD0F37F44900ECA6E1 /* sample2.pro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample2.pro; sourceTree = "<group>"; };
-		C2B2ABCE0F37F44900ECA6E1 /* src.pro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = src.pro; sourceTree = "<group>"; };
-		C2B2ABD00F37F44900ECA6E1 /* test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
-		C2B2ABD10F37F44900ECA6E1 /* test.pro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.pro; sourceTree = "<group>"; };
 		C2B8E96C187CCBF90060D961 /* libvf32_vf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvf32_vf.a; path = build/Release/libvf32_vf.a; sourceTree = "<group>"; };
 		C2B8E96E187CCC250060D961 /* vfi386.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386.framework; path = build/Release/vfi386.framework; sourceTree = "<group>"; };
 		C2B8EA24188102920060D961 /* vfi386_d.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386_d.framework; path = build/Debug/vfi386_d.framework; sourceTree = "<group>"; };
@@ -956,22 +921,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C22DD1EF13158BEF00801DE4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C26B50C2130E24AA0059FA8B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C2351D8E131364E30023D576 /* vfi386_d.framework in Frameworks */,
-				C245B105130F64190065941E /* ASC_DCAM_DEV.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C28DC52A0F3108AA00DC9AAC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1019,8 +968,6 @@
 			isa = PBXGroup;
 			children = (
 				C28DC5320F3108AA00DC9AAC /* Visible.app */,
-				C26B50C4130E24AA0059FA8B /* RCDCAM */,
-				C22DD1F113158BEF00801DE4 /* dcamInfo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1028,6 +975,9 @@
 		0867D691FE84028FC02AAC07 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C27E57DF18C8554500DF8BA1 /* libopencv_flann.2.2.0.dylib */,
+				C27E57DD18C854E200DF8BA1 /* libopencv_calib3d.2.2.0.dylib */,
+				C27E57DB18C84D8100DF8BA1 /* libopencv_features2d.2.2.0.dylib */,
 				C2F1963818ACA917008D996D /* liblightplot2d.1.0.1.dylib */,
 				C259531A18AB451A00BBD892 /* libopencv_highgui.2.2.0.dylib */,
 				C259531B18AB451A00BBD892 /* libopencv_imgproc.2.2.0.dylib */,
@@ -1049,7 +999,6 @@
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				C21252B0130D9B1500B6C967 /* ASC_DCAM_DEV.framework */,
 				C22837F31885AE11000CAB15 /* libopencv_core.a */,
 				C22837F81885AE11000CAB15 /* libopencv_highgui.a */,
 				C22837F91885AE11000CAB15 /* libopencv_imgproc.a */,
@@ -1508,8 +1457,6 @@
 		C245C50B130E36DD00EFE5A4 /* docs */ = {
 			isa = PBXGroup;
 			children = (
-				C245C50C130E36DD00EFE5A4 /* ASC DCAM API 2.0 Documentation.pdf */,
-				C245C50D130E36DD00EFE5A4 /* ASC DCAM Read Me.rtfd */,
 			);
 			path = docs;
 			sourceTree = "<group>";
@@ -1517,8 +1464,6 @@
 		C245C50E130E36DD00EFE5A4 /* framework */ = {
 			isa = PBXGroup;
 			children = (
-				C245C50F130E36DD00EFE5A4 /* ASC_DCAM.framework */,
-				C245C511130E36DD00EFE5A4 /* ASC_DCAM_DEV.framework */,
 			);
 			path = framework;
 			sourceTree = "<group>";
@@ -1587,10 +1532,6 @@
 			isa = PBXGroup;
 			children = (
 				C2B2ABC40F37F44900ECA6E1 /* src */,
-				C26FA00F0F21139C0046570D /* ASC DCAM API 2.0 Documentation.pdf */,
-				C26FA0100F21139C0046570D /* ASC DCAM Read Me.rtfd */,
-				C26FA0110F21139C0046570D /* ASC_DCAM.framework */,
-				C26FA0120F21139C0046570D /* ASC_DCAM_DEV.framework */,
 				C26FA0130F21139C0046570D /* include */,
 				C26FA0150F21139C0046570D /* Reify_20090108_Universal_IIDCFWK.zip */,
 			);
@@ -1894,7 +1835,6 @@
 				C2B2ABC50F37F44900ECA6E1 /* code */,
 				C2B2ABC80F37F44900ECA6E1 /* sample1 */,
 				C2B2ABCB0F37F44900ECA6E1 /* sample2 */,
-				C2B2ABCE0F37F44900ECA6E1 /* src.pro */,
 				C2B2ABCF0F37F44900ECA6E1 /* test */,
 			);
 			name = src;
@@ -1904,8 +1844,6 @@
 		C2B2ABC50F37F44900ECA6E1 /* code */ = {
 			isa = PBXGroup;
 			children = (
-				C2B2ABC60F37F44900ECA6E1 /* code.pro */,
-				C2B2ABC70F37F44900ECA6E1 /* rc_dcam.cpp */,
 			);
 			path = code;
 			sourceTree = "<group>";
@@ -1913,8 +1851,6 @@
 		C2B2ABC80F37F44900ECA6E1 /* sample1 */ = {
 			isa = PBXGroup;
 			children = (
-				C2B2ABC90F37F44900ECA6E1 /* ASC_DCAM_Sample1.cpp */,
-				C2B2ABCA0F37F44900ECA6E1 /* sample1.pro */,
 			);
 			path = sample1;
 			sourceTree = "<group>";
@@ -1922,8 +1858,6 @@
 		C2B2ABCB0F37F44900ECA6E1 /* sample2 */ = {
 			isa = PBXGroup;
 			children = (
-				C2B2ABCC0F37F44900ECA6E1 /* ASC_DCAM_Sample2.cpp */,
-				C2B2ABCD0F37F44900ECA6E1 /* sample2.pro */,
 			);
 			path = sample2;
 			sourceTree = "<group>";
@@ -1931,8 +1865,6 @@
 		C2B2ABCF0F37F44900ECA6E1 /* test */ = {
 			isa = PBXGroup;
 			children = (
-				C2B2ABD00F37F44900ECA6E1 /* test.cpp */,
-				C2B2ABD10F37F44900ECA6E1 /* test.pro */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -2242,41 +2174,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C22DD1F013158BEF00801DE4 /* dcamInfo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C22DD1F613158BF100801DE4 /* Build configuration list for PBXNativeTarget "dcamInfo" */;
-			buildPhases = (
-				C22DD1ED13158BEF00801DE4 /* Resources */,
-				C22DD1EE13158BEF00801DE4 /* Sources */,
-				C22DD1EF13158BEF00801DE4 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = dcamInfo;
-			productName = dcamInfo;
-			productReference = C22DD1F113158BEF00801DE4 /* dcamInfo.app */;
-			productType = "com.apple.product-type.application";
-		};
-		C26B50C3130E24AA0059FA8B /* RCDCAM */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C26B50CA130E24E90059FA8B /* Build configuration list for PBXNativeTarget "RCDCAM" */;
-			buildPhases = (
-				C26B50C1130E24AA0059FA8B /* Sources */,
-				C26B50C2130E24AA0059FA8B /* Frameworks */,
-				C245B03F130F5B1A0065941E /* CopyFiles */,
-				C2351D851313640B0023D576 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = RCDCAM;
-			productName = RCDCAM;
-			productReference = C26B50C4130E24AA0059FA8B /* RCDCAM */;
-			productType = "com.apple.product-type.tool";
-		};
 		C28DC4AA0F3108AA00DC9AAC /* Visible */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C28DC52F0F3108AA00DC9AAC /* Build configuration list for PBXNativeTarget "Visible" */;
@@ -2329,9 +2226,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				C26B50C3130E24AA0059FA8B /* RCDCAM */,
 				C28DC4AA0F3108AA00DC9AAC /* Visible */,
-				C22DD1F013158BEF00801DE4 /* dcamInfo */,
 			);
 		};
 /* End PBXProject section */
@@ -2389,13 +2284,6 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C22DD1ED13158BEF00801DE4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C28DC4AD0F3108AA00DC9AAC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2467,8 +2355,6 @@
 				C245C518130E36DD00EFE5A4 /* extract_m2v in Resources */,
 				C245C51B130E36DE00EFE5A4 /* mpeg2.sh in Resources */,
 				C245C51C130E36DE00EFE5A4 /* mpeg2dec-0.4.1.tar in Resources */,
-				C245C535130E36DE00EFE5A4 /* ASC DCAM API 2.0 Documentation.pdf in Resources */,
-				C245C536130E36DE00EFE5A4 /* ASC DCAM Read Me.rtfd in Resources */,
 				C2850D3E131A1DDC002C8918 /* Visible-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2476,19 +2362,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C2351D851313640B0023D576 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Parse arguments\nDYLIB=\"vf.framework/Versions/A/vf\"\napplicationExecutable=\"${CONFIGURATION_BUILD_DIR}/Visible.app/Contents/MacOS/RCDCAM\"\necho \"${applicationExecutable}\"\nframeworksLocation=\"`dirname ${applicationExecutable}`/../Frameworks\"\necho \"Relocating ${frameworksLocation}\"\nframeworkExecutable=\"${frameworksLocation}/${DYLIB}\"\n\n# Rewrite install_name of framework\nnewInstallName=\"@executable_path/../Frameworks/${DYLIB}\"\necho \"Relocating ${frameworkExecutable} as ${newInstallName}\" \ninstall_name_tool -id \"${newInstallName}\" \"${frameworkExecutable}\"\n\n # Rewrite install_name in the app\necho \"Relocating ${frameworkExecutable} as ${newInstallName} in application\" \n\n# We re-search originalInstallName, in application, because might be different.\n  originalInstallName=`otool -L ${applicationExecutable}| grep  ${DYLIB} | sed -e 's/^\\([[:blank:]]*\\)\\(.*\\)\\( (.*\\)$/\\2/'`\n  echo \"install_name_tool -change ${originalInstallName} ${newInstallName} ${applicationExecutable}\"\n  install_name_tool -change \"${originalInstallName}\" \"${newInstallName}\" \"${applicationExecutable}\"\n\n\n\n# Rewrite install_name of framework\nSUBDYLIB=\"ASC_DCAM_DEV.framework/Versions/A/ASC_DCAM_DEV\"\nSUBframeworksLocation=\"`dirname ${applicationExecutable}`/../Frameworks\"\necho \"Relocating ${SUBframeworksLocation}\"\nSUBframeworkExecutable=\"${SUBframeworksLocation}/${SUBDYLIB}\"\nnewInstallName=\"@executable_path/../Frameworks/${SUBDYLIB}\"\necho \"Relocating ${frameworkExecutable} as ${newInstallName}\" \ninstall_name_tool -id \"${newInstallName}\" \"${SUBframeworkExecutable}\"\n\n # Rewrite install_name in the app\necho \"Relocating ${SUBframeworkExecutable} as ${newInstallName} in application\" \n\n# We re-search originalInstallName, in application, because might be different.\n  originalInstallName=`otool -L ${applicationExecutable}| grep  ${SUBDYLIB} | sed -e 's/^\\([[:blank:]]*\\)\\(.*\\)\\( (.*\\)$/\\2/'`\n  echo \"install_name_tool -change ${originalInstallName} ${newInstallName} ${applicationExecutable}\"\n  install_name_tool -change \"${originalInstallName}\" \"${newInstallName}\" \"${applicationkExecutable}\"\n\n# finally mark DYLIB and SUBDYLIB\n originalInstallName=`otool -L ${frameworksExecutable}| grep  ${SUBDYLIB} | sed -e 's/^\\([[:blank:]]*\\)\\(.*\\)\\( (.*\\)$/\\2/'`\n  echo \"install_name_tool -change ${originalInstallName} ${newInstallName} ${frameworkExecutable}\"\n\n install_name_tool -change \"${originalInstallName}\" \"${newInstallName}\" \"${frameworkExecutable}\"";
-		};
 		C26B50DF130E26D90059FA8B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2499,9 +2372,8 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\n## register executable to framework and framework to executable in the application Bundle\n\n## $1 framework executable\n## $2 application executable in MacOS folder\n## $3 path to frameworks in Frameworks\n## $4 core framework executable if != $1\n\n\n\n\nfunction _register_in_parent_framework ()\n{\n    echo \"install_name_tool -change $1 $2 $3\"\n    install_name_tool -change $1 $2 $3\n}\n\n\n## i.e. 2.2 to 2.2.x\nfunction _link_framework ()\n{\n    pushd \"$3\"\n    src=\"$1\"\n    dst=\"$2\"\n    echo \"Linking Canonical Name with Versioned Name $src <-> $dst\"\n    ln -s \"$src\" \"$dst\"\n    popd\n}\n\n\n\nfunction relocate_and_register_()\n{\n    echo \"arg1 is $1\"\n    echo \"arg2 is $2\"\n    echo \"arg3 is $3\"\n    local lastarg=${!#}\n        local extraOpArgN=3\n        \n        ## path to where frameworks go in the bundle\n        echo 'step 1:'\n        local frameworksLocation=\"`dirname $2`/../Frameworks\"\n        echo \"Relocating ${frameworksLocation}\"\n        local frameworkExecutable=\"${frameworksLocation}/$1\"\n        \n        ## Rewrite install_name of framework\n        echo 'step 2:'\n        local newInstallName=\"@executable_path/../Frameworks/$1\"\n        echo \"Relocating ${frameworkExecutable} as ${newInstallName}\" \n        install_name_tool -id \"${newInstallName}\" \"${frameworkExecutable}\"\n        ## Rewrite install_name in the app\n        echo 'step 3:'\n        \n        echo \"Relocating ${frameworkExecutable} as ${newInstallName} in application\" \n        ## We re-search originalInstallName, in application, because might be different.\n        local originalInstallName=`otool -L $2 | grep  $1 | sed -e 's/^\\([[:blank:]]*\\)\\(.*\\)\\( (.*\\)$/\\2/'`\n        echo \"install_name_tool -change ${originalInstallName} ${newInstallName} $2 \"\n        install_name_tool -change \"${originalInstallName}\" \"${newInstallName}\" \"$2\"\n        \n        ## if we have to also register this framework in the core framework\n        if [ $# = \"$extraOpArgN\" ]\n        then\n        originalInstallName=`otool -L \"$frameworksLocation/$3\"| grep  $1 | sed -e 's/^\\([[:blank:]]*\\)\\(.*\\)\\( (.*\\)$/\\2/'`\n        _register_in_parent_framework ${originalInstallName} ${newInstallName} $frameworksLocation/$3\n        fi\n    }\n    \n    DYLIB=\"vfi386.framework/Versions/A/vfi386\"\n    applicationExecutable=\"${CONFIGURATION_BUILD_DIR}/Visible.app/Contents/MacOS/Visible\"\n    frameworksLocation=\"`dirname ${applicationExecutable}`/../Frameworks\"\n    ASCDYLIB=\"ASC_DCAM_DEV.framework/Versions/A/ASC_DCAM_DEV\"\n    \n    CVCORE_ALIAS=libopencv_core.2.2.dylib\n    CVHG_ALIAS=libopencv_highgui.2.2.dylib\n    CVIP_ALIAS=libopencv_imgproc.2.2.dylib\n    CVOD_ALIAS=libopencv_objdetect.2.2.dylib\n    \n    CVCORE=libopencv_core.2.2.0.dylib\n    CVHG=libopencv_highgui.2.2.0.dylib\n    CVIP=libopencv_imgproc.2.2.0.dylib\n    CVOD=libopencv_objdetect.2.2.0.dylib\n    \n    _link_framework $CVCORE $CVCORE_ALIAS $frameworksLocation\n    _link_framework $CVIP $CVIP_ALIAS $frameworksLocation\n    _link_framework $CVHG $CVHG_ALIAS $frameworksLocation\n    _link_framework $CVOD $CVOD_ALIAS $frameworksLocation\n    \n    relocate_and_register_ $DYLIB $applicationExecutable\n    relocate_and_register_ $ASCDYLIB $applicationExecutable $DYLIB\n    relocate_and_register_ $CVCORE_ALIAS $applicationExecutable \n    relocate_and_register_ $CVHG_ALIAS $applicationExecutable\n    relocate_and_register_ $CVIP_ALIAS $applicationExecutable \n    relocate_and_register_ $CVOD_ALIAS $applicationExecutable \n    \n    relocate_and_register_ $CVHG_ALIAS $CVCORE\n    relocate_and_register_ $CVIP_ALIAS $CVCORE \n    relocate_and_register_ $CVOD_ALIAS $CVCORE\n    \n    relocate_and_register_ $CVIP_ALIAS $CVOD \n    relocate_and_register_ $CVOD_ALIAS $CVOD\n    \n    \n";
-			showEnvVarsInLog = 0;
+			shellPath = /bin/bash;
+			shellScript = /Users/arman/gwc/vqt105/visibleqt105/build_scripts/visible_shell_bash_scipt.sh;
 		};
 		C2B8E9B0187DE8040060D961 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2513,27 +2385,12 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
+			shellPath = /bin/bash;
 			shellScript = "GIT=/usr/bin/git\nGITOPTIONS=\"--pretty=oneline --abbrev-commit\"\nCUT=/usr/bin/cut\n$GIT log -1 $GITOPTIONS\necho \"${LINENO} ${TARGET_BUILD_DIR}/${INFOPLIST_PATH} \"\n/usr/libexec/PlistBuddy -c \"Set :BuildRevision `$GIT log -1 $GITOPTIONS | $CUT -c1-7`\" ${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C22DD1EE13158BEF00801DE4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C26B50C1130E24AA0059FA8B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C26B50C9130E24CB0059FA8B /* rc_dcam_main.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C28DC4E80F3108AA00DC9AAC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2684,7 +2541,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				BOOST_PATH = /usr/local/boost/;
+				BOOST_PATH = "$(SRCROOT)/usr/local/boost/";
 				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
@@ -2692,141 +2549,17 @@
 				GCC_UNROLL_LOOPS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(BOOST_PATH)/include";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/include/util",
+					"$(BOOST_PATH)/include",
+					"$(SRCROOT)/include/visual",
+					"$(SRCROOT)/include/analysis",
+				);
 				LIBRARY_SEARCH_PATHS = "$(BOOST_PATH)/lib";
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.5.sdk;
 				VALID_ARCHS = i386;
-			};
-			name = Release;
-		};
-		C22DD1F413158BF000801DE4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "dcamInfo-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = dcamInfo;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.5.sdk;
-			};
-			name = Debug;
-		};
-		C22DD1F513158BF000801DE4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "dcamInfo-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = dcamInfo;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.5.sdk;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
-		C26B50C6130E24AB0059FA8B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				BOOST_PATH = /usr/local/boost;
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/frameworks";
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_FAST_OBJC_DISPATCH = NO;
-				GCC_MODEL_TUNING = "";
-				GCC_OBJC_CALL_CXX_CDTORS = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
-				GCC_UNROLL_LOOPS = NO;
-				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(BOOST_PATH)/include",
-					"$(SRCROOT)/include/**",
-					/System/Library/Frameworks/CarbonCore.framework/Headers,
-				);
-				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
-				INSTALL_PATH = /usr/local/bin;
-				LIBRARY_SEARCH_PATHS = "$(BOOST_PATH)";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Carbon,
-					"-weak_framework",
-					ASC_DCAM_DEV,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = RCDCAM;
-				STRIP_INSTALLED_PRODUCT = NO;
-			};
-			name = Debug;
-		};
-		C26B50C7130E24AB0059FA8B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				BOOST_PATH = /usr/local/boost;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/frameworks";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_FAST_OBJC_DISPATCH = NO;
-				GCC_MODEL_TUNING = "";
-				GCC_OBJC_CALL_CXX_CDTORS = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
-				GCC_UNROLL_LOOPS = NO;
-				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(BOOST_PATH)/include",
-					"$(SRCROOT)/include/**",
-					/System/Library/Frameworks/CarbonCore.framework/Headers,
-				);
-				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
-				INSTALL_PATH = /usr/local/bin;
-				LIBRARY_SEARCH_PATHS = "$(BOOST_PATH)";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Carbon,
-					"-weak_framework",
-					ASC_DCAM_DEV,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = RCDCAM;
-				STRIP_INSTALLED_PRODUCT = NO;
-				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -2837,10 +2570,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/3rdparty/outcastsoft/framework",
-					/Users/arman/gwc/vqt105/visibleqt105/build/Release,
-				);
+				FRAMEWORK_SEARCH_PATHS = /Users/arman/gwc/vqt105/visibleqt105/build/Release;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_FAST_OBJC_DISPATCH = NO;
@@ -2911,21 +2641,11 @@
 					"-Drc_build_option_general_fluorescence",
 					"-Drc_build_option_cell_lineage",
 				);
-				OTHER_LDFLAGS = (
-					"-weak_framework",
-					ASC_DCAM_DEV,
-					"-weak_framework",
-					ASC_DCAM,
-					"-headerpad_max_install_names",
-					"-L/Library/Frameworks",
-					"-F/Library/Frameworks",
-					"-lz",
-					"-lm",
-				);
+				OTHER_LDFLAGS = "-headerpad_max_install_names";
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = Visible;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = macosx10.5;
 				STRIP_INSTALLED_PRODUCT = NO;
 				VALID_ARCHS = "i386 ";
 				YACCFLAGS = "-d";
@@ -2940,10 +2660,7 @@
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/3rdparty/outcastsoft/framework",
-					/Users/arman/gwc/vqt105/visibleqt105/build/Release,
-				);
+				FRAMEWORK_SEARCH_PATHS = /Users/arman/gwc/vqt105/visibleqt105/build/Release;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_FAST_OBJC_DISPATCH = NO;
@@ -2980,7 +2697,7 @@
 					/System/Library/Frameworks/AGL.framework/Headers,
 					/usr/local/include,
 					/System/Library/Frameworks/CarbonCore.framework/Headers,
-					"$(SRCROOT)/include/util",
+					"$(SRCROOT)/usr/local/lightplot_i386/include",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/resources/visible/resources/Visible-Info.plist";
 				INSTALL_PATH = "@rpath";
@@ -3014,17 +2731,11 @@
 					"-Drc_build_option_general_fluorescence",
 					"-Drc_build_option_cell_lineage",
 				);
-				OTHER_LDFLAGS = (
-					"-headerpad_max_install_names",
-					"-L/Library/Frameworks",
-					"-F/Library/Frameworks",
-					"-lz",
-					"-lm",
-				);
+				OTHER_LDFLAGS = "-headerpad_max_install_names";
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = Visible;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = macosx10.5;
 				STRIP_INSTALLED_PRODUCT = NO;
 				VALID_ARCHS = "i386 ";
 				YACCFLAGS = "-d";
@@ -3039,24 +2750,6 @@
 			buildConfigurations = (
 				4FADC24708B4156D00ABE55E /* Debug */,
 				4FADC24808B4156D00ABE55E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		C22DD1F613158BF100801DE4 /* Build configuration list for PBXNativeTarget "dcamInfo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C22DD1F413158BF000801DE4 /* Debug */,
-				C22DD1F513158BF000801DE4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		C26B50CA130E24E90059FA8B /* Build configuration list for PBXNativeTarget "RCDCAM" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C26B50C6130E24AB0059FA8B /* Debug */,
-				C26B50C7130E24AB0059FA8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
