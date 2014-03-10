@@ -18,55 +18,10 @@
 #include <QtGui/QLabel>
 #include <assert.h>
 #include <rc_signal1d.hpp>
+#include <rc_contraction_signal.hpp>
+#include <rc_uitypes.h>
+
 using namespace std;
-
-class CurveData2d 
-{
-public:
-    CurveData2d (deque<deque<double> >& sm, uint32 matrix_size) :
-    m_sm (sm), m_matrix (matrix_size)
-    {
-        
-    }
-    
-    void mean_profile (int pos, int length, deque<float>& profile)
-    {
-        profile.resize (m_matrix);
-        // calculate the end. Limit to the end
-        int after  = pos + length - 1;
-        after = after >= (int) m_matrix ? (m_matrix - 1) : after;
-        assert (after > 0);
-        uint32 uafter = (uint32) after;        
-        for (uint32 i = pos; i < uafter; i++)
-        {
-            assert(m_sm[i].size() == m_matrix);
-            profile[i-pos] = m_sm[i][i];
-        }
-        
-        for (uint32 i = pos; i < uafter; i++)
-            for (uint32 j = (i+1); j < uafter; j++)
-            {
-                profile[i] += m_sm[i][j];
-                profile[j] += m_sm[i][j];
-            }
-        
-        for (uint32 ii = 0; ii < profile.size (); ii++)
-        {
-            profile [ii] /= m_matrix;
-        }
-    }
-    
-    void mean_profile (deque<float>& profile)
-    {
-        mean_profile (0, m_matrix, profile);
-    }
-    
-private:
-    deque<deque<double> > m_sm;
-    uint32 m_matrix;
-
-};
-
 
 typedef boost::shared_ptr<CurveData> SharedCurveDataRef;
 
@@ -76,18 +31,28 @@ class LPWidget : public QWidget
     
 public:
     LPWidget(QWidget *parent = 0, const CurveData * cdata = 0);
+    LPWidget(QWidget *parent , const CurveData2d* cdata2  );
+    
     void new_plot (SharedCurveDataRef& );
     void new_plot ( const CurveData * ); 
-    
-public Q_SLOTS:    
-    void add_contractions (int);
+    int half_window () const { return m_half_window; }
     
     ~LPWidget();
+    
+    // The "slots" and "signals" sections in a class definition should only contain functions; neither types nor member variables.
+    public slots:    
+    void add_contractions (int);
+
+    
 private:
+       
     std::deque<double> m_signal;
     std::deque<double> m_dsdt;
     std::deque<double> m_zcm;
     
+    void compute_2nd_derivative ();
+    int get_all_candidates ();
+
     void demo ();
     void setupUi(QWidget *Form);
     void retranslateUi(QWidget *Form);
@@ -97,6 +62,16 @@ private:
     QLabel *contraction_threshold_input;
     std::vector<extrema_pos> m_valleys;
     std::vector<extrema_pos> m_peaks;
+
+    ContractionSignal<double, std::deque> m_csignal;
+    valley_detector<double, std::deque> m_vd;    
+    second_derivative_producer<double, std::deque> m_sdp;
+
+    SharedCurveData2dRef m_c2m;
+    volatile int m_cdata_index;
+    volatile int m_half_window;
+    
+    
     
 };
 

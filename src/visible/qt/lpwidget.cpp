@@ -1,10 +1,10 @@
 #include "lpwidget.h"
 #include <lightplot2d.h>
 #include <QVBoxLayout>
-
+#include <rc_uitypes.h>
 
 LPWidget::LPWidget(QWidget *parent, const CurveData*  cref )
-: QWidget (parent, Qt::WDestructiveClose | Qt::WResizeNoErase)
+: QWidget (parent, Qt::WDestructiveClose | Qt::WResizeNoErase), m_half_window (10)
 {
     if (cref)
     {
@@ -20,6 +20,16 @@ LPWidget::LPWidget(QWidget *parent, const CurveData*  cref )
     }
 }
 
+LPWidget::LPWidget(QWidget *parent , const CurveData2d* cdata2  )   
+: QWidget (parent, Qt::WDestructiveClose | Qt::WResizeNoErase)
+{
+    if (cdata2)
+    {
+        m_c2m = SharedCurveData2dRef ( new CurveData2d (*cdata2) );
+    }
+}
+
+
 void LPWidget::new_plot(SharedCurveDataRef & cref)
 {
     if ( cref )
@@ -29,50 +39,78 @@ void LPWidget::new_plot(SharedCurveDataRef & cref)
      }    
 }
 
+void LPWidget::compute_2nd_derivative()
+{
+    // Produce 2nd derivative for the whole signnal
+  m_sdp.operator()(m_signal, m_dsdt, m_zcm);
+
+}
+
+int LPWidget::get_all_candidates()
+{
+    m_valleys.clear ();    
+    m_vd.operator() (m_signal, m_valleys, half_window () );
+    return (int) (m_valleys.size () );
+}
+
 void LPWidget::new_plot(const CurveData*  cref)
 {
     if ( cref != 0 )
     {
+        compute_2nd_derivative();
+        int nc = get_all_candidates ();
+        m_csignal.set_raw_data(m_signal, m_dsdt, m_valleys);
         const QVector<QPointF>& pvals = cref->data ();
+        rmUnused(pvals);
         
         CurveData cdata ( * cref );
         CurveData* cd0 = & cdata;
         cd0->setColor(Qt::red);
         _plot = new LightPlot2D;
         _plot->addCurveData(*cref);
+        m_cdata_index = _plot->curvesList().size () - 1;
         
         _plot->setMinY(0.0);
         _plot->setMaxY(1.0);
         _plot->setMinX(0.0);
         
-        _plot->setNameXAxis("<i><font color=#CD5C5C>Axis</font> </i><font color=#708090>X</font> :)");
+        _plot->setNameXAxis("<i><font color=#CD5C5C>Axis</font> </i><font color=#708090>Time</font> Frame Index");
+        _plot->setNameYAxis("<i><font color=#CD5C5C>Axis</font> </i><font color=#708090>SSI</font> Self-Similarity Index");        
         _plot->setLegendOpacity(220);
         
         _plot->setLegendFont(QFont("Serif", 12));
+        
+             
         setupUi (this);
-    }
+        }
+
 }
 
 void LPWidget::add_contractions (int thr)
 {
-    int half_window = 10;
-    second_derivative_producer<double, std::deque> sdp;
-    sdp.operator()(m_signal, m_dsdt, m_zcm);
-    m_valleys.clear ();
-    m_peaks.clear ();
-    peak_detector<double, std::deque> pk;
-    valley_detector<double, std::deque> vd;    
-    pk.operator() (m_zcm, m_peaks, half_window);
-    vd.operator () (m_signal, m_valleys, half_window);
+    m_csignal.operator () (thr);
     
-    //   QVector<QPointF> data;
-    //    for (uint32 ii = 0; ii < mini.size(); ii++)
-    //       data.push_back (QPointF(mini[ii], m_signal[mini[ii]]));
-
-    //  QString legend = QString::fromUtf8("Contractions");
-    //  CurveData* contractions = new CurveData (data,legend );
-    //   _plot->addCurveData (*contractions);
-    //   update ();
+    if (m_csignal.isValid () && ! m_csignal.isEmpty () )
+    {
+        float scaling_step = 1.0f / m_signal.size ();
+        
+        for (uint vc = 0; vc < m_csignal.numberOfContractions () ; vc++)
+        {
+            QVector<QPointF> marks;
+            
+            if (m_csignal.contractions()[vc].state < 0) continue;
+            
+            float tpos = m_csignal.contractions()[vc].posid * scaling_step;
+            float value = m_csignal.contractions()[vc].value;
+            marks.append (QPointF (tpos, value));
+            QString contractionNumber (vc);
+            CurveData mars(marks, contractionNumber.toStdString().c_str () );
+            mars.setColor(Qt::red);
+            mars.setSymbol(Circle); 
+            _plot->addCurveData (mars);
+        }
+    }
+    update ();
    
     
 }

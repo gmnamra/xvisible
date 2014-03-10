@@ -112,7 +112,10 @@ rcMainWindow::rcMainWindow(QWidget* parent)
 
     connect( domain , SIGNAL( requestPlot ( const CurveData *) ) ,
             this  , SLOT( reload_plotter ( const CurveData *  ) ) );    
-    
+
+    connect( domain , SIGNAL( requestPlot2d ( const CurveData2d *) ) ,
+            this  , SLOT( reload_plotter2d ( const CurveData2d *  ) ) );    
+
     
     setUnifiedTitleAndToolBarOnMac (true);
     
@@ -230,6 +233,21 @@ void rcMainWindow::reload_plotter (const CurveData * cv)
     update ();
     
 }
+
+
+void rcMainWindow::reload_plotter2d (const CurveData2d * cv)
+{
+    LPWidget* plotter = new LPWidget (this, cv);
+    
+    QDockWidget *dock = new QDockWidget(this);
+    dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+    dock->setWidget(plotter);
+    addDockWidget(Qt::RightDockWidgetArea, dock);
+    viewMenu->addAction(dock->toggleViewAction());
+    update ();
+    
+}
+
 
 
 void rcMainWindow::createDockWindows()

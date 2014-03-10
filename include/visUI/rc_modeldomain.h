@@ -9,6 +9,7 @@
 #include <rc_model.h>
 #include <rc_security.h>
 #include <rc_affine.h>
+#include <rc_uitypes.h>
 
 #include "rc_customeventmanager.h"
 
@@ -165,6 +166,10 @@ public:
   // if the observer is accepting plot data, this is called to
   // tell the observer to put them up
   virtual void notifyPlotRequest (SharedCurveDataRef&  );
+
+    // if the observer is accepting plot data, this is called to
+    // tell the observer to put them up
+  virtual void notifyPlot2dRequest (SharedCurveData2dRef&  );
     
 	
   rcPolygonGroupRef polys ()
@@ -237,6 +242,7 @@ signals:
     void updateMonitorDisplay();
     void updateVideoRect( const rcRect& rect );
     void requestPlot ( const CurveData*  );
+    void requestPlot2d ( const CurveData2d*  );    
     void updateCameraState( bool liveCamera, bool liveStorage );
     void updateDebugging();
     void updateSelectionState (bool b);

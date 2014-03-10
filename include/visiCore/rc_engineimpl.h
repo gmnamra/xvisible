@@ -245,6 +245,8 @@ public:
     
     virtual void notifyEngineOfPlotRequests ( const CurveData * );    
     
+    virtual void notifyEngineOfPlot2dRequests ( const CurveData2d * );        
+    
 
     // Model access
     rcEngineObserver&	observer() { rmAssert(_observer); return *_observer; };
@@ -575,7 +577,8 @@ protected:
     // Toggle Mechanism
     rcAtomicValue<bool>   _isPausedToggle;
     rcPolygonGroupRef _selectedPolys; // Polygon Collection
-    boost::shared_ptr<CurveData> _curveDataRef;
+    SharedCurveDataRef   _curveDataRef;
+    SharedCurveData2dRef _curveData2dRef;
 
 };
 

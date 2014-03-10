@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_modeldomain.h'
 **
-** Created: Fri Feb 14 09:40:35 2014
+** Created: Fri Mar 7 14:40:28 2014
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,12 +23,12 @@ static const uint qt_meta_data_rcModelDomain[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-      43,   14, // methods
+      44,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-      26,       // signalCount
+      27,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
       20,   15,   14,   14, 0x05,
@@ -54,28 +54,29 @@ static const uint qt_meta_data_rcModelDomain[] = {
      622,   14,   14,   14, 0x05,
      645,  215,   14,   14, 0x05,
      669,   14,   14,   14, 0x05,
-     722,  699,   14,   14, 0x05,
-     751,   14,   14,   14, 0x05,
-     771,  769,   14,   14, 0x05,
+     699,   14,   14,   14, 0x05,
+     756,  733,   14,   14, 0x05,
+     785,   14,   14,   14, 0x05,
+     805,  803,   14,   14, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-     798,   14,   14,   14, 0x0a,
-     813,   14,   14,   14, 0x0a,
-     827,   14,   14,   14, 0x0a,
-     844,   14,   14,   14, 0x0a,
-     857,   14,   14,   14, 0x0a,
-     878,  873,   14,   14, 0x0a,
-     914,   14,   14,   14, 0x0a,
-     936,  929,   14,   14, 0x0a,
-     972,   14,   14,   14, 0x0a,
-     993,   14,   14,   14, 0x0a,
-    1015,   14,   14,   14, 0x0a,
-    1036,   14,   14,   14, 0x0a,
-    1055,   14,   14,   14, 0x0a,
-    1074,   14,   14,   14, 0x0a,
-    1098,   14,   14,   14, 0x0a,
-    1110,   14,   14,   14, 0x0a,
-    1133,   14,   14,   14, 0x0a,
+     832,   14,   14,   14, 0x0a,
+     847,   14,   14,   14, 0x0a,
+     861,   14,   14,   14, 0x0a,
+     878,   14,   14,   14, 0x0a,
+     891,   14,   14,   14, 0x0a,
+     912,  907,   14,   14, 0x0a,
+     948,   14,   14,   14, 0x0a,
+     970,  963,   14,   14, 0x0a,
+    1006,   14,   14,   14, 0x0a,
+    1027,   14,   14,   14, 0x0a,
+    1049,   14,   14,   14, 0x0a,
+    1070,   14,   14,   14, 0x0a,
+    1089,   14,   14,   14, 0x0a,
+    1108,   14,   14,   14, 0x0a,
+    1132,   14,   14,   14, 0x0a,
+    1144,   14,   14,   14, 0x0a,
+    1167,   14,   14,   14, 0x0a,
 
        0        // eod
 };
@@ -98,6 +99,7 @@ static const char qt_meta_stringdata_rcModelDomain[] = {
     "scaleFactor\0updateMonitorScale(double)\0"
     "updateMonitorDisplay()\0updateVideoRect(rcRect)\0"
     "requestPlot(const CurveData*)\0"
+    "requestPlot2d(const CurveData2d*)\0"
     "liveCamera,liveStorage\0"
     "updateCameraState(bool,bool)\0"
     "updateDebugging()\0b\0updateSelectionState(bool)\0"
@@ -168,29 +170,30 @@ int rcModelDomain::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 20: updateMonitorDisplay(); break;
         case 21: updateVideoRect((*reinterpret_cast< const rcRect(*)>(_a[1]))); break;
         case 22: requestPlot((*reinterpret_cast< const CurveData*(*)>(_a[1]))); break;
-        case 23: updateCameraState((*reinterpret_cast< bool(*)>(_a[1])),(*reinterpret_cast< bool(*)>(_a[2]))); break;
-        case 24: updateDebugging(); break;
-        case 25: updateSelectionState((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 26: requestStart(); break;
-        case 27: requestStop(); break;
-        case 28: requestProcess(); break;
-        case 29: requestNew(); break;
-        case 30: requestNewApp(); break;
-        case 31: requestOpen((*reinterpret_cast< rcExperimentImportMode(*)>(_a[1]))); break;
-        case 32: requestClose(); break;
-        case 33: requestSave((*reinterpret_cast< rcExperimentFileFormat(*)>(_a[1]))); break;
-        case 34: requestImageImport(); break;
-        case 35: requestTifDirImport(); break;
-        case 36: requestMovieImport(); break;
-        case 37: requestSTKImport(); break;
-        case 38: requestMovieSave(); break;
-        case 39: requestInputSource((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 40: timerTick(); break;
-        case 41: requestTrackingPause(); break;
-        case 42: stopTrackingPause(); break;
+        case 23: requestPlot2d((*reinterpret_cast< const CurveData2d*(*)>(_a[1]))); break;
+        case 24: updateCameraState((*reinterpret_cast< bool(*)>(_a[1])),(*reinterpret_cast< bool(*)>(_a[2]))); break;
+        case 25: updateDebugging(); break;
+        case 26: updateSelectionState((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 27: requestStart(); break;
+        case 28: requestStop(); break;
+        case 29: requestProcess(); break;
+        case 30: requestNew(); break;
+        case 31: requestNewApp(); break;
+        case 32: requestOpen((*reinterpret_cast< rcExperimentImportMode(*)>(_a[1]))); break;
+        case 33: requestClose(); break;
+        case 34: requestSave((*reinterpret_cast< rcExperimentFileFormat(*)>(_a[1]))); break;
+        case 35: requestImageImport(); break;
+        case 36: requestTifDirImport(); break;
+        case 37: requestMovieImport(); break;
+        case 38: requestSTKImport(); break;
+        case 39: requestMovieSave(); break;
+        case 40: requestInputSource((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 41: timerTick(); break;
+        case 42: requestTrackingPause(); break;
+        case 43: stopTrackingPause(); break;
         default: ;
         }
-        _id -= 43;
+        _id -= 44;
     }
     return _id;
 }
@@ -349,22 +352,29 @@ void rcModelDomain::requestPlot(const CurveData * _t1)
 }
 
 // SIGNAL 23
-void rcModelDomain::updateCameraState(bool _t1, bool _t2)
+void rcModelDomain::requestPlot2d(const CurveData2d * _t1)
 {
-    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 23, _a);
 }
 
 // SIGNAL 24
-void rcModelDomain::updateDebugging()
+void rcModelDomain::updateCameraState(bool _t1, bool _t2)
 {
-    QMetaObject::activate(this, &staticMetaObject, 24, 0);
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
+    QMetaObject::activate(this, &staticMetaObject, 24, _a);
 }
 
 // SIGNAL 25
+void rcModelDomain::updateDebugging()
+{
+    QMetaObject::activate(this, &staticMetaObject, 25, 0);
+}
+
+// SIGNAL 26
 void rcModelDomain::updateSelectionState(bool _t1)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
-    QMetaObject::activate(this, &staticMetaObject, 25, _a);
+    QMetaObject::activate(this, &staticMetaObject, 26, _a);
 }
 QT_END_MOC_NAMESPACE

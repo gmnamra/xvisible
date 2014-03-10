@@ -13,7 +13,7 @@
 #include <QMutex>
 #include <QEvent>
 #include "lpwidget.h"
-
+#include <rc_uitypes.h>
 // Forward declarations
 
 class QObjcect;
@@ -41,6 +41,7 @@ enum rcCustomEvent
   , eNotifyVideoRectEvent
   , eNotifyAnalysisRectRotationEvent
   , eNotifyPlotRequestEvent
+  , eNotifyPlot2dRequestEvent    
   , eNotifyPolygonGroupEvent
   , eNotifyMaxEvent // Sentinel
 };
@@ -72,6 +73,7 @@ typedef rcBaseEvent<double, eNotifyMultiplierEvent> rcBaseMultiplierEvent;
 typedef rcBaseEvent<rcAffineRectangle, eNotifyAnalysisRectRotationEvent> rcBaseAnalysisRectRotationEvent;
 typedef rcBaseEvent<int32, eNotifyExperimentChange> rcBaseExperimentChangeEvent;
 typedef rcBaseEvent<SharedCurveDataRef, eNotifyPlotRequestEvent> rcBasePlotRequestEvent;
+typedef rcBaseEvent<SharedCurveData2dRef, eNotifyPlot2dRequestEvent> rcBasePlot2dRequestEvent;
 typedef rcBaseEvent<rcPolygonGroupRef, eNotifyPolygonGroupEvent> rcBasePolysEvent;
 
 

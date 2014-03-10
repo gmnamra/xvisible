@@ -284,6 +284,24 @@ private:
     const T _a, _b;
 };
 
+
+
+template <typename T, typename TT>
+class LinearSelector
+{
+public:
+    typedef T value_type;
+    typedef TT result_type;
+    
+    LinearSelector(const TT a, const TT b) : _a(a), _b(b) {}
+    
+    T operator()(const T &x) const { return _a*x + _b; }
+    
+private:
+    const TT _a, _b;
+};
+
+
 // A quadratic function: y = a*x^2 + b*x + c
 template <typename T>
 class QuadraticFunc

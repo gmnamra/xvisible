@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_controlpanel.h'
 **
-** Created: Thu Feb 13 00:41:20 2014
+** Created: Fri Mar 7 14:40:12 2014
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_rcControlPanel[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -39,6 +39,7 @@ static const uint qt_meta_data_rcControlPanel[] = {
      170,  168,   15,   15, 0x0a,
      187,   15,   15,   15, 0x0a,
      219,  206,   15,   15, 0x0a,
+     246,   15,   15,   15, 0x0a,
 
        0        // eod
 };
@@ -51,6 +52,7 @@ static const char qt_meta_stringdata_rcControlPanel[] = {
     "updateAnalysisRect(rcRect)\0settingChanged()\0"
     "i\0inputSource(int)\0updateCursorTime()\0"
     "trueIsSelect\0updateSelectionState(bool)\0"
+    "selectAll()\0"
 };
 
 const QMetaObject rcControlPanel::staticMetaObject = {
@@ -90,9 +92,10 @@ int rcControlPanel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 5: inputSource((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 6: updateCursorTime(); break;
         case 7: updateSelectionState((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 8: selectAll(); break;
         default: ;
         }
-        _id -= 8;
+        _id -= 9;
     }
     return _id;
 }

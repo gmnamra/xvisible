@@ -279,6 +279,10 @@ public:
     // if the observer is accepting polys, this is called to
     // tell the observer to put the polys
 	virtual void notifyPlotRequest (SharedCurveDataRef& ) = 0;
+    
+    // if the observer is accepting polys, this is called to
+    // tell the observer to put the polys
+	virtual void notifyPlot2dRequest (SharedCurveData2dRef& ) = 0;    
 
 };
 

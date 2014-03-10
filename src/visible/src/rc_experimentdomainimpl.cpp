@@ -4,6 +4,7 @@
 #include <rc_fileutils.h>
 #include "rc_experimentimpl.h"
 #include "rc_experimentdomainimpl.h"
+#include <rc_uitypes.h>
 
 #if WIN32
 using namespace std;
@@ -449,6 +450,14 @@ void rcExperimentDomainImpl::notifyBlitData( const rcWindow* image )
 void rcExperimentDomainImpl::notifyPlotRequest ( SharedCurveDataRef& cv )
 {
    _observer->notifyPlotRequest(cv);
+}
+
+
+// if the observer is accepting requests for plot, this is called to
+// tell the observer to request plot
+void rcExperimentDomainImpl::notifyPlot2dRequest ( SharedCurveData2dRef& cv )
+{
+    _observer->notifyPlot2dRequest(cv);
 }
 
 

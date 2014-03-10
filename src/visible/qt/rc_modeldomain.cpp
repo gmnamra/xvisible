@@ -20,6 +20,7 @@
 #include "rc_trackmanager.h"
 #include <boost/shared_ptr.hpp>
 #include "lpwidget.h"
+#include <rc_uitypes.h>
 
 #define QStrFrcStr(foo) QString ((foo).c_str())
 
@@ -374,6 +375,16 @@ void rcModelDomain::notifyPlotRequest(SharedCurveDataRef& cv)
     {
     rcBasePlotRequestEvent *ev = new rcBasePlotRequestEvent ( cv );
     mEventQueueManager.postEvent (dynamic_cast<QEvent*> (ev) );
+    }
+}
+
+
+void rcModelDomain::notifyPlot2dRequest(SharedCurveData2dRef& cv)
+{
+    if ( cv )
+    {
+        rcBasePlot2dRequestEvent *ev = new rcBasePlot2dRequestEvent ( cv );
+        mEventQueueManager.postEvent (dynamic_cast<QEvent*> (ev) );
     }
 }
 
@@ -1003,7 +1014,9 @@ void rcModelDomain::customEvent( QEvent* e )
             break;
             
         case eNotifyExperimentChange:
+        {
             emit updateSettings();
+        }
             break;
             
         case eNotifyVideoRectEvent:
@@ -1013,10 +1026,21 @@ void rcModelDomain::customEvent( QEvent* e )
 			emit updateVideoRect( rect );
         }
             break;
-        case eNotifyPlotRequestEvent: 
+        case eNotifyPlotRequestEvent:
+        {
             rcBasePlotRequestEvent* ev = static_cast<rcBasePlotRequestEvent *> (e);
             SharedCurveDataRef cv = ev->myData();
             emit requestPlot ( cv.get () );
+        }
+            break;
+
+        case eNotifyPlot2dRequestEvent:
+        {
+            rcBasePlot2dRequestEvent* ev = static_cast<rcBasePlot2dRequestEvent *> (e);
+            SharedCurveData2dRef cv = ev->myData();
+            emit requestPlot2d ( cv.get () );
+        }
+            break;            
             
     }
     

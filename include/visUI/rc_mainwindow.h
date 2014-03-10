@@ -30,6 +30,7 @@ public:
 public slots:
     void settingChanged();
     void reload_plotter (const CurveData* );
+    void reload_plotter2d (const CurveData2d* );    
     
   protected:
     void closeEvent( QCloseEvent* );

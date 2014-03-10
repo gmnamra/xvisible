@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_mainwindow.h'
 **
-** Created: Fri Feb 14 09:40:31 2014
+** Created: Fri Mar 7 14:40:21 2014
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_rcMainWindow[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -33,6 +33,7 @@ static const uint qt_meta_data_rcMainWindow[] = {
  // slots: signature, parameters, type, tag, flags
       14,   13,   13,   13, 0x0a,
       31,   13,   13,   13, 0x0a,
+      64,   13,   13,   13, 0x0a,
 
        0        // eod
 };
@@ -40,6 +41,7 @@ static const uint qt_meta_data_rcMainWindow[] = {
 static const char qt_meta_stringdata_rcMainWindow[] = {
     "rcMainWindow\0\0settingChanged()\0"
     "reload_plotter(const CurveData*)\0"
+    "reload_plotter2d(const CurveData2d*)\0"
 };
 
 const QMetaObject rcMainWindow::staticMetaObject = {
@@ -73,9 +75,10 @@ int rcMainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         switch (_id) {
         case 0: settingChanged(); break;
         case 1: reload_plotter((*reinterpret_cast< const CurveData*(*)>(_a[1]))); break;
+        case 2: reload_plotter2d((*reinterpret_cast< const CurveData2d*(*)>(_a[1]))); break;
         default: ;
         }
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }

@@ -5,7 +5,7 @@
 #include <boost/shared_ptr.hpp>
 #include <rc_engineimpl.h>
 #include <rc_experimentdomainimpl.h>
-
+#include <rc_uitypes.h>
 
 
 /******************************************************************************
@@ -358,6 +358,12 @@ bool rcEngineImpl::resumeTracking ( void )
 void rcEngineImpl::notifyEngineOfPlotRequests ( const CurveData* polys )
 {
     _curveDataRef = boost::shared_ptr<CurveData> (new CurveData (*polys));
+}
+
+
+void rcEngineImpl::notifyEngineOfPlot2dRequests ( const CurveData2d* polys )
+{
+    _curveData2dRef = boost::shared_ptr<CurveData2d> (new CurveData2d (*polys));
 }
 
 
@@ -1217,7 +1223,7 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
         
     }
     
-    // our internal state changing method
+    // our internal state  method
     void rcEngineImpl::setInternalState( rcEngineState newState )
     {
         // ignore setting to current state
@@ -1327,7 +1333,16 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
             norm_scaler<double, std::deque> ns;
             ns.operator () (signal, normed, 1);
           
-            
+            deque<deque<double> > smm;
+            uint32 msize = sim.matrixSz ();
+            sim.selfSimilarityMatrix(smm);
+            SharedCurveData2dRef cvv ( new CurveData2d (smm, msize) );
+            _curveData2dRef = cvv;
+            {
+            rcLock lock (_utilMutex);
+            QString legend = focus->energyWriter()->down_cast()->getName();
+            _observer->notifyPlot2dRequest (_curveData2dRef);
+            }            
             results.resize(0);
             copy(normed.begin(), normed.end(), back_inserter(results));
             
@@ -1341,7 +1356,8 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
             {
                 rcLock lock (_utilMutex);
                 QString legend = focus->energyWriter()->down_cast()->getName();
-                SharedCurveDataRef cv ( new CurveData (data, legend) );
+                SharedCurveDataRef cv ( new CurveData (data, legend) );                
+                _curveDataRef = cv;
                 _observer->notifyPlotRequest (cv);
 
             }

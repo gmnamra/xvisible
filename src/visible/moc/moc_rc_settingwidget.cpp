@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_settingwidget.h'
 **
-** Created: Thu Feb 13 00:41:15 2014
+** Created: Fri Mar 7 14:40:06 2014
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
 **
 ** WARNING! All changes made in this file will be lost!
