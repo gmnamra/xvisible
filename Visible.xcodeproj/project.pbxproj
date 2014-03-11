@@ -2180,7 +2180,6 @@
 			buildPhases = (
 				C28DC4AD0F3108AA00DC9AAC /* Resources */,
 				C2B8E9B0187DE8040060D961 /* ShellScript */,
-				C27E57EE18CA558000DF8BA1 /* ShellScript */,
 				C28DC4E80F3108AA00DC9AAC /* Sources */,
 				C28DC52A0F3108AA00DC9AAC /* Frameworks */,
 				C28DC52D0F3108AA00DC9AAC /* CopyFiles */,
@@ -2375,19 +2374,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = /Users/arman/gwc/vqt105/visibleqt105/build_scripts/visible_shell_bash_scipt.sh;
-		};
-		C27E57EE18CA558000DF8BA1 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = /Users/arman/gwc/vqt105/visibleqt105/build_scripts/build_moc_cpps.sh;
 		};
 		C2B8E9B0187DE8040060D961 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

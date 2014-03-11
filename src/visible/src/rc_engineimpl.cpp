@@ -1336,6 +1336,36 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
             deque<deque<double> > smm;
             uint32 msize = sim.matrixSz ();
             sim.selfSimilarityMatrix(smm);
+            
+
+            {
+                string filef ("/Users/arman/tmp/smm.txt");
+                
+                try
+                {
+
+                    ofstream output_stream(filef.c_str(), ios::trunc);
+                    // create and initialise the TextIO wrapper device
+                    oiotext output(output_stream);
+                    // now use the device
+                    uint32 i, j;
+                    for (i = 0; i < smm.size(); i++) {
+                        deque<double>::iterator ds = smm[i].begin();
+                        for (j = 0; j < smm.size() - 1; j++)
+                            output << *ds++ << ",";
+                        output << *ds << endl;
+                    }
+                    output_stream.flush();  
+                }
+                catch (general_exception& x)
+                {
+                    std::cerr << x.GetDescription() << std::endl;
+                }
+
+            }
+
+            
+            
             SharedCurveData2dRef cvv ( new CurveData2d (smm, msize) );
             _curveData2dRef = cvv;
             {

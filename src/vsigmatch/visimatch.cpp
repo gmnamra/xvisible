@@ -41,7 +41,6 @@
 #include <rc_systeminfo.h>
 #include <rc_videocache.h>
 
-#include "peakspotter.hpp"
 #include <file_system.hpp>
 
 using namespace std;
@@ -197,26 +196,15 @@ int main(int argc, char** argv)
             string rfymovf = (isMPG) ? genRFYmov (tmpdirname, contentf, execpath, period, conv) : contentf;
             if (verboseOn && isMPG) { cerr << "B extracted audio, converted to rfymov for fast access " << fromDstart.text() << endl;fromDstart.reset (); }
             bool smIsOk = genSignatureFromMov (pars, rfymovf, fixed);
-            if (!fixed.empty())
+           
+            if (smIsOk)
             {
-                PeakSpotter Spotter (fixed);
-                if ( ! enclosingDirOk(outf) || ! Spotter.transformed(outf, false ))
-                {
-                    if (verbose)
-                    { cerr << "csv output not ok " << fromDstart.text() << endl; fromDstart.reset (); }
+                saveSig (fixed, outf); 
+                if (verboseOn) 
+                { 
+                    cerr << "C signature created ok " << fromDstart.text() << endl; fromDstart.reset ();
                 }
-                else if (verbose)
-                { cerr << "csv output ok: " << outf << fromDstart.text() << endl; fromDstart.reset (); }
             }
-
-//            if (smIsOk)
-//            {
-//                saveSig (fixed, outf); 
-//                if (verboseOn) 
-//                { 
-//                    cerr << "C signature created ok " << fromDstart.text() << endl; fromDstart.reset ();
-//                }
-//            }
         }
         else
         {
