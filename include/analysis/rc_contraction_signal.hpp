@@ -25,11 +25,14 @@
 
 struct contraction_window 
 {
+    typedef std::pair<uint,uint> bound;
+    
     uint id;
     uint posid;
     float value;
     std::vector<uint> contraction_indices;
-    std::vector<uint> relaxation_indices;          
+    std::vector<uint> relaxation_indices;
+    bound contraction_relaxation;
     int state; // invalid/delete = -1, init 0, set = 1, edit set ++
     bool valid;
 };
@@ -89,21 +92,51 @@ public:
   void operator () (int thr)
   {
       if (m_last_thr > 0 && thr == m_last_thr) return;
+      if (m_contractions.size () < 1) return;
       
       Elem dthr = convert_percent_thr (thr);
       
      // initialize a contraction for every valley
+    m_bounds.resize (0);
+    bounds.push_back (m_valleys[0].first / 2);       // before the the First contraction
+      
     m_contractions.resize (m_valleys.size ());
     for (uint vc=0; vc < m_valleys.size(); vc++)
       {
         m_contractions[vc].id = vc;
         m_contractions[vc].posid = m_valleys[vc].first;
-        m_contractions[vc].value = m_data[m_valleys[vc].second];
+        m_contractions[vc].value = m_valleys[vc].second;
         m_contractions[vc].state = 0;
+        if (vc > 0)
+            m_bounds.push_back (m_valleys[vc].first - m_valleys[vc-1].first) / 2);
       }
+      m_bounds.push_back ((m_data.size () - m_valleys[m_valleys.size()-1]) / 2);
+
+      assert (m_bounds.size () == m_valleys.size () + 2);
+      // set the bounds in contractions at the end
+      m_contractions[0].contraction = m_bounds[0];
+      m_contractions[0].relaxtion = m_bounds[1];
+      if (m_contractions.size() > 1)
+      {
+          m_contractions[1].contraction = m_bounds[m_bounds.size()-2];
+          m_contractions[1].relaxtion = m_bounds[m_bounds.size()-1];
+      }
+
+      
+      for (uint vc=1; vc < m_contractions.size()-1; vc++)
+      {
+          m_contractions[vc].bound.contraction = m_contractions[vc-1].bound.relaxtion;
+          m_contractions[vc].bound.contraction = m_contractions[vc+1].bound.contraction;
+      }
+
       m_last_thr = thr;
+      
+      
     m_valid = true;
   }
+    
+    
+
 
   bool isEmpty () const { return m_contractions.size () == 0; }
   uint numberOfContractions () { return m_contractions.size (); }
@@ -141,16 +174,16 @@ public:
 private:
   bool m_valid;
   int m_last_thr;
-    int m_zero_thr;
+  int m_zero_thr;
     
   Container<Elem> m_data;
   Container<Elem> m_d2_data;
-    std::vector<extrema_pos> m_valleys;
-    std::vector<contraction_window> m_contractions;
-    
-    pair<constIterator, constIterator> m_d2_range;
-    double m_step_;
-    int m_quant;
+  std::vector<extrema_pos> m_valleys;
+  std::vector<contraction_window> m_contractions;
+  std::vector<uint> m_bounds; 
+  pair<constIterator, constIterator> m_d2_range;
+  double m_step_;
+  int m_quant;
 };
 
 
