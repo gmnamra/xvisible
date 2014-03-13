@@ -237,14 +237,14 @@ void rcMainWindow::reload_plotter (const CurveData * cv)
 
 void rcMainWindow::reload_plotter2d (const CurveData2d * cv)
 {
-    LPWidget* plotter = new LPWidget (this, cv);
-    
-    QDockWidget *dock = new QDockWidget(this);
-    dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
-    dock->setWidget(plotter);
-    addDockWidget(Qt::RightDockWidgetArea, dock);
-    viewMenu->addAction(dock->toggleViewAction());
-    update ();
+//    LPWidget* plotter = new LPWidget (this, cv);
+//    
+//    QDockWidget *dock = new QDockWidget(this);
+//    dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+//    dock->setWidget(plotter);
+//    addDockWidget(Qt::RightDockWidgetArea, dock);
+//    viewMenu->addAction(dock->toggleViewAction());
+//    update ();
     
 }
 

@@ -29,11 +29,13 @@ public slots:
     void help(); 
     void inputSource( int i );
     void updateAnalysisRect( const rcRect& rect );
+    void reload_plotter2d (const CurveData2d* );    
 
     void doSave();
     void doExport();
     void doExportMovie();
     void doExportNativeMovie();
+    void doExportMatrix();    
    
     void doOpen();
     void doOpenSettings();
@@ -51,6 +53,7 @@ private:
     Q3PopupMenu* _viewMenu;
     Q3TextBrowser* _helpBrowser;
     rcExperimentState _lastState;
+ 
     
     // menu item ids for file menu
     int         _fileNewId;
@@ -60,6 +63,7 @@ private:
     int         _fileExportId;
     int         _movieExportId;
     int         _movieNativeExportId;
+    int         _matrixExportId;    
     int         _fileCloseId;
     int         _fileImportImagesId;
     int         _dirImportImagesId;
