@@ -88,7 +88,7 @@ void LPWidget::new_plot(const CurveData*  cref)
 
 void LPWidget::add_contractions (int thr)
 {
-    m_csignal.operator () (thr);
+    // m_csignal.operator () (thr);
     
     if (m_csignal.isValid () && ! m_csignal.isEmpty () )
     {

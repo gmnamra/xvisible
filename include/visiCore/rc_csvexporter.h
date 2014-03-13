@@ -10,6 +10,8 @@
 
 #include <string.h>
 #include <rc_types.h>
+#include <rc_stlplus.h>
+#include <iostreamio.hpp>
 
 #include "rc_exporter.h"
 
@@ -35,4 +37,34 @@ public:
                       uint32& cellCount );
 };
 
+class rcCSV2dExporter 
+{
+    rcCSV2dExporter (const char *filename, rcExperiment* experiment, const char* comment, 
+                     rcProgressIndicator* progress );
+    
+    ~rcCSV2dExporter ();
+
+    void operator () (const string& filef, std::deque<deque<double> >& smm)
+    {
+
+        
+        ofstream output_stream(filef.c_str(), ios::trunc);
+            // create and initialise the TextIO wrapper device
+        oiotext output(output_stream);
+            // now use the device
+        uint32 i, j;
+        for (i = 0; i < smm.size(); i++)
+        {
+            deque<double>::iterator ds = smm[i].begin();
+            for (j = 0; j < smm.size() - 1; j++)
+                 output << *ds++ << ",";
+            output << *ds << endl;
+         }
+         output_stream.flush();  
+    }
+    
+private:
+    
+    
+};
 #endif // rcCSVEXPORTER_H

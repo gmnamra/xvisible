@@ -1,3 +1,5 @@
 *.o
 .svn
 .DS_Store
+*.d
+build

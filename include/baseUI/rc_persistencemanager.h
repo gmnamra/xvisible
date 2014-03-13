@@ -55,11 +55,12 @@ struct rcExperimentAttributes
 enum rcExperimentFileFormat
 {
     eExperimentCSVFormat = 0        // Comma-separated-value format for Excel import
-  , eExperimentNativeFormat         // Native experiment data XML format
+    , eExperimentNativeFormat         // Native experiment data XML format
   , eExperimentNativeMovieFormat    // Native movie file format
   , eExperimentQuickTimeMovieFormat // QuickTime movie file format
   , eExperimentQuickTimeImageFormat // QuickTime image file format
   , eExperimentMolDevSTKFormat      // Molecular Devices modified metamorph TIFF stack
+  , eExperiment2DCSVFormat         // Native experiment data XML format    
   , eExperimentAllFormat            // Synthetic value, denotes all applicable formats
 };
 

@@ -120,6 +120,7 @@ void rcMenuBar::updateState( rcExperimentState state )
         _fileMenu->setItemEnabled( _fileCloseId, true );
         _fileMenu->setItemEnabled( _fileSaveId , false );
         _fileMenu->setItemEnabled( _fileExportId , false );
+        _fileMenu->setItemEnabled( _matrixExportId , false );            
         _fileMenu->setItemEnabled( _movieExportId , false );
         _fileMenu->setItemEnabled( _movieNativeExportId , false );
         _fileMenu->setItemEnabled( _fileQuitId , true );
@@ -134,9 +135,6 @@ void rcMenuBar::updateState( rcExperimentState state )
         _captureMenu->setEnabled( true );
         _captureMenu->setItemEnabled( _fileSaveMovieId , false );
 
-        _viewMenu->setEnabled( true );
-//        _viewMenu->setItemEnabled( _viewTrackingGLId, true );
-//        _viewMenu->setItemEnabled( _viewCellInfoId, true );
         break;
 
     case eExperimentRunning:		// experiment is running
@@ -147,6 +145,7 @@ void rcMenuBar::updateState( rcExperimentState state )
         _fileMenu->setItemEnabled( _fileCloseId, false );
         _fileMenu->setItemEnabled( _fileSaveId , false );
         _fileMenu->setItemEnabled( _fileExportId , false );
+        _fileMenu->setItemEnabled( _matrixExportId , false );                        
         _fileMenu->setItemEnabled( _movieExportId , false );
         _fileMenu->setItemEnabled( _movieNativeExportId , false );
         _fileMenu->setItemEnabled( _fileImportImagesId , false );
@@ -171,6 +170,7 @@ void rcMenuBar::updateState( rcExperimentState state )
         _fileMenu->setItemEnabled( _fileCloseId, true );
         _fileMenu->setItemEnabled( _fileSaveId , true );
         _fileMenu->setItemEnabled( _fileExportId , true );
+        _fileMenu->setItemEnabled( _matrixExportId , true );   
         _fileMenu->setItemEnabled( _movieExportId , true );
         _fileMenu->setItemEnabled( _movieNativeExportId , true );
         _fileMenu->setItemEnabled( _fileQuitId , true );
@@ -181,8 +181,6 @@ void rcMenuBar::updateState( rcExperimentState state )
 	//        _fileMenu->setItemEnabled( _fileImportLastMovieId , true );
         _captureMenu->setItemEnabled( _fileSaveMovieId , false);
 
-   //     _viewMenu->setItemEnabled( _viewTrackingGLId, true );
-//        _viewMenu->setItemEnabled( _viewCellInfoId, true );
         break;
 
     case eExperimentLocked:		    // experiment has ended and been saved
@@ -201,10 +199,7 @@ void rcMenuBar::updateState( rcExperimentState state )
         _fileMenu->setItemEnabled( _fileImportSTKId , false );
 	//        _fileMenu->setItemEnabled( _fileImportLastMovieId , true );
 
-        _captureMenu->setItemEnabled( _fileSaveMovieId , false);
 
- //       _viewMenu->setItemEnabled( _viewTrackingGLId, true );
-//        _viewMenu->setItemEnabled( _viewCellInfoId, true );
         break;
 
     default:
@@ -297,12 +292,39 @@ void rcMenuBar::doExport()
     domain->requestSave( eExperimentCSVFormat );
 }
 
+
+void rcMenuBar::reload_plotter2d (const CurveData2d * cv)
+{
+    if (cv == 0) return;
+
+    try
+    {
+        rcModelDomain* domain = rcModelDomain::getModelDomain();
+        SharedCurveData2dRef wrapit (new CurveData2d (*cv) );
+        domain->getLast2dData (wrapit);
+
+    } 
+    catch (general_exception& gx)
+    {
+        std::cerr << " Error saving 2d Matrix " << gx.GetDescription() << std::endl;
+    }
+    
+}
+
+// @Note: Not following export design for SM Matrix export 
+void rcMenuBar::doExportMatrix()
+{
+    rcModelDomain* domain = rcModelDomain::getModelDomain();
+    domain->requestSaveSmMatrix();
+}
+
 // Request movie export to QT
 void rcMenuBar::doExportMovie()
 {
     rcModelDomain* domain = rcModelDomain::getModelDomain();
     domain->requestSave( eExperimentQuickTimeMovieFormat );
 }
+
 
 // Request movie export to .rfymov
 void rcMenuBar::doExportNativeMovie()
@@ -331,13 +353,4 @@ void rcMenuBar::requestCellInfoDisplay()
 //    rcCellInfoWidget* w = new rcCellInfoWidget( 0 );
   //  w->show();
 }
-
-#if 0
-void rcMenuBar::requestTrackingDisplayGL()
-{
-  rcModelDomain* domain = rcModelDomain::getModelDomain();
-  domain->requestTrackingDisplayGL ();
-}
-
-#endif
 

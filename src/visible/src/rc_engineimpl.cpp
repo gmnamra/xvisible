@@ -1336,6 +1336,11 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
             deque<deque<double> > smm;
             uint32 msize = sim.matrixSz ();
             sim.selfSimilarityMatrix(smm);
+            
+
+    
+            
+            
             SharedCurveData2dRef cvv ( new CurveData2d (smm, msize) );
             _curveData2dRef = cvv;
             {
@@ -1947,29 +1952,7 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
         return aRect == iRect;
     }
     
-#ifdef FIXED
-    // Register windows
-    void rcEngineImpl::registeredWindows (vector<rcWindow>& focusImages, int32& range)
-    {
-        static const int32 dummy (0);
-        rcIPair r (range);
-        _offsetsToFirst.clear ();        // Offsets to the first window
-        typedef vector<rcWindow>::iterator iterator;
-        rcImageSetRegister<iterator> whole (focusImages.begin(), focusImages.end());
-        whole.setRegister  (focusImages.begin(), r, rcImageSetRegister<iterator>::eFirst);
-        vector<rc2Fvector>::const_iterator oItr = whole.sequential2Dmoves().begin();
-        vector<rcWindow>::iterator wItr = focusImages.begin();
-        for (; wItr !=  focusImages.end() && oItr != whole.sequential2Dmoves().end(); wItr++,  oItr++)
-        {
-            rcIPair trans (rfRound (range + wItr->x() + oItr->x(), dummy),
-                           rfRound (range + wItr->y() + oItr->y(), dummy));
-            //      cerr << "f: " << wItr->position () << "w: " << *oItr << " m: " << trans.x() << "," << trans.y();
-            *wItr = rcWindow (wItr->frameBuf(), trans.x(), trans.y(), whole.size().x(), whole.size().y());
-            //      cerr << "f: " << wItr->position () << endl;
-        }
-    }
-#endif
-    
+  
     
     
     // Make temporary file names

@@ -171,6 +171,7 @@ public:
     // tell the observer to put them up
   virtual void notifyPlot2dRequest (SharedCurveData2dRef&  );
     
+    virtual void getLast2dData (SharedCurveData2dRef& );
 	
   rcPolygonGroupRef polys ()
   {
@@ -205,6 +206,7 @@ public slots:
     void requestOpen( rcExperimentImportMode mode );
     void requestClose( void );
     void requestSave( rcExperimentFileFormat format );
+    void requestSaveSmMatrix( );    
     void requestImageImport( void );
     void requestTifDirImport( void );
     void requestMovieImport( void );
@@ -265,7 +267,7 @@ private:
      rcCustomEventManager  mEventQueueManager;
     rcTimestamp           mCursorTime;
     rcPolygonGroupRef mSelectPolygons;    
- 
+    SharedCurveData2dRef _last2dMatrix;
 
 };
 
