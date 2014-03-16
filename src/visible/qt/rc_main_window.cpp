@@ -1,4 +1,6 @@
 #include <QtGui>
+#include <qapplication>
+
 #include <rc_uitypes.h>
 #include <strstream>
 #include "rc_appconstants.h"
@@ -13,12 +15,15 @@
 #include "rc_trackpanel.h"
 #include "rc_statusbar.h"
 #include "rc_modeldomain.h"
+#include "rc_csvexporter.h"
+
+#define QStrFrcStr(foo) QString ((foo).c_str())
 
 rcMainWindow::rcMainWindow( ) //QWidget* parent, const char* name, Qt::WFlags f )
 {
     rcModelDomain* domain = rcModelDomain::getModelDomain();
     _lastState = eExperimentEmpty;
-
+    _new_matrix = false;
     createActions ();
     createMenus ();
     createHelpBrowser ();
@@ -33,12 +38,12 @@ rcMainWindow::rcMainWindow( ) //QWidget* parent, const char* name, Qt::WFlags f 
             this   , SLOT( updateAnalysisRect( const rcRect& ) ) );
     
     connect( domain , SIGNAL( updateSettings() ) , this   , SLOT( settingChanged() ) );
+    connect( domain , SIGNAL( newSmMatrix () ) , this   , SLOT( newSmMatrix () ) );    
 
     connect( domain , SIGNAL( requestPlot ( const CurveData *) ) ,
-            this  , SLOT( reload_plotter ( const CurveData *  ) ) );    
-
-    connect( domain , SIGNAL( requestPlot2d ( const CurveData2d *) ) ,
-            this  , SLOT( reload_plotter2d ( const CurveData2d *  ) ) );    
+            this  , SLOT( reload_plotter ( const CurveData *  ) ) );   
+    
+    
 
     // Create a Monitor
 	rcMonitor* monitor = new rcMonitor( this, "monitor" );
@@ -65,59 +70,26 @@ rcMainWindow::rcMainWindow( ) //QWidget* parent, const char* name, Qt::WFlags f 
 }
 
 
+// Replace native extension with current extension if necessary
+static void processExtension( QString& defaultName,
+                             const QString& currentExt,
+                             const QString& nativeExt )
+{
+    // Purge native extension from name
+    if ( defaultName.endsWith( nativeExt ) ) {
+        defaultName.truncate( defaultName.length() - nativeExt.length() );
+    }
+    // Add new extension if necessary
+    if ( defaultName.length() > 0 && !defaultName.endsWith( currentExt ) )
+        defaultName += currentExt;
+}
+
+
 
 
 void rcMainWindow::createDockWindows()
 {
-    
-#if 0
-    QBoxLayout *topLayout = new QVBoxLayout;
-    topLayout->setMenuBar( mMenuBar );
-    
-	// Create a horizontal layout to put the Monitor in.
-	QBoxLayout *setMonLayout = new QHBoxLayout( topLayout );
-    
-	// Create a Monitor
-	rcMonitor* monitor = new rcMonitor( this, "monitor" );
-	setMonLayout->addWidget( monitor );
-    
-	// Create a vertical layout to put the SettingsPanel and ControlPanel in.
-	QBoxLayout *tlCpLayout = new QVBoxLayout( setMonLayout );
-    
-	
-	tlCpLayout->addWidget( settingPanel, Qt::AlignTop );
-    
-	// Create a rcControlPanel
-	rcControlPanel* controlPanel = new rcControlPanel( this , "controlPanel" );
-	tlCpLayout->addWidget( controlPanel, Qt::AlignTop );
-    
-	// Create a horizontal layout to put the trackpanel and timeline in.
-	QBoxLayout *tpTlLayout = new QHBoxLayout( topLayout );
-    
-	// Create a Track Panel
-	rcTrackPanel* trackPanel = new rcTrackPanel( this, "trackPanel" );
-	tpTlLayout->addWidget( trackPanel );
-    
-	// Create a Timeline
-	rcTimeline* timeline = new rcTimeline( this, "timeline" );
-	tpTlLayout->addWidget( timeline , 2 );
-    
-      topLayout->addWidget( mStatusBar );
-    
-    // Stretch factors for resizing
-    topLayout->setStretchFactor( setMonLayout , 10 );
-    topLayout->setStretchFactor( tlCpLayout , 1 );
-    topLayout->setStretchFactor( tpTlLayout , 2 );
-    topLayout->setStretchFactor( mStatusBar , 0 );
-    
-    setMonLayout->setStretchFactor( monitor , 10 ); 
-    tpTlLayout->setStretchFactor( trackPanel, 2 );
-    tpTlLayout->setStretchFactor( timeline, 2 );
-    tlCpLayout->setStretchFactor( settingPanel, 1 );
-    tlCpLayout->setStretchFactor( controlPanel, 0 );
-	topLayout->activate();
-#endif
-
+ 
     QDockWidget *dock = new QDockWidget(this);
     plotlist = new QListWidget(dock);
     dock->setWidget(plotlist);
@@ -203,7 +175,7 @@ void rcMainWindow::createActions()
     
     MatrixExportId = new QAction ( tr("&Export Similarity Matrix as csv  "), this);
     OpenId->setShortcut (tr("CTRLKey_M" )); NewId->setStatusTip (tr("Exports current similarity matrix in csv ") );
-    connect (MatrixExportId, SIGNAL (triggered () ), domain, SLOT( doExportMatrix()) );
+    connect (MatrixExportId, SIGNAL (triggered () ), domain, SLOT( doExportSmMatrix()) );
     
     ImportMovieId = new QAction ( tr("&Import movie import  "), this);
     OpenId->setShortcut (tr("CTRLKey_I" )); NewId->setStatusTip (tr("Imports a movie for analysis ") );
@@ -214,7 +186,7 @@ void rcMainWindow::createActions()
         recentFileActs[i] = new QAction(this);
         recentFileActs[i]->setVisible(false);
         connect(recentFileActs[i], SIGNAL(triggered()),
-                this, SLOT(requestRecentMovie()));
+                domain, SLOT(importRecentMovie()));
     }
 
 
@@ -253,6 +225,7 @@ void rcMainWindow::createMenus ()
     _fileMenu->addAction(NewId);
     _fileMenu->addAction(OpenId);    
     _fileMenu->addAction(SaveId);  
+    _fileMenu->addAction(CloseId);      
     
     _fileMenu->addAction(ExportId);    
     _fileMenu->addAction(MovieExportId);  
@@ -264,15 +237,15 @@ void rcMainWindow::createMenus ()
     separatorAct = _fileMenu->addSeparator();
     for (int i = 0; i < MaxRecentFiles; ++i)
         _fileMenu->addAction(recentFileActs[i]);
+
+    updateRecentFileActions();
+    
     _fileMenu->addSeparator();
     _fileMenu->addAction(QuitId);
-    updateRecentFileActions();
     
     _helpMenu->addAction(AboutId);
     _helpMenu->addAction(HelpId);
- 
-    
-    
+   
     
 }
 
@@ -323,10 +296,10 @@ void rcMainWindow::updateState( rcExperimentState state )
             CloseId->setVisible ( true );
             SaveId->setVisible (  true);
             ExportId->setVisible ( true);
-                              
+            MatrixExportId ->setVisible( _new_matrix );                              
             MovieExportId ->setVisible( true );
             MovieNativeExportId ->setVisible( true );
-            ImportMovieId ->setVisible ( false );
+            ImportMovieId ->setVisible ( true );
             QuitId->setVisible ( true );
             
             AnalysisAnalyzeId->setVisible(false );
@@ -357,6 +330,15 @@ void rcMainWindow::updateState( rcExperimentState state )
     _lastState = state;
 }
 
+void rcMainWindow::importRecentMovie()
+{
+    rcModelDomain* domain = rcModelDomain::getModelDomain();
+    QAction *action = qobject_cast<QAction *>(sender () );
+    if (action)
+        domain->useRecentMovieFile(action->data().toString());
+    
+}
+
 // Display about box
 void rcMainWindow::about()
 {
@@ -379,27 +361,6 @@ void rcMainWindow::about()
     QMessageBox::about( NULL, title, text );
 }
 
-
-void rcMainWindow::requestRecentMovie()
-{
-    QAction *action = qobject_cast<QAction *>(sender());
-    if ( ! action ) return;
-    
-    QString rmovie = action->data().toString();
-    QFile file(rmovie);
-    if (!file.open(QFile::ReadOnly))
-    {
-        QMessageBox::warning(this, tr("Recent Files"),
-                             tr("Cannot read file %1:\n%2.")
-                             .arg(rmovie)
-                             .arg(file.errorString()));
-        return;
-    }
-    
-
-
-    //        loadFile(action->data().toString());
-}
 
 
 // Input source has been changed
@@ -464,18 +425,22 @@ void rcMainWindow::doExport()
     domain->requestSave( eExperimentCSVFormat );
 }
 
-// @Note: Not following export design for SM Matrix export 
-void rcMainWindow::doExportMatrix()
-{
-    rcModelDomain* domain = rcModelDomain::getModelDomain();
-    domain->requestSaveSmMatrix();
-}
+
 
 // Request movie export to QT
 void rcMainWindow::doExportMovie()
 {
     rcModelDomain* domain = rcModelDomain::getModelDomain();
     domain->requestSave( eExperimentQuickTimeMovieFormat );
+}
+
+
+
+// Request movie export to QT
+void rcMainWindow::doExportSmMatrix()
+{
+    rcModelDomain* domain = rcModelDomain::getModelDomain();
+    domain->requestSmMatrixSave();
 }
 
 
@@ -498,13 +463,6 @@ void rcMainWindow::doOpenSettings()
 {
     rcModelDomain* domain = rcModelDomain::getModelDomain();
     domain->requestOpen( eExperimentImportExperimentSettings );
-}
-
-// Request cell info window display
-void rcMainWindow::requestCellInfoDisplay()
-{
-//    rcCellInfoWidget* w = new rcCellInfoWidget( 0 );
-  //  w->show();
 }
 
 
@@ -558,6 +516,11 @@ QString rcMainWindow::strippedName(const QString &fullFileName)
 
 
 // public slots
+
+void rcMainWindow::newSmMatrix()
+{
+    _new_matrix     = true;
+}
 
 void rcMainWindow::settingChanged()
 {
@@ -653,4 +616,5 @@ void rcMainWindow::reload_plotter (const CurveData * cv)
     update ();
     
 }
+
 

@@ -16,527 +16,542 @@
 			neededFileNames = (
 				);
 			shellPath = "/bin/sh";
-			shellScript = "make\ -C\ /Users/arman/gwc/visibleqt105/build_scripts\ -f\ visible_qt_moc.xcodeproj/qt_makeqmake.mak";
+			shellScript = "make\ -C\ /Users/arman/gwc/vqt105/visibleqt105/build_scripts\ -f\ \'visible_qt_moc.xcodeproj/qt_makeqmake.mak\'";
 		};
-		0D25E539404B3D1C82A93531 = {
+		C46E03290354345AACF102CC = {
 			isa = PBXFileReference;
 			name = "rc_about.cpp";
-			path = "../../src/visible/qt/rc_about.cpp";
+			path = "../src/visible/qt/rc_about.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		F779F8203DB9C9D33F189489 = {
-			fileRef = "0D25E539404B3D1C82A93531";
+		822E948E21EEAF532B830A40 = {
+			fileRef = "C46E03290354345AACF102CC";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		8EBF31871CF1A1C7F4DCD51A = {
+		C2FD2DA60A1B8CF9D188B1A2 = {
 			isa = PBXFileReference;
 			name = "rc_settingwidget.cpp";
-			path = "../../src/visible/qt/rc_settingwidget.cpp";
+			path = "../src/visible/qt/rc_settingwidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		5B06A067792A2A3FC119404F = {
-			fileRef = "8EBF31871CF1A1C7F4DCD51A";
+		9FD222D3627B9EA3832068D8 = {
+			fileRef = "C2FD2DA60A1B8CF9D188B1A2";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		7478D8B3D627A975CC827528 = {
+		98B73215A70C6C32407186C7 = {
 			isa = PBXFileReference;
 			name = "rc_checkboxsettingwidget.cpp";
-			path = "../../src/visible/qt/rc_checkboxsettingwidget.cpp";
+			path = "../src/visible/qt/rc_checkboxsettingwidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		C5E350C53F2E1A0A08962FC8 = {
-			fileRef = "7478D8B3D627A975CC827528";
+		33A2D84DFB462A4CB33368EA = {
+			fileRef = "98B73215A70C6C32407186C7";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		25C6C3A070DD68623752BBC7 = {
+		3596124F79C14785C1FB01EC = {
 			isa = PBXFileReference;
 			name = "rc_controlpanel.cpp";
-			path = "../../src/visible/qt/rc_controlpanel.cpp";
+			path = "../src/visible/qt/rc_controlpanel.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		893087365B6159073320492D = {
-			fileRef = "25C6C3A070DD68623752BBC7";
+		2FC92ED40E58EC5896E8E74F = {
+			fileRef = "3596124F79C14785C1FB01EC";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		4D3AD0446EA7AA4D3B242A21 = {
+		65203BB9200EEE862DBFF68A = {
 			isa = PBXFileReference;
 			name = "rc_filechoicesettingwidget.cpp";
-			path = "../../src/visible/qt/rc_filechoicesettingwidget.cpp";
+			path = "../src/visible/qt/rc_filechoicesettingwidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		FB2B8230B83F894BC502D572 = {
-			fileRef = "4D3AD0446EA7AA4D3B242A21";
+		CA8E3E546BDDA2B9F0D743AE = {
+			fileRef = "65203BB9200EEE862DBFF68A";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		48F0DDC92B36D18EE5B8A090 = {
+		FD04F2C851908222BE4408EF = {
 			isa = PBXFileReference;
 			name = "rc_filesavesettingwidget.cpp";
-			path = "../../src/visible/qt/rc_filesavesettingwidget.cpp";
+			path = "../src/visible/qt/rc_filesavesettingwidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		B1EB97AA70B79B5B42CD9C32 = {
-			fileRef = "48F0DDC92B36D18EE5B8A090";
+		8B5EAFBD96F5AAEA326D12DC = {
+			fileRef = "FD04F2C851908222BE4408EF";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		2331C293F5DD59A633470739 = {
+		E1E90E2A4BCFCB7A505A3486 = {
 			isa = PBXFileReference;
 			name = "rc_mainwindow.cpp";
-			path = "../../src/visible/qt/rc_mainwindow.cpp";
+			path = "../src/visible/qt/rc_mainwindow.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		1D4E2A5BF79C88A467AFC90D = {
-			fileRef = "2331C293F5DD59A633470739";
+		1F1918855BFD27ED1511877B = {
+			fileRef = "E1E90E2A4BCFCB7A505A3486";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		DD13530CD26FB3A9DA40EBF5 = {
+		12EA2DBC7B27CF2A3BA6A442 = {
 			isa = PBXFileReference;
 			name = "rc_menubar.cpp";
-			path = "../../src/visible/qt/rc_menubar.cpp";
+			path = "../src/visible/qt/rc_menubar.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		A5F0B70622684F94A9E97DFE = {
-			fileRef = "DD13530CD26FB3A9DA40EBF5";
+		1CEC309CF34CE12A154C5213 = {
+			fileRef = "12EA2DBC7B27CF2A3BA6A442";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		F18FE5DF0FFB0A5BC82FF794 = {
+		54B8C5EBC7A3958B70C265A2 = {
 			isa = PBXFileReference;
 			name = "rc_menuchoicesettingwidget.cpp";
-			path = "../../src/visible/qt/rc_menuchoicesettingwidget.cpp";
+			path = "../src/visible/qt/rc_menuchoicesettingwidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		226EB2255C74D4DC190D70A4 = {
-			fileRef = "F18FE5DF0FFB0A5BC82FF794";
+		53F1EA62335B296329866CF9 = {
+			fileRef = "54B8C5EBC7A3958B70C265A2";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		FE2D112FB9AC713282EAFA3B = {
+		0C8B74071344577372F7E58E = {
 			isa = PBXFileReference;
 			name = "rc_modeldomain.cpp";
-			path = "../../src/visible/qt/rc_modeldomain.cpp";
+			path = "../src/visible/qt/rc_modeldomain.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		77A56BE9EFDC080E2E8B6CF1 = {
-			fileRef = "FE2D112FB9AC713282EAFA3B";
+		99E4BE0259C88257927AB1CE = {
+			fileRef = "0C8B74071344577372F7E58E";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		94B62D57232A458F8941E71E = {
+		6315DC79E03823085876C601 = {
 			isa = PBXFileReference;
 			name = "rc_modifierkeys.cpp";
-			path = "../../src/visible/qt/rc_modifierkeys.cpp";
+			path = "../src/visible/qt/rc_modifierkeys.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		881594F448842779751B65DE = {
-			fileRef = "94B62D57232A458F8941E71E";
+		0C92E8BCF7BBC76981966186 = {
+			fileRef = "6315DC79E03823085876C601";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		520A4626DF17CCA6E2D9B908 = {
+		7B9E4C6DED975D4AD48F625D = {
 			isa = PBXFileReference;
 			name = "rc_monitor.cpp";
-			path = "../../src/visible/qt/rc_monitor.cpp";
+			path = "../src/visible/qt/rc_monitor.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		4B0E6D3B52B19456227D3393 = {
-			fileRef = "520A4626DF17CCA6E2D9B908";
+		3FFE8ADE0A43C87C6E357FEE = {
+			fileRef = "7B9E4C6DED975D4AD48F625D";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		11A0CA4F9B70B3ECE893959A = {
+		02740E953853AE60778D30CE = {
 			isa = PBXFileReference;
 			name = "rc_radiochoicesettingwidget.cpp";
-			path = "../../src/visible/qt/rc_radiochoicesettingwidget.cpp";
+			path = "../src/visible/qt/rc_radiochoicesettingwidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		190E6693AA610071867D3667 = {
-			fileRef = "11A0CA4F9B70B3ECE893959A";
+		5F17CA243762AF9DCEC28CF0 = {
+			fileRef = "02740E953853AE60778D30CE";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		9AE66088913B1B8F84803532 = {
+		FD3A2BB79B757287ED925E7F = {
 			isa = PBXFileReference;
 			name = "rc_settingpage.cpp";
-			path = "../../src/visible/qt/rc_settingpage.cpp";
+			path = "../src/visible/qt/rc_settingpage.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		FA96427A17F7B59E138D1C8E = {
-			fileRef = "9AE66088913B1B8F84803532";
+		0F910BF76C72C72264692B83 = {
+			fileRef = "FD3A2BB79B757287ED925E7F";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		0134B9E3A4070DF8F13B739A = {
+		39BC96FC525D3B4476DD44CD = {
 			isa = PBXFileReference;
 			name = "rc_settingpanel.cpp";
-			path = "../../src/visible/qt/rc_settingpanel.cpp";
+			path = "../src/visible/qt/rc_settingpanel.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		AED3DD4574529137258F7F69 = {
-			fileRef = "0134B9E3A4070DF8F13B739A";
+		8EC68C0A0C89E7DA866B7F0A = {
+			fileRef = "39BC96FC525D3B4476DD44CD";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		49C6028C99D28D62F0738E00 = {
+		25B4FD6F9E1EACD73006BF6C = {
 			isa = PBXFileReference;
 			name = "rc_textareasettingwidget.cpp";
-			path = "../../src/visible/qt/rc_textareasettingwidget.cpp";
+			path = "../src/visible/qt/rc_textareasettingwidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		2D59C3160361E35D3E24249D = {
-			fileRef = "49C6028C99D28D62F0738E00";
+		4ACD9DDCB030AD397050BBC5 = {
+			fileRef = "25B4FD6F9E1EACD73006BF6C";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		53DECD679614CB1102E00A62 = {
+		0259307562B78323403AB8D0 = {
 			isa = PBXFileReference;
 			name = "rc_textlinesettingwidget.cpp";
-			path = "../../src/visible/qt/rc_textlinesettingwidget.cpp";
+			path = "../src/visible/qt/rc_textlinesettingwidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		05CED2E39BBBE13F64194198 = {
-			fileRef = "53DECD679614CB1102E00A62";
+		59DCB1550CA3B34C3D322F40 = {
+			fileRef = "0259307562B78323403AB8D0";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		DA5546140D0238A019AD1D80 = {
+		0E8CB4076C8C181CA483870E = {
 			isa = PBXFileReference;
 			name = "rc_rectsettingwidget.cpp";
-			path = "../../src/visible/qt/rc_rectsettingwidget.cpp";
+			path = "../src/visible/qt/rc_rectsettingwidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		6CD3421D0C0B1C0C3E5F752A = {
-			fileRef = "DA5546140D0238A019AD1D80";
+		68B3B5C3ED4533540725A47E = {
+			fileRef = "0E8CB4076C8C181CA483870E";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		C678828FB79D7584012C98DD = {
+		C2B02E55BC6EA9CC9E63AB3F = {
 			isa = PBXFileReference;
 			name = "rc_scalartrackwidget.cpp";
-			path = "../../src/visible/qt/rc_scalartrackwidget.cpp";
+			path = "../src/visible/qt/rc_scalartrackwidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		EDDE1F5993CB5F16C2F73518 = {
-			fileRef = "C678828FB79D7584012C98DD";
+		FD12462A9D404815E4231934 = {
+			fileRef = "C2B02E55BC6EA9CC9E63AB3F";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		C4BF099582F962225E91E7FF = {
+		87D14F14816855898424BE60 = {
 			isa = PBXFileReference;
 			name = "rc_trackpanel.cpp";
-			path = "../../src/visible/qt/rc_trackpanel.cpp";
+			path = "../src/visible/qt/rc_trackpanel.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		8E5F61687E1C04A9705B37FB = {
-			fileRef = "C4BF099582F962225E91E7FF";
+		7133B43E2B1F083E8CBA4049 = {
+			fileRef = "87D14F14816855898424BE60";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		D19C16500C516CB45EA4ED20 = {
+		F12D715DE12BBD6A2051ABE9 = {
 			isa = PBXFileReference;
 			name = "rc_trackmanager.cpp";
-			path = "../../src/visible/qt/rc_trackmanager.cpp";
+			path = "../src/visible/qt/rc_trackmanager.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		CE7304AA7E92D20F872D0BBD = {
-			fileRef = "D19C16500C516CB45EA4ED20";
+		59F5EB6CBEC1B88ACCECE78F = {
+			fileRef = "F12D715DE12BBD6A2051ABE9";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		8C060290BCBD6293C93A7437 = {
+		3C7C4B869E7C1AA105386B08 = {
 			isa = PBXFileReference;
 			name = "rc_timeline.cpp";
-			path = "../../src/visible/qt/rc_timeline.cpp";
+			path = "../src/visible/qt/rc_timeline.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		A1794B5B02B2C1C2C0F2077F = {
-			fileRef = "8C060290BCBD6293C93A7437";
+		03EA959255464FA43B98EF29 = {
+			fileRef = "3C7C4B869E7C1AA105386B08";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		E4A72E99C23F03D5586AFA37 = {
+		278B56A400663C3ABDC4AFA4 = {
 			isa = PBXFileReference;
 			name = "rc_statusbar.cpp";
-			path = "../../src/visible/qt/rc_statusbar.cpp";
+			path = "../src/visible/qt/rc_statusbar.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		8AEB79DF3F8662EFF29BDA9A = {
-			fileRef = "E4A72E99C23F03D5586AFA37";
+		B73C805166868AD13E6D0C66 = {
+			fileRef = "278B56A400663C3ABDC4AFA4";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		7B4BF88A333A440A7880998B = {
+		CC2ADE3C3109619744154C0B = {
 			isa = PBXFileReference;
 			name = "rc_spinboxsettingwidget.cpp";
-			path = "../../src/visible/qt/rc_spinboxsettingwidget.cpp";
+			path = "../src/visible/qt/rc_spinboxsettingwidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		41554B096371A4A877C17891 = {
-			fileRef = "7B4BF88A333A440A7880998B";
+		80D0A49F5C163ADBC201199B = {
+			fileRef = "CC2ADE3C3109619744154C0B";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		A176C3819D38A9C6EEAE317D = {
+		AAAB85F8E287E76691A5ABFB = {
 			isa = PBXFileReference;
 			name = "rc_frameratechoicesettingwidget.cpp";
-			path = "../../src/visible/qt/rc_frameratechoicesettingwidget.cpp";
+			path = "../src/visible/qt/rc_frameratechoicesettingwidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		43147FD4B9A46F659FD88D9E = {
-			fileRef = "A176C3819D38A9C6EEAE317D";
+		EBF4EE9E7EAD354EA1B88567 = {
+			fileRef = "AAAB85F8E287E76691A5ABFB";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		C1F370263C77100AFA78D07E = {
+		1510EF3F52FDF7518F691E7E = {
 			isa = PBXFileReference;
 			name = "rc_trackgroupwidget.cpp";
-			path = "../../src/visible/qt/rc_trackgroupwidget.cpp";
+			path = "../src/visible/qt/rc_trackgroupwidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		12FC01502A328A0C77EB1790 = {
-			fileRef = "C1F370263C77100AFA78D07E";
+		3816570EE45884F89E3C7046 = {
+			fileRef = "1510EF3F52FDF7518F691E7E";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		3AE57D6759C8DCBFC4A83FCD = {
+		E22AB11A9C2B19D3FAE04AB9 = {
 			isa = PBXFileReference;
 			name = "rc_xmlparser.cpp";
-			path = "../../src/visible/qt/rc_xmlparser.cpp";
+			path = "../src/visible/qt/rc_xmlparser.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		40AAF204CBD6F7894C2BA146 = {
-			fileRef = "3AE57D6759C8DCBFC4A83FCD";
+		7E82CBED6AB622361DB7763E = {
+			fileRef = "E22AB11A9C2B19D3FAE04AB9";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		D4679A3428F0060F71F3E6B7 = {
+		B524998080459A8535EF173A = {
 			isa = PBXFileReference;
 			name = "rc_playbacksettingwidget.cpp";
-			path = "../../src/visible/qt/rc_playbacksettingwidget.cpp";
+			path = "../src/visible/qt/rc_playbacksettingwidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		350B3EBAD5A62C222F1724F7 = {
-			fileRef = "D4679A3428F0060F71F3E6B7";
+		BD433D6B888C602644487BE7 = {
+			fileRef = "B524998080459A8535EF173A";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		2F0D7DBA54F88A1F4E4C5E8C = {
+		D636F94A99526702C06F2867 = {
 			isa = PBXFileReference;
 			name = "rc_customeventmanager.cpp";
-			path = "../../src/visible/qt/rc_customeventmanager.cpp";
+			path = "../src/visible/qt/rc_customeventmanager.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		49555A8F5BAC3B6139E241CE = {
-			fileRef = "2F0D7DBA54F88A1F4E4C5E8C";
+		3CFFA41B3587A79880E576D9 = {
+			fileRef = "D636F94A99526702C06F2867";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		E9F13A1935AF4B45CC92CB50 = {
+		F8E97B778DAD4A34684F94CA = {
 			isa = PBXFileReference;
 			name = "rc_imagecanvasgl.cpp";
-			path = "../../src/visible/qt/rc_imagecanvasgl.cpp";
+			path = "../src/visible/qt/rc_imagecanvasgl.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		CD16C55FCF8DF1A16FD56770 = {
-			fileRef = "E9F13A1935AF4B45CC92CB50";
+		67A26EB2292632BE65925502 = {
+			fileRef = "F8E97B778DAD4A34684F94CA";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		5200B8013FC58080BFD4BED8 = {
+		9AC75FE0F96E7338C45967C6 = {
 			isa = PBXFileReference;
 			name = "rc_cellinfowidget.cpp";
-			path = "../../src/visible/qt/rc_cellinfowidget.cpp";
+			path = "../src/visible/qt/rc_cellinfowidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		0A8E27B4E1977293ADF27F85 = {
-			fileRef = "5200B8013FC58080BFD4BED8";
+		5C46432E6ED7203A3CF7B211 = {
+			fileRef = "9AC75FE0F96E7338C45967C6";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		43D125F94F29DF752CE4EE8F = {
+		6D3C24F12A90BC53C660B906 = {
 			isa = PBXFileReference;
 			name = "rc_thumbwheelsettingwidget.cpp";
-			path = "../../src/visible/qt/rc_thumbwheelsettingwidget.cpp";
+			path = "../src/visible/qt/rc_thumbwheelsettingwidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		6F9A821E48F0F848614A7F4C = {
-			fileRef = "43D125F94F29DF752CE4EE8F";
+		959A7BE7D7DBDC3591484FC1 = {
+			fileRef = "6D3C24F12A90BC53C660B906";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		A18EC51F5A9C2222BB09B154 = {
+		8E3E92C9FBB124D4EE027F77 = {
 			isa = PBXFileReference;
 			name = "rc_textchoicesettingwidget.cpp";
-			path = "../../src/visible/qt/rc_textchoicesettingwidget.cpp";
+			path = "../src/visible/qt/rc_textchoicesettingwidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		EB3330573057B4174BFE8168 = {
-			fileRef = "A18EC51F5A9C2222BB09B154";
+		555679880AE1FC46D3A4627C = {
+			fileRef = "8E3E92C9FBB124D4EE027F77";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		7B118078270B5277D2DC2799 = {
+		7CE74C21FB6BDB2EE7042A0C = {
 			isa = PBXFileReference;
 			name = "rc_numericchoicesettingwidget.cpp";
-			path = "../../src/visible/qt/rc_numericchoicesettingwidget.cpp";
+			path = "../src/visible/qt/rc_numericchoicesettingwidget.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		3DA65D12DE84B9BE73465F5D = {
-			fileRef = "7B118078270B5277D2DC2799";
+		9D105D3F16866270E6ECFEDF = {
+			fileRef = "7CE74C21FB6BDB2EE7042A0C";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
 					);
 			};
 		};
-		19333E18F58249BBB2F17A9B = {
+		8292F4694E49666C1B847727 = {
 			isa = PBXFileReference;
 			name = "rc_trackrender.cpp";
-			path = "../../src/visible/qt/rc_trackrender.cpp";
+			path = "../src/visible/qt/rc_trackrender.cpp";
 			refType = 4;
 			lastKnownFileType = "sourcecode.cpp.cpp";
 		};
-		A7539DC39F3F32C8F8A98A1F = {
-			fileRef = "19333E18F58249BBB2F17A9B";
+		ACEC82FC64890969CF6AF591 = {
+			fileRef = "8292F4694E49666C1B847727";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		FDF93B3E46349EBE959E2933 = {
+			isa = PBXFileReference;
+			name = "lpwidget.cpp";
+			path = "../src/visible/qt/lpwidget.cpp";
+			refType = 4;
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		F798D5C01DF767C54F4D0DD3 = {
+			fileRef = "FDF93B3E46349EBE959E2933";
 			isa = PBXBuildFile;
 			settings = {
 				ATTRIBUTES = (
@@ -1068,244 +1083,265 @@
 					);
 			};
 		};
-		BBC900CC44434DF250AAB900 = {
+		506A887A1F0EDF53AC3D7A4C = {
+			isa = PBXFileReference;
+			name = "moc_lpwidget.cpp";
+			path = "moc_lpwidget.cpp";
+			refType = 4;
+			lastKnownFileType = "sourcecode.cpp.cpp";
+		};
+		F692ABEC1EB4D9064D059FCB = {
+			fileRef = "506A887A1F0EDF53AC3D7A4C";
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+					);
+			};
+		};
+		B10FA6BCE461EBFA9F2B250E = {
 			isa = PBXFileReference;
 			name = "rc_about.h";
-			path = "../../include/visUI/rc_about.h";
+			path = "../include/visUI/rc_about.h";
 			refType = 4;
 		};
-		1D58667036F38598D1401F23 = {
+		7D8EB18C5C85E905D49469CF = {
 			isa = PBXFileReference;
 			name = "rc_appconstants.h";
-			path = "../../include/visUI/rc_appconstants.h";
+			path = "../include/visUI/rc_appconstants.h";
 			refType = 4;
 		};
-		031101791A59C823029CEC10 = {
+		C8DFC2FDED823F1A2389BA90 = {
 			isa = PBXFileReference;
 			name = "rc_settingwidget.h";
-			path = "../../include/visUI/rc_settingwidget.h";
+			path = "../include/visUI/rc_settingwidget.h";
 			refType = 4;
 		};
-		955105D03EB29D8485836681 = {
+		68BC763C5971A1A6B5C3CE42 = {
 			isa = PBXFileReference;
 			name = "rc_checkboxsettingwidget.h";
-			path = "../../include/visUI/rc_checkboxsettingwidget.h";
+			path = "../include/visUI/rc_checkboxsettingwidget.h";
 			refType = 4;
 		};
-		3FBF9A56F2F6B8F05058D63C = {
+		9A4962E09EE7E2D7C62B75A2 = {
 			isa = PBXFileReference;
 			name = "rc_choiceradiobutton.h";
-			path = "../../include/visUI/rc_choiceradiobutton.h";
+			path = "../include/visUI/rc_choiceradiobutton.h";
 			refType = 4;
 		};
-		CBCD8796A25BAFDF1E340515 = {
+		720964A450FE1D05936D38CF = {
 			isa = PBXFileReference;
 			name = "rc_controlpanel.h";
-			path = "../../include/visUI/rc_controlpanel.h";
+			path = "../include/visUI/rc_controlpanel.h";
 			refType = 4;
 		};
-		DCDB5B97686B98CA38305EC5 = {
+		A7958F1443235E170A4574A5 = {
 			isa = PBXFileReference;
 			name = "rc_filechoicesettingwidget.h";
-			path = "../../include/visUI/rc_filechoicesettingwidget.h";
+			path = "../include/visUI/rc_filechoicesettingwidget.h";
 			refType = 4;
 		};
-		BBFF23E1C1B7220D6D6AFC4B = {
+		B09232AE5D0FA20CA7BC3BAA = {
 			isa = PBXFileReference;
 			name = "rc_filesavesettingwidget.h";
-			path = "../../include/visUI/rc_filesavesettingwidget.h";
+			path = "../include/visUI/rc_filesavesettingwidget.h";
 			refType = 4;
 		};
-		9042897A9FED51C0AAFFA35D = {
+		0787F4A2A0916E026E3D3CB7 = {
 			isa = PBXFileReference;
 			name = "rc_lineedit.h";
-			path = "../../include/visUI/rc_lineedit.h";
+			path = "../include/visUI/rc_lineedit.h";
 			refType = 4;
 		};
-		71F6575A253FED900AA023DC = {
+		6421E5F979090CF48C5EC357 = {
 			isa = PBXFileReference;
 			name = "rc_mainwindow.h";
-			path = "../../include/visUI/rc_mainwindow.h";
+			path = "../include/visUI/rc_mainwindow.h";
 			refType = 4;
 		};
-		CCC99525681E430BC0FF9481 = {
+		547740F8C9DE93C0FEC275C8 = {
 			isa = PBXFileReference;
 			name = "rc_menubar.h";
-			path = "../../include/visUI/rc_menubar.h";
+			path = "../include/visUI/rc_menubar.h";
 			refType = 4;
 		};
-		B98AA7DB0F21519C01046E00 = {
+		94097E9DF3851A4001D7C096 = {
 			isa = PBXFileReference;
 			name = "rc_menuchoicesettingwidget.h";
-			path = "../../include/visUI/rc_menuchoicesettingwidget.h";
+			path = "../include/visUI/rc_menuchoicesettingwidget.h";
 			refType = 4;
 		};
-		5FF3D954D328F9B89236D3AB = {
+		F1160CBC4080BD1854BC2450 = {
 			isa = PBXFileReference;
 			name = "rc_modeldomain.h";
-			path = "../../include/visUI/rc_modeldomain.h";
+			path = "../include/visUI/rc_modeldomain.h";
 			refType = 4;
 		};
-		C0C583F475BF6582DC801DCE = {
+		2BFC86AEE2E8499367822C3B = {
 			isa = PBXFileReference;
 			name = "rc_modifierkeys.h";
-			path = "../../include/visUI/rc_modifierkeys.h";
+			path = "../include/visUI/rc_modifierkeys.h";
 			refType = 4;
 		};
-		2A803C89324FC0E154ACC85A = {
+		062D0D9CC80EE541623F054A = {
 			isa = PBXFileReference;
 			name = "rc_monitor.h";
-			path = "../../include/visUI/rc_monitor.h";
+			path = "../include/visUI/rc_monitor.h";
 			refType = 4;
 		};
-		90CA08F00E84017B09A9DAC0 = {
+		98EE742517ED706C338F2042 = {
 			isa = PBXFileReference;
 			name = "rc_radiochoicesettingwidget.h";
-			path = "../../include/visUI/rc_radiochoicesettingwidget.h";
+			path = "../include/visUI/rc_radiochoicesettingwidget.h";
 			refType = 4;
 		};
-		5A84838F2FA00955361A4C09 = {
+		1DDAEAA257438C21E613AF67 = {
 			isa = PBXFileReference;
 			name = "rc_settingpage.h";
-			path = "../../include/visUI/rc_settingpage.h";
+			path = "../include/visUI/rc_settingpage.h";
 			refType = 4;
 		};
-		7B4CE17ADC77109EFEAE3495 = {
+		832ECBEE43241F4529528CE8 = {
 			isa = PBXFileReference;
 			name = "rc_settingpanel.h";
-			path = "../../include/visUI/rc_settingpanel.h";
+			path = "../include/visUI/rc_settingpanel.h";
 			refType = 4;
 		};
-		E36CFA5659AEED3F6DC9436A = {
+		8648284FC4BB73CD05D09999 = {
 			isa = PBXFileReference;
 			name = "rc_textareasettingwidget.h";
-			path = "../../include/visUI/rc_textareasettingwidget.h";
+			path = "../include/visUI/rc_textareasettingwidget.h";
 			refType = 4;
 		};
-		BB792FE86AB5CCC928EC4EA2 = {
+		A989E23704F90CB69C92461D = {
 			isa = PBXFileReference;
 			name = "rc_textedit.h";
-			path = "../../include/visUI/rc_textedit.h";
+			path = "../include/visUI/rc_textedit.h";
 			refType = 4;
 		};
-		541B0C5EE20DCD9A636191AD = {
+		60B72249F361373E1A489C12 = {
 			isa = PBXFileReference;
 			name = "rc_textlinesettingwidget.h";
-			path = "../../include/visUI/rc_textlinesettingwidget.h";
+			path = "../include/visUI/rc_textlinesettingwidget.h";
 			refType = 4;
 		};
-		786C50E065C7EC7720A7504B = {
+		2273399F6B2E9BC3808657AE = {
 			isa = PBXFileReference;
 			name = "rc_timedisplay.h";
-			path = "../../include/visUI/rc_timedisplay.h";
+			path = "../include/visUI/rc_timedisplay.h";
 			refType = 4;
 		};
-		9F4689A7A74502D125C60C64 = {
+		BA514D758C62D07B5BD45483 = {
 			isa = PBXFileReference;
 			name = "rc_rectsettingwidget.h";
-			path = "../../include/visUI/rc_rectsettingwidget.h";
+			path = "../include/visUI/rc_rectsettingwidget.h";
 			refType = 4;
 		};
-		CD4C6E6DE0FB78D4AFF543B3 = {
+		707F926DC33FE0FF87C24FD4 = {
 			isa = PBXFileReference;
 			name = "rc_scalartrackwidget.h";
-			path = "../../include/visUI/rc_scalartrackwidget.h";
+			path = "../include/visUI/rc_scalartrackwidget.h";
 			refType = 4;
 		};
-		B06E1E4453EE81034DDC91CA = {
+		21D488C33414EB8E9DC5BF4F = {
 			isa = PBXFileReference;
 			name = "rc_trackpanel.h";
-			path = "../../include/visUI/rc_trackpanel.h";
+			path = "../include/visUI/rc_trackpanel.h";
 			refType = 4;
 		};
-		BB8209327F5C92EC6731572D = {
+		A278A5D9BBEE4E3A7DD5C23E = {
 			isa = PBXFileReference;
 			name = "rc_trackmanager.h";
-			path = "../../include/visUI/rc_trackmanager.h";
+			path = "../include/visUI/rc_trackmanager.h";
 			refType = 4;
 		};
-		224C796F13B22AB893C84AEC = {
+		0204E87A82E0778323FD1B3E = {
 			isa = PBXFileReference;
 			name = "rc_timeline.h";
-			path = "../../include/visUI/rc_timeline.h";
+			path = "../include/visUI/rc_timeline.h";
 			refType = 4;
 		};
-		4747E5748BAC9EF73720B49E = {
+		34DD72965BE0E6DAC303C703 = {
 			isa = PBXFileReference;
 			name = "rc_statusbar.h";
-			path = "../../include/visUI/rc_statusbar.h";
+			path = "../include/visUI/rc_statusbar.h";
 			refType = 4;
 		};
-		552A66691CAA2A6FBA4EA27E = {
+		B32EE345D39C2737E5584A2A = {
 			isa = PBXFileReference;
 			name = "rc_spinboxsettingwidget.h";
-			path = "../../include/visUI/rc_spinboxsettingwidget.h";
+			path = "../include/visUI/rc_spinboxsettingwidget.h";
 			refType = 4;
 		};
-		4D550619A30C2013FE1B869A = {
+		6C41DBC1CB98A0C6E8F8D0F9 = {
 			isa = PBXFileReference;
 			name = "rc_frameratechoicesettingwidget.h";
-			path = "../../include/visUI/rc_frameratechoicesettingwidget.h";
+			path = "../include/visUI/rc_frameratechoicesettingwidget.h";
 			refType = 4;
 		};
-		945E8FEF172F3CEC8BC37DBD = {
+		321D6B413AC9095471D5D1F8 = {
 			isa = PBXFileReference;
 			name = "rc_trackgroupwidget.h";
-			path = "../../include/visUI/rc_trackgroupwidget.h";
+			path = "../include/visUI/rc_trackgroupwidget.h";
 			refType = 4;
 		};
-		15C1CD91AC551F1F2976E1A7 = {
+		806B8CD4753BCE02D8AF95AC = {
 			isa = PBXFileReference;
 			name = "rc_xmlparser.h";
-			path = "../../include/visUI/rc_xmlparser.h";
+			path = "../include/visUI/rc_xmlparser.h";
 			refType = 4;
 		};
-		B1677F3F488933619E3CD01F = {
+		800DC475143991A536F3D0CB = {
 			isa = PBXFileReference;
 			name = "rc_playbacksettingwidget.h";
-			path = "../../include/visUI/rc_playbacksettingwidget.h";
+			path = "../include/visUI/rc_playbacksettingwidget.h";
 			refType = 4;
 		};
-		0A53377B61E18509A9566920 = {
+		BEC1BE27941D86F83238FFC3 = {
 			isa = PBXFileReference;
 			name = "rc_customeventmanager.h";
-			path = "../../include/visUI/rc_customeventmanager.h";
+			path = "../include/visUI/rc_customeventmanager.h";
 			refType = 4;
 		};
-		D78F2322F14AE80FD8F45383 = {
+		EF1436A32DB15C649E88DEC2 = {
 			isa = PBXFileReference;
 			name = "rc_imagecanvasgl.h";
-			path = "../../include/visUI/rc_imagecanvasgl.h";
+			path = "../include/visUI/rc_imagecanvasgl.h";
 			refType = 4;
 		};
-		45A84676FF784B219ED57AA0 = {
+		184ECAA4E291ADB3FEEFB83D = {
 			isa = PBXFileReference;
 			name = "rc_cellinfowidget.h";
-			path = "../../include/visUI/rc_cellinfowidget.h";
+			path = "../include/visUI/rc_cellinfowidget.h";
 			refType = 4;
 		};
-		A360DE98EEE81D61818B5CBA = {
+		21FB0F425676711D587152C5 = {
 			isa = PBXFileReference;
 			name = "rc_thumbwheelsettingwidget.h";
-			path = "../../include/visUI/rc_thumbwheelsettingwidget.h";
+			path = "../include/visUI/rc_thumbwheelsettingwidget.h";
 			refType = 4;
 		};
-		9F393945E6C84A5DCF530E3B = {
+		01628C3E01A0CC15A1DD1033 = {
 			isa = PBXFileReference;
 			name = "rc_textchoicesettingwidget.h";
-			path = "../../include/visUI/rc_textchoicesettingwidget.h";
+			path = "../include/visUI/rc_textchoicesettingwidget.h";
 			refType = 4;
 		};
-		C31BADB5A6435BD2793F7AF3 = {
+		674EA924905BD171FA636C52 = {
 			isa = PBXFileReference;
 			name = "rc_numericchoicesettingwidget.h";
-			path = "../../include/visUI/rc_numericchoicesettingwidget.h";
+			path = "../include/visUI/rc_numericchoicesettingwidget.h";
 			refType = 4;
 		};
-		8FBA4FC307E323EDA7B130D0 = {
+		F9246E885A3E86AF6327974C = {
 			isa = PBXFileReference;
 			name = "rc_trackrender.h";
-			path = "../../include/visUI/rc_trackrender.h";
+			path = "../include/visUI/rc_trackrender.h";
+			refType = 4;
+		};
+		E49FD999545861E69204347B = {
+			isa = PBXFileReference;
+			name = "lpwidget.h";
+			path = "../include/visUI/lpwidget.h";
 			refType = 4;
 		};
 		DCF32E2779900B02C01BB426 = {
@@ -1324,136 +1360,124 @@
 		4458B98565818D7E2682FA2D = {
 			isa = PBXGroup;
 			children = (
-				"E11BEA6A53EB481066C2098B");
+				"2C625DD7F0D3FBBDD1702AA4");
 			name = "..";
 			refType = 4;
 		};
-		E11BEA6A53EB481066C2098B = {
+		2C625DD7F0D3FBBDD1702AA4 = {
 			isa = PBXGroup;
 			children = (
-				"224019A18C6B1708E4F7A1B1");
-			name = "..";
-			refType = 4;
-		};
-		224019A18C6B1708E4F7A1B1 = {
-			isa = PBXGroup;
-			children = (
-				"C886ACD553D6509570EBE12B");
+				"4F12CEF779CB343A056BD971");
 			name = "include";
 			refType = 4;
 		};
-		C886ACD553D6509570EBE12B = {
+		4F12CEF779CB343A056BD971 = {
 			isa = PBXGroup;
 			children = (
-				"BBC900CC44434DF250AAB900",
-				"1D58667036F38598D1401F23",
-				"031101791A59C823029CEC10",
-				"955105D03EB29D8485836681",
-				"3FBF9A56F2F6B8F05058D63C",
-				"CBCD8796A25BAFDF1E340515",
-				"DCDB5B97686B98CA38305EC5",
-				"BBFF23E1C1B7220D6D6AFC4B",
-				"9042897A9FED51C0AAFFA35D",
-				"71F6575A253FED900AA023DC",
-				"CCC99525681E430BC0FF9481",
-				"B98AA7DB0F21519C01046E00",
-				"5FF3D954D328F9B89236D3AB",
-				"C0C583F475BF6582DC801DCE",
-				"2A803C89324FC0E154ACC85A",
-				"90CA08F00E84017B09A9DAC0",
-				"5A84838F2FA00955361A4C09",
-				"7B4CE17ADC77109EFEAE3495",
-				"E36CFA5659AEED3F6DC9436A",
-				"BB792FE86AB5CCC928EC4EA2",
-				"541B0C5EE20DCD9A636191AD",
-				"786C50E065C7EC7720A7504B",
-				"9F4689A7A74502D125C60C64",
-				"CD4C6E6DE0FB78D4AFF543B3",
-				"B06E1E4453EE81034DDC91CA",
-				"BB8209327F5C92EC6731572D",
-				"224C796F13B22AB893C84AEC",
-				"4747E5748BAC9EF73720B49E",
-				"552A66691CAA2A6FBA4EA27E",
-				"4D550619A30C2013FE1B869A",
-				"945E8FEF172F3CEC8BC37DBD",
-				"15C1CD91AC551F1F2976E1A7",
-				"B1677F3F488933619E3CD01F",
-				"0A53377B61E18509A9566920",
-				"D78F2322F14AE80FD8F45383",
-				"45A84676FF784B219ED57AA0",
-				"A360DE98EEE81D61818B5CBA",
-				"9F393945E6C84A5DCF530E3B",
-				"C31BADB5A6435BD2793F7AF3",
-				"8FBA4FC307E323EDA7B130D0");
+				"B10FA6BCE461EBFA9F2B250E",
+				"7D8EB18C5C85E905D49469CF",
+				"C8DFC2FDED823F1A2389BA90",
+				"68BC763C5971A1A6B5C3CE42",
+				"9A4962E09EE7E2D7C62B75A2",
+				"720964A450FE1D05936D38CF",
+				"A7958F1443235E170A4574A5",
+				"B09232AE5D0FA20CA7BC3BAA",
+				"0787F4A2A0916E026E3D3CB7",
+				"6421E5F979090CF48C5EC357",
+				"547740F8C9DE93C0FEC275C8",
+				"94097E9DF3851A4001D7C096",
+				"F1160CBC4080BD1854BC2450",
+				"2BFC86AEE2E8499367822C3B",
+				"062D0D9CC80EE541623F054A",
+				"98EE742517ED706C338F2042",
+				"1DDAEAA257438C21E613AF67",
+				"832ECBEE43241F4529528CE8",
+				"8648284FC4BB73CD05D09999",
+				"A989E23704F90CB69C92461D",
+				"60B72249F361373E1A489C12",
+				"2273399F6B2E9BC3808657AE",
+				"BA514D758C62D07B5BD45483",
+				"707F926DC33FE0FF87C24FD4",
+				"21D488C33414EB8E9DC5BF4F",
+				"A278A5D9BBEE4E3A7DD5C23E",
+				"0204E87A82E0778323FD1B3E",
+				"34DD72965BE0E6DAC303C703",
+				"B32EE345D39C2737E5584A2A",
+				"6C41DBC1CB98A0C6E8F8D0F9",
+				"321D6B413AC9095471D5D1F8",
+				"806B8CD4753BCE02D8AF95AC",
+				"800DC475143991A536F3D0CB",
+				"BEC1BE27941D86F83238FFC3",
+				"EF1436A32DB15C649E88DEC2",
+				"184ECAA4E291ADB3FEEFB83D",
+				"21FB0F425676711D587152C5",
+				"01628C3E01A0CC15A1DD1033",
+				"674EA924905BD171FA636C52",
+				"F9246E885A3E86AF6327974C",
+				"E49FD999545861E69204347B");
 			name = "visUI";
 			refType = 4;
 		};
 		BFA3A29D17FD123C907B6E35 = {
 			isa = PBXGroup;
 			children = (
-				"DCB318ABE7A96AA736975C2A");
+				"58044B046310C858CE5E1612");
 			name = "..";
 			refType = 4;
 		};
-		DCB318ABE7A96AA736975C2A = {
+		58044B046310C858CE5E1612 = {
 			isa = PBXGroup;
 			children = (
-				"F0BDEA78D90C87903ED83CE9");
-			name = "..";
-			refType = 4;
-		};
-		F0BDEA78D90C87903ED83CE9 = {
-			isa = PBXGroup;
-			children = (
-				"249BD96AFC7809DAD3B06442");
+				"E630EE85CA93FEFF2E6E8618");
 			name = "src";
 			refType = 4;
 		};
-		249BD96AFC7809DAD3B06442 = {
+		E630EE85CA93FEFF2E6E8618 = {
 			isa = PBXGroup;
 			children = (
-				"BE196DE80F07F437915F807B");
+				"0F73C394E9210BDF371C4C2A");
 			name = "visible";
 			refType = 4;
 		};
-		BE196DE80F07F437915F807B = {
+		0F73C394E9210BDF371C4C2A = {
 			isa = PBXGroup;
 			children = (
-				"0D25E539404B3D1C82A93531",
-				"8EBF31871CF1A1C7F4DCD51A",
-				"7478D8B3D627A975CC827528",
-				"25C6C3A070DD68623752BBC7",
-				"4D3AD0446EA7AA4D3B242A21",
-				"48F0DDC92B36D18EE5B8A090",
-				"2331C293F5DD59A633470739",
-				"DD13530CD26FB3A9DA40EBF5",
-				"F18FE5DF0FFB0A5BC82FF794",
-				"FE2D112FB9AC713282EAFA3B",
-				"94B62D57232A458F8941E71E",
-				"520A4626DF17CCA6E2D9B908",
-				"11A0CA4F9B70B3ECE893959A",
-				"9AE66088913B1B8F84803532",
-				"0134B9E3A4070DF8F13B739A",
-				"49C6028C99D28D62F0738E00",
-				"53DECD679614CB1102E00A62",
-				"DA5546140D0238A019AD1D80",
-				"C678828FB79D7584012C98DD",
-				"C4BF099582F962225E91E7FF",
-				"D19C16500C516CB45EA4ED20",
-				"8C060290BCBD6293C93A7437",
-				"E4A72E99C23F03D5586AFA37",
-				"7B4BF88A333A440A7880998B",
-				"A176C3819D38A9C6EEAE317D",
-				"C1F370263C77100AFA78D07E",
-				"3AE57D6759C8DCBFC4A83FCD",
-				"D4679A3428F0060F71F3E6B7",
-				"2F0D7DBA54F88A1F4E4C5E8C",
-				"E9F13A1935AF4B45CC92CB50",
-				"5200B8013FC58080BFD4BED8",
-				"43D125F94F29DF752CE4EE8F",
-				"A18EC51F5A9C2222BB09B154",
-				"7B118078270B5277D2DC2799",
-				"19333E18F58249BBB2F17A9B");
+				"C46E03290354345AACF102CC",
+				"C2FD2DA60A1B8CF9D188B1A2",
+				"98B73215A70C6C32407186C7",
+				"3596124F79C14785C1FB01EC",
+				"65203BB9200EEE862DBFF68A",
+				"FD04F2C851908222BE4408EF",
+				"E1E90E2A4BCFCB7A505A3486",
+				"12EA2DBC7B27CF2A3BA6A442",
+				"54B8C5EBC7A3958B70C265A2",
+				"0C8B74071344577372F7E58E",
+				"6315DC79E03823085876C601",
+				"7B9E4C6DED975D4AD48F625D",
+				"02740E953853AE60778D30CE",
+				"FD3A2BB79B757287ED925E7F",
+				"39BC96FC525D3B4476DD44CD",
+				"25B4FD6F9E1EACD73006BF6C",
+				"0259307562B78323403AB8D0",
+				"0E8CB4076C8C181CA483870E",
+				"C2B02E55BC6EA9CC9E63AB3F",
+				"87D14F14816855898424BE60",
+				"F12D715DE12BBD6A2051ABE9",
+				"3C7C4B869E7C1AA105386B08",
+				"278B56A400663C3ABDC4AFA4",
+				"CC2ADE3C3109619744154C0B",
+				"AAAB85F8E287E76691A5ABFB",
+				"1510EF3F52FDF7518F691E7E",
+				"E22AB11A9C2B19D3FAE04AB9",
+				"B524998080459A8535EF173A",
+				"D636F94A99526702C06F2867",
+				"F8E97B778DAD4A34684F94CA",
+				"9AC75FE0F96E7338C45967C6",
+				"6D3C24F12A90BC53C660B906",
+				"8E3E92C9FBB124D4EE027F77",
+				"7CE74C21FB6BDB2EE7042A0C",
+				"8292F4694E49666C1B847727",
+				"FDF93B3E46349EBE959E2933");
 			name = "qt";
 			refType = 4;
 		};
@@ -1508,7 +1532,8 @@
 				"18876D690A6ADA535F391A1F",
 				"2B134C17D17E10D8BCE2D2D3",
 				"FAC1C6FC153038B34DA3BE89",
-				"A83336865662024239F448C9");
+				"A83336865662024239F448C9",
+				"506A887A1F0EDF53AC3D7A4C");
 			name = "Temporary Sources";
 			refType = 4;
 		};
@@ -1517,41 +1542,42 @@
 			files = (
 				);
 			generatedFileNames = (
-				"F779F8203DB9C9D33F189489",
-				"5B06A067792A2A3FC119404F",
-				"C5E350C53F2E1A0A08962FC8",
-				"893087365B6159073320492D",
-				"FB2B8230B83F894BC502D572",
-				"B1EB97AA70B79B5B42CD9C32",
-				"1D4E2A5BF79C88A467AFC90D",
-				"A5F0B70622684F94A9E97DFE",
-				"226EB2255C74D4DC190D70A4",
-				"77A56BE9EFDC080E2E8B6CF1",
-				"881594F448842779751B65DE",
-				"4B0E6D3B52B19456227D3393",
-				"190E6693AA610071867D3667",
-				"FA96427A17F7B59E138D1C8E",
-				"AED3DD4574529137258F7F69",
-				"2D59C3160361E35D3E24249D",
-				"05CED2E39BBBE13F64194198",
-				"6CD3421D0C0B1C0C3E5F752A",
-				"EDDE1F5993CB5F16C2F73518",
-				"8E5F61687E1C04A9705B37FB",
-				"CE7304AA7E92D20F872D0BBD",
-				"A1794B5B02B2C1C2C0F2077F",
-				"8AEB79DF3F8662EFF29BDA9A",
-				"41554B096371A4A877C17891",
-				"43147FD4B9A46F659FD88D9E",
-				"12FC01502A328A0C77EB1790",
-				"40AAF204CBD6F7894C2BA146",
-				"350B3EBAD5A62C222F1724F7",
-				"49555A8F5BAC3B6139E241CE",
-				"CD16C55FCF8DF1A16FD56770",
-				"0A8E27B4E1977293ADF27F85",
-				"6F9A821E48F0F848614A7F4C",
-				"EB3330573057B4174BFE8168",
-				"3DA65D12DE84B9BE73465F5D",
-				"A7539DC39F3F32C8F8A98A1F",
+				"822E948E21EEAF532B830A40",
+				"9FD222D3627B9EA3832068D8",
+				"33A2D84DFB462A4CB33368EA",
+				"2FC92ED40E58EC5896E8E74F",
+				"CA8E3E546BDDA2B9F0D743AE",
+				"8B5EAFBD96F5AAEA326D12DC",
+				"1F1918855BFD27ED1511877B",
+				"1CEC309CF34CE12A154C5213",
+				"53F1EA62335B296329866CF9",
+				"99E4BE0259C88257927AB1CE",
+				"0C92E8BCF7BBC76981966186",
+				"3FFE8ADE0A43C87C6E357FEE",
+				"5F17CA243762AF9DCEC28CF0",
+				"0F910BF76C72C72264692B83",
+				"8EC68C0A0C89E7DA866B7F0A",
+				"4ACD9DDCB030AD397050BBC5",
+				"59DCB1550CA3B34C3D322F40",
+				"68B3B5C3ED4533540725A47E",
+				"FD12462A9D404815E4231934",
+				"7133B43E2B1F083E8CBA4049",
+				"59F5EB6CBEC1B88ACCECE78F",
+				"03EA959255464FA43B98EF29",
+				"B73C805166868AD13E6D0C66",
+				"80D0A49F5C163ADBC201199B",
+				"EBF4EE9E7EAD354EA1B88567",
+				"3816570EE45884F89E3C7046",
+				"7E82CBED6AB622361DB7763E",
+				"BD433D6B888C602644487BE7",
+				"3CFFA41B3587A79880E576D9",
+				"67A26EB2292632BE65925502",
+				"5C46432E6ED7203A3CF7B211",
+				"959A7BE7D7DBDC3591484FC1",
+				"555679880AE1FC46D3A4627C",
+				"9D105D3F16866270E6ECFEDF",
+				"ACEC82FC64890969CF6AF591",
+				"F798D5C01DF767C54F4D0DD3",
 				"3A2DC4F8367EFF6F9E53D1F7",
 				"EF54925688B3E003F9781BD7",
 				"BF7ACAC7A64C1E8790F5C7E4",
@@ -1586,45 +1612,47 @@
 				"2BBC11061129AC1017D97E57",
 				"CD34A880260FFADDA2B3397D",
 				"7C8704639F3933D0DEB2C7D5",
-				"0B127144E861D3D22474D4A8");
+				"0B127144E861D3D22474D4A8",
+				"F692ABEC1EB4D9064D059FCB");
 			isa = PBXShellScriptBuildPhase;
 			name = "Qt Preprocessors";
 			neededFileNames = (
-				"F779F8203DB9C9D33F189489",
-				"5B06A067792A2A3FC119404F",
-				"C5E350C53F2E1A0A08962FC8",
-				"893087365B6159073320492D",
-				"FB2B8230B83F894BC502D572",
-				"B1EB97AA70B79B5B42CD9C32",
-				"1D4E2A5BF79C88A467AFC90D",
-				"A5F0B70622684F94A9E97DFE",
-				"226EB2255C74D4DC190D70A4",
-				"77A56BE9EFDC080E2E8B6CF1",
-				"881594F448842779751B65DE",
-				"4B0E6D3B52B19456227D3393",
-				"190E6693AA610071867D3667",
-				"FA96427A17F7B59E138D1C8E",
-				"AED3DD4574529137258F7F69",
-				"2D59C3160361E35D3E24249D",
-				"05CED2E39BBBE13F64194198",
-				"6CD3421D0C0B1C0C3E5F752A",
-				"EDDE1F5993CB5F16C2F73518",
-				"8E5F61687E1C04A9705B37FB",
-				"CE7304AA7E92D20F872D0BBD",
-				"A1794B5B02B2C1C2C0F2077F",
-				"8AEB79DF3F8662EFF29BDA9A",
-				"41554B096371A4A877C17891",
-				"43147FD4B9A46F659FD88D9E",
-				"12FC01502A328A0C77EB1790",
-				"40AAF204CBD6F7894C2BA146",
-				"350B3EBAD5A62C222F1724F7",
-				"49555A8F5BAC3B6139E241CE",
-				"CD16C55FCF8DF1A16FD56770",
-				"0A8E27B4E1977293ADF27F85",
-				"6F9A821E48F0F848614A7F4C",
-				"EB3330573057B4174BFE8168",
-				"3DA65D12DE84B9BE73465F5D",
-				"A7539DC39F3F32C8F8A98A1F",
+				"822E948E21EEAF532B830A40",
+				"9FD222D3627B9EA3832068D8",
+				"33A2D84DFB462A4CB33368EA",
+				"2FC92ED40E58EC5896E8E74F",
+				"CA8E3E546BDDA2B9F0D743AE",
+				"8B5EAFBD96F5AAEA326D12DC",
+				"1F1918855BFD27ED1511877B",
+				"1CEC309CF34CE12A154C5213",
+				"53F1EA62335B296329866CF9",
+				"99E4BE0259C88257927AB1CE",
+				"0C92E8BCF7BBC76981966186",
+				"3FFE8ADE0A43C87C6E357FEE",
+				"5F17CA243762AF9DCEC28CF0",
+				"0F910BF76C72C72264692B83",
+				"8EC68C0A0C89E7DA866B7F0A",
+				"4ACD9DDCB030AD397050BBC5",
+				"59DCB1550CA3B34C3D322F40",
+				"68B3B5C3ED4533540725A47E",
+				"FD12462A9D404815E4231934",
+				"7133B43E2B1F083E8CBA4049",
+				"59F5EB6CBEC1B88ACCECE78F",
+				"03EA959255464FA43B98EF29",
+				"B73C805166868AD13E6D0C66",
+				"80D0A49F5C163ADBC201199B",
+				"EBF4EE9E7EAD354EA1B88567",
+				"3816570EE45884F89E3C7046",
+				"7E82CBED6AB622361DB7763E",
+				"BD433D6B888C602644487BE7",
+				"3CFFA41B3587A79880E576D9",
+				"67A26EB2292632BE65925502",
+				"5C46432E6ED7203A3CF7B211",
+				"959A7BE7D7DBDC3591484FC1",
+				"555679880AE1FC46D3A4627C",
+				"9D105D3F16866270E6ECFEDF",
+				"ACEC82FC64890969CF6AF591",
+				"F798D5C01DF767C54F4D0DD3",
 				"3A2DC4F8367EFF6F9E53D1F7",
 				"EF54925688B3E003F9781BD7",
 				"BF7ACAC7A64C1E8790F5C7E4",
@@ -1659,48 +1687,50 @@
 				"2BBC11061129AC1017D97E57",
 				"CD34A880260FFADDA2B3397D",
 				"7C8704639F3933D0DEB2C7D5",
-				"0B127144E861D3D22474D4A8");
+				"0B127144E861D3D22474D4A8",
+				"F692ABEC1EB4D9064D059FCB");
 			shellPath = "/bin/sh";
-			shellScript = "make\ -C\ /Users/arman/gwc/visibleqt105/build_scripts\ -f\ visible_qt_moc.xcodeproj/qt_preprocess.mak";
+			shellScript = "make\ -C\ /Users/arman/gwc/vqt105/visibleqt105/build_scripts\ -f\ \'visible_qt_moc.xcodeproj/qt_preprocess.mak\'";
 		};
 		C29B8785722055ED95EF7B57 = {
 			buildActionMask = 2147483647;
 			files = (
-				"F779F8203DB9C9D33F189489",
-				"5B06A067792A2A3FC119404F",
-				"C5E350C53F2E1A0A08962FC8",
-				"893087365B6159073320492D",
-				"FB2B8230B83F894BC502D572",
-				"B1EB97AA70B79B5B42CD9C32",
-				"1D4E2A5BF79C88A467AFC90D",
-				"A5F0B70622684F94A9E97DFE",
-				"226EB2255C74D4DC190D70A4",
-				"77A56BE9EFDC080E2E8B6CF1",
-				"881594F448842779751B65DE",
-				"4B0E6D3B52B19456227D3393",
-				"190E6693AA610071867D3667",
-				"FA96427A17F7B59E138D1C8E",
-				"AED3DD4574529137258F7F69",
-				"2D59C3160361E35D3E24249D",
-				"05CED2E39BBBE13F64194198",
-				"6CD3421D0C0B1C0C3E5F752A",
-				"EDDE1F5993CB5F16C2F73518",
-				"8E5F61687E1C04A9705B37FB",
-				"CE7304AA7E92D20F872D0BBD",
-				"A1794B5B02B2C1C2C0F2077F",
-				"8AEB79DF3F8662EFF29BDA9A",
-				"41554B096371A4A877C17891",
-				"43147FD4B9A46F659FD88D9E",
-				"12FC01502A328A0C77EB1790",
-				"40AAF204CBD6F7894C2BA146",
-				"350B3EBAD5A62C222F1724F7",
-				"49555A8F5BAC3B6139E241CE",
-				"CD16C55FCF8DF1A16FD56770",
-				"0A8E27B4E1977293ADF27F85",
-				"6F9A821E48F0F848614A7F4C",
-				"EB3330573057B4174BFE8168",
-				"3DA65D12DE84B9BE73465F5D",
-				"A7539DC39F3F32C8F8A98A1F",
+				"822E948E21EEAF532B830A40",
+				"9FD222D3627B9EA3832068D8",
+				"33A2D84DFB462A4CB33368EA",
+				"2FC92ED40E58EC5896E8E74F",
+				"CA8E3E546BDDA2B9F0D743AE",
+				"8B5EAFBD96F5AAEA326D12DC",
+				"1F1918855BFD27ED1511877B",
+				"1CEC309CF34CE12A154C5213",
+				"53F1EA62335B296329866CF9",
+				"99E4BE0259C88257927AB1CE",
+				"0C92E8BCF7BBC76981966186",
+				"3FFE8ADE0A43C87C6E357FEE",
+				"5F17CA243762AF9DCEC28CF0",
+				"0F910BF76C72C72264692B83",
+				"8EC68C0A0C89E7DA866B7F0A",
+				"4ACD9DDCB030AD397050BBC5",
+				"59DCB1550CA3B34C3D322F40",
+				"68B3B5C3ED4533540725A47E",
+				"FD12462A9D404815E4231934",
+				"7133B43E2B1F083E8CBA4049",
+				"59F5EB6CBEC1B88ACCECE78F",
+				"03EA959255464FA43B98EF29",
+				"B73C805166868AD13E6D0C66",
+				"80D0A49F5C163ADBC201199B",
+				"EBF4EE9E7EAD354EA1B88567",
+				"3816570EE45884F89E3C7046",
+				"7E82CBED6AB622361DB7763E",
+				"BD433D6B888C602644487BE7",
+				"3CFFA41B3587A79880E576D9",
+				"67A26EB2292632BE65925502",
+				"5C46432E6ED7203A3CF7B211",
+				"959A7BE7D7DBDC3591484FC1",
+				"555679880AE1FC46D3A4627C",
+				"9D105D3F16866270E6ECFEDF",
+				"ACEC82FC64890969CF6AF591",
+				"F798D5C01DF767C54F4D0DD3",
 				"3A2DC4F8367EFF6F9E53D1F7",
 				"EF54925688B3E003F9781BD7",
 				"BF7ACAC7A64C1E8790F5C7E4",
@@ -1735,7 +1765,8 @@
 				"2BBC11061129AC1017D97E57",
 				"CD34A880260FFADDA2B3397D",
 				"7C8704639F3933D0DEB2C7D5",
-				"0B127144E861D3D22474D4A8");
+				"0B127144E861D3D22474D4A8",
+				"F692ABEC1EB4D9064D059FCB");
 			isa = PBXSourcesBuildPhase;
 			name = "Build Sources";
 		};
@@ -1811,30 +1842,6 @@
 			settings = {
 			};
 		};
-		DA138F75C9F545CDAE7FB264 = {
-			isa = PBXFrameworkReference;
-			name = "Carbon.framework";
-			path = "/System/Library/Frameworks/Carbon.framework";
-			refType = 0;
-		};
-		C8FD4A1AAA37CF2CA2824CCF = {
-			fileRef = "DA138F75C9F545CDAE7FB264";
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		821416211D63F190AAAD016A = {
-			isa = PBXFrameworkReference;
-			name = "AppKit.framework";
-			path = "/System/Library/Frameworks/AppKit.framework";
-			refType = 0;
-		};
-		51D4DBF7CB8537BE86EBD055 = {
-			fileRef = "821416211D63F190AAAD016A";
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
 		7BC2E65A5E699A5E5D834CA2 = {
 			isa = PBXFrameworkReference;
 			name = "QtCore.framework";
@@ -1843,18 +1850,6 @@
 		};
 		069D05B0128AE5DC7EE31738 = {
 			fileRef = "7BC2E65A5E699A5E5D834CA2";
-			isa = PBXBuildFile;
-			settings = {
-			};
-		};
-		27AE7A480FD6C52FCA80FECD = {
-			isa = PBXFrameworkReference;
-			name = "ApplicationServices.framework";
-			path = "/System/Library/Frameworks/ApplicationServices.framework";
-			refType = 0;
-		};
-		F9E76E570E10AF14870553A7 = {
-			fileRef = "27AE7A480FD6C52FCA80FECD";
 			isa = PBXBuildFile;
 			settings = {
 			};
@@ -1891,10 +1886,7 @@
 				"8EE92F8FA333C9E415C5B34E",
 				"C374004D45E01156F931B37D",
 				"9B36DA7E32F0304E780E7972",
-				"DA138F75C9F545CDAE7FB264",
-				"821416211D63F190AAAD016A",
 				"7BC2E65A5E699A5E5D834CA2",
-				"27AE7A480FD6C52FCA80FECD",
 				"DA18A6831232F53228631AD1",
 				"C6766F86E49E9C8701C8E637");
 			isa = PBXGroup;
@@ -1911,10 +1903,7 @@
 				"C2643FEB592DBFD1429BE4E1",
 				"450A0D11527AF164AEFE7377",
 				"501667F26B3C1FF6767A7C12",
-				"C8FD4A1AAA37CF2CA2824CCF",
-				"51D4DBF7CB8537BE86EBD055",
 				"069D05B0128AE5DC7EE31738",
-				"F9E76E570E10AF14870553A7",
 				"BCEF71E1EDFB18DA77DC750B",
 				"0C6D4628EE0B0D1479A20551");
 			isa = PBXFrameworksBuildPhase;
@@ -1930,7 +1919,7 @@
 		F6069D5A5DA8AA28EDB8B3C6 = {
 			name = "Project Copy";
 			buildActionMask = 2147483647;
-			dstPath = "/Users/arman/gwc/visibleqt105/build_scripts";
+			dstPath = "/Users/arman/gwc/vqt105/visibleqt105/build_scripts";
 			dstSubfolderSpec = 0;
 			files = (
 "07E0DFA73EB56DCB9E28CDD9");
@@ -1938,7 +1927,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		07E0DFA73EB56DCB9E28CDD9 = {
-			fileRef = "5AAC54B323E063C0A855840C";
+			fileRef = "B708100EB5C4E805CB42AA40";
 			isa = PBXBuildFile;
 			settings = {
 			};
@@ -1955,7 +1944,7 @@
 			path = "";
 			refType = 4;
 		};
-		5AAC54B323E063C0A855840C = {
+		B708100EB5C4E805CB42AA40 = {
 			isa = PBXFileReference;
 			explicitFileType = "wrapper.application";
 			path = "visible_qt_moc.app";
@@ -1964,12 +1953,12 @@
 		};
 		068F80C7519D0528FB08E821 = {
 			children = (
-				"5AAC54B323E063C0A855840C");
+				"B708100EB5C4E805CB42AA40");
 			isa = PBXGroup;
 			name = "Products";
 			refType = 4;
 		};
-		0347351FEA3F42A07E7CC164 = {
+		EE034E40E38DB195A982B333 = {
 			buildPhases = (
 				"D7BA7D76DAB5DD13389D6332",
 				"A0A52A2ADF7A1E2A99738674",
@@ -1990,23 +1979,22 @@
 					"/Library/Frameworks/Qt3Support.framework/Versions/4/Headers",
 					"/usr/include/Qt3Support",
 					"/usr/include",
-					"../../include/util",
-					"../../include/visual",
-					"../../include/analysis",
-					"../../include/stlplus",
+					"../include/util",
+					"../include/visual",
+					"../include/analysis",
+					"../include/stlplus",
 					"../include/test",
-					"../../include/baseUI",
-					"../../include/visUI",
-					"../../include/visiCore",
-					"../../usr/local/boost/include",
+					"../include/baseUI",
+					"../include/visUI",
+					"../include/visiCore",
+					"../usr/local/boost/include",
+					"../usr/local/lightplot_i386/include",
 					"/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers",
 					"/System/Library/Frameworks/AGL.framework/Headers",
-					"../../build_scripts",
-					"../../build_scripts",
+					".",
 					"/usr/local/include",
 					"/System/Library/Frameworks/CarbonCore.framework/Headers",
-					".",
-					"/usr/local/Qt4.4/mkspecs/macx-xcode");
+					"/usr/local/Qt4.6/mkspecs/macx-xcode");
 				LIBRARY_SEARCH_PATHS = (
 					"/Library/Frameworks",
 					"/System/Library/Frameworks/");
@@ -2063,25 +2051,23 @@
 				WARNING_CFLAGS = "";
 				PREBINDING = NO;
 				INFOPLIST_FILE = "Info.plist";
-				BUILD_ROOT = "/Users/arman/gwc/visibleqt105/build_scripts";
+				BUILD_ROOT = "/Users/arman/gwc/vqt105/visibleqt105/build_scripts";
 				OTHER_LDFLAGS = (
 						"-headerpad_max_install_names",
 						"-L/Library/Frameworks",
-						"-F/Library/Frameworks",
-						"-lresolv",
-						"-lz",
-						"-lm");
+						"-F/Library/Frameworks");
 				DYLIB_CURRENT_VERSION = "1.0.0";
 				DYLIB_COMPATIBILITY_VERSION = "1.0";
-				MACOSX_DEPLOYMENT_TARGET = "10.3";
+				MACOSX_DEPLOYMENT_TARGET = "10.4";
 				OBJROOT = "../src/visible/.obj/";
+				ARCHS = "i386";
 				PRODUCT_NAME = "visible_qt_moc";
 			};
 			conditionalBuildSettings = {
 			};
 			dependencies = (
 				);
-			productReference = "5AAC54B323E063C0A855840C";
+			productReference = "B708100EB5C4E805CB42AA40";
 			shouldUseHeadermap = 1;
 			isa = PBXNativeTarget;
 			productType = "com.apple.product-type.application";
@@ -2093,14 +2079,16 @@
 	<string></string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-        <key>CFBundleGetInfoString</key>
+    <key>CFBundleGetInfoString</key>
 	<string>Created by Qt/QMake</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleExecutable</key>
 	<string>visible_qt_moc</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.yourcompany.visible_qt_moc</string>
 	<key>NOTE</key>
-	<string>Please, do NOT change this file -- It was generated by Qt/QMake.</string>
+	<string>This file was generated by Qt/QMake.</string>
 </dict>
 </plist>
 ";
@@ -2168,7 +2156,7 @@
 			buildConfigurationList = "2A951308CDB28F104D0A4BD2";
 			projectDirPath = "";
 			targets = (
-				"0347351FEA3F42A07E7CC164");
+				"EE034E40E38DB195A982B333");
 		};
 	};
 	rootObject = "91B15E841AA80083484172DE";

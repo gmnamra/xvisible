@@ -38,6 +38,8 @@ public slots:
     void tifDirImport( void );
     // import molecular devices stk file
     void stkImport( void );
+    // import recent movie, skip browsing.     
+    void recentMovieFile ( const QString& fname);
     
 protected:
 

@@ -58,6 +58,7 @@ rcFileChoiceSettingWidget::rcFileChoiceSettingWidget( QWidget* parent, const rcS
 
     connect( domain , SIGNAL( stkImport( void ) )  ,
 	             this , SLOT( stkImport( void ) ) );
+    
 }
 
 rcFileChoiceSettingWidget::~rcFileChoiceSettingWidget()
@@ -89,6 +90,22 @@ void rcFileChoiceSettingWidget::singleFileBrowse( void )
 		// if a file was selected, update the setting
 		mSetting.setValue( s.latin1() );
 
+		// notify everybody (including us) about the change
+		rcModelDomain::getModelDomain()->notifySettingChange();
+	}
+}
+
+
+// browse for single movie file
+void rcFileChoiceSettingWidget::recentMovieFile( const QString& s )
+{
+   
+    string currentValue = mSetting.getValue();
+	if (s != QString::null)
+	{
+		// if a file was selected, update the setting
+		mSetting.setValue( s.latin1() );
+        
 		// notify everybody (including us) about the change
 		rcModelDomain::getModelDomain()->notifySettingChange();
 	}

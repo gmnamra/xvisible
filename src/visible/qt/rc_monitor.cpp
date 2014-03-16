@@ -32,7 +32,7 @@
 #include <rc_window.h>
 #include <rc_math.h>
 #include <rc_writermanager.h>
-#include <rc_mainwindow.h>
+#include <rc_main_window.h>
 
 #include "rc_trackmanager.h"
 #include "rc_modeldomain.h"

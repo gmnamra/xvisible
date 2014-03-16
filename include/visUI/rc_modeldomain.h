@@ -156,7 +156,7 @@ public:
     
   // if the observer is accepting polys, this is called to
   // tell the observer to put the polys
-  virtual void notifyPolys ();
+  virtual void notifyPolys (/* const rcPolygonGroupRef* */ );
 
   // if the observer is accepting polys, this is called to
   // tell the observer to get the possible changed polys    
@@ -171,7 +171,6 @@ public:
     // tell the observer to put them up
   virtual void notifyPlot2dRequest (SharedCurveData2dRef&  );
     
-    virtual void getLast2dData (SharedCurveData2dRef& );
 	
   rcPolygonGroupRef polys ()
   {
@@ -206,15 +205,17 @@ public slots:
     void requestOpen( rcExperimentImportMode mode );
     void requestClose( void );
     void requestSave( rcExperimentFileFormat format );
-    void requestSaveSmMatrix( );    
     void requestImageImport( void );
     void requestTifDirImport( void );
     void requestMovieImport( void );
     void requestSTKImport( void );
     void requestMovieSave( void );
+    void requestSmMatrixSave( void );    
     void requestInputSource( int );
     void timerTick( void );
-//    void requestTrackingDisplayGL ();
+    void useRecentMovieFile ( const QString& filename );
+    void reload_plotter2d (const CurveData2d* );    
+    
   void requestTrackingPause( void );    
   void stopTrackingPause ( void );    
 
@@ -248,11 +249,13 @@ signals:
     void updateCameraState( bool liveCamera, bool liveStorage );
     void updateDebugging();
     void updateSelectionState (bool b);
-
-
+    void recentMovieFile ( const QString& );
+    void newSmMatrix ();
+    
 protected:
     // Handle special events
     void customEvent( QEvent* e );
+    void doSmMatrixSave ();
 	
 private:
     // Report license error
@@ -266,8 +269,9 @@ private:
     rcLicenseManager      mLicenseManager;
      rcCustomEventManager  mEventQueueManager;
     rcTimestamp           mCursorTime;
-    rcPolygonGroupRef mSelectPolygons;    
-    SharedCurveData2dRef _last2dMatrix;
+    rcPolygonGroupRef mSelectPolygons;  
+    SharedCurveData2dRef _lastMatrix;    
+
 
 };
 

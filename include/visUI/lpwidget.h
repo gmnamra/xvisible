@@ -31,7 +31,6 @@ class LPWidget : public QWidget
     
 public:
     LPWidget(QWidget *parent = 0, const CurveData * cdata = 0);
-    LPWidget(QWidget *parent , const CurveData2d* cdata2  );
     
     void new_plot (SharedCurveDataRef& );
     void new_plot ( const CurveData * ); 
@@ -39,7 +38,8 @@ public:
     
     ~LPWidget();
     
-    // The "slots" and "signals" sections in a class definition should only contain functions; neither types nor member variables.
+    // The "slots" and "signals" sections in a class definition should only contain functions;
+    // neither types nor member variables.
     public slots:    
     void add_contractions (int);
 
@@ -67,9 +67,8 @@ private:
     valley_detector<double, std::deque> m_vd;    
     second_derivative_producer<double, std::deque> m_sdp;
 
-    SharedCurveData2dRef m_c2m;
-    volatile int m_cdata_index;
-    volatile int m_half_window;
+    int m_cdata_index;
+    int m_half_window;
     
     
     

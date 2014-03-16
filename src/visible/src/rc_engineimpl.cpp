@@ -439,14 +439,9 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
             {
                 _isPausedToggle.setValue (false);
                 int pCtrl = getSettingValue(cPlaybackCtrlSettingId);
-                if ((pCtrl & rcSettingInfo::eCurrentStateStopped) == 0) {
+                if ((pCtrl & rcSettingInfo::eCurrentStateStopped) == 0)
+                {
                     setInternalState( eEnginePlayback );
-#if 0
-                    std::string modelFile = create_filespec (_resourceFolderPath,
-                                                             std::string ("tip"),
-                                                             std::string ("tif"));
-                    setSettingValue ( cTemplateFileNameId, rcValue(modelFile));
-#endif
                 }
             }
             break;
@@ -779,16 +774,6 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
     {
         ++_processCount;
         
-#ifdef GOODMAN_LAB	
-        // Get the resource folder, fetch the target template and report
-        if (_inputMode == eFile || _inputMode == eCmd)
-		{
-			std::string tmp = folder_up (_resourceFolderPath);
-			tmp = folder_down (tmp, std::string ("Resources"));
-			tmp = create_filespec (tmp, std::string ("tip"), std::string ("tif"));
-			setSettingValue (cTemplateFileNameId, rcValue (tmp));
-		}
-#endif 
         
         if ( _inputMode == eFile || _inputMode == eCmd) {
             if ( framesLoaded() > 1 ) {
@@ -962,70 +947,9 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
                     }
                 }
             }
-#if 0
-            if (delay)
-            {
-                rmAssert(_movieCapture);
-                uint32 tenthsSecondsLeft = _movieCapture->delayLeft();
-                uint32 minLeft = tenthsSecondsLeft / 600;
-                uint32 secLeft = (tenthsSecondsLeft % 600) / 10;
-                uint32 tenthsLeft = (tenthsSecondsLeft % 10);
-                
-                if (missedFramesOnCapture)
-                snprintf(buf, blen, "Starting capture in %02d:%02d.%01d   "
-                         "Missed Frames: %d",
-                         minLeft, secLeft, tenthsLeft, missedFramesOnCapture);
-                else
-                snprintf(buf, blen, "Starting capture in %02d:%02d.%01d",
-                         minLeft, secLeft, tenthsLeft);
-            }
-            else {
-                uint32 tenthsSeconds = uint32(timestamp.secs() * 10);
-                uint32 minutes = tenthsSeconds / 600;
-                uint32 seconds = (tenthsSeconds % 600) / 10;
-                uint32 tenths = (tenthsSeconds % 10);
-                
-                if (missedFramesOnCapture || missedFramesOnSave)
-                snprintf(buf, blen, "Capturing %02d:%02d.%01d"
-                         "    Missed Frames: %d Dropped Frames: %d    Rate: %4.2f fps",
-                         minutes, seconds, tenths,
-                         missedFramesOnCapture, missedFramesOnSave, captureFps);
-                else
-                snprintf(buf, blen, "Capturing %02d:%02d.%01d    Rate: %4.2f fps",
-                         minutes, seconds, tenths, captureFps);
-                
-                if (focus) {
-                    // Store results only for saved frames
-                    if ( frameSaved ) {
-                        // Produce aggregate change index for sliding window
-                        rcScalarWriter* sWriter = focus->slidingEnergyWriter();
-                        // Write the latest result
-                        double entropy = result.entropy();
-                        // Ignore undefined values
-                        if ( entropy != -1.0 ) {
-                            // Result time MUST be synchronized with frame time
-                            sWriter->writeValue( result.frameBuf()->timestamp(), focus->focusRect(), entropy );
-                            if ( getState() != eEngineRunning ) {
-                                cerr << "rcEngineImpl::processCapturedData notification: frame ";// << result.frameBuf();
-                                cerr << " at " << result.frameBuf()->timestamp() << " saved";
-                                cerr << ", result " <<  result.entropy() << " saved after engine stopped running" << endl;
-                            }
-                        }
-                    }
-                    
-                    else {
-                        cerr << "rcEngineImpl::processCapturedData notification: frame " << result.frameBuf() << " at ";
-                        cerr << result.frameBuf()->timestamp() << " unsaved, ";
-                        cerr << "result " << result.entropy() << " not stored" << endl;
-                    }
-                    
-                }
-                // Notify elapsed time
-                _observer->notifyTime(timestamp);
-            }
-#endif
         }
-        else {
+        else 
+        {
             if ( frameSaved ) {
                 cerr << "rcEngineImpl::processCapturedData error: frame " /*<< result.frameBuf()*/ << " at " << result.frameBuf()->timestamp();
                 cerr << " saved but " << "result " << result.entropy() << " not stored" << endl;
@@ -1332,22 +1256,7 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
             deque<double>normed;
             norm_scaler<double, std::deque> ns;
             ns.operator () (signal, normed, 1);
-          
-            deque<deque<double> > smm;
-            uint32 msize = sim.matrixSz ();
-            sim.selfSimilarityMatrix(smm);
-            
-
-    
-            
-            
-            SharedCurveData2dRef cvv ( new CurveData2d (smm, msize) );
-            _curveData2dRef = cvv;
-            {
-            rcLock lock (_utilMutex);
-            QString legend = focus->energyWriter()->down_cast()->getName();
-            _observer->notifyPlot2dRequest (_curveData2dRef);
-            }            
+         
             results.resize(0);
             copy(normed.begin(), normed.end(), back_inserter(results));
             
@@ -1366,6 +1275,19 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
                 _observer->notifyPlotRequest (cv);
 
             }
+           
+            {
+                rcLock lock (_utilMutex);
+                deque<deque<double> > smm;
+                uint32 msize = sim.matrixSz ();
+                sim.selfSimilarityMatrix(smm);
+                
+                SharedCurveData2dRef cvv ( new CurveData2d (smm, msize) );
+                _curveData2dRef = cvv;
+                
+                QString legend = focus->energyWriter()->down_cast()->getName();
+                _observer->notifyPlot2dRequest (_curveData2dRef);
+            }            
             
         }
         return analysisCount;

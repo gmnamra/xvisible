@@ -80,7 +80,7 @@ public:
 
     m_bounds.push_back ( ( m_data.size () - m_valleys[m_valleys.size()-1].first) / 2);
 
-    assert (m_bounds.size () == m_valleys.size () + 2);
+    assert (m_bounds.size () == m_valleys.size () + 1);
     // set the bounds in contractions at the end
     m_contractions[0].contraction = m_bounds[0];
     m_contractions[0].relaxation = m_bounds[1];

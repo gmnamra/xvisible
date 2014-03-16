@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_modeldomain.h'
 **
-** Created: Fri Mar 7 14:40:28 2014
+** Created: Sat Mar 15 16:26:41 2014
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,12 +23,12 @@ static const uint qt_meta_data_rcModelDomain[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-      44,   14, // methods
+      49,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-      27,       // signalCount
+      29,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
       20,   15,   14,   14, 0x05,
@@ -58,25 +58,30 @@ static const uint qt_meta_data_rcModelDomain[] = {
      756,  733,   14,   14, 0x05,
      785,   14,   14,   14, 0x05,
      805,  803,   14,   14, 0x05,
+     832,   14,   14,   14, 0x05,
+     857,   14,   14,   14, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-     832,   14,   14,   14, 0x0a,
-     847,   14,   14,   14, 0x0a,
-     861,   14,   14,   14, 0x0a,
-     878,   14,   14,   14, 0x0a,
-     891,   14,   14,   14, 0x0a,
-     912,  907,   14,   14, 0x0a,
-     948,   14,   14,   14, 0x0a,
-     970,  963,   14,   14, 0x0a,
-    1006,   14,   14,   14, 0x0a,
-    1027,   14,   14,   14, 0x0a,
-    1049,   14,   14,   14, 0x0a,
-    1070,   14,   14,   14, 0x0a,
-    1089,   14,   14,   14, 0x0a,
-    1108,   14,   14,   14, 0x0a,
-    1132,   14,   14,   14, 0x0a,
-    1144,   14,   14,   14, 0x0a,
-    1167,   14,   14,   14, 0x0a,
+     871,   14,   14,   14, 0x0a,
+     886,   14,   14,   14, 0x0a,
+     900,   14,   14,   14, 0x0a,
+     917,   14,   14,   14, 0x0a,
+     930,   14,   14,   14, 0x0a,
+     951,  946,   14,   14, 0x0a,
+     987,   14,   14,   14, 0x0a,
+    1009, 1002,   14,   14, 0x0a,
+    1045,   14,   14,   14, 0x0a,
+    1066,   14,   14,   14, 0x0a,
+    1088,   14,   14,   14, 0x0a,
+    1109,   14,   14,   14, 0x0a,
+    1128,   14,   14,   14, 0x0a,
+    1147,   14,   14,   14, 0x0a,
+    1169,   14,   14,   14, 0x0a,
+    1193,   14,   14,   14, 0x0a,
+    1214, 1205,   14,   14, 0x0a,
+    1242,   14,   14,   14, 0x0a,
+    1279,   14,   14,   14, 0x0a,
+    1302,   14,   14,   14, 0x0a,
 
        0        // eod
 };
@@ -103,6 +108,7 @@ static const char qt_meta_stringdata_rcModelDomain[] = {
     "liveCamera,liveStorage\0"
     "updateCameraState(bool,bool)\0"
     "updateDebugging()\0b\0updateSelectionState(bool)\0"
+    "recentMovieFile(QString)\0newSmMatrix()\0"
     "requestStart()\0requestStop()\0"
     "requestProcess()\0requestNew()\0"
     "requestNewApp()\0mode\0"
@@ -111,9 +117,11 @@ static const char qt_meta_stringdata_rcModelDomain[] = {
     "requestSave(rcExperimentFileFormat)\0"
     "requestImageImport()\0requestTifDirImport()\0"
     "requestMovieImport()\0requestSTKImport()\0"
-    "requestMovieSave()\0requestInputSource(int)\0"
-    "timerTick()\0requestTrackingPause()\0"
-    "stopTrackingPause()\0"
+    "requestMovieSave()\0requestSmMatrixSave()\0"
+    "requestInputSource(int)\0timerTick()\0"
+    "filename\0useRecentMovieFile(QString)\0"
+    "reload_plotter2d(const CurveData2d*)\0"
+    "requestTrackingPause()\0stopTrackingPause()\0"
 };
 
 const QMetaObject rcModelDomain::staticMetaObject = {
@@ -174,26 +182,31 @@ int rcModelDomain::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 24: updateCameraState((*reinterpret_cast< bool(*)>(_a[1])),(*reinterpret_cast< bool(*)>(_a[2]))); break;
         case 25: updateDebugging(); break;
         case 26: updateSelectionState((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 27: requestStart(); break;
-        case 28: requestStop(); break;
-        case 29: requestProcess(); break;
-        case 30: requestNew(); break;
-        case 31: requestNewApp(); break;
-        case 32: requestOpen((*reinterpret_cast< rcExperimentImportMode(*)>(_a[1]))); break;
-        case 33: requestClose(); break;
-        case 34: requestSave((*reinterpret_cast< rcExperimentFileFormat(*)>(_a[1]))); break;
-        case 35: requestImageImport(); break;
-        case 36: requestTifDirImport(); break;
-        case 37: requestMovieImport(); break;
-        case 38: requestSTKImport(); break;
-        case 39: requestMovieSave(); break;
-        case 40: requestInputSource((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 41: timerTick(); break;
-        case 42: requestTrackingPause(); break;
-        case 43: stopTrackingPause(); break;
+        case 27: recentMovieFile((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 28: newSmMatrix(); break;
+        case 29: requestStart(); break;
+        case 30: requestStop(); break;
+        case 31: requestProcess(); break;
+        case 32: requestNew(); break;
+        case 33: requestNewApp(); break;
+        case 34: requestOpen((*reinterpret_cast< rcExperimentImportMode(*)>(_a[1]))); break;
+        case 35: requestClose(); break;
+        case 36: requestSave((*reinterpret_cast< rcExperimentFileFormat(*)>(_a[1]))); break;
+        case 37: requestImageImport(); break;
+        case 38: requestTifDirImport(); break;
+        case 39: requestMovieImport(); break;
+        case 40: requestSTKImport(); break;
+        case 41: requestMovieSave(); break;
+        case 42: requestSmMatrixSave(); break;
+        case 43: requestInputSource((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 44: timerTick(); break;
+        case 45: useRecentMovieFile((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 46: reload_plotter2d((*reinterpret_cast< const CurveData2d*(*)>(_a[1]))); break;
+        case 47: requestTrackingPause(); break;
+        case 48: stopTrackingPause(); break;
         default: ;
         }
-        _id -= 44;
+        _id -= 49;
     }
     return _id;
 }
@@ -376,5 +389,18 @@ void rcModelDomain::updateSelectionState(bool _t1)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 26, _a);
+}
+
+// SIGNAL 27
+void rcModelDomain::recentMovieFile(const QString & _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 27, _a);
+}
+
+// SIGNAL 28
+void rcModelDomain::newSmMatrix()
+{
+    QMetaObject::activate(this, &staticMetaObject, 28, 0);
 }
 QT_END_MOC_NAMESPACE

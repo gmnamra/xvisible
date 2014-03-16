@@ -30,19 +30,20 @@ public slots:
     void help(); 
     void inputSource( int i );
     void settingChanged ();
+    void newSmMatrix ();
     void updateAnalysisRect( const rcRect& rect );
-
+    
     void doSave();
     void doExport();
     void doExportMovie();
     void doExportNativeMovie();
-    void doExportMatrix();    
+    void doExportSmMatrix();
    
     void doOpen();
-    void requestRecentMovie();
     void doOpenSettings();
-    void requestCellInfoDisplay();
+    void importRecentMovie ();
     void reload_plotter (const CurveData* );
+
     
 signals:
 
@@ -58,7 +59,7 @@ private:
     void updateRecentFileActions();
     QString strippedName(const QString &fullFileName);
     void createDockWindows ();
-
+    bool _new_matrix;
     
     rcStatusBar*         mStatusBar;
     QListWidget *plotlist;
@@ -70,7 +71,8 @@ private:
     QMenu* _helpMenu;    
     QTextBrowser* _helpBrowser;
     rcExperimentState _lastState;
-
+  
+    
     enum { MaxRecentFiles = 5 };
     QAction *recentFileActs[MaxRecentFiles];
     

@@ -224,6 +224,7 @@ void rcExperimentDomainImpl::notifyCursorTime( const rcTimestamp& time )
   _cursorTime.setValue(time);
 }
 
+
 // Called when movie has been imported
 void rcExperimentDomainImpl::notifyMovieImport()
 {

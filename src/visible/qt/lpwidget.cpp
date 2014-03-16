@@ -20,14 +20,6 @@ LPWidget::LPWidget(QWidget *parent, const CurveData*  cref )
     }
 }
 
-LPWidget::LPWidget(QWidget *parent , const CurveData2d* cdata2  )   
-: QWidget (parent, Qt::WDestructiveClose | Qt::WResizeNoErase)
-{
-    if (cdata2)
-    {
-        m_c2m = SharedCurveData2dRef ( new CurveData2d (*cdata2) );
-    }
-}
 
 
 void LPWidget::new_plot(SharedCurveDataRef & cref)

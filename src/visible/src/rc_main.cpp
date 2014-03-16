@@ -11,7 +11,7 @@
 #include <rc_engineimpl.h>
 #include <rc_batchexperimentobserver.h>
 
-#include "rc_mainwindow.h"
+#include "rc_main_window.h"
 #include "rc_modeldomain.h"
 #include "rc_appconstants.h"
 #include <ostream>
@@ -20,15 +20,6 @@
 
 using namespace qtime;
 
-
-#if 0
-// Force symbols from core foundation and agl to be loaded to get
-// around linker bug in Dec 2002 tool release.
-//
-#include <AGL/agl.h>
-static int forceLoad1 =  (int)&CFRelease;
-static int forceLoad2 = (int)&aglGetVersion;
-#endif
 
 // These are declared in rc_appconstants.h
 // and defined by each application
@@ -47,12 +38,7 @@ extern void modelTest( int argc , char** argv );
 
 int main( int argc, char** argv )
 {
-#if 0
-  {
-    rcUNUSED(forceLoad1);
-    rcUNUSED(forceLoad2);
-  }
-#endif
+
 
   rcExecWithShmem::setPathName(argv[0]);
 

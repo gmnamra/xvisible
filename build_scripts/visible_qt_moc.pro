@@ -36,8 +36,7 @@ HEADERS = $${INCLUDE_DIR}/include/visUI/rc_about.h \
            $${INCLUDE_DIR}/include/visUI/rc_filechoicesettingwidget.h \
            $${INCLUDE_DIR}/include/visUI/rc_filesavesettingwidget.h \
            $${INCLUDE_DIR}/include/visUI/rc_lineedit.h \
-           $${INCLUDE_DIR}/include/visUI/rc_mainwindow.h \
-           $${INCLUDE_DIR}/include/visUI/rc_menubar.h \
+           $${INCLUDE_DIR}/include/visUI/rc_main_window.h \
            $${INCLUDE_DIR}/include/visUI/rc_menuchoicesettingwidget.h \
            $${INCLUDE_DIR}/include/visUI/rc_modeldomain.h \
            $${INCLUDE_DIR}/include/visUI/rc_modifierkeys.h \
@@ -76,8 +75,7 @@ SOURCES = $${SOURCES_DIR}/src/visible/qt/rc_about.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_controlpanel.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_filechoicesettingwidget.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_filesavesettingwidget.cpp \
-           $${SOURCES_DIR}/src/visible/qt/rc_mainwindow.cpp \
-           $${SOURCES_DIR}/src/visible/qt/rc_menubar.cpp \
+           $${SOURCES_DIR}/src/visible/qt/rc_main_window.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_menuchoicesettingwidget.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_modeldomain.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_modifierkeys.cpp \

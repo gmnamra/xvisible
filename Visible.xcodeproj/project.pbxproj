@@ -75,8 +75,6 @@
 		C26CA0970F61E68900549A3C /* moc_rc_frameratechoicesettingwidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA0740F61E68900549A3C /* moc_rc_frameratechoicesettingwidget.cpp */; };
 		C26CA0980F61E68900549A3C /* moc_rc_imagecanvasgl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA0750F61E68900549A3C /* moc_rc_imagecanvasgl.cpp */; };
 		C26CA0990F61E68900549A3C /* moc_rc_lineedit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA0760F61E68900549A3C /* moc_rc_lineedit.cpp */; };
-		C26CA09A0F61E68900549A3C /* moc_rc_mainwindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA0770F61E68900549A3C /* moc_rc_mainwindow.cpp */; };
-		C26CA09B0F61E68900549A3C /* moc_rc_menubar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA0780F61E68900549A3C /* moc_rc_menubar.cpp */; };
 		C26CA09C0F61E68900549A3C /* moc_rc_menuchoicesettingwidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA0790F61E68900549A3C /* moc_rc_menuchoicesettingwidget.cpp */; };
 		C26CA09D0F61E68900549A3C /* moc_rc_modeldomain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA07A0F61E68900549A3C /* moc_rc_modeldomain.cpp */; };
 		C26CA09E0F61E68900549A3C /* moc_rc_monitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA07B0F61E68900549A3C /* moc_rc_monitor.cpp */; };
@@ -99,6 +97,8 @@
 		C26CA0B00F61E68900549A3C /* moc_rc_trackgroupwidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA08D0F61E68900549A3C /* moc_rc_trackgroupwidget.cpp */; };
 		C26CA0B10F61E68900549A3C /* moc_rc_trackmanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA08E0F61E68900549A3C /* moc_rc_trackmanager.cpp */; };
 		C26CA0B20F61E68900549A3C /* moc_rc_trackpanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA08F0F61E68900549A3C /* moc_rc_trackpanel.cpp */; };
+		C27C020D18D36B6100FD9FE6 /* rc_main_window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27C020C18D36B6100FD9FE6 /* rc_main_window.cpp */; };
+		C27C020F18D373BF00FD9FE6 /* moc_rc_main_window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27C020E18D373BF00FD9FE6 /* moc_rc_main_window.cpp */; };
 		C27E57C218C6D52700DF8BA1 /* vfi386.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B8E96E187CCC250060D961 /* vfi386.framework */; };
 		C2850D3E131A1DDC002C8918 /* Visible-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2850D3D131A1DDC002C8918 /* Visible-Info.plist */; };
 		C299374718ACCD89000EAD7D /* liblightplot2d.1.0.1.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2F1963818ACA917008D996D /* liblightplot2d.1.0.1.dylib */; };
@@ -175,8 +175,6 @@
 		C2EC98700F37845600E49E22 /* rc_filesavesettingwidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC982E0F37845400E49E22 /* rc_filesavesettingwidget.cpp */; };
 		C2EC98710F37845600E49E22 /* rc_frameratechoicesettingwidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC982F0F37845400E49E22 /* rc_frameratechoicesettingwidget.cpp */; };
 		C2EC98730F37845600E49E22 /* rc_imagecanvasgl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98310F37845400E49E22 /* rc_imagecanvasgl.cpp */; };
-		C2EC98740F37845600E49E22 /* rc_mainwindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98320F37845400E49E22 /* rc_mainwindow.cpp */; };
-		C2EC98750F37845600E49E22 /* rc_menubar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98330F37845400E49E22 /* rc_menubar.cpp */; };
 		C2EC98760F37845600E49E22 /* rc_menuchoicesettingwidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98340F37845400E49E22 /* rc_menuchoicesettingwidget.cpp */; };
 		C2EC98770F37845600E49E22 /* rc_modeldomain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98350F37845400E49E22 /* rc_modeldomain.cpp */; };
 		C2EC98780F37845600E49E22 /* rc_modifierkeys.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98360F37845400E49E22 /* rc_modifierkeys.cpp */; };
@@ -479,8 +477,6 @@
 		C26CA0740F61E68900549A3C /* moc_rc_frameratechoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_frameratechoicesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C26CA0750F61E68900549A3C /* moc_rc_imagecanvasgl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_imagecanvasgl.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C26CA0760F61E68900549A3C /* moc_rc_lineedit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_lineedit.cpp; sourceTree = "<group>"; };
-		C26CA0770F61E68900549A3C /* moc_rc_mainwindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_mainwindow.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
-		C26CA0780F61E68900549A3C /* moc_rc_menubar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_menubar.cpp; sourceTree = "<group>"; };
 		C26CA0790F61E68900549A3C /* moc_rc_menuchoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_menuchoicesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C26CA07A0F61E68900549A3C /* moc_rc_modeldomain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_modeldomain.cpp; sourceTree = "<group>"; };
 		C26CA07B0F61E68900549A3C /* moc_rc_monitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = moc_rc_monitor.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
@@ -628,6 +624,9 @@
 		C26FA2AA0F21357A0046570D /* ut_visual_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_visual_main.cpp; sourceTree = "<group>"; };
 		C26FA2AB0F21357A0046570D /* ut_window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_window.cpp; sourceTree = "<group>"; };
 		C26FA2AC0F21357A0046570D /* ut_windowhist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ut_windowhist.cpp; sourceTree = "<group>"; };
+		C27C020B18D36B5200FD9FE6 /* rc_main_window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_main_window.h; sourceTree = "<group>"; };
+		C27C020C18D36B6100FD9FE6 /* rc_main_window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_main_window.cpp; sourceTree = "<group>"; };
+		C27C020E18D373BF00FD9FE6 /* moc_rc_main_window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_main_window.cpp; sourceTree = "<group>"; };
 		C27E57DB18C84D8100DF8BA1 /* libopencv_features2d.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_features2d.2.2.0.dylib; path = usr/local/OpenCv_2.2_i386/lib/libopencv_features2d.2.2.0.dylib; sourceTree = "<group>"; };
 		C27E57DD18C854E200DF8BA1 /* libopencv_calib3d.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_calib3d.2.2.0.dylib; path = usr/local/OpenCv_2.2_i386/lib/libopencv_calib3d.2.2.0.dylib; sourceTree = "<group>"; };
 		C27E57DF18C8554500DF8BA1 /* libopencv_flann.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_flann.2.2.0.dylib; path = usr/local/OpenCv_2.2_i386/lib/libopencv_flann.2.2.0.dylib; sourceTree = "<group>"; };
@@ -805,8 +804,6 @@
 		C2EC982E0F37845400E49E22 /* rc_filesavesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_filesavesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C2EC982F0F37845400E49E22 /* rc_frameratechoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_frameratechoicesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C2EC98310F37845400E49E22 /* rc_imagecanvasgl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_imagecanvasgl.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
-		C2EC98320F37845400E49E22 /* rc_mainwindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_mainwindow.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
-		C2EC98330F37845400E49E22 /* rc_menubar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_menubar.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C2EC98340F37845400E49E22 /* rc_menuchoicesettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_menuchoicesettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C2EC98350F37845400E49E22 /* rc_modeldomain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_modeldomain.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C2EC98360F37845400E49E22 /* rc_modifierkeys.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_modifierkeys.cpp; sourceTree = "<group>"; };
@@ -1471,6 +1468,7 @@
 		C26CA06C0F61E68900549A3C /* moc */ = {
 			isa = PBXGroup;
 			children = (
+				C27C020E18D373BF00FD9FE6 /* moc_rc_main_window.cpp */,
 				C2F1963A18ACB8D6008D996D /* moc_lpwidget.cpp */,
 				C26CA06D0F61E68900549A3C /* moc_rc_about.cpp */,
 				C26CA06F0F61E68900549A3C /* moc_rc_checkboxsettingwidget.cpp */,
@@ -1481,8 +1479,6 @@
 				C26CA0740F61E68900549A3C /* moc_rc_frameratechoicesettingwidget.cpp */,
 				C26CA0750F61E68900549A3C /* moc_rc_imagecanvasgl.cpp */,
 				C26CA0760F61E68900549A3C /* moc_rc_lineedit.cpp */,
-				C26CA0770F61E68900549A3C /* moc_rc_mainwindow.cpp */,
-				C26CA0780F61E68900549A3C /* moc_rc_menubar.cpp */,
 				C26CA0790F61E68900549A3C /* moc_rc_menuchoicesettingwidget.cpp */,
 				C26CA07A0F61E68900549A3C /* moc_rc_modeldomain.cpp */,
 				C26CA07B0F61E68900549A3C /* moc_rc_monitor.cpp */,
@@ -1896,6 +1892,7 @@
 		C2EC92230F37760300E49E22 /* visiUI */ = {
 			isa = PBXGroup;
 			children = (
+				C27C020B18D36B5200FD9FE6 /* rc_main_window.h */,
 				C259531E18ABE98300BBD892 /* lpwidget.h */,
 				C2EC92240F37760300E49E22 /* rc_about.h */,
 				C2EC92250F37760300E49E22 /* rc_appconstants.h */,
@@ -1999,6 +1996,7 @@
 		C2EC98270F37845400E49E22 /* qt */ = {
 			isa = PBXGroup;
 			children = (
+				C27C020C18D36B6100FD9FE6 /* rc_main_window.cpp */,
 				C259531F18ABEA3900BBD892 /* lpwidget.cpp */,
 				C2EC98280F37845400E49E22 /* rc_about.cpp */,
 				C2EC982A0F37845400E49E22 /* rc_checkboxsettingwidget.cpp */,
@@ -2008,8 +2006,6 @@
 				C2EC982E0F37845400E49E22 /* rc_filesavesettingwidget.cpp */,
 				C2EC982F0F37845400E49E22 /* rc_frameratechoicesettingwidget.cpp */,
 				C2EC98310F37845400E49E22 /* rc_imagecanvasgl.cpp */,
-				C2EC98320F37845400E49E22 /* rc_mainwindow.cpp */,
-				C2EC98330F37845400E49E22 /* rc_menubar.cpp */,
 				C2EC98340F37845400E49E22 /* rc_menuchoicesettingwidget.cpp */,
 				C2EC98350F37845400E49E22 /* rc_modeldomain.cpp */,
 				C2EC98360F37845400E49E22 /* rc_modifierkeys.cpp */,
@@ -2403,8 +2399,6 @@
 				C2EC98700F37845600E49E22 /* rc_filesavesettingwidget.cpp in Sources */,
 				C2EC98710F37845600E49E22 /* rc_frameratechoicesettingwidget.cpp in Sources */,
 				C2EC98730F37845600E49E22 /* rc_imagecanvasgl.cpp in Sources */,
-				C2EC98740F37845600E49E22 /* rc_mainwindow.cpp in Sources */,
-				C2EC98750F37845600E49E22 /* rc_menubar.cpp in Sources */,
 				C2EC98760F37845600E49E22 /* rc_menuchoicesettingwidget.cpp in Sources */,
 				C2EC98770F37845600E49E22 /* rc_modeldomain.cpp in Sources */,
 				C2EC98780F37845600E49E22 /* rc_modifierkeys.cpp in Sources */,
@@ -2440,6 +2434,7 @@
 				C2EC98980F37845600E49E22 /* rc_engineimplload.cpp in Sources */,
 				C2EC989A0F37845600E49E22 /* rc_engineimplplayback.cpp in Sources */,
 				C2EC989C0F37845600E49E22 /* rc_engineimplsettings.cpp in Sources */,
+				C27C020F18D373BF00FD9FE6 /* moc_rc_main_window.cpp in Sources */,
 				C2EC989D0F37845600E49E22 /* rc_experimentdomainimpl.cpp in Sources */,
 				C2EC989E0F37845600E49E22 /* rc_experimentimpl.cpp in Sources */,
 				C2EC989F0F37845600E49E22 /* rc_exporter.cpp in Sources */,
@@ -2463,8 +2458,6 @@
 				C26CA0970F61E68900549A3C /* moc_rc_frameratechoicesettingwidget.cpp in Sources */,
 				C26CA0980F61E68900549A3C /* moc_rc_imagecanvasgl.cpp in Sources */,
 				C26CA0990F61E68900549A3C /* moc_rc_lineedit.cpp in Sources */,
-				C26CA09A0F61E68900549A3C /* moc_rc_mainwindow.cpp in Sources */,
-				C26CA09B0F61E68900549A3C /* moc_rc_menubar.cpp in Sources */,
 				C26CA09C0F61E68900549A3C /* moc_rc_menuchoicesettingwidget.cpp in Sources */,
 				C26CA09D0F61E68900549A3C /* moc_rc_modeldomain.cpp in Sources */,
 				C26CA09E0F61E68900549A3C /* moc_rc_monitor.cpp in Sources */,
@@ -2478,6 +2471,7 @@
 				C26CA0A60F61E68900549A3C /* moc_rc_settingwidget.cpp in Sources */,
 				C26CA0A70F61E68900549A3C /* moc_rc_spinboxsettingwidget.cpp in Sources */,
 				C26CA0A80F61E68900549A3C /* moc_rc_statusbar.cpp in Sources */,
+				C27C020D18D36B6100FD9FE6 /* rc_main_window.cpp in Sources */,
 				C26CA0A90F61E68900549A3C /* moc_rc_textareasettingwidget.cpp in Sources */,
 				C26CA0AA0F61E68900549A3C /* moc_rc_textchoicesettingwidget.cpp in Sources */,
 				C26CA0AB0F61E68900549A3C /* moc_rc_textedit.cpp in Sources */,

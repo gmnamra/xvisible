@@ -21,6 +21,7 @@
 #include <boost/shared_ptr.hpp>
 #include "lpwidget.h"
 #include <rc_uitypes.h>
+#include <rc_csvexporter.h>
 
 #define QStrFrcStr(foo) QString ((foo).c_str())
 
@@ -334,11 +335,15 @@ void rcModelDomain::notifyBlitGraphics( const rcVisualGraphicsCollection* graphi
 }
 
 
+
 // if the observer is accepting polygon group, this is called to
 // tell the observer to send it over to the engine
-void rcModelDomain::notifyPolys ()
+void rcModelDomain::notifyPolys (/* const rcPolygonGroupRef * polys */ )
 {
-    mDomain->notifyPolys (&mSelectPolygons);
+ int32 queued = mEventQueueManager.queuedEvents( eNotifyPolygonGroupEvent );
+  rcBasePolysEvent* ev = new rcBasePolysEvent ( mSelectPolygons );
+  mEventQueueManager.postEvent( dynamic_cast <QEvent *> (ev) );	
+    
 }
 
 void rcModelDomain::getPolys (rcPolygonGroupRef& pgs )
@@ -713,95 +718,6 @@ static void processExtension( QString& defaultName,
         defaultName += currentExt;
 }
 
-void rcModelDomain::requestSaveSmMatrix()
-{
-    rcExperimentFileFormat format = eExperiment2DCSVFormat;
-    
-    try
-    {
-        notifyStatusInternal( "Saving SS Matrix..." );
-        
-        rcPersistenceManager* persistenceManager = rcPersistenceManagerFactory::getPersistenceManager();
-        rcExperimentAttributes attr =  mDomain->getExperimentAttributes();
-        QString defaultName;
-        
-        if ( !attr.inputName.empty() )
-            defaultName = attr.inputName.c_str();
-        else if ( !attr.fileName.empty() )
-            defaultName = attr.fileName.c_str();
-        else if (! attr.title.empty() ) {
-            defaultName = attr.title.c_str();
-            // We need to replace slashes with something else
-            defaultName.replace( QChar('/'), "-" );
-        }
-        
-        QString filter = QStrFrcStr (persistenceManager->fileFormatExportFilter( format ));
-        QString ext = QStrFrcStr (persistenceManager->fileFormatExportExtension( format ));
-        QString caption = QStrFrcStr (persistenceManager->fileFormatExportCaption( format ));
-        QString widgetName;
-        QString errorProlog;
-        // Native file format extension
-        QString nativeExt = QStrFrcStr (persistenceManager->fileFormatExportExtension( eExperimentNativeFormat ));
-        std::string progressMessage( "Saving experiment data...%.2f%% complete" );
-        
-        widgetName = QString( "export-dialog" );
-        progressMessage = std::string( "Exporting SS Matrix ...%.2f%% complete" );
-        processExtension( defaultName, ext, nativeExt );
-                
-        
-        QString fileName = Q3FileDialog::getSaveFileName(
-                                                         defaultName,
-                                                         filter,
-                                                         0,
-                                                         widgetName,
-                                                         caption,
-                                                         &filter,
-                                                         true );
-        
-        // If user canceled, the fileName will be QString::null
-        if (fileName == QString::null) {
-            notifyStatusInternal( "Ready" );
-            return;
-        }
-        
-        // Add extension if necessary
-        if (!fileName.endsWith( ext ))
-            fileName += ext;
-        
-        // Warn if file already exists
-        if (QFile::exists( fileName ))
-        {
-            if (QMessageBox::warning( 0 , cAppName , "File already exists: overwrite?" ,
-                                     QMessageBox::Ok , QMessageBox::Cancel ) == QMessageBox::Cancel) {
-                notifyStatusInternal( "Ready" );
-                return;
-            }
-        }
-        
-        // Export the experiment data.
-        QApplication::setOverrideCursor(Qt::waitCursor );
-        rcModelProgress progressIndicator( this, progressMessage, 2.5, qApp );
-        
-        int err = mDomain->saveExperiment( fileName.latin1(), format, &progressIndicator );
-        QApplication::restoreOverrideCursor();
-        
-        if ( err ) {
-            // Error during export/save!
-            QString error( caption );
-            error += " error: ";
-            error += strerror( err );
-            QMessageBox::critical( 0 , cAppName , error , 1 , 0 );
-        }
-        // Experiment file name may have changed, do a notification
-        notifySettingChange();
-        notifyStatus( "Ready" );
-    }
-    catch (general_exception& x)
-    {
-        QMessageBox::critical( 0 , cAppName , x.what() , 1 , 0 );
-    }
-   
-}
 
 
 void rcModelDomain::requestSave( rcExperimentFileFormat format )
@@ -862,8 +778,7 @@ void rcModelDomain::requestSave( rcExperimentFileFormat format )
                 processExtension( defaultName, ext, nativeExt );
                 break;
                 
-            case eExperiment2DCSVFormat:
-                
+
             default:
                 rmAssert( 0 );
                 break;
@@ -943,6 +858,7 @@ void rcModelDomain::requestMovieImport( void )
     }
 }
 
+
 void rcModelDomain::requestSTKImport( void )
 {
     if ( vl() ) {
@@ -966,26 +882,28 @@ void rcModelDomain::requestMovieSave( void )
     }
 }
 
+
+void rcModelDomain::requestSmMatrixSave( void )
+{
+    doSmMatrixSave ();
+}
+
 void rcModelDomain::requestInputSource( int i )
 {
     emit updateInputSource( i );
 }
 
-#ifdef HIPPOW
-void rcModelDomain::requestTrackingDisplayGL()
+void rcModelDomain::useRecentMovieFile ( const QString& filename )
 {
-    emit updateTrackingDisplayGL ();
-}
+#ifdef DEBUG_LOG
+    cout << " < " << filename << " > " << " Sent " << endl;
 #endif
+    emit recentMovieFile (filename);
+}
 
 void rcModelDomain::timerTick( void )
 {
 	rcTimestamp time = mDomain->getExperimentLength();
-    
-#ifdef DEBUG_LOG
-    cout << "timerTick " << time.secs() << endl;
-#endif
-    
 	emit elapsedTime( time );
 }
 
@@ -1132,6 +1050,7 @@ void rcModelDomain::customEvent( QEvent* e )
             rcBasePlot2dRequestEvent* ev = static_cast<rcBasePlot2dRequestEvent *> (e);
             SharedCurveData2dRef cv = ev->myData();
             emit requestPlot2d ( cv.get () );
+            emit newSmMatrix ();
         }
             break;            
             
@@ -1141,6 +1060,117 @@ void rcModelDomain::customEvent( QEvent* e )
     
     
 }
+
+
+void rcModelDomain::reload_plotter2d (const CurveData2d * cv)
+{
+    std::cerr << "2d data arrived in ModelDomain " << std::endl;    
+    SharedCurveData2dRef wrapit (new CurveData2d (*cv) );
+    _lastMatrix = wrapit;
+
+}
+
+// @Note: Not following export design for SM Matrix export 
+void rcModelDomain::doSmMatrixSave()
+{
+    if (! _lastMatrix ) 
+        return;
+    rcModelDomain* domain = rcModelDomain::getModelDomain();
+    
+    rcExperimentFileFormat format = eExperiment2DCSVFormat;
+    
+    try
+    {
+        domain->notifyStatusInternal( "Saving SS Matrix..." );
+        
+        rcPersistenceManager* persistenceManager = rcPersistenceManagerFactory::getPersistenceManager();
+        rcExperimentAttributes attr =  domain->getExperimentAttributes();
+        QString defaultName;
+        
+        if ( !attr.inputName.empty() )
+            defaultName = attr.inputName.c_str();
+        else if ( !attr.fileName.empty() )
+            defaultName = attr.fileName.c_str();
+        else if (! attr.title.empty() ) {
+            defaultName = attr.title.c_str();
+            // We need to replace slashes with something else
+            defaultName.replace( QChar('/'), "-" );
+        }
+        
+        QString filter = QStrFrcStr (persistenceManager->fileFormatExportFilter( format ));
+        QString ext = QStrFrcStr (persistenceManager->fileFormatExportExtension( format ));
+        QString caption = QStrFrcStr (persistenceManager->fileFormatExportCaption( format ));
+        QString widgetName;
+        QString errorProlog;
+        // Native file format extension
+        QString nativeExt = QStrFrcStr (persistenceManager->fileFormatExportExtension( eExperimentNativeFormat ));
+        std::string progressMessage( "Saving experiment data...%.2f%% complete" );
+        
+        widgetName = QString( "export-dialog" );
+        progressMessage = std::string( "Exporting SS Matrix ...%.2f%% complete" );
+        processExtension( defaultName, ext, nativeExt );
+        
+        
+        QString fileName = Q3FileDialog::getSaveFileName(
+                                                        defaultName,
+                                                        filter,
+                                                        0,
+                                                        widgetName,
+                                                        caption,
+                                                        &filter,
+                                                        true );
+        
+        // If user canceled, the fileName will be QString::null
+        if (fileName == QString::null) {
+            domain->notifyStatusInternal( "Ready" );
+            return;
+        }
+        
+        // Add extension if necessary
+        if (!fileName.endsWith( ext ))
+            fileName += ext;
+        
+        // Warn if file already exists
+        if (QFile::exists( fileName ))
+        {
+            if (QMessageBox::warning( 0 , cAppName , "File already exists: overwrite?" ,
+                                     QMessageBox::Ok , QMessageBox::Cancel ) == QMessageBox::Cancel) {
+                domain->notifyStatusInternal( "Ready" );
+                return;
+            }
+        }
+        
+        // Export the experiment data.
+        QApplication::setOverrideCursor(Qt::waitCursor );
+        rcModelProgress progressIndicator(domain, progressMessage, 2.5, qApp);
+        rcCSV2dExporter smexporter;
+        smexporter.operator()( fileName.latin1(), _lastMatrix->std_container (), &progressIndicator );
+        
+        QApplication::restoreOverrideCursor();
+        
+        if ( 0 /* err */ ) {
+            // Error during export/save!
+            QString error( caption );
+            error += " error: ";
+            // error += strerror( err );
+            QMessageBox::critical( 0 , cAppName , error , 1 , 0 );
+        }
+        // Experiment file name may have changed, do a notification
+        domain->notifySettingChange();
+        domain->notifyStatus( "Ready" );
+    }
+    catch (general_exception& x)
+    {
+        QMessageBox::critical( 0 , cAppName , x.what() , 1 , 0 );
+    }
+    
+}
+
+
+
+
+
+
 
 // private
 

@@ -145,7 +145,6 @@ class rcMonitor : public QWidget
     QLabel          *mStatusWidget;     // Status bar
     QCheckBox       *mSaturationWidget; // Checkbox for saturation detector
     QLabel          *mSaturationWidgetLabel; // Label for saturation detector
-    LPWidget        *mPlotter; // Plotting Widget
     rcFpsCalculator  mSpeedCalc;         // Used to calculate display speed in FPS
     QColor           mBackgroundColor;   // Widget background color
     bool             mCellText;          // Cell text display

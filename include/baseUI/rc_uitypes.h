@@ -38,6 +38,11 @@ public:
     }
 
 
+    const deque<deque<double> >& std_container () const
+    {
+        return m_sm;        
+    }
+    
     bool operator == (const CurveData2d other)
     {
         return m_matrix == other.m_matrix && m_sm == other.m_sm;

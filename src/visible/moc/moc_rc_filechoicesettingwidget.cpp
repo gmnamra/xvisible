@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_filechoicesettingwidget.h'
 **
-** Created: Fri Mar 7 14:40:14 2014
+** Created: Sat Mar 15 16:26:27 2014
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_rcFileChoiceSettingWidget[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -43,6 +43,7 @@ static const uint qt_meta_data_rcFileChoiceSettingWidget[] = {
      205,   26,   26,   26, 0x0a,
      219,   26,   26,   26, 0x0a,
      234,   26,   26,   26, 0x0a,
+     252,  246,   26,   26, 0x0a,
 
        0        // eod
 };
@@ -54,7 +55,7 @@ static const char qt_meta_stringdata_rcFileChoiceSettingWidget[] = {
     "singleFileBrowse()\0multiFileBrowse()\0"
     "directoryBrowse()\0directoryBrowse4Tiffs()\0"
     "imageImport()\0movieImport()\0tifDirImport()\0"
-    "stkImport()\0"
+    "stkImport()\0fname\0recentMovieFile(QString)\0"
 };
 
 const QMetaObject rcFileChoiceSettingWidget::staticMetaObject = {
@@ -98,9 +99,10 @@ int rcFileChoiceSettingWidget::qt_metacall(QMetaObject::Call _c, int _id, void *
         case 9: movieImport(); break;
         case 10: tifDirImport(); break;
         case 11: stkImport(); break;
+        case 12: recentMovieFile((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }
-        _id -= 12;
+        _id -= 13;
     }
     return _id;
 }

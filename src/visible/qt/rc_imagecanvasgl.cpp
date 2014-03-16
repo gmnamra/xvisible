@@ -764,7 +764,7 @@ void rcImageCanvasGL::mouseMoveEvent( QMouseEvent *e )
             // Draw new focus rect
             // Draw new zoom rect
             drawZoomRect( mDevClickCoord, mDevCursorCoord );
-            swapBuffers();
+          //            swapBuffers();
         }
 	else
 	  {
@@ -772,7 +772,7 @@ void rcImageCanvasGL::mouseMoveEvent( QMouseEvent *e )
             convertEvent( e );
             // Draw new focus rect
             drawAffineRect ( mDevClickCoord, mDevCursorCoord, true );
-            swapBuffers();
+          //            swapBuffers();
 	  }
 
         } else if ( panKeyPressed( e ) ) {
@@ -796,7 +796,7 @@ void rcImageCanvasGL::mouseMoveEvent( QMouseEvent *e )
             convertEvent( e );
             // Draw new focus rect
             drawFocusRect( mDevClickCoord, mDevCursorCoord );
-            swapBuffers();
+          //            swapBuffers();
         }
 	else
 	  {
@@ -804,7 +804,7 @@ void rcImageCanvasGL::mouseMoveEvent( QMouseEvent *e )
             convertEvent( e );
             // Draw new focus rect
             drawAffineRect ( mDevClickCoord, mDevCursorCoord, false );
-            swapBuffers();
+          //            swapBuffers();
 	  }
 
         mDevMoveCoord = mDevCursorCoord;
