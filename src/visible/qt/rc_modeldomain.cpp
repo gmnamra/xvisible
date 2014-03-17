@@ -36,13 +36,13 @@ const char* cModelDomainName = "modelDomain";
 
 static rcModelDomain* _modelDomainSingleton = 0;
 
-rcModelDomain::rcModelDomain( QObject* parent, const char* modelName )
-: QObject( parent, cModelDomainName ),
+rcModelDomain::rcModelDomain( QObject* parent ) //, const char* modelName )
+: QObject( parent),
 mLicenseManager( cLicenseFilePath, true ),
 mEventQueueManager( this ),
 mCursorTime( 0.0 )
 {
-    rcUNUSED( modelName );
+   
     
     mDomain = (rcExperimentDomain*)	rcExperimentDomainFactory::getExperimentDomain( "testDomain" );
     if (mDomain == 0)
@@ -726,6 +726,13 @@ void rcModelDomain::requestSave( rcExperimentFileFormat format )
     {
         notifyStatusInternal( "Saving experiment data..." );
         
+        if (format == eExperiment2DCSVFormat)
+        {
+            return save_last_matrix (); 
+        }
+        
+
+        
         rcPersistenceManager* persistenceManager = rcPersistenceManagerFactory::getPersistenceManager();
         rcExperimentAttributes attr =  mDomain->getExperimentAttributes();
         QString defaultName;
@@ -885,7 +892,7 @@ void rcModelDomain::requestMovieSave( void )
 
 void rcModelDomain::requestSmMatrixSave( void )
 {
-    doSmMatrixSave ();
+    requestSave (eExperiment2DCSVFormat);
 }
 
 void rcModelDomain::requestInputSource( int i )
@@ -1049,7 +1056,8 @@ void rcModelDomain::customEvent( QEvent* e )
         {
             rcBasePlot2dRequestEvent* ev = static_cast<rcBasePlot2dRequestEvent *> (e);
             SharedCurveData2dRef cv = ev->myData();
-            emit requestPlot2d ( cv.get () );
+            _lastMatrix = cv;
+            emit reloadPlot2d(cv.get());
             emit newSmMatrix ();
         }
             break;            
@@ -1062,19 +1070,22 @@ void rcModelDomain::customEvent( QEvent* e )
 }
 
 
-void rcModelDomain::reload_plotter2d (const CurveData2d * cv)
+void rcModelDomain::reloadPlot2d (const CurveData2d * cv)
 {
-    std::cerr << "2d data arrived in ModelDomain " << std::endl;    
-    SharedCurveData2dRef wrapit (new CurveData2d (*cv) );
-    _lastMatrix = wrapit;
-
+    rmUnused(cv) ;   
 }
 
-// @Note: Not following export design for SM Matrix export 
-void rcModelDomain::doSmMatrixSave()
+
+
+// @Note: _lastMatrix is a shared pointer to the last computed matrix
+// Only if the pointer it contains is not null, it will be saved. 
+void rcModelDomain::save_last_matrix()
 {
     if (! _lastMatrix ) 
+    {
         return;
+    }
+    
     rcModelDomain* domain = rcModelDomain::getModelDomain();
     
     rcExperimentFileFormat format = eExperiment2DCSVFormat;

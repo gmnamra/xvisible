@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_checkboxsettingwidget.h'
 **
-** Created: Sat Mar 15 16:26:19 2014
+** Created: Sun Mar 16 19:19:45 2014
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
 **
 ** WARNING! All changes made in this file will be lost!

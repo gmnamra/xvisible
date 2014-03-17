@@ -459,6 +459,7 @@ void rcExperimentDomainImpl::notifyPlotRequest ( SharedCurveDataRef& cv )
 void rcExperimentDomainImpl::notifyPlot2dRequest ( SharedCurveData2dRef& cv )
 {
     _observer->notifyPlot2dRequest(cv);
+     std::cerr << "ExperimentDomainImpl _observer notify called for 2d Matrix " << std::endl;
 }
 
 

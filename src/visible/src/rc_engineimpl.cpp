@@ -1287,6 +1287,7 @@ const rcEngineAttributes rcEngineImpl::getAttributes( void )
                 
                 QString legend = focus->energyWriter()->down_cast()->getName();
                 _observer->notifyPlot2dRequest (_curveData2dRef);
+                std::cerr << " EngineImpl _observer notify called for 2d Matrix " << std::endl;
             }            
             
         }

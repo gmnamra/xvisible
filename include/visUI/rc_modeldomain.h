@@ -33,7 +33,7 @@ class rcModelDomain : public QObject, public rcExperimentObserver
 Q_OBJECT
 
 public:
-  rcModelDomain( QObject* parent, const char* modelKey );
+    rcModelDomain( QObject* parent ); //, const char* modelKey );
   ~rcModelDomain();
 
   // static finder for the singleton model domain
@@ -214,7 +214,7 @@ public slots:
     void requestInputSource( int );
     void timerTick( void );
     void useRecentMovieFile ( const QString& filename );
-    void reload_plotter2d (const CurveData2d* );    
+    void reloadPlot2d ( const CurveData2d*  );   
     
   void requestTrackingPause( void );    
   void stopTrackingPause ( void );    
@@ -255,9 +255,9 @@ signals:
 protected:
     // Handle special events
     void customEvent( QEvent* e );
-    void doSmMatrixSave ();
 	
 private:
+    void save_last_matrix();    
     // Report license error
     // Note: intentionally obfuscated function name
     void rle( rcSecurityError status ); 

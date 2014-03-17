@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_modeldomain.h'
 **
-** Created: Sat Mar 15 16:26:41 2014
+** Created: Sun Mar 16 20:22:37 2014
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -80,8 +80,8 @@ static const uint qt_meta_data_rcModelDomain[] = {
     1193,   14,   14,   14, 0x0a,
     1214, 1205,   14,   14, 0x0a,
     1242,   14,   14,   14, 0x0a,
-    1279,   14,   14,   14, 0x0a,
-    1302,   14,   14,   14, 0x0a,
+    1275,   14,   14,   14, 0x0a,
+    1298,   14,   14,   14, 0x0a,
 
        0        // eod
 };
@@ -120,7 +120,7 @@ static const char qt_meta_stringdata_rcModelDomain[] = {
     "requestMovieSave()\0requestSmMatrixSave()\0"
     "requestInputSource(int)\0timerTick()\0"
     "filename\0useRecentMovieFile(QString)\0"
-    "reload_plotter2d(const CurveData2d*)\0"
+    "reloadPlot2d(const CurveData2d*)\0"
     "requestTrackingPause()\0stopTrackingPause()\0"
 };
 
@@ -201,7 +201,7 @@ int rcModelDomain::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 43: requestInputSource((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 44: timerTick(); break;
         case 45: useRecentMovieFile((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 46: reload_plotter2d((*reinterpret_cast< const CurveData2d*(*)>(_a[1]))); break;
+        case 46: reloadPlot2d((*reinterpret_cast< const CurveData2d*(*)>(_a[1]))); break;
         case 47: requestTrackingPause(); break;
         case 48: stopTrackingPause(); break;
         default: ;

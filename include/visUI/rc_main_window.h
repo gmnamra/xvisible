@@ -7,6 +7,7 @@
 #include <QTextBrowser>
 #include <qsettings.h>
 #include <QListWidget>
+#include <QQueue>
 #include <rc_model.h>
 #include "rc_statusbar.h"
 
@@ -30,14 +31,13 @@ public slots:
     void help(); 
     void inputSource( int i );
     void settingChanged ();
-    void newSmMatrix ();
     void updateAnalysisRect( const rcRect& rect );
     
     void doSave();
     void doExport();
     void doExportMovie();
     void doExportNativeMovie();
-    void doExportSmMatrix();
+    void enableExportSmMatrix();
    
     void doOpen();
     void doOpenSettings();
@@ -71,7 +71,7 @@ private:
     QMenu* _helpMenu;    
     QTextBrowser* _helpBrowser;
     rcExperimentState _lastState;
-  
+    QQueue<QDockWidget*> _docks;
     
     enum { MaxRecentFiles = 5 };
     QAction *recentFileActs[MaxRecentFiles];

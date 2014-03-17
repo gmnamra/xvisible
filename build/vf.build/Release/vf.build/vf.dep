@@ -1,5 +1,5 @@
 3218c26c5df833645e2589278fdb973d b408d6d8b699c7f3e0c4c38de2ac71b6 ffffffffffffffffffffffffffffffff 238 /Users/arman/gwc/vqt105/visibleqt105/build/Release/vfi386.framework
-0000000053189dd6000000000000021c d9ebcc37e1807198ea6b76e2fd167a95 ffffffffffffffffffffffffffffffff 8 /Users/arman/gwc/vqt105/visibleqt105/build/Release/vfi386.framework/PkgInfo
+00000000532209fa000000000000021c d9ebcc37e1807198ea6b76e2fd167a95 ffffffffffffffffffffffffffffffff 8 /Users/arman/gwc/vqt105/visibleqt105/build/Release/vfi386.framework/PkgInfo
 0000000052fe927d0000000000035588 8bcc363420d369d9c7d466a59ddab3d5 ffffffffffffffffffffffffffffffff 218504 /Users/arman/gwc/vqt105/visibleqt105/build/Release/vfi386.framework/Versions/A/Frameworks/libopencv_video.2.2.0.dylib
 0000000052fe927d00000000000429bc 1c430104c691e710f93197386d7d1693 ffffffffffffffffffffffffffffffff 272828 /Users/arman/gwc/vqt105/visibleqt105/build/Release/vfi386.framework/Versions/A/Frameworks/libopencv_objdetect.2.2.0.dylib
 0000000052fe927d000000000019b4ac 230030af96df1bcaec79fa06f23755e2 ffffffffffffffffffffffffffffffff 1684652 /Users/arman/gwc/vqt105/visibleqt105/build/Release/vfi386.framework/Versions/A/Frameworks/libopencv_imgproc.2.2.0.dylib
@@ -140,8 +140,8 @@
 0000000052fe92770000000000001c6a 5aaa31ba1e4788e3eab6872174b559ec ffffffffffffffffffffffffffffffff 7274 /Users/arman/gwc/vqt105/visibleqt105/build/Release/vfi386.framework/Versions/A/Headers/rc_analyzer.h
 0000000052fe92770000000000003699 138525888447dbb057012a4e22402959 ffffffffffffffffffffffffffffffff 13977 /Users/arman/gwc/vqt105/visibleqt105/build/Release/vfi386.framework/Versions/A/Headers/rc_analysis.h
 0000000052fe92770000000000002cb3 46fc995e4bd74deae6e91032a96aadef ffffffffffffffffffffffffffffffff 11443 /Users/arman/gwc/vqt105/visibleqt105/build/Release/vfi386.framework/Versions/A/Headers/rc_1dcorr.h
-a2c086b2066538da3d9291d4a1fac223 7a7268438d59dde7267eb4fbcf1e8a88 ffffffffffffffffffffffffffffffff 0 /Users/arman/gwc/vqt105/visibleqt105/build/Release/vfi386.framework.dSYM
-0000000053189dd6000000000000021c d9ebcc37e1807198ea6b76e2fd167a95 ffffffffffffffffffffffffffffffff 962 /Users/arman/gwc/vqt105/visibleqt105/build/Release/vfi386.framework/Versions/A/Resources/Info.plist
+a2c086b2065facf63d9291d4a1fac223 7a7268438d59dde7267eb4fbcf1e8a88 ffffffffffffffffffffffffffffffff 0 /Users/arman/gwc/vqt105/visibleqt105/build/Release/vfi386.framework.dSYM
+00000000532209fa000000000000021c d9ebcc37e1807198ea6b76e2fd167a95 ffffffffffffffffffffffffffffffff 962 /Users/arman/gwc/vqt105/visibleqt105/build/Release/vfi386.framework/Versions/A/Resources/Info.plist
 000000000f1906a100000000000568ce 7b2b4a85bbe4d235d7f9e7365ce9d264 ffffffffffffffffffffffffffffffff 2793656 /Users/arman/gwc/vqt105/visibleqt105/build/Release/vfi386.framework/Versions/A/vfi386
 0000000048a3988a0000000000006190 d55d3d95fe15bb1238d589b9edea8908 ffffffffffffffffffffffffffffffff 55580 /Users/arman/gwc/vqt105/visibleqt105/build/vf.build/Release/vf.build/Objects-normal/i386/stringio.o
 0000000048a3988a0000000000006e90 6b70096e87a965d69c81077045cf6fd2 ffffffffffffffffffffffffffffffff 146896 /Users/arman/gwc/vqt105/visibleqt105/build/vf.build/Release/vf.build/Objects-normal/i386/multiio.o
@@ -160,7 +160,7 @@ a2c086b2066538da3d9291d4a1fac223 7a7268438d59dde7267eb4fbcf1e8a88 ffffffffffffff
 0000000048a3988a000000000000fcdf 78bb683700c7094c0885d1302b9cb498 ffffffffffffffffffffffffffffffff 21780 /Users/arman/gwc/vqt105/visibleqt105/build/vf.build/Release/vf.build/Objects-normal/i386/tif_unix.o
 0000000048a3988a000000000000fcdf 80095a01863534ed7c4976a1afcf500d ffffffffffffffffffffffffffffffff 24656 /Users/arman/gwc/vqt105/visibleqt105/build/vf.build/Release/vf.build/Objects-normal/i386/tif_tile.o
 0000000048a3988a000000000000fcdf dfbc5eb9218dc755b057902b80739a9a ffffffffffffffffffffffffffffffff 16332 /Users/arman/gwc/vqt105/visibleqt105/build/vf.build/Release/vf.build/Objects-normal/i386/tif_thunder.o
-000000001bb5efd300000000000066df e706f257172ff19cacf14c2e7c19fa7e ffffffffffffffffffffffffffffffff 563804 /Users/arman/gwc/vqt105/visibleqt105/build/vf.build/Release/vf.build/Objects-normal/i386/rc_movieconverter.o
+000000001bbe748f0000000000005801 e706f257172ff19cacf14c2e7c19fa7e ffffffffffffffffffffffffffffffff 563804 /Users/arman/gwc/vqt105/visibleqt105/build/vf.build/Release/vf.build/Objects-normal/i386/rc_movieconverter.o
 0000000048a3988a000000000000fcdf 5eb225de6e52adfbfdef160d8625cee0 ffffffffffffffffffffffffffffffff 7404 /Users/arman/gwc/vqt105/visibleqt105/build/vf.build/Release/vf.build/Objects-normal/i386/tif_swab.o
 0000000048a3988a0000000000001e38 7c291fb11f3da125a197e3b330728b09 ffffffffffffffffffffffffffffffff 74012 /Users/arman/gwc/vqt105/visibleqt105/build/vf.build/Release/vf.build/Objects-normal/i386/debug.o
 0000000048a3988a000000000000fcdf fae8dcca6c4718946c629d797397f349 ffffffffffffffffffffffffffffffff 24840 /Users/arman/gwc/vqt105/visibleqt105/build/vf.build/Release/vf.build/Objects-normal/i386/tif_strip.o

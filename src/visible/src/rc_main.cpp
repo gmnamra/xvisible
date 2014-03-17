@@ -59,7 +59,7 @@ int main( int argc, char** argv )
 
       try
 	{
-	  rcModelDomain modelDomain( &app , "domain" );
+	  rcModelDomain modelDomain( &app);
 
 	  rcMainWindow mainwindow;
 	  app.setMainWidget( &mainwindow );

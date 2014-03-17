@@ -58,6 +58,8 @@ const std::string rcPersistenceManagerImpl::fileFormatExportExtension( rcExperim
     switch( format ) {
         case eExperimentCSVFormat:
             return std::string( ".csv" );
+        case eExperiment2DCSVFormat:
+            return std::string( ".csv" );
         case eExperimentNativeFormat:
             return std::string( ".rfyeml" );
         case eExperimentNativeMovieFormat:
@@ -83,6 +85,8 @@ const std::string rcPersistenceManagerImpl::fileFormatExportCaption( rcExperimen
     switch( format ) {
         case eExperimentCSVFormat:
             return std::string( "Export Experiment Data as CSV" );
+        case eExperiment2DCSVFormat:
+            return std::string( " Self Similarity Matrix as CSV" );
         case eExperimentNativeFormat:
             return std::string( "Save Experiment Data" );
         case eExperimentNativeMovieFormat:
@@ -107,7 +111,8 @@ const std::string rcPersistenceManagerImpl::fileFormatExportFilter( rcExperiment
     
     switch( format ) {
         case eExperimentCSVFormat:
-            return std::string( "Excel CSV File (*.csv *.CSV)" );
+        case eExperiment2DCSVFormat:            
+            return std::string( "Comma Separated, i.e. CSV File (*.csv *.CSV) (Excel & Matlab ) " );
         case eExperimentNativeFormat:
             return std::string( "Reify Experiment File (*.rfyeml *.RFYEML)" );
         case eExperimentNativeMovieFormat:

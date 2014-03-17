@@ -38,7 +38,7 @@ rcMainWindow::rcMainWindow( ) //QWidget* parent, const char* name, Qt::WFlags f 
             this   , SLOT( updateAnalysisRect( const rcRect& ) ) );
     
     connect( domain , SIGNAL( updateSettings() ) , this   , SLOT( settingChanged() ) );
-    connect( domain , SIGNAL( newSmMatrix () ) , this   , SLOT( newSmMatrix () ) );    
+    connect( domain , SIGNAL( newSmMatrix () ) , this   , SLOT( enableExportSmMatrix () ) );    
 
     connect( domain , SIGNAL( requestPlot ( const CurveData *) ) ,
             this  , SLOT( reload_plotter ( const CurveData *  ) ) );   
@@ -151,11 +151,11 @@ void rcMainWindow::createActions()
     
     OpenId = new QAction ( tr("&Open Experiment"), this);
     OpenId->setShortcuts (QKeySequence::Open); NewId->setStatusTip (tr("Opens an Experiment ") );
-    connect (OpenId, SIGNAL (triggered () ), domain, SLOT( doOpen()) );
+    connect (OpenId, SIGNAL (triggered () ), this, SLOT( doOpen () ));
 
     SaveId = new QAction ( tr("&Save Experiment"), this);
     OpenId->setShortcuts (QKeySequence::SaveAs); NewId->setStatusTip (tr("Saves current Experiment ") );
-    connect (SaveId, SIGNAL (triggered () ), domain, SLOT( doSave()) );
+    connect (SaveId, SIGNAL (triggered () ), this, SLOT( doSave () ) );
 
     CloseId = new QAction ( tr("&Close Experiment"), this);
     OpenId->setShortcuts (QKeySequence::Close); NewId->setStatusTip (tr("Closes current Experiment ") );
@@ -163,19 +163,19 @@ void rcMainWindow::createActions()
     
     ExportId = new QAction ( tr("&Export as CSV "), this);
     OpenId->setShortcut (tr("CTRL+Key_E" )); NewId->setStatusTip (tr("Exports current Experiment in Comma Separated Format ") );
-    connect (ExportId, SIGNAL (triggered () ), domain, SLOT( doExport()) );
+    connect (ExportId, SIGNAL (triggered () ), this, SLOT( doExport) );
     
     MovieExportId = new QAction ( tr("&Export movie as Quicktime "), this);
     OpenId->setShortcut (tr("CTRL+SHIFT+Key_E" )); NewId->setStatusTip (tr("Exports current image data in Quicktime  ") );
-    connect (MovieExportId, SIGNAL (triggered () ), domain, SLOT( doExportMovie()) );
+    connect (MovieExportId, SIGNAL (triggered () ), this, SLOT( doExportMovie () ) );
     
     MovieNativeExportId = new QAction ( tr("&Export movie as rfymov "), this);
     OpenId->setShortcut (tr("CTRL+SHIFT+Key_S" )); NewId->setStatusTip (tr("Exports current image data in rfymov ") );
-    connect (MovieNativeExportId, SIGNAL (triggered () ), domain, SLOT( doExportMovie()) );
+    connect (MovieNativeExportId, SIGNAL (triggered () ), this, SLOT( doExportNativeMovie () ) );
     
     MatrixExportId = new QAction ( tr("&Export Similarity Matrix as csv  "), this);
     OpenId->setShortcut (tr("CTRLKey_M" )); NewId->setStatusTip (tr("Exports current similarity matrix in csv ") );
-    connect (MatrixExportId, SIGNAL (triggered () ), domain, SLOT( doExportSmMatrix()) );
+    connect (MatrixExportId, SIGNAL (triggered () ), domain, SLOT( requestSmMatrixSave () ) );
     
     ImportMovieId = new QAction ( tr("&Import movie import  "), this);
     OpenId->setShortcut (tr("CTRLKey_I" )); NewId->setStatusTip (tr("Imports a movie for analysis ") );
@@ -296,7 +296,7 @@ void rcMainWindow::updateState( rcExperimentState state )
             CloseId->setVisible ( true );
             SaveId->setVisible (  true);
             ExportId->setVisible ( true);
-            MatrixExportId ->setVisible( _new_matrix );                              
+            MatrixExportId ->setVisible( true );                              
             MovieExportId ->setVisible( true );
             MovieNativeExportId ->setVisible( true );
             ImportMovieId ->setVisible ( true );
@@ -313,6 +313,7 @@ void rcMainWindow::updateState( rcExperimentState state )
             CloseId->setVisible ( true );
             SaveId->setVisible (  true);
             ExportId->setVisible ( true);
+            MatrixExportId ->setVisible( false );             
             MovieExportId ->setVisible( true );
             MovieNativeExportId ->setVisible( true );
             ImportMovieId ->setVisible ( true );
@@ -436,11 +437,11 @@ void rcMainWindow::doExportMovie()
 
 
 
-// Request movie export to QT
-void rcMainWindow::doExportSmMatrix()
+// Turn on matrix export if domain reports so. 
+void rcMainWindow::enableExportSmMatrix()
 {
-    rcModelDomain* domain = rcModelDomain::getModelDomain();
-    domain->requestSmMatrixSave();
+   rcModelDomain* domain = rcModelDomain::getModelDomain();
+   domain->notifyStatus( " Matrix Export Reported " );
 }
 
 
@@ -516,11 +517,6 @@ QString rcMainWindow::strippedName(const QString &fullFileName)
 
 
 // public slots
-
-void rcMainWindow::newSmMatrix()
-{
-    _new_matrix     = true;
-}
 
 void rcMainWindow::settingChanged()
 {
@@ -608,12 +604,17 @@ void rcMainWindow::reload_plotter (const CurveData * cv)
 {
     LPWidget* plotter = new LPWidget (this, cv);
     
+    // Remove existing Dock widget if there are
+    while (! _docks.isEmpty()) removeDockWidget(_docks.dequeue());
+    
     QDockWidget *dock = new QDockWidget(this);
     dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
     dock->setWidget(plotter);
     addDockWidget(Qt::RightDockWidgetArea, dock);
     _viewMenu->addAction(dock->toggleViewAction());
     update ();
+    _docks.enqueue(dock);
+    
     
 }
 

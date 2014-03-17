@@ -60,7 +60,7 @@ enum rcExperimentFileFormat
   , eExperimentQuickTimeMovieFormat // QuickTime movie file format
   , eExperimentQuickTimeImageFormat // QuickTime image file format
   , eExperimentMolDevSTKFormat      // Molecular Devices modified metamorph TIFF stack
-  , eExperiment2DCSVFormat         // Native experiment data XML format    
+  , eExperiment2DCSVFormat         //  2D CSV format self similarity matrix
   , eExperimentAllFormat            // Synthetic value, denotes all applicable formats
 };
 

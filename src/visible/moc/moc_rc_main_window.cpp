@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_main_window.h'
 **
-** Created: Sat Mar 15 16:26:35 2014
+** Created: Sun Mar 16 20:22:34 2014
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_rcMainWindow[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-      16,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -36,17 +36,16 @@ static const uint qt_meta_data_rcMainWindow[] = {
       59,   13,   13,   13, 0x0a,
       68,   66,   13,   13, 0x0a,
       85,   13,   13,   13, 0x0a,
-     102,   13,   13,   13, 0x0a,
-     121,  116,   13,   13, 0x0a,
-     148,   13,   13,   13, 0x0a,
-     157,   13,   13,   13, 0x0a,
-     168,   13,   13,   13, 0x0a,
-     184,   13,   13,   13, 0x0a,
-     206,   13,   13,   13, 0x0a,
-     225,   13,   13,   13, 0x0a,
-     234,   13,   13,   13, 0x0a,
-     251,   13,   13,   13, 0x0a,
-     271,   13,   13,   13, 0x0a,
+     107,  102,   13,   13, 0x0a,
+     134,   13,   13,   13, 0x0a,
+     143,   13,   13,   13, 0x0a,
+     154,   13,   13,   13, 0x0a,
+     170,   13,   13,   13, 0x0a,
+     192,   13,   13,   13, 0x0a,
+     215,   13,   13,   13, 0x0a,
+     224,   13,   13,   13, 0x0a,
+     241,   13,   13,   13, 0x0a,
+     261,   13,   13,   13, 0x0a,
 
        0        // eod
 };
@@ -54,10 +53,9 @@ static const uint qt_meta_data_rcMainWindow[] = {
 static const char qt_meta_stringdata_rcMainWindow[] = {
     "rcMainWindow\0\0state\0updateState(rcExperimentState)\0"
     "about()\0help()\0i\0inputSource(int)\0"
-    "settingChanged()\0newSmMatrix()\0rect\0"
-    "updateAnalysisRect(rcRect)\0doSave()\0"
-    "doExport()\0doExportMovie()\0"
-    "doExportNativeMovie()\0doExportSmMatrix()\0"
+    "settingChanged()\0rect\0updateAnalysisRect(rcRect)\0"
+    "doSave()\0doExport()\0doExportMovie()\0"
+    "doExportNativeMovie()\0enableExportSmMatrix()\0"
     "doOpen()\0doOpenSettings()\0importRecentMovie()\0"
     "reload_plotter(const CurveData*)\0"
 };
@@ -96,20 +94,19 @@ int rcMainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 2: help(); break;
         case 3: inputSource((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 4: settingChanged(); break;
-        case 5: newSmMatrix(); break;
-        case 6: updateAnalysisRect((*reinterpret_cast< const rcRect(*)>(_a[1]))); break;
-        case 7: doSave(); break;
-        case 8: doExport(); break;
-        case 9: doExportMovie(); break;
-        case 10: doExportNativeMovie(); break;
-        case 11: doExportSmMatrix(); break;
-        case 12: doOpen(); break;
-        case 13: doOpenSettings(); break;
-        case 14: importRecentMovie(); break;
-        case 15: reload_plotter((*reinterpret_cast< const CurveData*(*)>(_a[1]))); break;
+        case 5: updateAnalysisRect((*reinterpret_cast< const rcRect(*)>(_a[1]))); break;
+        case 6: doSave(); break;
+        case 7: doExport(); break;
+        case 8: doExportMovie(); break;
+        case 9: doExportNativeMovie(); break;
+        case 10: enableExportSmMatrix(); break;
+        case 11: doOpen(); break;
+        case 12: doOpenSettings(); break;
+        case 13: importRecentMovie(); break;
+        case 14: reload_plotter((*reinterpret_cast< const CurveData*(*)>(_a[1]))); break;
         default: ;
         }
-        _id -= 16;
+        _id -= 15;
     }
     return _id;
 }
