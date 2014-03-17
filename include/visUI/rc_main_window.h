@@ -1,14 +1,12 @@
 #ifndef UI_RCMENUBAR_H
 #define UI_RCMENUBAR_H
 
-
+#include <QtGui>
 #include <QList>
-#include <QMainWindow>
-#include <QTextBrowser>
-#include <qsettings.h>
-#include <QListWidget>
 #include <QQueue>
 #include <rc_model.h>
+#include <zoomwidget.h>
+
 #include "rc_statusbar.h"
 
 QT_BEGIN_NAMESPACE
@@ -72,6 +70,8 @@ private:
     QTextBrowser* _helpBrowser;
     rcExperimentState _lastState;
     QQueue<QDockWidget*> _docks;
+    QScrollArea*    mScrollArea;
+    QScrollArea*    mScrollTracks;
     
     enum { MaxRecentFiles = 5 };
     QAction *recentFileActs[MaxRecentFiles];

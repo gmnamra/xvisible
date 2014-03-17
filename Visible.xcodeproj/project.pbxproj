@@ -241,26 +241,19 @@
 			remoteGlobalIDString = 8D07F2C80486CC7A007CD1D0;
 			remoteInfo = vf;
 		};
+		C24ED40018D788FA0066AA0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C245B0D0130F61140065941E /* vf.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C27C02E818D75F3E00FD9FE6;
+			remoteInfo = libvf32_d;
+		};
 		C2728EEC187B9BFC00476945 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C245B0D0130F61140065941E /* vf.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C24EA96D1842FD0D00E88B0A;
 			remoteInfo = batchconvert;
-		};
-		C29AFA6D1840435E005B0754 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C245B0D0130F61140065941E /* vf.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C24B8D0C183E62D30010E3C2;
-			remoteInfo = libvf32;
-		};
-		C29AFA6F1840435E005B0754 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C245B0D0130F61140065941E /* vf.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C2EC9C74183E692A00AC3300;
-			remoteInfo = vsigmatch;
 		};
 		C2A1E22818A9F97500D76DD7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -457,6 +450,8 @@
 		C245C4E3130E36DD00EFE5A4 /* libmpeg2convert.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmpeg2convert.a; sourceTree = "<group>"; };
 		C245C4E4130E36DD00EFE5A4 /* mpeg2.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mpeg2.sh; sourceTree = "<group>"; };
 		C245C4E5130E36DD00EFE5A4 /* mpeg2dec-0.4.1.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = "mpeg2dec-0.4.1.tar"; sourceTree = "<group>"; };
+		C24ED3F618D788FA0066AA0E /* zoomwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zoomwidget.h; sourceTree = "<group>"; };
+		C24ED40218D7890C0066AA0E /* zoomwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = zoomwidget.cpp; sourceTree = "<group>"; };
 		C2592E6E0FF6736F008AC46F /* rc_engineimpl_modeltracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_engineimpl_modeltracker.cpp; sourceTree = "<group>"; };
 		C259531018AB449900BBD892 /* libopencv_core.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.2.2.0.dylib; path = usr/local/OpenCv_2.2_i386/lib/libopencv_core.2.2.0.dylib; sourceTree = "<group>"; };
 		C259531818AB44F700BBD892 /* libopencv_objdetect.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_objdetect.2.2.0.dylib; path = usr/local/OpenCv_2.2_i386/lib/libopencv_objdetect.2.2.0.dylib; sourceTree = "<group>"; };
@@ -1362,11 +1357,10 @@
 			isa = PBXGroup;
 			children = (
 				C245B0D7130F61140065941E /* vfi386_d.framework */,
-				C29AFA6E1840435E005B0754 /* libvf32_dvf.a */,
-				C29AFA701840435E005B0754 /* vBina32.app */,
 				C2728EED187B9BFC00476945 /* batch_convert.app */,
 				C2B8E9AB187DE11D0060D961 /* gut */,
 				C2A1E22918A9F97500D76DD7 /* persistence1d */,
+				C24ED40118D788FA0066AA0E /* libvf32_d.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1874,6 +1868,7 @@
 		C2EC92230F37760300E49E22 /* visiUI */ = {
 			isa = PBXGroup;
 			children = (
+				C24ED3F618D788FA0066AA0E /* zoomwidget.h */,
 				C27C020B18D36B5200FD9FE6 /* rc_main_window.h */,
 				C259531E18ABE98300BBD892 /* lpwidget.h */,
 				C2EC92240F37760300E49E22 /* rc_about.h */,
@@ -1978,6 +1973,7 @@
 		C2EC98270F37845400E49E22 /* qt */ = {
 			isa = PBXGroup;
 			children = (
+				C24ED40218D7890C0066AA0E /* zoomwidget.cpp */,
 				C27C020C18D36B6100FD9FE6 /* rc_main_window.cpp */,
 				C259531F18ABEA3900BBD892 /* lpwidget.cpp */,
 				C2EC98280F37845400E49E22 /* rc_about.cpp */,
@@ -2224,25 +2220,18 @@
 			remoteRef = C245B0D6130F61140065941E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		C24ED40118D788FA0066AA0E /* libvf32_d.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libvf32_d.a;
+			remoteRef = C24ED40018D788FA0066AA0E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		C2728EED187B9BFC00476945 /* batch_convert.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = batch_convert.app;
 			remoteRef = C2728EEC187B9BFC00476945 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C29AFA6E1840435E005B0754 /* libvf32_dvf.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libvf32_dvf.a;
-			remoteRef = C29AFA6D1840435E005B0754 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C29AFA701840435E005B0754 /* vBina32.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = vBina32.app;
-			remoteRef = C29AFA6F1840435E005B0754 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		C2A1E22918A9F97500D76DD7 /* persistence1d */ = {

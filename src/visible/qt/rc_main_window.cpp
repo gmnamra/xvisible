@@ -42,15 +42,28 @@ rcMainWindow::rcMainWindow( ) //QWidget* parent, const char* name, Qt::WFlags f 
 
     connect( domain , SIGNAL( requestPlot ( const CurveData *) ) ,
             this  , SLOT( reload_plotter ( const CurveData *  ) ) );   
-    
-    
 
+    //configure the scrollarea
+    mScrollArea = new QScrollArea;
+    mScrollArea->setBackgroundRole(QPalette::Mid);
+    /*mScrollArea->setBackgroundRole(QPalette(QColor(settings->getBackgroundColor().at(0).toInt(),
+     settings->getBackgroundColor().at(1).toInt(),
+     settings->getBackgroundColor().at(2).toInt())));*/
+    mScrollArea->setAlignment(Qt::AlignCenter);
+    mScrollArea->setFrameShape(QFrame::NoFrame);
+    mScrollArea->setWidgetResizable(true);
+    setCentralWidget(mScrollArea);
+    
     // Create a Monitor
 	rcMonitor* monitor = new rcMonitor( this, "monitor" );
-    setCentralWidget(monitor);
+    mScrollArea->setWidget(monitor);
+    
+
+    
     
     // Create a status bar
     mStatusBar = new rcStatusBar( this , "status" );
+    
     setStatusBar(mStatusBar);
     
     setUnifiedTitleAndToolBarOnMac (true);
@@ -119,11 +132,19 @@ void rcMainWindow::createDockWindows()
     addDockWidget(Qt::BottomDockWidgetArea, dock);
     _viewMenu->addAction(dock->toggleViewAction());
     
+    //configure the scrollarea
+    mScrollTracks = new QScrollArea;
+    mScrollTracks->setBackgroundRole(QPalette::Mid);
+    mScrollTracks->setAlignment(Qt::AlignCenter);
+    mScrollTracks->setFrameShape(QFrame::NoFrame);
+    mScrollTracks->setWidgetResizable(true);
+    
     // Create a Track Panel
 	rcTrackPanel* trackPanel = new rcTrackPanel( this, "trackPanel" );
+    mScrollTracks->setWidget (trackPanel);    
     dock = new QDockWidget(this);    
     dock->setAllowedAreas(Qt::LeftDockWidgetArea);
-    dock->setWidget( trackPanel );
+    dock->setWidget( mScrollTracks);
     addDockWidget(Qt::LeftDockWidgetArea, dock);
     _viewMenu->addAction(dock->toggleViewAction());
     
