@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C2EC9B43183E692A00AC3300"
-               BuildableName = "vBina32.app"
+               BuildableName = "vsigmatch"
                BlueprintName = "vsigmatch"
                ReferencedContainer = "container:vf.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C2EC9B43183E692A00AC3300"
-            BuildableName = "vBina32.app"
+            BuildableName = "vsigmatch"
             BlueprintName = "vsigmatch"
             ReferencedContainer = "container:vf.xcodeproj">
          </BuildableReference>
@@ -58,7 +58,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C2EC9B43183E692A00AC3300"
-            BuildableName = "vBina32.app"
+            BuildableName = "vsigmatch"
             BlueprintName = "vsigmatch"
             ReferencedContainer = "container:vf.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C2EC9B43183E692A00AC3300"
-            BuildableName = "vBina32.app"
+            BuildableName = "vsigmatch"
             BlueprintName = "vsigmatch"
             ReferencedContainer = "container:vf.xcodeproj">
          </BuildableReference>

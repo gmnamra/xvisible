@@ -223,10 +223,10 @@ public:
 
         std::vector<extrema_pos> zcpeaks;
         std::vector<extrema_pos> peaks;        
-        peak_detector pk;
+        peak_detector<float, std::vector> pk;
         pk.operator() (zcm, zcpeaks, half_window);
 
-        valley_detector vd;
+        valley_detector<float, std::vector> vd;
         vd.operator () (Data, peaks, half_window);
 	
         GetContractionsCandidates ();

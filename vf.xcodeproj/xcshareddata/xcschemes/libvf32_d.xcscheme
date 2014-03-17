@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C28DC4AA0F3108AA00DC9AAC"
-               BuildableName = "Visible.app"
-               BlueprintName = "Visible"
-               ReferencedContainer = "container:Visible.xcodeproj">
+               BlueprintIdentifier = "C24B8BDB183E62D30010E3C2"
+               BuildableName = "libvf32"
+               BlueprintName = "libvf32"
+               ReferencedContainer = "container:vf.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,15 +29,6 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C28DC4AA0F3108AA00DC9AAC"
-            BuildableName = "Visible.app"
-            BlueprintName = "Visible"
-            ReferencedContainer = "container:Visible.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -48,15 +39,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C28DC4AA0F3108AA00DC9AAC"
-            BuildableName = "Visible.app"
-            BlueprintName = "Visible"
-            ReferencedContainer = "container:Visible.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -64,17 +46,8 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C28DC4AA0F3108AA00DC9AAC"
-            BuildableName = "Visible.app"
-            BlueprintName = "Visible"
-            ReferencedContainer = "container:Visible.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -12,7 +12,7 @@
 #include <errno.h>
 #include <assert.h>
 #include <rc_assemblyfcts.h>
-#include <new.h>
+
 #include <signal.h>
 #include <iostream>
 

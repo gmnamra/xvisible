@@ -944,7 +944,7 @@ template <class T>
 class uniqueOrder
 {
 public:
-  bool operator() (const rc2dVector<T>& p1, const rc2dVector<T>& p2)
+  bool operator() (const rc2dVector<T>& p1, const rc2dVector<T>& p2) const
   {
     if (p1.y() < p2.y())
       return true;
@@ -1127,7 +1127,7 @@ template <class T>
 class thetaOrder
 {
 public:
-  bool operator() (const rc2dVector<T>& p1, const rc2dVector<T>& p2)
+  bool operator() (const rc2dVector<T>& p1, const rc2dVector<T>& p2) const
   {
     T area = p1.cross(p2);
 
