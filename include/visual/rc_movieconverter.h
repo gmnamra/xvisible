@@ -221,14 +221,10 @@ class rcMovieConverterToRfy : public rcMovieConverter {
     rcMovieConverterError convert( const std::string& inputFile,
                                    const std::string& outputFile );
 
-    rcMovieConverterError convert( const std::string& inputFile, const std::string& input2File,
-                                   const std::string& outputFile, movieOriginType, std::string& typeInfo );
     
  private:
     rcMovieConverterError createRfyMovie( rcVideoCache* inputCache,
                                           const std::string& outputFile );
-    rcMovieConverterError createRfyMovie( rcVideoCache* inputCache, rcVideoCache* input2Cache,
-                                          const std::string& outputFile, movieOriginType, std::string& typeInfo);
 
     rcMovieConverterError createRfyMovie( rcFrameGrabber& inputGrabber,
                                           const std::string& outputFile );

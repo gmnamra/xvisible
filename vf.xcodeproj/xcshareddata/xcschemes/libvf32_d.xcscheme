@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C24B8BDB183E62D30010E3C2"
-               BuildableName = "libvf32"
+               BlueprintIdentifier = "C27C024E18D75F3E00FD9FE6"
+               BuildableName = "libvf32_d.a"
                BlueprintName = "libvf32"
                ReferencedContainer = "container:vf.xcodeproj">
             </BuildableReference>

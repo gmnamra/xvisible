@@ -44,6 +44,10 @@
 		C245C518130E36DD00EFE5A4 /* extract_m2v in Resources */ = {isa = PBXBuildFile; fileRef = C245C4E0130E36DD00EFE5A4 /* extract_m2v */; };
 		C245C51B130E36DE00EFE5A4 /* mpeg2.sh in Resources */ = {isa = PBXBuildFile; fileRef = C245C4E4130E36DD00EFE5A4 /* mpeg2.sh */; };
 		C245C51C130E36DE00EFE5A4 /* mpeg2dec-0.4.1.tar in Resources */ = {isa = PBXBuildFile; fileRef = C245C4E5130E36DD00EFE5A4 /* mpeg2dec-0.4.1.tar */; };
+		C24ED40B18DA1D620066AA0E /* libcinder_d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C24ED40A18DA1D620066AA0E /* libcinder_d.a */; };
+		C24ED43818DA3F6F0066AA0E /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C245B0D7130F61140065941E /* vfi386_d.framework */; };
+		C24ED43918DA3FC40066AA0E /* vfi386_d.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2B8EA24188102920060D961 /* vfi386_d.framework */; };
+		C24ED43B18DA3FD80066AA0E /* libcinder_d.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = C24ED43A18DA3FD80066AA0E /* libcinder_d.a */; };
 		C25952F518AA1C5A00BBD892 /* QtXmlPatterns.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6630F310B9000DC9AAC /* QtXmlPatterns.framework */; };
 		C25952F618AA1C5A00BBD892 /* QtXml.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6640F310B9000DC9AAC /* QtXml.framework */; };
 		C25952F718AA1C5A00BBD892 /* QtWebKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6650F310B9000DC9AAC /* QtWebKit.framework */; };
@@ -60,7 +64,6 @@
 		C259530318AA1C5A00BBD892 /* QtHelp.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6710F310B9000DC9AAC /* QtHelp.framework */; };
 		C259530418AA1C5A00BBD892 /* QtDesignerComponents.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6720F310B9000DC9AAC /* QtDesignerComponents.framework */; };
 		C259530518AA1C5A00BBD892 /* QtDesigner.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6730F310B9000DC9AAC /* QtDesigner.framework */; };
-		C259530618AA1C5A00BBD892 /* QtAssistant.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C28DC6740F310B9000DC9AAC /* QtAssistant.framework */; };
 		C259531118AB449900BBD892 /* libopencv_core.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C259531018AB449900BBD892 /* libopencv_core.2.2.0.dylib */; };
 		C259531918AB44F700BBD892 /* libopencv_objdetect.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C259531818AB44F700BBD892 /* libopencv_objdetect.2.2.0.dylib */; };
 		C259531C18AB451A00BBD892 /* libopencv_highgui.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C259531A18AB451A00BBD892 /* libopencv_highgui.2.2.0.dylib */; };
@@ -99,7 +102,6 @@
 		C26CA0B20F61E68900549A3C /* moc_rc_trackpanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26CA08F0F61E68900549A3C /* moc_rc_trackpanel.cpp */; };
 		C27C020D18D36B6100FD9FE6 /* rc_main_window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27C020C18D36B6100FD9FE6 /* rc_main_window.cpp */; };
 		C27C020F18D373BF00FD9FE6 /* moc_rc_main_window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27C020E18D373BF00FD9FE6 /* moc_rc_main_window.cpp */; };
-		C27E57C218C6D52700DF8BA1 /* vfi386.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B8E96E187CCC250060D961 /* vfi386.framework */; };
 		C2850D3E131A1DDC002C8918 /* Visible-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2850D3D131A1DDC002C8918 /* Visible-Info.plist */; };
 		C299374718ACCD89000EAD7D /* liblightplot2d.1.0.1.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2F1963818ACA917008D996D /* liblightplot2d.1.0.1.dylib */; };
 		C299374818ACCD89000EAD7D /* libopencv_highgui.2.2.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C259531A18AB451A00BBD892 /* libopencv_highgui.2.2.0.dylib */; };
@@ -149,7 +151,6 @@
 		C2A39BC00F33999A00845D59 /* Visible.icns in Resources */ = {isa = PBXBuildFile; fileRef = C2A39B980F33999800845D59 /* Visible.icns */; };
 		C2A39CEF0F3431CA00845D59 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A39CEE0F3431CA00845D59 /* GLUT.framework */; };
 		C2AD53CB11554CE600467A9B /* Qt3Support.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28DC66E0F310B9000DC9AAC /* Qt3Support.framework */; };
-		C2AD53CC11554CE600467A9B /* QtAssistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28DC6740F310B9000DC9AAC /* QtAssistant.framework */; };
 		C2AD53CD11554CE600467A9B /* QtCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28DC66D0F310B9000DC9AAC /* QtCore.framework */; };
 		C2AD53CE11554CE600467A9B /* QtDBus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28DC66C0F310B9000DC9AAC /* QtDBus.framework */; };
 		C2AD53CF11554CE700467A9B /* QtDesigner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28DC6730F310B9000DC9AAC /* QtDesigner.framework */; };
@@ -165,7 +166,6 @@
 		C2AD53D911554CE700467A9B /* QtWebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28DC6650F310B9000DC9AAC /* QtWebKit.framework */; };
 		C2AD53DA11554CE700467A9B /* QtXml.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28DC6640F310B9000DC9AAC /* QtXml.framework */; };
 		C2AD53DB11554CE700467A9B /* QtXmlPatterns.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28DC6630F310B9000DC9AAC /* QtXmlPatterns.framework */; };
-		C2B8E973187D0A3C0060D961 /* vfi386.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2B8E96E187CCC250060D961 /* vfi386.framework */; };
 		C2C301230F34FBAC0057B45E /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C301220F34FBAC0057B45E /* ApplicationServices.framework */; };
 		C2EC986A0F37845600E49E22 /* rc_about.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC98280F37845400E49E22 /* rc_about.cpp */; };
 		C2EC986C0F37845600E49E22 /* rc_checkboxsettingwidget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC982A0F37845400E49E22 /* rc_checkboxsettingwidget.cpp */; };
@@ -299,8 +299,8 @@
 				C259530318AA1C5A00BBD892 /* QtHelp.framework in CopyFiles */,
 				C259530418AA1C5A00BBD892 /* QtDesignerComponents.framework in CopyFiles */,
 				C259530518AA1C5A00BBD892 /* QtDesigner.framework in CopyFiles */,
-				C259530618AA1C5A00BBD892 /* QtAssistant.framework in CopyFiles */,
-				C2B8E973187D0A3C0060D961 /* vfi386.framework in CopyFiles */,
+				C24ED43B18DA3FD80066AA0E /* libcinder_d.a in CopyFiles */,
+				C24ED43918DA3FC40066AA0E /* vfi386_d.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +452,8 @@
 		C245C4E5130E36DD00EFE5A4 /* mpeg2dec-0.4.1.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = "mpeg2dec-0.4.1.tar"; sourceTree = "<group>"; };
 		C24ED3F618D788FA0066AA0E /* zoomwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zoomwidget.h; sourceTree = "<group>"; };
 		C24ED40218D7890C0066AA0E /* zoomwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = zoomwidget.cpp; sourceTree = "<group>"; };
+		C24ED40A18DA1D620066AA0E /* libcinder_d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcinder_d.a; path = usr/local/Cinder/lib/libcinder_d.a; sourceTree = "<group>"; };
+		C24ED43A18DA3FD80066AA0E /* libcinder_d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcinder_d.a; path = usr/local/Cinder/lib/libcinder_d.a; sourceTree = "<group>"; };
 		C2592E6E0FF6736F008AC46F /* rc_engineimpl_modeltracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_engineimpl_modeltracker.cpp; sourceTree = "<group>"; };
 		C259531018AB449900BBD892 /* libopencv_core.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.2.2.0.dylib; path = usr/local/OpenCv_2.2_i386/lib/libopencv_core.2.2.0.dylib; sourceTree = "<group>"; };
 		C259531818AB44F700BBD892 /* libopencv_objdetect.2.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_objdetect.2.2.0.dylib; path = usr/local/OpenCv_2.2_i386/lib/libopencv_objdetect.2.2.0.dylib; sourceTree = "<group>"; };
@@ -640,7 +642,6 @@
 		C28DC6710F310B9000DC9AAC /* QtHelp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtHelp.framework; path = /Library/Frameworks/QtHelp.framework; sourceTree = "<absolute>"; };
 		C28DC6720F310B9000DC9AAC /* QtDesignerComponents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtDesignerComponents.framework; path = /Library/Frameworks/QtDesignerComponents.framework; sourceTree = "<absolute>"; };
 		C28DC6730F310B9000DC9AAC /* QtDesigner.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtDesigner.framework; path = /Library/Frameworks/QtDesigner.framework; sourceTree = "<absolute>"; };
-		C28DC6740F310B9000DC9AAC /* QtAssistant.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtAssistant.framework; path = /Library/Frameworks/QtAssistant.framework; sourceTree = "<absolute>"; };
 		C29AFA7318404421005B0754 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		C29AFA7418404422005B0754 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
 		C29AFA7518404422005B0754 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = /System/Library/Frameworks/CoreGraphics.framework; sourceTree = "<absolute>"; };
@@ -786,7 +787,7 @@
 		C2EC92730F37761600E49E22 /* rc_xmldefs_v0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_xmldefs_v0.h; sourceTree = "<group>"; };
 		C2EC92740F37761600E49E22 /* rc_xmlelem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_xmlelem.h; sourceTree = "<group>"; };
 		C2EC97570F3781E200E49E22 /* ASC_DCAM_API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASC_DCAM_API.h; path = 3rdparty/outcastsoft/ASC_DCAM.framework/Headers/ASC_DCAM_API.h; sourceTree = SOURCE_ROOT; };
-		C2EC98280F37845400E49E22 /* rc_about.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_about.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		C2EC98280F37845400E49E22 /* rc_about.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_about.cpp; sourceTree = "<group>"; };
 		C2EC982A0F37845400E49E22 /* rc_checkboxsettingwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = rc_checkboxsettingwidget.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C2EC982B0F37845400E49E22 /* rc_controlpanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 2; path = rc_controlpanel.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		C2EC982C0F37845400E49E22 /* rc_customeventmanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_customeventmanager.cpp; sourceTree = "<group>"; };
@@ -912,7 +913,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C27E57C218C6D52700DF8BA1 /* vfi386.framework in Frameworks */,
+				C24ED43818DA3F6F0066AA0E /* vfi386_d.framework in Frameworks */,
 				C2F1963918ACA918008D996D /* liblightplot2d.1.0.1.dylib in Frameworks */,
 				C259531C18AB451A00BBD892 /* libopencv_highgui.2.2.0.dylib in Frameworks */,
 				C259531D18AB451A00BBD892 /* libopencv_imgproc.2.2.0.dylib in Frameworks */,
@@ -923,13 +924,13 @@
 				C29AFA8818404494005B0754 /* QTKit.framework in Frameworks */,
 				C29AFA8918404494005B0754 /* Quartz.framework in Frameworks */,
 				C29AFA8A18404494005B0754 /* QuartzCore.framework in Frameworks */,
+				C24ED40B18DA1D620066AA0E /* libcinder_d.a in Frameworks */,
 				C29AFA8C18404494005B0754 /* QuickTime.framework in Frameworks */,
 				C29AFA7618404422005B0754 /* CoreData.framework in Frameworks */,
 				C29AFA7718404422005B0754 /* CoreFoundation.framework in Frameworks */,
 				C2A39CEF0F3431CA00845D59 /* GLUT.framework in Frameworks */,
 				C2C301230F34FBAC0057B45E /* ApplicationServices.framework in Frameworks */,
 				C2AD53CB11554CE600467A9B /* Qt3Support.framework in Frameworks */,
-				C2AD53CC11554CE600467A9B /* QtAssistant.framework in Frameworks */,
 				C2AD53CD11554CE600467A9B /* QtCore.framework in Frameworks */,
 				C2AD53CE11554CE600467A9B /* QtDBus.framework in Frameworks */,
 				C2AD53CF11554CE700467A9B /* QtDesigner.framework in Frameworks */,
@@ -962,6 +963,7 @@
 		0867D691FE84028FC02AAC07 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C24ED43A18DA3FD80066AA0E /* libcinder_d.a */,
 				034768DDFF38A45A11DB9C8B /* Products */,
 				C2B8E96E187CCC250060D961 /* vfi386.framework */,
 				C2B8EA24188102920060D961 /* vfi386_d.framework */,
@@ -976,6 +978,7 @@
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				C24ED40A18DA1D620066AA0E /* libcinder_d.a */,
 				C27E57DF18C8554500DF8BA1 /* libopencv_flann.2.2.0.dylib */,
 				C27E57DD18C854E200DF8BA1 /* libopencv_calib3d.2.2.0.dylib */,
 				C27E57DB18C84D8100DF8BA1 /* libopencv_features2d.2.2.0.dylib */,
@@ -1016,7 +1019,6 @@
 				C28DC6710F310B9000DC9AAC /* QtHelp.framework */,
 				C28DC6720F310B9000DC9AAC /* QtDesignerComponents.framework */,
 				C28DC6730F310B9000DC9AAC /* QtDesigner.framework */,
-				C28DC6740F310B9000DC9AAC /* QtAssistant.framework */,
 				08FB77AAFE841565C02AAC07 /* Carbon.framework */,
 			);
 			name = "External Frameworks and Libraries";
@@ -2466,6 +2468,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost/";
+				CINDER_PATH = "$(SRCROOT)/usr/local/Cinder";
 				COPY_PHASE_STRIP = NO;
 				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
 				GCC_C_LANGUAGE_STANDARD = c99;
@@ -2480,8 +2483,13 @@
 					"$(BOOST_PATH)/include",
 					"$(SRCROOT)/include/visual",
 					"$(SRCROOT)/include/analysis",
+					"$(CINDER_PATH)/include",
 				);
-				LIBRARY_SEARCH_PATHS = "$(BOOST_PATH)/lib";
+				LIBRARY_SEARCH_PATHS = (
+					"$(BOOST_PATH)/lib",
+					"$(CINDER_PATH)/lib",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.5.sdk;
@@ -2495,6 +2503,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost/";
+				CINDER_PATH = "$(SRCROOT)/usr/local/Cinder";
 				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
@@ -2507,8 +2516,13 @@
 					"$(BOOST_PATH)/include",
 					"$(SRCROOT)/include/visual",
 					"$(SRCROOT)/include/analysis",
+					"$(CINDER_PATH)/include",
 				);
-				LIBRARY_SEARCH_PATHS = "$(BOOST_PATH)/lib";
+				LIBRARY_SEARCH_PATHS = (
+					"$(BOOST_PATH)/lib",
+					"$(CINDER_PATH)/lib",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.5.sdk;
@@ -2520,10 +2534,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = /Users/arman/gwc/vqt105/visibleqt105/build/Release;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Users/arman/gwc/vqt105/visibleqt105/build/Debug,
+					/Library/Frameworks,
+				);
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_FAST_OBJC_DISPATCH = NO;
@@ -2546,26 +2566,24 @@
 					"$(BOOST_PATH)/include",
 					"$(SRCROOT)/include/**",
 					/Library/Frameworks/QtCore.framework/Versions/4/Headers,
-					/usr/include/QtCore,
 					/Library/Frameworks/QtGui.framework/Versions/4/Headers,
-					/usr/include/QtGui,
 					/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers,
-					/usr/include/QtOpenGL,
 					/Library/Frameworks/QtXml.framework/Versions/4/Headers,
-					/usr/include/QtXml,
 					/Library/Frameworks/Qt3Support.framework/Versions/4/Headers,
-					/usr/include/Qt3Support,
 					/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers,
 					/System/Library/Frameworks/AGL.framework/Headers,
-					/usr/local/include,
 					/System/Library/Frameworks/CarbonCore.framework/Headers,
 					"$(SRCROOT)/usr/local/lightplot_i386/include",
+					"$(CINDER_PATH)/include",
+					"$(OPENCV_PATH)/include",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/resources/visible/resources/Visible-Info.plist";
 				INSTALL_PATH = "@rpath";
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/usr/local/OpenCv_2.2_i386/lib",
 					"$(SRCROOT)/usr/local/lightplot_i386/lib",
+					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib,
+					"$(CINDER_PATH)/lib",
 				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				ONLY_ACTIVE_ARCH = NO;
@@ -2598,9 +2616,9 @@
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = Visible;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.8;
 				STRIP_INSTALLED_PRODUCT = NO;
-				VALID_ARCHS = "i386 ";
+				VALID_ARCHS = "i386 x86_64";
 				YACCFLAGS = "-d";
 			};
 			name = Debug;
@@ -2609,11 +2627,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = /Users/arman/gwc/vqt105/visibleqt105/build/Release;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Users/arman/gwc/vqt105/visibleqt105/build/Debug,
+					/Library/Frameworks,
+				);
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_FAST_OBJC_DISPATCH = NO;
@@ -2637,26 +2661,24 @@
 					"$(BOOST_PATH)/include",
 					"$(SRCROOT)/include/**",
 					/Library/Frameworks/QtCore.framework/Versions/4/Headers,
-					/usr/include/QtCore,
 					/Library/Frameworks/QtGui.framework/Versions/4/Headers,
-					/usr/include/QtGui,
 					/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers,
-					/usr/include/QtOpenGL,
 					/Library/Frameworks/QtXml.framework/Versions/4/Headers,
-					/usr/include/QtXml,
 					/Library/Frameworks/Qt3Support.framework/Versions/4/Headers,
-					/usr/include/Qt3Support,
 					/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers,
 					/System/Library/Frameworks/AGL.framework/Headers,
-					/usr/local/include,
 					/System/Library/Frameworks/CarbonCore.framework/Headers,
 					"$(SRCROOT)/usr/local/lightplot_i386/include",
+					"$(CINDER_PATH)/include",
+					"$(OPENCV_PATH)/include",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/resources/visible/resources/Visible-Info.plist";
 				INSTALL_PATH = "@rpath";
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/usr/local/OpenCv_2.2_i386/lib",
 					"$(SRCROOT)/usr/local/lightplot_i386/lib",
+					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib,
+					"$(CINDER_PATH)/lib",
 				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				ONLY_ACTIVE_ARCH = NO;
@@ -2688,9 +2710,9 @@
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = Visible;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.8;
 				STRIP_INSTALLED_PRODUCT = NO;
-				VALID_ARCHS = "i386 ";
+				VALID_ARCHS = "i386 x86_64";
 				YACCFLAGS = "-d";
 			};
 			name = Release;

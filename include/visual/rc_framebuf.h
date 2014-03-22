@@ -204,7 +204,7 @@ class rcFrame
 	
 	int refCount () const { return refcount_.load (); }
 	
-    const ci::Channel8u&  toCiChannel ();  // copies only one channel
+    const ci::Channel8u*  newCiChannel ();  // copies only one channel
     
 
 protected:

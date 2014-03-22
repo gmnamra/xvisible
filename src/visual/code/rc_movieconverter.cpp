@@ -323,34 +323,6 @@ rcMovieConverterError rcMovieConverterToRfy::convert( const std::string& inputFi
 
 
 
-// Convert QT movie to .rfymov
-rcMovieConverterError rcMovieConverterToRfy::convert( const std::string& inputFile, const std::string& input2File,
-                                                      const std::string& outputFile, movieOriginType mot, std::string& typeInfo )
-{
-    mLastError = eMovieConverterErrorUnknown;
-    bool srcReify = isReifyMovie( inputFile ) && isReifyMovie ( input2File );
-
-    if ( srcReify ) {
-        rcVideoCache* cacheP = 0;
-        rcVideoCache* cache2P = 0;
-
-        cacheP = rcVideoCache::rcVideoCacheCtor( inputFile, cVideoCacheSize, false, false, false, cVideoCacheMem );
-        cache2P = rcVideoCache::rcVideoCacheCtor( input2File, cVideoCacheSize, false, false, false, cVideoCacheMem );
-
-        if (!cacheP->isValid() || !cache2P->isValid()) {
-	  if ( verbose() )
-	    cerr << rcVideoCache::getErrorString( cacheP->getFatalError() ) << endl;
-	  mLastError = eMovieConverterErrorOpen;
-        } else {
-	  mLastError = createRfyMovie( cacheP, cache2P, outputFile, mot, typeInfo );
-        }
-        rcVideoCache::rcVideoCacheDtor( cacheP );
-        rcVideoCache::rcVideoCacheDtor( cache2P );
-    }
-
-    return mLastError;
-}
-
 // Create Rfy movie from another Rfy movie
 rcMovieConverterError rcMovieConverterToRfy::createRfyMovie( rcVideoCache* inputCache,
                                                              const std::string& outputFile )
@@ -486,176 +458,6 @@ rcMovieConverterError rcMovieConverterToRfy::createRfyMovie( rcVideoCache* input
     return error;
 }
 
-
-// Create Rfy movie from another Rfy movie
-rcMovieConverterError rcMovieConverterToRfy::createRfyMovie( rcVideoCache* inputCache, rcVideoCache* input2Cache,
-                                                             const std::string& outputFile, movieOriginType mot, std::string& typeInfo)
-{
-    rcMovieConverterError error = eMovieConverterErrorOK;
-    rmAssert(inputCache);
-    rmAssert(input2Cache);
-    rcVideoCache& cache = *inputCache;
-    rcVideoCache& cache2 = *input2Cache;
-
-    // Copy origin headers
-    // @note for now copy headers only from the first movie
-    const vector<rcMovieFileOrgExt>& orgHdrs = cache.movieFileOrigins();
-    rmAssert( !orgHdrs.empty() );
-
-    // Reify movie generator
-    // @ note this is fixed for movieOriginGrayIsVisibleAlphaIsFlu.
-    // @todo cleanup
-    rcGenMovieFile generator( outputFile, mot,
-                              rcSelectAll, mOptions.creator().c_str(),
-                              mOptions.rev(),
-                              mOptions.overWrite(),
-                              mOptions.frameInterval() );
-
-    bool failed = !generator.valid();
-    if ( failed ) {
-        if ( verbose() )
-            cerr << "rcGenMovieFile ctor failed" << endl;
-        return eMovieConverterErrorInternal;
-    }
-
-    //@note: this is a hack for now. Needs to be throught through
-    const char * combined = "movieOriginGrayIsVisibleAlphaIsFlu";
-    rcMovieFileOrgExt comb (mot,
-			    orgHdrs[0].baseTime(),
-			    orgHdrs[0].frameCount(),
-			    orgHdrs[0].width(),
-			    orgHdrs[0].height(),
-			    rcPixel32,
-			    orgHdrs[0].rev(),
-			    typeInfo.c_str());
-
-    generator.addHeader (comb);
-
-    for ( uint32 i = 0; i < orgHdrs.size(); ++i ) {
-        const rcMovieFileOrgExt& org = orgHdrs[i];
-        generator.addHeader( org );
-    }
-
-    // Copy camera headers
-    const vector<rcMovieFileCamExt>& camHdrs = cache.movieFileCameras();
-
-    for ( uint32 i = 0; i < camHdrs.size(); ++i ) {
-        const rcMovieFileCamExt& cam = camHdrs[i];
-        generator.addHeader( cam );
-    }
-
-    // Copy experiment headers
-    const vector<rcMovieFileExpExt>& expHdrs = cache.movieFileExperiments();
-
-    for ( uint32 i = 0; i < expHdrs.size(); ++i ) {
-        const rcMovieFileExpExt& exp = expHdrs[i];
-        generator.addHeader( exp );
-    }
-
-    rcSharedFrameBufPtr frameBuf, frame2Buf;
-    rcVideoCacheError verror;
-    rcVideoCacheStatus status = cache.getFrame(mOptions.frameOffset(), frameBuf, &verror);
-
-    if (status != eVideoCacheStatusOK) {
-        if ( verbose() )
-            cerr << "Couldn't read frame: " << 0 << " error: "
-                 << rcVideoCache::getErrorString(verror) << endl;
-        return eMovieConverterErrorRead;
-    }
-
-    status = cache2.getFrame(mOptions.frameOffset(), frame2Buf, &verror);
-
-    // @note both movies have exact number of frames
-    uint32 converted = 0;
-    int32 frameCount = mOptions.frameCount();
-    if ( frameCount < 0 )
-        frameCount = cache.frameCount();
-    const uint32 endMark = mOptions.frameOffset() +
-        (mOptions.firstFrameIndex() + frameCount)*mOptions.samplePeriod();
-
-    for (uint32 i = mOptions.frameOffset() + mOptions.firstFrameIndex()*mOptions.samplePeriod();
-	 i < endMark;
-	 i += mOptions.samplePeriod())
-      {
-        status = cache.getFrame(i, frameBuf, &verror);
-        if (status != eVideoCacheStatusOK) {
-            if ( verbose() )
-                cerr << "Couldn't read frame: " << i << " error: "
-                     << rcVideoCache::getErrorString(verror) << endl;
-            return eMovieConverterErrorRead;
-        }
-
-        status = cache2.getFrame(i, frame2Buf, &verror);
-        if (status != eVideoCacheStatusOK) {
-            if ( verbose() )
-                cerr << "Couldn't read frame: " << i << " error: "
-                     << rcVideoCache::getErrorString(verror) << endl;
-            return eMovieConverterErrorRead;
-        }
-
-        frameBuf = clippedFrame( frameBuf, mOptions );
-        frame2Buf = clippedFrame( frame2Buf, mOptions );
-
-        if ( mOptions.reversePixels() ) {
-            rcWindow w( frameBuf );
-            rfReversePixels8( w );
-        }
-
-        rcGenMovieFileError gerr = generator.addFrame( frameBuf, frame2Buf );
-        if ( gerr != eGenMovieFileErrorOK ) {
-            if ( verbose() )
-                cerr << "Output movie addFrame error: " << gerr << " " << outputFile << endl;
-            return eMovieConverterErrorWrite;
-        }
-
-        ++converted;
-        if ( mProgress )
-            mProgress->progress( double(converted)/frameCount * 100 );
-
-    } // End of: for (i = offset + firstIndex*period; i < endMark; i += period) {
-
-    if (mOptions.rev() >= movieFormatRev1) {
-        // Copy old conversion headers
-        const vector<rcMovieFileConvExt>& conversions = cache.movieFileConversions();
-        if ( !conversions.empty() ) {
-            for ( uint32 i = 0; i < conversions.size(); ++i ) {
-                rcMovieFileConvExt cnvHdr = conversions[i];
-                 rcGenMovieFileError gerr = generator.addHeader( cnvHdr );
-                 if ( gerr != eGenMovieFileErrorOK ) {
-                     if ( verbose() )
-                         cerr << "Output movie addHeader error: " << gerr << " " << outputFile << endl;
-                     return eMovieConverterErrorHeaderWrite;
-                 }
-            }
-        }
-
-        // Add new conversion header
-        rcMovieFileConvExt cnvHdr( mOptions.firstFrameIndex() + mOptions.frameOffset(),
-                                   frameCount,
-                                   mOptions.samplePeriod(),
-                                   mOptions.clipRect(),
-                                   movieChannelAll,
-                                   mOptions.frameInterval(),
-                                   mOptions.reversePixels(),
-                                   mOptions.creator().c_str() );
-        rcGenMovieFileError gerr = generator.addHeader( cnvHdr );
-        if ( gerr != eGenMovieFileErrorOK ) {
-            if ( verbose() )
-                cerr << "Output movie addHeader error: " << gerr << " " << outputFile << endl;
-            return eMovieConverterErrorHeaderWrite;
-        }
-    }
-
-    // Flush and close file
-    rcGenMovieFileError gerr = generator.flush();
-    if ( gerr != eGenMovieFileErrorOK ) {
-        if ( verbose() )
-             cerr << "Output movie flush error: " << gerr << " " << outputFile << endl;
-        return eMovieConverterErrorFlush;
-    }
-
-    return error;
-}
 
 // Create Rfy movie from non-Rfy movie
 rcMovieConverterError rcMovieConverterToRfy::createRfyMovie( rcFrameGrabber& inputGrabber,
@@ -834,7 +636,7 @@ rcMovieConverterError rcMovieConverterToQT::convert( const std::string& inputFil
             mLastError = eMovieConverterErrorOpen;
         } else {
             mLastError = eMovieConverterErrorUnsupported;
-                //            mLastError = createQTMovie( cacheP, outputFile );
+            mLastError = createQTMovie( cacheP, outputFile );
         }
         rcVideoCache::rcVideoCacheDtor( cacheP );
     } else {
@@ -849,43 +651,29 @@ rcMovieConverterError rcMovieConverterToQT::createQTMovie( rcVideoCache* inputCa
                                                            const std::string& outputFile )
 {
     rmAssert(inputCache);
+    rmAssert ( ! is_relative_path (outputFile) );
+
     rcMovieConverterError error = eMovieConverterErrorOK;
     rcVideoCache& cache = *inputCache;
 	int32 frameCount = mOptions.frameCount();
     if ( frameCount < 0 )
         frameCount = inputCache->frameCount();
-    if(! fileokandwritable (outputFile) )
-	return eMovieConverterErrorWrite;
-
-    string dirName = folder_part (outputFile);
-    std::string destFullName;
-    std::string tmp = basename_part (outputFile);
-    if (dirName == ".")
-	{
-	  std::vector<char> buffer (2048);
-          if ( getcwd(&buffer[0], 2048) == 0)
-            return eMovieConverterErrorWrite;
-		
-        destFullName = std::string(&buffer[0]) + std::string("/") + tmp;
-    }
-    else
-        destFullName = std::string(dirName) + std::string("/") + tmp;
-
-#ifdef DEBUG
-    fprintf(stderr, "destfile %s converted %s\n", outputFile.c_str(), destFullName.c_str());
-#endif
-
+   
     rcRect movieSize( 0, 0, cache.frameWidth(), cache.frameHeight() );
     if ( mOptions.clipRect().width() > 0 && mOptions.clipRect().height() > 0 )
         movieSize = rcRect( 0, 0, mOptions.clipRect().width(), mOptions.clipRect().height() );
 
     
     ci::qtime::MovieWriter::Format format (kRawCodecType, 1.0);
-    ci::qtime::MovieWriterRef mMovieWriter = ci::qtime::MovieWriter::create (destFullName,
+    ci::qtime::MovieWriterRef mMovieWriter = ci::qtime::MovieWriter::create (outputFile,
                                                                              movieSize.width(), 
                                                                              movieSize.height(), 
                                                                              format);
     
+    
+    if(! fileokandwritable (outputFile) )
+        return eMovieConverterErrorWrite;
+
     
     /* Do some stupid stuff to make sure a "null" file exists. The file
      * needs to exist, otherwise rfMakeFSSpecFromPosixPath is unhappy.
@@ -927,9 +715,7 @@ rcMovieConverterError rcMovieConverterToQT::createQTMovie( rcVideoCache* inputCa
             rfReversePixels8( w );
         }
 
-        lock();
-        mMovieWriter->addFrame (frameBuf->toCiChannel() );
-        unlock();
+        mMovieWriter->addFrame (ImageSourceRef ( * frameBuf->newCiChannel() ) );
 
         rcTimestamp startTime, endTime;
         if ((i+period) < cache.frameCount()) {
@@ -948,6 +734,8 @@ rcMovieConverterError rcMovieConverterToQT::createQTMovie( rcVideoCache* inputCa
             mProgress->progress( double(converted)/frameCount * 100.0 );
 
     }
+    
+    return eMovieConverterErrorOK;
 
 }
 
