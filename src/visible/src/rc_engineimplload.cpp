@@ -35,6 +35,7 @@
 #include <rc_tiff.h>
 #include <rc_window2jpg.h>
 #include <rc_fileutils.h>
+#include <rc_cinder_qtime_grabber.h>
 #include <iostream>
 #include <algorithm>
 #include <cctype>
@@ -422,7 +423,7 @@ int rcEngineImpl::loadMovie( const std::string& movieFile, rcFrameGrabberError& 
 		{
 				// Forced frame rate
 			double frameInterval = _frameRate ? 1.0/_frameRate : 0.0;
-			grabber = new rcCinderGrabber( movieFile, this, frameInterval );
+			grabber = reinterpret_cast<rcFrameGrabber*> (new rcCinderGrabber( movieFile, this, frameInterval ));
 		}
 
 
@@ -472,7 +473,7 @@ int rcEngineImpl::saveFrames(std::string imageExportDir) const
         std::string fn (oss.str ());
         rfImageExport2JPG ( *imgItr, fn);
         fn = std::string ("chmod 644 ") + fn;
-        system( fn.c_str() );
+        ::system( fn.c_str() );
 
     }
 

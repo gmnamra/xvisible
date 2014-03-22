@@ -10,7 +10,7 @@
 
 using namespace std;
 using namespace ci;
-using namespace ci::qtime;
+
 
 
 //
@@ -55,7 +55,7 @@ public:
     
 private:
     
-    MovieSurface	    mMovie;
+    ci::qtime::MovieSurface	    mMovie;
 	Surface				mSurface;
     bool                mValid;
     const std::string          mFileName;

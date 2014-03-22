@@ -15,14 +15,12 @@
 #include <signal.h>
 #include <sys/wait.h>
 #include <stlplus_lite.hpp>
-
+#include <cinder/Cinder.h>
 
 // Visual
 #include <rc_imagegrabber.h>
 #include <rc_cinder_qtime_grabber.h>
 #include <rc_reifymoviegrabber.h>
-#include <rc_qtime.h>
-    // #include <rc_dcam_capture.h>
 
 
 #include <rc_framebuf.h>
@@ -66,7 +64,7 @@
 using namespace std;
 #endif
 
-using namespace legacy_qtime;
+
 
 extern bool developerDebugging ();
 extern bool developerDebugging (bool);

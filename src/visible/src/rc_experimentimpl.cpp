@@ -2,7 +2,7 @@
 
 #include <strstream>
 
-    //#include <rc_movieconverter.h>
+#include <rc_movieconverter.h>
 
 #include "rc_scalartrackimpl.h"
 #include "rc_videotrackimpl.h"
@@ -10,6 +10,7 @@
 #include "rc_nativeexporter.h"
 #include "rc_nativeimporter.h"
 #include "rc_experimentimpl.h"
+
 
 #if WIN32
 using namespace std;

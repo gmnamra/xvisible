@@ -984,7 +984,7 @@
 		C24EA96D1842FD0D00E88B0A /* batch_convert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = batch_convert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C24EA9701843017500E88B0A /* rc_movieconverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_movieconverter.h; sourceTree = "<group>"; };
 		C24EA9731843029F00E88B0A /* rc_movieconverter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_movieconverter.cpp; sourceTree = "<group>"; };
-		C24ED40418D8ABC30066AA0E /* rc_cinder_qtime_grabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_cinder_qtime_grabber.h; sourceTree = "<group>"; };
+		C24ED40418D8ABC30066AA0E /* rc_cinder_qtime_grabber.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = rc_cinder_qtime_grabber.h; sourceTree = "<group>"; };
 		C24ED40618D8AE440066AA0E /* rc_cinder_qtime_grabber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_cinder_qtime_grabber.cpp; sourceTree = "<group>"; };
 		C24ED40818D8F5C40066AA0E /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libc++.dylib"; sourceTree = DEVELOPER_DIR; };
 		C24ED40E18DA1D8F0066AA0E /* libcinder_d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcinder_d.a; path = usr/local/Cinder/lib/libcinder_d.a; sourceTree = "<group>"; };
