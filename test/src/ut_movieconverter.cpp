@@ -7,6 +7,10 @@
 
 #include <ut_movieconverter.h>
 
+
+
+
+
 static const bool cDeleteOutputFiles = true;
 
 // public
@@ -16,8 +20,8 @@ UT_movieconverter::UT_movieconverter( const char* rfyInputMovie,
         mRfyInputMovie( rfyInputMovie ),
         mQTInputMovie( QTInputMovie )
 {
-    rcUNITTEST_ASSERT( rfyInputMovie != NULL );
-    rcUNITTEST_ASSERT( QTInputMovie != NULL );
+    rcUTCheck( rfyInputMovie != NULL );
+    rcUTCheck( QTInputMovie != NULL );
 }
 
 UT_movieconverter::~UT_movieconverter()
@@ -50,13 +54,13 @@ void UT_movieconverter::testOptions()
 
         testOptions( opt );
                 
-        rcUNITTEST_ASSERT( opt.channelConversion() != rcSelectBlue );
+        rcUTCheck( opt.channelConversion() != rcSelectBlue );
         opt.channelConversion( rcSelectBlue );
-        rcUNITTEST_ASSERT( opt.channelConversion() == rcSelectBlue );
+        rcUTCheck( opt.channelConversion() == rcSelectBlue );
 
-        rcUNITTEST_ASSERT( opt.rev() != movieFormatRev1 );
+        rcUTCheck( opt.rev() != movieFormatRev1 );
         opt.rev( movieFormatRev1 );
-        rcUNITTEST_ASSERT( opt.rev() == movieFormatRev1 );
+        rcUTCheck( opt.rev() == movieFormatRev1 );
     }
 
     {
@@ -71,41 +75,41 @@ void UT_movieconverter::testOptions()
 // Test options base class
 void UT_movieconverter::testOptions( rcMovieConverterOptions& opt )
 {
-     rcUNITTEST_ASSERT( opt.frameInterval() != 67.0 );
+     rcUTCheck( opt.frameInterval() != 67.0 );
      opt.frameInterval( 67.0 );
-     rcUNITTEST_ASSERT( opt.frameInterval() == 67.0 );
+     rcUTCheck( opt.frameInterval() == 67.0 );
      
-     rcUNITTEST_ASSERT( opt.firstFrameIndex() != 14 );
+     rcUTCheck( opt.firstFrameIndex() != 14 );
      opt.firstFrameIndex( 14 );
-     rcUNITTEST_ASSERT( opt.firstFrameIndex() == 14 );
+     rcUTCheck( opt.firstFrameIndex() == 14 );
      
-     rcUNITTEST_ASSERT( opt.frameCount() != 99 );
+     rcUTCheck( opt.frameCount() != 99 );
      opt.frameCount( 99 );
-     rcUNITTEST_ASSERT( opt.frameCount() == 99 );
+     rcUTCheck( opt.frameCount() == 99 );
      
-     rcUNITTEST_ASSERT( opt.frameOffset() != 17 );
+     rcUTCheck( opt.frameOffset() != 17 );
      opt.frameOffset( 17 );
-     rcUNITTEST_ASSERT( opt.frameOffset() == 17 );
+     rcUTCheck( opt.frameOffset() == 17 );
      
-     rcUNITTEST_ASSERT( opt.samplePeriod() != 3 );
+     rcUTCheck( opt.samplePeriod() != 3 );
      opt.samplePeriod( 3 );
-     rcUNITTEST_ASSERT( opt.samplePeriod() == 3 );
+     rcUTCheck( opt.samplePeriod() == 3 );
 
-     rcUNITTEST_ASSERT( opt.creator() != std::string("UT_movieconverter") );
+     rcUTCheck( opt.creator() != std::string("UT_movieconverter") );
      opt.creator(  std::string("UT_movieconverter") );
-     rcUNITTEST_ASSERT( opt.creator() ==  std::string("UT_movieconverter") );
+     rcUTCheck( opt.creator() ==  std::string("UT_movieconverter") );
      
-     rcUNITTEST_ASSERT( opt.overWrite() != false );
+     rcUTCheck( opt.overWrite() != false );
      opt.overWrite( false );
-     rcUNITTEST_ASSERT( opt.overWrite() == false );
+     rcUTCheck( opt.overWrite() == false );
 
-     rcUNITTEST_ASSERT( opt.reversePixels() != true );
+     rcUTCheck( opt.reversePixels() != true );
      opt.reversePixels( true );
-     rcUNITTEST_ASSERT( opt.reversePixels() == true );
+     rcUTCheck( opt.reversePixels() == true );
 
-     rcUNITTEST_ASSERT( opt.verbose() != false );
+     rcUTCheck( opt.verbose() != false );
      opt.verbose( false );
-     rcUNITTEST_ASSERT( opt.verbose() == false );
+     rcUTCheck( opt.verbose() == false );
 }
 
 // Test to .rfymov conversion
@@ -123,12 +127,12 @@ void UT_movieconverter::testToRfy()
             std::string input("/tmp/rfy-non-existent-input-file666.mov");
             std::string output = makeTmpName("output.rfymov");
             rcMovieConverterError err = converter.convert( input, output );
-            rcUNITTEST_ASSERT( err == eMovieConverterErrorOpen );
+            rcUTCheck( err == eMovieConverterErrorOpen );
             if ( err != eMovieConverterErrorOpen ) {
                 cerr << rcMovieConverter::getErrorString ( err ) << endl;
             }
             if ( cDeleteOutputFiles )
-                system( std::string( "rm -f " + output ).c_str() );
+                ::system( std::string( "rm -f " + output ).c_str() );
         }
         // Test with non-existent rfy input movie
         {
@@ -137,12 +141,12 @@ void UT_movieconverter::testToRfy()
             std::string input("/tmp/rfy-non-existent-input-file666.rfymov");
             std::string output = makeTmpName("output.rfymov");
             rcMovieConverterError err = converter.convert( input, output );
-            rcUNITTEST_ASSERT( err == eMovieConverterErrorOpen );
+            rcUTCheck( err == eMovieConverterErrorOpen );
             if ( err != eMovieConverterErrorOpen ) {
                 cerr << rcMovieConverter::getErrorString ( err ) << endl;
             }
             if ( cDeleteOutputFiles )
-                system( std::string( "rm -f " + output ).c_str() );
+                ::system( std::string( "rm -f " + output ).c_str() );
         }
 
         opt.verbose( true );
@@ -153,13 +157,13 @@ void UT_movieconverter::testToRfy()
 
             std::string output = makeTmpName("output-from-rfy-rev.rfymov");
             rcMovieConverterError err = converter.convert( mRfyInputMovie, output );
-            rcUNITTEST_ASSERT( err == eMovieConverterErrorOK );
+            rcUTCheck( err == eMovieConverterErrorOK );
             if ( err != eMovieConverterErrorOK ) {
                 cerr << rcMovieConverter::getErrorString ( err ) << " "
                      << mRfyInputMovie << endl;
             }
             if ( cDeleteOutputFiles )
-                system( std::string( "rm -f " + output ).c_str() );
+                ::system( std::string( "rm -f " + output ).c_str() );
         }
         // Test with valid rfy input movie
         {
@@ -168,13 +172,13 @@ void UT_movieconverter::testToRfy()
 
             std::string output = makeTmpName("output-from-rfy.rfymov");
             rcMovieConverterError err = converter.convert( mRfyInputMovie, output );
-            rcUNITTEST_ASSERT( err == eMovieConverterErrorOK );
+            rcUTCheck( err == eMovieConverterErrorOK );
             if ( err != eMovieConverterErrorOK ) {
                 cerr << rcMovieConverter::getErrorString ( err ) << " "
                      << mRfyInputMovie << endl;
             }
             if ( cDeleteOutputFiles )
-                system( std::string( "rm -f " + output ).c_str() );
+                ::system( std::string( "rm -f " + output ).c_str() );
         }
         // Test with valid rfy input movie, clip input
         {
@@ -185,13 +189,13 @@ void UT_movieconverter::testToRfy()
 
             std::string output = makeTmpName("output-from-rfy-clip.rfymov");
             rcMovieConverterError err = converter.convert( mRfyInputMovie, output );
-            rcUNITTEST_ASSERT( err == eMovieConverterErrorOK );
+            rcUTCheck( err == eMovieConverterErrorOK );
             if ( err != eMovieConverterErrorOK ) {
                 cerr << rcMovieConverter::getErrorString ( err ) << " "
                      << mRfyInputMovie << endl;
             }
             if ( cDeleteOutputFiles )
-                system( std::string( "rm -f " + output ).c_str() );
+                ::system( std::string( "rm -f " + output ).c_str() );
         }
         
         // Test with valid QT input movie
@@ -202,13 +206,13 @@ void UT_movieconverter::testToRfy()
 
             std::string output = makeTmpName("output-from-qt.rfymov");
             rcMovieConverterError err = converter.convert( mQTInputMovie, output );
-            rcUNITTEST_ASSERT( err == eMovieConverterErrorOK );
+            rcUTCheck( err == eMovieConverterErrorOK );
             if ( err != eMovieConverterErrorOK ) {
                 cerr << rcMovieConverter::getErrorString ( err ) << " "
                      << mQTInputMovie << endl;
             }
             if ( cDeleteOutputFiles )
-                system( std::string( "rm -f " + output ).c_str() );
+                ::system( std::string( "rm -f " + output ).c_str() );
         }        
     }
 }
@@ -228,13 +232,13 @@ void UT_movieconverter::testToQT()
 
             std::string output = makeTmpName("output-from-rfy-reversed.mov");
             rcMovieConverterError err = converter.convert( mRfyInputMovie, output );
-            rcUNITTEST_ASSERT( err == eMovieConverterErrorOK );
+            rcUTCheck( err == eMovieConverterErrorOK );
             if ( err != eMovieConverterErrorOK ) {
                 cerr << rcMovieConverter::getErrorString ( err ) << " "
                      << mRfyInputMovie << endl;
             }
             if ( cDeleteOutputFiles )
-                system( std::string( "rm -f " + output ).c_str() );
+                ::system( std::string( "rm -f " + output ).c_str() );
         }
 
         // Test with valid rfy input movie
@@ -243,13 +247,13 @@ void UT_movieconverter::testToQT()
             opt.reversePixels( false );
             std::string output = makeTmpName("output-from-rfy.mov");
             rcMovieConverterError err = converter.convert( mRfyInputMovie, output );
-            rcUNITTEST_ASSERT( err == eMovieConverterErrorOK );
+            rcUTCheck( err == eMovieConverterErrorOK );
             if ( err != eMovieConverterErrorOK ) {
                 cerr << rcMovieConverter::getErrorString ( err ) << " "
                      << mRfyInputMovie << endl;
             }
             if ( cDeleteOutputFiles )
-                system( std::string( "rm -f " + output ).c_str() );
+                ::system( std::string( "rm -f " + output ).c_str() );
         }
     }
 }

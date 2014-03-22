@@ -227,7 +227,7 @@ public:
   float XResolution;
   bool mIsSTKfile;
   
-  // friend ostream& operator<< (ostream&, const TIFFReaderInternal&);
+  friend ostream& operator<< (ostream&, const TIFFReaderInternal&);
 };
 
 class TIFFImageIO 

@@ -7,14 +7,20 @@
  * @file
  ***************************************************************************/
 
-#include <libgen.h>
+
 #include <unistd.h>
 #include <iostream>
 #include <rc_movieconverter.h>
 #include <rc_videocache.h>
+#include <rc_cinder_qtime_grabber.h>
 #include <rc_imagegrabber.h>
 #include <file_system.hpp>
 #include <rc_stlplus.h>
+#include <cinder/qtime/QuickTime.h>
+#include <cinder/qtime/MovieWriter.h>
+
+using namespace ci;
+
 
 
 
@@ -271,8 +277,8 @@ rcMovieConverterError rcMovieConverterToRfy::convert( const std::string& inputFi
         rcVideoCache::rcVideoCacheDtor( cacheP );
     } else {
         if ( !isImageCollection( inputFile ) ) {
-            rcMovieGrabber grabber( inputFile, mCarbonLock, mOptions.frameInterval() );
-            mLastError = createRfyMovie( grabber, outputFile );
+            rcCinderGrabber grabber( inputFile, mCarbonLock); // , mOptions.frameInterval() );
+            mLastError = createRfyMovie( grabber , outputFile );
         } else {
             vector<std::string> fileNames;
             // Export selected images
@@ -845,15 +851,6 @@ rcMovieConverterError rcMovieConverterToQT::createQTMovie( rcVideoCache* inputCa
     rmAssert(inputCache);
     rcMovieConverterError error = eMovieConverterErrorOK;
     rcVideoCache& cache = *inputCache;
-
-    Movie myMovie = NULL;
-    Track myTrack = NULL;
-    Media myMedia = NULL;
-    FSSpec myFile;
-    long myFlags = createMovieFileDeleteCurFile | createMovieFileDontCreateResFile;
-    short myResRefNum = 0;
-    short myResID = movieInDataForkResID;
-    OSErr myErr = noErr;
 	int32 frameCount = mOptions.frameCount();
     if ( frameCount < 0 )
         frameCount = inputCache->frameCount();
@@ -878,205 +875,27 @@ rcMovieConverterError rcMovieConverterToQT::createQTMovie( rcVideoCache* inputCa
     fprintf(stderr, "destfile %s converted %s\n", outputFile.c_str(), destFullName.c_str());
 #endif
 
+    rcRect movieSize( 0, 0, cache.frameWidth(), cache.frameHeight() );
+    if ( mOptions.clipRect().width() > 0 && mOptions.clipRect().height() > 0 )
+        movieSize = rcRect( 0, 0, mOptions.clipRect().width(), mOptions.clipRect().height() );
+
+    
+    ci::qtime::MovieWriter::Format format (kRawCodecType, 1.0);
+    ci::qtime::MovieWriterRef mMovieWriter = ci::qtime::MovieWriter::create (destFullName,
+                                                                             movieSize.width(), 
+                                                                             movieSize.height(), 
+                                                                             format);
+    
+    
     /* Do some stupid stuff to make sure a "null" file exists. The file
      * needs to exist, otherwise rfMakeFSSpecFromPosixPath is unhappy.
      * The file gets deleted if it already exists just out of my own
      * personal paranoia.
      */
-    FILE* tempFP = fopen(destFullName.c_str(), "r");
-    if (tempFP) {
-        fclose(tempFP);
-        remove(destFullName.c_str());
-    }
-    tempFP = fopen(destFullName.c_str(), "w");
-    fputc(0, tempFP);
-    fclose(tempFP);
-
-    lock();
-	bool isDir;
-    myFile = qtime::rfMakeFSSpecFromPosixPath(destFullName.c_str(), isDir);
-    myErr = qtime::ValidFSSpec(&myFile);
-    unlock();
-    if (myErr != noErr)
-        return eMovieConverterErrorWriteOpen;
-    lock();
-    myErr = EnterMovies();
-    unlock();
-    if (myErr != noErr)
-        return eMovieConverterErrorWriteOpen;
-
-    rcRect movieSize( 0, 0, cache.frameWidth(), cache.frameHeight() );
-    if ( mOptions.clipRect().width() > 0 && mOptions.clipRect().height() > 0 )
-        movieSize = rcRect( 0, 0, mOptions.clipRect().width(), mOptions.clipRect().height() );
-
-    lock();
-    // create a movie file for the destination movie
-    myErr = CreateMovieFile(&myFile, smRoman /*sigMoviePlayer*/ ,
-                            smCurrentScript, myFlags, &myResRefNum, &myMovie);
-    unlock();
-    if (myErr != noErr) {
-        error = eMovieConverterErrorWriteOpen;
-        goto bail;
-    }
-
-    lock();
-    // create the movie track and media
-    myTrack = NewMovieTrack(myMovie, FixRatio(movieSize.width(), 1),
-                            FixRatio(movieSize.height(), 1), kNoVolume);
-    myErr = GetMoviesError();
-    unlock();
-    if (myErr != noErr)
-        goto bail;
-
-    lock();
-    myMedia = NewTrackMedia(myTrack, VideoMediaType, kVideoTimeScale, NULL, 0);
-    myErr = GetMoviesError();
-    unlock();
-    if (myErr != noErr)
-        goto bail;
-
-    lock();
-    // create the media samples
-    myErr = BeginMediaEdits(myMedia);
-    unlock();
-    if (myErr != noErr)
-        goto bail;
-
-    myErr = addVideoSamplesToMedia(myMedia,
-                                   cache,
-                                   mOptions.firstFrameIndex(),
-                                   frameCount,
-                                   mOptions.frameOffset(),
-                                   mOptions.samplePeriod(),
-                                   movieSize);
-    if (myErr != noErr)
-        goto bail;
-
-    lock();
-    myErr = EndMediaEdits(myMedia);
-    unlock();
-    if (myErr != noErr)
-        goto bail;
-
-    lock();
-    // add the media to the track
-    myErr = InsertMediaIntoTrack(myTrack, 0, 0, GetMediaDuration(myMedia), fixed1);
-    unlock();
-    if (myErr != noErr)
-        goto bail;
-
-    lock();
-    // add the movie atom to the movie file
-    myErr = AddMovieResource(myMovie, myResRefNum, &myResID, NULL);
-    unlock();
-
-  bail:
-    lock();
-    if (myResRefNum != 0)
-        CloseMovieFile(myResRefNum);
-
-    if (myMovie != NULL)
-        DisposeMovie(myMovie);
-
-    if ( myErr != noErr) {
-        if ( verbose() )
-            cerr << "QT error " << myErr << endl;
-        error = eMovieConverterErrorWrite;
-    }
-    unlock();
-
-    return error;
-}
-
-
-
-OSErr rcMovieConverterToQT::addVideoSamplesToMedia(Media theMedia, rcVideoCache& cache,
-                                                   uint32 firstIndex, uint32 frameCount,
-                                                   uint32 offset, uint32 period,
-                                                   const rcRect& movieSize )
-{
-    GWorldPtr		myGWorld = NULL;
-    PixMapHandle	myPixMap = NULL;
-    CodecType		myCodecType = kRawCodecType; // kJPEGCodecType;
-    const CodecQ    quality = codecLosslessQuality;
-    long			myMaxComprSize = 0L;
-    Handle		    myComprDataHdl = NULL;
-    CTabHandle      ctabHdl = NULL;
-    ::Ptr			    myComprDataPtr = NULL;
-    ImageDescriptionHandle myImageDesc = NULL;
-    CGrafPtr		mySavedPort = NULL;
-    GDHandle		mySavedDevice = NULL;
-    ::Rect			myRect;
-    OSErr			myErr = noErr;
-
-    MacSetRect(&myRect, 0, 0, movieSize.width(), movieSize.height());
-
-    ctabHdl = (CTabHandle)NewHandle(sizeof(ColorTable) +
-                                    sizeof(ColorSpec)*256);
-    if (ctabHdl == NULL) {
-        myErr = -1;
-        cleanupAndReturn;
-    }
-
-    HLockHi((Handle)ctabHdl);
-    {
-        (**ctabHdl).ctSeed = 0;
-        (**ctabHdl).ctFlags = 0;
-        (**ctabHdl).ctSize = 255;
-        ColorSpec* ctPtr = (ColorSpec*)&((**ctabHdl).ctTable);
-        for (int i = 0; i <= (**ctabHdl).ctSize; i++) {
-            ctPtr->value = 0;
-            unsigned short val =  (unsigned short)(i*257);
-            ctPtr->rgb.red = ctPtr->rgb.blue = ctPtr->rgb.green = val;
-            ctPtr++;
-        }
-    }
-    lock();
-    myErr = NewGWorld(&myGWorld, 8, &myRect, ctabHdl, NULL, (GWorldFlags)0);
-    unlock();
-    if (myErr != noErr)
-        cleanupAndReturn;
-
-    lock();
-    myPixMap = GetGWorldPixMap(myGWorld);
-    unlock();
-    if (myPixMap == NULL) {
-        myErr = -1;
-        cleanupAndReturn;
-    }
-
-    lock();
-    LockPixels(myPixMap);
-    myErr = GetMaxCompressionSize(myPixMap,
-                                  &myRect,
-                                  40, // 8 bit grey scale
-                                  quality,
-                                  myCodecType,
-                                  (CompressorComponent)bestFidelityCodec,
-                                  &myMaxComprSize);
-    unlock();
-    if (myErr != noErr)
-        cleanupAndReturn;
-
-    myComprDataHdl = NewHandle(myMaxComprSize);
-    if (myComprDataHdl == NULL) {
-        myErr = -1;
-        cleanupAndReturn;
-    }
-
-    HLockHi(myComprDataHdl);
-    myComprDataPtr = *myComprDataHdl;
-
-    myImageDesc = (ImageDescriptionHandle)NewHandle(4);
-    if (myImageDesc == NULL) {
-        myErr = -1;
-        cleanupAndReturn;
-    }
-
-    lock();
-    GetGWorld(&mySavedPort, &mySavedDevice);
-    SetGWorld(myGWorld, NULL);
-
+    
+    int firstIndex = mOptions.firstFrameIndex();
+    int offset = mOptions.frameOffset();
+    int period = mOptions.samplePeriod();
     TimeValue frameDuration = 0;
 
     uint32 endMark = offset + (firstIndex + frameCount)*period;
@@ -1084,22 +903,21 @@ OSErr rcMovieConverterToQT::addVideoSamplesToMedia(Media theMedia, rcVideoCache&
     bool repeat = true;
     unlock();
 
-    for (uint32 i = offset + firstIndex*period; repeat; i += period) {
-        if (i >= endMark) {
+    for (uint32 i = offset + firstIndex*period; repeat; i += period)
+    {
+        if (i >= endMark)
+        {
             repeat = false;
-            if ( i >= cache.frameCount())
+            if ( i >= inputCache->frameCount())
                 continue;
         }
-        EraseRect(&myRect);
 
         rcSharedFrameBufPtr frameBuf;
         rcVideoCacheError error;
-        rcVideoCacheStatus status = cache.getFrame(i, frameBuf, &error);
+        rcVideoCacheStatus status = inputCache->getFrame(i, frameBuf, &error);
         if (status != eVideoCacheStatusOK) {
             cerr << "Couldn't read frame: " << i << " error: "
                  << rcVideoCache::getErrorString(error) << endl;
-            myErr = -1;
-            cleanupAndReturn;
         }
 
         frameBuf = clippedFrame( frameBuf, mOptions );
@@ -1110,86 +928,27 @@ OSErr rcMovieConverterToQT::addVideoSamplesToMedia(Media theMedia, rcVideoCache&
         }
 
         lock();
-        copyFrame(myPixMap, frameBuf);
-
-        myErr = CompressImage(myPixMap,
-                              &myRect,
-                              quality,
-                              myCodecType,
-                              myImageDesc,
-                              myComprDataPtr);
+        mMovieWriter->addFrame (frameBuf->toCiChannel() );
         unlock();
-        if (myErr != noErr)
-            cleanupAndReturn;
 
         rcTimestamp startTime, endTime;
-        status = cache.frameIndexToTimestamp(i, startTime, &error);
-        if (status != eVideoCacheStatusOK) {
-            cerr << "Couldn't read start time: " << i << " error: "
-                 << rcVideoCache::getErrorString(error) << endl;
-            myErr = -1;
-            cleanupAndReturn;
-        }
-
         if ((i+period) < cache.frameCount()) {
             status = cache.frameIndexToTimestamp(i+period, endTime, &error);
             if (status != eVideoCacheStatusOK) {
                 cerr << "Couldn't read end time: " << i+period << " error: "
                      << rcVideoCache::getErrorString(error) << endl;
-                myErr = -1;
-                cleanupAndReturn;
             }
             endTime = endTime - startTime;
             frameDuration = (TimeValue)(endTime.secs() * kVideoTimeScale);
         }
-        TimeValue sampleTime;
 
-        lock();
-        myErr = AddMediaSample(theMedia,
-                               myComprDataHdl,
-                               0,     // no offset in data
-                               (**myImageDesc).dataSize,
-                               frameDuration,
-                               (SampleDescriptionHandle)myImageDesc,
-                               1,    // one sample
-                               0,    // self-contained samples
-                               &sampleTime);
-        unlock();
+
         ++converted;
         if ( mProgress )
             mProgress->progress( double(converted)/frameCount * 100.0 );
 
-#ifdef DEBUG
-        fprintf(stderr, "  Adding frame %d, duration %ld, idepth %d  icid %d "
-                "psize %d ptype %d sampleTime %ld\n", i, frameDuration,
-                (**myImageDesc).depth, (**myImageDesc).clutID,
-                (**myPixMap).pixelSize, (**myPixMap).pixelType,
-                sampleTime);
-#endif
-
-        if (myErr != noErr)
-            cleanupAndReturn;
     }
 
-    cleanupAndReturn;
-}
-
-void rcMovieConverterToQT::copyFrame(PixMapHandle myPixMap, rcSharedFrameBufPtr& frameBuf)
-{
-    rmAssert(myPixMap);
-    int32 width = (**myPixMap).bounds.right - (**myPixMap).bounds.left;
-    int32 height = (**myPixMap).bounds.bottom - (**myPixMap).bounds.top;
-
-    uint8* rowPtr = (uint8 *)GetPixBaseAddr(myPixMap);
-    int32 rowUpdate = QTGetPixMapHandleRowBytes(myPixMap);
-
-    rmAssert(frameBuf->width() == width);
-    rmAssert(frameBuf->height() == height);
-    rmAssert(width <= rowUpdate);
-    for (int32 curLine = 0; curLine < height; curLine++) {
-        memmove(rowPtr, frameBuf->rowPointer(curLine), width);
-        rowPtr += rowUpdate;
-    }
 }
 
 //
@@ -1227,3 +986,6 @@ ostream& operator<< ( ostream& o, const rcMovieConverterOptionsQT& opt )
 
     return o;
 }
+    
+
+

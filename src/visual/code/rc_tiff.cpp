@@ -19,7 +19,7 @@
 #include <iostream>
 #include <fstream>
 #include <rc_systeminfo.h>
-
+using namespace std;
 static const char *photoNames[] = {
 	"min-is-white",				/* PHOTOMETRIC_MINISWHITE */
 		"min-is-black",				/* PHOTOMETRIC_MINISBLACK */
@@ -57,13 +57,15 @@ ostream& operator<< (ostream& ous, const TIFFReaderInternal& tim)
 		ps = ((tim.PlanarConfig != PLANARCONFIG_CONTIG) && (tim.spp>1)) ? ", organised in separated planes" : " planar";
 		ous << " PlanarConfig"         << "\t" << ps << endl;
 
-		ous << " Orientation"           << "\t" <<   tim.Orientation <<    
+#ifdef CPP11FIXED // @note c++11 issue
+        //	ous << " Orientation"           << "\t" <<   tim.Orientation <<    
 			ous << "TileDepth"              << "\t" <<  tim.TileDepth <<       
 			ous << " TileRows"              << "\t" <<   tim.TileRows <<       
 			ous << " TileColumns"         << "\t" <<     tim.TileColumns <<    
 			ous << " TileWidth"             << "\t" <<   tim.TileWidth <<      
 			ous << " TileHeight"            << "\t" <<   tim.TileHeight <<     
 			ous << "NumberOfTiles"      << "\t" <<      tim.NumberOfTiles <<  endl;
+#endif        
 		return ous;
 	}
 }

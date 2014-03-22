@@ -422,7 +422,7 @@ int rcEngineImpl::loadMovie( const std::string& movieFile, rcFrameGrabberError& 
 		{
 				// Forced frame rate
 			double frameInterval = _frameRate ? 1.0/_frameRate : 0.0;
-			grabber = new rcMovieGrabber( movieFile, this, frameInterval );
+			grabber = new rcCinderGrabber( movieFile, this, frameInterval );
 		}
 
 

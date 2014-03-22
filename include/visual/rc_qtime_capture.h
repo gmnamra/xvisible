@@ -8,7 +8,7 @@
 #include <rc_atomic.h>
 #include <rc_gen_capture.h>
 
-namespace qtime
+namespace legacy_qtime
 {
 class rcSharedMemoryUser;
 

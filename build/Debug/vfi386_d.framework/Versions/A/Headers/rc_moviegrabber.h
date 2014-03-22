@@ -17,9 +17,9 @@
 
 
 using namespace std;
-using namespace qtime;
 
-namespace qtime
+
+namespace legacy_qtime
 {
 //
 // Class to grab frames from a movie file
@@ -76,7 +76,6 @@ class rcMovieGrabber : public rcFileGrabber {
     TimeValue               mTimeScale;        // Movie time scale
     TimeValue               mCurrentTime;      // Current time within movie
     int32                 mCurrentIndex;     // Current index within movie
-    bool                    mGotFirstFrame;    // true after first frame captured
     double                  mFrameInterval;    //  force a fixed frame interval
     rcTimestamp             mCurrentTimeStamp; // Current frame timestamp
     std::vector<TimeValue>  mFrameTimes;

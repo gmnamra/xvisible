@@ -1,8 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_filechoicesettingwidget.h'
 **
-** Created: Sun Mar 16 19:19:53 2014
-**      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
+** Created by: The Qt Meta Object Compiler version 63 (Qt 4.8.5)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -10,8 +9,8 @@
 #include "../include/visUI/rc_filechoicesettingwidget.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'rc_filechoicesettingwidget.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 62
-#error "This file was generated using the moc from 4.6.4. It"
+#elif Q_MOC_OUTPUT_REVISION != 63
+#error "This file was generated using the moc from 4.8.5. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,7 +19,7 @@ QT_BEGIN_MOC_NAMESPACE
 static const uint qt_meta_data_rcFileChoiceSettingWidget[] = {
 
  // content:
-       4,       // revision
+       6,       // revision
        0,       // classname
        0,    0, // classinfo
       13,   14, // methods
@@ -58,9 +57,37 @@ static const char qt_meta_stringdata_rcFileChoiceSettingWidget[] = {
     "stkImport()\0fname\0recentMovieFile(QString)\0"
 };
 
+void rcFileChoiceSettingWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Q_ASSERT(staticMetaObject.cast(_o));
+        rcFileChoiceSettingWidget *_t = static_cast<rcFileChoiceSettingWidget *>(_o);
+        switch (_id) {
+        case 0: _t->browseRequest(); break;
+        case 1: _t->valueChanged(); break;
+        case 2: _t->settingChanged(); break;
+        case 3: _t->updateState((*reinterpret_cast< rcExperimentState(*)>(_a[1]))); break;
+        case 4: _t->singleFileBrowse(); break;
+        case 5: _t->multiFileBrowse(); break;
+        case 6: _t->directoryBrowse(); break;
+        case 7: _t->directoryBrowse4Tiffs(); break;
+        case 8: _t->imageImport(); break;
+        case 9: _t->movieImport(); break;
+        case 10: _t->tifDirImport(); break;
+        case 11: _t->stkImport(); break;
+        case 12: _t->recentMovieFile((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObjectExtraData rcFileChoiceSettingWidget::staticMetaObjectExtraData = {
+    0,  qt_static_metacall 
+};
+
 const QMetaObject rcFileChoiceSettingWidget::staticMetaObject = {
     { &rcSettingWidget::staticMetaObject, qt_meta_stringdata_rcFileChoiceSettingWidget,
-      qt_meta_data_rcFileChoiceSettingWidget, 0 }
+      qt_meta_data_rcFileChoiceSettingWidget, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
@@ -86,22 +113,8 @@ int rcFileChoiceSettingWidget::qt_metacall(QMetaObject::Call _c, int _id, void *
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        switch (_id) {
-        case 0: browseRequest(); break;
-        case 1: valueChanged(); break;
-        case 2: settingChanged(); break;
-        case 3: updateState((*reinterpret_cast< rcExperimentState(*)>(_a[1]))); break;
-        case 4: singleFileBrowse(); break;
-        case 5: multiFileBrowse(); break;
-        case 6: directoryBrowse(); break;
-        case 7: directoryBrowse4Tiffs(); break;
-        case 8: imageImport(); break;
-        case 9: movieImport(); break;
-        case 10: tifDirImport(); break;
-        case 11: stkImport(); break;
-        case 12: recentMovieFile((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        default: ;
-        }
+        if (_id < 13)
+            qt_static_metacall(this, _c, _id, _a);
         _id -= 13;
     }
     return _id;

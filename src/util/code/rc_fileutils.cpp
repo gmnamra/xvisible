@@ -1,30 +1,18 @@
-/*
- *
- *$Id $
- *$Log$
- *Revision 1.4  2005/10/12 22:04:17  arman
- *incremental
- *
- *Revision 1.3  2005/05/08 21:28:53  arman
- *added .tiff and .TIFF
- *
- *Revision 1.2  2005/05/04 01:49:56  arman
- *tif filter now is case independent
- *
- *Revision 1.1  2005/04/29 21:59:18  arman
- *get .tif files from a directory.
- *
- *
- *
- * Copyright (c) 2002 Reify Corp. All rights reserved.
- */
-#include <rc_timestamp.h>
-#include "rc_fileutils.h"
-#include <sys/stat.h>
-#include <iomanip>
-#include <fstream>
 
-typedef struct direct    ENTRY;
+#include <stlplus_lite.hpp>
+#include <iostream> // std::cout
+#include <fstream>
+#include <string>
+#include <algorithm> // std::sort, std::copy
+#include <iterator> // std::ostream_iterator
+#include <sstream> // std::istringstream
+#include <vector>
+#include <cctype> // std::isdigit
+#include <rc_timestamp.h>
+#include <iomanip>
+
+#include "rc_fileutils.h"
+
 
 
 static int alphasorthalf (const void*d1, const void*d2);
@@ -32,46 +20,41 @@ static int numericsort(const void*A, const void*B, int cs);
 static int numericsort(const void*A, const void*B);
 static int casenumericsort(const void*A, const void*B);
 
-static int tiffilter(struct direct * dir);
-static int jpgfilter(struct direct * dir);
-static int pngfilter(struct direct * dir);
+bool numeric_compare (const std::string& A, const std::string& B);
+bool natural_compare (const std::string& A, const std::string& B);
+
 
 void rfGetDirEntries(const string & dirname, 
 		     vector<std::string> & entries, const char *imageformat)
-// pre: dirname is directory accessible for reading
-// post: entries contains pointers to direct structs for each
-//       file/subdirectory (aka file) in dirname    
 {
-  direct ** darray;
-  int entryCount (0);
 
-  if (strncmp(imageformat, "tif", 3) == 0)
+    if (! folder_exists (dirname) ) return;
+    std::string wildcard ("*.");    
+    std::string iformat (imageformat);
+    wildcard = wildcard + iformat;
+    
+    vector<std::string> files = folder_wildcard (dirname,wildcard, false, true );
+    
+    if (strncmp(imageformat, "tif", 3) == 0)    
     {
-      entryCount = scandir(
-			   const_cast<char *>(dirname.c_str()), &darray,
-			   tiffilter, numericsort);
+        std::sort (files.begin(), files.end(), numeric_compare);
     }
 
-  if (strncmp(imageformat, "jpg", 3) == 0)
+    if (strncmp(imageformat, "jpg", 3) == 0)
     {
-      entryCount = scandir(
-			   const_cast<char *>(dirname.c_str()), &darray,
-			   jpgfilter, alphasorthalf);
+        std::sort (files.begin(), files.end(), natural_compare);
     }
 
 	if (strncmp(imageformat, "png", 3) == 0)
     {
-		entryCount = scandir(
-							 const_cast<char *>(dirname.c_str()), &darray,
-							 pngfilter, alphasorthalf);
+        std::sort (files.begin(), files.end(), natural_compare);
     }
-	
 
-  for(int k=0; k < entryCount; k++)
+	entries.resize (0);
+    vector<std::string>::const_iterator filet = files.begin();
+    for (; filet < files.end(); filet++)
     {
-      std::string name (darray[k]->d_name);
-      name = dirname + std::string ("/") + name;
-      entries.push_back(name);
+        entries.push_back(create_filespec (dirname, *filet));
     }
 }
 
@@ -79,13 +62,7 @@ void rfGetDirEntries(const string & dirname,
 
 int32 rfGetFileSize (const char* sFileName)
 {
-  std::ifstream f;
-  f.open(sFileName, std::ios_base::binary | std::ios_base::in);
-  if (!f.good() || f.eof() || !f.is_open()) { return 0; }
-  f.seekg(0, std::ios_base::beg);
-  std::ifstream::pos_type begin_pos = f.tellg();
-  f.seekg(0, std::ios_base::end);
-  return static_cast<int>(f.tellg() - begin_pos);
+    return file_size (std::string (sFileName));
 }
 
 // Not really part of c++
@@ -102,75 +79,9 @@ int32 rfGetFileSize (const char* sFileName)
 
 bool rfIsDirectory (const char * inFullPath)
 {
-  struct stat dirstat;
-  if (stat(inFullPath, &dirstat) == 0)
-    {
-      if ((dirstat.st_mode & S_IFDIR) == S_IFDIR)
-	return true;
-    }
-  return false;
+    return folder_exists (std::string (inFullPath));
 }
 
-static int tiffilter(struct direct * dir)
-// post: returns 1/true iff name of dir ends in .cpp    
-{
-  char * s = dir->d_name;
-  int cpplen = strlen(s) - 4;   // index of start of . in .cpp
-  if (cpplen >= 0) {
-    if (
-	(strncmp(s+cpplen, ".tif",4) == 0) ||
-	(strncmp(s+cpplen, ".TIF",4) == 0))
-      {
-	return 1;
-      }
-  }
-  if (cpplen >= 1) {
-    if (
-	(strncmp(s+cpplen-1, ".tiff",5) == 0) ||
-	(strncmp(s+cpplen-1, ".TIFF",5) == 0)) 
-      {
-	return 1;
-      }
-  }
-
-  return 0;
-}
-
-static int jpgfilter(struct direct * dir)
-// post: returns 1/true iff name of dir ends in .cpp    
-{
-  char * s = dir->d_name;
-  int cpplen = strlen(s) - 4;   // index of start of . in .cpp
-  if (cpplen >= 0) {
-    if (
-	(strncmp(s+cpplen, ".jpg",4) == 0) ||
-	(strncmp(s+cpplen, ".JPG",4) == 0))
-      {
-	return 1;
-      }
-
-  }
-
-  return 0;
-}
-
-static int pngfilter(struct direct * dir)
-// post: returns 1/true iff name of dir ends in .cpp    
-{
-	char * s = dir->d_name;
-	int cpplen = strlen(s) - 4;   // index of start of . in .cpp
-	if (cpplen >= 0) {
-		if (
-			(strncmp(s+cpplen, ".png",4) == 0) ||
-			(strncmp(s+cpplen, ".png",4) == 0))
-		{
-			return 1;
-		}
-		
-	}
-	
-	return 0;
-}
 
 static int alphasorthalf (const void*d1, const void*d2)
 {
@@ -188,43 +99,19 @@ static int alphasorthalf (const void*d1, const void*d2)
 // Strip path from filename
 std::string rfStripPath( const std::string& fileName )
 {
-  // Get file name without preceding path
-  const std::string slash( "/" );
-    
-  uint32 s = fileName.find_last_of( slash );
-  if ( s != std::string::npos ) {
-    uint32 len = fileName.size() - s - 1;
-    if ( len > 0 ) 
-      return fileName.substr( s+1, len );
-  }
-
-  return fileName;
+    return filename_part (fileName);   
 }
 
 // Strip extension (.rfymov etc.) from filename
 std::string rfStripExtension( const std::string& fileName )
 {
-  // Get file name without extension
-  const std::string dot( "." );
-    
-  uint32 s = fileName.find_last_of( dot );
-  if ( s != std::string::npos ) 
-    return fileName.substr( 0, s );
-
-  return fileName;
+    return basename_part (fileName);
 }
 
 // get extension (.rfymov etc.) from filename
 std::string rfGetExtension( const std::string& fileName )
 {
-  // Get file name without extension
-  const std::string dot( "." );
-    
-  uint32 s = fileName.find_last_of( dot );
-  if ( s != std::string::npos ) 
-    return fileName.substr( s , std::string::npos );
-
-  return fileName;
+    return extension_part (fileName);
 }
 
 
@@ -274,16 +161,9 @@ static int numericsort(const void *A, const void *B, int cs) {
  * 'casenumericsort()' - Compare directory entries with case-sensitivity.
  */
 
-static int casenumericsort(const void *A, const void *B) {
-  return numericsort(A, B, 0);
-}
-
-/*
- * 'numericsort()' - Compare directory entries with case-sensitivity.
- */
-
-static int numericsort(const void *A, const void *B) {
-  return numericsort(A, B, 1);
+ bool numeric_compare (const std::string& A, const std::string& B)
+{
+    return numericsort(A.c_str(), B.c_str(), 0) == 0;
 }
 
 
@@ -360,6 +240,38 @@ int rfFilename_match(const char *s, const char *p)
   }
 }
 
+bool natural_compare (const std::string& a, const std::string& b)
+{
+    if (a.empty())
+        return true;
+    if (b.empty())
+        return false;
+    if (std::isdigit(a[0]) && !std::isdigit(b[0]))
+        return true;
+    if (!std::isdigit(a[0]) && std::isdigit(b[0]))
+        return false;
+    if (!std::isdigit(a[0]) && !std::isdigit(b[0]))
+    {
+        if (a[0] == b[0])
+            return natural_compare(a.substr(1), b.substr(1));
+        return (std::toupper(a[0]) < std::toupper(b[0]));
+    }
+    
+    // Both strings begin with digit --> parse both numbers
+    std::istringstream issa(a);
+    std::istringstream issb(b);
+    int ia, ib;
+    issa >> ia;
+    issb >> ib;
+    if (ia != ib)
+        return ia < ib;
+    
+    // Numbers are the same --> remove numbers and recurse
+    std::string anew, bnew;
+    std::getline(issa, anew);
+    std::getline(issb, bnew);
+    return (natural_compare(anew, bnew));
+}
 
 // Construct a temporary file name
 std::string rfMakeTmpFileName(const char *pathFormat, const char* baseName )
@@ -422,214 +334,3 @@ bool rfFileExists(const std::string& filename)
     }
     return false;
 }
-
-/*
-Sample code for CUJ article,
-"Custom Containers & Iterators for STL-Friendly Code"
-(March 2005)
-by Ethan McCallum
-
-
-Copyright (c) 2004, Ethan McCallum.
-
-Permission is granted to use this code without restriction as long as this
-copyright notice appears in all source files.
-*/
-
-/*
-Implementation of the rcGlob and rcGlobIterator classes.
-*/
-
-
-// - - - - - - - - - - - - - - - - - - - -
-
-
-rcGlobIterator::rcGlobIterator()
-	:
-	sequence_( NULL ) ,
-	current_()
-{
-	return ;
-} // rcGlobIterator:: "end-range" ctor
-
-rcGlobIterator::rcGlobIterator( char** sequence )
-	:
-	sequence_( sequence ) ,
-	current_( *( sequence_ ) )
-{
-
-	++sequence_ ; // advance pointer here to simplify logic of operator++()
-	return ;
-
-} // rcGlobIterator:: "beginning-" or "mid-range" ctor
-
-rcGlobIterator::rcGlobIterator( const rcGlobIterator& other )
-	:
-	sequence_( other.sequence_ ) ,
-	current_( other.current_ )
-{
-
-	// it's safe to blindly copy the values from the other object;
-	// sequence_ is invalidated only when the parent rcGlob container
-	// changes, not when the other pointer changes.
-	return ;
-
-} // copy ctor
-
-
-rcGlobIterator::self_reference rcGlobIterator::operator=( const rcGlobIterator& other ){
-
-	if( this == &other ){
-		return( *this ) ;
-	}
-
-
-	// it's safe to blindly copy the values from the other object;
-	// sequence_ is invalidated only when the parent rcGlob container
-	// changes, not when the other pointer changes.
-
-	sequence_ = other.sequence_ ;
-	current_ = other.current_ ;
-
-	return( *this ) ;
-
-} // assignment operator
-
-
-rcGlobIterator::self_reference rcGlobIterator::operator++(){
-
-
-	if( NULL != *sequence_ ){
-		current_ = *sequence_ ;
-		++sequence_ ;
-	} else{
-		current_ = "[past the end!]" ;
-		sequence_ = NULL ;
-	}
-
-	return( *this ) ;
-
-} // rcGlobIterator::operator++ (pre)
-
-rcGlobIterator::self_type rcGlobIterator::operator++(int){
-
-	self_type result( *this ) ;
-	++( *this ) ;
-
-	return( result ) ;
-
-} // rcGlobIterator::operator++ (post)
-
-
-bool rcGlobIterator::operator==( const self_reference other ){
-	return( other.sequence_ == this->sequence_ ) ;
-} // rcGlobIterator::oeprator==
-
-bool rcGlobIterator::operator!=( const self_reference other ){
-	return( ! ( (*this) == other ) ) ;
-} // rcGlobIterator::operator!=
-
-rcGlobIterator::reference rcGlobIterator::operator*(){
-	return( current_ ) ;
-} // rcGlobIterator::operator*()
-
-rcGlobIterator::reference rcGlobIterator::operator->(){
-	return( *( *this ) ) ;
-} // rcGlobIterator::operator->
-
-// - - - - - - - - - - - - - - - - - - - -
-
-
-int rcGlob::globErrorHandler( const char* error_path , int error_num ){
-
-	std::cerr << "Unable to traverse directory \"" << error_path << "\": " << std::strerror( error_num ) << std::endl ;
-
-	/*
-	return something nonzero to cause
-	glob() to halt processing with a 
-	GLOB_ABORT value
-	*/
-	return( 0 ) ;
-
-} // rcGlob::globErrorHandler()
-
-
-rcGlob::rcGlob()
-	:
-	glob_()
-{
-
-	return ;
-
-} // rcGlob::ctor()
-
-rcGlob::rcGlob( const std::string& inPattern )
-	throw( std::runtime_error )
-	:
-	glob_()
-{
-
-	push_back( inPattern ) ;
-
-	return ;
-
-} // rcGlob::ctor( const std::string& )
-
-rcGlob::~rcGlob()
-	throw()
-{
-
-	globfree( &glob_ ) ;
-
-	return ;
-
-} // rcGlob::dtor
-
-
-void rcGlob::push_back( const std::string& inPattern )
-	throw( std::runtime_error )
-{
-
-	/*
-	the glob() call both initiates a glob_t object and, when using
-	the GLOB_DOOFFS and GLOB_APPEND flags, appends additional matches
-	to the match list (glob_t.gl_pathv).
-	*/
-
-	int globResult = glob(
-		inPattern.c_str() ,
-		GLOB_MARK | GLOB_DOOFFS | GLOB_APPEND , 
-		rcGlob::globErrorHandler ,
-		&glob_
-	) ;
-
-	if( 0 != globResult ){
-		throw( std::runtime_error( "Encountered error expanding pattern" ) ) ;
-	}
-
-	return ;
-
-} // rcGlob::push_back()
-
-
-rcGlob::const_iterator rcGlob::begin() const {
-
-	rcGlob::const_iterator result( glob_.gl_pathv ) ;
-	return( result ) ;
-	
-} // rcGlob::begin()
-
-
-rcGlob::const_iterator rcGlob::end() const {
-	rcGlob::const_iterator result ;
-	return( result ) ;
-} // rcGlob::end()
-
-rcGlob::size_type rcGlob::size() const throw() {
-
-	return( glob_.gl_pathc ) ;
-
-} // rcGlob::size()
-
-// - - - - - - - - - - - - - - - - - - - -
-// ----

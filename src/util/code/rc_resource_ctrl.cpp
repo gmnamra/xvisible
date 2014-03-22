@@ -36,7 +36,7 @@ void* rcResCtrlWatchdog(void* watchInfoAddr)
   assert(wdInfo.readP);
   assert(wdInfo.writeP);
   fprintf(stderr, "Watchdog starting up ra 0x%X wa 0x%X\n",
-	 (unsigned int)(wdInfo.readP), (unsigned int)(wdInfo.writeP));
+          (intptr_t) wdInfo.readP, (intptr_t)wdInfo.writeP);
 
   uint16 lastValueRead = 0;    // Last value read from peer
   uint16 checkCount = 0;       // # of times read has occurred without change
@@ -218,7 +218,7 @@ rcExecWithShmem::rcExecWithShmem(char* progName, int arg1, char* arg2,
 
   _shMemCtrlP = (shMemCtrl *)shmat(_shmId, 0, 0);
 
-  if ((int)_shMemCtrlP == -1)
+  if ((intptr_t)((char*)_shMemCtrlP) == -1)
   {
     perror("shmem init step 2");
     freeSystemResources();
@@ -297,8 +297,7 @@ rcExecWithShmem::rcExecWithShmem(char* progName, int arg1, char* arg2,
      * current address and then detach.
      */
     shMemCtrl* tempShmemP = (shMemCtrl *)shmat(_shmId, 0, 0);
-
-    if ((int)tempShmemP == -1)
+    if ((intptr_t)tempShmemP == -1)
     {
       perror("shmem init step 3");
       freeSystemResources();
@@ -347,11 +346,11 @@ rcExecWithShmem::rcExecWithShmem(char* progName, int arg1, char* arg2,
      */
     printf("Parent: Shared memory start at 0x%X, size %u + %u. sizeof atomic 0x%lX Creating "
 	   "atomics at locations 0x%X and 0x%X\n",
-	   (unsigned int)(_shMemCtrlP),
+	   (intptr_t) _shMemCtrlP,
        ctrlSz, sz,
        sizeof(rcAtomicValue<uint16>),
-	   (unsigned int)(&_shMemCtrlP->childTouch),
-	   (unsigned int)(&_shMemCtrlP->parentTouch));
+	   (intptr_t)(&_shMemCtrlP->childTouch),
+	   (intptr_t)(&_shMemCtrlP->parentTouch));
 
     _watchdogData.readP = (rcAtomicValue<uint16>*)(&_shMemCtrlP->childTouch);
     _watchdogData.writeP =(rcAtomicValue<uint16>*)(&_shMemCtrlP->parentTouch);
@@ -467,7 +466,7 @@ void rcExecWithShmem::freeSystemResources()
     _semSetId = -1;
   }
 
-  if ((int)_shMemCtrlP != -1)
+  if ((intptr_t)_shMemCtrlP != -1)
   {
     if (shmdt(_shMemCtrlP) == -1)
       perror("freeSystemResources(): Detach of shared memory failed");
@@ -519,7 +518,7 @@ rcCreateChildShmem::rcCreateChildShmem(int argc, char **argv)
 
   _shMemCtrlP = (shMemCtrl *)shmat(_shmId, 0, 0);
 
-  if ((int)_shMemCtrlP == -1)
+  if ((intptr_t) _shMemCtrlP != -1)
   {
     perror("shmem init step 1");
     if (_arg2)
@@ -621,9 +620,9 @@ rcCreateChildShmem::rcCreateChildShmem(int argc, char **argv)
    */
   printf("Child: Shared memory start at 0x%X. sizeof atomic 0x%lX Using atomics at "
          "locations 0x%X and 0x%X\n",
-	 (unsigned int)(_shMemCtrlP), sizeof(rcAtomicValue<uint16>), 
-	 (unsigned int)(&_shMemCtrlP->childTouch),
-	 (unsigned int)(&_shMemCtrlP->parentTouch));
+	 (intptr_t) _shMemCtrlP, sizeof(rcAtomicValue<uint16>), 
+	 (intptr_t)(&_shMemCtrlP->childTouch),
+	 (intptr_t)(&_shMemCtrlP->parentTouch));
 
   _watchdogData.readP = (rcAtomicValue<uint16>*)(&_shMemCtrlP->parentTouch);
   _watchdogData.writeP = (rcAtomicValue<uint16>*)(&_shMemCtrlP->childTouch);
@@ -663,7 +662,7 @@ rcCreateChildShmem::~rcCreateChildShmem()
       _semSetId = -1;
     }
 
-    if ((int)_shMemCtrlP != -1)
+    if ((intptr_t) _shMemCtrlP != -1)
     {
       if (shmdt(_shMemCtrlP) == -1)
 	perror("~rcCreateChildShmem(): Detach of shared memory failed");

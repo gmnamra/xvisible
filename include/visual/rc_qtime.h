@@ -22,7 +22,7 @@
 #include <vector>
 using namespace std;
 
-namespace qtime
+namespace legacy_qtime
 {
 //
 // Image Utilities

@@ -19,7 +19,7 @@ UT_Timestamp::~UT_Timestamp()
 uint32 UT_Timestamp::run()
 {
     testBasic();
-    testFps();
+
     
     return mErrors;  
 }

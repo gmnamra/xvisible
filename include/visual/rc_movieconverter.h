@@ -10,9 +10,8 @@
 #ifndef _rcMOVIE_CONVERTER_H_
 #define _rcMOVIE_CONVERTER_H_
 
-#include <rc_qtime.h>
 #include <rc_gen_movie_file.h>
-#include <rc_moviegrabber.h>
+#include <rc_framegrabber.h>
 
     //using namespace qtime;
 
@@ -190,11 +189,6 @@ class rcMovieConverterToQT : public rcMovieConverter {
   private:
     rcMovieConverterError createQTMovie( rcVideoCache* inputCache,
                                          const std::string& outputFile );
-    void copyFrame(PixMapHandle myPixMap, rcSharedFrameBufPtr& frameBuf);
-    OSErr addVideoSamplesToMedia(Media theMedia, rcVideoCache& cache,
-                                 uint32 firstIndex, uint32 frameCount,
-                                 uint32 offset, uint32 period,
-                                 const rcRect& movieSize);
     
     rcMovieConverterOptionsQT mOptions;    // Conversion options
 };

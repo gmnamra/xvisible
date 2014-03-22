@@ -18,7 +18,7 @@
 
 #include <rc_resource_ctrl.h>
 
-using namespace qtime;
+using namespace legacy_qtime;
 
 
 // These are declared in rc_appconstants.h

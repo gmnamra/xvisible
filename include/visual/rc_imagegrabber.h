@@ -10,7 +10,7 @@
 #define _rcIMAGEGRABBER_H_
 
 #include <vector>
-#include <QuickTime/QuickTimeComponents.h> // for GraphicsImportComponent support
+//#include <QuickTime/QuickTimeComponents.h> // for GraphicsImportComponent support
 
 #include <rc_framegrabber.h>
 #include <rc_filegrabber.h>
@@ -56,7 +56,7 @@ class rcImageGrabber : public rcFileGrabber {
   private:
     vector<std::string>        mFileNames; 
     vector<FSSpec*>         mFileHandles;
-    GraphicsImportComponent mImporter;
+    //    GraphicsImportComponent mImporter;
     uint32                mCurrentIndex; // Current index to mFileHandles
     double                  mFrameInterval;    // Used to force a fixed frame interval
     rcTimestamp             mCurrentTimeStamp; // Current frame timestamp

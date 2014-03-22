@@ -1,4 +1,4 @@
-MAC_SDK  = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.5.sdk
+MAC_SDK  = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
 if( !exists( $$MAC_SDK) ) {
   error("The selected Mac OSX SDK does not exist at $$MAC_SDK!")
 }
@@ -9,7 +9,7 @@ QT += qt3support
 # enable options
 DEFINES += rc_build_option_capture rc_build_option_aci rc_build_option_morphometry rc_build_option_paced_myocyte rc_build_option_selected_myocyte rc_build_option_general_cell rc_build_option_general_fluorescence rc_build_option_cell_lineage 
 
-DEFINES += MAC_OS_X_VERSION_MIN_RQUIRED=MAC_OS_X_VERSION_10_5 MAC_OS_X_VERSION_MAX_ALLOWED=MAC_OS_X_VERSION_10_5
+DEFINES += MAC_OS_X_VERSION_MIN_RQUIRED=MAC_OS_X_VERSION_10_8 MAC_OS_X_VERSION_MAX_ALLOWED=MAC_OS_X_VERSION_10_8
 
 
   # INCLUDE_DIR
@@ -61,7 +61,6 @@ HEADERS = $${INCLUDE_DIR}/include/visUI/rc_about.h \
            $${INCLUDE_DIR}/include/visUI/rc_playbacksettingwidget.h \
            $${INCLUDE_DIR}/include/visUI/rc_customeventmanager.h \
            $${INCLUDE_DIR}/include/visUI/rc_imagecanvasgl.h \
-           $${INCLUDE_DIR}/include/visUI/rc_cellinfowidget.h \
            $${INCLUDE_DIR}/include/visUI/rc_thumbwheelsettingwidget.h \
            $${INCLUDE_DIR}/include/visUI/rc_textchoicesettingwidget.h \
            $${INCLUDE_DIR}/include/visUI/rc_numericchoicesettingwidget.h \
@@ -98,24 +97,28 @@ SOURCES = $${SOURCES_DIR}/src/visible/qt/rc_about.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_playbacksettingwidget.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_customeventmanager.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_imagecanvasgl.cpp \
-           $${SOURCES_DIR}/src/visible/qt/rc_cellinfowidget.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_thumbwheelsettingwidget.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_textchoicesettingwidget.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_numericchoicesettingwidget.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_trackrender.cpp\
            $${SOURCES_DIR}/src/visible/qt/lpwidget.cpp
 
-INCLUDEPATH =   $${INCLUDE_DIR}/include/util  $${INCLUDE_DIR}/include/visual  $${INCLUDE_DIR}/include/analysis  $${INCLUDE_DIR}/include/stlplus  $${INCLUDE_DIR}/include/test  $${INCLUDE_DIR}/include/baseUI  $${INCLUDE_DIR}/include/visUI  $${INCLUDE_DIR}/include/visiCore $${INCLUDE_DIR}/usr/local/boost/include  $${INCLUDE_DIR}/usr/local/lightplot_i386/include
+INCLUDEPATH =   $${INCLUDE_DIR}/include/util  $${INCLUDE_DIR}/include/visual  $${INCLUDE_DIR}/include/analysis  $${INCLUDE_DIR}/include/stlplus  $${INCLUDE_DIR}/include/test  $${INCLUDE_DIR}/include/baseUI  $${INCLUDE_DIR}/include/visUI  $${INCLUDE_DIR}/include/visiCore $${INCLUDE_DIR}/usr/local/boost/include  $${INCLUDE_DIR}/usr/local/lightplot_i386/include $${INCLUDE_DIR}/usr/local/Cinder/include
 
 QT += opengl xml
 
 
-OBJECTS_DIR = $${SOURCES_DIR}/src/visible/.obj
+OBJECTS_DIR = $${SOURCES_DIR}/build/qt_moc/.obj
 
 # install
 target.path = $${SOURCES_DIR}/src/visible/moc
 sources.files = $$SOURCES $$HEADERS $$RESOURCES $$FORMS visible_qt_moc.pro
 sources.path = $${SOURCES_DIR}/src
 INSTALLS += target sources
+macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.8
+QMAKE_CXXFLAGS += -std=c++11
+QMAKE_CXXFLAGS += -stdlib=libc++
+
+
 
 

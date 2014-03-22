@@ -21,7 +21,7 @@
 #include <boost/tuple/tuple.hpp>
 #include <boost/dynamic_bitset.hpp>
 
-namespace qtime
+namespace legacy_qtime
 {
 using namespace std;
 class rcMovieFileCamExt;

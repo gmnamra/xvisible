@@ -83,13 +83,26 @@ rcFrame::rcFrame( int32 width, int32 height, rcPixel depth, int32 alignMod) :
 
     // Find an Aligned Start Ptr
     startPtr = (uint8 *) mRawData;
-    while ((uint32) startPtr % mAlignMod) startPtr ++;
+    while ((intptr_t) startPtr % mAlignMod) startPtr ++;
     n = startPtr - (uint8 *) mRawData;
     assert ((n < mAlignMod) && (n >=0));
 
     // Now have to setup the row pointer logic
     mStartPtr = startPtr;
 }
+
+rcFrame::rcFrame ( const ci::Channel8u & onec )
+: rcFrame ( onec.getWidth (), onec.getHeight (), rcPixel8, ROW_ALIGNMENT_MODULUS )
+{
+    loadImage (reinterpret_cast<const char*>(onec.getData()), onec.getRowBytes (), onec.getWidth (), onec.getHeight (), rcPixel8, true);    
+}
+
+const ci::Channel8u&  rcFrame::toCiChannel ()  // copies only one channel
+{
+    
+}
+
+
 
 rcFrame::rcFrame (char* rawPixels,
                   int32 rawPixelsRowUpdate, /* Row update for SRC pixels, not DEST frame */
@@ -124,7 +137,7 @@ rcFrame::rcFrame (char* rawPixels,
 
     // Find an Aligned Start Ptr
     startPtr = (uint8 *) mRawData;
-    while ((uint32) startPtr % mAlignMod) startPtr ++;
+    while ((intptr_t) startPtr % mAlignMod) startPtr ++;
     n = startPtr - (uint8 *) mRawData;
     assert ((n < mAlignMod) && (n >=0));
 
@@ -139,7 +152,7 @@ rcFrame::rcFrame (char* rawPixels,
     }
 }
 
-void rcFrame::loadImage(char* rawPixels,		  
+void rcFrame::loadImage(const char* rawPixels,		  
                         int32 rawPixelsRowUpdate,
                         int32 width, int32 height,
                         rcPixel pixelDepth, bool isGray)

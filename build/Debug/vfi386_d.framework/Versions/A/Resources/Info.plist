@@ -15,7 +15,7 @@
 	<key>CFBundleSignature</key>
 	<string>Reify Corp.</string>
 	<key>CFBundleVersion</key>
-	<string>4edd0de</string>
+	<string>7dfe351</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
@@ -23,9 +23,9 @@
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string></string>
+	<string>12F37</string>
 	<key>DTSDKName</key>
-	<string>macosx10.5</string>
+	<string>macosx10.8</string>
 	<key>DTXcode</key>
 	<string>0502</string>
 	<key>DTXcodeBuild</key>

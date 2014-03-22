@@ -13,10 +13,9 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <rc_types.h>
-#include <rc_qtime.h>
 #include <rc_videocache.h>
 #include <rc_framebuf.h>
-#include <rc_moviegrabber.h>
+#include <rc_cindergrabber.h>
 #include <rc_imagegrabber.h>
 #include <rc_gen_movie_file.h>
 #include <rc_movieconverter.h>

@@ -1,8 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_timedisplay.h'
 **
-** Created: Sun Mar 16 19:20:21 2014
-**      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
+** Created by: The Qt Meta Object Compiler version 63 (Qt 4.8.5)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -10,8 +9,8 @@
 #include "../include/visUI/rc_timedisplay.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'rc_timedisplay.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 62
-#error "This file was generated using the moc from 4.6.4. It"
+#elif Q_MOC_OUTPUT_REVISION != 63
+#error "This file was generated using the moc from 4.8.5. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,7 +19,7 @@ QT_BEGIN_MOC_NAMESPACE
 static const uint qt_meta_data_rcTimeDisplay[] = {
 
  // content:
-       4,       // revision
+       6,       // revision
        0,       // classname
        0,    0, // classinfo
        1,   14, // methods
@@ -40,9 +39,25 @@ static const char qt_meta_stringdata_rcTimeDisplay[] = {
     "rcTimeDisplay\0\0time\0newTime(rcTimestamp)\0"
 };
 
+void rcTimeDisplay::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Q_ASSERT(staticMetaObject.cast(_o));
+        rcTimeDisplay *_t = static_cast<rcTimeDisplay *>(_o);
+        switch (_id) {
+        case 0: _t->newTime((*reinterpret_cast< const rcTimestamp(*)>(_a[1]))); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObjectExtraData rcTimeDisplay::staticMetaObjectExtraData = {
+    0,  qt_static_metacall 
+};
+
 const QMetaObject rcTimeDisplay::staticMetaObject = {
     { &Q3Frame::staticMetaObject, qt_meta_stringdata_rcTimeDisplay,
-      qt_meta_data_rcTimeDisplay, 0 }
+      qt_meta_data_rcTimeDisplay, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
@@ -68,10 +83,8 @@ int rcTimeDisplay::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        switch (_id) {
-        case 0: newTime((*reinterpret_cast< const rcTimestamp(*)>(_a[1]))); break;
-        default: ;
-        }
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
         _id -= 1;
     }
     return _id;

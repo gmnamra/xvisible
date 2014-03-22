@@ -7,6 +7,7 @@ usage="-s srcroot -l Logfile"
 while getopts ":s:l" options; do
   case $options in
     s ) SRCROOT=$OPTARG;;
+    l ) MOC_LOG=$OPTARG;;
     h ) echo $usage;;
     \? ) echo $usage
          exit 1;;

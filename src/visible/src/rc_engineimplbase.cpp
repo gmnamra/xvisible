@@ -11,7 +11,7 @@
 #include <rc_qtime.h>
 #include <rc_histstats.h>
 
-using namespace qtime;
+//using namespace qtime;
 
 /******************************************************************************
  *   Utility methods

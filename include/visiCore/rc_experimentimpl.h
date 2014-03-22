@@ -24,7 +24,7 @@ using namespace std;
 
 #include "rc_trackgroupimpl.h"
 
-using namespace qtime;
+using namespace legacy_qtime;
 
 /******************************************************************************
 *	Constants

@@ -13,7 +13,7 @@
 #include <rc_macro.h>
 #include <boost/intrusive_ptr.hpp>
 #include <boost/atomic.hpp>
-
+#include <cinder/Channel.h>
 //
 // RGB component handling functions
 //
@@ -72,6 +72,8 @@ class rcFrame
   rcFrame (char* rawPixels,
 	   int32 rawPixelsRowUpdate, /* Row update for SRC pixels, not DEST frame */
 	   int32 width, int32 height, rcPixel pixelDepth, bool isGray);
+    
+  rcFrame ( const ci::Channel8u&  );
 
   // Destructor
   virtual ~rcFrame();
@@ -180,7 +182,7 @@ class rcFrame
   inline void zVal(double dv) { mZvalue = dv; }
 
   // Load the image pointed to by rawPixels into this frame
-  void loadImage(char* rawPixels, int32 rawPixelsRowUpdate, int32 width,
+  void loadImage(const char* rawPixels, int32 rawPixelsRowUpdate, int32 width,
 		 int32 height, rcPixel pixelDepth, bool isGray);
 
   inline uint32  cacheCtrl() const { return mCacheCtrl; }
@@ -202,6 +204,8 @@ class rcFrame
 	
 	int refCount () const { return refcount_.load (); }
 	
+    const ci::Channel8u&  toCiChannel ();  // copies only one channel
+    
 
 protected:
   uint8*         mRawData;   // Raw pixel data

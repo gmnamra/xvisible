@@ -1,8 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_modeldomain.h'
 **
-** Created: Sun Mar 16 20:22:37 2014
-**      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
+** Created by: The Qt Meta Object Compiler version 63 (Qt 4.8.5)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -10,8 +9,8 @@
 #include "../include/visUI/rc_modeldomain.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'rc_modeldomain.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 62
-#error "This file was generated using the moc from 4.6.4. It"
+#elif Q_MOC_OUTPUT_REVISION != 63
+#error "This file was generated using the moc from 4.8.5. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,7 +19,7 @@ QT_BEGIN_MOC_NAMESPACE
 static const uint qt_meta_data_rcModelDomain[] = {
 
  // content:
-       4,       // revision
+       6,       // revision
        0,       // classname
        0,    0, // classinfo
       49,   14, // methods
@@ -124,9 +123,73 @@ static const char qt_meta_stringdata_rcModelDomain[] = {
     "requestTrackingPause()\0stopTrackingPause()\0"
 };
 
+void rcModelDomain::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Q_ASSERT(staticMetaObject.cast(_o));
+        rcModelDomain *_t = static_cast<rcModelDomain *>(_o);
+        switch (_id) {
+        case 0: _t->elapsedTime((*reinterpret_cast< const rcTimestamp(*)>(_a[1]))); break;
+        case 1: _t->cursorTime((*reinterpret_cast< const rcTimestamp(*)>(_a[1]))); break;
+        case 2: _t->newState((*reinterpret_cast< rcExperimentState(*)>(_a[1]))); break;
+        case 3: _t->updateDisplay((*reinterpret_cast< const rcWindow*(*)>(_a[1]))); break;
+        case 4: _t->updateDisplay((*reinterpret_cast< const rcVisualGraphicsCollection*(*)>(_a[1]))); break;
+        case 5: _t->updateSettings(); break;
+        case 6: _t->updateAnalysisRect((*reinterpret_cast< const rcRect(*)>(_a[1]))); break;
+        case 7: _t->updateAnalysisRectRotation((*reinterpret_cast< const rcAffineRectangle(*)>(_a[1]))); break;
+        case 8: _t->updateTimelineRange((*reinterpret_cast< const rcTimestamp(*)>(_a[1])),(*reinterpret_cast< const rcTimestamp(*)>(_a[2]))); break;
+        case 9: _t->updateTimelineScale((*reinterpret_cast< rcResultScaleMode(*)>(_a[1]))); break;
+        case 10: _t->updateMultiplier((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 11: _t->updateDisplay(); break;
+        case 12: _t->updateStatus((*reinterpret_cast< const char*(*)>(_a[1]))); break;
+        case 13: _t->imageImport(); break;
+        case 14: _t->tifDirImport(); break;
+        case 15: _t->movieImport(); break;
+        case 16: _t->stkImport(); break;
+        case 17: _t->movieSave(); break;
+        case 18: _t->updateInputSource((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 19: _t->updateMonitorScale((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 20: _t->updateMonitorDisplay(); break;
+        case 21: _t->updateVideoRect((*reinterpret_cast< const rcRect(*)>(_a[1]))); break;
+        case 22: _t->requestPlot((*reinterpret_cast< const CurveData*(*)>(_a[1]))); break;
+        case 23: _t->requestPlot2d((*reinterpret_cast< const CurveData2d*(*)>(_a[1]))); break;
+        case 24: _t->updateCameraState((*reinterpret_cast< bool(*)>(_a[1])),(*reinterpret_cast< bool(*)>(_a[2]))); break;
+        case 25: _t->updateDebugging(); break;
+        case 26: _t->updateSelectionState((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 27: _t->recentMovieFile((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 28: _t->newSmMatrix(); break;
+        case 29: _t->requestStart(); break;
+        case 30: _t->requestStop(); break;
+        case 31: _t->requestProcess(); break;
+        case 32: _t->requestNew(); break;
+        case 33: _t->requestNewApp(); break;
+        case 34: _t->requestOpen((*reinterpret_cast< rcExperimentImportMode(*)>(_a[1]))); break;
+        case 35: _t->requestClose(); break;
+        case 36: _t->requestSave((*reinterpret_cast< rcExperimentFileFormat(*)>(_a[1]))); break;
+        case 37: _t->requestImageImport(); break;
+        case 38: _t->requestTifDirImport(); break;
+        case 39: _t->requestMovieImport(); break;
+        case 40: _t->requestSTKImport(); break;
+        case 41: _t->requestMovieSave(); break;
+        case 42: _t->requestSmMatrixSave(); break;
+        case 43: _t->requestInputSource((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 44: _t->timerTick(); break;
+        case 45: _t->useRecentMovieFile((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 46: _t->reloadPlot2d((*reinterpret_cast< const CurveData2d*(*)>(_a[1]))); break;
+        case 47: _t->requestTrackingPause(); break;
+        case 48: _t->stopTrackingPause(); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObjectExtraData rcModelDomain::staticMetaObjectExtraData = {
+    0,  qt_static_metacall 
+};
+
 const QMetaObject rcModelDomain::staticMetaObject = {
     { &QObject::staticMetaObject, qt_meta_stringdata_rcModelDomain,
-      qt_meta_data_rcModelDomain, 0 }
+      qt_meta_data_rcModelDomain, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
@@ -154,58 +217,8 @@ int rcModelDomain::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        switch (_id) {
-        case 0: elapsedTime((*reinterpret_cast< const rcTimestamp(*)>(_a[1]))); break;
-        case 1: cursorTime((*reinterpret_cast< const rcTimestamp(*)>(_a[1]))); break;
-        case 2: newState((*reinterpret_cast< rcExperimentState(*)>(_a[1]))); break;
-        case 3: updateDisplay((*reinterpret_cast< const rcWindow*(*)>(_a[1]))); break;
-        case 4: updateDisplay((*reinterpret_cast< const rcVisualGraphicsCollection*(*)>(_a[1]))); break;
-        case 5: updateSettings(); break;
-        case 6: updateAnalysisRect((*reinterpret_cast< const rcRect(*)>(_a[1]))); break;
-        case 7: updateAnalysisRectRotation((*reinterpret_cast< const rcAffineRectangle(*)>(_a[1]))); break;
-        case 8: updateTimelineRange((*reinterpret_cast< const rcTimestamp(*)>(_a[1])),(*reinterpret_cast< const rcTimestamp(*)>(_a[2]))); break;
-        case 9: updateTimelineScale((*reinterpret_cast< rcResultScaleMode(*)>(_a[1]))); break;
-        case 10: updateMultiplier((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 11: updateDisplay(); break;
-        case 12: updateStatus((*reinterpret_cast< const char*(*)>(_a[1]))); break;
-        case 13: imageImport(); break;
-        case 14: tifDirImport(); break;
-        case 15: movieImport(); break;
-        case 16: stkImport(); break;
-        case 17: movieSave(); break;
-        case 18: updateInputSource((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 19: updateMonitorScale((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 20: updateMonitorDisplay(); break;
-        case 21: updateVideoRect((*reinterpret_cast< const rcRect(*)>(_a[1]))); break;
-        case 22: requestPlot((*reinterpret_cast< const CurveData*(*)>(_a[1]))); break;
-        case 23: requestPlot2d((*reinterpret_cast< const CurveData2d*(*)>(_a[1]))); break;
-        case 24: updateCameraState((*reinterpret_cast< bool(*)>(_a[1])),(*reinterpret_cast< bool(*)>(_a[2]))); break;
-        case 25: updateDebugging(); break;
-        case 26: updateSelectionState((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 27: recentMovieFile((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 28: newSmMatrix(); break;
-        case 29: requestStart(); break;
-        case 30: requestStop(); break;
-        case 31: requestProcess(); break;
-        case 32: requestNew(); break;
-        case 33: requestNewApp(); break;
-        case 34: requestOpen((*reinterpret_cast< rcExperimentImportMode(*)>(_a[1]))); break;
-        case 35: requestClose(); break;
-        case 36: requestSave((*reinterpret_cast< rcExperimentFileFormat(*)>(_a[1]))); break;
-        case 37: requestImageImport(); break;
-        case 38: requestTifDirImport(); break;
-        case 39: requestMovieImport(); break;
-        case 40: requestSTKImport(); break;
-        case 41: requestMovieSave(); break;
-        case 42: requestSmMatrixSave(); break;
-        case 43: requestInputSource((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 44: timerTick(); break;
-        case 45: useRecentMovieFile((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 46: reloadPlot2d((*reinterpret_cast< const CurveData2d*(*)>(_a[1]))); break;
-        case 47: requestTrackingPause(); break;
-        case 48: stopTrackingPause(); break;
-        default: ;
-        }
+        if (_id < 49)
+            qt_static_metacall(this, _c, _id, _a);
         _id -= 49;
     }
     return _id;

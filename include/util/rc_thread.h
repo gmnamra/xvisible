@@ -19,7 +19,7 @@
 #define _BASE_RCTHREAD_H_
 
 #include <rc_types.h>
-#include <boost/atomic.hpp>
+#include "boost/atomic.hpp"
 
 using namespace boost;
 
@@ -55,7 +55,7 @@ protected:
 	bool seppukuRequested() { return _seppuku; }
 
 private:
-	atomic<bool> _seppuku;
+    boost::atomic<bool> _seppuku;
 };
 
 // or extend this class and override the run() method.

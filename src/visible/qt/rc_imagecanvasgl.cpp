@@ -8,7 +8,7 @@
 
 #include <rc_math.h>
 #include <rc_vector2d.h>
-
+#include <rc_ip.h>
 #include <qapplication.h>
 #include <qcursor.h>
 #include <qtooltip.h>
@@ -16,13 +16,20 @@
 #include <QMouseEvent>
 #include <QKeyEvent>
 
+
+
+#include <glu.h>
+
 #include <rc_writermanager.h>
 #include <rc_ipconvert.h>
-#include <rc_kinetoscope.h>
-
 #include "rc_monitor.h" // Parent widget
 #include "rc_modeldomain.h"
 #include "rc_trackmanager.h"
+
+#ifndef GL_COLOR_INDEX8_EXT 
+#define GL_COLOR_INDEX8_EXT                                  0x80E5
+#endif
+
 
 #define QStrFrcStr(foo) QString ((foo).c_str())
 //

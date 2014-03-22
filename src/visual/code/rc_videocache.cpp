@@ -122,7 +122,7 @@ void vcDumpTrace()
 
         fprintf(stderr, " %06d %s     %s        %02d         0x%X\n",
                 traceBuf[myIndex].dToken, name, enter,
-                traceBuf[myIndex].frameIndex, (int)traceBuf[myIndex].fp);
+                traceBuf[myIndex].frameIndex, (intptr_t)traceBuf[myIndex].fp);
         myIndex++;
     }
 }
@@ -994,7 +994,7 @@ rcVideoCache::cacheAlloc(uint32 frameIndex,
 #ifdef VID_TRACE
             if (bufPtr->refCount() != 1) {
                 fprintf(stderr, "C token %d fi %d frame* 0x%X\n", dToken, frameIndex,
-                        (int)bufPtr->mFrameBuf);
+                        (intptr_t)bufPtr->mFrameBuf);
                 DUMP_VID_TRACE();
             }
 #endif
@@ -1063,7 +1063,7 @@ rcVideoCache::cacheAlloc(uint32 frameIndex,
         if (cacheFrameBufPtr->refCount() != 1) {
             fprintf(stderr, "A token %d fi %d refCount %d frame* 0x%X\n", dToken,
                     frameIndex, cacheFrameBufPtr->refCount(),
-                    (int)cacheFrameBufPtr->mFrameBuf);
+                    (intptr_t)cacheFrameBufPtr->mFrameBuf);
             DUMP_VID_TRACE();
         }
 #endif
@@ -1107,7 +1107,7 @@ rcVideoCache::cacheAlloc(uint32 frameIndex,
         if (cacheFrameBufPtr->refCount() != 1) {
             fprintf(stderr, "B token %d fi %d refCount %d  frame* 0x%X\n", dToken,
                     frameIndex, cacheFrameBufPtr->refCount(),
-                    (int)cacheFrameBufPtr->mFrameBuf);
+                    (intptr_t)cacheFrameBufPtr->mFrameBuf);
             DUMP_VID_TRACE();
         }
 #endif

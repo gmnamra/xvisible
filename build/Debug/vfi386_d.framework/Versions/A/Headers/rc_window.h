@@ -13,7 +13,7 @@
 #include <rc_rect.h>
 #include <iomanip>
 #include <Accelerate/Accelerate.h>
-#include <ApplicationServices/ApplicationServices.h>
+#include <cinder/Channel.h>
 
 #include <vector>
 using namespace std;
@@ -158,7 +158,7 @@ public:
 
   // vImage representative
   bool vImage (vImage_Buffer&) const;
-  CGImageRef CGImage() const;
+    //  CGImageRef CGImage() const;
 // Converts a QPixmap to a CGImage.
 //@returns CGImageRef for the new image. (FrameBuf owns the pixels) 
 	
@@ -296,6 +296,8 @@ public:
  template <class T>
   void print (T);
 
+ ci::Channel8u* new_channel () const;
+    
  protected:
 
   //@param w integer 

@@ -83,7 +83,9 @@ void rcAffineWindow::vImageTransform ()
   rcRadian r = arctan (-sin (ar().angle ()), cos (ar().angle()));
 
   // Image coordinates wrt top left of the image and then bottom left
-  CGPoint blg = {(float) bl.x(), height() - bl.y()};
+    CGPoint blg;
+    blg.x =  bl.x();
+    blg.y = height() - bl.y();
 
   CGAffineTransform a2i = CGAffineTransformRotate (CGAffineTransformMakeTranslation (blg.x, blg.y),
 				   (float) r.basic ());

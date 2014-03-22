@@ -1,8 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'rc_main_window.h'
 **
-** Created: Sun Mar 16 20:22:34 2014
-**      by: The Qt Meta Object Compiler version 62 (Qt 4.6.4)
+** Created by: The Qt Meta Object Compiler version 63 (Qt 4.8.5)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -10,8 +9,8 @@
 #include "../include/visUI/rc_main_window.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'rc_main_window.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 62
-#error "This file was generated using the moc from 4.6.4. It"
+#elif Q_MOC_OUTPUT_REVISION != 63
+#error "This file was generated using the moc from 4.8.5. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,7 +19,7 @@ QT_BEGIN_MOC_NAMESPACE
 static const uint qt_meta_data_rcMainWindow[] = {
 
  // content:
-       4,       // revision
+       6,       // revision
        0,       // classname
        0,    0, // classinfo
       15,   14, // methods
@@ -60,9 +59,39 @@ static const char qt_meta_stringdata_rcMainWindow[] = {
     "reload_plotter(const CurveData*)\0"
 };
 
+void rcMainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Q_ASSERT(staticMetaObject.cast(_o));
+        rcMainWindow *_t = static_cast<rcMainWindow *>(_o);
+        switch (_id) {
+        case 0: _t->updateState((*reinterpret_cast< rcExperimentState(*)>(_a[1]))); break;
+        case 1: _t->about(); break;
+        case 2: _t->help(); break;
+        case 3: _t->inputSource((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 4: _t->settingChanged(); break;
+        case 5: _t->updateAnalysisRect((*reinterpret_cast< const rcRect(*)>(_a[1]))); break;
+        case 6: _t->doSave(); break;
+        case 7: _t->doExport(); break;
+        case 8: _t->doExportMovie(); break;
+        case 9: _t->doExportNativeMovie(); break;
+        case 10: _t->enableExportSmMatrix(); break;
+        case 11: _t->doOpen(); break;
+        case 12: _t->doOpenSettings(); break;
+        case 13: _t->importRecentMovie(); break;
+        case 14: _t->reload_plotter((*reinterpret_cast< const CurveData*(*)>(_a[1]))); break;
+        default: ;
+        }
+    }
+}
+
+const QMetaObjectExtraData rcMainWindow::staticMetaObjectExtraData = {
+    0,  qt_static_metacall 
+};
+
 const QMetaObject rcMainWindow::staticMetaObject = {
     { &QMainWindow::staticMetaObject, qt_meta_stringdata_rcMainWindow,
-      qt_meta_data_rcMainWindow, 0 }
+      qt_meta_data_rcMainWindow, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
@@ -88,24 +117,8 @@ int rcMainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        switch (_id) {
-        case 0: updateState((*reinterpret_cast< rcExperimentState(*)>(_a[1]))); break;
-        case 1: about(); break;
-        case 2: help(); break;
-        case 3: inputSource((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 4: settingChanged(); break;
-        case 5: updateAnalysisRect((*reinterpret_cast< const rcRect(*)>(_a[1]))); break;
-        case 6: doSave(); break;
-        case 7: doExport(); break;
-        case 8: doExportMovie(); break;
-        case 9: doExportNativeMovie(); break;
-        case 10: enableExportSmMatrix(); break;
-        case 11: doOpen(); break;
-        case 12: doOpenSettings(); break;
-        case 13: importRecentMovie(); break;
-        case 14: reload_plotter((*reinterpret_cast< const CurveData*(*)>(_a[1]))); break;
-        default: ;
-        }
+        if (_id < 15)
+            qt_static_metacall(this, _c, _id, _a);
         _id -= 15;
     }
     return _id;

@@ -17,7 +17,7 @@
 
 #define BailErr(x) {err = x; if(err != noErr) goto bail;}
 
-namespace qtime
+namespace legacy_qtime
 {
     class rfQuicktimeImporter {
     public:

@@ -19,7 +19,7 @@
 
 // Visual
 #include <rc_imagegrabber.h>
-#include <rc_moviegrabber.h>
+#include <rc_cinder_qtime_grabber.h>
 #include <rc_reifymoviegrabber.h>
 #include <rc_qtime.h>
     // #include <rc_dcam_capture.h>
@@ -66,7 +66,7 @@
 using namespace std;
 #endif
 
-using namespace qtime;
+using namespace legacy_qtime;
 
 extern bool developerDebugging ();
 extern bool developerDebugging (bool);

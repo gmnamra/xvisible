@@ -44,7 +44,7 @@ bool developerDebugging (bool b)
     return developerDebugging ();
 }
 
-using namespace qtime;
+
 
 
 /******************************************************************************
