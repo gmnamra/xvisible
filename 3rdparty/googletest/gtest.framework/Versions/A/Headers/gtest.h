@@ -183,7 +183,7 @@ class UnitTest;
 //
 // This class is useful for two purposes:
 //   1. Defining predicate functions to be used with Boolean test assertions
-//      EXPECT_TRUE/EXPECT_FALSE and their ASSERT_ counterparts
+//      EXPECT_true/EXPECT_FALSE and their ASSERT_ counterparts
 //   2. Defining predicate-format functions to be
 //      used with predicate assertions (ASSERT_PRED_FORMAT*, etc).
 //
@@ -196,7 +196,7 @@ class UnitTest;
 //       return testing::AssertionFailure() << n << " is odd";
 //   }
 //
-// Then the failed expectation EXPECT_TRUE(IsEven(Fib(5)))
+// Then the failed expectation EXPECT_true(IsEven(Fib(5)))
 // will print the message
 //
 //   Value of: IsEven(Fib(5))
@@ -256,9 +256,9 @@ class UnitTest;
 class GTEST_API_ AssertionResult {
  public:
   // Copy constructor.
-  // Used in EXPECT_TRUE/FALSE(assertion_result).
+  // Used in EXPECT_true/FALSE(assertion_result).
   AssertionResult(const AssertionResult& other);
-  // Used in the EXPECT_TRUE/FALSE(bool_expression).
+  // Used in the EXPECT_true/FALSE(bool_expression).
   explicit AssertionResult(bool success) : success_(success) {}
 
   // Returns true iff the assertion succeeded.
@@ -1230,7 +1230,7 @@ class GTEST_API_ UnitTest {
   Environment* AddEnvironment(Environment* env);
 
   // Adds a TestPartResult to the current TestResult object.  All
-  // Google Test assertion macros (e.g. ASSERT_TRUE, EXPECT_EQ, etc)
+  // Google Test assertion macros (e.g. ASSERT_true, EXPECT_EQ, etc)
   // eventually call this to report their results.  The user code
   // should use the assertion macros instead of calling this directly.
   void AddTestPartResult(TestPartResult::Type result_type,
@@ -1792,7 +1792,7 @@ class GTEST_API_ AssertHelper {
 // TEST_P(FooTest, DoesBar) {
 //   // Can use GetParam() method here.
 //   Foo foo;
-//   ASSERT_TRUE(foo.DoesBar(GetParam()));
+//   ASSERT_true(foo.DoesBar(GetParam()));
 // }
 // INSTANTIATE_TEST_CASE_P(OneToTenRange, FooTest, ::testing::Range(1, 10));
 
@@ -1850,7 +1850,7 @@ class TestWithParam : public Test, public WithParamInterface<T> {
 // EXPECT_* verifies that a certain condition is satisfied.  If not,
 // it behaves like ADD_FAILURE.  In particular:
 //
-//   EXPECT_TRUE  verifies that a Boolean condition is true.
+//   EXPECT_true  verifies that a Boolean condition is true.
 //   EXPECT_FALSE verifies that a Boolean condition is false.
 //
 // FAIL and ASSERT_* are similar to ADD_FAILURE and EXPECT_*, except
@@ -1911,13 +1911,13 @@ class TestWithParam : public Test, public WithParamInterface<T> {
 // Boolean assertions. Condition can be either a Boolean expression or an
 // AssertionResult. For more information on how to use AssertionResult with
 // these macros see comments on that class.
-#define EXPECT_TRUE(condition) \
+#define EXPECT_true(condition) \
   GTEST_TEST_BOOLEAN_(condition, #condition, false, true, \
                       GTEST_NONFATAL_FAILURE_)
 #define EXPECT_FALSE(condition) \
   GTEST_TEST_BOOLEAN_(!(condition), #condition, true, false, \
                       GTEST_NONFATAL_FAILURE_)
-#define ASSERT_TRUE(condition) \
+#define ASSERT_true(condition) \
   GTEST_TEST_BOOLEAN_(condition, #condition, false, true, \
                       GTEST_FATAL_FAILURE_)
 #define ASSERT_FALSE(condition) \
@@ -1948,7 +1948,7 @@ class TestWithParam : public Test, public WithParamInterface<T> {
 //   {ASSERT|EXPECT}_??(), but that requires overloading the
 //   comparison operators and is thus discouraged by the Google C++
 //   Usage Guide.  Therefore, you are advised to use the
-//   {ASSERT|EXPECT}_TRUE() macro to assert that two objects are
+//   {ASSERT|EXPECT}_true() macro to assert that two objects are
 //   equal.
 //
 //   2. The {ASSERT|EXPECT}_??() macros do pointer comparisons on
@@ -1958,7 +1958,7 @@ class TestWithParam : public Test, public WithParamInterface<T> {
 //   strings by content, use {ASSERT|EXPECT}_STR*().
 //
 //   3. {ASSERT|EXPECT}_EQ(expected, actual) is preferred to
-//   {ASSERT|EXPECT}_TRUE(expected == actual), as the former tells you
+//   {ASSERT|EXPECT}_true(expected == actual), as the former tells you
 //   what the actual value is when it fails, and similarly for the
 //   other comparisons.
 //
@@ -2220,7 +2220,7 @@ bool StaticAssertTypeEq() {
 //
 //   TEST(FooTest, InitializesCorrectly) {
 //     Foo foo;
-//     EXPECT_TRUE(foo.StatusIsOK());
+//     EXPECT_true(foo.StatusIsOK());
 //   }
 
 // Note that we call GetTestTypeId() instead of GetTypeId<
@@ -2260,7 +2260,7 @@ bool StaticAssertTypeEq() {
 //   };
 //
 //   TEST_F(FooTest, InitializesCorrectly) {
-//     EXPECT_TRUE(a_.StatusIsOK());
+//     EXPECT_true(a_.StatusIsOK());
 //   }
 //
 //   TEST_F(FooTest, ReturnsElementCountCorrectly) {

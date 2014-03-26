@@ -27,12 +27,12 @@ class rcCameraGrabber : public rcFrameGrabber {
     // Get acquire state info
     virtual rcFrameGrabberStatus getAcqInfo(rcAcqInfo& acqInfo, 
                                             bool isBlocking,
-                                            bool releaseMemory = TRUE) = 0;
+                                            bool releaseMemory = true) = 0;
 
     // Set acquire control info
     virtual rcFrameGrabberStatus setAcqControl(rcAcqControl& acqCtrl,
                                                bool isBlocking,
-                                               bool releaseMemory = TRUE) = 0;
+                                               bool releaseMemory = true) = 0;
 
     // Camera grabbers don't have a cache.
     virtual int32 cacheSize() { return 0; }
@@ -52,7 +52,7 @@ class rcQVideoGrabber : public rcCameraGrabber {
   public:
     // ctor
     rcQVideoGrabber(char* progName, int arg1, char* arg2, uint32 sz,
-                    uint8 childControlsBufferFirst = TRUE);
+                    uint8 childControlsBufferFirst = true);
     // virtual dtor
     virtual ~rcQVideoGrabber();
 
@@ -63,12 +63,12 @@ class rcQVideoGrabber : public rcCameraGrabber {
     // Get acquire state info
     virtual rcFrameGrabberStatus getAcqInfo(rcAcqInfo& acqInfo, 
                                             bool isBlocking,
-                                            bool releaseMemory = TRUE);
+                                            bool releaseMemory = true);
 
     // Set acquire control info
     virtual rcFrameGrabberStatus setAcqControl(rcAcqControl& acqCtrl,
                                                bool isBlocking,
-                                               bool releaseMemory = TRUE);
+                                               bool releaseMemory = true);
 
     // Set the number of frames to make available
     virtual void setFrameCount(int32 frameCount);

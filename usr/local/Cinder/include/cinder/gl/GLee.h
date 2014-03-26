@@ -16665,7 +16665,7 @@ GLEE_EXTERN GLboolean _GLEE_GLX_NV_video_output;
 #define GLX_DONT_CARE                                      0xFFFFFFFF
 #define GLX_NONE                                           0x8000
 #define GLX_SLOW_CONFIG                                    0x8001
-#define GLX_TRUE_COLOR                                     0x8002
+#define GLX_true_COLOR                                     0x8002
 #define GLX_DIRECT_COLOR                                   0x8003
 #define GLX_PSEUDO_COLOR                                   0x8004
 #define GLX_STATIC_COLOR                                   0x8005
@@ -16885,7 +16885,7 @@ GLEE_EXTERN GLboolean _GLEE_GLX_NV_video_output;
 #define GLX_TRANSPARENT_BLUE_VALUE_EXT                     0x27
 #define GLX_TRANSPARENT_ALPHA_VALUE_EXT                    0x28
 #define GLX_NONE_EXT                                       0x8000
-#define GLX_TRUE_COLOR_EXT                                 0x8002
+#define GLX_true_COLOR_EXT                                 0x8002
 #define GLX_DIRECT_COLOR_EXT                               0x8003
 #define GLX_PSEUDO_COLOR_EXT                               0x8004
 #define GLX_STATIC_COLOR_EXT                               0x8005

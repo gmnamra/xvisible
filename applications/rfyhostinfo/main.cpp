@@ -185,10 +185,10 @@ static int curlit (char *LOCAL_FILE)
     headerlist = curl_slist_append(headerlist, buf_2);
 
     /* enable uploading */
-    curl_easy_setopt(curl, CURLOPT_UPLOAD, TRUE) ;
-    curl_easy_setopt(curl, CURLOPT_VERBOSE, FALSE) ;
+    curl_easy_setopt(curl, CURLOPT_UPLOAD, true) ;
+    curl_easy_setopt(curl, CURLOPT_VERBOSE, false) ;
     curl_easy_setopt(curl, CURLOPT_FTPPORT, "-") ;
-    curl_easy_setopt(curl, CURLOPT_FTP_USE_EPSV, FALSE) ;
+    curl_easy_setopt(curl, CURLOPT_FTP_USE_EPSV, false) ;
 
 
     /* specify target */

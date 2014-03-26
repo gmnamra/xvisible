@@ -60,7 +60,7 @@ struct dispatch_table
             execute(Fsm& , int, int, Event const& , ::boost::mpl::true_ const & )
             {
                 // if at least one guard rejected, this will be ignored, otherwise will generate an error
-                return HANDLED_FALSE;
+                return HANDLED_false;
             }
 
             template <class Sequence>
@@ -72,7 +72,7 @@ struct dispatch_table
                  // try the first guard
                  typedef typename ::boost::mpl::front<Sequence>::type first_row;
                  HandledEnum res = first_row::execute(fsm,region_index,state,evt);
-                 if (HANDLED_TRUE!=res && HANDLED_DEFERRED!=res)
+                 if (HANDLED_true!=res && HANDLED_DEFERRED!=res)
                  {
                     // if the first rejected, move on to the next one
                     HandledEnum sub_res = 
@@ -80,7 +80,7 @@ struct dispatch_table
                             ::boost::mpl::bool_<
                                 ::boost::mpl::empty<typename ::boost::mpl::pop_front<Sequence>::type>::type::value>());
                     // if at least one guards rejects, the event will not generate a call to no_transition
-                    if ((HANDLED_FALSE==sub_res) && (HANDLED_GUARD_REJECT==res) )
+                    if ((HANDLED_false==sub_res) && (HANDLED_GUARD_REJECT==res) )
                         return HANDLED_GUARD_REJECT;
                     else
                         return sub_res;

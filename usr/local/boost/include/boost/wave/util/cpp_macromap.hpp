@@ -682,7 +682,7 @@ macromap<ContextT>::expand_tokensequence_worker(
 
         // all remaining identifiers and keywords, except for true and false,
         // are replaced with the pp-number 0 (C++ standard 16.1.4, [cpp.cond])
-            return act_token = token_type(T_INTLIT, T_TRUE != id ? "0" : "1",
+            return act_token = token_type(T_INTLIT, T_true != id ? "0" : "1",
                 (*first++).get_position());
         }
         else {

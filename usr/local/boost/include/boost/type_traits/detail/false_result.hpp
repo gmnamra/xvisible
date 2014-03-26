@@ -6,8 +6,8 @@
 //  See http://www.boost.org/libs/type_traits for most recent version including documentation.
 
 
-#ifndef BOOST_TT_DETAIL_FALSE_RESULT_HPP_INCLUDED
-#define BOOST_TT_DETAIL_FALSE_RESULT_HPP_INCLUDED
+#ifndef BOOST_TT_DETAIL_false_RESULT_HPP_INCLUDED
+#define BOOST_TT_DETAIL_false_RESULT_HPP_INCLUDED
 
 #include <boost/config.hpp>
 
@@ -25,4 +25,4 @@ struct false_result
 
 }} // namespace boost::type_traits
 
-#endif // BOOST_TT_DETAIL_FALSE_RESULT_HPP_INCLUDED
+#endif // BOOST_TT_DETAIL_false_RESULT_HPP_INCLUDED

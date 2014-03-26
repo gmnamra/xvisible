@@ -35,7 +35,7 @@ class rcSharedMemoryUser {
  public:
 
   /* Checks to see if shared memory can be acquired.  If it cannot,
-   * and wait is TRUE, then sleep until shared memory is available.
+   * and wait is true, then sleep until shared memory is available.
    *
    * In either case, if shared memory is available, it is locked from
    * use by the corresponding rcSharedMemoryUser.
@@ -52,7 +52,7 @@ class rcSharedMemoryUser {
    *
    * If no error has occurred, err is set to rcSharedMemNoError.
    */
-  void* acquireSharedMemory(rcSharedMemError& err, bool wait = TRUE);
+  void* acquireSharedMemory(rcSharedMemError& err, bool wait = true);
 
   /* Releases shared resource back to corresponding
    * rcSharedMemoryUser. Returns rcSharedMemNoErr if this
@@ -155,7 +155,7 @@ class rcExecWithShmem {
    * stored path name to generate the complete file name/path.
    */
   rcExecWithShmem(char* progName, int arg1, char* arg2, uint32 sz,
-		  uint8 childControlsBufferFirst = TRUE);
+		  uint8 childControlsBufferFirst = true);
 
   virtual ~rcExecWithShmem();
 

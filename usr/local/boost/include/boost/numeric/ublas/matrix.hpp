@@ -2274,19 +2274,19 @@ namespace boost { namespace numeric {
             // Arithmetic
             BOOST_UBLAS_INLINE
             const_iterator1 &operator ++ () {
-                BOOST_UBLAS_CHECK_FALSE (bad_index ());
+                BOOST_UBLAS_CHECK_false (bad_index ());
                 return *this;
             }
             BOOST_UBLAS_INLINE
             const_iterator1 &operator -- () {
-                BOOST_UBLAS_CHECK_FALSE (bad_index ());
+                BOOST_UBLAS_CHECK_false (bad_index ());
                 return *this;
             }
 
             // Dereference
             BOOST_UBLAS_INLINE
             const_reference operator * () const {
-                BOOST_UBLAS_CHECK_FALSE (bad_index ());
+                BOOST_UBLAS_CHECK_false (bad_index ());
                 return zero_;   // arbitary return value
             }
 
@@ -2324,12 +2324,12 @@ namespace boost { namespace numeric {
             // Indices
             BOOST_UBLAS_INLINE
             size_type index1 () const {
-                BOOST_UBLAS_CHECK_FALSE (bad_index ());
+                BOOST_UBLAS_CHECK_false (bad_index ());
                 return 0;   // arbitary return value
             }
             BOOST_UBLAS_INLINE
             size_type index2 () const {
-                BOOST_UBLAS_CHECK_FALSE (bad_index ());
+                BOOST_UBLAS_CHECK_false (bad_index ());
                 return 0;   // arbitary return value
             }
 
@@ -2384,19 +2384,19 @@ namespace boost { namespace numeric {
             // Arithmetic
             BOOST_UBLAS_INLINE
             const_iterator2 &operator ++ () {
-                BOOST_UBLAS_CHECK_FALSE (bad_index ());
+                BOOST_UBLAS_CHECK_false (bad_index ());
                 return *this;
             }
             BOOST_UBLAS_INLINE
             const_iterator2 &operator -- () {
-                BOOST_UBLAS_CHECK_FALSE (bad_index ());
+                BOOST_UBLAS_CHECK_false (bad_index ());
                 return *this;
             }
 
             // Dereference
             BOOST_UBLAS_INLINE
             const_reference operator * () const {
-                BOOST_UBLAS_CHECK_FALSE (bad_index ());
+                BOOST_UBLAS_CHECK_false (bad_index ());
                 return zero_;   // arbitary return value
             }
 
@@ -2434,12 +2434,12 @@ namespace boost { namespace numeric {
             // Indices
             BOOST_UBLAS_INLINE
             size_type index1 () const {
-                BOOST_UBLAS_CHECK_FALSE (bad_index ());
+                BOOST_UBLAS_CHECK_false (bad_index ());
                 return 0;   // arbitary return value
             }
             BOOST_UBLAS_INLINE
             size_type index2 () const {
-                BOOST_UBLAS_CHECK_FALSE (bad_index ());
+                BOOST_UBLAS_CHECK_false (bad_index ());
                 return 0;   // arbitary return value
             }
 

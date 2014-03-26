@@ -24,9 +24,6 @@
 		C2248976189D56A900034CDF /* persistence1d.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2248975189D56A900034CDF /* persistence1d.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		C22DD3D61316364400801DE4 /* rc_cubic_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E310F21135D0046570D /* rc_cubic_generators.cpp */; };
 		C22DD3D71316364600801DE4 /* rc_affine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E2E0F21135D0046570D /* rc_affine.cpp */; };
-		C22DD3E41316377900801DE4 /* rc_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E350F21135D0046570D /* rc_draw.cpp */; };
-		C22DD3E51316377900801DE4 /* rc_def_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E340F21135D0046570D /* rc_def_generators.cpp */; };
-		C22DD3E61316377B00801DE4 /* rc_affinewindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E2F0F21135D0046570D /* rc_affinewindow.cpp */; };
 		C24BF55718DBBB850039C53D /* libcinder_d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C24ED40E18DA1D8F0066AA0E /* libcinder_d.a */; };
 		C24BF55818DBBBCA0039C53D /* libvf32_d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C27C02E818D75F3E00FD9FE6 /* libvf32_d.a */; };
 		C24BF55918DBBC5D0039C53D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C24ED41218DA1E000066AA0E /* OpenGL.framework */; };
@@ -131,7 +128,6 @@
 		C24EA8541842FD0D00E88B0A /* tiffvers.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D550F21135D0046570D /* tiffvers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C24EA8551842FD0D00E88B0A /* uvcode.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D560F21135D0046570D /* uvcode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C24EA8561842FD0D00E88B0A /* rc_affine.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5A0F21135D0046570D /* rc_affine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C24EA8571842FD0D00E88B0A /* rc_affinewindow.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5B0F21135D0046570D /* rc_affinewindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C24EA8581842FD0D00E88B0A /* rc_cubic_generators.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5D0F21135D0046570D /* rc_cubic_generators.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C24EA85A1842FD0D00E88B0A /* rc_def_generators.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5F0F21135D0046570D /* rc_def_generators.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C24EA85B1842FD0D00E88B0A /* rc_draw.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D600F21135D0046570D /* rc_draw.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -230,7 +226,6 @@
 		C24EA8D31842FD0D00E88B0A /* triple.tpp in Resources */ = {isa = PBXBuildFile; fileRef = C2EC9CEF183E6BA100AC3300 /* triple.tpp */; };
 		C24EA8D51842FD0D00E88B0A /* rc_edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E360F21135D0046570D /* rc_edge.cpp */; };
 		C24EA8D61842FD0D00E88B0A /* rc_filegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E370F21135D0046570D /* rc_filegrabber.cpp */; };
-		C24EA8D71842FD0D00E88B0A /* rc_fill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E380F21135D0046570D /* rc_fill.cpp */; };
 		C24EA8D81842FD0D00E88B0A /* rc_framebuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E390F21135D0046570D /* rc_framebuf.cpp */; };
 		C24EA8D91842FD0D00E88B0A /* rc_framegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E3A0F21135D0046570D /* rc_framegrabber.cpp */; };
 		C24EA8DA1842FD0D00E88B0A /* rc_gen_movie_file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E3B0F21135D0046570D /* rc_gen_movie_file.cpp */; };
@@ -241,7 +236,6 @@
 		C24EA8DF1842FD0D00E88B0A /* rc_ipconvert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E400F21135D0046570D /* rc_ipconvert.cpp */; };
 		C24EA8E01842FD0D00E88B0A /* rc_moviefileformat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E420F21135D0046570D /* rc_moviefileformat.cpp */; };
 		C24EA8E11842FD0D00E88B0A /* rc_moviegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E430F21135D0046570D /* rc_moviegrabber.cpp */; };
-		C24EA8E21842FD0D00E88B0A /* rc_mpeg2grabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E440F21135D0046570D /* rc_mpeg2grabber.cpp */; };
 		C24EA8E31842FD0D00E88B0A /* rc_peak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E460F21135D0046570D /* rc_peak.cpp */; };
 		C24EA8E41842FD0D00E88B0A /* rc_polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E470F21135D0046570D /* rc_polygon.cpp */; };
 		C24EA8E51842FD0D00E88B0A /* rc_polygongroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E480F21135D0046570D /* rc_polygongroup.cpp */; };
@@ -326,9 +320,6 @@
 		C24EA9411842FD0D00E88B0A /* tiff_aux.c in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E2A0F21135D0046570D /* tiff_aux.c */; };
 		C24EA9421842FD0D00E88B0A /* rc_cubic_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E310F21135D0046570D /* rc_cubic_generators.cpp */; };
 		C24EA9431842FD0D00E88B0A /* rc_affine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E2E0F21135D0046570D /* rc_affine.cpp */; };
-		C24EA9441842FD0D00E88B0A /* rc_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E350F21135D0046570D /* rc_draw.cpp */; };
-		C24EA9451842FD0D00E88B0A /* rc_def_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E340F21135D0046570D /* rc_def_generators.cpp */; };
-		C24EA9461842FD0D00E88B0A /* rc_affinewindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E2F0F21135D0046570D /* rc_affinewindow.cpp */; };
 		C24EA9491842FD0D00E88B0A /* cli_parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC9CAE183E6BA100AC3300 /* cli_parser.cpp */; };
 		C24EA94A1842FD0D00E88B0A /* debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC9CB1183E6BA100AC3300 /* debug.cpp */; };
 		C24EA94B1842FD0D00E88B0A /* dprintf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC9CB5183E6BA100AC3300 /* dprintf.cpp */; };
@@ -382,6 +373,10 @@
 		C24ED43618DA213A0066AA0E /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C24ED41818DA1EB80066AA0E /* QTKit.framework */; };
 		C24ED43718DA2DC70066AA0E /* rc_imagegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E3E0F21135D0046570D /* rc_imagegrabber.cpp */; };
 		C24ED44018DB8A880066AA0E /* bcnvrt_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC91B10F37755700E49E22 /* bcnvrt_main.cpp */; };
+		C2648B2D18E2481200409776 /* libopencv_objdetect.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2648B2318E2481100409776 /* libopencv_objdetect.dylib */; };
+		C2648B3318E2481200409776 /* libopencv_highgui.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2648B2918E2481100409776 /* libopencv_highgui.dylib */; };
+		C2648B3418E2481200409776 /* libopencv_imgproc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2648B2A18E2481100409776 /* libopencv_imgproc.dylib */; };
+		C2648B3618E2481200409776 /* libopencv_core.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2648B2C18E2481100409776 /* libopencv_core.dylib */; };
 		C26B4CA5130DEAB10059FA8B /* extract_m2v in Resources */ = {isa = PBXBuildFile; fileRef = C26B4ABE130DEAB00059FA8B /* extract_m2v */; };
 		C26B4CA6130DEAB10059FA8B /* libmpeg2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C26B4AC0130DEAB00059FA8B /* libmpeg2.a */; };
 		C26B4CA7130DEAB10059FA8B /* libmpeg2convert.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C26B4AC1130DEAB00059FA8B /* libmpeg2convert.a */; };
@@ -455,7 +450,6 @@
 		C26F9F140F21135D0046570D /* tiffvers.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D550F21135D0046570D /* tiffvers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C26F9F150F21135D0046570D /* uvcode.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D560F21135D0046570D /* uvcode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C26F9F180F21135D0046570D /* rc_affine.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5A0F21135D0046570D /* rc_affine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C26F9F190F21135D0046570D /* rc_affinewindow.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5B0F21135D0046570D /* rc_affinewindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C26F9F1B0F21135D0046570D /* rc_cubic_generators.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5D0F21135D0046570D /* rc_cubic_generators.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C26F9F1D0F21135D0046570D /* rc_def_generators.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D5F0F21135D0046570D /* rc_def_generators.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C26F9F1E0F21135D0046570D /* rc_draw.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D600F21135D0046570D /* rc_draw.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -494,7 +488,6 @@
 		C26F9F450F21135D0046570D /* rf_playback_utils.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F9D870F21135D0046570D /* rf_playback_utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C26F9FEC0F21135D0046570D /* rc_edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E360F21135D0046570D /* rc_edge.cpp */; };
 		C26F9FED0F21135D0046570D /* rc_filegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E370F21135D0046570D /* rc_filegrabber.cpp */; };
-		C26F9FEE0F21135D0046570D /* rc_fill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E380F21135D0046570D /* rc_fill.cpp */; };
 		C26F9FEF0F21135D0046570D /* rc_framebuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E390F21135D0046570D /* rc_framebuf.cpp */; };
 		C26F9FF00F21135D0046570D /* rc_framegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E3A0F21135D0046570D /* rc_framegrabber.cpp */; };
 		C26F9FF10F21135D0046570D /* rc_gen_movie_file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E3B0F21135D0046570D /* rc_gen_movie_file.cpp */; };
@@ -503,7 +496,6 @@
 		C26F9FF50F21135D0046570D /* rc_imageprocessing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E3F0F21135D0046570D /* rc_imageprocessing.cpp */; };
 		C26F9FF60F21135D0046570D /* rc_ipconvert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E400F21135D0046570D /* rc_ipconvert.cpp */; };
 		C26F9FF80F21135D0046570D /* rc_moviefileformat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E420F21135D0046570D /* rc_moviefileformat.cpp */; };
-		C26F9FFA0F21135D0046570D /* rc_mpeg2grabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E440F21135D0046570D /* rc_mpeg2grabber.cpp */; };
 		C26F9FFC0F21135D0046570D /* rc_peak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E460F21135D0046570D /* rc_peak.cpp */; };
 		C26F9FFD0F21135D0046570D /* rc_polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E470F21135D0046570D /* rc_polygon.cpp */; };
 		C26F9FFE0F21135D0046570D /* rc_polygongroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E480F21135D0046570D /* rc_polygongroup.cpp */; };
@@ -520,7 +512,6 @@
 		C26FA0490F212DF40046570D /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0480F212DF40046570D /* CoreServices.framework */; };
 		C26FA0540F212E300046570D /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0530F212E300046570D /* Accelerate.framework */; };
 		C274E55B18C38BE500B7666B /* linlsq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26DB1D2184E618B00879A31 /* linlsq.cpp */; };
-		C27C023F18D7582E00FD9FE6 /* vf-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2850D0C131A1920002C8918 /* vf-Info.plist */; };
 		C27C024018D7593100FD9FE6 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22DCE881314C17700801DE4 /* gtest.framework */; };
 		C27C025018D75F3E00FD9FE6 /* blitz.txt in Resources */ = {isa = PBXBuildFile; fileRef = C26F9D8C0F21135D0046570D /* blitz.txt */; };
 		C27C025118D75F3E00FD9FE6 /* extract_m2v in Resources */ = {isa = PBXBuildFile; fileRef = C26B4ABE130DEAB00059FA8B /* extract_m2v */; };
@@ -530,7 +521,6 @@
 		C27C025618D75F3E00FD9FE6 /* string_arithmetic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC9CDB183E6BA100AC3300 /* string_arithmetic.cpp */; };
 		C27C025718D75F3E00FD9FE6 /* rc_edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E360F21135D0046570D /* rc_edge.cpp */; };
 		C27C025818D75F3E00FD9FE6 /* rc_filegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E370F21135D0046570D /* rc_filegrabber.cpp */; };
-		C27C025918D75F3E00FD9FE6 /* rc_fill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E380F21135D0046570D /* rc_fill.cpp */; };
 		C27C025A18D75F3E00FD9FE6 /* rc_framebuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E390F21135D0046570D /* rc_framebuf.cpp */; };
 		C27C025B18D75F3E00FD9FE6 /* rc_framegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E3A0F21135D0046570D /* rc_framegrabber.cpp */; };
 		C27C025C18D75F3E00FD9FE6 /* rc_gen_movie_file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E3B0F21135D0046570D /* rc_gen_movie_file.cpp */; };
@@ -545,7 +535,6 @@
 		C27C026518D75F3E00FD9FE6 /* rc_moviefileformat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E420F21135D0046570D /* rc_moviefileformat.cpp */; };
 		C27C026618D75F3E00FD9FE6 /* string_utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC9CDD183E6BA100AC3300 /* string_utilities.cpp */; };
 		C27C026718D75F3E00FD9FE6 /* stlplus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC9CD9183E6BA100AC3300 /* stlplus.cpp */; };
-		C27C026918D75F3E00FD9FE6 /* rc_mpeg2grabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E440F21135D0046570D /* rc_mpeg2grabber.cpp */; };
 		C27C026A18D75F3E00FD9FE6 /* rc_peak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E460F21135D0046570D /* rc_peak.cpp */; };
 		C27C026B18D75F3E00FD9FE6 /* rc_polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E470F21135D0046570D /* rc_polygon.cpp */; };
 		C27C026C18D75F3E00FD9FE6 /* rc_polygongroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E480F21135D0046570D /* rc_polygongroup.cpp */; };
@@ -650,9 +639,6 @@
 		C27C02D418D75F3E00FD9FE6 /* rc_cubic_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E310F21135D0046570D /* rc_cubic_generators.cpp */; };
 		C27C02D518D75F3E00FD9FE6 /* persistent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC9CD4183E6BA100AC3300 /* persistent.cpp */; };
 		C27C02D618D75F3E00FD9FE6 /* rc_affine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E2E0F21135D0046570D /* rc_affine.cpp */; };
-		C27C02D718D75F3E00FD9FE6 /* rc_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E350F21135D0046570D /* rc_draw.cpp */; };
-		C27C02D818D75F3E00FD9FE6 /* rc_def_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E340F21135D0046570D /* rc_def_generators.cpp */; };
-		C27C02D918D75F3E00FD9FE6 /* rc_affinewindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E2F0F21135D0046570D /* rc_affinewindow.cpp */; };
 		C27C02DA18D75F3E00FD9FE6 /* linlsq.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26DB1D2184E618B00879A31 /* linlsq.cpp */; };
 		C27C02DD18D75F3E00FD9FE6 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0440F212DEC0046570D /* IOKit.framework */; };
 		C27C02DE18D75F3E00FD9FE6 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0480F212DF40046570D /* CoreServices.framework */; };
@@ -665,10 +651,6 @@
 		C27E579E18C56BEA00DF8BA1 /* rc_signal1d.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C27E579D18C56BEA00DF8BA1 /* rc_signal1d.hpp */; };
 		C27E57A018C646E700DF8BA1 /* rc_find.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EA2818846B410060D961 /* rc_find.cpp */; };
 		C27E57A118C64B6000DF8BA1 /* rc_find.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2B8EA2718846B320060D961 /* rc_find.hpp */; };
-		C27E57AF18C6502C00DF8BA1 /* libopencv_core.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C27E57A418C6502B00DF8BA1 /* libopencv_core.2.2.0.dylib */; };
-		C27E57B218C6502C00DF8BA1 /* libopencv_highgui.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C27E57A718C6502B00DF8BA1 /* libopencv_highgui.2.2.0.dylib */; };
-		C27E57B318C6502C00DF8BA1 /* libopencv_imgproc.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C27E57A818C6502B00DF8BA1 /* libopencv_imgproc.2.2.0.dylib */; };
-		C27E57B618C6502C00DF8BA1 /* libopencv_objdetect.2.2.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C27E57AB18C6502B00DF8BA1 /* libopencv_objdetect.2.2.0.dylib */; };
 		C27E57C418C7BE2000DF8BA1 /* rc_contraction_signal.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C27E57C318C7BE2000DF8BA1 /* rc_contraction_signal.hpp */; };
 		C27E57E118C9238200DF8BA1 /* rc_pixel.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C23FD2421321A4CB00C1FF5A /* rc_pixel.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2850D0D131A1920002C8918 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2850D0A131A1920002C8918 /* InfoPlist.strings */; };
@@ -693,7 +675,6 @@
 		C2B8EA0D187E446A0060D961 /* ut_line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2850F21357A0046570D /* ut_line.cpp */; };
 		C2B8EA18187E4DD10060D961 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0530F212E300046570D /* Accelerate.framework */; };
 		C2B8EA1F187E526B0060D961 /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = C2B8EA1E187E526B0060D961 /* gtest-all.cc */; };
-		C2EC97700F37838200E49E22 /* blitz.txt in Resources */ = {isa = PBXBuildFile; fileRef = C26F9D8C0F21135D0046570D /* blitz.txt */; };
 		C2EC977B0F37838200E49E22 /* rc_analyzer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D970F21135D0046570D /* rc_analyzer.cpp */; };
 		C2EC97800F37838200E49E22 /* rc_connect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9C0F21135D0046570D /* rc_connect.cpp */; };
 		C2EC97810F37838200E49E22 /* rc_correlationwindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9D0F21135D0046570D /* rc_correlationwindow.cpp */; };
@@ -772,7 +753,6 @@
 		C2EC9BED183E692A00AC3300 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2850D0A131A1920002C8918 /* InfoPlist.strings */; };
 		C2EC9BF2183E692A00AC3300 /* rc_edge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E360F21135D0046570D /* rc_edge.cpp */; };
 		C2EC9BF3183E692A00AC3300 /* rc_filegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E370F21135D0046570D /* rc_filegrabber.cpp */; };
-		C2EC9BF4183E692A00AC3300 /* rc_fill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E380F21135D0046570D /* rc_fill.cpp */; };
 		C2EC9BF5183E692A00AC3300 /* rc_framebuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E390F21135D0046570D /* rc_framebuf.cpp */; };
 		C2EC9BF6183E692A00AC3300 /* rc_framegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E3A0F21135D0046570D /* rc_framegrabber.cpp */; };
 		C2EC9BF7183E692A00AC3300 /* rc_gen_movie_file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E3B0F21135D0046570D /* rc_gen_movie_file.cpp */; };
@@ -783,7 +763,6 @@
 		C2EC9BFC183E692A00AC3300 /* rc_ipconvert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E400F21135D0046570D /* rc_ipconvert.cpp */; };
 		C2EC9BFD183E692A00AC3300 /* rc_moviefileformat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E420F21135D0046570D /* rc_moviefileformat.cpp */; };
 		C2EC9BFE183E692A00AC3300 /* rc_moviegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E430F21135D0046570D /* rc_moviegrabber.cpp */; };
-		C2EC9BFF183E692A00AC3300 /* rc_mpeg2grabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E440F21135D0046570D /* rc_mpeg2grabber.cpp */; };
 		C2EC9C00183E692A00AC3300 /* rc_peak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E460F21135D0046570D /* rc_peak.cpp */; };
 		C2EC9C01183E692A00AC3300 /* rc_polygon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E470F21135D0046570D /* rc_polygon.cpp */; };
 		C2EC9C02183E692A00AC3300 /* rc_polygongroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E480F21135D0046570D /* rc_polygongroup.cpp */; };
@@ -870,9 +849,6 @@
 		C2EC9C5E183E692A00AC3300 /* tiff_aux.c in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E2A0F21135D0046570D /* tiff_aux.c */; };
 		C2EC9C61183E692A00AC3300 /* rc_cubic_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E310F21135D0046570D /* rc_cubic_generators.cpp */; };
 		C2EC9C62183E692A00AC3300 /* rc_affine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E2E0F21135D0046570D /* rc_affine.cpp */; };
-		C2EC9C63183E692A00AC3300 /* rc_draw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E350F21135D0046570D /* rc_draw.cpp */; };
-		C2EC9C64183E692A00AC3300 /* rc_def_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E340F21135D0046570D /* rc_def_generators.cpp */; };
-		C2EC9C65183E692A00AC3300 /* rc_affinewindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E2F0F21135D0046570D /* rc_affinewindow.cpp */; };
 		C2EC9C67183E692A00AC3300 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0440F212DEC0046570D /* IOKit.framework */; };
 		C2EC9C68183E692A00AC3300 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0480F212DF40046570D /* CoreServices.framework */; };
 		C2EC9C69183E692A00AC3300 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA04E0F212E170046570D /* QuickTime.framework */; };
@@ -1008,6 +984,16 @@
 		C25790210FF6E41F00DAF613 /* rc_visualtarget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_visualtarget.cpp; sourceTree = "<group>"; };
 		C25CC7AD1309FAFB00DAF2CF /* singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = singleton.hpp; sourceTree = "<group>"; };
 		C25CC7CA130A492700DAF2CF /* rc_capture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rc_capture.hpp; sourceTree = "<group>"; };
+		C2648B2318E2481100409776 /* libopencv_objdetect.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_objdetect.dylib; path = usr/local/OpenCv_2.4_i386/lib/libopencv_objdetect.dylib; sourceTree = "<group>"; };
+		C2648B2418E2481100409776 /* libopencv_legacy.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_legacy.dylib; path = usr/local/OpenCv_2.4_i386/lib/libopencv_legacy.dylib; sourceTree = "<group>"; };
+		C2648B2518E2481100409776 /* libopencv_video.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_video.dylib; path = usr/local/OpenCv_2.4_i386/lib/libopencv_video.dylib; sourceTree = "<group>"; };
+		C2648B2618E2481100409776 /* libopencv_ml.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_ml.dylib; path = usr/local/OpenCv_2.4_i386/lib/libopencv_ml.dylib; sourceTree = "<group>"; };
+		C2648B2718E2481100409776 /* libopencv_calib3d.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_calib3d.dylib; path = usr/local/OpenCv_2.4_i386/lib/libopencv_calib3d.dylib; sourceTree = "<group>"; };
+		C2648B2818E2481100409776 /* libopencv_features2d.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_features2d.dylib; path = usr/local/OpenCv_2.4_i386/lib/libopencv_features2d.dylib; sourceTree = "<group>"; };
+		C2648B2918E2481100409776 /* libopencv_highgui.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.dylib; path = usr/local/OpenCv_2.4_i386/lib/libopencv_highgui.dylib; sourceTree = "<group>"; };
+		C2648B2A18E2481100409776 /* libopencv_imgproc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.dylib; path = usr/local/OpenCv_2.4_i386/lib/libopencv_imgproc.dylib; sourceTree = "<group>"; };
+		C2648B2B18E2481100409776 /* libopencv_flann.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_flann.dylib; path = usr/local/OpenCv_2.4_i386/lib/libopencv_flann.dylib; sourceTree = "<group>"; };
+		C2648B2C18E2481100409776 /* libopencv_core.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.dylib; path = usr/local/OpenCv_2.4_i386/lib/libopencv_core.dylib; sourceTree = "<group>"; };
 		C26B4AB6130DE3B10059FA8B /* dcamUT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dcamUT.cpp; sourceTree = "<group>"; };
 		C26B4ABE130DEAB00059FA8B /* extract_m2v */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o"; path = extract_m2v; sourceTree = "<group>"; };
 		C26B4AC0130DEAB00059FA8B /* libmpeg2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmpeg2.a; sourceTree = "<group>"; };
@@ -1613,6 +1599,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2648B2D18E2481200409776 /* libopencv_objdetect.dylib in Frameworks */,
+				C2648B3318E2481200409776 /* libopencv_highgui.dylib in Frameworks */,
+				C2648B3418E2481200409776 /* libopencv_imgproc.dylib in Frameworks */,
+				C2648B3618E2481200409776 /* libopencv_core.dylib in Frameworks */,
 				C24ED43618DA213A0066AA0E /* QTKit.framework in Frameworks */,
 				C24ED43418DA21030066AA0E /* AudioToolbox.framework in Frameworks */,
 				C24ED43518DA21030066AA0E /* AudioUnit.framework in Frameworks */,
@@ -1626,10 +1616,6 @@
 				C24ED42918DA1FD70066AA0E /* AppKit.framework in Frameworks */,
 				C24ED41318DA1E000066AA0E /* OpenGL.framework in Frameworks */,
 				C24ED40F18DA1D8F0066AA0E /* libcinder_d.a in Frameworks */,
-				C27E57AF18C6502C00DF8BA1 /* libopencv_core.2.2.0.dylib in Frameworks */,
-				C27E57B218C6502C00DF8BA1 /* libopencv_highgui.2.2.0.dylib in Frameworks */,
-				C27E57B318C6502C00DF8BA1 /* libopencv_imgproc.2.2.0.dylib in Frameworks */,
-				C27E57B618C6502C00DF8BA1 /* libopencv_objdetect.2.2.0.dylib in Frameworks */,
 				C26FA0450F212DEC0046570D /* IOKit.framework in Frameworks */,
 				C26FA0490F212DF40046570D /* CoreServices.framework in Frameworks */,
 				C26FA0540F212E300046570D /* Accelerate.framework in Frameworks */,
@@ -1733,6 +1719,16 @@
 		0867D691FE84028FC02AAC07 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C2648B2318E2481100409776 /* libopencv_objdetect.dylib */,
+				C2648B2418E2481100409776 /* libopencv_legacy.dylib */,
+				C2648B2518E2481100409776 /* libopencv_video.dylib */,
+				C2648B2618E2481100409776 /* libopencv_ml.dylib */,
+				C2648B2718E2481100409776 /* libopencv_calib3d.dylib */,
+				C2648B2818E2481100409776 /* libopencv_features2d.dylib */,
+				C2648B2918E2481100409776 /* libopencv_highgui.dylib */,
+				C2648B2A18E2481100409776 /* libopencv_imgproc.dylib */,
+				C2648B2B18E2481100409776 /* libopencv_flann.dylib */,
+				C2648B2C18E2481100409776 /* libopencv_core.dylib */,
 				C24BF57618DCCEDA0039C53D /* IOKit.framework */,
 				C24BF56218DBBC7C0039C53D /* CoreFoundation.framework */,
 				C24ED43218DA20E30066AA0E /* Foundation.framework */,
@@ -2862,7 +2858,6 @@
 				C26F9F140F21135D0046570D /* tiffvers.h in Headers */,
 				C26F9F150F21135D0046570D /* uvcode.h in Headers */,
 				C26F9F180F21135D0046570D /* rc_affine.h in Headers */,
-				C26F9F190F21135D0046570D /* rc_affinewindow.h in Headers */,
 				C26F9F1B0F21135D0046570D /* rc_cubic_generators.h in Headers */,
 				C26F9F1D0F21135D0046570D /* rc_def_generators.h in Headers */,
 				C26F9F1E0F21135D0046570D /* rc_draw.h in Headers */,
@@ -2996,7 +2991,6 @@
 				C24EA8541842FD0D00E88B0A /* tiffvers.h in Headers */,
 				C24EA8551842FD0D00E88B0A /* uvcode.h in Headers */,
 				C24EA8561842FD0D00E88B0A /* rc_affine.h in Headers */,
-				C24EA8571842FD0D00E88B0A /* rc_affinewindow.h in Headers */,
 				C24EA8581842FD0D00E88B0A /* rc_cubic_generators.h in Headers */,
 				C24EA85A1842FD0D00E88B0A /* rc_def_generators.h in Headers */,
 				C24EA85B1842FD0D00E88B0A /* rc_draw.h in Headers */,
@@ -3110,7 +3104,7 @@
 				8D07F2BF0486CC7A007CD1D0 /* Resources */,
 				8D07F2C10486CC7A007CD1D0 /* Sources */,
 				8D07F2C30486CC7A007CD1D0 /* Frameworks */,
-				C2FDA4321002E38400A36E5F /* ShellScript */,
+				C2FDA4321002E38400A36E5F /* Run Script */,
 				C27E57B818C652AC00DF8BA1 /* ShellScript */,
 				C27E57C818C84A9F00DF8BA1 /* CopyFiles */,
 			);
@@ -3260,8 +3254,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C27C023F18D7582E00FD9FE6 /* vf-Info.plist in Resources */,
-				C2EC97700F37838200E49E22 /* blitz.txt in Resources */,
 				C26B4CA5130DEAB10059FA8B /* extract_m2v in Resources */,
 				C26B4CA8130DEAB10059FA8B /* mpeg2.sh in Resources */,
 				C26B4CA9130DEAB10059FA8B /* mpeg2dec-0.4.1.tar in Resources */,
@@ -3366,13 +3358,14 @@
 			shellPath = /bin/sh;
 			shellScript = "#  Build the doxygen documentation for the project and load the docset into Xcode.\n\n#  Use the following to adjust the value of the $DOXYGEN_PATH User-Defined Setting:\n#    Binary install location: /Applications/Doxygen.app/Contents/Resources/doxygen\n#    Source build install location: /usr/local/bin/doxygen\n\n#  If the config file doesn't exist, run 'doxygen -g $SOURCE_ROOT/doxygen.config' to \n#   a get default file.\n\nif ! [ -f $SRCROOT/doxygen.config ] \nthen \n  echo doxygen config file does not exist\n  $DOXYGEN_PATH -g $SRC_ROOT/doxygen.config\nfi\n\n#  Append the proper input/output directories and docset info to the config file.\n#  This works even though values are assigned higher up in the file. Easier than sed.\n\ncp $SRCROOT/doxygen.config $TEMP_DIR/doxygen.config\n\necho \"INPUT = $SRCROOT\" >> $TEMP_DIR/doxygen.config\necho \"OUTPUT_DIRECTORY = $SRCROOT/DoxygenDocs.docset\" >> $TEMP_DIR/doxygen.config\necho \"GENERATE_DOCSET        = YES\" >> $TEMP_DIR/doxygen.config\necho \"DOCSET_BUNDLE_ID       = com.mycompany.DoxygenExample\" >> $TEMP_DIR/doxygen.config\n\n#  Run doxygen on the updated config file.\n#  Note: doxygen creates a Makefile that does most of the heavy lifting.\n\n$DOXYGEN_PATH $TEMP_DIR/doxygen.config\n\n#  make will invoke docsetutil. Take a look at the Makefile to see how this is done.\n\nmake -C $SRCROOT/DoxygenDocs.docset/html install\n\n#  Construct a temporary applescript file to tell Xcode to load a docset.\n\nrm -f $TEMP_DIR/loadDocSet.scpt\n\necho \"tell application \\\"Xcode\\\"\" >> $TEMP_DIR/loadDocSet.scpt\necho \"load documentation set with path \\\"/Users/$USER/Library/Developer/Shared/Documentation/DocSets/\\\"\" \n     >> $TEMP_DIR/loadDocSet.scpt\necho \"end tell\" >> $TEMP_DIR/loadDocSet.scpt\n\n#  Run the load-docset applescript command.\n\nosascript $TEMP_DIR/loadDocSet.scpt\n\nexit 0\n\t\t\t\t";
 		};
-		C2FDA4321002E38400A36E5F /* ShellScript */ = {
+		C2FDA4321002E38400A36E5F /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3388,7 +3381,6 @@
 			files = (
 				C26F9FEC0F21135D0046570D /* rc_edge.cpp in Sources */,
 				C26F9FED0F21135D0046570D /* rc_filegrabber.cpp in Sources */,
-				C26F9FEE0F21135D0046570D /* rc_fill.cpp in Sources */,
 				C26F9FEF0F21135D0046570D /* rc_framebuf.cpp in Sources */,
 				C26F9FF00F21135D0046570D /* rc_framegrabber.cpp in Sources */,
 				C26F9FF10F21135D0046570D /* rc_gen_movie_file.cpp in Sources */,
@@ -3399,7 +3391,6 @@
 				C26F9FF50F21135D0046570D /* rc_imageprocessing.cpp in Sources */,
 				C26F9FF60F21135D0046570D /* rc_ipconvert.cpp in Sources */,
 				C26F9FF80F21135D0046570D /* rc_moviefileformat.cpp in Sources */,
-				C26F9FFA0F21135D0046570D /* rc_mpeg2grabber.cpp in Sources */,
 				C26F9FFC0F21135D0046570D /* rc_peak.cpp in Sources */,
 				C26F9FFD0F21135D0046570D /* rc_polygon.cpp in Sources */,
 				C26F9FFE0F21135D0046570D /* rc_polygongroup.cpp in Sources */,
@@ -3511,9 +3502,6 @@
 				C22DD3D71316364600801DE4 /* rc_affine.cpp in Sources */,
 				EBD7A622187C94CD0052C9A4 /* file_system.cpp in Sources */,
 				EBD7A624187C94D60052C9A4 /* fileio.cpp in Sources */,
-				C22DD3E41316377900801DE4 /* rc_draw.cpp in Sources */,
-				C22DD3E51316377900801DE4 /* rc_def_generators.cpp in Sources */,
-				C22DD3E61316377B00801DE4 /* rc_affinewindow.cpp in Sources */,
 				EBD7A62E187C94F20052C9A4 /* multiio.cpp in Sources */,
 				EBD7A63C187C95190052C9A4 /* stringio.cpp in Sources */,
 			);
@@ -3525,7 +3513,6 @@
 			files = (
 				C24EA8D51842FD0D00E88B0A /* rc_edge.cpp in Sources */,
 				C24EA8D61842FD0D00E88B0A /* rc_filegrabber.cpp in Sources */,
-				C24EA8D71842FD0D00E88B0A /* rc_fill.cpp in Sources */,
 				C24EA8D81842FD0D00E88B0A /* rc_framebuf.cpp in Sources */,
 				C24EA8D91842FD0D00E88B0A /* rc_framegrabber.cpp in Sources */,
 				C24EA8DA1842FD0D00E88B0A /* rc_gen_movie_file.cpp in Sources */,
@@ -3536,7 +3523,6 @@
 				C24EA8DF1842FD0D00E88B0A /* rc_ipconvert.cpp in Sources */,
 				C24EA8E01842FD0D00E88B0A /* rc_moviefileformat.cpp in Sources */,
 				C24EA8E11842FD0D00E88B0A /* rc_moviegrabber.cpp in Sources */,
-				C24EA8E21842FD0D00E88B0A /* rc_mpeg2grabber.cpp in Sources */,
 				C24EA8E31842FD0D00E88B0A /* rc_peak.cpp in Sources */,
 				C24EA8E41842FD0D00E88B0A /* rc_polygon.cpp in Sources */,
 				C24EA8E51842FD0D00E88B0A /* rc_polygongroup.cpp in Sources */,
@@ -3623,9 +3609,6 @@
 				C24EA9411842FD0D00E88B0A /* tiff_aux.c in Sources */,
 				C24EA9421842FD0D00E88B0A /* rc_cubic_generators.cpp in Sources */,
 				C24EA9431842FD0D00E88B0A /* rc_affine.cpp in Sources */,
-				C24EA9441842FD0D00E88B0A /* rc_draw.cpp in Sources */,
-				C24EA9451842FD0D00E88B0A /* rc_def_generators.cpp in Sources */,
-				C24EA9461842FD0D00E88B0A /* rc_affinewindow.cpp in Sources */,
 				C24EA9491842FD0D00E88B0A /* cli_parser.cpp in Sources */,
 				C24EA94A1842FD0D00E88B0A /* debug.cpp in Sources */,
 				C24EA94B1842FD0D00E88B0A /* dprintf.cpp in Sources */,
@@ -3659,7 +3642,6 @@
 				C27C025618D75F3E00FD9FE6 /* string_arithmetic.cpp in Sources */,
 				C27C025718D75F3E00FD9FE6 /* rc_edge.cpp in Sources */,
 				C27C025818D75F3E00FD9FE6 /* rc_filegrabber.cpp in Sources */,
-				C27C025918D75F3E00FD9FE6 /* rc_fill.cpp in Sources */,
 				C27C025A18D75F3E00FD9FE6 /* rc_framebuf.cpp in Sources */,
 				C27C025B18D75F3E00FD9FE6 /* rc_framegrabber.cpp in Sources */,
 				C27C025C18D75F3E00FD9FE6 /* rc_gen_movie_file.cpp in Sources */,
@@ -3674,7 +3656,6 @@
 				C27C026518D75F3E00FD9FE6 /* rc_moviefileformat.cpp in Sources */,
 				C27C026618D75F3E00FD9FE6 /* string_utilities.cpp in Sources */,
 				C27C026718D75F3E00FD9FE6 /* stlplus.cpp in Sources */,
-				C27C026918D75F3E00FD9FE6 /* rc_mpeg2grabber.cpp in Sources */,
 				C27C026A18D75F3E00FD9FE6 /* rc_peak.cpp in Sources */,
 				C27C026B18D75F3E00FD9FE6 /* rc_polygon.cpp in Sources */,
 				C27C026C18D75F3E00FD9FE6 /* rc_polygongroup.cpp in Sources */,
@@ -3781,9 +3762,6 @@
 				C27C02D418D75F3E00FD9FE6 /* rc_cubic_generators.cpp in Sources */,
 				C27C02D518D75F3E00FD9FE6 /* persistent.cpp in Sources */,
 				C27C02D618D75F3E00FD9FE6 /* rc_affine.cpp in Sources */,
-				C27C02D718D75F3E00FD9FE6 /* rc_draw.cpp in Sources */,
-				C27C02D818D75F3E00FD9FE6 /* rc_def_generators.cpp in Sources */,
-				C27C02D918D75F3E00FD9FE6 /* rc_affinewindow.cpp in Sources */,
 				C27C02DA18D75F3E00FD9FE6 /* linlsq.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3824,7 +3802,6 @@
 			files = (
 				C2EC9BF2183E692A00AC3300 /* rc_edge.cpp in Sources */,
 				C2EC9BF3183E692A00AC3300 /* rc_filegrabber.cpp in Sources */,
-				C2EC9BF4183E692A00AC3300 /* rc_fill.cpp in Sources */,
 				C2EC9BF5183E692A00AC3300 /* rc_framebuf.cpp in Sources */,
 				C2EC9BF6183E692A00AC3300 /* rc_framegrabber.cpp in Sources */,
 				C2EC9BF7183E692A00AC3300 /* rc_gen_movie_file.cpp in Sources */,
@@ -3835,7 +3812,6 @@
 				C2EC9BFC183E692A00AC3300 /* rc_ipconvert.cpp in Sources */,
 				C2EC9BFD183E692A00AC3300 /* rc_moviefileformat.cpp in Sources */,
 				C2EC9BFE183E692A00AC3300 /* rc_moviegrabber.cpp in Sources */,
-				C2EC9BFF183E692A00AC3300 /* rc_mpeg2grabber.cpp in Sources */,
 				C2EC9C00183E692A00AC3300 /* rc_peak.cpp in Sources */,
 				C2EC9C01183E692A00AC3300 /* rc_polygon.cpp in Sources */,
 				C2EC9C02183E692A00AC3300 /* rc_polygongroup.cpp in Sources */,
@@ -3924,9 +3900,6 @@
 				C2EC9C5E183E692A00AC3300 /* tiff_aux.c in Sources */,
 				C2EC9C61183E692A00AC3300 /* rc_cubic_generators.cpp in Sources */,
 				C2EC9C62183E692A00AC3300 /* rc_affine.cpp in Sources */,
-				C2EC9C63183E692A00AC3300 /* rc_draw.cpp in Sources */,
-				C2EC9C64183E692A00AC3300 /* rc_def_generators.cpp in Sources */,
-				C2EC9C65183E692A00AC3300 /* rc_affinewindow.cpp in Sources */,
 				C2EC9C86183E69F500AC3300 /* visimatch.cpp in Sources */,
 				C2EC9CF0183E6BA100AC3300 /* cli_parser.cpp in Sources */,
 				C2EC9CF3183E6BA100AC3300 /* debug.cpp in Sources */,
@@ -3976,6 +3949,7 @@
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -3995,7 +3969,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PFE_FILE_C_DIALECTS = "c c++";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/build_scripts/vf_Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					RFY_DLL,
 					"$(inherited)",
@@ -4015,13 +3989,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/3rdParty/mpeg2/libs",
 					"$(BOOST_PATH)/lib",
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/OpenCv_2.2_i386/lib,
 					"$(CINDER_PATH)/lib",
 					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib,
+					/Users/arman/gwc/vqt105/visibleqt105/usr/local/OpenCv_2.4_i386/lib,
 				);
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCv_2.2_i386\n";
+				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCv_2.4_i386\n";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = vfi386_d;
@@ -4043,6 +4017,7 @@
 				BOOST_PATH = "$(SRCROOT)/usr/local/boost";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -4064,7 +4039,7 @@
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PFE_FILE_C_DIALECTS = "c c++";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/build_scripts/vf_Prefix.pch";
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					RFY_DLL,
 					"$(inherited)",
@@ -4085,15 +4060,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/3rdParty/mpeg2/libs",
 					"$(BOOST_PATH)/lib",
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/OpenCv_2.2_i386/lib,
 					"$(CINDER_PATH)/lib",
 					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib,
+					/Users/arman/gwc/vqt105/visibleqt105/usr/local/OpenCv_2.4_i386/lib,
 				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = NO;
-				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCv_2.2_i386\n";
+				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCv_2.4_i386\n";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = vfi386;

@@ -187,7 +187,7 @@ typedef struct CvFGDStatModelParams
     int    N2cc;		/* Number of color co-occurrence vectors retained at given pixel.  Must be > N1cc, typically ~ 5/3 of N1cc.	*/
 				/* Used to allow the first N1cc vectors to adapt over time to changing background.				*/
 
-    int    is_obj_without_holes;/* If TRUE we ignore holes within foreground blobs. Defaults to TRUE.						*/
+    int    is_obj_without_holes;/* If true we ignore holes within foreground blobs. Defaults to true.						*/
     int    perform_morphing;	/* Number of erode-dilate-erode foreground-blob cleanup iterations.						*/
 				/* These erase one-pixel junk blobs and merge almost-touching blobs. Default value is 1.			*/
 

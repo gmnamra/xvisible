@@ -192,7 +192,7 @@ GTEST_API_ AssertionResult EqFailure(const char* expected_expression,
                                      const std::string& actual_value,
                                      bool ignoring_case);
 
-// Constructs a failure message for Boolean assertions such as EXPECT_TRUE.
+// Constructs a failure message for Boolean assertions such as EXPECT_true.
 GTEST_API_ std::string GetBoolAssertionFailureMessage(
     const AssertionResult& assertion_result,
     const char* expression_text,
@@ -1102,9 +1102,9 @@ class NativeArray {
            "  Actual: it doesn't.")
 
 
-// Implements Boolean test assertions such as EXPECT_TRUE. expression can be
+// Implements Boolean test assertions such as EXPECT_true. expression can be
 // either a boolean expression or an AssertionResult. text is a textual
-// represenation of expression as it was passed into the EXPECT_TRUE.
+// represenation of expression as it was passed into the EXPECT_true.
 #define GTEST_TEST_BOOLEAN_(expression, text, actual, expected, fail) \
   GTEST_AMBIGUOUS_ELSE_BLOCKER_ \
   if (const ::testing::AssertionResult gtest_ar_ = \

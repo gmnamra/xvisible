@@ -68,7 +68,7 @@ class FooTest : public ::testing::TestWithParam<const char*> {
 TEST_P(FooTest, DoesBlah) {
   // Inside a test, access the test parameter with the GetParam() method
   // of the TestWithParam<T> class:
-  EXPECT_TRUE(foo.Blah(GetParam()));
+  EXPECT_true(foo.Blah(GetParam()));
   ...
 }
 
@@ -174,7 +174,7 @@ TEST_F(BaseTest, HasFoo) {
 
 TEST_P(DerivedTest, DoesBlah) {
   // GetParam works just the same here as if you inherit from TestWithParam.
-  EXPECT_TRUE(foo.Blah(GetParam()));
+  EXPECT_true(foo.Blah(GetParam()));
 }
 
 #endif  // 0

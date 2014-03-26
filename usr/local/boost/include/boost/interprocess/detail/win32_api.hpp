@@ -187,7 +187,7 @@ const   signed long WBEM_FLAG_FORWARD_ONLY_BIPC = 0x20;
 const   signed long WBEM_INFINITE_BIPC = 0xffffffffL;
 const   signed long RPC_E_TOO_LATE_BIPC = 0x80010119L;
 const   signed long S_OK_BIPC = 0L;
-const   signed long S_FALSE_BIPC = 1;
+const   signed long S_false_BIPC = 1;
 const   signed long RPC_E_CHANGED_MODE_BIPC = 0x80010106L;
 const unsigned long COINIT_APARTMENTTHREADED_BIPC   = 0x2;
 const unsigned long COINIT_MULTITHREADED_BIPC       = 0x0;
@@ -1671,7 +1671,7 @@ inline bool get_wmi_class_attribute( std::wstring& strValue, const wchar_t *wmi_
    //See BOOST_INTERPROCESS_WINDOWS_COINIT_MODEL definition if you need to change the
    //default value of this macro in your application
    long co_init_ret = CoInitializeEx(0, BOOST_INTERPROCESS_WINDOWS_COINIT_MODEL);
-   if(co_init_ret != S_OK_BIPC && co_init_ret != S_FALSE_BIPC && co_init_ret != RPC_E_CHANGED_MODE_BIPC)
+   if(co_init_ret != S_OK_BIPC && co_init_ret != S_false_BIPC && co_init_ret != RPC_E_CHANGED_MODE_BIPC)
       return false;
    co_uninitializer co_initialize_end(co_init_ret != RPC_E_CHANGED_MODE_BIPC);
    (void)co_initialize_end;

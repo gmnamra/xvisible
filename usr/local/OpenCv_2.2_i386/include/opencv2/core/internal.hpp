@@ -84,11 +84,11 @@
     #define     _CV_ALWAYS_NO_PROFILE_
 #endif
 
-#ifndef FALSE
-#define FALSE 0
+#ifndef false
+#define false 0
 #endif
-#ifndef TRUE
-#define TRUE 1
+#ifndef true
+#define true 1
 #endif
 
 #define __BEGIN__ __CV_BEGIN__

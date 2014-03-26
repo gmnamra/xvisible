@@ -58,4 +58,4 @@ protected:
 
 TEST_P(rcGTest, analysis_tests)
 {
-	EXPECT_TRUE(
+	EXPECT_true(

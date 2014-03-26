@@ -128,7 +128,7 @@ public:
         DWORD old_options;
         const BOOL result = ::VirtualProtect(
             limit, pagesize(), PAGE_READWRITE | PAGE_GUARD /*PAGE_NOACCESS*/, & old_options);
-        BOOST_ASSERT( FALSE != result);
+        BOOST_ASSERT( false != result);
 
         return static_cast< char * >( limit) + size_;
     }

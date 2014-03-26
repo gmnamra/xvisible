@@ -215,7 +215,7 @@ struct point_on_border<box_tag, Point, Box>
 \param geometry geometry to take point from
 \param midpoint boolean flag, true if the point should not be a vertex, but some point
     in between of two vertices
-\return TRUE if successful, else false.
+\return true if successful, else false.
     It is only false if polygon/line have no points
 \note for a polygon, it is always a point on the exterior ring
 \note for take_midpoint, it is not taken from two consecutive duplicate vertices,

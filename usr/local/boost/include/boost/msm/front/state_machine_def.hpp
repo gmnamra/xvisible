@@ -55,7 +55,7 @@ struct state_machine_def :  public boost::msm::front::detail::state_base<BaseSta
         {
             // in this front-end, we don't need to know source and target states
             (fsm.*action)(evt);
-            return ::boost::msm::back::HANDLED_TRUE;
+            return ::boost::msm::back::HANDLED_true;
         }
     };
 
@@ -90,7 +90,7 @@ struct state_machine_def :  public boost::msm::front::detail::state_base<BaseSta
         {
             // in this front-end, we don't need to know source and target states
             (fsm.*action)(evt);
-            return ::boost::msm::back::HANDLED_TRUE;
+            return ::boost::msm::back::HANDLED_true;
         }
         template <class FSM,class SourceState,class TargetState,class AllStates>
         static bool guard_call(FSM& fsm,Event const& evt,SourceState&,TargetState&,AllStates&)
@@ -135,7 +135,7 @@ struct state_machine_def :  public boost::msm::front::detail::state_base<BaseSta
         {
             // in this front-end, we don't need to know source and target states
             (fsm.*action)(evt);
-            return ::boost::msm::back::HANDLED_TRUE;
+            return ::boost::msm::back::HANDLED_true;
         }
     };
 
@@ -156,7 +156,7 @@ struct state_machine_def :  public boost::msm::front::detail::state_base<BaseSta
         {
             // in this front-end, we don't need to know source and target states
             (fsm.*action)(evt);
-            return ::boost::msm::back::HANDLED_TRUE;
+            return ::boost::msm::back::HANDLED_true;
         }
         template <class FSM,class SourceState,class TargetState,class AllStates>
         static bool guard_call(FSM& fsm,Event const& evt,SourceState&,TargetState&,AllStates&)
