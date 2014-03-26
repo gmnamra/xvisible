@@ -24,7 +24,7 @@
 #include <rc_types.h>
 #include <sys/sysctl.h>
 
-static bool sForceAltiVec = TRUE;
+static bool sForceAltiVec = true;
 static int sHasAltivec = -1;
 
 // This function will also be defined under PC when MMX is present

@@ -129,7 +129,7 @@ void* rcSharedMemoryUser::acquireSharedMemory(rcSharedMemError& err, bool wait)
       return NULL;
     }
     
-    _ownSharedMem = TRUE;
+    _ownSharedMem = true;
     return _shmemP;
   }
 
@@ -157,7 +157,7 @@ rcSharedMemError rcSharedMemoryUser::releaseSharedMemory()
    */
   if (semop(_semSetId, &_returnBufSem, 1) == 0) // Command succeeded
   {
-    _ownSharedMem = FALSE;
+    _ownSharedMem = false;
     return rcSharedMemNoError;
   }
     
@@ -430,7 +430,7 @@ void rcExecWithShmem::setParentDone()
   assert(isValid());
 
   genSync();
-  _shMemCtrlP->parentDone = TRUE;
+  _shMemCtrlP->parentDone = true;
   genSync();
 }
 
@@ -711,6 +711,6 @@ uint8 rcCreateChildShmem::isChildDone()
 void rcCreateChildShmem::setChildDone()
 {
   genSync();
-  _shMemCtrlP->childDone = TRUE;
+  _shMemCtrlP->childDone = true;
   genSync();
 }

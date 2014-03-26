@@ -251,7 +251,7 @@ static const TIFFFieldInfo ojpegFieldInfo[]=/* JPEG-specific TIFF-record tags */
  */
     {
       TIFFTAG_JPEGTABLES            ,TIFF_VARIABLE2,TIFF_VARIABLE2,
-      TIFF_UNDEFINED,FIELD_JPEGTABLES            ,FALSE,TRUE ,"JPEGTables"
+      TIFF_UNDEFINED,FIELD_JPEGTABLES            ,FALSE,true ,"JPEGTables"
     },
 
  /* These tags are defined by the TIFF Version 6.0 specification and are now
@@ -276,23 +276,23 @@ static const TIFFFieldInfo ojpegFieldInfo[]=/* JPEG-specific TIFF-record tags */
     },
     {
       TIFFTAG_JPEGLOSSLESSPREDICTORS,TIFF_VARIABLE,TIFF_VARIABLE,
-      TIFF_SHORT    ,FIELD_JPEGLOSSLESSPREDICTORS,FALSE,TRUE ,"JPEGLosslessPredictors"
+      TIFF_SHORT    ,FIELD_JPEGLOSSLESSPREDICTORS,FALSE,true ,"JPEGLosslessPredictors"
     },
     {
       TIFFTAG_JPEGPOINTTRANSFORM    ,TIFF_VARIABLE,TIFF_VARIABLE,
-      TIFF_SHORT    ,FIELD_JPEGPOINTTRANSFORM    ,FALSE,TRUE ,"JPEGPointTransforms"
+      TIFF_SHORT    ,FIELD_JPEGPOINTTRANSFORM    ,FALSE,true ,"JPEGPointTransforms"
     },
     {
       TIFFTAG_JPEGQTABLES           ,TIFF_VARIABLE,TIFF_VARIABLE,
-      TIFF_LONG     ,FIELD_JPEGQTABLES           ,FALSE,TRUE ,"JPEGQTables"
+      TIFF_LONG     ,FIELD_JPEGQTABLES           ,FALSE,true ,"JPEGQTables"
     },
     {
       TIFFTAG_JPEGDCTABLES          ,TIFF_VARIABLE,TIFF_VARIABLE,
-      TIFF_LONG     ,FIELD_JPEGDCTABLES          ,FALSE,TRUE ,"JPEGDCTables"
+      TIFF_LONG     ,FIELD_JPEGDCTABLES          ,FALSE,true ,"JPEGDCTables"
     },
     {
       TIFFTAG_JPEGACTABLES          ,TIFF_VARIABLE,TIFF_VARIABLE,
-      TIFF_LONG     ,FIELD_JPEGACTABLES          ,FALSE,TRUE ,"JPEGACTables"
+      TIFF_LONG     ,FIELD_JPEGACTABLES          ,FALSE,true ,"JPEGACTables"
     },
     {
       TIFFTAG_WANG_PAGECONTROL      ,TIFF_VARIABLE,1            ,
@@ -389,7 +389,7 @@ std_empty_output_buffer(register j_compress_ptr cinfo)
     TIFFFlushData1(tif);
     sp->dest.next_output_byte = (JOCTET *)tif->tif_rawdata;
     sp->dest.free_in_buffer = (size_t)tif->tif_rawdatasize;
-    return TRUE;
+    return true;
 #   undef sp
   }
 
@@ -432,7 +432,7 @@ tables_empty_output_buffer(register j_compress_ptr cinfo)
     sp->dest.free_in_buffer = (size_t)1000;
     sp->jpegtables = newbuf;
     sp->jpegtables_length += 1000;
-    return TRUE;
+    return true;
 #   undef sp
   }
 
@@ -509,7 +509,7 @@ std_fill_input_buffer(register j_decompress_ptr cinfo)
     WARNMS(cinfo,JWRN_JPEG_EOF);
     sp->src.next_input_byte = dummy_EOI; /* Insert a fake EOI marker */
     sp->src.bytes_in_buffer = sizeof dummy_EOI;
-    return TRUE;
+    return true;
 #   undef sp
   }
 
@@ -835,7 +835,7 @@ OJPEGSetupEncode(register TIFF *tif)
         register JQUANT_TBL *qtbl;
 
         case 0                                       :
-          sp->cinfo.c.optimize_coding = TRUE;
+          sp->cinfo.c.optimize_coding = true;
         case JPEGTABLESMODE_HUFF                     :
           if (!CALLVJPEG(sp,jpeg_set_quality(&sp->cinfo.c,sp->jpegquality,FALSE)))
             return 0;
@@ -843,7 +843,7 @@ OJPEGSetupEncode(register TIFF *tif)
           if (qtbl = sp->cinfo.c.quant_tbl_ptrs[1]) qtbl->sent_table = FALSE;
           goto L3;
         case JPEGTABLESMODE_QUANT                    :
-          sp->cinfo.c.optimize_coding = TRUE;
+          sp->cinfo.c.optimize_coding = true;
 
        /* We do not support application-supplied JPEG tables, so mark the field
           "not present".
@@ -852,7 +852,7 @@ OJPEGSetupEncode(register TIFF *tif)
           break;
         case JPEGTABLESMODE_HUFF|JPEGTABLESMODE_QUANT:
           if (   !CALLVJPEG(sp,jpeg_set_quality(&sp->cinfo.c,sp->jpegquality,FALSE))
-              || !CALLVJPEG(sp,jpeg_suppress_tables(&sp->cinfo.c,TRUE))
+              || !CALLVJPEG(sp,jpeg_suppress_tables(&sp->cinfo.c,true))
              )
             {
               status = 0;
@@ -1566,7 +1566,7 @@ OJPEGSetupDecode(register TIFF *tif)
             tif->tif_flags |= TIFF_DIRTYDIRECT;
           }
         else sp->jpegtables = 0; /* Don't simulate "JPEGTables" */
-        if (   CALLJPEG(sp,-1,jpeg_read_header(&sp->cinfo.d,TRUE))
+        if (   CALLJPEG(sp,-1,jpeg_read_header(&sp->cinfo.d,true))
             != JPEG_HEADER_OK
            ) return 0;
         if (   sp->cinfo.d.image_width  != segment_width
@@ -1621,7 +1621,7 @@ OJPEGSetupDecode(register TIFF *tif)
         establish reasonable defaults.
      */
         sp->cinfo.d.marker->saw_SOI =       /* Pretend we saw SOI marker */
-        sp->cinfo.d.marker->saw_SOF = TRUE; /* Pretend we saw SOF marker */
+        sp->cinfo.d.marker->saw_SOF = true; /* Pretend we saw SOF marker */
         sp->cinfo.d.marker->read_markers =
           sp->is_WANG ? suspend : fake_SOS_marker;
         sp->cinfo.d.global_state = DSTATE_INHEADER;
@@ -1644,7 +1644,7 @@ OJPEGSetupDecode(register TIFF *tif)
         do
           {
             sp->cinfo.d.comp_info[i].component_index = i;
-            sp->cinfo.d.comp_info[i].component_needed = TRUE;
+            sp->cinfo.d.comp_info[i].component_needed = true;
             sp->cinfo.d.cur_comp_info[i] = &sp->cinfo.d.comp_info[i];
           }
         while (++i < sp->cinfo.d.num_components);
@@ -1718,7 +1718,7 @@ OJPEGSetupDecode(register TIFF *tif)
             sp->src.next_input_byte = tif->tif_base + td->td_stripoffset[0];
             sp->src.bytes_in_buffer = td->td_stripoffset[i] -
               td->td_stripoffset[0] + td->td_stripbytecount[i];
-            i = CALLJPEG(sp,-1,jpeg_read_header(&sp->cinfo.d,TRUE));
+            i = CALLJPEG(sp,-1,jpeg_read_header(&sp->cinfo.d,true));
           };
         if (i != JPEG_HEADER_OK) return 0;
       };
@@ -1752,7 +1752,7 @@ OJPEGSetupDecode(register TIFF *tif)
     this pointer below will cause a fatal crash) but writing our own code to up-
     sample separate color planes is too much work for right now.  Maybe someday?
  */
-    sp->cinfo.d.do_fancy_upsampling = /* Always let this default (to TRUE)? */
+    sp->cinfo.d.do_fancy_upsampling = /* Always let this default (to true)? */
     sp->cinfo.d.buffered_image = td->td_planarconfig == PLANARCONFIG_SEPARATE;
     if (!CALLJPEG(sp,0,jpeg_start_decompress(&sp->cinfo.d))) return 0;
     if (sp->cinfo.d.buffered_image) /* separate color planes */

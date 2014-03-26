@@ -184,9 +184,9 @@ void rcMainWindow::settingChanged()
 
     // Disable resizing for camera
     if ( attr.liveInput ) {
-        mStatusBar->setSizeGripEnabled( FALSE );
+        mStatusBar->setSizeGripEnabled( false );
     } else {
-        mStatusBar->setSizeGripEnabled( TRUE );
+        mStatusBar->setSizeGripEnabled( true );
     }
 }
 

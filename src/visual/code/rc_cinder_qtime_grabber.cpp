@@ -1,7 +1,7 @@
 
 
 #include "rc_cinder_qtime_grabber.h"
-#include <cinder/qtime/QuickTime.h>
+
 #include <stlplus_lite.hpp>
 
 
@@ -87,7 +87,7 @@ int32 rcCinderGrabber::frameCount()
 
 // Get next frame, assign the frame to ptr
 rcFrameGrabberStatus
-rcCinderGrabber::getNextFrame( rcSharedFrameBufPtr& ptr, bool isBlocking )
+rcCinderGrabber::getNextFrame( rcSharedFrameBufPtr& fptr, bool isBlocking )
 {
 
     rcFrameGrabberStatus ret =  eFrameStatusOK;
@@ -98,8 +98,8 @@ rcCinderGrabber::getNextFrame( rcSharedFrameBufPtr& ptr, bool isBlocking )
         if ( mMovie.checkNewFrame () )
         {
             double tp = mMovie.getCurrentTime ();
-            ptr = rcSharedFrameBufPtr ( new rcFrame ( mMovie.getSurface ().getChannelGreen () ) );
-            ptr->setTimestamp(tp);
+            fptr = rcSharedFrameBufPtr ( new rcFrame ( mMovie.getSurface ().getChannelGreen () ) );
+            fptr->setTimestamp(tp);
             ret = eFrameStatusOK;
             setLastError( eFrameErrorOK );
             mMovie.stepForward ();

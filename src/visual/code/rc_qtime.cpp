@@ -17,8 +17,7 @@
 
 #define BailErr(x) {err = x; if(err != noErr) goto bail;}
 
-namespace legacy_qtime
-{
+
     class rfQuicktimeImporter {
     public:
         GraphicsImportComponent gi;
@@ -50,7 +49,7 @@ namespace legacy_qtime
         // Comparator for file name sorting
     static bool fileCompare( const std::string& lhs, const std::string& rhs )
     {
-        return ( qtime::rfImageFrameNum( (char*) lhs.c_str() ) < qtime::rfImageFrameNum( (char*) rhs.c_str() ) );
+        return ( rfImageFrameNum( (char*) lhs.c_str() ) < rfImageFrameNum( (char*) rhs.c_str() ) );
     }
 
     static OSErr rfImageFileToRcWindowGi(vector <rcWindow>& images, vector <FSSpec*>& files, GraphicsImportComponent& gi)
@@ -67,7 +66,7 @@ namespace legacy_qtime
         for (int32 i = 0; i < n; i++)
         {
             std::string name = _convertPascalStringToString (files[i]->name);
-            int num = qtime::rfImageFrameNum ((char *) name.c_str());
+            int num = rfImageFrameNum ((char *) name.c_str());
             assert (num >= 0);
             indexes.push_back (num);
         }
@@ -78,7 +77,7 @@ namespace legacy_qtime
         {
             int j;
             std::string name = _convertPascalStringToString (files[i]->name);
-            int num = qtime::rfImageFrameNum ((char *) name.c_str());
+            int num = rfImageFrameNum ((char *) name.c_str());
             assert (num >= 0);
             for (j = 0; indexes[j] != num && j < n; j++);
 
@@ -194,8 +193,8 @@ namespace legacy_qtime
         for( file = fileNames.begin(); file < fileNames.end(); ++file )
         {
             bool isvalid = false;
-            FSSpec spec = qtime::rfMakeFSSpecFromPosixPath( (*file).c_str(), isvalid);
-            if ( qtime::ValidFSSpec( &spec ) == noErr )
+            FSSpec spec = rfMakeFSSpecFromPosixPath( (*file).c_str(), isvalid);
+            if ( ValidFSSpec( &spec ) == noErr )
             {
                 FSSpec* newSpec = new FSSpec(spec);
 
@@ -240,7 +239,7 @@ namespace legacy_qtime
             return (bdNamErr);
         }
         desc = *imageDescH;
-        qtime::getPixelInfoFromImageDesc (imageDescH, pd, pf, isGray, isWhiteReversed, &ctb);
+        getPixelInfoFromImageDesc (imageDescH, pd, pf, isGray, isWhiteReversed, &ctb);
 
             // Get size and format information we need
         ::Rect boundsRect = { 0, 0, desc->height, desc->width };
@@ -327,8 +326,8 @@ namespace legacy_qtime
 
         assert (frames.size() == 0);
         bool isDir = false;
-        theFSSpec = qtime::rfMakeFSSpecFromPosixPath( fileName.c_str(), isDir );
-        err = qtime::ValidFSSpec( &theFSSpec );
+        theFSSpec = rfMakeFSSpecFromPosixPath( fileName.c_str(), isDir );
+        err = ValidFSSpec( &theFSSpec );
         if ( err != noErr )
             return err;
 
@@ -371,7 +370,7 @@ namespace legacy_qtime
         bool isGray;
         bool isWhiteReversed;
 
-        qtime::getPixelInfoFromImageDesc ((ImageDescriptionHandle) anImageDesc, dp, pf, isGray, isWhiteReversed, &ctb);
+        getPixelInfoFromImageDesc ((ImageDescriptionHandle) anImageDesc, dp, pf, isGray, isWhiteReversed, &ctb);
 
             // If it is a depth we like, create rcWindows and fill them up.
         assert (dp != 0);
@@ -392,7 +391,7 @@ namespace legacy_qtime
                 break;
 
                 // Store the frame
-            err = qtime::getNextVideoSample(thisMovie, *img, media, theTime, true );
+            err = getNextVideoSample(thisMovie, *img, media, theTime, true );
             flags = nextTimeMediaSample;
             theTime = nextTime;
         }
@@ -744,7 +743,7 @@ namespace legacy_qtime
                 rcSharedFrameBufPtr buf8(new rcFrame (width, height, depth));
                 buf8->setIsGray(isGray);
                     // Produce color map
-                qtime::rfFillColorMap( ctb, buf8 );
+                rfFillColorMap( ctb, buf8 );
                 rcWindow image8(buf8);
                     // Reduce image depth
                 rfRcWindow32to8( tmp, image8 );
@@ -752,7 +751,7 @@ namespace legacy_qtime
             } else {
                     // Produce color map if necessary
                 if ( depth < rcPixel32 && !isWhiteReversed) {
-                    qtime::rfFillColorMap( ctb, buf );
+                    rfFillColorMap( ctb, buf );
                 }
             }
         }
@@ -792,5 +791,5 @@ namespace legacy_qtime
         return anErr;
     }
     
-}
+
 

@@ -191,7 +191,7 @@ rcImageCanvasGL::rcImageCanvasGL( QWidget* parent, const char* name ) :
     // Gets (keyboard) focus by mouse clicking
     setFocusPolicy( Qt::ClickFocus);
     // Track mouse real-time
-    setMouseTracking( TRUE );
+    setMouseTracking( true );
 
     // Use a fixed color to erase background, it's faster than default widget erase pixmap
     mBackgroundColor = QColor( 238, 238, 238 );
@@ -360,7 +360,7 @@ bool rcImageCanvasGL::loadrcWindow (const rcWindow& rw, const rcVisualGraphicsCo
 
     // Set QImage ctor argument values
     // Return true if input image is valid, false otherwise
-    bool ok = FALSE;
+    bool ok = false;
 
     // Copy all graphics
     mGlobalGraphics = globalGraphics;
@@ -1553,7 +1553,7 @@ bool rcImageCanvasGL::reconvertImage( bool deleteTexture )
     bool success = true;
 
     if ( mImageSize == QSize(0,0) )
-        return FALSE;
+        return false;
 
     mMaxModelCoord = rc2Fvector( mImageSize.width(), mImageSize.height() );
     mMaxScaleFactor = cMaxScaleFactor;
@@ -1570,7 +1570,7 @@ bool rcImageCanvasGL::reconvertImage( bool deleteTexture )
     // Regenerate image display list
     mImageDlist = buildImageDlist( deleteTexture );
 
-    return success;				// TRUE if loaded OK
+    return success;				// true if loaded OK
 }
 
 
@@ -2136,10 +2136,10 @@ bool rcImageCanvasGL::convertEvent( QMouseEvent* e, QPoint* modelPoint )
             *modelPoint = QPoint( static_cast<int>(p.x()), static_cast<int>(p.y()) );
         }
         updateStatus();
-        return TRUE;
+        return true;
     }
 
-    return FALSE;
+    return false;
 }
 
 double rcImageCanvasGL::scaleChanged()

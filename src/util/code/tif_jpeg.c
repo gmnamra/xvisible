@@ -185,22 +185,22 @@ static  int JPEGInitializeLibJPEG( TIFF * tif,
 
 static const TIFFFieldInfo jpegFieldInfo[] = {
     { TIFFTAG_JPEGTABLES,	 -3,-3,	TIFF_UNDEFINED,	FIELD_JPEGTABLES,
-      FALSE,	TRUE,	"JPEGTables" },
+      FALSE,	true,	"JPEGTables" },
     { TIFFTAG_JPEGQUALITY,	 0, 0,	TIFF_ANY,	FIELD_PSEUDO,
-      TRUE,	FALSE,	"" },
+      true,	FALSE,	"" },
     { TIFFTAG_JPEGCOLORMODE,	 0, 0,	TIFF_ANY,	FIELD_PSEUDO,
       FALSE,	FALSE,	"" },
     { TIFFTAG_JPEGTABLESMODE,	 0, 0,	TIFF_ANY,	FIELD_PSEUDO,
       FALSE,	FALSE,	"" },
     /* Specific for JPEG in faxes */
     { TIFFTAG_FAXRECVPARAMS,	 1, 1, TIFF_LONG,	FIELD_RECVPARAMS,
-      TRUE,	FALSE,	"FaxRecvParams" },
+      true,	FALSE,	"FaxRecvParams" },
     { TIFFTAG_FAXSUBADDRESS,	-1,-1, TIFF_ASCII,	FIELD_SUBADDRESS,
-      TRUE,	FALSE,	"FaxSubAddress" },
+      true,	FALSE,	"FaxSubAddress" },
     { TIFFTAG_FAXRECVTIME,	 1, 1, TIFF_LONG,	FIELD_RECVTIME,
-      TRUE,	FALSE,	"FaxRecvTime" },
+      true,	FALSE,	"FaxRecvTime" },
     { TIFFTAG_FAXDCS,		-1, -1, TIFF_ASCII,	FIELD_FAXDCS,
-	  TRUE,	FALSE,	"FaxDcs" },
+	  true,	FALSE,	"FaxDcs" },
 };
 #define	N(a)	(sizeof (a) / sizeof (a[0]))
 
@@ -414,7 +414,7 @@ std_empty_output_buffer(j_compress_ptr cinfo)
 	sp->dest.next_output_byte = (JOCTET*) tif->tif_rawdata;
 	sp->dest.free_in_buffer = (size_t) tif->tif_rawdatasize;
 
-	return (TRUE);
+	return (true);
 }
 
 static void
@@ -468,7 +468,7 @@ tables_empty_output_buffer(j_compress_ptr cinfo)
 	sp->dest.free_in_buffer = (size_t) 1000;
 	sp->jpegtables = newbuf;
 	sp->jpegtables_length += 1000;
-	return (TRUE);
+	return (true);
 }
 
 static void
@@ -534,7 +534,7 @@ std_fill_input_buffer(j_decompress_ptr cinfo)
 	/* insert a fake EOI marker */
 	sp->src.next_input_byte = dummy_EOI;
 	sp->src.bytes_in_buffer = 2;
-	return (TRUE);
+	return (true);
 }
 
 static void
@@ -698,7 +698,7 @@ JPEGPreDecode(TIFF* tif, tsample_t s)
 	/*
 	 * Read the header for this strip/tile.
 	 */
-	if (TIFFjpeg_read_header(sp, TRUE) != JPEG_HEADER_OK)
+	if (TIFFjpeg_read_header(sp, true) != JPEG_HEADER_OK)
 		return (0);
 	/*
 	 * Check image parameters and set decompression parameters.
@@ -810,12 +810,12 @@ JPEGPreDecode(TIFF* tif, tsample_t s)
 		sp->cinfo.d.out_color_space = JCS_UNKNOWN;
 		if (td->td_planarconfig == PLANARCONFIG_CONTIG &&
 		    (sp->h_sampling != 1 || sp->v_sampling != 1))
-			downsampled_output = TRUE;
+			downsampled_output = true;
 		/* XXX what about up-sampling? */
 	}
 	if (downsampled_output) {
 		/* Need to use raw-data interface to libjpeg */
-		sp->cinfo.d.raw_data_out = TRUE;
+		sp->cinfo.d.raw_data_out = true;
 		tif->tif_decoderow = JPEGDecodeRaw;
 		tif->tif_decodestrip = JPEGDecodeRaw;
 		tif->tif_decodetile = JPEGDecodeRaw;
@@ -1102,7 +1102,7 @@ prepare_JPEGTables(TIFF* tif)
 		return (0);
 	/* Mark only the tables we want for output */
 	/* NB: chrominance tables are currently used only with YCbCr */
-	if (!TIFFjpeg_suppress_tables(sp, TRUE))
+	if (!TIFFjpeg_suppress_tables(sp, true))
 		return (0);
 	if (sp->jpegtablesmode & JPEGTABLESMODE_QUANT) {
 		unsuppress_quant_table(sp, 0);
@@ -1301,7 +1301,7 @@ JPEGPreEncode(TIFF* tif, tsample_t s)
 			} else {
 				sp->cinfo.c.in_color_space = JCS_YCbCr;
 				if (sp->h_sampling != 1 || sp->v_sampling != 1)
-					downsampled_input = TRUE;
+					downsampled_input = true;
 			}
 			if (!TIFFjpeg_set_colorspace(sp, JCS_YCbCr))
 				return (0);
@@ -1343,10 +1343,10 @@ JPEGPreEncode(TIFF* tif, tsample_t s)
 	if (sp->jpegtablesmode & JPEGTABLESMODE_HUFF)
 		sp->cinfo.c.optimize_coding = FALSE;
 	else
-		sp->cinfo.c.optimize_coding = TRUE;
+		sp->cinfo.c.optimize_coding = true;
 	if (downsampled_input) {
 		/* Need to use raw-data interface to libjpeg */
-		sp->cinfo.c.raw_data_in = TRUE;
+		sp->cinfo.c.raw_data_in = true;
 		tif->tif_encoderow = JPEGEncodeRaw;
 		tif->tif_encodestrip = JPEGEncodeRaw;
 		tif->tif_encodetile = JPEGEncodeRaw;
@@ -1787,7 +1787,7 @@ static int JPEGInitializeLibJPEG( TIFF * tif, int force_encode, int force_decode
 {
     JPEGState* sp = JState(tif);
     uint32 *byte_counts = NULL;
-    int     data_is_empty = TRUE;
+    int     data_is_empty = true;
     int     decompress;
 
     if( sp->cinfo_initialized )
@@ -1834,7 +1834,7 @@ static int JPEGInitializeLibJPEG( TIFF * tif, int force_encode, int force_decode
             return (0);
     }
 
-    sp->cinfo_initialized = TRUE;
+    sp->cinfo_initialized = true;
 
     return 1;
 }

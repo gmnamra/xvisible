@@ -3,7 +3,7 @@
 #include <math.h>
 #include <rc_math.h>
 #include <rc_windowhist.h>
-#include <Carbon/Carbon.h>
+
 
 
 ostream& operator<< (ostream& o, const rcHistoStats& p)

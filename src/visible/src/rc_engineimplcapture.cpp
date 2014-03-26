@@ -182,7 +182,7 @@ rcEngineMovieCapture::rcEngineMovieCapture(rcEngineImpl* engine,
     }
 
     // set default acq control values
-    _acqControl.doAcquire = FALSE;
+    _acqControl.doAcquire = false;
     _acqControl.resolution = rcAcqFullResXY;
     _acqControl.doShutdown = 0;
     _acqControl.gain = 0;

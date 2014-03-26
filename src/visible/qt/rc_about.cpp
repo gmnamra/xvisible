@@ -15,8 +15,7 @@
 
 #include "rc_appconstants.h"
 #include "rc_modeldomain.h"
-#include "rc_menubar.h"
-#include "rc_cellinfowidget.h"
+
 
 
 rcAbout::rcAbout( QWidget* parent, const char* name )
@@ -45,7 +44,7 @@ rcAbout::rcAbout( QWidget* parent, const char* name )
     //    mL_LogoBig->setFrameShape( QLabel::Box );
     //    mL_LogoBig->setLineWidth( 4 );
     //    mL_LogoBig->setPixmap( QPixmap::fromMimeSource( "movida_about_logo.png" ) );
-    //    mL_LogoBig->setScaledContents( FALSE );
+    //    mL_LogoBig->setScaledContents( false );
     //    mHBL_LogoBig->addWidget( mL_LogoBig );
     //    QSpacerItem* spacer_3 = new QSpacerItem( 16, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
     //    mHBL_LogoBig->addItem( spacer_3 );
@@ -55,7 +54,7 @@ rcAbout::rcAbout( QWidget* parent, const char* name )
     mTE_Box = new QTextEdit( this, "mTE_Box" );
   //  mTE_Box->setTextFormat( QTextEdit::AutoAll);
   //  mTE_Box->setWordWrap( QTextEdit::WidgetWidth );
-    mTE_Box->setReadOnly( FALSE );
+    mTE_Box->setReadOnly( false );
 //    mTE_Box->setAutoFormatting( int( QTextEdit::AutoAll ) );
 
     rcAboutLayout->addMultiCellWidget( mTE_Box, 8, 8, 0, 3 );
@@ -126,7 +125,7 @@ rcAbout::rcAbout( QWidget* parent, const char* name )
     connect( mB_Close, SIGNAL( clicked() ), this, SLOT( accept() ) );
 #if 0
 	mUL_SFLogo->setPixmap( QPixmap::fromMimeSource( "sflogo.png" ) );
-	mUL_SFLogo->setScaledContents( FALSE );
+	mUL_SFLogo->setScaledContents( false );
 
 	mUL_SFLogo->setAlignment( int( QLabel::AlignCenter ) );
 	mUL_Project->setAlignment( int( QLabel::AlignCenter ) );

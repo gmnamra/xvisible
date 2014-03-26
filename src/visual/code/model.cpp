@@ -1368,7 +1368,7 @@
          // force compression session to complete encoding of outstanding source
          // frames
          ICMCompressionSessionCompleteFrames(
-             video_writer->compression_session_ref, TRUE, 0, 0
+             video_writer->compression_session_ref, true, 0, 0
          );
  
          EndMediaEdits( video_writer->video );

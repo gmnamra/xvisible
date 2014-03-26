@@ -10,6 +10,9 @@
 #include <sys/param.h>
 #include <rc_thread.h>
 #include <rc_videocache.h>
+#include "opencv2/highgui/highgui.hpp"
+
+using namespace cv;
 
 rcMutex* rcSharedFrameBufPtr::frameMutexP = 0;
 
@@ -35,7 +38,7 @@ rcFrame::rcFrame() :
     mColorMap( 0 ),
     mColorMapSize( 0 ),
     mIsGray( 0 ),
-    mOwnPixels (FALSE),
+    mOwnPixels (false),
     mCacheCtrl( 0 ),
     mFrameIndex( 0 ),
     mD32IsFloat (false)
@@ -51,8 +54,8 @@ rcFrame::rcFrame( int32 width, int32 height, rcPixel depth, int32 alignMod) :
     mTimestamp( 0.0 ),
     mColorMap( 0 ),
     mColorMapSize( 0 ),
-    mIsGray( FALSE ),
-    mOwnPixels (TRUE),
+    mIsGray( false ),
+    mOwnPixels (true),
     mCacheCtrl( 0 ),
     mFrameIndex( 0 ),
     mD32IsFloat (false)
@@ -97,6 +100,17 @@ rcFrame::rcFrame ( const ci::Channel8u & onec )
     loadImage (reinterpret_cast<const char*>(onec.getData()), onec.getRowBytes (), onec.getWidth (), onec.getHeight (), rcPixel8, true);    
 }
 
+
+rcFrame::rcFrame ( const cv::Mat & onec )
+: rcFrame ( onec.size().width, onec.size().height, rcPixel8, ROW_ALIGNMENT_MODULUS )
+{
+    rmAssert(onec.channels () == 1 );
+    IplImage ipli = onec;
+    loadImage (reinterpret_cast<const char*>(ipli.imageData), ipli.widthStep, ipli.width , ipli.height, rcPixel8, true);    
+}
+
+
+
 const ci::Channel8u*  rcFrame::newCiChannel ()  // copies only one channel
 {
     ci::Channel8u* ch8 = new ci::Channel8u ( width(), height () );
@@ -125,7 +139,7 @@ rcFrame::rcFrame (char* rawPixels,
                   int32 width, int32 height,
                   rcPixel pixelDepth, bool isGray)
         : refcount_(0), mWidth( width ), mHeight( height ), mAlignMod (ROW_ALIGNMENT_MODULUS), 
-          mPixelDepth( pixelDepth ), mTimestamp( 0.0 ), mIsGray( isGray ), mOwnPixels (TRUE), mCacheCtrl( 0 ), mFrameIndex( 0 ),
+          mPixelDepth( pixelDepth ), mTimestamp( 0.0 ), mIsGray( isGray ), mOwnPixels (true), mCacheCtrl( 0 ), mFrameIndex( 0 ),
     mD32IsFloat (false)
 {
     uint8 * startPtr;
@@ -197,7 +211,7 @@ void rcFrame::loadImage(const char* rawPixels,
 
 rcFrame::~rcFrame()
 {
-  if (mOwnPixels == TRUE)
+  if (mOwnPixels == true)
     delete [] mRawData;
   delete [] mColorMap;
   mColorMap = 0;

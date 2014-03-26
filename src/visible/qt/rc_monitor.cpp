@@ -288,7 +288,7 @@ void rcMonitor::updateState( rcExperimentState state )
 void rcMonitor::updateScale( double scale )
 {
     if ( scale > 0.0 ) {
-        scaleChanged( static_cast<int>(scale*100), TRUE );
+        scaleChanged( static_cast<int>(scale*100), true );
         internalUpdateDisplay();
     } else {
         // Disable resizing for capture
@@ -310,7 +310,7 @@ void rcMonitor::updateMonitorSize( const rcRect& nSize )
 // Scale is a percentage
 void rcMonitor::scaleChanged( int scale )
 {
-    scaleChanged( scale, FALSE );
+    scaleChanged( scale, false );
 }
 
 // Some UI setting changed

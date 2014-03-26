@@ -207,7 +207,7 @@ rcMovieGrabber::getNextFrame( rcSharedFrameBufPtr& ptr, bool isBlocking )
         rcWindow image;
 		
         // Get the frame and convert it from 32 to 8 bit if possible
-        OSErr status = getNextVideoSample(image, mMedia, mFrameTimes[mCurrentIndex], TRUE );
+        OSErr status = getNextVideoSample(image, mMedia, mFrameTimes[mCurrentIndex], true );
 		
         rcTimestamp tp ( ( mFrameInterval > 0.0 ) ? mCurrentIndex *  mFrameInterval 
                          : static_cast<double> (mFrameTimes[mCurrentIndex] / 1000.0 * timescale) );

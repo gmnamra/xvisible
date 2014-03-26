@@ -1229,7 +1229,7 @@ int32 rcPolygon::areaSign(const rc2Dvector& a, const rc2Dvector& b,
     return  0;
 }
 
-/* Returns TRUE iff point c lies on the closed segement ab.  Assumes
+/* Returns true iff point c lies on the closed segement ab.  Assumes
  * it is already known that abc are collinear.
  */
 bool rcPolygon::between(const rc2Dvector& a, const rc2Dvector& b,

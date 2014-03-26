@@ -74,7 +74,7 @@ rcWindow rfCubicShiftImage(rcWindow& Image,
 
     static uint8 ClipBuf[3 * 256];
     static uint8 * Clip = ClipBuf + 256;
-    static int32 Initialized = FALSE;
+    static int32 Initialized = false;
     
     if ( !Initialized )
     {
@@ -92,7 +92,7 @@ rcWindow rfCubicShiftImage(rcWindow& Image,
 	for ( i = 256 ; i < 512 ; i++ )
 	    Clip[i] = 255;
 	
-	Initialized = TRUE;
+	Initialized = true;
     }
 
     /*  Src         Dst

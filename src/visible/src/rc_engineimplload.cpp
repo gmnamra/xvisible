@@ -31,15 +31,22 @@
  * Copyright (c) 2002 Reify Corp. All rights reserved.
  */
 
+#include "rc_cinder_qtime_grabber.h"
 #include "rc_engineimpl.h"
+
+
 #include <rc_tiff.h>
 #include <rc_window2jpg.h>
 #include <rc_fileutils.h>
-#include <rc_cinder_qtime_grabber.h>
 #include <iostream>
 #include <algorithm>
 #include <cctype>
 #include <string>
+
+
+
+using namespace ci;
+using namespace boost;
 
 bool insensitive_case_compare (const std::string& str1, const std::string& str2)
 {

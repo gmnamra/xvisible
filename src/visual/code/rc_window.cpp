@@ -654,7 +654,7 @@ double rcWindow::setDoublePixel( int32 x, int32 y, double value )
     return mFrameBuf->setDoublePixel (x + mGeometry.x (), y + mGeometry.y (), value);
   }
 
- // return TRUE if this window contains the other and has the same frame buf
+ // return true if this window contains the other and has the same frame buf
 bool rcWindow::contains (const rcWindow& other) const
 { 
   return (isBound() && other.isBound() && mFrameBuf == other.mFrameBuf && mGeometry.contains (other.rectangle()));

@@ -1542,9 +1542,9 @@ LogLuvVGetField(TIFF* tif, ttag_t tag, va_list ap)
 
 static const TIFFFieldInfo LogLuvFieldInfo[] = {
     { TIFFTAG_SGILOGDATAFMT,	  0, 0,	TIFF_SHORT,	FIELD_PSEUDO,
-      TRUE,	FALSE,	"SGILogDataFmt"},
+      true,	FALSE,	"SGILogDataFmt"},
     { TIFFTAG_SGILOGENCODE,	  0, 0, TIFF_SHORT,	FIELD_PSEUDO,
-      TRUE,	FALSE,	"SGILogEncode"}
+      true,	FALSE,	"SGILogEncode"}
 };
 
 int

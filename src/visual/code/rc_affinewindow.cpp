@@ -14,6 +14,8 @@
 #include <rc_def_generators.h>
 #include <rc_cubic_generators.h>
 #include <rc_lin_generators.h>
+#include <Carbon/Carbon.h>
+#include "ApplicationServices/ApplicationServices.h"
 
 rcGeneratePixel* rcAffineWindow::_defPixGen = rcAffineWindow::createDefGen();
 rcGenerateImage* rcAffineWindow::_defImgGen = 0;

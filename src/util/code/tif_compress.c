@@ -126,13 +126,13 @@ static void _TIFFvoid(TIFF* tif) { (void) tif; }
 void
 _TIFFSetDefaultCompressionState(TIFF* tif)
 {
-	tif->tif_decodestatus = TRUE;
+	tif->tif_decodestatus = true;
 	tif->tif_setupdecode = _TIFFtrue;
 	tif->tif_predecode = _TIFFNoPreCode;
 	tif->tif_decoderow = _TIFFNoRowDecode;
 	tif->tif_decodestrip = _TIFFNoStripDecode;
 	tif->tif_decodetile = _TIFFNoTileDecode;
-	tif->tif_encodestatus = TRUE;
+	tif->tif_encodestatus = true;
 	tif->tif_setupencode = _TIFFtrue;
 	tif->tif_preencode = _TIFFNoPreCode;
 	tif->tif_postencode = _TIFFtrue;

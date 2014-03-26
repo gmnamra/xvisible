@@ -567,13 +567,13 @@ OSErr InitializeMungData2(MungDataPtr pMungData, SGChannel sgchanVideo,
 	pMungData->imgWidth = (**imageDesc).width;
 	pMungData->imgHeight = (**imageDesc).height;
 	pMungData->imgSizeInBytes = (**imageDesc).dataSize;
-	pMungData->isGray = FALSE;
-	pMungData->extractLum = FALSE;
+	pMungData->isGray = false;
+	pMungData->extractLum = false;
 	
 	if ((**imageDesc).depth == 40) // Grey scale image
 	{
 		pMungData->pixelDepth = rcPixel8;
-		pMungData->isGray = TRUE;
+		pMungData->isGray = true;
 	}
 	else if ((**imageDesc).depth == 8) // 8 bit color image
 		pMungData->pixelDepth = rcPixel8;
@@ -583,14 +583,14 @@ OSErr InitializeMungData2(MungDataPtr pMungData, SGChannel sgchanVideo,
 			 ((**imageDesc).depth == 32)) // color image as well
 	{
 		// pMungData->pixelDepth = rcPixel32;
-		// pMungData->isGray = FALSE;
+		// pMungData->isGray = false;
 		
 		/* The following is a hack that assumes all color images are yuvu
 		 * and that they should be converted to grey scale.
 		 */
 		pMungData->pixelDepth = rcPixel8;
-		pMungData->extractLum = TRUE;
-		pMungData->isGray = TRUE;
+		pMungData->extractLum = true;
+		pMungData->isGray = true;
 	}
 	else
 		BailErr(-1);

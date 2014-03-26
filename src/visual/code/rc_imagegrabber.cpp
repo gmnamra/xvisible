@@ -1,14 +1,12 @@
-/*
- *  rc_imagegrabber.cpp
- *
- *  Created by Sami Kukkonen on Fri Sep 27 11:47:32 EDT 2002
- *  Copyright (c) 2002 Reify Corp. All rights reserved.
- *
- */
 
-//#include <rc_qtime.h>
+
 #include <rc_imagegrabber.h>
-#include <rc_ipconvert.h>
+#include <rc_fileutils.h>
+#include <cinder/Channel.h>
+#include <cinder/ImageIo.h>
+
+using namespace std;
+using namespace ci;
 
 // #define DEBUG
 // #define DEBUG_LOG
@@ -23,55 +21,37 @@ rcImageGrabber::rcImageGrabber( const vector<std::string>& fileNames, rcCarbonLo
         mCurrentIndex( 0 ),
         mFrameInterval( frameInterval ), mCurrentTimeStamp( frameInterval )
 {
-    lock();
-    
-    rmAssert( mFileHandles.empty() );
-        
-    // Sort names just in case
-    //    if (nameSort)
-    //      qtime::rfImageNameSort( mFileNames );
-
-#ifdef DEBUG
-    // Paranoia, verify sort order
-    for (vector<std::string>::iterator name = mFileNames.begin(); name < mFileNames.end()-1; name++ ) {
-        char* str1 = (char*)name->c_str();
-        char* str2 = (char*)(name+1)->c_str();
-        int num1 = rfImageFrameNum( str1 );
-        int num2 = rfImageFrameNum( str2 );
-        rmAssert( num1 <= num2 );
-    }
-#endif
-  
-    if ( mFileHandles.empty() )
+    if ( mFileNames.empty() )
         setLastError( eFrameErrorFileInit );
-
-    unlock();
+         
+    // Sort names just in case
+        if (nameSort)
+            rfSortImageFileNames ( fileNames, mFileNames, "jpg");
+   
 }
 
 
 rcImageGrabber::~rcImageGrabber()
 {
-    // Delete specs
-    for (vector<FSSpec*>::iterator f = mFileHandles.begin(); f != mFileHandles.end(); f++)
-        delete *f;
+
 }
     
 // Start grabbing
 bool rcImageGrabber::start()
 {
-    if ( getLastError() == eFrameErrorOK )
-        return true;
-    else
-        return false;
+   if (mFileNames.empty ()) return false;   
+    lock ();
+    mCurrentIndex = 0;
+    unlock ();
+    return true;
 }
 
 // Stop grabbing
 bool rcImageGrabber::stop()
 {
+    if (mFileNames.empty ()) return false;    
     lock();
-    
-
-    
+    mCurrentIndex = mFileNames.size () + 1;
     unlock();
     
     return true;
@@ -80,8 +60,8 @@ bool rcImageGrabber::stop()
 // Returns the number of frames available
 int32 rcImageGrabber::frameCount()
 {
-    if ( mFileHandles.size() > 0 )
-        return mFileHandles.size();
+    if ( mFileNames.size() > 0 )
+        return mFileNames.size();
     else
         return -1;
 }
@@ -91,42 +71,45 @@ rcFrameGrabberStatus rcImageGrabber::getNextFrame( rcSharedFrameBufPtr& ptr, boo
 {
     lock();
     rcFrameGrabberStatus ret = eFrameStatusError;    
-//    setLastError( eFrameErrorUnknown );
-//    ptr = NULL;
+    setLastError( eFrameErrorUnknown );
+    ptr = NULL;
 
-//    
-//    if ( isBlocking ) {
-//        if ( mCurrentIndex < mFileHandles.size() ) {
-//            rcWindow image;
-//            FSSpec *spec = mFileHandles[mCurrentIndex];
-//            ++mCurrentIndex;
-//
-//            // Get the frame and convert it from 32 to 8 bit if possible
-//            //  OSErr status = rfImageFileToRcWindow( spec, image, mImporter );
-//
-//            if ( status == noErr ) {
-//                ptr = image.frameBuf();
-//                if ( mFrameInterval > 0.0 ) {
-//                    // Force a fixed frame interval
-//                    image.frameBuf()->setTimestamp( mCurrentTimeStamp );
-//                    mCurrentTimeStamp += mFrameInterval;
-//                }
-//                ret = eFrameStatusOK;
-//                setLastError( eFrameErrorOK );
-//            } else {
-//                ret = eFrameStatusError;
-//                // TODO: analyze OSErr and map it to proper eFrameError
-//                setLastError( eFrameErrorFileRead );
-//            }
-//        } else {
-//            ret = eFrameStatusEOF;
-//            setLastError( eFrameErrorOK );
-//        }
-//    } else {
-//         // Non-blocking operation not implemented yet
-//        setLastError( eFrameErrorNotImplemented );
-//        ret = eFrameStatusError;
-//    }
+    
+    if ( isBlocking ) {
+        if ( mCurrentIndex < mFileNames.size() )
+        {
+            //Get the frame and convert it from 32 to 8 bit if possible
+            ci::Channel8u ci_image = ci::loadImage (mFileNames[mCurrentIndex]);
+            
+            if (ci_image == 0)
+            {
+                ret = eFrameStatusError;
+                setLastError( eFrameErrorFileRead );  
+            }
+            else
+            {
+                ptr =  new rcFrame (ci_image) ;
+                rcWindow image (ptr);
+                if ( image.isBound () )
+                {
+                    if ( mFrameInterval > 0.0 )
+                    {
+                        //   Force a fixed frame interval
+                        image.frameBuf()->setTimestamp( mCurrentTimeStamp );
+                        mCurrentTimeStamp += mFrameInterval;
+                    }
+                    ret = eFrameStatusOK;
+                    setLastError( eFrameErrorOK );
+                }
+            }
+        }
+    }
+    else
+    {
+        //  Non-blocking operation not implemented yet
+        setLastError( eFrameErrorNotImplemented );
+        ret = eFrameStatusError;
+    }
 
     unlock();
     
@@ -136,12 +119,16 @@ rcFrameGrabberStatus rcImageGrabber::getNextFrame( rcSharedFrameBufPtr& ptr, boo
 // Get name of input source, ie. file name, camera name etc.
 const std::string rcImageGrabber::getInputSourceName()
 {
-    if ( !mFileNames.empty() ) {
-        if ( mCurrentIndex < mFileNames.size() )
+    if ( !mFileNames.empty() && mCurrentIndex < mFileNames.size() )
             return mFileNames[mCurrentIndex];
-        else
-            return mFileNames[0];
-    }
+
     // We don't even have a file...
     return "empty file";
 }
+
+
+
+
+
+
+

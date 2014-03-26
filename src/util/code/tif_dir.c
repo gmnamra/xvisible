@@ -1300,7 +1300,7 @@ TIFFUnlinkDirectory(TIFF* tif, tdir_t dirn)
  * Author: Bruce Cameron <cameron@petris.com>
  *
  * Set a table of tags that are to be replaced during directory process by the
- * 'IGNORE' state - or return TRUE/FALSE for the requested tag such that
+ * 'IGNORE' state - or return true/FALSE for the requested tag such that
  * 'ReadDirectory' can use the stored information.
  *
  * FIXME: this is never used properly. Should be removed in the future.
@@ -1321,10 +1321,10 @@ TIFFReassignTagToIgnore (enum TIFFIgnoreSense task, int TIFFtagID)
             for ( j = 0 ; j < tagcount ; ++j )
             {					/* Do not add duplicate tag */
                 if ( TIFFignoretags [j] == TIFFtagID )
-                    return (TRUE) ;
+                    return (true) ;
             }
             TIFFignoretags [tagcount++] = TIFFtagID ;
-            return (TRUE) ;
+            return (true) ;
         }
         break ;
         
@@ -1332,13 +1332,13 @@ TIFFReassignTagToIgnore (enum TIFFIgnoreSense task, int TIFFtagID)
         for ( i = 0 ; i < tagcount ; ++i )
         {
             if ( TIFFignoretags [i] == TIFFtagID )
-                return (TRUE) ;
+                return (true) ;
         }
         break;
         
       case TIS_EMPTY:
         tagcount = 0 ;			/* Clear the list */
-        return (TRUE) ;
+        return (true) ;
         
       default:
         break;

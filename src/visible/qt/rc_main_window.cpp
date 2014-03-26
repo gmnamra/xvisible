@@ -8,7 +8,6 @@
 #include "rc_main_window.h"
 #include "rc_appconstants.h"
 #include "rc_monitor.h"
-#include "rc_menubar.h"
 #include "rc_timeline.h"
 #include "rc_settingpanel.h"
 #include "rc_controlpanel.h"
@@ -184,7 +183,7 @@ void rcMainWindow::createActions()
     
     ExportId = new QAction ( tr("&Export as CSV "), this);
     OpenId->setShortcut (tr("CTRL+Key_E" )); NewId->setStatusTip (tr("Exports current Experiment in Comma Separated Format ") );
-    connect (ExportId, SIGNAL (triggered () ), this, SLOT( doExport) );
+    connect (ExportId, SIGNAL (triggered () ), this, SLOT( doExport () ) );
     
     MovieExportId = new QAction ( tr("&Export movie as Quicktime "), this);
     OpenId->setShortcut (tr("CTRL+SHIFT+Key_E" )); NewId->setStatusTip (tr("Exports current image data in Quicktime  ") );
@@ -202,14 +201,14 @@ void rcMainWindow::createActions()
     OpenId->setShortcut (tr("CTRLKey_I" )); NewId->setStatusTip (tr("Imports a movie for analysis ") );
     connect (ImportMovieId, SIGNAL (triggered () ), domain, SLOT( requestMovieImport ()) );
     
-    
+#if 0    
     for (int i = 0; i < MaxRecentFiles; ++i) {
         recentFileActs[i] = new QAction(this);
         recentFileActs[i]->setVisible(false);
         connect(recentFileActs[i], SIGNAL(triggered()),
                 domain, SLOT(importRecentMovie()));
     }
-
+#endif
 
     QuitId = new QAction(tr("E&xit"), this);
     QuitId->setShortcuts(QKeySequence::Quit);
@@ -220,18 +219,18 @@ void rcMainWindow::createActions()
     HelpId = new QAction(tr("H&elp"), this);
     HelpId->setShortcuts(QKeySequence::HelpContents);
     HelpId->setStatusTip(tr("Help"));
-    connect(HelpId, SIGNAL(triggered()), qApp, SLOT(help()));    
+    connect(HelpId, SIGNAL(triggered()), this, SLOT(help()));    
 
     AboutId = new QAction(tr("H&elp"), this);
     AboutId->setShortcut (tr("(CTRL+Key_H" ));
     AboutId->setStatusTip(tr("About"));
-    connect(AboutId, SIGNAL(triggered()), qApp, SLOT(About()));   
+    connect(AboutId, SIGNAL(triggered()), this, SLOT(about()));   
     
     // create and populate the analysis menu
     AnalysisAnalyzeId  = new QAction(tr("R&un"), this);
     AnalysisAnalyzeId->setShortcut (tr("(CTRL+Key_R" ));
     AboutId->setStatusTip(tr("Run Experiment"));
-    connect(AboutId, SIGNAL(triggered()), qApp, SLOT(requestProcess()));   
+    connect(AboutId, SIGNAL(triggered()), domain, SLOT(requestProcess()));   
 
    
 
@@ -255,12 +254,13 @@ void rcMainWindow::createMenus ()
     
     _fileMenu->addAction(ImportMovieId);
 
+#if 0    
     separatorAct = _fileMenu->addSeparator();
     for (int i = 0; i < MaxRecentFiles; ++i)
         _fileMenu->addAction(recentFileActs[i]);
 
     updateRecentFileActions();
-    
+#endif    
     _fileMenu->addSeparator();
     _fileMenu->addAction(QuitId);
     
@@ -545,7 +545,8 @@ void rcMainWindow::settingChanged()
     // Get current experiment attributes
     rcExperimentAttributes attr = domain->getExperimentAttributes();
     QString curf; curf.fromStdString ( domain->getExperimentAttributes().inputName );
-    setCurrentFile(curf);
+    setWindowFilePath(curf);
+    //    setCurrentFile(curf);
     
     
     uint32 maxX = attr.frameWidth;
@@ -584,9 +585,9 @@ void rcMainWindow::settingChanged()
 
     // Disable resizing for camera
     if ( attr.liveInput ) {
-        mStatusBar->setSizeGripEnabled( FALSE );
+        mStatusBar->setSizeGripEnabled( false );
     } else {
-        mStatusBar->setSizeGripEnabled( TRUE );
+        mStatusBar->setSizeGripEnabled( true );
     }
 }
 

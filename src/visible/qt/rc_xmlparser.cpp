@@ -47,7 +47,7 @@ bool rcXMLParser::startDocument()
     mEmptyTree = true;
     if ( mProgress)
         mProgress->progress( 0.0 );
-    return TRUE;
+    return true;
 }
 
 // Called once at end of document
@@ -57,7 +57,7 @@ bool rcXMLParser::endDocument()
     cout << mElementTree.size() << " XML elements imported from file in " << elapsedTime.secs() << " seconds" << endl;
     if ( mProgress)
         mProgress->progress( 100.0 );
-    return TRUE;
+    return true;
 }
 
 // Start tag of element encountered, ie <experiment>
@@ -233,7 +233,7 @@ bool rcXMLErrorHandler::warning( const QXmlParseException & exception )
 {
     ++mWarnings;
     mErrorString = buildErrorString( "rcXMLErrorHandler warning: ", exception );
-    return TRUE;
+    return true;
 }
 
 // Note, this is counted as a fatal error
@@ -241,14 +241,14 @@ bool rcXMLErrorHandler::error( const QXmlParseException & exception )
 {
     ++mFatalErrors;
     mErrorString = buildErrorString( "rcXMLErrorHandler error: ", exception );
-    return FALSE;
+    return false;
 }
     
 bool rcXMLErrorHandler::fatalError( const QXmlParseException & exception )
 {
     ++mFatalErrors;
     mErrorString = buildErrorString( "rcXMLErrorHandler fatal error: ", exception );
-    return FALSE;
+    return false;
 }
     
 QString rcXMLErrorHandler::errorString() const

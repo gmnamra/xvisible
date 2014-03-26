@@ -7,7 +7,7 @@
 #include <rc_experimentdomainimpl.h>
 #include <rc_uitypes.h>
 
-using namespace ci;
+
 
 /******************************************************************************
  *	Debugging

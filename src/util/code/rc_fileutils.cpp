@@ -24,16 +24,16 @@ bool numeric_compare (const std::string& A, const std::string& B);
 bool natural_compare (const std::string& A, const std::string& B);
 
 
-void rfGetDirEntries(const string & dirname, 
-		     vector<std::string> & entries, const char *imageformat)
+void rfSortImageFileNames(const vector<std::string> & entries, vector<std::string> & files, const char *imageformat)
 {
-
-    if (! folder_exists (dirname) ) return;
-    std::string wildcard ("*.");    
-    std::string iformat (imageformat);
-    wildcard = wildcard + iformat;
+    if (entries.empty () ) return;
     
-    vector<std::string> files = folder_wildcard (dirname,wildcard, false, true );
+    files.resize (0);
+    vector<std::string>::const_iterator filet = entries.begin();
+    for (; filet < entries.end(); filet++)
+    {
+        files.push_back(*filet);
+    }
     
     if (strncmp(imageformat, "tif", 3) == 0)    
     {
@@ -50,6 +50,36 @@ void rfGetDirEntries(const string & dirname,
         std::sort (files.begin(), files.end(), natural_compare);
     }
 
+}
+
+
+
+void rfGetDirEntries(const string & dirname, 
+                     vector<std::string> & entries, const char *imageformat)
+{
+    
+    if (! folder_exists (dirname) ) return;
+    std::string wildcard ("*.");    
+    std::string iformat (imageformat);
+    wildcard = wildcard + iformat;
+    
+    vector<std::string> files = folder_wildcard (dirname,wildcard, false, true );
+    
+    if (strncmp(imageformat, "tif", 3) == 0)    
+    {
+        std::sort (files.begin(), files.end(), numeric_compare);
+    }
+    
+    if (strncmp(imageformat, "jpg", 3) == 0)
+    {
+        std::sort (files.begin(), files.end(), natural_compare);
+    }
+    
+	if (strncmp(imageformat, "png", 3) == 0)
+    {
+        std::sort (files.begin(), files.end(), natural_compare);
+    }
+    
 	entries.resize (0);
     vector<std::string>::const_iterator filet = files.begin();
     for (; filet < files.end(); filet++)
@@ -57,6 +87,7 @@ void rfGetDirEntries(const string & dirname,
         entries.push_back(create_filespec (dirname, *filet));
     }
 }
+
 
 
 

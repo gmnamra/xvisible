@@ -21,12 +21,12 @@ rcQVideoGrabber::rcQVideoGrabber(char* progName, int arg1, char* arg2,
                                  uint8 childControlsBufferFirst)
         : _shmemCtrlP(new rcExecWithShmem(progName, arg1, arg2, sz,
                                           childControlsBufferFirst)),
-          _lastError(eFrameErrorOK), _isValid(TRUE), _frameCount(-1)
+          _lastError(eFrameErrorOK), _isValid(true), _frameCount(-1)
 {
     if (!_shmemCtrlP)
     {
         _lastError = eFrameErrorOutOfMemory;
-        _isValid = FALSE;
+        _isValid = false;
     }
     
     switch (_shmemCtrlP->getCreationError())
@@ -37,12 +37,12 @@ rcQVideoGrabber::rcQVideoGrabber(char* progName, int arg1, char* arg2,
         case eShmemInit:
         case eSemaphoreInit:
             _lastError = eFrameErrorSystemResources;
-            _isValid = FALSE;
+            _isValid = false;
             break;
             
         case eProcessFork:
             _lastError = eFrameErrorUnknown;
-            _isValid = FALSE;
+            _isValid = false;
             break;
             
         default:

@@ -606,8 +606,8 @@ _TIFFPrintFieldInfo(TIFF* tif, FILE* fd)
 			, fip->field_readcount, fip->field_writecount
 			, fip->field_type
 			, fip->field_bit
-			, fip->field_oktochange ? "TRUE" : "FALSE"
-			, fip->field_passcount ? "TRUE" : "FALSE"
+			, fip->field_oktochange ? "true" : "FALSE"
+			, fip->field_passcount ? "true" : "FALSE"
 			, fip->field_name
 		);
 	}
@@ -827,8 +827,8 @@ _TIFFCreateAnonFieldInfo(TIFF *tif, ttag_t tag, TIFFDataType field_type)
 	fld->field_writecount = TIFF_VARIABLE;
 	fld->field_type = field_type;
 	fld->field_bit = FIELD_CUSTOM;
-	fld->field_oktochange = TRUE;
-	fld->field_passcount = TRUE;
+	fld->field_oktochange = true;
+	fld->field_passcount = true;
 	fld->field_name = (char *) _TIFFmalloc(32);
 	if (fld->field_name == NULL) {
 	    _TIFFfree(fld);

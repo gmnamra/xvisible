@@ -404,7 +404,7 @@ bad:
 int
 TIFFWriteDirectory(TIFF* tif)
 {
-	return _TIFFWriteDirectory(tif, TRUE);
+	return _TIFFWriteDirectory(tif, true);
 }
 
 /*

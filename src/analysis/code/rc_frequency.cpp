@@ -238,9 +238,9 @@ void rf1DFourierAnalysis(const deque<double>& signal,
   if (PRT_DEBUG1) {
     fprintf(stderr, "Ctrl Flags: Force FFT %s Zero Fill %s "
 	    "Raised Cosine %s\nInput signal:\n",
-	    ((ctrl & rc1DFourierForceFFT) ? "TRUE" : "FALSE"),
-	    ((ctrl & rc1DFourierZeroFill) ? "TRUE" : "FALSE"),
-	    ((ctrl & rc1DFourierRaisedCosine) ? "TRUE" : "FALSE"));
+	    ((ctrl & rc1DFourierForceFFT) ? "true" : "false"),
+	    ((ctrl & rc1DFourierZeroFill) ? "true" : "false"),
+	    ((ctrl & rc1DFourierRaisedCosine) ? "true" : "false"));
     for (uint32 i = 0; i < sigSz; i++)
       fprintf(stderr, "%d: %0.25f\n", i, signal[i]);
   }
@@ -449,10 +449,10 @@ void rf1DFourierAnalysisVoxels(const uint8* voxel, const uint32 voxelSz,
   if (PRT_DEBUG1) {
     fprintf(stderr, "Ctrl Flags: Force FFT %s Zero Fill %s "
 	    "Raised Cosine %s Generate Phase %s\nInput signal:\n",
-	    ((ctrl & rc1DFourierForceFFT) ? "TRUE" : "FALSE"),
-	    ((ctrl & rc1DFourierZeroFill) ? "TRUE" : "FALSE"),
-	    ((ctrl & rc1DFourierRaisedCosine) ? "TRUE" : "FALSE"),
-	    ((ctrl & rc1DFourierGenPhase) ? "TRUE" : "FALSE"));
+	    ((ctrl & rc1DFourierForceFFT) ? "true" : "false"),
+	    ((ctrl & rc1DFourierZeroFill) ? "true" : "false"),
+	    ((ctrl & rc1DFourierRaisedCosine) ? "true" : "false"),
+	    ((ctrl & rc1DFourierGenPhase) ? "true" : "false"));
     for (uint32 i = 0; i < voxelSz; i++)
       fprintf(stderr, "%d: %d\n", i, voxel[i]);
   }

@@ -486,10 +486,10 @@ bool rcMutex::tryLock()
       snprintf(errMsg, rmDim(errMsg), "mutex trylock failed %d", error);
       throw general_exception(errMsg);
     }
-    return FALSE;
+    return false;
   }
 
-  return TRUE;
+  return true;
 }
 
 void rcMutex::unlock()

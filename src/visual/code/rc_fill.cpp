@@ -20,8 +20,8 @@
  * Copyright (c) 2002 Reify Corp. All rights reserved.
  */
 
-#define TRUE 1
-#define FALSE 0
+#define true 1
+#define false 0
 
 #include <rc_math.h>
 #include <rc_window.h>
@@ -366,12 +366,12 @@ coords_to_poly (int32 num_pts,	/* number of polygon vertices */
 	seg->ix = (int32) floor (seg->x);
 	seg->iy = (int32) floor (seg->y);
 
-	seg->vertex_in_image = TRUE;
+	seg->vertex_in_image = true;
 	if (seg->ix < 0
 		|| seg->ix > max_col
 		|| seg->iy < 0
 		|| seg->iy > max_row) {
-	    seg->vertex_in_image = FALSE;
+	    seg->vertex_in_image = false;
 	}
 	if (n == 1)
 	    seg->next = poly->segs;
@@ -400,7 +400,7 @@ coords_to_poly (int32 num_pts,	/* number of polygon vertices */
 	    seg->next = seg - 1;
 	}
     }
-    poly->bndry_wraps_pos = TRUE;
+    poly->bndry_wraps_pos = true;
 
     /* Now initialize the rest: */
 
@@ -590,7 +590,7 @@ The first point in <subj_poly> is assumed to be inside the pel boundaries.
 
     /* Initialize output polygon from the subject polygon: */
 
-    new_poly->bndry_wraps_pos = TRUE;
+    new_poly->bndry_wraps_pos = true;
     new_poly->num_segs = 0;
     seg = new_poly->segs;
     seg1 = subj_poly->segs;
@@ -1195,7 +1195,7 @@ This routine REQUIRES that the points be ordered in circular fashion to
 
 	poly->left_bndry = NULL;
 	poly->right_bndry = NULL;
-	poly->single_bndry = TRUE;
+	poly->single_bndry = true;
 	poly->col1 = poly->col3 = INT_MAX;
 	poly->col2 = poly->col4 = INT_MIN;
 
@@ -1220,10 +1220,10 @@ This routine REQUIRES that the points be ordered in circular fashion to
 	       it: */
 
 	    if (seg->max_row < y || seg->min_row > y) {
-		seg->use_me = FALSE;
+		seg->use_me = false;
 		continue;
 	    }
-	    seg->use_me = TRUE;
+	    seg->use_me = true;
 
 	    switch (seg->slope) {
 	    case SLOPE_VERT:
@@ -1231,7 +1231,7 @@ This routine REQUIRES that the points be ordered in circular fashion to
 		break;
 
 	    case SLOPE_HORZ:
-		poly->single_bndry = FALSE;
+		poly->single_bndry = false;
 		seg->min_col = seg->first_col;
 		seg->max_col = seg->last_col;
 		break;
@@ -1262,7 +1262,7 @@ This routine REQUIRES that the points be ordered in circular fashion to
 		    if (poly->left_bndry == NULL)
 			poly->left_bndry = seg;
 		    else
-			poly->single_bndry = FALSE;
+			poly->single_bndry = false;
 		}
 	    } else {
 
@@ -1275,7 +1275,7 @@ This routine REQUIRES that the points be ordered in circular fashion to
 		    if (poly->right_bndry == NULL)
 			poly->right_bndry = seg;
 		    else
-			poly->single_bndry = FALSE;
+			poly->single_bndry = false;
 		}
 	    }
 	}
@@ -1286,7 +1286,7 @@ This routine REQUIRES that the points be ordered in circular fashion to
 	if (poly->single_bndry
 		&& (poly->left_bndry == NULL || poly->right_bndry == NULL)) {
 	    printf ("Error! single boundary without both boundaries!\n");
-	    poly->single_bndry = FALSE;
+	    poly->single_bndry = false;
 	}
 	/* Compensate Y intercept if not starting at leftmost column: */
 
