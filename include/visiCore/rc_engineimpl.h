@@ -15,11 +15,11 @@
 #include <signal.h>
 #include <sys/wait.h>
 #include <stlplus_lite.hpp>
-#include <cinder/Cinder.h>
+
 
 // Visual
 #include <rc_imagegrabber.h>
-#include <rc_cinder_qtime_grabber.h>
+//#include <rc_cinder_qtime_grabber.h>
 #include <rc_reifymoviegrabber.h>
 
 
@@ -27,7 +27,6 @@
 #include <rc_moviefileformat.h>
 #include <rc_imageprocessing.h>
 #include <rc_gen_movie_file.h>
-    // #include <rc_capture.hpp>
 #include <rc_persistencemanager.h>
 
 // Analysis

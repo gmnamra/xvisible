@@ -66,8 +66,8 @@ typedef double dblparam_t;
 
 #define    streq(a,b)      (strcmp(a,b) == 0)
 
-#ifndef TRUE
-#define	TRUE	1
+#ifndef true
+#define	true	1
 #define	FALSE	0
 #endif
 

@@ -1,5 +1,6 @@
 #ifndef _rcCINDERGRABBER_H_
 #define _rcCINDERGRABBER_H_
+#pragma once
 
 #include "cinder/Surface.h"
 #include "cinder/qtime/QuickTime.h"

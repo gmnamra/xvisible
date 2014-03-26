@@ -503,7 +503,7 @@ class rcKinetoscope : public boost::enable_shared_from_this<rcKinetoscope>
 
   bool canStep () const { return have (eCanStep); }
   /*
-   @Brief: return TRUE if the well is ready to be stepping
+   @Brief: return true if the well is ready to be stepping
   */
 
   const rcStatistics& populationMeasures () const;

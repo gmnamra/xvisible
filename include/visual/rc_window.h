@@ -17,7 +17,7 @@
 
 #include <vector>
 using namespace std;
-
+using namespace cv;
 
 // Window class
 
@@ -121,10 +121,10 @@ public:
     return rcIRect (0, 0, mFrameBuf->width(), mFrameBuf->height()); }
   const rcRect& rectangle () const { return mGeometry; }
 
-  // return TRUE if this window contains the other and has the same frame buf
+  // return true if this window contains the other and has the same frame buf
   bool contains (const rcWindow& other) const;
 
-  // return TRUE if this window contains the rect
+  // return true if this window contains the rect
   inline bool contains (const rcIRect& other) const {
     return (isBound() && mGeometry.contains (other));
   }
@@ -132,7 +132,7 @@ public:
   // return true if we can peakOutside with a border
   bool canPeekOutSide (const rcIPair range) const;
 
-  // return TRUE if pixel addresses in this window contains this pointer (for asserts)
+  // return true if pixel addresses in this window contains this pointer (for asserts)
   bool contains (const uint8* ptr) const;
 
   // Is this window bound ?

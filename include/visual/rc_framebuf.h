@@ -13,7 +13,13 @@
 #include <rc_macro.h>
 #include <boost/intrusive_ptr.hpp>
 #include <boost/atomic.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
 #include <cinder/Channel.h>
+
+
+using namespace cv;
+
 //
 // RGB component handling functions
 //
@@ -74,6 +80,7 @@ class rcFrame
 	   int32 width, int32 height, rcPixel pixelDepth, bool isGray);
     
   rcFrame ( const ci::Channel8u&  );
+    rcFrame ( const cv::Mat& );
 
   // Destructor
   virtual ~rcFrame();

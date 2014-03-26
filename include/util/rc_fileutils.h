@@ -42,6 +42,8 @@ extern int alphasort ();
 void RFY_API rfGetDirEntries(const string & dirname, 
 		     vector<std::string> & entries, const char *imageformat = "tif");
 
+void RFY_API rfSortImageFileNames(const vector<std::string> & files, vector<std::string> & entries, const char *imageformat);
+
 bool RFY_API rfIsDirectory (const char * inFullPath);
 bool RFY_API rfIsFile (const char * inFullPath);
 int32 RFY_API rfGetFileSize (const char *inFullPath);

@@ -112,11 +112,12 @@
 #ifndef __rcAFFINE_H
 #define __rcAFFINE_H
 
+
 #include <rc_xforms.h>
 #include <rc_rect.h>
-#include <Accelerate/Accelerate.h>
 #include <rc_graphics.h>
 
+#include <Accelerate/Accelerate.h>
 
 class rcAffineRectangle : public rc2Xform
 {

@@ -10,18 +10,23 @@
 #define _rcIMAGEGRABBER_H_
 
 #include <vector>
-//#include <QuickTime/QuickTimeComponents.h> // for GraphicsImportComponent support
+
 
 #include <rc_framegrabber.h>
 #include <rc_filegrabber.h>
 
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+
 using namespace std;
+using namespace cv;
 
 //
 // Class to grab frames from image files
 //
 
-class rcImageGrabber : public rcFileGrabber {
+class rcImageGrabber : public rcFileGrabber
+{
   public:
     // ctor
     rcImageGrabber( const vector<std::string>& fileNames,
@@ -55,8 +60,6 @@ class rcImageGrabber : public rcFileGrabber {
     
   private:
     vector<std::string>        mFileNames; 
-    vector<FSSpec*>         mFileHandles;
-    //    GraphicsImportComponent mImporter;
     uint32                mCurrentIndex; // Current index to mFileHandles
     double                  mFrameInterval;    // Used to force a fixed frame interval
     rcTimestamp             mCurrentTimeStamp; // Current frame timestamp

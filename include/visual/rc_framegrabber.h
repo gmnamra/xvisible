@@ -89,7 +89,7 @@ class RFY_API rcFrameGrabber {
 
     // Get next frame, assign the frame to ptr. If the return value eFrameError
     // call getLastError() for details.
-    virtual rcFrameGrabberStatus getNextFrame( rcSharedFrameBufPtr& ptr, bool isBlocking ) = 0;
+    virtual rcFrameGrabberStatus getNextFrame( rcSharedFrameBufPtr& , bool isBlocking ) = 0;
 
     // Get name of input source, ie. file name, camera name etc.
     virtual const std::string getInputSourceName() = 0;
@@ -158,15 +158,15 @@ class rcVectorGrabber : public rcFrameGrabber {
     virtual int32 cacheSize() { return mCacheSz; }
 
     // Get next frame, assign the frame to ptr
-    virtual rcFrameGrabberStatus getNextFrame( rcSharedFrameBufPtr& ptr, bool isBlocking ) {
+    virtual rcFrameGrabberStatus getNextFrame( rcSharedFrameBufPtr& fptr, bool isBlocking ) {
         rmUnused( isBlocking );
         
         if ( mCurrentIndex < mImages.size() ) {
             // TODO: we need geometry info to allow cropping
-            ptr = mImages[mCurrentIndex++].frameBuf();
+            fptr = mImages[mCurrentIndex++].frameBuf();
             return eFrameStatusOK;
         } else {
-            ptr = 0;
+            fptr = 0;
             return eFrameStatusEOF;
         }
     }

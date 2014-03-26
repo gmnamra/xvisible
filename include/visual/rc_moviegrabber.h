@@ -19,8 +19,7 @@
 using namespace std;
 
 
-namespace legacy_qtime
-{
+
 //
 // Class to grab frames from a movie file
 // in seconds (calls setTimestamp())
@@ -89,7 +88,7 @@ class rcMovieGrabber : public rcFileGrabber {
 	int16 m_width, m_height;
 };
 
-}
+
 
 #endif // _rcMOVIEGRABBER_H_
 

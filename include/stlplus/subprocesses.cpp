@@ -860,9 +860,9 @@ bool subprocess::spawn(const std::string& path, const arg_vector& argv,
   else
   {
     PIPE_TYPE tmp = 0;
-    SECURITY_ATTRIBUTES inherit_handles = {sizeof(SECURITY_ATTRIBUTES), 0, TRUE};
+    SECURITY_ATTRIBUTES inherit_handles = {sizeof(SECURITY_ATTRIBUTES), 0, true};
     CreatePipe(&parent_stdin, &tmp, &inherit_handles, 0);
-    DuplicateHandle(GetCurrentProcess(), tmp, GetCurrentProcess(), &child_in, 0, FALSE, DUPLICATE_CLOSE_SOURCE | DUPLICATE_SAME_ACCESS);
+    DuplicateHandle(GetCurrentProcess(), tmp, GetCurrentProcess(), &child_in, 0, false, DUPLICATE_CLOSE_SOURCE | DUPLICATE_SAME_ACCESS);
   }
 
   PIPE_TYPE parent_stdout = 0;
@@ -871,9 +871,9 @@ bool subprocess::spawn(const std::string& path, const arg_vector& argv,
   else
   {
     PIPE_TYPE tmp = 0;
-    SECURITY_ATTRIBUTES inherit_handles = {sizeof(SECURITY_ATTRIBUTES), 0, TRUE};
+    SECURITY_ATTRIBUTES inherit_handles = {sizeof(SECURITY_ATTRIBUTES), 0, true};
     CreatePipe(&tmp, &parent_stdout, &inherit_handles, 0);
-    DuplicateHandle(GetCurrentProcess(), tmp, GetCurrentProcess(), &child_out, 0, FALSE, DUPLICATE_CLOSE_SOURCE | DUPLICATE_SAME_ACCESS);
+    DuplicateHandle(GetCurrentProcess(), tmp, GetCurrentProcess(), &child_out, 0, false, DUPLICATE_CLOSE_SOURCE | DUPLICATE_SAME_ACCESS);
   }
 
   PIPE_TYPE parent_stderr = 0;
@@ -882,9 +882,9 @@ bool subprocess::spawn(const std::string& path, const arg_vector& argv,
   else
   {
     PIPE_TYPE tmp = 0;
-    SECURITY_ATTRIBUTES inherit_handles = {sizeof(SECURITY_ATTRIBUTES), 0, TRUE};
+    SECURITY_ATTRIBUTES inherit_handles = {sizeof(SECURITY_ATTRIBUTES), 0, true};
     CreatePipe(&tmp, &parent_stderr, &inherit_handles, 0);
-    DuplicateHandle(GetCurrentProcess(), tmp, GetCurrentProcess(), &child_err, 0, FALSE, DUPLICATE_CLOSE_SOURCE | DUPLICATE_SAME_ACCESS);
+    DuplicateHandle(GetCurrentProcess(), tmp, GetCurrentProcess(), &child_err, 0, false, DUPLICATE_CLOSE_SOURCE | DUPLICATE_SAME_ACCESS);
   }
 
   // Now create the subprocess
@@ -892,7 +892,7 @@ bool subprocess::spawn(const std::string& path, const arg_vector& argv,
   // Note that the child will inherit a copy of the pipe handles
   STARTUPINFO startup = {sizeof(STARTUPINFO),0,0,0,0,0,0,0,0,0,0,STARTF_USESTDHANDLES|STARTF_USESHOWWINDOW,SW_HIDE,0,0,
                          parent_stdin,parent_stdout,parent_stderr};
-  bool created = CreateProcess(path.c_str(),(char*)argv.image().c_str(),0,0,TRUE,0,env.envp(),0,&startup,&pid) != 0;
+  bool created = CreateProcess(path.c_str(),(char*)argv.image().c_str(),0,0,true,0,env.envp(),0,&startup,&pid) != 0;
   // close the parent copy of the pipe handles so that the pipes will be closed when the child releases them
   if (connect_stdin) CloseHandle(parent_stdin);
   if (connect_stdout) CloseHandle(parent_stdout);
@@ -1532,9 +1532,9 @@ bool async_subprocess::spawn(const std::string& path, const arg_vector& argv,
   else
   {
     PIPE_TYPE tmp = 0;
-    SECURITY_ATTRIBUTES inherit_handles = {sizeof(SECURITY_ATTRIBUTES), 0, TRUE};
+    SECURITY_ATTRIBUTES inherit_handles = {sizeof(SECURITY_ATTRIBUTES), 0, true};
     CreatePipe(&parent_stdin, &tmp, &inherit_handles, 0);
-    DuplicateHandle(GetCurrentProcess(), tmp, GetCurrentProcess(), &child_in, 0, FALSE, DUPLICATE_CLOSE_SOURCE | DUPLICATE_SAME_ACCESS);
+    DuplicateHandle(GetCurrentProcess(), tmp, GetCurrentProcess(), &child_in, 0, false, DUPLICATE_CLOSE_SOURCE | DUPLICATE_SAME_ACCESS);
   }
 
   PIPE_TYPE parent_stdout = 0;
@@ -1543,9 +1543,9 @@ bool async_subprocess::spawn(const std::string& path, const arg_vector& argv,
   else
   {
     PIPE_TYPE tmp = 0;
-    SECURITY_ATTRIBUTES inherit_handles = {sizeof(SECURITY_ATTRIBUTES), 0, TRUE};
+    SECURITY_ATTRIBUTES inherit_handles = {sizeof(SECURITY_ATTRIBUTES), 0, true};
     CreatePipe(&tmp, &parent_stdout, &inherit_handles, 0);
-    DuplicateHandle(GetCurrentProcess(), tmp, GetCurrentProcess(), &child_out, 0, FALSE, DUPLICATE_CLOSE_SOURCE | DUPLICATE_SAME_ACCESS);
+    DuplicateHandle(GetCurrentProcess(), tmp, GetCurrentProcess(), &child_out, 0, false, DUPLICATE_CLOSE_SOURCE | DUPLICATE_SAME_ACCESS);
   }
 
   PIPE_TYPE parent_stderr = 0;
@@ -1554,9 +1554,9 @@ bool async_subprocess::spawn(const std::string& path, const arg_vector& argv,
   else
   {
     PIPE_TYPE tmp = 0;
-    SECURITY_ATTRIBUTES inherit_handles = {sizeof(SECURITY_ATTRIBUTES), 0, TRUE};
+    SECURITY_ATTRIBUTES inherit_handles = {sizeof(SECURITY_ATTRIBUTES), 0, true};
     CreatePipe(&tmp, &parent_stderr, &inherit_handles, 0);
-    DuplicateHandle(GetCurrentProcess(), tmp, GetCurrentProcess(), &child_err, 0, FALSE, DUPLICATE_CLOSE_SOURCE | DUPLICATE_SAME_ACCESS);
+    DuplicateHandle(GetCurrentProcess(), tmp, GetCurrentProcess(), &child_err, 0, false, DUPLICATE_CLOSE_SOURCE | DUPLICATE_SAME_ACCESS);
   }
 
   // Now create the subprocess
@@ -1564,7 +1564,7 @@ bool async_subprocess::spawn(const std::string& path, const arg_vector& argv,
   // Note that the child will inherit a copy of the pipe handles
   STARTUPINFO startup = {sizeof(STARTUPINFO),0,0,0,0,0,0,0,0,0,0,STARTF_USESTDHANDLES|STARTF_USESHOWWINDOW,SW_HIDE,0,0,
                          parent_stdin,parent_stdout,parent_stderr};
-  bool created = CreateProcess(path.c_str(),(char*)argv.image().c_str(),0,0,TRUE,0,env.envp(),0,&startup,&pid) != 0;
+  bool created = CreateProcess(path.c_str(),(char*)argv.image().c_str(),0,0,true,0,env.envp(),0,&startup,&pid) != 0;
   // close the parent copy of the pipe handles so that the pipes will be closed when the child releases them
   if (connect_stdin) CloseHandle(parent_stdin);
   if (connect_stdout) CloseHandle(parent_stdout);

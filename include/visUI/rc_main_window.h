@@ -5,7 +5,7 @@
 #include <QList>
 #include <QQueue>
 #include <rc_model.h>
-#include <zoomwidget.h>
+
 
 #include "rc_statusbar.h"
 

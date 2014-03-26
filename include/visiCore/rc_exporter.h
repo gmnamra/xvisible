@@ -39,7 +39,7 @@ public:
 protected:
     // Init all containers and iterators
     void init( rcTimestamp startTime );
-    // Produce a single value to stream, return TRUE with success
+    // Produce a single value to stream, return true with success
     bool produceValue( ostream& stream, rcSegmentIterator* iter, rcTrackType type, rcExperimentFileFormat fileFormat );
 
     // Is track exportable in this file format

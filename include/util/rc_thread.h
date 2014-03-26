@@ -132,7 +132,7 @@ public:
       void lock();
 
       // Attempt to lock the mutex, but do not block. If it is free
-      // the mutex is locked and TRUE is returned. Otherwise, the
+      // the mutex is locked and true is returned. Otherwise, the
       // state the mutex is left unchanged and FALSE is returned.
       bool tryLock();
 
