@@ -182,11 +182,10 @@ public:
   std::string to_string(unsigned radix = 10, radix_display_t display = radix_c_style_or_hash, unsigned width = 0) const
     throw(std::invalid_argument);
 
-  friend std::string to_string(const inf& i,
-                               unsigned radix = 10, radix_display_t display = radix_c_style_or_hash, unsigned width = 0)
+  friend std::string to_string(const inf& i, unsigned radix, radix_display_t display , unsigned width )
     throw(std::invalid_argument);
 
-  friend inf to_inf(const std::string&, unsigned radix = 0)
+  friend inf to_inf(const std::string&, unsigned radix )
     throw(std::invalid_argument);
 
   friend otext& operator << (otext&, const inf&);
@@ -229,8 +228,9 @@ inf operator * (const inf&, const inf&);
 inf operator / (const inf&, const inf&) throw(inf::divide_by_zero);
 inf operator % (const inf&, const inf&) throw(inf::divide_by_zero);
 std::pair<inf,inf> divide(const inf&, const inf&) throw(inf::divide_by_zero);
-std::string to_string(const inf& i, unsigned radix, radix_display_t display, unsigned width) throw(std::invalid_argument);
-inf to_inf(const std::string&, unsigned radix) throw(std::invalid_argument);
+//std::string to_string(const inf& i, unsigned radix, radix_display_t display, unsigned width = 0) throw(std::invalid_argument);
+std::string to_string(const inf& i, unsigned radix = 10, radix_display_t display = radix_c_style_or_hash, unsigned width = 0) throw(std::invalid_argument);
+inf to_inf(const std::string&, unsigned radix = 0) throw(std::invalid_argument);
 otext& operator << (otext&, const inf&);
 itext& operator >> (itext&, inf&);
 void dump(dump_context& str, const inf& data) throw(persistent_dump_failed);

@@ -184,10 +184,11 @@ void rcMainWindow::createActions()
     ExportId = new QAction ( tr("&Export as CSV "), this);
     OpenId->setShortcut (tr("CTRL+Key_E" )); NewId->setStatusTip (tr("Exports current Experiment in Comma Separated Format ") );
     connect (ExportId, SIGNAL (triggered () ), this, SLOT( doExport () ) );
-    
+#if 0    
     MovieExportId = new QAction ( tr("&Export movie as Quicktime "), this);
     OpenId->setShortcut (tr("CTRL+SHIFT+Key_E" )); NewId->setStatusTip (tr("Exports current image data in Quicktime  ") );
     connect (MovieExportId, SIGNAL (triggered () ), this, SLOT( doExportMovie () ) );
+#endif
     
     MovieNativeExportId = new QAction ( tr("&Export movie as rfymov "), this);
     OpenId->setShortcut (tr("CTRL+SHIFT+Key_S" )); NewId->setStatusTip (tr("Exports current image data in rfymov ") );
@@ -200,6 +201,14 @@ void rcMainWindow::createActions()
     ImportMovieId = new QAction ( tr("&Import movie import  "), this);
     OpenId->setShortcut (tr("CTRLKey_I" )); NewId->setStatusTip (tr("Imports a movie for analysis ") );
     connect (ImportMovieId, SIGNAL (triggered () ), domain, SLOT( requestMovieImport ()) );
+    
+    ImportImagesId = new QAction ( tr("&Import image import  "), this);
+    OpenId->setShortcut (tr("CTRLKey_G" )); NewId->setStatusTip (tr("Imports a set of images for analysis ") );
+    connect (ImportMovieId, SIGNAL (triggered () ), domain, SLOT( requestImageImport ()) );  
+
+    ImportSTKId = new QAction ( tr("&Import STK import  "), this);
+    OpenId->setShortcut (tr("CTRLKey_K" )); NewId->setStatusTip (tr("Imports a STK for analysis ") );
+    connect (ImportMovieId, SIGNAL (triggered () ), domain, SLOT( requestSTKImport ()) );      
     
 #if 0    
     for (int i = 0; i < MaxRecentFiles; ++i) {
@@ -248,12 +257,14 @@ void rcMainWindow::createMenus ()
     _fileMenu->addAction(CloseId);      
     
     _fileMenu->addAction(ExportId);    
-    _fileMenu->addAction(MovieExportId);  
+    //    _fileMenu->addAction(MovieExportId);  
     _fileMenu->addAction(MovieNativeExportId);      
     _fileMenu->addAction(MatrixExportId);          
     
     _fileMenu->addAction(ImportMovieId);
-
+    _fileMenu->addAction(ImportImagesId);
+    _fileMenu->addAction(ImportSTKId);
+    
 #if 0    
     separatorAct = _fileMenu->addSeparator();
     for (int i = 0; i < MaxRecentFiles; ++i)

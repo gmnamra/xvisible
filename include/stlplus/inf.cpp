@@ -935,14 +935,13 @@ static int from_char [] =
   -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1
 };
 
-std::string inf::to_string(unsigned radix, radix_display_t display, unsigned width) const
+std::string inf::to_string(unsigned radix, radix_display_t display, unsigned width ) const
   throw(std::invalid_argument)
 {
   return ::to_string(*this, radix, display, width);
 }
 
-std::string to_string(const inf& i,
-                      unsigned radix, radix_display_t display, unsigned width)
+std::string to_string(const inf& i, unsigned radix , radix_display_t display , unsigned width)
   throw(std::invalid_argument)
 {
   if (radix < 2 || radix > 36)

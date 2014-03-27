@@ -1,3 +1,10 @@
+
+
+
+Config += i386
+
+
+
 MAC_SDK  = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
 if( !exists( $$MAC_SDK) ) {
   error("The selected Mac OSX SDK does not exist at $$MAC_SDK!")
@@ -103,14 +110,17 @@ SOURCES = $${SOURCES_DIR}/src/visible/qt/rc_about.cpp \
            $${SOURCES_DIR}/src/visible/qt/rc_trackrender.cpp\
            $${SOURCES_DIR}/src/visible/qt/lpwidget.cpp
 
-INCLUDEPATH =   $${INCLUDE_DIR}/include/util  $${INCLUDE_DIR}/include/visual  $${INCLUDE_DIR}/include/analysis  $${INCLUDE_DIR}/include/stlplus  $${INCLUDE_DIR}/include/test  $${INCLUDE_DIR}/include/baseUI  $${INCLUDE_DIR}/include/visUI  $${INCLUDE_DIR}/include/visiCore $${INCLUDE_DIR}/usr/local/boost/include  $${INCLUDE_DIR}/usr/local/lightplot_i386/include $${INCLUDE_DIR}/usr/local/Cinder/include
+INCLUDEPATH =   $${INCLUDE_DIR}/include/util  $${INCLUDE_DIR}/include/visual  $${INCLUDE_DIR}/include/analysis  $${INCLUDE_DIR}/include/stlplus  $${INCLUDE_DIR}/include/test  $${INCLUDE_DIR}/include/baseUI  $${INCLUDE_DIR}/include/visUI  $${INCLUDE_DIR}/include/visiCore $${INCLUDE_DIR}/usr/local/boost/include  $${INCLUDE_DIR}/usr/local/lightplot_i386/include $${INCLUDE_DIR}/usr/local/Cinder/include $${INCLUDE_DIR}/usr/local/OpenCv_2.4_i386/include
 
 QT += opengl xml
 
 
 OBJECTS_DIR = $${SOURCES_DIR}/build/qt_moc/.obj
 
+
 # install
+target.arch = i386
+
 target.path = $${SOURCES_DIR}/src/visible/moc
 sources.files = $$SOURCES $$HEADERS $$RESOURCES $$FORMS visible_qt_moc.pro
 sources.path = $${SOURCES_DIR}/src
@@ -120,5 +130,4 @@ QMAKE_CXXFLAGS += -std=c++11
 QMAKE_CXXFLAGS += -stdlib=libc++
 
 
-
-
+QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.8

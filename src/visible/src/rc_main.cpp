@@ -104,7 +104,7 @@ int main( int argc, char** argv )
 	rmExceptionMacro ( << "Can't find experiment domain" );
 
       // Create a batch observer instance and initialize the domain
-      rcBatchExperimentObserver observer;
+        rcBatchExperimentObserver observer;
       // Initialize domain. Also gets an Engine. Engine is a singleton
       domain->initialize( &observer);
 

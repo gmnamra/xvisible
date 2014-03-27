@@ -2221,7 +2221,7 @@
 				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				ONLY_ACTIVE_ARCH = NO;
-				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCv_2.2_i386";
+				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCv_2.4_i386";
 				OTHER_CFLAGS = (
 					"-pipe",
 					"-g",
@@ -2317,7 +2317,7 @@
 				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				ONLY_ACTIVE_ARCH = NO;
-				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCv_2.2_i386";
+				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCv_2.4_i386";
 				OTHER_CFLAGS = (
 					"-pipe",
 					"-Wall",

@@ -179,7 +179,7 @@ public:
   //////////////////////////////////////////////////////////////////////////////
   // diagnostic print routines
 
-  friend otext& print(otext&, const ini_manager&, unsigned indent = 0);
+  friend otext& print(otext&, const ini_manager&, unsigned indent );
   friend otext& operator << (otext&, const ini_manager&);
 
 private:
@@ -192,7 +192,7 @@ private:
 };
 
 // redefine friends for gcc v4.1
-otext& print(otext&, const ini_manager&, unsigned indent);
+otext& print(otext&, const ini_manager&, unsigned indent = 0);
 otext& operator << (otext&, const ini_manager&);
 
 #endif

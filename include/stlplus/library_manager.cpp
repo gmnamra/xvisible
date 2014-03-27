@@ -2405,12 +2405,12 @@ otext& library_manager::print_long(otext& str, unsigned indent) const
   return str;
 }
 
-otext& print(otext& str, const library_manager& manager, unsigned indent)
+otext& print(otext& str, const library_manager& manager, unsigned indent )
 {
   return manager.print(str, indent);
 }
 
-otext& print_long(otext& str, const library_manager& manager, unsigned indent)
+otext& print_long(otext& str, const library_manager& manager, unsigned indent )
 {
   return manager.print_long(str, indent);
 }

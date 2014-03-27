@@ -24,6 +24,8 @@
 		C2248976189D56A900034CDF /* persistence1d.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2248975189D56A900034CDF /* persistence1d.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		C22DD3D61316364400801DE4 /* rc_cubic_generators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E310F21135D0046570D /* rc_cubic_generators.cpp */; };
 		C22DD3D71316364600801DE4 /* rc_affine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9E2E0F21135D0046570D /* rc_affine.cpp */; };
+		C247021318E4AEF600D5942E /* byteswap.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C247021218E4AEF600D5942E /* byteswap.hpp */; };
+		C247021518E4AF0600D5942E /* byteswap.ipp in Resources */ = {isa = PBXBuildFile; fileRef = C247021418E4AF0600D5942E /* byteswap.ipp */; };
 		C24BF55718DBBB850039C53D /* libcinder_d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C24ED40E18DA1D8F0066AA0E /* libcinder_d.a */; };
 		C24BF55818DBBBCA0039C53D /* libvf32_d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C27C02E818D75F3E00FD9FE6 /* libvf32_d.a */; };
 		C24BF55918DBBC5D0039C53D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C24ED41218DA1E000066AA0E /* OpenGL.framework */; };
@@ -254,7 +256,6 @@
 		C24EA8F71842FD0D00E88B0A /* rc_correlationwindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9D0F21135D0046570D /* rc_correlationwindow.cpp */; };
 		C24EA8F81842FD0D00E88B0A /* rc_cubic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9E0F21135D0046570D /* rc_cubic.cpp */; };
 		C24EA8F91842FD0D00E88B0A /* rc_filter1d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9F0F21135D0046570D /* rc_filter1d.cpp */; };
-		C24EA8FA1842FD0D00E88B0A /* rc_imageintegrals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DA10F21135D0046570D /* rc_imageintegrals.cpp */; };
 		C24EA8FC1842FD0D00E88B0A /* rc_ip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DA30F21135D0046570D /* rc_ip.cpp */; };
 		C24EA8FD1842FD0D00E88B0A /* rc_mathmodel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB20F21135D0046570D /* rc_mathmodel.cpp */; };
 		C24EA8FE1842FD0D00E88B0A /* rc_median.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB30F21135D0046570D /* rc_median.cpp */; };
@@ -556,7 +557,6 @@
 		C27C027E18D75F3E00FD9FE6 /* rc_correlationwindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9D0F21135D0046570D /* rc_correlationwindow.cpp */; };
 		C27C027F18D75F3E00FD9FE6 /* rc_cubic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9E0F21135D0046570D /* rc_cubic.cpp */; };
 		C27C028018D75F3E00FD9FE6 /* rc_filter1d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9F0F21135D0046570D /* rc_filter1d.cpp */; };
-		C27C028118D75F3E00FD9FE6 /* rc_imageintegrals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DA10F21135D0046570D /* rc_imageintegrals.cpp */; };
 		C27C028318D75F3E00FD9FE6 /* rc_ip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DA30F21135D0046570D /* rc_ip.cpp */; };
 		C27C028418D75F3E00FD9FE6 /* rc_mathmodel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB20F21135D0046570D /* rc_mathmodel.cpp */; };
 		C27C028518D75F3E00FD9FE6 /* fileio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2EC9CBD183E6BA100AC3300 /* fileio.cpp */; };
@@ -680,7 +680,6 @@
 		C2EC97810F37838200E49E22 /* rc_correlationwindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9D0F21135D0046570D /* rc_correlationwindow.cpp */; };
 		C2EC97820F37838200E49E22 /* rc_cubic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9E0F21135D0046570D /* rc_cubic.cpp */; };
 		C2EC97830F37838200E49E22 /* rc_filter1d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9F0F21135D0046570D /* rc_filter1d.cpp */; };
-		C2EC97850F37838200E49E22 /* rc_imageintegrals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DA10F21135D0046570D /* rc_imageintegrals.cpp */; };
 		C2EC97870F37838200E49E22 /* rc_ip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DA30F21135D0046570D /* rc_ip.cpp */; };
 		C2EC97960F37838200E49E22 /* rc_mathmodel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB20F21135D0046570D /* rc_mathmodel.cpp */; };
 		C2EC97970F37838200E49E22 /* rc_median.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB30F21135D0046570D /* rc_median.cpp */; };
@@ -781,7 +780,6 @@
 		C2EC9C14183E692A00AC3300 /* rc_correlationwindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9D0F21135D0046570D /* rc_correlationwindow.cpp */; };
 		C2EC9C15183E692A00AC3300 /* rc_cubic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9E0F21135D0046570D /* rc_cubic.cpp */; };
 		C2EC9C16183E692A00AC3300 /* rc_filter1d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9D9F0F21135D0046570D /* rc_filter1d.cpp */; };
-		C2EC9C17183E692A00AC3300 /* rc_imageintegrals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DA10F21135D0046570D /* rc_imageintegrals.cpp */; };
 		C2EC9C19183E692A00AC3300 /* rc_ip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DA30F21135D0046570D /* rc_ip.cpp */; };
 		C2EC9C1A183E692A00AC3300 /* rc_mathmodel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB20F21135D0046570D /* rc_mathmodel.cpp */; };
 		C2EC9C1B183E692A00AC3300 /* rc_median.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26F9DB30F21135D0046570D /* rc_median.cpp */; };
@@ -954,6 +952,8 @@
 		C22DD24813159A2C00801DE4 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		C23FD2421321A4CB00C1FF5A /* rc_pixel.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rc_pixel.hpp; sourceTree = "<group>"; };
 		C2444EB618407047004E7AA4 /* rc_stlplus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_stlplus.h; sourceTree = "<group>"; };
+		C247021218E4AEF600D5942E /* byteswap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = byteswap.hpp; sourceTree = "<group>"; };
+		C247021418E4AF0600D5942E /* byteswap.ipp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = byteswap.ipp; sourceTree = "<group>"; };
 		C24BF56218DBBC7C0039C53D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = ../../../../../System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<group>"; };
 		C24BF57618DCCEDA0039C53D /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
 		C24EA7F91842B85400E88B0A /* libpmk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpmk.xcodeproj; path = "3rdparty/libpmk-2.5/libpmk/libpmk.xcodeproj"; sourceTree = "<group>"; };
@@ -2089,6 +2089,8 @@
 		C26F9D070F21135D0046570D /* util */ = {
 			isa = PBXGroup;
 			children = (
+				C247021418E4AF0600D5942E /* byteswap.ipp */,
+				C247021218E4AEF600D5942E /* byteswap.hpp */,
 				C27E579D18C56BEA00DF8BA1 /* rc_signal1d.hpp */,
 				C2248975189D56A900034CDF /* persistence1d.hpp */,
 				C2B8E9FF187E0F880060D961 /* rc_unittest.h */,
@@ -2851,6 +2853,7 @@
 				C26F9F0D0F21135D0046570D /* tif_dir.h in Headers */,
 				C26F9F0E0F21135D0046570D /* tif_fax3.h in Headers */,
 				C26F9F0F0F21135D0046570D /* tif_predict.h in Headers */,
+				C247021318E4AEF600D5942E /* byteswap.hpp in Headers */,
 				C26F9F100F21135D0046570D /* tiff.h in Headers */,
 				C26F9F110F21135D0046570D /* tiffio.h in Headers */,
 				C26F9F120F21135D0046570D /* tiffio.hxx in Headers */,
@@ -3254,6 +3257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C247021518E4AF0600D5942E /* byteswap.ipp in Resources */,
 				C26B4CA5130DEAB10059FA8B /* extract_m2v in Resources */,
 				C26B4CA8130DEAB10059FA8B /* mpeg2.sh in Resources */,
 				C26B4CA9130DEAB10059FA8B /* mpeg2dec-0.4.1.tar in Resources */,
@@ -3414,7 +3418,6 @@
 				EBD7A638187C950E0052C9A4 /* textio.cpp in Sources */,
 				C2EC97820F37838200E49E22 /* rc_cubic.cpp in Sources */,
 				C2EC97830F37838200E49E22 /* rc_filter1d.cpp in Sources */,
-				C2EC97850F37838200E49E22 /* rc_imageintegrals.cpp in Sources */,
 				C2EC97870F37838200E49E22 /* rc_ip.cpp in Sources */,
 				C2EC97960F37838200E49E22 /* rc_mathmodel.cpp in Sources */,
 				C2EC97970F37838200E49E22 /* rc_median.cpp in Sources */,
@@ -3542,7 +3545,6 @@
 				C24EA8F71842FD0D00E88B0A /* rc_correlationwindow.cpp in Sources */,
 				C24EA8F81842FD0D00E88B0A /* rc_cubic.cpp in Sources */,
 				C24EA8F91842FD0D00E88B0A /* rc_filter1d.cpp in Sources */,
-				C24EA8FA1842FD0D00E88B0A /* rc_imageintegrals.cpp in Sources */,
 				C24EA8FC1842FD0D00E88B0A /* rc_ip.cpp in Sources */,
 				C24EA8FD1842FD0D00E88B0A /* rc_mathmodel.cpp in Sources */,
 				C24EA8FE1842FD0D00E88B0A /* rc_median.cpp in Sources */,
@@ -3677,7 +3679,6 @@
 				C27C027E18D75F3E00FD9FE6 /* rc_correlationwindow.cpp in Sources */,
 				C27C027F18D75F3E00FD9FE6 /* rc_cubic.cpp in Sources */,
 				C27C028018D75F3E00FD9FE6 /* rc_filter1d.cpp in Sources */,
-				C27C028118D75F3E00FD9FE6 /* rc_imageintegrals.cpp in Sources */,
 				C27C028318D75F3E00FD9FE6 /* rc_ip.cpp in Sources */,
 				C27C028418D75F3E00FD9FE6 /* rc_mathmodel.cpp in Sources */,
 				C27C028518D75F3E00FD9FE6 /* fileio.cpp in Sources */,
@@ -3830,7 +3831,6 @@
 				C2EC9C14183E692A00AC3300 /* rc_correlationwindow.cpp in Sources */,
 				C2EC9C15183E692A00AC3300 /* rc_cubic.cpp in Sources */,
 				C2EC9C16183E692A00AC3300 /* rc_filter1d.cpp in Sources */,
-				C2EC9C17183E692A00AC3300 /* rc_imageintegrals.cpp in Sources */,
 				C2EC9C19183E692A00AC3300 /* rc_ip.cpp in Sources */,
 				C2EC9C1A183E692A00AC3300 /* rc_mathmodel.cpp in Sources */,
 				C2EC9C1B183E692A00AC3300 /* rc_median.cpp in Sources */,

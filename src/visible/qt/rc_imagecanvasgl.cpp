@@ -217,8 +217,7 @@ rcImageCanvasGL::~rcImageCanvasGL()
 
 QSize rcImageCanvasGL::getDisplaySize ()
 {
-  CGRect cg = CGDisplayBounds(kCGDirectMainDisplay);
-  return QSize ((int32) cg.size.width, (int32) cg.size.height);
+    return size ();
 }
 
 void rcImageCanvasGL::resetAll()

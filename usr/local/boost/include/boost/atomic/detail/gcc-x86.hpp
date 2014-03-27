@@ -1642,7 +1642,8 @@ platform_load64(const volatile T * ptr)
 }
 
 /* pull in 64-bit atomic type using cmpxchg8b above */
-#if !defined(__x86_64__) && (defined(__i686__) || defined (__GCC_HAVE_SYNC_COMPARE_AND_SWAP_8))
+#if !defined(__x86_64__) && defined(BOOST_ATOMIC_X86_HAS_CMPXCHG8B) 
+//#if !defined(__x86_64__) && (defined(__i686__) || defined (__GCC_HAVE_SYNC_COMPARE_AND_SWAP_8))
 #include <boost/atomic/detail/cas64strong.hpp>
 #endif
 

@@ -193,7 +193,7 @@ public:
   friend void restore(restore_context& context, lm_dependencies&) throw(persistent_restore_failed);
 
   // diagnostic print routines
-  friend otext& print(otext&, const lm_dependencies&, unsigned indent = 0);
+  friend otext& print(otext&, const lm_dependencies&, unsigned indent );
   friend otext& operator << (otext&, const lm_dependencies&);
 
 private:
@@ -205,7 +205,7 @@ private:
 // redefine friends for gcc v4.1
 void dump(dump_context& context, const lm_dependencies&) throw(persistent_dump_failed);
 void restore(restore_context& context, lm_dependencies&) throw(persistent_restore_failed);
-otext& print(otext&, const lm_dependencies&, unsigned indent);
+otext& print(otext&, const lm_dependencies&, unsigned indent = 0);
 otext& operator << (otext&, const lm_dependencies&);
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -503,8 +503,8 @@ public:
 
   otext& print(otext& str, unsigned indent = 0) const;
   otext& print_long(otext& str, unsigned indent = 0) const;
-  friend otext& print(otext& str, const lm_library& lib, unsigned indent = 0);
-  friend otext& print_long(otext& str, const lm_library& lib, unsigned indent = 0);
+  friend otext& print(otext& str, const lm_library& lib, unsigned indent );
+  friend otext& print_long(otext& str, const lm_library& lib, unsigned indent );
   friend otext& operator << (otext& str, const lm_library& lib);
 
 private:
@@ -516,8 +516,8 @@ private:
 };
 
 // redefine friends for gcc v4.1
-otext& print(otext& str, const lm_library& lib, unsigned indent);
-otext& print_long(otext& str, const lm_library& lib, unsigned indent);
+otext& print(otext& str, const lm_library& lib, unsigned indent = 0);
+otext& print_long(otext& str, const lm_library& lib, unsigned indent = 0);
 otext& operator << (otext& str, const lm_library& lib);
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -714,8 +714,8 @@ public:
 
   otext& print(otext& str, unsigned indent = 0) const;
   otext& print_long(otext& str, unsigned indent = 0) const;
-  friend otext& print(otext& str, const library_manager& manager, unsigned indent = 0);
-  friend otext& print_long(otext& str, const library_manager& manager, unsigned indent = 0);
+  friend otext& print(otext& str, const library_manager& manager, unsigned indent );
+  friend otext& print_long(otext& str, const library_manager& manager, unsigned indent );
   friend otext& operator << (otext& str, const library_manager& libraries);
 
   //////////////////////////////////////////////////////////////////////////////
@@ -737,8 +737,8 @@ protected:
 };
 
 // redefine friends for gcc v4.1
-otext& print(otext& str, const library_manager& manager, unsigned indent);
-otext& print_long(otext& str, const library_manager& manager, unsigned indent);
+otext& print(otext& str, const library_manager& manager, unsigned indent = 0);
+otext& print_long(otext& str, const library_manager& manager, unsigned indent = 0);
 otext& operator << (otext& str, const library_manager& libraries);
 
 ////////////////////////////////////////////////////////////////////////////////
