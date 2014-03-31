@@ -134,12 +134,10 @@
 		4C8D20EF0A9A30E75CA6BCAC /* moc_rc_textareasettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_textareasettingwidget.cpp; sourceTree = "<group>"; };
 		4F32ACD5A77049E4FEB8EC70 /* moc_rc_controlpanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_controlpanel.cpp; sourceTree = "<group>"; };
 		506A887A1F0EDF53AC3D7A4C /* moc_lpwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_lpwidget.cpp; sourceTree = "<group>"; };
-		547740F8C9DE93C0FEC275C8 /* rc_menubar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_menubar.h; path = ../include/visUI/rc_menubar.h; sourceTree = "<group>"; };
 		54B8C5EBC7A3958B70C265A2 /* rc_menuchoicesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_menuchoicesettingwidget.cpp; path = ../src/visible/qt/rc_menuchoicesettingwidget.cpp; sourceTree = "<group>"; };
 		5C1D1EB97114AE09D1949A1A /* moc_rc_settingpanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_settingpanel.cpp; sourceTree = "<group>"; };
 		60B72249F361373E1A489C12 /* rc_textlinesettingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_textlinesettingwidget.h; path = ../include/visUI/rc_textlinesettingwidget.h; sourceTree = "<group>"; };
 		6315DC79E03823085876C601 /* rc_modifierkeys.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_modifierkeys.cpp; path = ../src/visible/qt/rc_modifierkeys.cpp; sourceTree = "<group>"; };
-		6421E5F979090CF48C5EC357 /* rc_mainwindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_mainwindow.h; path = ../include/visUI/rc_mainwindow.h; sourceTree = "<group>"; };
 		65203BB9200EEE862DBFF68A /* rc_filechoicesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_filechoicesettingwidget.cpp; path = ../src/visible/qt/rc_filechoicesettingwidget.cpp; sourceTree = "<group>"; };
 		674EA924905BD171FA636C52 /* rc_numericchoicesettingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_numericchoicesettingwidget.h; path = ../include/visUI/rc_numericchoicesettingwidget.h; sourceTree = "<group>"; };
 		68BC763C5971A1A6B5C3CE42 /* rc_checkboxsettingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_checkboxsettingwidget.h; path = ../include/visUI/rc_checkboxsettingwidget.h; sourceTree = "<group>"; };
@@ -345,8 +343,6 @@
 				A7958F1443235E170A4574A5 /* rc_filechoicesettingwidget.h */,
 				B09232AE5D0FA20CA7BC3BAA /* rc_filesavesettingwidget.h */,
 				0787F4A2A0916E026E3D3CB7 /* rc_lineedit.h */,
-				6421E5F979090CF48C5EC357 /* rc_mainwindow.h */,
-				547740F8C9DE93C0FEC275C8 /* rc_menubar.h */,
 				94097E9DF3851A4001D7C096 /* rc_menuchoicesettingwidget.h */,
 				F1160CBC4080BD1854BC2450 /* rc_modeldomain.h */,
 				2BFC86AEE2E8499367822C3B /* rc_modifierkeys.h */,
@@ -642,7 +638,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = i386;
-				BUILD_ROOT = /Users/arman/gwc/vqt105/visibleqt105/build_scripts;
+				BOOST_PATH = "$(SRCROOT)/../usr/local/boost";
+				BUILD_ROOT = "$(SRCROOT)/../build/qt_moc";
+				CINDER_PATH = "$(SRCROOT)/../usr/local/Cinder";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = YES;
@@ -652,29 +650,16 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				HEADER_SEARCH_PATHS = (
-					/Library/Frameworks/QtCore.framework/Versions/4/Headers,
-					/Library/Frameworks/QtGui.framework/Versions/4/Headers,
-					/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers,
-					/Library/Frameworks/QtXml.framework/Versions/4/Headers,
-					/Library/Frameworks/Qt3Support.framework/Versions/4/Headers,
-					/usr/include,
-					../include/util,
-					../include/visual,
-					../include/analysis,
-					../include/stlplus,
-					../include/test,
-					../include/baseUI,
-					../include/visUI,
-					../include/visiCore,
-					../usr/local/boost/include,
-					../usr/local/Cinder/include/,
-					../usr/local/lightplot_i386/include,
+					"$(Qt_PATH)/include",
+					"$(BOOST_PATH)/include",
+					"$(SRCROOT)/../include/**",
 					/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers,
 					/System/Library/Frameworks/AGL.framework/Headers,
-					.,
-					/usr/local/include,
 					/System/Library/Frameworks/CarbonCore.framework/Headers,
-					"/usr/local/Qt4.8/mkspecs/macx-xcode",
+					"$(SRCROOT)/usr/local/lightplot_i386/include",
+					"$(CINDER_PATH)/include/**",
+					"$(OPENCV_PATH)/include",
+					"$(LIGHT_PLOT_PATH)/include",
 				);
 				INFOPLIST_FILE = Info.plist;
 				LEXFLAGS = "";
@@ -682,9 +667,11 @@
 					/Library/Frameworks,
 					/System/Library/Frameworks/,
 				);
+				LIGHT_PLOT_PATH = "$(SRCROOT)/../usr/local/lightplot_i386";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MOCFOLDER = "$(SRCROOT)/../src/visible/moc";
 				OBJROOT = "$(BUILD_DIR)/.obj";
+				OPENCV_PATH = "$(SRCROOT)/../usr/local/OpenCv_2.4_i386";
 				OTHER_CFLAGS = (
 					"-pipe",
 					"-g",
@@ -738,7 +725,9 @@
 				);
 				OTHER_REZFLAGS = "";
 				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_NAME = visible_qt_moc;
+				Qt_PATH = "$(SRCROOT)/../usr/local/Qt/4.8.3";
 				SDKROOT = macosx10.8;
 				SECTORDER_FLAGS = "";
 				SYMROOT = "$(SRCROOT)/../build/qt_moc";
@@ -753,7 +742,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = i386;
-				BUILD_ROOT = /Users/arman/gwc/vqt105/visibleqt105/build_scripts;
+				BOOST_PATH = "$(SRCROOT)/../usr/local/boost";
+				BUILD_ROOT = "$(SRCROOT)/../build/qt_moc";
+				CINDER_PATH = "$(SRCROOT)/../usr/local/Cinder";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = YES;
@@ -762,29 +753,16 @@
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				HEADER_SEARCH_PATHS = (
-					/Library/Frameworks/QtCore.framework/Versions/4/Headers,
-					/Library/Frameworks/QtGui.framework/Versions/4/Headers,
-					/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers,
-					/Library/Frameworks/QtXml.framework/Versions/4/Headers,
-					/Library/Frameworks/Qt3Support.framework/Versions/4/Headers,
-					/usr/include,
-					../include/util,
-					../include/visual,
-					../include/analysis,
-					../include/stlplus,
-					../include/test,
-					../include/baseUI,
-					../include/visUI,
-					../include/visiCore,
-					../usr/local/boost/include,
-					../usr/local/Cinder/include/,
-					../usr/local/lightplot_i386/include,
+					"$(Qt_PATH)/include",
+					"$(BOOST_PATH)/include",
+					"$(SRCROOT)/../include/**",
 					/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers,
 					/System/Library/Frameworks/AGL.framework/Headers,
-					.,
-					/usr/local/include,
 					/System/Library/Frameworks/CarbonCore.framework/Headers,
-					"/usr/local/Qt4.8/mkspecs/macx-xcode",
+					"$(SRCROOT)/usr/local/lightplot_i386/include",
+					"$(CINDER_PATH)/include/**",
+					"$(OPENCV_PATH)/include",
+					"$(LIGHT_PLOT_PATH)/include",
 				);
 				INFOPLIST_FILE = Info.plist;
 				LEXFLAGS = "";
@@ -793,9 +771,11 @@
 					"$(SRCROOT)/../usr/local/Cinder/lib",
 					/System/Library/Frameworks/,
 				);
+				LIGHT_PLOT_PATH = "$(SRCROOT)/../usr/local/lightplot_i386";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MOCFOLDER = "$(SRCROOT)/../src/visible/moc";
 				OBJROOT = "$(BUILD_DIR)/.obj";
+				OPENCV_PATH = "$(SRCROOT)/../usr/local/OpenCv_2.4_i386";
 				OTHER_CFLAGS = (
 					"-pipe",
 					"-g",
@@ -849,7 +829,9 @@
 				);
 				OTHER_REZFLAGS = "";
 				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_NAME = visible_qt_moc;
+				Qt_PATH = "$(SRCROOT)/../usr/local/Qt/4.8.3";
 				SDKROOT = macosx10.8;
 				SECTORDER_FLAGS = "";
 				SYMROOT = "$(SRCROOT)/../build/qt_moc";
@@ -864,36 +846,25 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = i386;
-				BUILD_ROOT = /Users/arman/gwc/vqt105/visibleqt105/build_scripts;
+				BOOST_PATH = "$(SRCROOT)/../usr/local/boost";
+				BUILD_ROOT = "$(SRCROOT)/../build/qt_moc";
+				CINDER_PATH = "$(SRCROOT)/../usr/local/Cinder";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				DYLIB_COMPATIBILITY_VERSION = 1.0;
 				DYLIB_CURRENT_VERSION = 1.0.0;
 				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
 				HEADER_SEARCH_PATHS = (
-					/Library/Frameworks/QtCore.framework/Versions/4/Headers,
-					/Library/Frameworks/QtGui.framework/Versions/4/Headers,
-					/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers,
-					/Library/Frameworks/QtXml.framework/Versions/4/Headers,
-					/Library/Frameworks/Qt3Support.framework/Versions/4/Headers,
-					/usr/include,
-					../include/util,
-					../include/visual,
-					../include/analysis,
-					../include/stlplus,
-					../include/test,
-					../include/baseUI,
-					../include/visUI,
-					../include/visiCore,
-					../usr/local/boost/include,
-					../usr/local/Cinder/include/,
-					../usr/local/lightplot_i386/include,
+					"$(Qt_PATH)/include",
+					"$(BOOST_PATH)/include",
+					"$(SRCROOT)/../include/**",
 					/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers,
 					/System/Library/Frameworks/AGL.framework/Headers,
-					.,
-					/usr/local/include,
 					/System/Library/Frameworks/CarbonCore.framework/Headers,
-					"/usr/local/Qt4.8/mkspecs/macx-xcode",
+					"$(SRCROOT)/usr/local/lightplot_i386/include",
+					"$(CINDER_PATH)/include/**",
+					"$(OPENCV_PATH)/include",
+					"$(LIGHT_PLOT_PATH)/include",
 				);
 				INFOPLIST_FILE = Info.plist;
 				LEXFLAGS = "";
@@ -902,9 +873,11 @@
 					"$(SRCROOT)/../usr/local/Cinder/lib",
 					/System/Library/Frameworks/,
 				);
+				LIGHT_PLOT_PATH = "$(SRCROOT)/../usr/local/lightplot_i386";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MOCFOLDER = "$(SRCROOT)/../src/visible/moc";
 				OBJROOT = "$(BUILD_DIR)/.obj";
+				OPENCV_PATH = "$(SRCROOT)/../usr/local/OpenCv_2.4_i386";
 				OTHER_CFLAGS = (
 					"-pipe",
 					"-g",
@@ -958,7 +931,9 @@
 				);
 				OTHER_REZFLAGS = "";
 				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				PRODUCT_NAME = visible_qt_moc;
+				Qt_PATH = "$(SRCROOT)/../usr/local/Qt/4.8.3";
 				SECTORDER_FLAGS = "";
 				SYMROOT = "$(SRCROOT)/../build/qt_moc";
 				VISUISRC = "$(SRCROOT)/../src/visible/qt";

@@ -6,10 +6,11 @@
 ## $3 path to frameworks in Frameworks
 ## $4 core framework executable if != $1
 
-echo " =========> $PWD "
+#applicationExecutable="${CONFIGURATION_BUILD_DIR}/Visible.app/Contents/MacOS/Visible"
+#VFDYLIB="vfi386.framework/Versions/A/vfi386"
+applicationExecutable="$1"
+VFDYLIB="$2"
 
-applicationExecutable="${CONFIGURATION_BUILD_DIR}/Visible.app/Contents/MacOS/Visible"
-VFDYLIB="vfi386.framework/Versions/A/vfi386"
 frameworksLocation="`dirname ${applicationExecutable}`/../Frameworks"
 frameworkExecutable="${frameworksLocation}/${VFDYLIB}"
 
@@ -20,22 +21,22 @@ echo " Framework Executable: ${frameworkExecutable} "
 
 
 VFLOCATION="${frameworksLocation}/${VFDYLIB}"
-CVCORE_ALIAS=libopencv_core.2.4.dylib
-CVHG_ALIAS=libopencv_highgui.2.4.dylib
-CVIP_ALIAS=libopencv_imgproc.2.4.dylib
-CVOD_ALIAS=libopencv_objdetect.2.4.dylib
-#  CVF2_ALIAS=libopencv_features2d.2.4.dylib    
-# CVCB_ALIAS=libopencv_calib3d.2.4.dylib
-# CVFL_ALIAS=libopencv_flann.2.4.dylib
+CVCORE_ALIAS=libopencv_core.2.2.dylib
+CVHG_ALIAS=libopencv_highgui.2.2.dylib
+CVIP_ALIAS=libopencv_imgproc.2.2.dylib
+CVOD_ALIAS=libopencv_objdetect.2.2.dylib
+#  CVF2_ALIAS=libopencv_features2d.2.2.dylib    
+# CVCB_ALIAS=libopencv_calib3d.2.2.dylib
+# CVFL_ALIAS=libopencv_flann.2.2.dylib
 LPLOT_ALIAS=liblightplot2d.1.dylib
 
-CVCORE=libopencv_core.2.4.0.dylib
-CVHG=libopencv_highgui.2.4.0.dylib
-CVIP=libopencv_imgproc.2.4.0.dylib
-CVOD=libopencv_objdetect.2.4.0.dylib
-# CVF2=libopencv_features2d.2.4.0.dylib    
-# CVCB=libopencv_calib3d.2.4.0.dylib        
-# CVFL=libopencv_flann.2.4.0.dylib            
+CVCORE=libopencv_core.2.2.0.dylib
+CVHG=libopencv_highgui.2.2.0.dylib
+CVIP=libopencv_imgproc.2.2.0.dylib
+CVOD=libopencv_objdetect.2.2.0.dylib
+# CVF2=libopencv_features2d.2.2.0.dylib    
+# CVCB=libopencv_calib3d.2.2.0.dylib        
+# CVFL=libopencv_flann.2.2.0.dylib            
 LPLOT=liblightplot2d.1.0.1.dylib
 
 function _log()
@@ -108,6 +109,8 @@ function relocate_and_register_()
         local newInstallName="@executable_path/../Frameworks/$1"
         echo "Relocating ${frameworkExecutable} as ${newInstallName}" 
         install_name_tool -change "$1" "${newInstallName}" "${frameworkExecutable}"
+
+
         ## Rewrite install_name in the app
         echo 'step 3:'
         
@@ -124,14 +127,14 @@ function relocate_and_register_()
     }
      
        
- #   _link_framework $CVCORE $CVCORE_ALIAS $frameworksLocation
-#    _link_framework $CVIP $CVIP_ALIAS $frameworksLocation
-#    _link_framework $CVHG $CVHG_ALIAS $frameworksLocation
-#    _link_framework $CVOD $CVOD_ALIAS $frameworksLocation
+    _link_framework $CVCORE $CVCORE_ALIAS $frameworksLocation
+    _link_framework $CVIP $CVIP_ALIAS $frameworksLocation
+    _link_framework $CVHG $CVHG_ALIAS $frameworksLocation
+    _link_framework $CVOD $CVOD_ALIAS $frameworksLocation
     # _link_framework $CVF2 $CVF2_ALIAS $frameworksLocation    
     # _link_framework $CVCB $CVCB_ALIAS $frameworksLocation        
     # _link_framework $CVFL $CVFL_ALIAS $frameworksLocation            
-    # _link_framework $LPLOT $LPLOT_ALIAS $frameworksLocation    
+    _link_framework $LPLOT $LPLOT_ALIAS $frameworksLocation    
     _log "${LINENO}"  " finished _link_frameworks "
     relocate_and_register_ $VFDYLIB $applicationExecutable
 
@@ -148,7 +151,16 @@ function relocate_and_register_()
 
    _crosslink_opencv 
      
-     
+QTLIBS[0]=QtGui
+QTLIBS[1]=QtCore
+QTLIBS[2]=QtOpenGL
+QTLIBS[3]=Qt3Support
+QTLIBS[4]=QtXml
+QTLIBS[5]=QtXmlPatterns
+CURRENT=Versions/Current
+
+for i in "${QTLIBS[@]}"
+do
+    relocate_and_register_  "$i.framework/${CURRENT}/${i}" $applicationExecutable
+done
     
-    
-echo " <========= $PWD "
