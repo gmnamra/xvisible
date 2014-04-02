@@ -20,7 +20,7 @@
 #define LIGHTPLOT2D_H
 
 #include <QtGui/QWidget>
-#include <QList>
+#include <QtCore/QtCore>
 
 #include "curvedata.h"
 #include "scale.h"

@@ -19,7 +19,7 @@
 #ifndef GRID_H
 #define GRID_H
 
-#include <QPen>
+#include <QtGui/QtGui>
 
 class Grid
 {

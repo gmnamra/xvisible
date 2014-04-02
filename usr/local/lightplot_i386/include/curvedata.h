@@ -20,9 +20,8 @@
 #ifndef CURVEDATA_H
 #define CURVEDATA_H
 
-#include <QVector>
-#include <QPointF>
-#include <QColor>
+#include <QtCore/QtCore>
+
 
 enum Symbol{NoSymbol = 0, Cross, Circle, Square, TriangleUp, TriangleDown, Rhombus};
 

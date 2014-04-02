@@ -480,9 +480,9 @@ inline void PrintTo(const ::std::wstring& s, ::std::ostream* os) {
 }
 #endif  // GTEST_HAS_STD_WSTRING
 
-#if GTEST_HAS_TR1_TUPLE
-// Overload for ::std::tr1::tuple.  Needed for printing function arguments,
-// which are packed as tuples.
+#if GTEST_HAS_TUPLE
+// Overload for ::std::tr1::tuple respectively ::std::tuple.  Needed for printing
+// function arguments, which are packed as tuples.
 
 // Helper function for printing a tuple.  T must be instantiated with
 // a tuple type.
@@ -494,60 +494,60 @@ void PrintTupleTo(const T& t, ::std::ostream* os);
 // regardless of whether tr1::tuple is implemented using the
 // non-standard variadic template feature or not.
 
-inline void PrintTo(const ::std::tr1::tuple<>& t, ::std::ostream* os) {
+inline void PrintTo(const GTEST_NS_TUPLE::tuple<>& t, ::std::ostream* os) {
   PrintTupleTo(t, os);
 }
 
 template <typename T1>
-void PrintTo(const ::std::tr1::tuple<T1>& t, ::std::ostream* os) {
+void PrintTo(const GTEST_NS_TUPLE::tuple<T1>& t, ::std::ostream* os) {
   PrintTupleTo(t, os);
 }
 
 template <typename T1, typename T2>
-void PrintTo(const ::std::tr1::tuple<T1, T2>& t, ::std::ostream* os) {
+void PrintTo(const GTEST_NS_TUPLE::tuple<T1, T2>& t, ::std::ostream* os) {
   PrintTupleTo(t, os);
 }
 
 template <typename T1, typename T2, typename T3>
-void PrintTo(const ::std::tr1::tuple<T1, T2, T3>& t, ::std::ostream* os) {
+void PrintTo(const GTEST_NS_TUPLE::tuple<T1, T2, T3>& t, ::std::ostream* os) {
   PrintTupleTo(t, os);
 }
 
 template <typename T1, typename T2, typename T3, typename T4>
-void PrintTo(const ::std::tr1::tuple<T1, T2, T3, T4>& t, ::std::ostream* os) {
+void PrintTo(const GTEST_NS_TUPLE::tuple<T1, T2, T3, T4>& t, ::std::ostream* os) {
   PrintTupleTo(t, os);
 }
 
 template <typename T1, typename T2, typename T3, typename T4, typename T5>
-void PrintTo(const ::std::tr1::tuple<T1, T2, T3, T4, T5>& t,
+void PrintTo(const GTEST_NS_TUPLE::tuple<T1, T2, T3, T4, T5>& t,
              ::std::ostream* os) {
   PrintTupleTo(t, os);
 }
 
 template <typename T1, typename T2, typename T3, typename T4, typename T5,
           typename T6>
-void PrintTo(const ::std::tr1::tuple<T1, T2, T3, T4, T5, T6>& t,
+void PrintTo(const GTEST_NS_TUPLE::tuple<T1, T2, T3, T4, T5, T6>& t,
              ::std::ostream* os) {
   PrintTupleTo(t, os);
 }
 
 template <typename T1, typename T2, typename T3, typename T4, typename T5,
           typename T6, typename T7>
-void PrintTo(const ::std::tr1::tuple<T1, T2, T3, T4, T5, T6, T7>& t,
+void PrintTo(const GTEST_NS_TUPLE::tuple<T1, T2, T3, T4, T5, T6, T7>& t,
              ::std::ostream* os) {
   PrintTupleTo(t, os);
 }
 
 template <typename T1, typename T2, typename T3, typename T4, typename T5,
           typename T6, typename T7, typename T8>
-void PrintTo(const ::std::tr1::tuple<T1, T2, T3, T4, T5, T6, T7, T8>& t,
+void PrintTo(const GTEST_NS_TUPLE::tuple<T1, T2, T3, T4, T5, T6, T7, T8>& t,
              ::std::ostream* os) {
   PrintTupleTo(t, os);
 }
 
 template <typename T1, typename T2, typename T3, typename T4, typename T5,
           typename T6, typename T7, typename T8, typename T9>
-void PrintTo(const ::std::tr1::tuple<T1, T2, T3, T4, T5, T6, T7, T8, T9>& t,
+void PrintTo(const GTEST_NS_TUPLE::tuple<T1, T2, T3, T4, T5, T6, T7, T8, T9>& t,
              ::std::ostream* os) {
   PrintTupleTo(t, os);
 }
@@ -555,7 +555,7 @@ void PrintTo(const ::std::tr1::tuple<T1, T2, T3, T4, T5, T6, T7, T8, T9>& t,
 template <typename T1, typename T2, typename T3, typename T4, typename T5,
           typename T6, typename T7, typename T8, typename T9, typename T10>
 void PrintTo(
-    const ::std::tr1::tuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>& t,
+    const GTEST_NS_TUPLE::tuple<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>& t,
     ::std::ostream* os) {
   PrintTupleTo(t, os);
 }
@@ -630,12 +630,9 @@ void UniversalPrintArray(const T* begin, size_t len, ::std::ostream* os) {
   }
 }
 // This overload prints a (const) char array compactly.
-GTEST_API_ void UniversalPrintArray(
-    const char* begin, size_t len, ::std::ostream* os);
-
-// This overload prints a (const) wchar_t array compactly.
-GTEST_API_ void UniversalPrintArray(
-    const wchar_t* begin, size_t len, ::std::ostream* os);
+GTEST_API_ void UniversalPrintArray(const char* begin,
+                                    size_t len,
+                                    ::std::ostream* os);
 
 // Implements printing an array type T[N].
 template <typename T, size_t N>
@@ -676,72 +673,19 @@ class UniversalPrinter<T&> {
 // Prints a value tersely: for a reference type, the referenced value
 // (but not the address) is printed; for a (const) char pointer, the
 // NUL-terminated string (but not the pointer) is printed.
-
-template <typename T>
-class UniversalTersePrinter {
- public:
-  static void Print(const T& value, ::std::ostream* os) {
-    UniversalPrint(value, os);
-  }
-};
-template <typename T>
-class UniversalTersePrinter<T&> {
- public:
-  static void Print(const T& value, ::std::ostream* os) {
-    UniversalPrint(value, os);
-  }
-};
-template <typename T, size_t N>
-class UniversalTersePrinter<T[N]> {
- public:
-  static void Print(const T (&value)[N], ::std::ostream* os) {
-    UniversalPrinter<T[N]>::Print(value, os);
-  }
-};
-template <>
-class UniversalTersePrinter<const char*> {
- public:
-  static void Print(const char* str, ::std::ostream* os) {
-    if (str == NULL) {
-      *os << "NULL";
-    } else {
-      UniversalPrint(string(str), os);
-    }
-  }
-};
-template <>
-class UniversalTersePrinter<char*> {
- public:
-  static void Print(char* str, ::std::ostream* os) {
-    UniversalTersePrinter<const char*>::Print(str, os);
-  }
-};
-
-#if GTEST_HAS_STD_WSTRING
-template <>
-class UniversalTersePrinter<const wchar_t*> {
- public:
-  static void Print(const wchar_t* str, ::std::ostream* os) {
-    if (str == NULL) {
-      *os << "NULL";
-    } else {
-      UniversalPrint(::std::wstring(str), os);
-    }
-  }
-};
-#endif
-
-template <>
-class UniversalTersePrinter<wchar_t*> {
- public:
-  static void Print(wchar_t* str, ::std::ostream* os) {
-    UniversalTersePrinter<const wchar_t*>::Print(str, os);
-  }
-};
-
 template <typename T>
 void UniversalTersePrint(const T& value, ::std::ostream* os) {
-  UniversalTersePrinter<T>::Print(value, os);
+  UniversalPrint(value, os);
+}
+inline void UniversalTersePrint(const char* str, ::std::ostream* os) {
+  if (str == NULL) {
+    *os << "NULL";
+  } else {
+    UniversalPrint(string(str), os);
+  }
+}
+inline void UniversalTersePrint(char* str, ::std::ostream* os) {
+  UniversalTersePrint(static_cast<const char*>(str), os);
 }
 
 // Prints a value using the type inferred by the compiler.  The
@@ -750,10 +694,7 @@ void UniversalTersePrint(const T& value, ::std::ostream* os) {
 // NUL-terminated string.
 template <typename T>
 void UniversalPrint(const T& value, ::std::ostream* os) {
-  // A workarond for the bug in VC++ 7.1 that prevents us from instantiating
-  // UniversalPrinter with T directly.
-  typedef T T1;
-  UniversalPrinter<T1>::Print(value, os);
+  UniversalPrinter<T>::Print(value, os);
 }
 
 #if GTEST_HAS_TR1_TUPLE
@@ -774,8 +715,8 @@ struct TuplePrefixPrinter {
   static void PrintPrefixTo(const Tuple& t, ::std::ostream* os) {
     TuplePrefixPrinter<N - 1>::PrintPrefixTo(t, os);
     *os << ", ";
-    UniversalPrinter<typename ::std::tr1::tuple_element<N - 1, Tuple>::type>
-        ::Print(::std::tr1::get<N - 1>(t), os);
+    UniversalPrinter<typename GTEST_NS_TUPLE::tuple_element<N - 1, Tuple>::type>
+        ::Print(GTEST_NS_TUPLE::get<N - 1>(t), os);
   }
 
   // Tersely prints the first N fields of a tuple to a string vector,
@@ -784,7 +725,7 @@ struct TuplePrefixPrinter {
   static void TersePrintPrefixToStrings(const Tuple& t, Strings* strings) {
     TuplePrefixPrinter<N - 1>::TersePrintPrefixToStrings(t, strings);
     ::std::stringstream ss;
-    UniversalTersePrint(::std::tr1::get<N - 1>(t), &ss);
+    UniversalTersePrint(GTEST_NS_TUPLE::get<N - 1>(t), &ss);
     strings->push_back(ss.str());
   }
 };
@@ -807,14 +748,14 @@ template <>
 struct TuplePrefixPrinter<1> {
   template <typename Tuple>
   static void PrintPrefixTo(const Tuple& t, ::std::ostream* os) {
-    UniversalPrinter<typename ::std::tr1::tuple_element<0, Tuple>::type>::
-        Print(::std::tr1::get<0>(t), os);
+    UniversalPrinter<typename GTEST_NS_TUPLE::tuple_element<0, Tuple>::type>::
+        Print(GTEST_NS_TUPLE::get<0>(t), os);
   }
 
   template <typename Tuple>
   static void TersePrintPrefixToStrings(const Tuple& t, Strings* strings) {
     ::std::stringstream ss;
-    UniversalTersePrint(::std::tr1::get<0>(t), &ss);
+    UniversalTersePrint(GTEST_NS_TUPLE::get<0>(t), &ss);
     strings->push_back(ss.str());
   }
 };
@@ -824,7 +765,7 @@ struct TuplePrefixPrinter<1> {
 template <typename T>
 void PrintTupleTo(const T& t, ::std::ostream* os) {
   *os << "(";
-  TuplePrefixPrinter< ::std::tr1::tuple_size<T>::value>::
+  TuplePrefixPrinter< GTEST_NS_TUPLE::tuple_size<T>::value>::
       PrintPrefixTo(t, os);
   *os << ")";
 }
@@ -835,7 +776,7 @@ void PrintTupleTo(const T& t, ::std::ostream* os) {
 template <typename Tuple>
 Strings UniversalTersePrintTupleFieldsToStrings(const Tuple& value) {
   Strings result;
-  TuplePrefixPrinter< ::std::tr1::tuple_size<Tuple>::value>::
+  TuplePrefixPrinter< GTEST_NS_TUPLE::tuple_size<Tuple>::value>::
       TersePrintPrefixToStrings(value, &result);
   return result;
 }
@@ -846,7 +787,7 @@ Strings UniversalTersePrintTupleFieldsToStrings(const Tuple& value) {
 template <typename T>
 ::std::string PrintToString(const T& value) {
   ::std::stringstream ss;
-  internal::UniversalTersePrinter<T>::Print(value, &ss);
+  internal::UniversalTersePrint(value, &ss);
   return ss.str();
 }
 

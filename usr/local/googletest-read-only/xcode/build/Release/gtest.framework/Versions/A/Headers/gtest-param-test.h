@@ -68,7 +68,7 @@ class FooTest : public ::testing::TestWithParam<const char*> {
 TEST_P(FooTest, DoesBlah) {
   // Inside a test, access the test parameter with the GetParam() method
   // of the TestWithParam<T> class:
-  EXPECT_true(foo.Blah(GetParam()));
+  EXPECT_TRUE(foo.Blah(GetParam()));
   ...
 }
 
@@ -174,7 +174,7 @@ TEST_F(BaseTest, HasFoo) {
 
 TEST_P(DerivedTest, DoesBlah) {
   // GetParam works just the same here as if you inherit from TestWithParam.
-  EXPECT_true(foo.Blah(GetParam()));
+  EXPECT_TRUE(foo.Blah(GetParam()));
 }
 
 #endif  // 0
@@ -1257,7 +1257,7 @@ inline internal::ParamGenerator<bool> Bool() {
 // Boolean flags:
 //
 // class FlagDependentTest
-//     : public testing::TestWithParam<tuple<bool, bool> > {
+//     : public testing::TestWithParam<tuple(bool, bool)> > {
 //   virtual void SetUp() {
 //     // Assigns external_flag_1 and external_flag_2 values from the tuple.
 //     tie(external_flag_1, external_flag_2) = GetParam();

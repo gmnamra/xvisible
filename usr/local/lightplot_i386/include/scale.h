@@ -19,7 +19,7 @@
 #ifndef SCALE_H
 #define SCALE_H
 
-#include <QVector>
+#include <QtCore/QtCore>
 #include <cmath>
 
 class Scale
