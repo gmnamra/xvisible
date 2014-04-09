@@ -1,8 +1,10 @@
-//Added by qt3to4:
-#include <QMouseEvent>
-#include <QKeyEvent>
+
 #ifndef rcMODIFIER_KEYS_H
 #define rcMODIFIER_KEYS_H
+
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
 
 class rcMainWindow;
 class QMouseEvent;

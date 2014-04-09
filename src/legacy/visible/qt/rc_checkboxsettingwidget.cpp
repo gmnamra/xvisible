@@ -5,9 +5,8 @@
 *
 ******************************************************************************/
 
-#include <qapplication.h>
-#include <qcheckbox.h>
-#include <qtooltip.h>
+#include <QtGui/QtGui>
+
 
 #include "rc_checkboxsettingwidget.h"
 #include "rc_modeldomain.h"

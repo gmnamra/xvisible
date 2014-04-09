@@ -1,9 +1,11 @@
 #ifndef UI_rcLINE_EDIT_H
 #define UI_rcLINE_EDIT_H
 
-#include <qlineedit.h>
-//Added by qt3to4:
-#include <QFocusEvent>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
+
 
 class rcLineEdit : public QLineEdit
 {

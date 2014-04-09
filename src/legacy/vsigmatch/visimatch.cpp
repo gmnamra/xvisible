@@ -157,7 +157,7 @@ int main(int argc, char** argv)
         versionOn = version (pars);
         if (versionOn)
         {
-            cerr << " vsigmatch version 0.1 Copyright (c) 2008 Reify Corp. All rights reserved. " << endl;
+            cerr << " vsigmatch version 1.1 Copyright (c) 2014 Reify Corp. All rights reserved. " << endl;
             return -1;
         }
         
@@ -185,8 +185,10 @@ int main(int argc, char** argv)
         std::deque<double> fixed;
         
         // Are we mpeg or rfymov
-        bool isMPG = contentType.compare ("mpg") == 0;
+        bool isMOV = contentType.compare ("mov") == 0;
+        bool isAVI = contentType.compare ("avi") == 0;        
         bool isRFY = contentType.compare ("rfymov") == 0;
+        
         if ((isMPG || isRFY)  && !outf.empty())
         {
             // Make an extracted part, Create a dst file for the rfymov file

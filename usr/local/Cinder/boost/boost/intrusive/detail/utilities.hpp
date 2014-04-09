@@ -41,7 +41,7 @@ struct internal_member_value_traits
    static const bool value = sizeof(test<T>(0)) == sizeof(detail::two);
 };
 
-#define BOOST_INTRUSIVE_INTERNAL_STATIC_BOOL_IS_true(TRAITS_PREFIX, TYPEDEF_TO_FIND) \
+#define BOOST_INTRUSIVE_INTERNAL_STATIC_BOOL_IS_TRUE(TRAITS_PREFIX, TYPEDEF_TO_FIND) \
 template <class T>\
 struct TRAITS_PREFIX##_bool\
 {\
@@ -59,11 +59,11 @@ struct TRAITS_PREFIX##_bool_is_true\
 };\
 //
 
-BOOST_INTRUSIVE_INTERNAL_STATIC_BOOL_IS_true(internal_base_hook, boost_intrusive_tags::is_base_hook)
-BOOST_INTRUSIVE_INTERNAL_STATIC_BOOL_IS_true(internal_any_hook, is_any_hook)
-BOOST_INTRUSIVE_INTERNAL_STATIC_BOOL_IS_true(external_value_traits, external_value_traits)
-BOOST_INTRUSIVE_INTERNAL_STATIC_BOOL_IS_true(external_bucket_traits, external_bucket_traits)
-BOOST_INTRUSIVE_INTERNAL_STATIC_BOOL_IS_true(resizable, resizable)
+BOOST_INTRUSIVE_INTERNAL_STATIC_BOOL_IS_TRUE(internal_base_hook, boost_intrusive_tags::is_base_hook)
+BOOST_INTRUSIVE_INTERNAL_STATIC_BOOL_IS_TRUE(internal_any_hook, is_any_hook)
+BOOST_INTRUSIVE_INTERNAL_STATIC_BOOL_IS_TRUE(external_value_traits, external_value_traits)
+BOOST_INTRUSIVE_INTERNAL_STATIC_BOOL_IS_TRUE(external_bucket_traits, external_bucket_traits)
+BOOST_INTRUSIVE_INTERNAL_STATIC_BOOL_IS_TRUE(resizable, resizable)
 
 template<class Node, class Tag, link_mode_type LinkMode, int>
 struct node_holder

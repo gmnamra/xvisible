@@ -1,5 +1,5 @@
 
-#include <stlplus_lite.hpp>
+#include <stlplus/stlplus_lite.hpp>
 #include <iostream> // std::cout
 #include <fstream>
 #include <string>
@@ -10,6 +10,10 @@
 #include <cctype> // std::isdigit
 #include <rc_timestamp.h>
 #include <iomanip>
+#include <sys/stat.h>
+#include <dirent.h>
+#include <sys/dir.h>
+#include <deque>
 
 #include "rc_fileutils.h"
 
@@ -22,6 +26,37 @@ static int casenumericsort(const void*A, const void*B);
 
 bool numeric_compare (const std::string& A, const std::string& B);
 bool natural_compare (const std::string& A, const std::string& B);
+
+
+static std::string staticTempName = std::string ("/var/tmp/rfytmpXXXXXX"); 
+
+std::string rfGetTempFile (std::string& foo)
+{
+	
+    std::string& tmptemplate = (foo == std::string ()) ? staticTempName : foo;        
+    return std::string (mktemp((char *) tmptemplate.c_str()));
+}
+
+
+
+bool rf_sensitive_case_compare (const std::string& str1, const std::string& str2)
+{
+    for(unsigned int i=0; i<str1.length(); i++){
+        if(str1[i] != str2[i])
+            return false;
+    }
+    return true;
+}
+
+
+bool rf_insensitive_case_compare (const std::string& str1, const std::string& str2)
+{
+    for(unsigned int i=0; i<str1.length(); i++){
+        if(toupper(str1[i]) != toupper(str2[i]))
+            return false;
+    }
+    return true;
+}
 
 
 void rfSortImageFileNames(const vector<std::string> & entries, vector<std::string> & files, const char *imageformat)
@@ -144,6 +179,19 @@ std::string rfGetExtension( const std::string& fileName )
 {
     return extension_part (fileName);
 }
+
+#define DFN_EXT_IS(_EXT_)\
+bool rf_ext_is_##_EXT_ (const std::string& filename)\
+{\
+    std::string _EXT_ (#_EXT_);\
+    return rf_insensitive_case_compare(rfGetExtension(filename), _EXT_);\
+}
+
+DFN_EXT_IS(rfymov);
+DFN_EXT_IS(mov);
+DFN_EXT_IS(stk);
+
+
 
 
 /*

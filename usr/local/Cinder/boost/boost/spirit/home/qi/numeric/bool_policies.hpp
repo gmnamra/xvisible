@@ -55,7 +55,7 @@ namespace boost { namespace spirit { namespace qi
         static bool
         parse_true(Iterator& first, Iterator const& last, Attribute& attr)
         {
-            if (detail::string_parse("true", "true", first, last, unused))
+            if (detail::string_parse("true", "TRUE", first, last, unused))
             {
                 spirit::traits::assign_to(T(true), attr);    // result is true
                 return true;
@@ -67,7 +67,7 @@ namespace boost { namespace spirit { namespace qi
         static bool
         parse_false(Iterator& first, Iterator const& last, Attribute& attr)
         {
-            if (detail::string_parse("false", "false", first, last, unused))
+            if (detail::string_parse("false", "FALSE", first, last, unused))
             {
                 spirit::traits::assign_to(T(false), attr);   // result is false
                 return true;

@@ -9,26 +9,10 @@
 
 #include <algorithm>
 
-#include <qapplication.h>
-#include <qpixmap.h>
-#include <qimage.h>
-#include <qpainter.h>
-#include <qtooltip.h>
-#include <qspinbox.h>
-#include <qlayout.h>
-#include <qlabel.h>
-#include <qcursor.h>
-#include <qcheckbox.h>
-//Added by qt3to4:
-#include <Q3HBoxLayout>
-#include <QKeyEvent>
-#include <Q3Frame>
-#include <QResizeEvent>
-#include <QMouseEvent>
-#include <Q3VBoxLayout>
-#include <QPaintEvent>
-#include <QMessageBox>
-#include <QDockWidget>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 #include <rc_window.h>
 #include <rc_math.h>
 #include <rc_writermanager.h>
@@ -61,27 +45,26 @@ static const int cPositionCrossLength = 6;
 // Cell name text style
 static const rcStyle cTextStyle( rfRgb( 255, 125, 125 ), 1, rc2Fvector( 0.0f, 0.0f ) );
 
-rcMonitor::rcMonitor( QWidget* parent, const char* name, Qt::WFlags f )
+rcMonitor::rcMonitor( QWidget* parent, const char* name)
         : QWidget( parent, name ), mSpeedCalc( 15 )
 {
-	rmUnused( f );
 
     mCellText = mCellPath = mCellPos = mDevelopmentData = false;
     
     mCursorTime = cCursorTimeCurrent;
 
     // Create top level layout
-    mTopLayout = new Q3VBoxLayout( this );
+    mTopLayout = new QVBoxLayout( this );
     mTopLayout->setAlignment( Qt::AlignLeft | Qt::AlignBottom );
 
     // 2D information display
-    mCanvas = new rcImageCanvasGL( this );
+    mCanvas = new rcImageCanvasGL( this , "dummy" );
     
     mTopLayout->addWidget( mCanvas );
     mTopLayout->setStretchFactor( mCanvas, 20 );
     
     // Create a horizontal layout
-    mStatusLayout = new Q3HBoxLayout( mTopLayout );
+    mStatusLayout = new QHBoxLayout( mTopLayout );
     mStatusLayout->setAlignment( Qt::AlignRight | Qt::AlignBottom );
     mStatusLayout->addSpacing( 2 );
     
@@ -115,7 +98,7 @@ rcMonitor::rcMonitor( QWidget* parent, const char* name, Qt::WFlags f )
 
     // Create status display widget
     mStatusWidget = new QLabel( this );
-    mStatusWidget->setFrameStyle( Q3Frame::WinPanel | Q3Frame::Sunken );
+    mStatusWidget->setFrameStyle( QFrame::WinPanel | QFrame::Sunken );
     mStatusWidget->setFixedHeight( fontMetrics().height() + 4 );
     mStatusWidget->setMinimumWidth( fontMetrics().width('M') * 40 );
     // Make the text format as simple as possible for speed

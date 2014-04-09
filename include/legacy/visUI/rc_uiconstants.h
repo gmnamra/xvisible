@@ -1,7 +1,9 @@
 #ifndef UI_RCUICONSTANTS_H
 #define UI_RCUICONSTANTS_H
 
-#include <qnamespace.h>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 // Widget text alignment
 

@@ -6,18 +6,14 @@
 ******************************************************************************/
 
 #include <string>
-//Added by qt3to4:
-#include <Q3GridLayout>
+
 
 #if WIN32
 using namespace std;
 #endif
 
-#include <qapplication.h>
-#include <qspinbox.h>
-#include <qpushbutton.h>
-#include <qtooltip.h>
-#include <q3filedialog.h>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
 
 #include "rc_rectsettingwidget.h"
 #include "rc_modeldomain.h"

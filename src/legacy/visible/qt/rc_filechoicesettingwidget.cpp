@@ -11,11 +11,10 @@
 using namespace std;
 #endif
 
-#include <qapplication.h>
-#include <qlineedit.h>
-#include <qpushbutton.h>
-#include <qtooltip.h>
-#include <qfiledialog.h>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
+
 #include <rc_fileutils.h>
 
 #include "rc_filechoicesettingwidget.h"

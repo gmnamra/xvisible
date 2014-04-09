@@ -9,17 +9,21 @@
 #ifndef _rcIMAGECANVASGL_H
 #define _rcIMAGECANVASGL_H
 
-#include <qwidget.h>
-#include <qimage.h>
-#include <qgl.h>
-//Added by qt3to4:
-#include <QMouseEvent>
-#include <QKeyEvent>
+//#include <Cinder/gl/Glee.h>
+#include <OpenGL/gl.h>
+#include <OpenGL/glext.h>
+#include <OpenGL/glu.h>
+
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+#include <QtOpenGL/QtOpenGL>
 
 #include <rc_window.h>
 #include <rc_graphics.h>
 #include <rc_model.h>
-#include <OpenGL/glext.h>
+
+
 #include <rc_affine.h>
 #include <rc_polygon.h>
 

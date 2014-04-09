@@ -1,7 +1,9 @@
 #ifndef rcTIME_DISPLAY_H
 #define rcTIME_DISPLAY_H
 
-#include <q3frame.h>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+#include <QT3Support/Q3Frame>
 #include <rc_timestamp.h>
 
 class rcTimeDisplay : public Q3Frame

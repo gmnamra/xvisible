@@ -11,12 +11,9 @@
 #include "rc_modeldomain.h"
 #include "rc_appconstants.h"
 
-#include <qpainter.h>
-#include <qdrawutil.h>
-#include <qpixmap.h>
-#include <qtooltip.h>
-//Added by qt3to4:
-#include <QLabel>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 #include <math.h>
 
 

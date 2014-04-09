@@ -6,16 +6,13 @@
 ******************************************************************************/
 
 #include <string>
-//Added by qt3to4:
-#include <QLabel>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
 
 #if WIN32
 using namespace std;
 #endif
-
-#include <qapplication.h>
-#include <qspinbox.h>
-#include <qtooltip.h>
 
 #include "rc_spinboxsettingwidget.h"
 #include "rc_modeldomain.h"

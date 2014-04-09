@@ -21,8 +21,8 @@ template <int> struct dummy { dummy(int) {} };
 // return value for transition handling
 typedef enum
 {
-    HANDLED_false=0,
-    HANDLED_true =1,
+    HANDLED_FALSE=0,
+    HANDLED_TRUE =1,
     HANDLED_GUARD_REJECT=2,
     HANDLED_DEFERRED=4
 } HandledEnum;

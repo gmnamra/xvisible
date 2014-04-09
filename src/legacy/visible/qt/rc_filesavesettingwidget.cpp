@@ -11,11 +11,9 @@
 using namespace std;
 #endif
 
-#include <qapplication.h>
-#include <qlineedit.h>
-#include <qmessagebox.h>
-#include <qtooltip.h>
-#include <q3filedialog.h>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 #include "rc_filesavesettingwidget.h"
 #include "rc_modeldomain.h"
@@ -78,7 +76,7 @@ void rcFileSaveSettingWidget::browseRequest( void )
     QString caption (tmp.c_str());
 
 
-  QString s = Q3FileDialog::getSaveFileName(defaultName,
+  QString s = QFileDialog::getSaveFileName(defaultName,
                                            filter,
                                            0,
                                            mSetting.getTag(),

@@ -64,7 +64,7 @@ const QMetaObjectExtraData rcTrackPanel::staticMetaObjectExtraData = {
 };
 
 const QMetaObject rcTrackPanel::staticMetaObject = {
-    { &Q3ScrollView::staticMetaObject, qt_meta_stringdata_rcTrackPanel,
+    { &QWidget::staticMetaObject, qt_meta_stringdata_rcTrackPanel,
       qt_meta_data_rcTrackPanel, &staticMetaObjectExtraData }
 };
 
@@ -82,12 +82,12 @@ void *rcTrackPanel::qt_metacast(const char *_clname)
     if (!_clname) return 0;
     if (!strcmp(_clname, qt_meta_stringdata_rcTrackPanel))
         return static_cast<void*>(const_cast< rcTrackPanel*>(this));
-    return Q3ScrollView::qt_metacast(_clname);
+    return QWidget::qt_metacast(_clname);
 }
 
 int rcTrackPanel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = Q3ScrollView::qt_metacall(_c, _id, _a);
+    _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {

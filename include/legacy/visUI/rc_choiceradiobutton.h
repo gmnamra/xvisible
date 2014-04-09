@@ -1,7 +1,10 @@
 #ifndef UI_rcCHOICE_RADIO_BUTTON_H
 #define UI_rcCHOICE_RADIO_BUTTON_H
 
-#include <qradiobutton.h>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 #include <rc_setting.h>
 

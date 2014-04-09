@@ -6,8 +6,10 @@
  *	This file contains application main function implementation.
  *
  ******************************************************************************/
-#include <qapplication.h>
-#include <qmessagebox.h>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 #include <rc_engineimpl.h>
 #include <rc_batchexperimentobserver.h>
 
@@ -35,11 +37,15 @@ const char* const cAppBuildDate = __DATE__ " " __TIME__ ;
 
 extern void modelTest( int argc , char** argv );
 
+Q_GLOBAL_STATIC(rcModelDomain, getModelDomain);
+
 int main( int argc, char** argv )
 {
 
 
   rcExecWithShmem::setPathName(argv[0]);
+
+ 
 
   // Test if this is a bundle app open. Note: Find better ways
   if (argc == 2 && argv[1][0] == '-' && argv[1][1] == 'h')
@@ -52,21 +58,21 @@ int main( int argc, char** argv )
     {
       cerr << "Starting Visible Application" << endl;
 
+        //      try
+        //	{
+        QApplication app( argc, argv ); 
+        while (app.startingUp());
+        
+        rcModelDomain modelDomain;
+        
+        rcMainWindow* mainwindow = new rcMainWindow;
+	    app.setMainWidget( mainwindow );
 
-
-      QApplication app( argc, argv );
-
-      try
-	{
-	  rcModelDomain modelDomain( &app);
-
-	  rcMainWindow mainwindow;
-	  app.setMainWidget( &mainwindow );
-
-	  mainwindow.setCaption( "Untitled" );
-	  mainwindow.show();
+	  mainwindow->setCaption( "Visible" );
+	  mainwindow->show();
 
 	  return app.exec();
+#if 0        
 	}
       catch (general_exception& x)
 	{
@@ -80,7 +86,9 @@ int main( int argc, char** argv )
 	  QMessageBox::critical( 0 , cAppName , "Unknown exception" , 1 , 0 );
 	  exit( 1 );
 	}
+#endif        
     }
+
 
   try
     {

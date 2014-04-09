@@ -19,7 +19,7 @@
 #define _BASE_RCTHREAD_H_
 
 #include <rc_types.h>
-#include "boost/atomic.hpp"
+#include <boost/atomic.hpp>
 
 using namespace boost;
 

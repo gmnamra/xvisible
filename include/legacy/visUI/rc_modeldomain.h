@@ -1,10 +1,9 @@
 #ifndef UI_RCMODELDOMAIN_H
 #define UI_RCMODELDOMAIN_H
 
-#include <qapplication.h>
-#include <qobject.h>
-//Added by qt3to4:
-#include <QCustomEvent>
+#include <QtGui/QtGui>
+
+
 
 #include <rc_model.h>
 #include <rc_security.h>
@@ -33,7 +32,8 @@ class rcModelDomain : public QObject, public rcExperimentObserver
 Q_OBJECT
 
 public:
-    rcModelDomain( QObject* parent ); //, const char* modelKey );
+    rcModelDomain ();
+    //    rcModelDomain( QObject* parent , const char* modelKey );
   ~rcModelDomain();
 
   // static finder for the singleton model domain
@@ -251,6 +251,7 @@ signals:
     void updateSelectionState (bool b);
     void recentMovieFile ( const QString& );
     void newSmMatrix ();
+
     
 protected:
     // Handle special events

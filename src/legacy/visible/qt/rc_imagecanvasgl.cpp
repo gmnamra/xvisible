@@ -6,19 +6,20 @@
  **
  *****************************************************************************/
 
+
+
+
+
 #include <rc_math.h>
 #include <rc_vector2d.h>
 #include <rc_ip.h>
-#include <qapplication.h>
-#include <qcursor.h>
-#include <qtooltip.h>
-//Added by qt3to4:
-#include <QMouseEvent>
-#include <QKeyEvent>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
 
 
 
-#include <glu.h>
+
 
 #include <rc_writermanager.h>
 #include <rc_ipconvert.h>
@@ -60,9 +61,8 @@ static const double sOtherDimension (10.0);
 #define rubberBandColor glColor3d(0.1,0.5,1.0)
 
 // Utilities
-#define GLerrorNUM(a) ourGlErrFun(__FILE__, __LINE__, (a))
+#define GLerrorNUM(a) displayOpenGLError( (a) , __LINE__)
 
-static int ourGlErrFun(char *Fname,int32 Lnumber,char *FuncName);
 
 // Number of line segments used to approximate an ellipse
 static const uint32 cEllipseSegments =rcCosTable::eTableSize;
@@ -109,31 +109,37 @@ static void displayOpenGLInfo()
 }
 
 // Display OpenGL error returned by the system
-static void displayOpenGLError( const char* prefix, GLenum error )
+static void displayOpenGLError( const char* filestr, int line)
 {
-    if ( error != GL_NO_ERROR ) {
-        const GLubyte* errString = gluErrorString( error );
-
-        cerr << prefix << " OpenGL error: ";
-        if ( errString )
-            cerr << errString;
-        else
-            cerr << error;
-        cerr << endl;
+    GLenum code = glGetError();
+    switch(static_cast<GLenum>(code))
+    {
+        case GL_NO_ERROR:
+            printf ("%s :: %d => %s\n", filestr, line,   "No error"); return;
+            break;
+        case GL_INVALID_ENUM:
+            printf ("%s :: %d => %s\n", filestr, line,   "Invalid enum"); return;
+            break;
+        case GL_INVALID_VALUE:
+            printf ("%s :: %d => %s\n", filestr, line,  "Invalid value"); return;
+            break;
+        case GL_INVALID_OPERATION:
+            printf ("%s :: %d => %s\n", filestr, line,  "Invalid operation"); return;
+            break;
+        case GL_STACK_OVERFLOW:
+            printf ("%s :: %d => %s\n", filestr, line,  "Stack overflow"); return;
+            break;
+        case GL_STACK_UNDERFLOW:
+            printf ("%s :: %d => %s\n", filestr, line,  "Stack underflow"); return;
+            break;
+        case GL_OUT_OF_MEMORY:
+            printf ("%s :: %d => %s\n", filestr, line,  "Out of memory"); return;
+            break;
+      
     }
+    printf ("%s :: %d => %s\n", filestr, line,  "Unknown error"); 
 }
 
-static int ourGlErrFun(char *Fname,int32 Lnumber,char *FuncName)
-{
-   GLenum err;
-   err=glGetError();
-   if (err  != GL_NO_ERROR)
-     {
-       printf("FileName:%s Line:%d Function Name:%s\nError:(%d)%s\n"
-	      ,Fname,Lnumber,FuncName,err, gluErrorString(err));
-     }
-   return(err);
-}
 
 
 //

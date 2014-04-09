@@ -174,5 +174,5 @@ class AppScreenSaver : public App {
 			} \
 		} \
 		extern "C" BOOL CALLBACK ScreenSaverConfigureDialog( HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam ) { return APP::doConfigureDialog( hDlg, message, wParam, lParam ); } \
-		extern "C" BOOL CALLBACK RegisterDialogClasses(HANDLE hInst) { return true; }
+		extern "C" BOOL CALLBACK RegisterDialogClasses(HANDLE hInst) { return TRUE; }
 #endif

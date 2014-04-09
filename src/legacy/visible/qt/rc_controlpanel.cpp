@@ -1,13 +1,5 @@
-#include <qlayout.h> 
-#include <qlcdnumber.h>
-#include <qlabel.h>
-#include <qtooltip.h>
-//Added by qt3to4:
-#include <QPixmap>
-#include <Q3BoxLayout>
-#include <Q3HBoxLayout>
-#include <Q3VBoxLayout>
-#include <Q3Frame>
+#include <QtGui/QtGui>
+
 
 #include "rc_modeldomain.h"
 #include "rc_controlpanel.h"
@@ -148,7 +140,7 @@ const char *  back_small_xpm[] = {
 
 
 rcControlPanel::rcControlPanel( QWidget* parent, const char* name, Qt::WFlags f )
-	: Q3Frame( parent, name )
+	: QFrame( parent, name )
 {
     rcUNUSED( f );
 
@@ -159,8 +151,8 @@ rcControlPanel::rcControlPanel( QWidget* parent, const char* name, Qt::WFlags f 
 
     // Make the top-level layout; a vertical box to contain all widgets
     // and sub-layouts.
-    Q3BoxLayout *topLayout = new Q3VBoxLayout( this , 0, 0 );
-    Q3BoxLayout* layout = new Q3HBoxLayout( topLayout, 0, 0 );
+    QBoxLayout *topLayout = new QVBoxLayout( this , 0, 0 );
+    QBoxLayout* layout = new QHBoxLayout( topLayout, 0, 0 );
     QPushButton* button;
 
     button = new QPushButton( "Select Entire Frame" , this , "select entire frame"  );

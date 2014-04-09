@@ -4,17 +4,18 @@
  ******************************************************************************/
 
 #include <string.h>
-//Added by qt3to4:
-#include <QLabel>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 #if WIN32
 using namespace std;
 #endif
 
-#include <qapplication.h>
-#include <qspinbox.h>
-#include <qpushbutton.h>
-#include <qtooltip.h>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
 
 #include "rc_playbacksettingwidget.h"
 #include "rc_modeldomain.h"

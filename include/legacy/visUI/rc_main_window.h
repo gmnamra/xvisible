@@ -1,10 +1,11 @@
 #ifndef UI_RCMENUBAR_H
 #define UI_RCMENUBAR_H
 
-#include <QtGui>
-#include <QList>
-#include <QQueue>
-#include <rc_model.h>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
+
 
 
 #include "rc_statusbar.h"
@@ -38,6 +39,7 @@ public slots:
     void enableExportSmMatrix();
    
     void doOpen();
+    void doExit ();
     void doOpenSettings();
     void importRecentMovie ();
     void reload_plotter (const CurveData* );

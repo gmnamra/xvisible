@@ -17,7 +17,7 @@
 #include <unistd.h>
 #include "main.h"
 #include <gtest/gtest.h>
-
+#include <rc_framework_core.hpp>
 
 class genv: public testing::Environment
 {
@@ -59,10 +59,17 @@ private:
 
 static ::testing::Environment* envp = 0;
 
+
+TEST (UT_fileutils, run)
+{
+    UT_fileutils test;
+    EXPECT_EQ(0, test.run () );
+}
+
 TEST (UT_movieconverter, run)
 {
     genv* gvp = reinterpret_cast<genv*>(envp);
-    EXPECT_true(gvp != 0 );
+    EXPECT_TRUE (gvp != 0 );
     static std::string qmov_name ("box-move.mov");
     static std::string rfymov_name ("box-move.rfymov");
     std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);

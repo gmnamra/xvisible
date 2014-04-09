@@ -10,9 +10,10 @@
 #define _rcTHUMBWHEEL_H_
 
 #include "rc_settingwidget.h"
-#include <qslider.h>
-//Added by qt3to4:
-#include <QLabel>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 class QLabel;
 

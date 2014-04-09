@@ -6,15 +6,10 @@
 *
 ******************************************************************************/
 
-#include <qapplication.h>
-#include <qcombobox.h>
-#include <qtooltip.h>
-#include <qlineedit.h>
-//Added by qt3to4:
-#include <Q3BoxLayout>
-#include <Q3HBoxLayout>
-#include <Q3VBoxLayout>
-#include <QLabel>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 #include "rc_numericchoicesettingwidget.h"
 #include "rc_modeldomain.h"
@@ -26,8 +21,8 @@ rcNumericChoiceSettingWidget::rcNumericChoiceSettingWidget( QWidget* parent, con
         : rcSettingWidget( parent, setting, false )
 {
     // We create our own laytout without using base class layout
-    Q3BoxLayout* vLayout = new Q3VBoxLayout( this );
-	Q3BoxLayout* layout = new Q3HBoxLayout( vLayout );
+    QBoxLayout* vLayout = new QVBoxLayout( this );
+	QBoxLayout* layout = new QHBoxLayout( vLayout );
 
 	QLabel* label = new QLabel( setting.getDisplayName() , this );
 	label->setFixedWidth( cUIsettingLabelWidth );

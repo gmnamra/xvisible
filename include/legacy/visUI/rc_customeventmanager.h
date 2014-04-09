@@ -10,8 +10,8 @@
 #define _UI_rcCUSTOMEVENTMGR_H_
 #include <rc_timestamp.h>
 #include <rc_model.h>
-#include <QMutex>
-#include <QEvent>
+#include <QtCore/QMutex>
+#include <QtCore/QEvent>
 #include "lpwidget.h"
 #include <rc_uitypes.h>
 // Forward declarations

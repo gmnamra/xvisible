@@ -1,7 +1,10 @@
 #ifndef UI_RCSETTINGPAGE_H
 #define UI_RCSETTINGPAGE_H
 
-#include <qwidget.h>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 #include <rc_setting.h>
 

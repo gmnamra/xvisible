@@ -2,7 +2,7 @@
 
 #include "rc_cinder_qtime_grabber.h"
 
-#include <stlplus_lite.hpp>
+#include <stlplus/stlplus_lite.hpp>
 
 
 using namespace ci;

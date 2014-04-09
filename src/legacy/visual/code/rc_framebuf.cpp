@@ -6,10 +6,10 @@
  *
  *****************************************************************************/
 
-#include <rc_framebuf.h>
+#include "rc_framebuf.h"
 #include <sys/param.h>
-#include <rc_thread.h>
-#include <rc_videocache.h>
+#include "rc_thread.h"
+#include "rc_videocache.h"
 #include "opencv2/highgui/highgui.hpp"
 
 using namespace cv;

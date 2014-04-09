@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <vector>
-#include <rc_thread.h>
+#include "rc_thread.h"
 #include <ut_thread.h>
 #include <pthread.h>
 #include <rc_atomic.h>

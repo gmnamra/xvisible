@@ -1,17 +1,8 @@
 
 
 #include "rc_About.h"
-
-#include <qvariant.h>
-#include <qpushbutton.h>
-#include <qlabel.h>
-#include <qtextedit.h>
-#include <qframe.h>
-#include <qlayout.h>
-#include <qtooltip.h>
-#include <qwhatsthis.h>
-#include <qimage.h>
-#include <qpixmap.h>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
 
 #include "rc_appconstants.h"
 #include "rc_modeldomain.h"

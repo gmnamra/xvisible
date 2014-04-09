@@ -1,9 +1,8 @@
 // rc_modifierkeys.cpp
 
-#include <qevent.h>
-//Added by qt3to4:
-#include <QKeyEvent>
-#include <QMouseEvent>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
 
 #include "rc_modifierkeys.h"
 

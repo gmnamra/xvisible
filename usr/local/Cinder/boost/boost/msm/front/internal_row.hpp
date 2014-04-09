@@ -37,7 +37,7 @@ namespace boost { namespace msm { namespace front
             ::boost::msm::front::detail::row2_action_helper<CalledForAction,Event,action>::call_helper
                 (fsm,evt,src,tgt,all_states,
                 ::boost::mpl::bool_< ::boost::is_base_of<CalledForAction,FSM>::type::value>());
-            return ::boost::msm::back::HANDLED_true;
+            return ::boost::msm::back::HANDLED_TRUE;
         }
     };
 
@@ -60,7 +60,7 @@ namespace boost { namespace msm { namespace front
             ::boost::msm::front::detail::row2_action_helper<CalledForAction,Event,action>::call_helper
                 (fsm,evt,src,tgt,all_states,
                 ::boost::mpl::bool_< ::boost::is_base_of<CalledForAction,FSM>::type::value>());
-            return ::boost::msm::back::HANDLED_true;
+            return ::boost::msm::back::HANDLED_TRUE;
         }
         template <class FSM,class SourceState,class TargetState,class AllStates>
         static bool guard_call(FSM& fsm,Event const& evt,SourceState& src,TargetState& tgt,

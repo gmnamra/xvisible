@@ -1,7 +1,7 @@
 #ifndef UI_RCAPPCONSTANTS_H
 #define UI_RCAPPCONSTANTS_H
 
-#include <qnamespace.h>
+
 
 #include <rc_uitypes.h>
 

@@ -5,9 +5,10 @@
 *
 ******************************************************************************/
 
-#include <qapplication.h>
-#include <q3textedit.h>
-#include <qtooltip.h>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 #include "rc_textedit.h"
 #include "rc_textareasettingwidget.h"

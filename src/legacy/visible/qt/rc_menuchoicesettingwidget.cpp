@@ -5,10 +5,8 @@
 *
 ******************************************************************************/
 
-#include <qapplication.h>
-#include <qcombobox.h>
-#include <qtooltip.h>
-#include <qlineedit.h>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
 
 #include "rc_menuchoicesettingwidget.h"
 #include "rc_modeldomain.h"

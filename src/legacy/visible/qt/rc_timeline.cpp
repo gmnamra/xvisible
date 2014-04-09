@@ -1,9 +1,6 @@
-#include <qpixmap.h>
-#include <qpainter.h>
-//Added by qt3to4:
-#include <QKeyEvent>
-#include <QMouseEvent>
-#include <QPaintEvent>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
 
 #include <rc_window.h>
 

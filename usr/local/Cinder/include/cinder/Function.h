@@ -28,19 +28,12 @@
 #include <vector>
 #include <utility>
 
-#if defined( CINDER_COCOA_TOUCH )
 #include <boost/signals2.hpp>
-namespace cinder {
-    namespace signals {
+namespace cinder { namespace signals {
 	using namespace boost::signals2;
 } } // cinder::signals
-#endif
-
 
 #include <functional>
-namespace std {
-	using namespace std::placeholders;
-}
 
 namespace cinder {
 

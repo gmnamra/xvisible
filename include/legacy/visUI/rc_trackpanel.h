@@ -1,7 +1,10 @@
 #ifndef RC_TRACK_PANEL_H
 #define RC_TRACK_PANEL_H
 
-#include <q3scrollview.h>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 #include <rc_timestamp.h>
 #include <rc_model.h>
@@ -9,12 +12,12 @@
 class QLabel;
 class QWidget;
 
-class rcTrackPanel : public Q3ScrollView
+class rcTrackPanel : public QWidget
 {
     Q_OBJECT
 
 public:
-    rcTrackPanel( QWidget* parent=0, const char* name=0, Qt::WFlags f=0 );
+    rcTrackPanel( QWidget* parent=0, const char* name=0);
     ~rcTrackPanel();
 
 public slots:
@@ -30,7 +33,7 @@ protected:
 private:
     // repopulate the panel with track group widgets
     void updateTrackGroups( bool cameraInput, bool cameraStorage );
-    
+    QScrollArea       * m_scrollarea;
     QWidget*          mContents;
     rcExperimentState mOldState;
     int               mManagedGroups;

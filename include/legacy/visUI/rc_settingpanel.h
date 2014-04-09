@@ -1,7 +1,8 @@
 #ifndef UI_RCSETTINGPANEL_H
 #define UI_RCSETTINGPANEL_H
 
-#include <qtabwidget.h>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
 
 #include <rc_model.h>
 

@@ -1,11 +1,10 @@
 #ifndef rcSCALAR_TRACK_WIDGET_H
 #define rcSCALAR_TRACK_WIDGET_H
 
-#include <qwidget.h>
-//Added by qt3to4:
-#include <QMouseEvent>
-#include <QKeyEvent>
-#include <QLabel>
+#
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 #include <rc_timestamp.h>
 #include <rc_model.h>

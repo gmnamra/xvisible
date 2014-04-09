@@ -79,7 +79,7 @@ const QMetaObjectExtraData rcControlPanel::staticMetaObjectExtraData = {
 };
 
 const QMetaObject rcControlPanel::staticMetaObject = {
-    { &Q3Frame::staticMetaObject, qt_meta_stringdata_rcControlPanel,
+    { &QFrame::staticMetaObject, qt_meta_stringdata_rcControlPanel,
       qt_meta_data_rcControlPanel, &staticMetaObjectExtraData }
 };
 
@@ -97,12 +97,12 @@ void *rcControlPanel::qt_metacast(const char *_clname)
     if (!_clname) return 0;
     if (!strcmp(_clname, qt_meta_stringdata_rcControlPanel))
         return static_cast<void*>(const_cast< rcControlPanel*>(this));
-    return Q3Frame::qt_metacast(_clname);
+    return QFrame::qt_metacast(_clname);
 }
 
 int rcControlPanel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = Q3Frame::qt_metacall(_c, _id, _a);
+    _id = QFrame::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {

@@ -1,7 +1,10 @@
 #ifndef UI_RCSTATUSBAR_H
 #define UI_RCSTATUSBAR_H
 
-#include <qstatusbar.h>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 #include <rc_model.h>
 

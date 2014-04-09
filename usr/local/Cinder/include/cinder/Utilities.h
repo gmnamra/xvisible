@@ -2,6 +2,8 @@
  Copyright (c) 2010, The Barbarian Group
  All rights reserved.
 
+ Copyright (c) Microsoft Open Technologies, Inc. All rights reserved.
+
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that
  the following conditions are met:
 
@@ -57,9 +59,9 @@ void launchWebBrowser( const Url &url );
 //! Delete the file at \a path. Fails quietly if the path does not exist.
 void deleteFile( const fs::path &path );
 
-//! Returns a vector of substrings split by the separator \a separator. <tt>split( "one two three", ' ' ) -> [ "one", "two", "three" ]</tt> If \a compress is true, it will consider consecutive separators as one.
+//! Returns a vector of substrings split by the separator \a separator. <tt>split( "one two three", ' ' ) -> [ "one", "two", "three" ]</tt> If \a compress is TRUE, it will consider consecutive separators as one.
 std::vector<std::string> split( const std::string &str, char separator, bool compress = true );
-//! Returns a vector of substrings split by the characters in \a separators. <tt>split( "one, two, three", " ," ) -> [ "one", "two", "three" ]</tt> If \a compress is true, it will consider consecutive separators as one.
+//! Returns a vector of substrings split by the characters in \a separators. <tt>split( "one, two, three", " ," ) -> [ "one", "two", "three" ]</tt> If \a compress is TRUE, it will consider consecutive separators as one.
 std::vector<std::string> split( const std::string &str, const std::string &separators, bool compress = true );
 
 //! Loads the contents of \a dataSource and returns it as a std::string
@@ -74,7 +76,7 @@ std::string toUtf8( const std::wstring &utf16 );
 void sleep( float milliseconds );
 
 //! Returns the path separator for the host operating system's file system, \c '\' on Windows and \c '/' on Mac OS
-#if defined( CINDER_MSW )
+#if (defined( CINDER_MSW ) || defined( CINDER_WINRT ))
 inline char getPathSeparator() { return '\\'; }
 #else
 inline char getPathSeparator() { return '/'; }

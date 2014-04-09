@@ -8,11 +8,10 @@
  ******************************************************************************/
 
 
-#include <qmessagebox.h>
-#include <qfile.h>
-#include <q3filedialog.h>
-#include <qthread.h>
-#include <qpixmap.h>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 #include <rc_window.h>
 #include "rc_appconstants.h"
 #include "rc_modeldomain.h"
@@ -36,8 +35,12 @@ const char* cModelDomainName = "modelDomain";
 
 static rcModelDomain* _modelDomainSingleton = 0;
 
-rcModelDomain::rcModelDomain( QObject* parent ) //, const char* modelName )
-: QObject( parent),
+
+
+rcModelDomain::rcModelDomain()
+: QObject (QApplication::instance()),
+// rcModelDomain::rcModelDomain( QObject* parent , const char* modelName )
+//: QObject( parent, modelName ),
 mLicenseManager( cLicenseFilePath, true ),
 mEventQueueManager( this ),
 mCursorTime( 0.0 )
@@ -584,7 +587,7 @@ void rcModelDomain::requestOpen( rcExperimentImportMode mode )
         QString filter = QStrFrcStr (persistenceManager->fileFormatImportFilter( eExperimentNativeFormat ));
         
         // Ready to choose a file to open
-        QString s = Q3FileDialog::getOpenFileName(
+        QString s = QFileDialog::getOpenFileName(
                                                   "Untitled",
                                                   filter,
                                                   0,
@@ -791,7 +794,7 @@ void rcModelDomain::requestSave( rcExperimentFileFormat format )
                 break;
         };
         
-        QString fileName = Q3FileDialog::getSaveFileName(
+        QString fileName = QFileDialog::getSaveFileName(
                                                          defaultName,
                                                          filter,
                                                          0,
@@ -1122,7 +1125,7 @@ void rcModelDomain::save_last_matrix()
         processExtension( defaultName, ext, nativeExt );
         
         
-        QString fileName = Q3FileDialog::getSaveFileName(
+        QString fileName = QFileDialog::getSaveFileName(
                                                         defaultName,
                                                         filter,
                                                         0,

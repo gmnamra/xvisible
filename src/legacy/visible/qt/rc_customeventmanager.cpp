@@ -7,8 +7,10 @@
  *
  *****************************************************************************/
 #include <iostream>
-#include <qapplication.h>
-#include <QMutexLocker>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
+
 #include "rc_customeventmanager.h"
 
 using namespace std;

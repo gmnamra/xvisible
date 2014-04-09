@@ -89,7 +89,7 @@ protected:
         _cinfo.err=jpeg_std_error(&_jerr);
         jpeg_create_decompress(&_cinfo);
         jpeg_stdio_src(&_cinfo,_fp.get());
-        jpeg_read_header(&_cinfo,true);
+        jpeg_read_header(&_cinfo,TRUE);
     }
 public:
     jpeg_reader(FILE* file)           : file_mgr(file)           { init(); }
@@ -206,8 +206,8 @@ public:
         _cinfo.in_color_space = jpeg_write_support_private<typename channel_type<View>::type,
                                                            typename color_space_type<View>::type>::color_type;
         jpeg_set_defaults(&_cinfo);
-        jpeg_set_quality(&_cinfo, quality, true);
-        jpeg_start_compress(&_cinfo, true);
+        jpeg_set_quality(&_cinfo, quality, TRUE);
+        jpeg_start_compress(&_cinfo, TRUE);
         std::vector<pixel<bits8,layout<typename color_space_type<View>::type> > > row(view.width());
         JSAMPLE* row_address=(JSAMPLE*)&row.front();
         for (int y=0;y<view.height(); ++y) {

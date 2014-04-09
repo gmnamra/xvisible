@@ -22,7 +22,7 @@ static const uint qt_meta_data_rcMainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      15,   14, // methods
+      16,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -43,8 +43,9 @@ static const uint qt_meta_data_rcMainWindow[] = {
      192,   13,   13,   13, 0x0a,
      215,   13,   13,   13, 0x0a,
      224,   13,   13,   13, 0x0a,
-     241,   13,   13,   13, 0x0a,
-     261,   13,   13,   13, 0x0a,
+     233,   13,   13,   13, 0x0a,
+     250,   13,   13,   13, 0x0a,
+     270,   13,   13,   13, 0x0a,
 
        0        // eod
 };
@@ -55,7 +56,8 @@ static const char qt_meta_stringdata_rcMainWindow[] = {
     "settingChanged()\0rect\0updateAnalysisRect(rcRect)\0"
     "doSave()\0doExport()\0doExportMovie()\0"
     "doExportNativeMovie()\0enableExportSmMatrix()\0"
-    "doOpen()\0doOpenSettings()\0importRecentMovie()\0"
+    "doOpen()\0doExit()\0doOpenSettings()\0"
+    "importRecentMovie()\0"
     "reload_plotter(const CurveData*)\0"
 };
 
@@ -77,9 +79,10 @@ void rcMainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 9: _t->doExportNativeMovie(); break;
         case 10: _t->enableExportSmMatrix(); break;
         case 11: _t->doOpen(); break;
-        case 12: _t->doOpenSettings(); break;
-        case 13: _t->importRecentMovie(); break;
-        case 14: _t->reload_plotter((*reinterpret_cast< const CurveData*(*)>(_a[1]))); break;
+        case 12: _t->doExit(); break;
+        case 13: _t->doOpenSettings(); break;
+        case 14: _t->importRecentMovie(); break;
+        case 15: _t->reload_plotter((*reinterpret_cast< const CurveData*(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -117,9 +120,9 @@ int rcMainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 15)
+        if (_id < 16)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 15;
+        _id -= 16;
     }
     return _id;
 }

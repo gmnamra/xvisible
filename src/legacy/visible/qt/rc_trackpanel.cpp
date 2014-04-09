@@ -1,10 +1,10 @@
 // rc_trackpanel.cpp
 
-#include <qlayout.h> 
-#include <qpushbutton.h>
-#include <qlabel.h>
-#include <q3vbox.h>
-#include <QKeyEvent>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+#include <Qt3Support/q3scrollview.h>
+#include <Qt3Support/Q3VBox>
 #include <rc_model.h>
 
 #include "rc_modeldomain.h"
@@ -12,17 +12,22 @@
 #include "rc_trackpanel.h"
 #include "rc_trackmanager.h"
 
-rcTrackPanel::rcTrackPanel( QWidget* parent, const char* name, Qt::WFlags f )
-: Q3ScrollView( parent, name ), mContents( 0 ), mOldState(eExperimentEmpty),
+rcTrackPanel::rcTrackPanel( QWidget* parent, const char* name)
+: QWidget( parent, name, 0 ), mContents( 0 ), mOldState(eExperimentEmpty),
 mManagedGroups( 0 ), mLiveInput( false ), mLiveStorage( false )
 {
-    rcUNUSED( f );
+
 	setMinimumWidth( 250 );
 	setMaximumWidth( 300 );
-    setVScrollBarMode( AlwaysOn );
-    setHScrollBarMode( AlwaysOff );
-    setResizePolicy( Q3ScrollView::AutoOneFit );    
-    setResizePolicy( Q3ScrollView::AutoOneFit );
+    m_scrollarea = new QScrollArea;
+    m_scrollarea->setContentsMargins( 0, 0, 0, 0 );
+    m_scrollarea->setWidget( this );
+    m_scrollarea->setWidgetResizable( true );
+    m_scrollarea->setStyleSheet( "border: 1px solid blue" );
+    m_scrollarea->setSizePolicy( QSizePolicy::Expanding, QSizePolicy::Preferred );
+    
+
+
     
 	rcModelDomain* domain = rcModelDomain::getModelDomain();
 	connect( domain , SIGNAL( newState( rcExperimentState ) ) ,
@@ -112,6 +117,7 @@ void rcTrackPanel::updateTrackGroups( )
 // repopulate the panel with track group widgets
 void rcTrackPanel::updateTrackGroups( bool cameraInput, bool cameraStorage )
 {
+#if 0
     mLiveInput = cameraInput;
     mLiveStorage = cameraStorage;
     
@@ -167,6 +173,7 @@ void rcTrackPanel::updateTrackGroups( bool cameraInput, bool cameraStorage )
 #endif        
         
     }
+#endif    
 }
     
    

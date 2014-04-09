@@ -1,5 +1,5 @@
-#include <QtGui>
-#include <qapplication>
+#include <QtGui/QtGui>
+
 
 #include <rc_uitypes.h>
 #include <strstream>
@@ -53,9 +53,9 @@ rcMainWindow::rcMainWindow( ) //QWidget* parent, const char* name, Qt::WFlags f 
     mScrollArea->setWidgetResizable(true);
     setCentralWidget(mScrollArea);
     
-    // Create a Monitor
-	rcMonitor* monitor = new rcMonitor( this, "monitor" );
-    mScrollArea->setWidget(monitor);
+    //Create a Monitor
+     rcMonitor* monitor = new rcMonitor( this, "monitor" );
+     mScrollArea->setWidget(monitor);
     
 
     
@@ -156,7 +156,7 @@ void rcMainWindow::createDockWindows()
 void rcMainWindow::createHelpBrowser()
 {
     _helpBrowser = new QTextBrowser( this );
-    _helpBrowser->setFrameStyle( Q3Frame::Panel | Q3Frame::Sunken );
+    _helpBrowser->setFrameStyle( QFrame::Panel | QFrame::Sunken );
     _helpBrowser->resize (640, 400);
 }
 
@@ -222,7 +222,7 @@ void rcMainWindow::createActions()
     QuitId = new QAction(tr("E&xit"), this);
     QuitId->setShortcuts(QKeySequence::Quit);
     QuitId->setStatusTip(tr("Exit the application"));
-    connect(QuitId, SIGNAL(triggered()), qApp, SLOT(closeAllWindows()));
+    connect(QuitId, SIGNAL(triggered()), this, SLOT( close () ) );
 
     
     HelpId = new QAction(tr("H&elp"), this);
@@ -442,6 +442,13 @@ void rcMainWindow::help()
   // Launch a new application instance
   system( cmd.latin1() );
 
+}
+
+void rcMainWindow::doExit ()
+{
+    rcModelDomain* domain = rcModelDomain::getModelDomain();
+    domain->requestClose();
+    close ();
 }
 
 // Request native format save

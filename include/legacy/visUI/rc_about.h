@@ -2,9 +2,9 @@
 #ifndef MOVIDAABOUT_H
 #define MOVIDAABOUT_H
 
-#include <qvariant.h>
-#include <qpixmap.h>
-#include <qdialog.h>
+#include <QtCore/QtCore>
+#include <QtGui/QtGui>
+
 
 class QVBoxLayout;
 class QHBoxLayout;

@@ -5,13 +5,9 @@
 *
 ******************************************************************************/
 
-#include <qapplication.h>
-#include <qobject.h>
-#include <qradiobutton.h>
-#include <qtooltip.h>
-//Added by qt3to4:
-#include <Q3BoxLayout>
-#include <Q3HBoxLayout>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 #include "rc_choiceradiobutton.h"
 #include "rc_radiochoicesettingwidget.h"
@@ -21,7 +17,7 @@
 rcRadioChoiceSettingWidget::rcRadioChoiceSettingWidget( QWidget* parent, const rcSettingInfo& setting )
 	: rcSettingWidget( parent, setting )
 {
-	Q3BoxLayout* radioLayout = new Q3HBoxLayout( mTopLayout );
+	QBoxLayout* radioLayout = new QHBoxLayout( mTopLayout );
 	int nChoices = setting.getNChoices();
 
 	for (int i = 0; i < nChoices; i++)

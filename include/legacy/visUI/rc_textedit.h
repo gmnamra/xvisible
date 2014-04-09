@@ -1,30 +1,31 @@
 #ifndef UI_rcTEXT_EDIT_H
 #define UI_rcTEXT_EDIT_H
 
-#include <q3textedit.h>
-//Added by qt3to4:
-#include <QFocusEvent>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
 
-class rcTextEdit : public Q3TextEdit
+
+class rcTextEdit : public QTextEdit
 {
 	Q_OBJECT
 
 public:
 	rcTextEdit( QWidget * parent, int lines, const char * name )
-		: Q3TextEdit( parent , name ), mLines(lines)
+		: QTextEdit( parent , name ), mLines(lines)
 	{
 		connect( this , SIGNAL( returnPressed( void ) ) ,
 				 this , SLOT( relayTextCommited( void ) ) );
 	}
 
+#if 0
 	rcTextEdit( const QString& text, int lines, const QString& context = QString::null ,
 				QWidget* parent = 0, const char* name = 0 )
-		: Q3TextEdit( text , context , parent , name ), mLines(lines)
+		: QTextEdit( text , context , parent , name ), mLines(lines)
 	{
 		connect( this , SIGNAL( returnPressed( void ) ) ,
 				 this , SLOT( relayTextCommited( void ) ) );
 	}
-
+#endif
     virtual QSize sizeHint() const
     {
         constPolish();
@@ -37,7 +38,7 @@ public:
 protected:
 	virtual void focusOutEvent( QFocusEvent* event )
 	{
-		Q3TextEdit::focusOutEvent( event );
+		QTextEdit::focusOutEvent( event );
 		emit textCommited( text() );
 	}
 

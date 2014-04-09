@@ -5,17 +5,10 @@
  *
  ******************************************************************************/
 
-#include <qlayout.h> 
-#include <qpushbutton.h>
-#include <qcheckbox.h>
-#include <qlabel.h>
-#include <q3frame.h>
-#include <qtooltip.h>
-//Added by qt3to4:
-#include <Q3HBoxLayout>
-#include <Q3BoxLayout>
-#include <QMouseEvent>
-#include <QKeyEvent>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 #include <rc_model.h>
 
@@ -42,7 +35,7 @@ rcScalarTrackWidget::rcScalarTrackWidget( QWidget* parent , int trackGroupNo , i
     rcTrack* track = trackGroup->getTrack( _trackNo );
     rcTrackManager* tmp = rcTrackManager::getTrackManager();
     bool hilited = tmp->isHiliteTrack( _trackGroupNo , _trackNo );
-	Q3BoxLayout* layout = new Q3HBoxLayout( this );
+	QBoxLayout* layout = new QHBoxLayout( this );
 
     _checkbox = new QCheckBox( this );
     // retain old enablement information
@@ -56,8 +49,8 @@ rcScalarTrackWidget::rcScalarTrackWidget( QWidget* parent , int trackGroupNo , i
     // Simulate graph line with a colored character
 	_legend = new QLabel( "-" , this );
     _legend->setAlignment( cUINoBreakAlignment );
-    _legend->setFrameStyle( Q3Frame::Panel );
-	_legend->setFrameShadow( Q3Frame::Sunken );
+    _legend->setFrameStyle( QFrame::Panel );
+	_legend->setFrameShadow( QFrame::Sunken );
     _legend->setFixedWidth( 25 );
 
     // Set the color to reflect graph color
@@ -81,8 +74,8 @@ rcScalarTrackWidget::rcScalarTrackWidget( QWidget* parent , int trackGroupNo , i
     // Track name
 	_name = new QLabel( track->getName() , this );
     _name->setAlignment( cUIWordBreakAlignment );
-    _name->setFrameStyle( Q3Frame::Panel );
-	_name->setFrameShadow( Q3Frame::Sunken );
+    _name->setFrameStyle( QFrame::Panel );
+	_name->setFrameShadow( QFrame::Sunken );
 	_name->setFixedWidth( 180 );
     _name->setFont( textFont );
 	layout->addWidget( _name );
@@ -91,8 +84,8 @@ rcScalarTrackWidget::rcScalarTrackWidget( QWidget* parent , int trackGroupNo , i
 	_value = new QLabel( "N/A" , this );
     _value->setAlignment( cUINoBreakAlignment );
     //_value->setAlignment( cUIWordBreakAlignment );
-    _value->setFrameStyle( Q3Frame::Panel );
-	_value->setFrameShadow( Q3Frame::Sunken );
+    _value->setFrameStyle( QFrame::Panel );
+	_value->setFrameShadow( QFrame::Sunken );
 	_value->setFixedWidth( 180 );
     _value->setFont( textFont );
 	layout->addWidget( _value );

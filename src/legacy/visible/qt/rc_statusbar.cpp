@@ -1,4 +1,7 @@
-#include <qapplication.h>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 #include <rc_uitypes.h>
 

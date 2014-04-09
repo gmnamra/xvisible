@@ -11,8 +11,10 @@
 #ifndef _UI_rcXMLPARSER_H_
 #define _UI_rcXMLPARSER_H_
 
-#include <qxml.h>
-#include <qstring.h>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+#include <QtXml/QtXml>
 
 #include <rc_xml.h>
 #include <rc_model.h>

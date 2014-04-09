@@ -5,9 +5,9 @@
 *
 ******************************************************************************/
 
-#include <qapplication.h>
-#include <qlineedit.h>
-#include <qtooltip.h>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 #include "rc_lineedit.h"
 #include "rc_textlinesettingwidget.h"

@@ -1,5 +1,6 @@
-#include <qapplication.h>
-#include <qlayout.h> 
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
 
 #include <rc_modeldomain.h>
 #include "rc_textlinesettingwidget.h"
@@ -67,9 +68,10 @@ rcSettingPage::rcSettingPage( QWidget* parent, const rcSettingCategory& category
 			widget = new rcFileSaveSettingWidget( this , setting );
 			break;
 
-		case eRect:			// setting is a rectangle (text + "define" button)
+        case eRect:			// setting is a rectangle (text + "define" button)
+                continue;
 		//	widget = new rcRectSettingWidget( this , setting );
-			break;
+		//	break;
             
 		case eSpinbox:			// setting is a spinbox (int value)
 			widget = new rcSpinboxSettingWidget( this , setting );

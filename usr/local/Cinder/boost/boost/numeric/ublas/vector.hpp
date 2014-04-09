@@ -992,26 +992,26 @@ namespace boost { namespace numeric { namespace ublas {
             // Arithmetic
             BOOST_UBLAS_INLINE
             const_iterator &operator ++ () {
-                BOOST_UBLAS_CHECK_false (bad_index ());
+                BOOST_UBLAS_CHECK_FALSE (bad_index ());
                 return *this;
             }
             BOOST_UBLAS_INLINE
             const_iterator &operator -- () {
-                BOOST_UBLAS_CHECK_false (bad_index ());
+                BOOST_UBLAS_CHECK_FALSE (bad_index ());
                 return *this;
             }
 
             // Dereference
             BOOST_UBLAS_INLINE
             const_reference operator * () const {
-                BOOST_UBLAS_CHECK_false (bad_index ());
+                BOOST_UBLAS_CHECK_FALSE (bad_index ());
                 return zero_;   // arbitary return value
             }
 
             // Index
             BOOST_UBLAS_INLINE
             size_type index () const {
-                BOOST_UBLAS_CHECK_false (bad_index ());
+                BOOST_UBLAS_CHECK_FALSE (bad_index ());
                 return 0;   // arbitary return value
             }
 

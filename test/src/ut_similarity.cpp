@@ -1,10 +1,6 @@
 
 #include "ut_similarity.h"
 #include <rc_math.h>
-#include <rc_time.h>
-#include <rc_utdrawutils.h>
-#include <rc_ip.h>
-#include <rc_ipconvert.h>
 #include <rc_fileutils.h>
 
 UT_similarity::UT_similarity()

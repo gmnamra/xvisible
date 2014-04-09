@@ -439,7 +439,7 @@ private:
             if (has_pseudo_exit<T1>::type::value && 
                 !is_exit_state_active<T1,get_owner<T1,library_sm> >(fsm))
             {
-                return HANDLED_false;
+                return HANDLED_FALSE;
             }
             if (!check_guard(fsm,evt))
             {
@@ -518,7 +518,7 @@ private:
             if (has_pseudo_exit<T1>::type::value && 
                 !is_exit_state_active<T1,get_owner<T1,library_sm> >(fsm))
             {
-                return HANDLED_false;
+                return HANDLED_FALSE;
             }
             if (!check_guard(fsm,evt))
             {
@@ -537,7 +537,7 @@ private:
             convert_event_and_execute_entry<next_state_type,T2>
                 (::boost::fusion::at_key<next_state_type>(fsm.m_substate_list),evt,fsm);
             fsm.m_states[region_index] = active_state_switching::after_entry(current_state,next_state);
-            return HANDLED_true;
+            return HANDLED_TRUE;
         }
     };
 
@@ -582,7 +582,7 @@ private:
             if (has_pseudo_exit<T1>::type::value && 
                 !is_exit_state_active<T1,get_owner<T1,library_sm> >(fsm))
             {
-                return HANDLED_false;
+                return HANDLED_FALSE;
             }
             fsm.m_states[region_index] = active_state_switching::after_guard(current_state,next_state);
 
@@ -648,7 +648,7 @@ private:
             if (has_pseudo_exit<T1>::type::value && 
                 !is_exit_state_active<T1,get_owner<T1,library_sm> >(fsm))
             {
-                return HANDLED_false;
+                return HANDLED_FALSE;
             }
             fsm.m_states[region_index] = active_state_switching::after_guard(current_state,next_state);
 
@@ -663,7 +663,7 @@ private:
             convert_event_and_execute_entry<next_state_type,T2>
                 (::boost::fusion::at_key<next_state_type>(fsm.m_substate_list),evt,fsm);
             fsm.m_states[region_index] = active_state_switching::after_entry(current_state,next_state);
-            return HANDLED_true;
+            return HANDLED_TRUE;
         }
     };
     // "i" rows are rows for internal transitions
@@ -741,7 +741,7 @@ private:
                 // guard rejected the event, we stay in the current one
                 return HANDLED_GUARD_REJECT;
             }
-            return HANDLED_true;
+            return HANDLED_TRUE;
         }
     };
 
@@ -790,7 +790,7 @@ private:
         {
             BOOST_STATIC_CONSTANT(int, current_state = (get_state_id<stt,current_state_type>::type::value));
             BOOST_ASSERT(state == (current_state));
-            return HANDLED_true;
+            return HANDLED_TRUE;
         }
     };
     // transitions internal to this state machine (no substate involved)
@@ -937,7 +937,7 @@ private:
                 // guard rejected the event, we stay in the current one
                 return HANDLED_GUARD_REJECT;
             }
-            return HANDLED_true;
+            return HANDLED_TRUE;
         }
     };
     template<
@@ -967,7 +967,7 @@ private:
                 // guard rejected the event, we stay in the current one
                 return HANDLED_GUARD_REJECT;
             }
-            return HANDLED_true;
+            return HANDLED_TRUE;
         }
     };
     template<
@@ -981,7 +981,7 @@ private:
         typedef typename ROW::Evt transition_event;
         static HandledEnum execute(library_sm& , int , int , transition_event const& )
         {
-            return HANDLED_true;
+            return HANDLED_TRUE;
         }
     };
     template<
@@ -994,7 +994,7 @@ private:
         typedef typename ROW::Evt transition_event;
         static HandledEnum execute(library_sm& , int , int , transition_event const& )
         {
-            return HANDLED_true;
+            return HANDLED_TRUE;
         }
     };
     // Template used to form forwarding rows in the transition table for every row of a composite SM
@@ -1743,7 +1743,7 @@ private:
             // give a chance to the concrete state machine to handle
             this->exception_caught(evt,*this,e);
         } 
-        return HANDLED_false;
+        return HANDLED_FALSE;
     }
     // handling of deferred events
     // if none is found in the SM, take the following empty main version
@@ -1772,7 +1772,7 @@ private:
 
         void do_post_handle_deferred(HandledEnum handled)
         {
-            if (handled == HANDLED_true)
+            if (handled == HANDLED_TRUE)
             {
                 // a transition has been taken, it makes sense again to try processing waiting deferred events
                 // reset all events to not tested 
@@ -1857,7 +1857,7 @@ private:
         // the event is processable, let's try!
         static void do_process(Event const& evt,library_sm* self_,HandledEnum& result, ::boost::mpl::true_)
         {
-            if (result != HANDLED_true)
+            if (result != HANDLED_TRUE)
             {
                 typedef dispatch_table<library_sm,complete_table,Event,CompilePolicy> table;
                 HandledEnum res_internal = table::instance.entries[0](*self_, 0, self_->m_states[0], evt);
@@ -1945,17 +1945,17 @@ private:
     template<class Event>
     execute_return process_event_internal(Event const& evt, bool is_direct_call)
     {
-        HandledEnum ret_handled=HANDLED_false;
+        HandledEnum ret_handled=HANDLED_FALSE;
         // if the state machine has terminate or interrupt flags, check them, otherwise skip
         if (is_event_handling_blocked_helper<Event>
                 ( ::boost::mpl::bool_<has_fsm_blocking_states<library_sm>::type::value>() ) )
-            return HANDLED_true;
+            return HANDLED_TRUE;
         // if a message queue is needed and processing is on the way
         if (!do_pre_msg_queue_helper<Event>
                 (evt,::boost::mpl::bool_<is_no_message_queue<library_sm>::type::value>()) )
         {
             // wait for the end of current processing
-            return HANDLED_true;
+            return HANDLED_TRUE;
         }
         else
         {
@@ -1972,7 +1972,7 @@ private:
             }
 
             // process completion transitions BEFORE any other event in the pool (UML Standard 2.3 §15.3.14)
-            handle_eventless_transitions_helper<library_sm> eventless_helper(this,(handled == HANDLED_true));
+            handle_eventless_transitions_helper<library_sm> eventless_helper(this,(handled == HANDLED_TRUE));
             eventless_helper.process_completion_event();
 
             // after handling, take care of the deferred events
@@ -1990,7 +1990,7 @@ private:
     template<class Event>
     HandledEnum do_process_event(Event const& evt, bool is_direct_call)
     {
-        HandledEnum handled = HANDLED_false;
+        HandledEnum handled = HANDLED_FALSE;
         // dispatch the event to every region
         region_processing_helper<Derived> helper(this,handled);
         helper.process(evt);
@@ -2616,7 +2616,7 @@ BOOST_PP_REPEAT(BOOST_PP_ADD(BOOST_MSM_VISITOR_ARG_SIZE,1), MSM_VISITOR_ARGS_EXE
     template <class Event>
     static HandledEnum call_no_transition(library_sm& , int , int , Event const& )
     {
-        return HANDLED_false;
+        return HANDLED_FALSE;
     }
     // no transition for event for internal transitions (not an error).
     template <class Event>
@@ -2624,7 +2624,7 @@ BOOST_PP_REPEAT(BOOST_PP_ADD(BOOST_MSM_VISITOR_ARG_SIZE,1), MSM_VISITOR_ARGS_EXE
     {
         //// reject to give others a chance to handle
         //return HANDLED_GUARD_REJECT;
-        return HANDLED_false;
+        return HANDLED_FALSE;
     }
     // called for deferred events. Address set in the dispatch_table at init
     template <class Event>
@@ -2638,7 +2638,7 @@ BOOST_PP_REPEAT(BOOST_PP_ADD(BOOST_MSM_VISITOR_ARG_SIZE,1), MSM_VISITOR_ARGS_EXE
     template <class Event>
     static HandledEnum default_eventless_transition(library_sm&, int, int , Event const&)
     {
-        return HANDLED_false;
+        return HANDLED_FALSE;
     }
 #if defined (__IBMCPP__) || (defined(_MSC_VER) && (_MSC_VER < 1400))
      private:

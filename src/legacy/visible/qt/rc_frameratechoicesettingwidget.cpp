@@ -5,15 +5,11 @@
 *
 ******************************************************************************/
 
-#include <qapplication.h>
-#include <qcombobox.h>
-#include <qtooltip.h>
-#include <qlineedit.h>
-//Added by qt3to4:
-#include <Q3BoxLayout>
-#include <Q3HBoxLayout>
-#include <Q3VBoxLayout>
-#include <QLabel>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
+
 
 #include "rc_frameratechoicesettingwidget.h"
 #include "rc_modeldomain.h"
@@ -26,8 +22,8 @@ rcFramerateChoiceSettingWidget::rcFramerateChoiceSettingWidget( QWidget* parent,
         rcSettingWidget( parent, setting, false )
 {
     // We create our own laytout without using base class layout
-    Q3BoxLayout* vLayout = new Q3VBoxLayout( this );
-	Q3BoxLayout* layout = new Q3HBoxLayout( vLayout );
+    QBoxLayout* vLayout = new QVBoxLayout( this );
+	QBoxLayout* layout = new QHBoxLayout( vLayout );
 
 	QLabel* label = new QLabel( setting.getDisplayName() , this );
 	label->setFixedWidth( cUIsettingLabelWidth );
@@ -64,7 +60,7 @@ rcFramerateChoiceSettingWidget::rcFramerateChoiceSettingWidget( QWidget* parent,
     vLayout->addSpacing( 10 );
     // A text widget for arbitrary frame intervals
     // Frame interval in seconds is 1/framerate
-    layout = new Q3HBoxLayout( vLayout );
+    layout = new QHBoxLayout( vLayout );
     label = new QLabel( "Frame interval (seconds)" , this );
     label->setFixedWidth( cUIsettingLabelWidth );
     label->setAlignment( Qt::AlignRight | Qt::AlignVCenter | cUIWordBreakAlignment );
@@ -211,8 +207,8 @@ rcRateChoiceSettingWidget::rcRateChoiceSettingWidget( QWidget* parent,
   rcSettingWidget( parent, setting, false )
 {
   // We create our own laytout without using base class layout
-  Q3BoxLayout* vLayout = new Q3VBoxLayout( this );
-  Q3BoxLayout* layout = new Q3HBoxLayout( vLayout );
+  QBoxLayout* vLayout = new QVBoxLayout( this );
+  QBoxLayout* layout = new QHBoxLayout( vLayout );
 
   QLabel* label = new QLabel( setting.getDisplayName() , this );
   label->setFixedWidth( cUIsettingLabelWidth );

@@ -3,7 +3,7 @@
 #ifndef _rcUT_TIMESTAMP_H_
 #define _rcUT_TIMESTAMP_H_
 
-#include <rc_unittest.h>
+#include "rc_unittest.h"
 
 class UT_Timestamp : public rcUnitTest {
 public:

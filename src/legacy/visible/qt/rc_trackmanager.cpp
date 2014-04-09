@@ -8,8 +8,8 @@
  ******************************************************************************/
 #include <strstream>
 
-#include <qapplication.h>
-#include <qclipboard.h>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
 
 #include <rc_model.h>
 

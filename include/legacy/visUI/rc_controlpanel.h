@@ -1,17 +1,17 @@
 #ifndef rcCONTROL_PANEL_H
 #define rcCONTROL_PANEL_H
 
-#include <q3frame.h>
-#include <qpushbutton.h>
-//Added by qt3to4:
-#include <QLabel>
+
+
+
+#include <QtGui/QtGui>
 
 #include <rc_timestamp.h>
 #include <rc_model.h>
 
 class QLabel;
 
-class rcControlPanel : public Q3Frame
+class rcControlPanel : public QFrame
 {
     Q_OBJECT
 

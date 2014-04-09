@@ -116,9 +116,9 @@ function relocate_and_register_()
         
         echo "Relocating ${frameworkExecutable} as ${newInstallName} in application" 
         ## We re-search originalInstallName, in application, because might be different.
-        local originalInstallName=`otool -L $2 | grep  $1 | sed -e 's/^\([[:blank:]]*\)\(.*\)\( (.*\)$/\2/'`
-        echo "install_name_tool -change ${originalInstallName} ${newInstallName} $2 "
-        install_name_tool -change "${originalInstallName}" "${newInstallName}" "$2"
+##        local originalInstallName=`otool -L $2 | grep  $1 | sed -e 's/^\([[:blank:]]*\)\(.*\)\( (.*\)$/\2/'`
+##        echo "install_name_tool -change ${originalInstallName} ${newInstallName} $2 "
+        install_name_tool -change "$1" "${newInstallName}" "$2"
         
         if [ $# = "$extraOpArgN" ]
         then
@@ -151,16 +151,4 @@ function relocate_and_register_()
 
    _crosslink_opencv 
      
-QTLIBS[0]=QtGui
-QTLIBS[1]=QtCore
-QTLIBS[2]=QtOpenGL
-QTLIBS[3]=Qt3Support
-QTLIBS[4]=QtXml
-QTLIBS[5]=QtXmlPatterns
-CURRENT=Versions/Current
-
-for i in "${QTLIBS[@]}"
-do
-    relocate_and_register_  "$i.framework/${CURRENT}/${i}" $applicationExecutable
-done
     

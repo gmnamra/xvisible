@@ -10,12 +10,9 @@
 #define _rcSETTINGWIDGET_H_
 
 #include <rc_setting.h>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
 
-#include <qwidget.h>
-#include <qlabel.h>
-#include <qlayout.h>
-//Added by qt3to4:
-#include <Q3BoxLayout>
 
 // Setting widget base class
 class rcSettingWidget : public QWidget
@@ -38,7 +35,7 @@ signals:
 
 protected:
     rcSettingInfo	mSetting;      // Setting bound to this widget
-    Q3BoxLayout*     mTopLayout;    // Top level widget layout
+    QBoxLayout*     mTopLayout;    // Top level widget layout
     QLabel*         mDisplayLabel; // Display label
 private:
     QString text () const { return QString (mSetting.getDisplayName()); }

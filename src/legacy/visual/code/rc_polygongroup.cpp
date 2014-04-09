@@ -25,9 +25,9 @@
  * Copyright (c) 2002 Reify Corp. All rights reserved.
  */
 #include <rc_polygongroup.h>
-#include <rc_graphics.h>
 
 
+#if 0
 void rfPolygonGroupToGraphicsCollection(rcPolygonGroupRef& pg, 
 					rcVisualGraphicsCollectionCollection& v, 
 					bool drawCOM)
@@ -43,6 +43,7 @@ void rfPolygonGroupToGraphicsCollection(rcPolygonGroupRef& pg,
       v.push_back (graphics);
     }
 }
+#endif
 
 rcPolygonGroup::~rcPolygonGroup () {}
   

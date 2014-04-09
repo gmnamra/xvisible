@@ -9,6 +9,7 @@
 #ifndef UT_UTIL_MAIN
 #define UT_UTIL_MAIN
 
+#include "ut_file.h"
 #include "ut_persistence1d.h"
 #include "ut_atomic.h"
 #include "ut_ring.h"

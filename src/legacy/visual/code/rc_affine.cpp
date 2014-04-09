@@ -41,7 +41,7 @@
 #include <rc_affine.h>
 #include <iostream>
 
-
+#if 0
 void rfAffineRectangleToSegmentsCollection(const rcAffineRectangle& p,
 					   rcVisualSegmentCollection& v)
 {
@@ -61,6 +61,7 @@ void rfAffineRectangleToSegmentsCollection(const rcAffineRectangle& p,
 
   v.push_back(rcVisualEmpty());
 }
+#endif
 
 rcAffineRectangle::rcAffineRectangle()
 {

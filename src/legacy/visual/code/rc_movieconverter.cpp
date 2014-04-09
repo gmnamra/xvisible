@@ -13,7 +13,7 @@
 #include <rc_movieconverter.h>
 #include <rc_videocache.h>
 #include <rc_imagegrabber.h>
-#include <file_system.hpp>
+#include <stlplus/file_system.hpp>
 #include <rc_stlplus.h>
 #include <cinder/qtime/QuickTime.h>
 #include <cinder/qtime/MovieWriter.h>

@@ -9,7 +9,7 @@
  *  Copyright (c) 2002 Reify Corp. All rights reserved.
  *
  */
-#include "rc_pmcorr.h"
+
 #include <rc_window.h>
 #include <rc_platform.h>
 #include <rc_rowfunc.h>

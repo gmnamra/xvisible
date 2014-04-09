@@ -2,8 +2,8 @@
 #define _LPWIDGET_H
 
 #include <QtGui/QWidget>
-#include <QVector>
-#include <QPoint>
+#include <QtCore/QVector>
+#include <QtCore/QPoint>
 #include <lightplot2d.h>
 #include <boost/shared_ptr.hpp>
 #include <deque>

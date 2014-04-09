@@ -1,14 +1,9 @@
 // rc_trackpanel.cpp
 
-#include <qlayout.h> 
-#include <q3vbox.h>
-#include <qpushbutton.h>
-#include <q3frame.h>
-#include <q3frame.h>
-#include <qtooltip.h>
-//Added by qt3to4:
-#include <Q3BoxLayout>
-#include <Q3HBoxLayout>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+#include <Qt3Support/Q3VBox>
 
 #include <rc_model.h>
 
@@ -37,7 +32,7 @@ rcTrackGroupWidget::rcTrackGroupWidget( QWidget* parent , int trackGroupNo )
     
     rcTrackManager* tmp = rcTrackManager::getTrackManager();
 
-	Q3BoxLayout* layout = new Q3HBoxLayout( this );
+	QBoxLayout* layout = new QHBoxLayout( this );
 
     // add the group enable toggle pushbutton
     _enableButton = new rcTrackGroupEnableButton( this );

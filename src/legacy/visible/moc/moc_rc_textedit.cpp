@@ -61,7 +61,7 @@ const QMetaObjectExtraData rcTextEdit::staticMetaObjectExtraData = {
 };
 
 const QMetaObject rcTextEdit::staticMetaObject = {
-    { &Q3TextEdit::staticMetaObject, qt_meta_stringdata_rcTextEdit,
+    { &QTextEdit::staticMetaObject, qt_meta_stringdata_rcTextEdit,
       qt_meta_data_rcTextEdit, &staticMetaObjectExtraData }
 };
 
@@ -79,12 +79,12 @@ void *rcTextEdit::qt_metacast(const char *_clname)
     if (!_clname) return 0;
     if (!strcmp(_clname, qt_meta_stringdata_rcTextEdit))
         return static_cast<void*>(const_cast< rcTextEdit*>(this));
-    return Q3TextEdit::qt_metacast(_clname);
+    return QTextEdit::qt_metacast(_clname);
 }
 
 int rcTextEdit::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = Q3TextEdit::qt_metacall(_c, _id, _a);
+    _id = QTextEdit::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {

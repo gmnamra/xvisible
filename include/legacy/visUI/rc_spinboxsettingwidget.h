@@ -1,7 +1,9 @@
 #ifndef _UI_rcSPINBOXSETTINGWIDGET_H_
 #define _UI_rcSPINBOXSETTINGWIDGET_H_
 
-#include <qspinbox.h>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 #include "rc_settingwidget.h"
 

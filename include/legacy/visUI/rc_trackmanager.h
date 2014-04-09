@@ -3,9 +3,9 @@
 
 #include <deque>
 
-#include <qobject.h>
-#include <qpen.h>
-#include <qfont.h>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 #include <rc_timestamp.h>
 #include <rc_model.h>

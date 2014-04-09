@@ -56,8 +56,8 @@
 #include "rc_staticsettings.h"
 
 // For plotting widget
-#include <QVector>
-#include <QPoint>
+#include <QtCore/QVector>
+#include <QtCore/QPoint>
 
 #if WIN32
 using namespace std;

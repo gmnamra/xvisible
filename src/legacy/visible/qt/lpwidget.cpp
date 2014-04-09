@@ -1,6 +1,9 @@
 #include "lpwidget.h"
 #include <lightplot2d.h>
-#include <QVBoxLayout>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 #include <rc_uitypes.h>
 
 LPWidget::LPWidget(QWidget *parent, const CurveData*  cref )

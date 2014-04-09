@@ -12,7 +12,6 @@
 #include <rc_unittest.h>
 #include <rc_analysis.h>
 #include <rc_ip.h>
-#include <rc_rlewindow.h>
 #include <rc_window.h>
 
 class UT_Correlation : public rcUnitTest {

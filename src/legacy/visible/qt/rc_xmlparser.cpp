@@ -13,7 +13,10 @@
 #include <iostream>
 #include <strstream>
 
-#include <qstring.h>
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
+
 
 //
 // rcXMLParser implementation

@@ -33,7 +33,7 @@ namespace boost { namespace msm { namespace front
     template <class Func,class Enable=void>
     struct get_functor_return_value 
     {
-        static const ::boost::msm::back::HandledEnum value = ::boost::msm::back::HANDLED_true;
+        static const ::boost::msm::back::HandledEnum value = ::boost::msm::back::HANDLED_TRUE;
     };
     template <class Func>
     struct get_functor_return_value<Func, 
@@ -53,7 +53,7 @@ namespace boost { namespace msm { namespace front
     > 
     {
         static const ::boost::msm::back::HandledEnum value = 
-            (Func::some_deferring_actions::value ? ::boost::msm::back::HANDLED_DEFERRED : ::boost::msm::back::HANDLED_true );
+            (Func::some_deferring_actions::value ? ::boost::msm::back::HANDLED_DEFERRED : ::boost::msm::back::HANDLED_TRUE );
     };
     template <class SOURCE,class EVENT,class TARGET,class ACTION=none,class GUARD=none>
     struct Row

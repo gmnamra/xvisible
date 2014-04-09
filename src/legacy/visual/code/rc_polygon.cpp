@@ -20,6 +20,7 @@
 
 using namespace std;
 
+#if 0
 void rfPolygonToSegmentsCollection(const rcPolygon& p,
 				   rcVisualSegmentCollection& v, bool drawCOM)
 {
@@ -77,6 +78,7 @@ void rfPolygonToSegmentsCollection(const rcPolygon& p,
 
   v.push_back(rcVisualEmpty());
 }
+#endif
 
 void rfGenerateSmoothingPts(const rcPolygon& p, vector<rc2Dvector>& smoothedPts,
 			    double smoothingDistance)

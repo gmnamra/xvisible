@@ -219,7 +219,7 @@ namespace boost { namespace numeric { namespace ublas {
 //            e.raise ();
 //    }
 #ifndef BOOST_UBLAS_NO_STD_CERR
-#define BOOST_UBLAS_CHECK_false(e) \
+#define BOOST_UBLAS_CHECK_FALSE(e) \
     std::cerr << "Check failed in file " << __FILE__ << " at line " << __LINE__ << ":" << std::endl; \
     e.raise ();
 #define BOOST_UBLAS_CHECK(expression, e) \
@@ -235,7 +235,7 @@ namespace boost { namespace numeric { namespace ublas {
         e.raise (); \
     }
 #else
-#define BOOST_UBLAS_CHECK_false(e) \
+#define BOOST_UBLAS_CHECK_FALSE(e) \
     e.raise ();
 #define BOOST_UBLAS_CHECK(expression, e) \
     if (! (expression)) { \
@@ -254,7 +254,7 @@ namespace boost { namespace numeric { namespace ublas {
 //    template<class E>
 //    BOOST_UBLAS_INLINE
 //    void check_ex (bool expression, const char *file, int line, const E &e) {}
-#define BOOST_UBLAS_CHECK_false(e)
+#define BOOST_UBLAS_CHECK_FALSE(e)
 #define BOOST_UBLAS_CHECK(expression, e)
 #define BOOST_UBLAS_CHECK_EX(expression, file, line, e)
 #endif

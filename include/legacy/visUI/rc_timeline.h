@@ -1,13 +1,10 @@
 #ifndef rcTIMELINE_H
 #define rcTIMELINE_H
 
-#include <q3frame.h>
-#include <qpen.h>
-#include <qpixmap.h>
-//Added by qt3to4:
-#include <QMouseEvent>
-#include <QKeyEvent>
-#include <QPaintEvent>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 #include "rc_timestamp.h"
 #include "rc_modeldomain.h"

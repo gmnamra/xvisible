@@ -17,27 +17,22 @@
 
 #include <iostream>
 #include <string.h>
-#include <sys/stat.h>
-#include <dirent.h>
-#include <sys/dir.h>
-#include <vector>
-#include <deque>
 #include <rc_types.h>
 #include <rc_pair.h>
-#include<cstdio>
-#include<list>
-#include<iterator>
-#include<stdexcept>
-
-extern "C" {
-	#include<glob.h>
-}
-
+#include <cstdio>
+#include <list>
+#include <iterator>
+#include <stdexcept>
+#include <deque>
 using namespace std;
 
 
 
 extern int alphasort ();
+
+bool RFY_API rf_ext_is_rfymov (const std::string& filename);
+bool RFY_API rf_ext_is_mov (const std::string& filename);
+bool RFY_API rf_ext_is_stk (const std::string& filename);
 
 void RFY_API rfGetDirEntries(const string & dirname, 
 		     vector<std::string> & entries, const char *imageformat = "tif");
@@ -57,9 +52,15 @@ std::string RFY_API rfGetExtension( const std::string& fileName );
 std::string RFY_API rfMakeTmpFileName(const char *pathFormat, const char* baseName );
 std::string RFY_API rfMakeTmpFileName(const char* baseName );
 
+
+bool RFY_API rf_sensitive_case_compare (const std::string& str1, const std::string& str2);
+
+
+bool RFY_API rf_insensitive_case_compare (const std::string& str1, const std::string& str2);
+
 static const char *defaultBase = "zoubin";
 
-std::string rfDumpMatrix (deque<deque<double> >& matrix, const char *pathFormat = 0,
+std::string RFY_API rfDumpMatrix (deque<deque<double> >& matrix, const char *pathFormat = 0,
 		       const char* baseName = defaultBase);
 
 #define __rcFILEUTILS_H

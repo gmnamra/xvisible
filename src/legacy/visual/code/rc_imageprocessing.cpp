@@ -79,7 +79,7 @@ void rcCverGenHalfRes(char* src, char* dest, const uint32 widthInPixels,
   if (invert)
     inv = 0xFF;
 
-  register uint16 accum;
+  uint16 accum;
 
   for (uint32 y = 0; y < heightInLines/EVEN_MODULUS; y++)
   {
@@ -570,7 +570,7 @@ void rfAndImage(const rcWindow& srcWin, const rcWindow& maskWin,
     {
       rmExceptionMacro(<< "IP MisMatch");
     }
-
+#ifdef __ppc__
   uint8* src = (uint8*)srcWin.rowPointer(0);
   uint8* dest = (uint8*)destWin.rowPointer(0);
   uint8* mask = (uint8*)maskWin.rowPointer(0);
@@ -581,7 +581,7 @@ void rfAndImage(const rcWindow& srcWin, const rcWindow& maskWin,
 
   int32 widthInPixels = srcWin.width()*((int32)srcWin.depth());
 
-#ifdef __ppc__
+
   if (rfHasSIMD () && (ALTIVEC_VALUE_MODULO(src) == 0) && (ALTIVEC_VALUE_MODULO(dest) == 0) &&
       (ALTIVEC_VALUE_MODULO(mask) == 0) &&
       (ALTIVEC_VALUE_MODULO(srcRowUpdate) == 0) && 

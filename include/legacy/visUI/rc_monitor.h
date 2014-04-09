@@ -10,17 +10,10 @@
 #ifndef UI_RCMONITOR_H
 #define UI_RCMONITOR_H
 
-#include <q3frame.h>
-#include <q3pointarray.h>
-#include <qimage.h>
-#include <qpixmap.h>
-//Added by qt3to4:
-#include <QResizeEvent>
-#include <Q3BoxLayout>
-#include <QMouseEvent>
-#include <QLabel>
-#include <QKeyEvent>
-#include <QPaintEvent>
+
+#include <QtGui/QtGui>
+#include <QtCore/QtCore>
+
 
 #include <rc_window.h>
 #include <rc_model.h>
@@ -30,7 +23,7 @@
 
 class rcTrackInfo;
 class QPainter;
-class Q3BoxLayout;
+class QBoxLayout;
 class QSpinBox;
 class QLabel;
 class QCheckBox;
@@ -44,7 +37,7 @@ class rcMonitor : public QWidget
     Q_OBJECT
 
   public:
-    rcMonitor( QWidget* parent=0, const char* name=0, Qt::WFlags f=0 );
+    rcMonitor( QWidget* parent=0, const char* name=0);
     ~rcMonitor();
 
     // Check if video data source is a camera
@@ -139,8 +132,8 @@ class rcMonitor : public QWidget
     rcTimestamp mCursorTime;       // Current cursor time
 
     rcImageCanvasGL *mCanvas;           // OpenGL display canvas
-    Q3BoxLayout      *mTopLayout;        // Top level layout
-    Q3BoxLayout      *mStatusLayout;     // Status area layout
+    QBoxLayout      *mTopLayout;        // Top level layout
+    QBoxLayout      *mStatusLayout;     // Status area layout
     QSpinBox        *mScaleWidget;      // Magnification scale control
     QLabel          *mStatusWidget;     // Status bar
     QCheckBox       *mSaturationWidget; // Checkbox for saturation detector
