@@ -26,10 +26,12 @@
 #include <rc_unittest.h>
 #include <rc_similarity.h>
 #include <rc_latticesimilarity.h>
+#include <rc_similarity_producer.h>
 
 class UT_similarity : public rcUnitTest {
 public:
 
+    
    UT_similarity();
    ~UT_similarity();
 
@@ -47,7 +49,27 @@ public:
 
    void testLattice();
 
-
+    void testProducer (const std::string& fqfn);
+    
 };
+
+
+
+class UT_similarity_producer : public rcUnitTest {
+public:
+    
+    UT_similarity_producer( const std::string& rfyInputMovie, const std::string& QTInputMovie );
+    ~UT_similarity_producer();
+    
+  
+    virtual uint32 run();
+    
+private:
+    bool test (const std::string& fqfn);
+    
+    std::string mRfyInputMovie;
+    std::string mQTInputMovie;
+};
+
 
 #endif /* __UT_SIMILARITY_H */

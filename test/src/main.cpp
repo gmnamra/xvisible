@@ -60,6 +60,19 @@ private:
 static ::testing::Environment* envp = 0;
 
 
+
+TEST (UT_videocache, run)
+{
+    genv* gvp = reinterpret_cast<genv*>(envp);
+    EXPECT_TRUE (gvp != 0 );
+    static std::string rfymov_name ("rev2.rfymov");
+    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);    
+    
+    UT_VideoCache test (rfymov);
+    EXPECT_EQ(0, test.run () );
+}
+
+
 TEST (UT_fileutils, run)
 {
     UT_fileutils test;
@@ -107,11 +120,25 @@ TEST( UT_Window, run )
 	EXPECT_EQ(0, test.run());
 }
 
-
+                       
 TEST(UT_similarity, run)
 {
-	UT_similarity test;
-	EXPECT_EQ(0, test.run());
+    UT_similarity test;
+    EXPECT_EQ(0, test.run());
+}
+
+
+TEST(UT_similarity_producer, run)
+{
+    genv* gvp = reinterpret_cast<genv*>(envp);
+    EXPECT_TRUE (gvp != 0 );
+    static std::string qmov_name ("box-move.mov");
+    static std::string rfymov_name ("box-move.rfymov");
+    std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
+    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);    
+    
+	UT_similarity_producer test (rfymov, qmov);
+    EXPECT_EQ(0, test.run());
 }
 
 

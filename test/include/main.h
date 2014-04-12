@@ -29,6 +29,7 @@
 #include <ut_pmcorr.h>
 #include <ut_similarity.h>
 #include <ut_movieconverter.h>
+#include <ut_videocache.h>
 
 
 #endif

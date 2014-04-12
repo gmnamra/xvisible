@@ -5,8 +5,8 @@
 #include "ut_videocache.h"
 #include <rc_videocache.h>
 #include <rc_windowhist.h>
+#include <timing.hpp>
 
-#include <rc_time.h>
 
 static std::string fileName;
 
@@ -479,13 +479,18 @@ void UT_VideoCache::simpleAllocTest()
       rcUNITTEST_ASSERT(buf->width() == 32);
       rcUNITTEST_ASSERT(buf->height() == 32);
       rcUNITTEST_ASSERT(buf->depth() == rcPixel8);
+        
+#ifdef LEGACY_COLORMAP        
       rcUNITTEST_ASSERT(buf->colorMapSize() == 256);
+        
       if (buf->colorMapSize() == 256) {
 	const uint32* colorMap = buf->colorMap();
 	rmAssert(colorMap);
 	for (uint32 c = 0; c < 256; c++)
 	  rcUNITTEST_ASSERT(colorMap[c] == rfRgb(c,c,c));
       }
+#endif
+        
       rcWindow win(buf);
       rcUNITTEST_ASSERT(buf.refCount() == 3);
 
@@ -510,6 +515,8 @@ void UT_VideoCache::simpleAllocTest()
       rcUNITTEST_ASSERT(buf->width() == 32);
       rcUNITTEST_ASSERT(buf->height() == 32);
       rcUNITTEST_ASSERT(buf->depth() == rcPixel8);
+     
+#ifdef LEGACY_COLORMAP           
       rcUNITTEST_ASSERT(buf->colorMapSize() == 256);
       if (buf->colorMapSize() == 256) {
 	const uint32* colorMap = buf->colorMap();
@@ -517,6 +524,8 @@ void UT_VideoCache::simpleAllocTest()
 	for (uint32 c = 0; c < 256; c++)
 	  rcUNITTEST_ASSERT(colorMap[c] == rfRgb(c,c,c));
       }
+#endif        
+        
       rcWindow win(buf);
       rcUNITTEST_ASSERT(buf.refCount() == 3);
 
@@ -569,12 +578,11 @@ void UT_VideoCache::prefetchTest()
     frameBuf[i].prefetch();
   
   usleep(200000);
-  rcTime timer;
-
-  timer.start();
+    chronometer timer;
   for (uint32 i = 0; i < frameCount; i++)
     frameBuf[i].lock();
-  timer.end();
+
+    double prefetchTime = timer.getTime ();    
 
   for (uint32 i = 0; i < frameCount; i++) {
     rcWindow win(frameBuf[i]);
@@ -582,7 +590,7 @@ void UT_VideoCache::prefetchTest()
     rcUNITTEST_ASSERT(hist[i] == win.pixelCount());
   }
 
-  double prefetchTime = timer.microseconds();
+
 
   rcVideoCache::rcVideoCacheDtor(cacheP);
 
@@ -595,10 +603,11 @@ void UT_VideoCache::prefetchTest()
       return; // No point continuing if we've already screwed up
   }
 
-  timer.start();
+   
+    timer.reset ();
   for (uint32 i = 0; i < frameCount; i++)
     frameBuf[i].lock();
-  timer.end();
+    double noPrefetchTime = timer.getTime ();
 
   for (uint32 i = 0; i < frameCount; i++) {
     rcWindow win(frameBuf[i]);
@@ -606,7 +615,7 @@ void UT_VideoCache::prefetchTest()
     rcUNITTEST_ASSERT(hist[i] == win.pixelCount());
   }
 
-  double noPrefetchTime = timer.microseconds();
+
 
   rcVideoCache::rcVideoCacheDtor(cacheP);
 

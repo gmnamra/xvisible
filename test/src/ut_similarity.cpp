@@ -2,6 +2,7 @@
 #include "ut_similarity.h"
 #include <rc_math.h>
 #include <rc_fileutils.h>
+#include <rc_similarity_producer.h>
 
 UT_similarity::UT_similarity()
 {
@@ -12,6 +13,37 @@ UT_similarity::~UT_similarity()
     printSuccessMessage( "rcSimilarator test", mErrors );
 }
 
+
+UT_similarity_producer::UT_similarity_producer( const std::string& rfyInputMovie, const std::string& QTInputMovie ) :
+   mRfyInputMovie( rfyInputMovie ), mQTInputMovie( QTInputMovie )
+{
+    rcUTCheck( rfFileExists (rfyInputMovie  ) );
+    rcUTCheck( rfFileExists (QTInputMovie) );
+}
+
+
+UT_similarity_producer::~UT_similarity_producer()
+{
+    printSuccessMessage( "rcSimilarator Producer test", mErrors );
+}
+
+
+
+uint32 UT_similarity_producer::run ()
+{
+    test (mRfyInputMovie) ;
+    return 0;
+}
+
+
+bool UT_similarity_producer::test (const std::string& fqfn)
+{
+    boost::shared_ptr<SimilarityProducer> sp ( new SimilarityProducer ( fqfn ) );
+    sp->operator()(0, 0);
+    
+    return true;
+    
+}
 
 
 void UT_similarity::testBasics()
