@@ -4,6 +4,7 @@
 #include <rc_fileutils.h>
 #include <rc_similarity_producer.h>
 #include <boost/bind/bind.hpp>
+#include <timing.hpp>
 
 UT_similarity::UT_similarity()
 {
@@ -229,7 +230,7 @@ void UT_similarity::testUpdate()
     } // End of: for (... ; depth != rcPixelDouble; ... ) {
 }
 
-#if 0
+
 // Test performance with different vector sizes
 void UT_similarity::testPerformance(bool useAltivec, bool useExh,
 				    uint32 size, vector<rcWindow>& images)
@@ -244,7 +245,7 @@ void UT_similarity::testPerformance(bool useAltivec, bool useExh,
      
   rfForceSIMD(useAltivec);
    
-  rcTime timer;
+
   uint32 repeats = 1;
 
   rcSimilarator::rcMatrixGeneration type = rcSimilarator::eApproximate;
@@ -253,17 +254,17 @@ void UT_similarity::testPerformance(bool useAltivec, bool useExh,
 
   rcSimilarator sim(type, images[0].depth(), size, 0);
 
-  timer.start();
+    {
+        chronometer timer;
+        double starttime = timer.getTime();
   for (uint32 i = 0; i < repeats; ++i) {
     deque<double> sr;
     sim.fill(images);
     sim.entropies(sr);
     rmAssertDebug(sr.size() == imagevector.size());
   }
-  timer.end();
         
-  double dMilliSeconds = timer.milliseconds() / repeats;
-  double dMicroSeconds = timer.microseconds() / repeats;
+  double dMicroSeconds = timer.getTime() / repeats;
         
   // Per Byte in Useconds
   double perByte = dMicroSeconds /
@@ -272,14 +273,15 @@ void UT_similarity::testPerformance(bool useAltivec, bool useExh,
   fprintf(stderr,
 	  "Performance: %s rcSimilarator[%s<%-.3lu>] "
 	  "correlation [%i x %i %i]: %.3f ms, %.6f us/8bit pixel "
-	  "%.2f MB/s, %.2f fps\n",
+	  "%.2f MB/s \n",
 	  useAltivec ? "AltiVec" : "       ",
 	  useExh ? "exhaustive" : "approximat",
 	  imagevector.size(), imagevector[0].width(), imagevector[0].height(),
-	  imagevector[0].depth() * 8, dMilliSeconds, perByte, 1/perByte,
-	  1000/dMilliSeconds);
+          imagevector[0].depth() * 8, dMicroSeconds / 1000., perByte, 1/perByte);
+    }
+    
 }
-#endif
+
 
 uint32 UT_similarity::run()
 {
@@ -291,7 +293,6 @@ uint32 UT_similarity::run()
   const uint32 min = 2;
   const uint32 max = 16;
 
-#if 0 // defined (PERFORMANCE)
   // Create a vector of random images
   vector<rcWindow> imagevector( max );
   for (uint32 i = 0; i < imagevector.size(); ++i) {
@@ -303,16 +304,16 @@ uint32 UT_similarity::run()
   for ( uint32 i = min; i <= max; i *=2 ) {
       // vector ctor
       testPerformance( false, true, i, imagevector ); 
-      testPerformance( true, true, i, imagevector ); // Altivec
+      //    testPerformance( true, true, i, imagevector ); // Altivec
   }
   fprintf(stderr, "\n" );
   for ( uint32 i = min; i <= max; i *=2 ) {
       // deque ctor
       testPerformance( false, false, i, imagevector );
-      testPerformance( true, false, i, imagevector ); // Altivec
+      //      testPerformance( true, false, i, imagevector ); // Altivec
   }
 
-#endif  // Performace
+
 	
   return mErrors;
 }
