@@ -37,7 +37,10 @@ public:
 
    virtual uint32 run();
 
+   
   private:
+  
+    
    void testBasics();
 
    // Test that update produces same results as fill
@@ -50,7 +53,8 @@ public:
    void testLattice();
 
     void testProducer (const std::string& fqfn);
-    
+
+
 };
 
 
@@ -63,8 +67,23 @@ public:
     
   
     virtual uint32 run();
+    void signal_movie_loaded () { movie_loaded = true; }
+    void signal_frame_loaded (int& findex, double& timestamp)
+    { 
+        frame_indices.push_back (findex);
+        frame_times.push_back (timestamp);
+        std::cout << "[" << findex << "] " << timestamp << std::endl;
+    }    
+    
     
 private:
+    std::vector<int> frame_indices;
+    std::vector<double> frame_times;
+    
+    bool movie_loaded;    
+    void clear_movie_loaded () { movie_loaded = false; }
+    bool is_movie_loaded () { return movie_loaded; }
+
     bool test (const std::string& fqfn);
     
     std::string mRfyInputMovie;

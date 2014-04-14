@@ -37,7 +37,6 @@
 #include <rc_math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <rc_time.h>
 #include <rc_line.h>
 
 #define UTCHECKLINE(a,b,c) \

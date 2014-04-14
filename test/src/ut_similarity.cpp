@@ -3,6 +3,7 @@
 #include <rc_math.h>
 #include <rc_fileutils.h>
 #include <rc_similarity_producer.h>
+#include <boost/bind/bind.hpp>
 
 UT_similarity::UT_similarity()
 {
@@ -31,17 +32,27 @@ UT_similarity_producer::~UT_similarity_producer()
 
 uint32 UT_similarity_producer::run ()
 {
-    test (mRfyInputMovie) ;
-    return 0;
+    if (test (mRfyInputMovie)) return 0;
+    return 1;
 }
 
 
 bool UT_similarity_producer::test (const std::string& fqfn)
 {
-    boost::shared_ptr<SimilarityProducer> sp ( new SimilarityProducer ( fqfn ) );
+    clear_movie_loaded();
+    boost::function<void (void)> movie_loaded_cb = boost::bind (&UT_similarity_producer::signal_movie_loaded, this); 
+    boost::function<void (int&,double&)> frame_loaded_cb = boost::bind (&UT_similarity_producer::signal_frame_loaded, this, _1, _2);   
+    
+    boost::shared_ptr<SimilarityProducer> sp ( new SimilarityProducer () );
+    boost::signals2::connection ml_connection = sp->registerCallback(movie_loaded_cb);
+    boost::signals2::connection fl_connection = sp->registerCallback(frame_loaded_cb);    
+    //    bool provides_movie_loaded_signal = sp->providesCallback<movie_loaded_cb> ();
+    
+    sp->load_content_file(fqfn);
+    
     sp->operator()(0, 0);
     
-    return true;
+    return is_movie_loaded () && sp->has_content();
     
 }
 

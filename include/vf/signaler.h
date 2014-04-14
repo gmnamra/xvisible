@@ -13,6 +13,13 @@
 
 
   /** \brief signaler interface for 
+   
+   // make callback function from member function
+    boost::function<void (..onearg..)> f = boost::bind (&Observer::cb_, this, _1);
+   
+   // connect callback function for desired signal. In this case its a point cloud with color values
+   boost::signals2::connection c = interface->registerCallback (f);
+
     */
   class rc_signaler
   {
