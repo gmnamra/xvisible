@@ -69,7 +69,7 @@ TEST( UT_FrameBuf, run )
 
 
 
-TEST(UT_similarity_producer, run)
+TEST (UT_movieconverter, run)
 {
     genv* gvp = reinterpret_cast<genv*>(envp);
     EXPECT_TRUE (gvp != 0 );
@@ -78,8 +78,21 @@ TEST(UT_similarity_producer, run)
     std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
     std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);    
     
-	UT_similarity_producer test (rfymov, qmov);
-    EXPECT_EQ(0, test.run());
+    UT_movieconverter test (rfymov.c_str(), qmov.c_str () );
+    
+    EXPECT_EQ (0, test.run());
+}
+
+
+TEST ( UT_ReifyMovieGrabber, run )
+{
+    genv* gvp = reinterpret_cast<genv*>(envp);
+    EXPECT_TRUE (gvp != 0 );
+    static std::string rfymov_name ("rev2.rfymov");
+    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);    
+    
+    UT_ReifyMovieGrabber test ( rfymov );
+    EXPECT_EQ(0, test.run () );
 }
 
 
@@ -95,13 +108,8 @@ TEST (UT_videocache, run)
 }
 
 
-TEST (UT_fileutils, run)
-{
-    UT_fileutils test;
-    EXPECT_EQ(0, test.run () );
-}
 
-TEST (UT_movieconverter, run)
+TEST(UT_similarity_producer, run)
 {
     genv* gvp = reinterpret_cast<genv*>(envp);
     EXPECT_TRUE (gvp != 0 );
@@ -110,11 +118,16 @@ TEST (UT_movieconverter, run)
     std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
     std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);    
     
-    UT_movieconverter test (rfymov.c_str(), qmov.c_str () );
-    
-    EXPECT_EQ (0, test.run());
+	UT_similarity_producer test (rfymov, qmov);
+    EXPECT_EQ(0, test.run());
 }
 
+
+TEST (UT_fileutils, run)
+{
+    UT_fileutils test;
+    EXPECT_EQ(0, test.run () );
+}
 
 
 TEST (UT_1dp, run)
@@ -178,13 +191,6 @@ TEST ( UT_cordic, run )
   EXPECT_EQ(0,  test.run());
 }
 
-
-// security code tests
-//TEST ( UT_Security, run )
-//{
-//  UT_Security test;
-//  EXPECT_EQ(0,  test.run());
-//}
 
 // rcTimestamp tests
 TEST ( UT_Timestamp, run )

@@ -35,7 +35,7 @@ template int32 rfGradHist1d (const uint32*, const uint32*);
 
 static void rfGauss3by3 (const rcWindow& src, rcWindow& dest);
 static void rfGauss163by3 (const rcWindow& src, rcWindow& dest);
-static void rfGauss3(const rcWindow& src, rcWindow& dest, bool);
+static void rfGauss3(const rcWindow& src, rcWindow& dest);
 
 
 static const short sGaussKernel3 [3][3] = {{1,2,1},{2,4,2},{1,2,1}};
@@ -227,7 +227,6 @@ void rfGaussianConv (const rcWindow& src, rcWindow& dest, int32 kernelSize)
 	assert(dest.width() == src.width());
 	assert(dest.height() == src.height());
 	assert(dest.depth() == src.depth());
-	bool Depth32IsFloat = src.isD32Float ();
 	assert(&src != &dest);
 
 	const uint32 width(src.width());
@@ -281,7 +280,7 @@ void rfGaussianConv (const rcWindow& src, rcWindow& dest, int32 kernelSize)
 			rmAssert (!ve);
 			return;
 		}
-		else if (src.depth() == rcPixel32S && Depth32IsFloat)
+		else if (src.depth() == rcPixelFloat )
 		{
 			vImage_Buffer vb, vd;
 			src.vImage (vb);	  dest.vImage (vd);
@@ -308,7 +307,7 @@ void rfGaussianConv (const rcWindow& src, rcWindow& dest, int32 kernelSize)
 
 	if(kernelSize == 3)
 	{
-		rfGauss3(src,dest, Depth32IsFloat);
+		rfGauss3(src,dest);
 		return;
 	}
 
@@ -318,19 +317,19 @@ void rfGaussianConv (const rcWindow& src, rcWindow& dest, int32 kernelSize)
 	rcWindow& dest1 =  (kernelSize % 4 == 1) ? work : dest;
 	rcWindow& dest2 =  (kernelSize % 4 == 3) ? work : dest;
 
-	rfGauss3 (src,dest1, Depth32IsFloat);
+	rfGauss3 (src,dest1);
 
 	while(1)
 	{
 		kernelSize -= 2;
 
-		rfGauss3 (dest1, dest2, Depth32IsFloat);
+		rfGauss3 (dest1, dest2);
 		if(kernelSize == 3)
 			return;
 
 		kernelSize -= 2;
 
-		rfGauss3 (dest2, dest1, Depth32IsFloat);
+		rfGauss3 (dest2, dest1);
 		if(kernelSize == 3)
 			return;
 	}
@@ -343,7 +342,7 @@ void rfGaussianConv (const rcWindow& src, rcWindow& dest, int32 kernelSize)
 
 
 
-static void rfGauss3(const rcWindow& src, rcWindow& dest, bool dIsFloat)
+static void rfGauss3(const rcWindow& src, rcWindow& dest)
 {
    assert(src.width() >= 3);
    assert(src.height() >= 3);
@@ -386,7 +385,7 @@ static void rfGauss3(const rcWindow& src, rcWindow& dest, bool dIsFloat)
 	 rmAssert (!ve);
 	 return;
        }
-     else if (src.depth() == rcPixel32S && dIsFloat)
+     else if (src.depth() == rcPixelFloat )
        {
 	 vImage_Buffer vb, vd;
 	 src.vImage (vb);	  dest.vImage (vd);

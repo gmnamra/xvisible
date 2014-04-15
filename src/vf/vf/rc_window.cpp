@@ -36,13 +36,13 @@ ci::Channel8u* rcWindow::new_channel () const
 const uint8 *rcWindow::rowPointer (int32 y) const
  { 
    rmAssertDebug( y >= 0 ); 
-   return (mFrameBuf->rowPointer (y + mGeometry.y() ) + mGeometry.x() * mFrameBuf->depth ()); 
+   return (mFrameBuf->rowPointer (y + mGeometry.y() ) + mGeometry.x() * mFrameBuf->bytes ()); 
  }
 
 uint8 *rcWindow::rowPointer (int32 y) 
  { 
    rmAssertDebug( y >= 0 ); 
-   return (mFrameBuf->rowPointer (y + mGeometry.y() ) + mGeometry.x() * mFrameBuf->depth ()); 
+   return (mFrameBuf->rowPointer (y + mGeometry.y() ) + mGeometry.x() * mFrameBuf->bytes ()); 
  }
 
 const uint8* rcWindow::pelPointer (int32 x, int32 y) const
@@ -321,7 +321,7 @@ rcWindow& rcWindow::copyPixelsFromWindow(const rcWindow& srcWindow, bool mirror)
     rmExceptionMacro(<< "IP Window::mismatch");    
     
     const int32 rowCount = rmMin(height(), srcWindow.height());
-    const int32 rowLth = rmMin(width(), srcWindow.width()) * depth();
+    const int32 rowLth = rmMin(width(), srcWindow.width()) * bytes ();
 
     // Note: lastRow is not rowCount - 1 but height() - 1. This does not matter if the
     // images are the same size or src is bigger but when the destination is larger 
@@ -345,7 +345,7 @@ void rcWindow::mirror()
 {
     const int32 mid = height()/2;
     const int32 lastRow = height()-1;
-    const int32 rowLen = width() * depth();
+    const int32 rowLen = width() * bytes ();
     uint8 tmp[rowLen];
     
     for (int32 row = 0; row < mid; row++) {
@@ -369,37 +369,8 @@ rcWindow& rcWindow::set(double pixelValue)
       return setAllPixels ((uint32) pixelValue);
 
     case rcPixel32S:
-      if (!isD32Float ())
 	return setAllPixels ((uint32) pixelValue);	
-      else
-      {
-      int32 lastRow = height() - 1, row = 0;
-      const int32 unrollCount = 8;
-      int32 unrollCnt = width() / unrollCount;
-      int32 unrollRem = width() % unrollCount;
-
-            for ( ; row <= lastRow; row++)
-            {
-                float* pixelPtr = (float *) rowPointer(row);
-                
-                for (int32 copyCount = 0; copyCount < unrollCnt; copyCount++)
-                {
-                    *pixelPtr++ = pixelValue;
-                    *pixelPtr++ = pixelValue;
-                    *pixelPtr++ = pixelValue;
-                    *pixelPtr++ = pixelValue;
-                    *pixelPtr++ = pixelValue;
-                    *pixelPtr++ = pixelValue;
-                    *pixelPtr++ = pixelValue;
-                    *pixelPtr++ = pixelValue;
-                }
-                
-                for (int32 copyCount = 0; copyCount < unrollRem; copyCount++)
-                    *pixelPtr++ = pixelValue;
-            }
-      }
-      return *this;
-    default:
+      default:
       rmExceptionMacro(<< "IP Window::not implemented");      
     }
 }
@@ -767,16 +738,7 @@ double rcWindow::getDoublePixel( int32 x, int32 y ) const
 		if (depth() != other.depth()) return false;
 		if (size() != other.size()) return false;
 
-		if (isD32Float() && other.isD32Float())
-		{
-			switch (depth())
-			{
-				PIXELEQUAL(rcPixel32S, float*, 0.1f);
-				default:
-				rmExceptionMacro ("Pixel Type Not Implemented");
-			}
-		}
-
+	
 		if (! verbose)
 		{
 			switch (depth())
@@ -852,10 +814,7 @@ void rfSetWindowBorder (rcWindow& win, double val)
       SETPIXELBORDER(rcPixel16,uint16);
       SETPIXELBORDER(rcPixelDouble,double);
     case rcPixel32S:
-      if (!win.isD32Float())
 	rf_SetWindowBorder (win, (uint32) val);
-      else
-	rf_SetWindowBorder (win, (float) val);
       return;
     default:
       rmExceptionMacro(<< "IP Window::not implemented");      

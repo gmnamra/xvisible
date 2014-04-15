@@ -104,7 +104,6 @@ public:
   uint32 pixelCount() const { return mGeometry.width () * mGeometry.height (); }
   int32 n () const { return mGeometry.width () * mGeometry.height (); }
   bool isGray() const { return mFrameBuf->isGray(); }
-  inline bool isD32Float() const { return mFrameBuf->isD32Float(); }
 
   int32 x() const { return mGeometry.x(); }
   int32 y() const { return mGeometry.y(); }

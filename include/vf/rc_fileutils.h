@@ -37,6 +37,8 @@ bool RFY_API rf_ext_is_stk (const std::string& filename);
 void RFY_API rfGetDirEntries(const string & dirname, 
 		     vector<std::string> & entries, const char *imageformat = "tif");
 
+void RFY_API rfGetFilesFromSeparatedList (const std::string& listed_files, vector<std::string> & entries, int frame_count, int frame_index, const char token = ';' );
+
 void RFY_API rfSortImageFileNames(const vector<std::string> & files, vector<std::string> & entries, const char *imageformat);
 
 bool RFY_API rfIsDirectory (const char * inFullPath);

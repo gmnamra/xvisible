@@ -63,8 +63,7 @@ bool rcRowFuncTwoSource<double>::checkAssigned (const rcWindow& srcA, const rcWi
 template <>
 bool rcRowFuncTwoSource<float>::checkAssigned (const rcWindow& srcA, const rcWindow& srcB) 
 {
-  return (srcA.depth() == rcPixelFloat && srcB.depth() == rcPixelFloat && 
-					srcA.frameBuf()->isD32Float() && 	  srcB.frameBuf()->isD32Float() );
+    return srcA.depth() == rcPixelFloat && srcB.depth() == rcPixelFloat;
 }
 
 

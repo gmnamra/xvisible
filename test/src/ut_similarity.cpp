@@ -6,6 +6,8 @@
 #include <boost/bind/bind.hpp>
 #include <timing.hpp>
 
+using namespace boost;
+
 UT_similarity::UT_similarity()
 {
 }
@@ -146,9 +148,11 @@ void UT_similarity::testUpdate()
   // Test LongTerm Correlation only for Exhaustive. 
 
    uint32 matGen = 0;
-    for (rcPixel depth = rcPixel8; depth != rcPixelDouble;
-	 depth = (rcPixel)((uint32)depth << 1))
+    
+    int depths[3] = {get_ipl().id (rcPixel8), get_ipl().id(rcPixel16), get_ipl().id(rcPixel32S) };
+    for (int i = 0; i < 3; i++)
     {
+      rcPixel depth = get_pixel().em(depths[i]);
       uint32 icnt = 15;
       uint32 winSz = 2;
       vector<rcWindow> srcvector(icnt);

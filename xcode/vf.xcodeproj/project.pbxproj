@@ -37,6 +37,8 @@
 		C27C02E118D75F3E00FD9FE6 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAEE00F42239D003CC197 /* AppKit.framework */; };
 		C27C02E418D75F3E00FD9FE6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAED60F421FE2003CC197 /* Carbon.framework */; };
 		C299934418FCAE3D008397D2 /* ut_framebuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA27A0F21357A0046570D /* ut_framebuf.cpp */; };
+		C299934518FDB17F008397D2 /* ut_reifymoviegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA29A0F21357A0046570D /* ut_reifymoviegrabber.cpp */; };
+		C299934718FDBD44008397D2 /* rc_mathmodel.h in Headers */ = {isa = PBXBuildFile; fileRef = C299934618FDBD44008397D2 /* rc_mathmodel.h */; };
 		C2B8E99C187DDC510060D961 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA26D0F21357A0046570D /* main.cpp */; };
 		C2B8EA02187E11F20060D961 /* ut_timestamp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2A70F21357A0046570D /* ut_timestamp.cpp */; };
 		C2B8EA03187E13170060D961 /* ut_atomic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2720F21357A0046570D /* ut_atomic.cpp */; };
@@ -528,6 +530,7 @@
 		C27C02E818D75F3E00FD9FE6 /* libvf32_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libvf32_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C297DD3C18A1B5F100F217A5 /* ut_persistence1d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ut_persistence1d.h; path = ../test/include/ut_persistence1d.h; sourceTree = "<group>"; };
 		C297DD4218A1D7B400F217A5 /* persistence1d */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = persistence1d; sourceTree = BUILT_PRODUCTS_DIR; };
+		C299934618FDBD44008397D2 /* rc_mathmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_mathmodel.h; sourceTree = "<group>"; };
 		C2A9A6730F29200900DA781F /* ut_analysis_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_analysis_main.cpp; path = ../test/src/ut_analysis_main.cpp; sourceTree = SOURCE_ROOT; };
 		C2A9AB7A0F2FD4B000DA781F /* ut_simd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_simd.cpp; path = ../test/src/ut_simd.cpp; sourceTree = SOURCE_ROOT; };
 		C2B8E993187DDC2B0060D961 /* gut */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gut; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1287,6 +1290,7 @@
 		C2C28F7318F4A6B100BA7E79 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C299934618FDBD44008397D2 /* rc_mathmodel.h */,
 				C26F48C718FC75D6006DF78F /* rc_ncs.h */,
 				C2C2931A18F8D64400BA7E79 /* timing.hpp */,
 				C2C292F918F8570900BA7E79 /* static.hpp */,
@@ -1714,6 +1718,7 @@
 				C2C2905B18F4A6B200BA7E79 /* rc_moviegrabber.h in Headers */,
 				C2C2906A18F4A6B200BA7E79 /* rc_reifymoviegrabber.h in Headers */,
 				C2C2905E18F4A6B200BA7E79 /* rc_parametermap.h in Headers */,
+				C299934718FDBD44008397D2 /* rc_mathmodel.h in Headers */,
 				C2C2903618F4A6B200BA7E79 /* rc_correlationwindow.h in Headers */,
 				C2C2903C18F4A6B200BA7E79 /* rc_ellipse.h in Headers */,
 				C2C2908618F4A6B200BA7E79 /* rc_windowhist.h in Headers */,
@@ -2291,6 +2296,7 @@
 				C2B8EA02187E11F20060D961 /* ut_timestamp.cpp in Sources */,
 				C2B8EA07187E13880060D961 /* ut_window.cpp in Sources */,
 				C2B8EA09187E13A80060D961 /* ut_thread.cpp in Sources */,
+				C299934518FDB17F008397D2 /* ut_reifymoviegrabber.cpp in Sources */,
 				C2B8EA03187E13170060D961 /* ut_atomic.cpp in Sources */,
 				C2B8E99C187DDC510060D961 /* main.cpp in Sources */,
 				C2B8EA08187E13A40060D961 /* ut_stats.cpp in Sources */,

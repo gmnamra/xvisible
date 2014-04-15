@@ -52,6 +52,22 @@ struct ipl_pixel_type_id
 SINGLETON_FCN(pixel_bytes,get_bytes);
 SINGLETON_FCN(ipl_pixel_type_id,get_ipl);
 
+
+struct rc_pixel_type_enum
+{
+    rcPixel em ( int rp)
+    {
+        if (rp == get_ipl().id (rcPixel8)) return rcPixel8;
+        if (rp == get_ipl().id (rcPixel16)) return rcPixel16;        
+        if (rp == get_ipl().id (rcPixel32S)) return rcPixel32S;  
+        if (rp == get_ipl().id (rcPixelFloat)) return rcPixelFloat; 
+        if (rp == get_ipl().id (rcPixelDouble)) return rcPixelDouble;         
+        return rcPixelUnknown;        
+    }
+};
+
+SINGLETON_FCN(rc_pixel_type_enum,get_pixel);
+
 // Legacy rcPixelX values were equal to number of bytes 
 
 struct rp_depth

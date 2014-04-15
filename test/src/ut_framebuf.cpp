@@ -91,13 +91,9 @@ UT_FrameBuf::run()
     // Large buffers
     {        
         // Test all depths
-        testFrameBuffer( 640, 480, rcPixel8 );
-        testFrameBuffer( 640, 480, rcPixel16 );        
+        testFrameBuffer( 1600, 1200, rcPixel8 );
+        testFrameBuffer( 1152, 864, rcPixel16 );        
         testFrameBuffer( 640, 480, rcPixel32S );        
-            //testFrameBuffer( 600, 800, i );
-            //testFrameBuffer( 1024, 768, i );  
-            //testFrameBuffer( 1152, 864, i );  
-            //testFrameBuffer( 1600, 1200, i );  
 
     }
 
@@ -264,7 +260,7 @@ void UT_FrameBuf::testRowPointers( int32 width, int32 height, rcPixel depth )
    rcUNITTEST_ASSERT( buf->depth() == depth );
    rcUNITTEST_ASSERT( buf->rawData() != 0 );
 
-#if 0
+
    // RowPointer Tests
    for ( int32 row = 0; row < buf->height(); row++ )
       {
@@ -274,6 +270,6 @@ void UT_FrameBuf::testRowPointers( int32 width, int32 height, rcPixel depth )
                              buf->rowUpdate ());
       }
 
-#endif   
+
    delete buf;
 }

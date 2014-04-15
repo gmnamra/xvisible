@@ -30,6 +30,40 @@ bool rfNocaseEqual (const std::string& s1, const std::string& s2)
 	return equal (s1.begin (), s1.end (), s2.begin (), nocase_compare);
 }
 
+void RFY_API rfGetFilesFromSeparatedList (const std::string& inputFile, vector<std::string> & fileNames, int frame_count, int frame_index, const char token)
+{
+    fileNames.resize (0);    
+    if ( !inputFile.empty() )
+    {
+        vector<const char*> files;
+        std::string::size_type str = 0, idx = 0;
+        int32 i = 0;
+        int32 firstIndex = frame_index;
+        int32 frameCount = frame_count;
+        
+        while ( str < inputFile.size() ) {
+            idx = inputFile.find( ';', str );
+            if ( idx != std::string::npos ) {
+                if ( i >= firstIndex ) {
+                    if ( frameCount >= 0 && fileNames.size() == uint32(frameCount) )
+                        break;
+                    std::string oneFile = inputFile.substr( str, idx - str );
+                    fileNames.push_back( oneFile );
+                }
+                str = idx + 1;
+                ++i;
+            } else
+                break;
+        }
+#ifdef DEBUG_LOG
+        cerr << "Exporting " <<  fileNames.size() << " images " << endl;
+        for ( uint32 x = 0; x < fileNames.size(); ++x ) {
+            cerr << fileNames[x] << endl;
+        }
+#endif    
+    }
+}
+
 
 
 static int alphasorthalf (const void*d1, const void*d2);
@@ -87,17 +121,17 @@ void rfSortImageFileNames(const vector<std::string> & entries, vector<std::strin
     {
         std::sort (files.begin(), files.end(), numeric_compare);
     }
-
+    
     if (strncmp(imageformat, "jpg", 3) == 0)
     {
         std::sort (files.begin(), files.end(), natural_compare);
     }
-
+    
 	if (strncmp(imageformat, "png", 3) == 0)
     {
         std::sort (files.begin(), files.end(), natural_compare);
     }
-
+    
 }
 
 
@@ -164,10 +198,10 @@ bool rfIsDirectory (const char * inFullPath)
 
 static int alphasorthalf (const void*d1, const void*d2)
 {
-  struct dirent *dir1 = *(struct dirent **)d1;
-  struct dirent *dir2 = *(struct dirent **)d2;
-
-  return strcmp(dir1->d_name,dir2->d_name);
+    struct dirent *dir1 = *(struct dirent **)d1;
+    struct dirent *dir2 = *(struct dirent **)d2;
+    
+    return strcmp(dir1->d_name,dir2->d_name);
 }
 
 
@@ -196,8 +230,8 @@ std::string rfGetExtension( const std::string& fileName )
 #define DFN_EXT_IS(_EXT_)\
 bool rf_ext_is_##_EXT_ (const std::string& filename)\
 {\
-    std::string _EXT_ (#_EXT_);\
-    return rf_insensitive_case_compare(rfGetExtension(filename), _EXT_);\
+std::string _EXT_ (#_EXT_);\
+return rf_insensitive_case_compare(rfGetExtension(filename), _EXT_);\
 }
 
 DFN_EXT_IS(rfymov);
@@ -214,46 +248,46 @@ DFN_EXT_IS(stk);
 
 
 static int numericsort(const void *A, const void *B, int cs) {
-  struct dirent *dir1 = *(struct dirent **)A;
-  struct dirent *dir2 = *(struct dirent **)B;
-
-  const char* a = dir1->d_name;
-  const char* b = dir2->d_name;
-  int ret = 0;
-  for (;;) {
-    if (isdigit(*a & 255) && isdigit(*b & 255)) {
-      int diff,magdiff;
-      while (*a == '0') a++;
-      while (*b == '0') b++;
-      while (isdigit(*a & 255) && *a == *b) {a++; b++;}
-      diff = (isdigit(*a & 255) && isdigit(*b & 255)) ? *a - *b : 0;
-      magdiff = 0;
-      while (isdigit(*a & 255)) {magdiff++; a++;}
-      while (isdigit(*b & 255)) {magdiff--; b++;}
-      if (magdiff) {ret = magdiff; break;} /* compare # of significant digits*/
-      if (diff) {ret = diff; break;}	/* compare first non-zero digit */
-    } else {
-      if (cs) {
-      	/* compare case-sensitive */
-	if ((ret = *a-*b)) break;
-      } else {
-	/* compare case-insensitve */
-	if ((ret = tolower(*a & 255)-tolower(*b & 255))) break;
-      }
-
-      if (!*a) break;
-      a++; b++;
+    struct dirent *dir1 = *(struct dirent **)A;
+    struct dirent *dir2 = *(struct dirent **)B;
+    
+    const char* a = dir1->d_name;
+    const char* b = dir2->d_name;
+    int ret = 0;
+    for (;;) {
+        if (isdigit(*a & 255) && isdigit(*b & 255)) {
+            int diff,magdiff;
+            while (*a == '0') a++;
+            while (*b == '0') b++;
+            while (isdigit(*a & 255) && *a == *b) {a++; b++;}
+            diff = (isdigit(*a & 255) && isdigit(*b & 255)) ? *a - *b : 0;
+            magdiff = 0;
+            while (isdigit(*a & 255)) {magdiff++; a++;}
+            while (isdigit(*b & 255)) {magdiff--; b++;}
+            if (magdiff) {ret = magdiff; break;} /* compare # of significant digits*/
+            if (diff) {ret = diff; break;}	/* compare first non-zero digit */
+        } else {
+            if (cs) {
+                /* compare case-sensitive */
+                if ((ret = *a-*b)) break;
+            } else {
+                /* compare case-insensitve */
+                if ((ret = tolower(*a & 255)-tolower(*b & 255))) break;
+            }
+            
+            if (!*a) break;
+            a++; b++;
+        }
     }
-  }
-  if (!ret) return 0;
-  else return (ret < 0) ? -1 : 1;
+    if (!ret) return 0;
+    else return (ret < 0) ? -1 : 1;
 }
 
 /*
  * 'casenumericsort()' - Compare directory entries with case-sensitivity.
  */
 
- bool numeric_compare (const std::string& A, const std::string& B)
+bool numeric_compare (const std::string& A, const std::string& B)
 {
     return numericsort(A.c_str(), B.c_str(), 0) == 0;
 }
@@ -261,75 +295,75 @@ static int numericsort(const void *A, const void *B, int cs) {
 
 int rfFilename_match(const char *s, const char *p)
 {
-  int matched;
-
-  for (;;) {
-    switch(*p++) {
-
-    case '?' :	// match any single character
-      if (!*s++) return 0;
-      break;
-
-    case '*' :	// match 0-n of any characters
-      if (!*p) return 1; // do trailing * quickly
-      while (!rfFilename_match(s, p)) if (!*s++) return 0;
-      return 1;
-
-    case '[': {	// match one character in set of form [abc-d] or [^a-b]
-      if (!*s) return 0;
-      int reverse = (*p=='^' || *p=='!'); if (reverse) p++;
-      matched = 0;
-      char last = 0;
-      while (*p) {
-	if (*p=='-' && last) {
-	  if (*s <= *++p && *s >= last ) matched = 1;
-	  last = 0;
-	} else {
-	  if (*s == *p) matched = 1;
-	}
-	last = *p++;
-	if (*p==']') break;
-      }
-      if (matched == reverse) return 0;
-      s++; p++;}
-      break;
-
-    case '{' : // {pattern1|pattern2|pattern3}
-    NEXTCASE:
-      if (rfFilename_match(s,p)) return 1;
-    for (matched = 0;;) {
-      switch (*p++) {
-      case '\\': if (*p) p++; break;
-      case '{': matched++; break;
-      case '}': if (!matched--) return 0; break;
-      case '|': case ',': if (matched==0) goto NEXTCASE;
-      case 0: return 0;
-      }
+    int matched;
+    
+    for (;;) {
+        switch(*p++) {
+                
+            case '?' :	// match any single character
+                if (!*s++) return 0;
+                break;
+                
+            case '*' :	// match 0-n of any characters
+                if (!*p) return 1; // do trailing * quickly
+                while (!rfFilename_match(s, p)) if (!*s++) return 0;
+                return 1;
+                
+            case '[': {	// match one character in set of form [abc-d] or [^a-b]
+                if (!*s) return 0;
+                int reverse = (*p=='^' || *p=='!'); if (reverse) p++;
+                matched = 0;
+                char last = 0;
+                while (*p) {
+                    if (*p=='-' && last) {
+                        if (*s <= *++p && *s >= last ) matched = 1;
+                        last = 0;
+                    } else {
+                        if (*s == *p) matched = 1;
+                    }
+                    last = *p++;
+                    if (*p==']') break;
+                }
+                if (matched == reverse) return 0;
+                s++; p++;}
+                break;
+                
+            case '{' : // {pattern1|pattern2|pattern3}
+            NEXTCASE:
+                if (rfFilename_match(s,p)) return 1;
+                for (matched = 0;;) {
+                    switch (*p++) {
+                        case '\\': if (*p) p++; break;
+                        case '{': matched++; break;
+                        case '}': if (!matched--) return 0; break;
+                        case '|': case ',': if (matched==0) goto NEXTCASE;
+                        case 0: return 0;
+                    }
+                }
+            case '|':	// skip rest of |pattern|pattern} when called recursively
+            case ',':
+                for (matched = 0; *p && matched >= 0;) {
+                    switch (*p++) {
+                        case '\\': if (*p) p++; break;
+                        case '{': matched++; break;
+                        case '}': matched--; break;
+                    }
+                }
+                break;
+            case '}':
+                break;
+                
+            case 0:	// end of pattern
+                return !*s;
+                
+            case '\\':	// quote next character
+                if (*p) p++;
+            default:
+                if (tolower(*s) != tolower(*(p-1))) return 0;
+                s++;
+                break;
+        }
     }
-    case '|':	// skip rest of |pattern|pattern} when called recursively
-    case ',':
-      for (matched = 0; *p && matched >= 0;) {
-	switch (*p++) {
-	case '\\': if (*p) p++; break;
-	case '{': matched++; break;
-	case '}': matched--; break;
-	}
-      }
-      break;
-    case '}':
-      break;
-
-    case 0:	// end of pattern
-      return !*s;
-
-    case '\\':	// quote next character
-      if (*p) p++;
-    default:
-      if (tolower(*s) != tolower(*(p-1))) return 0;
-      s++;
-      break;
-    }
-  }
 }
 
 bool natural_compare (const std::string& a, const std::string& b)
@@ -368,20 +402,20 @@ bool natural_compare (const std::string& a, const std::string& b)
 // Construct a temporary file name
 std::string rfMakeTmpFileName(const char *pathFormat, const char* baseName )
 {
-  char buf[2048];
-  static const char *defaultFormat = "/tmp/um%d_%s";
-
-  // Use current time in seconds as a pseudo-unique prefix
-  double secs = rcTimestamp::now().secs();
-  snprintf( buf, rmDim(buf), pathFormat ? pathFormat : defaultFormat, 
-	    uint32(secs), baseName );
-  return std::string( buf );
+    char buf[2048];
+    static const char *defaultFormat = "/tmp/um%d_%s";
+    
+    // Use current time in seconds as a pseudo-unique prefix
+    double secs = rcTimestamp::now().secs();
+    snprintf( buf, rmDim(buf), pathFormat ? pathFormat : defaultFormat, 
+             uint32(secs), baseName );
+    return std::string( buf );
 }
 
 // Construct a temporary file name
 std::string rfMakeTmpFileName(const char* baseName )
 {
-  return rfMakeTmpFileName (0, baseName);
+    return rfMakeTmpFileName (0, baseName);
 }
 
 
@@ -390,31 +424,31 @@ std::string rfMakeTmpFileName(const char* baseName )
 // Putout a SS Matrix as represented by a deque<deque<double>>
 std::string rfDumpMatrix (deque<deque<double> >& matrix, const char *pathFormat, const char* baseName)
 {
-  std::string fname = rfMakeTmpFileName (pathFormat, baseName) + std::string (".txt");
-  
-  ofstream file (fname.c_str ());
-  if (! file)
+    std::string fname = rfMakeTmpFileName (pathFormat, baseName) + std::string (".txt");
+    
+    ofstream file (fname.c_str ());
+    if (! file)
     {
-      return std::string ("");
+        return std::string ("");
     }
-
-  deque<deque <double> >::iterator rowI = matrix.begin ();
-  deque<deque <double> >::iterator rowend = matrix.end();
-
-  ios::fmtflags oldflags = file.flags ();
-  file.setf (ios::fixed);
-  file << setprecision(12);
-  for (; rowI < rowend; rowI++)
+    
+    deque<deque <double> >::iterator rowI = matrix.begin ();
+    deque<deque <double> >::iterator rowend = matrix.end();
+    
+    ios::fmtflags oldflags = file.flags ();
+    file.setf (ios::fixed);
+    file << setprecision(12);
+    for (; rowI < rowend; rowI++)
     {
-      deque<double>::iterator cellI = (*rowI).begin ();
-      deque<double>::iterator cellBend = (*rowI).end();
-      advance (cellBend, -1);
-      for (; cellI < cellBend; cellI++)
-	file << *cellI << ",";
-      file << *cellI << endl;
+        deque<double>::iterator cellI = (*rowI).begin ();
+        deque<double>::iterator cellBend = (*rowI).end();
+        advance (cellBend, -1);
+        for (; cellI < cellBend; cellI++)
+            file << *cellI << ",";
+        file << *cellI << endl;
     }
-  file.flags (oldflags);
-  return fname;
+    file.flags (oldflags);
+    return fname;
 }
 
 bool rfFileExists(const std::string& filename)

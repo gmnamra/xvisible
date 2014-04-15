@@ -32,7 +32,7 @@ class rcCorrelationWindow
         mSumSquares( 0.0 ),
         mSumValid( false ) {
             // Verify that depths match
-            if ( sizeof(T) != static_cast<int>(w.depth()) )
+            if ( sizeof(T) != static_cast<int>(w.bytes()) )
                 throw general_exception( "rcCorrelationWindow ctor: invalid rcWindow depth" );
         }
     // default copy ctor and assignment OK
@@ -51,6 +51,7 @@ class rcCorrelationWindow
     inline int32 height() const { return mWindow.height(); }
     // Pixel data
     inline rcPixel depth() const                  { return mWindow.depth(); }
+    inline int bytes() const                  { return mWindow.bytes(); }    
     inline const uint8* rowPointer (uint32 y) const { return mWindow.rowPointer( y ); }
     inline int32 rowUpdate () const                  { return mWindow.rowUpdate(); }
     

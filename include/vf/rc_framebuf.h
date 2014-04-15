@@ -137,9 +137,6 @@ class rcFrame
   inline uint32 pixelCount() const { return mWidth * mHeight; }
   // Whether or not pixels are all 8-bit gray scale
   inline bool isGray() const { return mIsGray; }
-  // Whether or not 32bit pixels should be treated as floats
-  inline bool isD32Float() const { return (mD32IsFloat &&
-					     depth() == rcPixel32S); }
   
   // Row alignment in bytes
   inline int32 alignment() const { return mAlignMod; }
@@ -166,14 +163,7 @@ class rcFrame
   // Set boolean indicating whether or not all pixels can be treated as 8 bit gray scale
   inline bool setIsGray(bool isGray) { return mIsGray = isGray; }
 
-  // mark or unmark 32bit pixels as floats
-  inline bool markD32Float(bool m)
-  { 
-    if (depth() == rcPixel32S)
-      mD32IsFloat = m;
-    return isD32Float();
-  }
-
+ 
   // Set (creation) time stamp
   inline void setTimestamp( rcTimestamp time ) { mTimestamp = time; }
   inline void zVal(double dv) { mZvalue = dv; }

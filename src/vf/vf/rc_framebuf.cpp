@@ -355,11 +355,9 @@ double rcFrame::operator() (double xDb, double yDb) const
     case rcPixel8:
     case rcPixel16:
       return (double) getPixel (x, y);
-
-    case rcPixel32S:
-      if (isD32Float())
+    case rcPixelFloat:
 	return (double) (*((float *) (mStartPtr + y * mRowUpdate + x * bytes())));
-      else 
+    case rcPixel32S:
 	return (double) (*((uint32 *) (mStartPtr + y * mRowUpdate + x * bytes())));
 
     case rcPixelDouble:
