@@ -64,7 +64,7 @@ void rcCubicGeneratePixel::gen2D2ndD(const rcWindow& boundingBox)
     _maxVal = rcUINT16_MAX;
     break;
 
-  case rcPixel32:
+  case rcPixel32S:
     _maxVal = rcUINT32_MAX;
     break;
 
@@ -191,7 +191,7 @@ void rcCubicGeneratePixel::gen2ndD(const rcWindow& src, int32 row,
     }
     break;
 
-  case rcPixel32:
+  case rcPixel32S:
     {
       uint32* y = (uint32*)(src.rowPointer(row));
 
@@ -298,7 +298,7 @@ float rcCubicGeneratePixel::interpolate(const rcWindow& src, int32 row,
   {
   case rcPixel8:
   case rcPixel16:
-  case rcPixel32:
+  case rcPixel32S:
     {
       float a = (float)right - x;
       float b = 1.0 - a;

@@ -2,7 +2,7 @@
 #include <rc_math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <rc_time.h>
+
 #include <rc_vector2d.h>
 
 typedef int32 TFixed;	/* f * 2^16 */

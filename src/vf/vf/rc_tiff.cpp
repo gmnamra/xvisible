@@ -460,8 +460,8 @@ void TIFFImageIO::ReadImageInformation()
 	mRCdepth = (mInternalImage->bps == 8 && mInternalImage->spp == 1) ? 
 		rcPixel8 : (mInternalImage->bps == 16 && mInternalImage->spp == 1) ? 
 		rcPixel16 : (mInternalImage->bps == 8 && mInternalImage->spp == 3) ? 
-		rcPixel32 : (mInternalImage->bps == 8 && mInternalImage->spp == 4) ? 
-		rcPixel32 : rcPixelUnknown;
+		rcPixel32S : (mInternalImage->bps == 8 && mInternalImage->spp == 4) ? 
+		rcPixel32S : rcPixelUnknown;
 		
  	mStripperimage = (uint32) mInternalImage->Image->tif_dir.td_stripsperimage;
 	mStripoffsets.resize (mStripperimage); 
@@ -556,7 +556,7 @@ rcWindow TIFFImageIO::ReadGenericImage()
 		mInternalImage->Image->tif_dir.td_stripoffset[i] = mInternalImage->Image->tif_dir.td_stripoffset[i-1] + 
 		mInternalImage->Image->tif_dir.td_stripbytecount[i-1];
 
-	if (rcDepth() == rcPixel32 && mInternalImage->spp == 3 && mInternalImage->bps == 8)
+	if (rcDepth() == rcPixel32S && mInternalImage->spp == 3 && mInternalImage->bps == 8)
 	{
 		rcWindow tmpStore (width(), mRowperstrip, rcDepth () );
 		for(uint y=0; success && (y< mStripperimage ); ++y)
@@ -869,7 +869,7 @@ rcWindow TIFFImageIO::Read()
 	if ( !mInternalImage->CanRead() )
 	{
 		//@note using rcWindow since it is ref counted and will be deleted upon dtor
-		rcWindow tempImage (width (), height (), rcPixel32);
+		rcWindow tempImage (width (), height (), rcPixel32S);
 		if (TIFFReadRGBAImageOriented(mInternalImage->Image, 
 			width(), height(), (uint32*) tempImage.rowPointer (0), ORIENTATION_TOPLEFT))
 		{
@@ -892,7 +892,7 @@ rcWindow TIFFImageIO::Read()
 					}
 
 //				rcSharedFrameBufPtr buf(new rcFrame ((char *) (tempImage.rowPointer (0)), tempImage.rowUpdate (), 
-//					width (), height (), rcPixel32, false));
+//					width (), height (), rcPixel32S, false));
 //				return rcWindow (buf); 
 				return tempImage;
 			}

@@ -78,7 +78,7 @@
  */
 #include "ut_shape.h"
 #include <rc_utdrawutils.h>
-#include <rc_analysis.h>
+#include <rc_ncs.h>
 
 #include <rc_mathmodel.h>
 #include <rc_draw.h>

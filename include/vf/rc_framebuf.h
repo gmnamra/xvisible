@@ -11,9 +11,11 @@
 #include <rc_timestamp.h>
 #include <rc_thread.h>
 #include <rc_macro.h>
+#include <rc_pixel.hpp>
 #include <boost/intrusive_ptr.hpp>
 #include <boost/atomic.hpp>
 #include <opencv2/core/core.hpp>
+#include <rc_pixel.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <cinder/Channel.h>
 
@@ -49,17 +51,6 @@ inline uint32 rfGray( uint32 r, uint32 g, uint32 b ) { return (r+g+b+2)/3; }
 // Utility function to transform between color spaces
 uint32 rfHSI2RGB (float H, float S, float I);
 
-
-	enum rcPixel
-	{
-	  rcPixel8 = 1,
-	  rcPixel16 = 2, 
-	  rcPixel32 = 4,
-		rcPixelFloat = 4,
-		rcPixelDouble = 8,
-		rcPixelUnknown = 0
-	};
-
 // Frame buffer.base class
 // Clients may NOT use this class directly, reference-counted
 // rcSharedFrameBufPtr must be used instead.
@@ -71,13 +62,12 @@ class rcFrame
  public:
   enum { ROW_ALIGNMENT_MODULUS = 16 }; // Mod for row alignment. Default for AltiVec 
 
+   
   // Constructors
   rcFrame();
-  rcFrame( int32 width, int32 height, rcPixel depth, 
-	   int32 alignMod = ROW_ALIGNMENT_MODULUS );
-  rcFrame (char* rawPixels,
-	   int32 rawPixelsRowUpdate, /* Row update for SRC pixels, not DEST frame */
-	   int32 width, int32 height, rcPixel pixelDepth, bool isGray);
+  rcFrame( int32 width, int32 height, rcPixel depth, int32 alignMod = ROW_ALIGNMENT_MODULUS );
+  /* Row update for SRC pixels, not DEST frame */    
+  rcFrame (char* rawPixels, int32 rawPixelsRowUpdate, int32 width, int32 height, rcPixel pixelDepth, bool isGray);
     
   rcFrame ( const ci::Channel8u&  );
     rcFrame ( const cv::Mat& );
@@ -109,13 +99,13 @@ class rcFrame
   inline const uint8* pelPointer ( int32 x, int32 y ) const {
     rmAssertDebug (y >= 0 && y < mHeight);
     rmAssertDebug (x >= 0 && x < mWidth);
-    return (mStartPtr + y * mRowUpdate + x * depth());
+    return (mStartPtr + y * mRowUpdate + x * bytes());
   }
 
   inline uint8* pelPointer ( int32 x, int32 y ) {
     rmAssertDebug (y >= 0 && y < mHeight);
     rmAssertDebug (x >= 0 && x < mWidth);
-    return (mStartPtr + y * mRowUpdate + x * depth());
+    return (mStartPtr + y * mRowUpdate + x * bytes());
   }
 
   // Color map pointer
@@ -133,7 +123,7 @@ class rcFrame
   inline int32 rowUpdate () const { return mRowUpdate; };
 
   // Row update constant: constant address to add to next pixel next row
-  inline int32 rowPixelUpdate () const { return mRowUpdate / ((int32) mPixelDepth) ; };
+  inline int32 rowPixelUpdate () const { return mRowUpdate / (bytes()) ; };
 
   // Row update constant: constant address from last pixel in row i to first pixel in i+1
   inline int32 rowPad () const { return mPad; };
@@ -149,7 +139,7 @@ class rcFrame
   inline bool isGray() const { return mIsGray; }
   // Whether or not 32bit pixels should be treated as floats
   inline bool isD32Float() const { return (mD32IsFloat &&
-					     depth() == rcPixel32); }
+					     depth() == rcPixel32S); }
   
   // Row alignment in bytes
   inline int32 alignment() const { return mAlignMod; }
@@ -162,8 +152,8 @@ class rcFrame
   // Return z value
   inline double zVal() const { return mZvalue; };
   // Return number of bits and bytes in this pixel
-  inline int32 bits () const;
-  inline int32 bytes () const;
+  int32 bits () const;
+  int32 bytes () const;
 
   double operator() (double, double) const;
 
@@ -179,7 +169,7 @@ class rcFrame
   // mark or unmark 32bit pixels as floats
   inline bool markD32Float(bool m)
   { 
-    if (depth() == rcPixel32)
+    if (depth() == rcPixel32S)
       mD32IsFloat = m;
     return isD32Float();
   }

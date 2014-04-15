@@ -54,69 +54,69 @@ UT_RLE::run() {
 		
         testRLECross( 3, 3, rcPixel8 );
         testRLECross( 3, 3, rcPixel16 );
-        testRLECross( 3, 3, rcPixel32 );
+        testRLECross( 3, 3, rcPixel32S );
         testRLECross( 7, 7, rcPixel8 );
         testRLECross( 7, 7, rcPixel16 );
-        testRLECross( 7, 7, rcPixel32 );
+        testRLECross( 7, 7, rcPixel32S );
         testRLECross( 33, 33, rcPixel8 );
         testRLECross( 33, 33, rcPixel16 );
-        testRLECross( 33, 33, rcPixel32 );
+        testRLECross( 33, 33, rcPixel32S );
         testRLECross( 513, 513, rcPixel8 );
         testRLECross( 513, 513, rcPixel16 );
-        testRLECross( 513, 513, rcPixel32 ); 
+        testRLECross( 513, 513, rcPixel32S ); 
         testRLECross( 1025, 1025, rcPixel8 );
         testRLECross( 1025, 1025, rcPixel16 );
-        testRLECross( 1025, 1025, rcPixel32, true );  // Last test displays success message
+        testRLECross( 1025, 1025, rcPixel32S, true );  // Last test displays success message
         
         testRLEHourGlass( 3, 3, rcPixel8 );
         testRLEHourGlass( 3, 3, rcPixel16 );
-        testRLEHourGlass( 3, 3, rcPixel32 );
+        testRLEHourGlass( 3, 3, rcPixel32S );
         testRLEHourGlass( 7, 7, rcPixel8 );
         testRLEHourGlass( 7, 7, rcPixel16 );
-        testRLEHourGlass( 7, 7, rcPixel32 );
+        testRLEHourGlass( 7, 7, rcPixel32S );
         testRLEHourGlass( 33, 33, rcPixel8 );
         testRLEHourGlass( 33, 33, rcPixel16 );
-        testRLEHourGlass( 33, 33, rcPixel32 );
+        testRLEHourGlass( 33, 33, rcPixel32S );
         testRLEHourGlass( 513, 513, rcPixel8 );
         testRLEHourGlass( 513, 513, rcPixel16 );
-        testRLEHourGlass( 513, 513, rcPixel32 );  
+        testRLEHourGlass( 513, 513, rcPixel32S );  
         testRLEHourGlass( 1025, 1025, rcPixel8 );
         testRLEHourGlass( 1025, 1025, rcPixel16 );
-        testRLEHourGlass( 1025, 1025, rcPixel32, true );  // Last test displays success message
+        testRLEHourGlass( 1025, 1025, rcPixel32S, true );  // Last test displays success message
 
 	testRLEFgBgHourGlass( 3, 3, rcPixel8 );
         testRLEFgBgHourGlass( 3, 3, rcPixel16 );
-        testRLEFgBgHourGlass( 3, 3, rcPixel32 );
+        testRLEFgBgHourGlass( 3, 3, rcPixel32S );
         testRLEFgBgHourGlass( 7, 7, rcPixel8 );
         testRLEFgBgHourGlass( 7, 7, rcPixel16 );
-        testRLEFgBgHourGlass( 7, 7, rcPixel32 );
+        testRLEFgBgHourGlass( 7, 7, rcPixel32S );
         testRLEFgBgHourGlass( 33, 33, rcPixel8 );
         testRLEFgBgHourGlass( 33, 33, rcPixel16 );
-        testRLEFgBgHourGlass( 33, 33, rcPixel32 );
+        testRLEFgBgHourGlass( 33, 33, rcPixel32S );
         testRLEFgBgHourGlass( 513, 513, rcPixel8 );
         testRLEFgBgHourGlass( 513, 513, rcPixel16 );
-        testRLEFgBgHourGlass( 513, 513, rcPixel32 );  
+        testRLEFgBgHourGlass( 513, 513, rcPixel32S );  
         testRLEFgBgHourGlass( 1025, 1025, rcPixel8 );
         testRLEFgBgHourGlass( 1025, 1025, rcPixel16 );
-        testRLEFgBgHourGlass( 1025, 1025, rcPixel32, true );  // Last test displays success message
+        testRLEFgBgHourGlass( 1025, 1025, rcPixel32S, true );  // Last test displays success message
         
         testRLE (3, 3, rcPixel8);
         testRLE (3, 3, rcPixel16);
-        testRLE (3, 3, rcPixel32);
+        testRLE (3, 3, rcPixel32S);
         testRLE (4, 4, rcPixel8);
         testRLE (4, 4, rcPixel16);
-        testRLE (4, 4, rcPixel32);
+        testRLE (4, 4, rcPixel32S);
         testRLE (5, 5, rcPixel8);
         testRLE (5, 5, rcPixel16);
-        testRLE (5, 5, rcPixel32);
+        testRLE (5, 5, rcPixel32S);
         
         testRLE (64, 64, rcPixel8);
         testRLE (64, 64, rcPixel16);
-        testRLE (64, 64, rcPixel32);
+        testRLE (64, 64, rcPixel32S);
 
         testRLE (512, 512, rcPixel8);
         testRLE (512, 512, rcPixel16);
-        testRLE (512, 512, rcPixel32);
+        testRLE (512, 512, rcPixel32S);
         
         testRLE (1280, 960, rcPixel8, true); // Last test displays success message
 
@@ -130,14 +130,14 @@ UT_RLE::run() {
         testTimes ( 1280, 960, rcPixel8 ); 
         testTimes ( 2048, 2048, rcPixel8 );
 
-        testTimes ( 32, 32, rcPixel32 );
-        testTimes ( 64, 64, rcPixel32 );
-        testTimes ( 128, 128, rcPixel32 ); 
-        testTimes ( 256, 256, rcPixel32 ); 
-        testTimes ( 512, 512, rcPixel32 ); 
-        testTimes ( 1024, 1024, rcPixel32 );
-        testTimes ( 1280, 960, rcPixel32 ); 
-        testTimes ( 2048, 2048, rcPixel32 );
+        testTimes ( 32, 32, rcPixel32S );
+        testTimes ( 64, 64, rcPixel32S );
+        testTimes ( 128, 128, rcPixel32S ); 
+        testTimes ( 256, 256, rcPixel32S ); 
+        testTimes ( 512, 512, rcPixel32S ); 
+        testTimes ( 1024, 1024, rcPixel32S );
+        testTimes ( 1280, 960, rcPixel32S ); 
+        testTimes ( 2048, 2048, rcPixel32S );
 #endif
 		
     }
@@ -158,7 +158,7 @@ void UT_RLE::testResults ( const rcWindow& original, const rcRLEWindow& run,
     else if ( maxPixelValue <= rcUINT16_MAX )
         expectedDepth = rcPixel16;
     else
-        expectedDepth = rcPixel32;
+        expectedDepth = rcPixel32S;
     
 #ifdef DEBUG_LOG
     fprintf (stderr, "Original %d----------------\n", expectedDepth*8 );
@@ -280,7 +280,7 @@ void UT_RLE::testRLECheckerBoard (int32 width, int32 height, rcPixel d)
         maxPixelvalue = rcUINT8_MAX;
     else if ( d == rcPixel16 )
         maxPixelvalue = rcUINT16_MAX;
-    else if ( d == rcPixel32 )
+    else if ( d == rcPixel32S )
         maxPixelvalue = rcUINT16_MAX;
      
     // Set values
@@ -548,7 +548,7 @@ void UT_RLE::testRLEDiagonal(int32 width, int32 height, rcPixel d)
     else if ( maxPixelValue <= rcUINT16_MAX )
         expectedDepth = rcPixel16;
     else
-        expectedDepth = rcPixel32;
+        expectedDepth = rcPixel32S;
 
     if ( width == height && expectedDepth <= d ) {
         rcWindow ti (width, height, d);

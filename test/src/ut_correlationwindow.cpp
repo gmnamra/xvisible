@@ -8,7 +8,7 @@
 #include "ut_correlationwindow.h"
 
 #include <rc_time.h>
-#include <rc_analysis.h>
+#include <rc_ncs.h>
 
 // Create a vector of random images
 // Note: these images will leak memory...but we dont care right now
@@ -63,7 +63,7 @@ UT_Correlationwindow::run() {
     {
         rcWindow i8( 640, 480, rcPixel8 );
         rcWindow i16( 640, 480, rcPixel16 );
-        rcWindow i32( 640, 480, rcPixel32 );
+        rcWindow i32( 640, 480, rcPixel32S );
 
         {
             uint32 exceptions = 0;
@@ -144,7 +144,7 @@ UT_Correlationwindow::run() {
     {
         rcWindow testImage8( 5, 11, rcPixel8 );
         rcWindow testImage16( 5, 11, rcPixel16 );
-        rcWindow testImage32( 5, 11, rcPixel32 );
+        rcWindow testImage32( 5, 11, rcPixel32S );
 
         rcCorrelationWindow<uint8> w8( testImage8 );
         rcCorrelationWindow<uint16> w16( testImage16 );

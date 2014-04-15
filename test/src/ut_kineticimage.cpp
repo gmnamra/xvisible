@@ -5,7 +5,7 @@
  *
  */
 #include "ut_kineticimage.h"
-#include <rc_analysis.h>
+#include <rc_ncs.h>
 #include <rc_similarity.h>
 #include <rc_draw.h>
 
@@ -25,7 +25,7 @@ extern int TestRealFFT();
 
 void segment(rcWindow src, rcWindow dest, float segPoint)
 {
-  rmAssert(src.depth() == rcPixel32);
+  rmAssert(src.depth() == rcPixel32S);
   const int32 width = src.width(), height = src.height();
 
   rmAssert(dest.depth() == rcPixel8);
@@ -53,7 +53,7 @@ void testSegPoint()
 
   float* ti[7] = { l0, l1, l2, l3, l4, l5, l6 };
 
-  rcWindow tImg(8, 7, rcPixel32);
+  rcWindow tImg(8, 7, rcPixel32S);
 
   for (int32 y = 0; y < tImg.height(); y++) {
     float* xp = (float*)tImg.rowPointer(y);
@@ -157,7 +157,7 @@ void UT_kineticimage::testVarianceGenerator()
     rcOptoKineticImage genKinetics(rcOptoKineticImage::eKineTypeVariance);
     genKinetics.push(img);
 
-    rcWindow actual(width, height, rcPixel32);
+    rcWindow actual(width, height, rcPixel32S);
     genKinetics.genKineticImg(actual);
     
     float* r0 = (float*)actual.rowPointer(0);
@@ -216,7 +216,7 @@ void UT_kineticimage::testVarianceGenerator()
       for (uint32 i = 0; i < img.size(); i++)
 	genKinetics.push(img[i]);
     }
-    rcWindow actual(width, height, rcPixel32);
+    rcWindow actual(width, height, rcPixel32S);
     genKinetics.genKineticImg(actual);
 
     for (int32 y = 0; y < height; y++) {
@@ -254,7 +254,7 @@ void UT_kineticimage::testStdDevGenerator()
     rcOptoKineticImage genKinetics(rcOptoKineticImage::eKineTypeStdDev);
     genKinetics.push(img);
 
-    rcWindow actual(width, height, rcPixel32);
+    rcWindow actual(width, height, rcPixel32S);
     genKinetics.genKineticImg(actual);
     
     float* r0 = (float*)actual.rowPointer(0);
@@ -313,7 +313,7 @@ void UT_kineticimage::testStdDevGenerator()
       for (uint32 i = 0; i < img.size(); i++)
 	genKinetics.push(img[i]);
     }
-    rcWindow actual(width, height, rcPixel32);
+    rcWindow actual(width, height, rcPixel32S);
     genKinetics.genKineticImg(actual);
 
     for (int32 y = 0; y < height; y++) {
@@ -362,7 +362,7 @@ void UT_kineticimage::testVelEntropyGenerator()
     genKinetics.push(img);
     rcUNITTEST_ASSERT(genKinetics.pop(0) == img.size());
 
-    rcWindow actual(width, height, rcPixel32);
+    rcWindow actual(width, height, rcPixel32S);
     genKinetics.genKineticImg(actual);
     
     for (int32 y = 0; y < height; y++) {
@@ -448,7 +448,7 @@ void UT_kineticimage::testVelEntropyGenerator()
     genKinetics.push(img);
     rcUNITTEST_ASSERT(genKinetics.pop(0) == img.size());
 
-    rcWindow actual(width, height, rcPixel32);
+    rcWindow actual(width, height, rcPixel32S);
     genKinetics.genKineticImg(actual);
     
     for (int32 y = 0; y < height; y++) {
@@ -478,7 +478,7 @@ void UT_kineticimage::testAccelEntropyGenerator()
     genKinetics.push(img);
     rcUNITTEST_ASSERT(genKinetics.pop(0) == img.size());
 
-    rcWindow actual(width, height, rcPixel32);
+    rcWindow actual(width, height, rcPixel32S);
     genKinetics.genKineticImg(actual);
     
     for (int32 y = 0; y < height; y++) {
@@ -553,7 +553,7 @@ void UT_kineticimage::testAccelEntropyGenerator()
       for (uint32 i = 0; i < img.size(); i++)
 	genKinetics.push(img[i]);
     }
-    rcWindow actual(width, height, rcPixel32);
+    rcWindow actual(width, height, rcPixel32S);
     genKinetics.genKineticImg(actual);
 
     for (int32 y = 0; y < height; y++) {
@@ -585,7 +585,7 @@ void UT_kineticimage::testThetaEntropyGenerator()
     genKinetics.push(img);
     rcUNITTEST_ASSERT(genKinetics.pop(0) == img.size());
 
-    rcWindow actual(width, height, rcPixel32);
+    rcWindow actual(width, height, rcPixel32S);
     genKinetics.genKineticImg(actual);
     
     for (int32 y = 0; y < height; y++) {
@@ -669,7 +669,7 @@ void UT_kineticimage::testThetaEntropyGenerator()
       for (uint32 i = 0; i < img.size(); i++)
 	genKinetics.push(img[i]);
     }
-    rcWindow actual(width, height, rcPixel32);
+    rcWindow actual(width, height, rcPixel32S);
     genKinetics.genKineticImg(actual);
 
     for (int32 y = 0; y < height; y++) {
@@ -706,12 +706,12 @@ void UT_kineticimage::testEightBitImageGenerator()
   
   rcOptoKineticImage gk1(rcOptoKineticImage::eKineTypeStdDev);
   gk1.push(t1);
-  rcWindow a1(t1[0].width(), t1[0].height(), rcPixel32);
+  rcWindow a1(t1[0].width(), t1[0].height(), rcPixel32S);
   gk1.genKineticImg(a1);
   
   rcOptoKineticImage gk2(rcOptoKineticImage::eKineTypeStdDev);
   gk2.push(t2);
-  rcWindow a2(t2[0].width(), t2[0].height(), rcPixel32);
+  rcWindow a2(t2[0].width(), t2[0].height(), rcPixel32S);
   gk2.genKineticImg(a2);
 
   rcWindow r1(t1[0].width(), t1[0].height());

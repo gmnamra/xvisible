@@ -718,8 +718,8 @@ void UT_moreip::testIntegral()
   src1.setPixel(1,1,2);
   src1.setPixel(2,1,1);
 
-  rcWindow cp (3,2, rcPixel32);
-  rcWindow rp (3,2, rcPixel32);
+  rcWindow cp (3,2, rcPixel32S);
+  rcWindow rp (3,2, rcPixel32S);
 
   rfImageIntegrals (src1, cp, rp);
 
@@ -737,8 +737,8 @@ void UT_moreip::testIntegral()
   rcUTCheck (rp.getPixel(int32(1),int32(1)) == 13);
   rcUTCheck (rp.getPixel(int32(2),int32(1)) == 14);
 
-  rcWindow csum (src1.width(), 1, rcPixel32);
-  rcWindow rsum (src1.height(), 1, rcPixel32);
+  rcWindow csum (src1.width(), 1, rcPixel32S);
+  rcWindow rsum (src1.height(), 1, rcPixel32S);
   rfImageOrthogonalProjections (src1, rsum, csum);
 
   rcUTCheck (csum.width () == src1.width());
@@ -763,8 +763,8 @@ void UT_moreip::testIntegral()
     src1.setPixel(1,1,2);
     src1.setPixel(2,1,1);
 
-    rcWindow cp (3,2, rcPixel32);
-    rcWindow rp (3,2, rcPixel32);
+    rcWindow cp (3,2, rcPixel32S);
+    rcWindow rp (3,2, rcPixel32S);
 
     rfImageIntegrals (src1, cp, rp);
 
@@ -783,8 +783,8 @@ void UT_moreip::testIntegral()
     rcUTCheck (rp.getPixel(int32(2),int32(1)) == 14);
 
 
-    rcWindow csum (src1.width(), 1, rcPixel32);
-    rcWindow rsum (src1.height(), 1, rcPixel32);
+    rcWindow csum (src1.width(), 1, rcPixel32S);
+    rcWindow rsum (src1.height(), 1, rcPixel32S);
     rfImageOrthogonalProjections (src1, rsum, csum);
 
     rcUTCheck (csum.width () == src1.width());
@@ -1179,7 +1179,7 @@ static float variance (const rcWindow& image, const rcIPair site, rcWindow& floa
     }
   else
     {
-      dest = rcWindow (image.width(), image.height(), rcPixel32);
+      dest = rcWindow (image.width(), image.height(), rcPixel32S);
       dest.frameBuf()->markD32Float (true);
       varImg = rcWindow (dest, field.ul().x(), field.ul().y(), field.width (), field.height());
     }

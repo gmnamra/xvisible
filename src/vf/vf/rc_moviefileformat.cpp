@@ -399,7 +399,7 @@ ostream& rcMovieFileOrgExt::log( ostream& os ) const
     
     if ( origin() != movieOriginUnknown ) {
         os << " FrameCount: " << frameCount()
-           << " FrameDepth: " << depth()*8 << endl;
+           << " FrameDepth: " << get_bytes().count (depth())*8 << endl;
         os << " FrameSize: " << width() << "x" << height();
         if ( origin() == movieOriginCaptureCertified ||
              origin() == movieOriginCaptureUncertified )

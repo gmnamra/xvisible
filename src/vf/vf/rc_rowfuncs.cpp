@@ -1,53 +1,36 @@
-/* @file
- *
- *$Id $
- *$Log$
- *Revision 1.9  2005/03/26 17:06:23  arman
- *added optimiation note
- *
- *Revision 1.8  2004/08/17 18:02:11  arman
- *moved instantiation to the bottom of the file after the specializations
- *
- *Revision 1.7  2003/04/04 20:45:41  sami
- *Added debug output in areaFunc
- *
- *Revision 1.6  2003/04/03 22:56:14  sami
- *Correlation sum caching support added
- *
- *Revision 1.5  2003/04/02 22:20:20  sami
- *Fixed epilog bug, minor optimizations
- *
- *Revision 1.4  2003/04/01 19:56:39  arman
- *all functions are inlines.
- *
- *Revision 1.3  2003/04/01 02:53:10  arman
- *implementations and specializations
- *
- *Revision 1.2  2003/03/31 03:15:15  arman
- *fixed a bug in remainder processing
- *
- *Revision 1.1  2003/03/30 20:43:10  arman
- *First implementation of row funcs
- *
- *
- *
- * Copyright (c) 2002 Reify Corp. All rights reserved.
- */
+
 #include <rc_rowfunc.h>
+#include <static.hpp>
 
 
+// A class to encapsulate a table of pre-computed squares
+template<typename T>
+class sSqrTable
+{
+    
+public:
+    // ctor
+    sSqrTable()
+    {
+        for (uint32 i = 0; i < mSize; i++)
+            mTable[i] = i * i;
+    };
+    
+    // Array access operator
+    uint32 operator [] (int index) const { rmAssertDebug( index < mSize ); return mTable[index]; };
+    uint32* lut_ptr () { return mTable; }
+    
+    
+    // Array size
+    uint32 size() const { return (2*numeric_limits<T>::max()) - 1; };
+    
+private:
+    static const int mSize = 2*numeric_limits<T>::max() - 1;
+    uint32 mTable[ mSize ];
+};
 
+SINGLETON_FCN(sSqrTable<uint8>, square_table);
 
-#ifdef __ppc__
-static const uint32 rcAltiVecBytesInVector = 16;
-static const uint32 rcAltiVecShortsInVector = 8;
-static const uint32 rcAltiVecVectorsInStrip = 16;
-static const uint32 rcAltiVecDefaultStripCount = rcAltiVecVectorsInStrip * rcAltiVecBytesInVector;
-static const uint32 rcAltiVecShortsStripCount = rcAltiVecVectorsInStrip * rcAltiVecShortsInVector;
-#endif
-
-// A global precomputed square table
-const rcSquareTable gSquareTable512;
 
 
 //
@@ -68,7 +51,7 @@ bool rcRowFuncTwoSource<uint16>::checkAssigned (const rcWindow& srcA, const rcWi
 template <>
 bool rcRowFuncTwoSource<uint32>::checkAssigned (const rcWindow& srcA, const rcWindow& srcB) 
 {
-  return (srcA.depth() == rcPixel8 && srcB.depth() == rcPixel32);
+  return (srcA.depth() == rcPixel8 && srcB.depth() == rcPixel32S);
 }
 
 template <>
@@ -99,7 +82,7 @@ bool rcRowFuncOneSourceOneDestination<uint16>::checkAssigned (const rcWindow& sr
 template <>
 bool rcRowFuncOneSourceOneDestination<uint32>::checkAssigned (const rcWindow& srcA, const rcWindow& srcB) 
 {
-  return (srcA.depth() == rcPixel8 && srcB.depth() == rcPixel32);
+  return (srcA.depth() == rcPixel8 && srcB.depth() == rcPixel32S);
 }
 template <>
 bool rcRowFuncOneSourceOneDestination<double>::checkAssigned (const rcWindow& srcA, const rcWindow& srcB) 
@@ -107,10 +90,168 @@ bool rcRowFuncOneSourceOneDestination<double>::checkAssigned (const rcWindow& sr
   return (srcA.depth() == rcPixelDouble && srcB.depth() == rcPixelDouble);
 }
 
+
+//
+// rcBasicCorrRowFunc class implementation
+//
+template <>
+inline void rcBasicCorrRowFunc<uint8>::rowFuncNoneCached ()
+{
+	uint32 Si (0), Sm (0), Sim (0), Smm (0), Sii (0);
+	const uint8 *pFirst (mFirst);
+	const uint8 *pSecond (mSecond);
+	static uint32* sqr_lut = square_table().lut_ptr();
+    
+	for (const uint8 *pEnd = mFirst + mWidth; pFirst < pEnd; ++pFirst, ++pSecond)
+	{
+		const uint8 i = *pFirst;
+		const uint8 j = *pSecond;
+		
+		Si  += i;
+		Sm  += j;
+		Sii += sqr_lut[i];
+		Smm += sqr_lut[j];
+		Sim += sqr_lut[i + j];
+	}
+	mRes.accumulate (Sim, Sii, Smm, Si, Sm);
+	
+	mFirst += mRUP.x();
+	mSecond += mRUP.y();
+}
+template <>
+inline void rcBasicCorrRowFunc<uint8>::rowFuncICached ()
+{
+	uint32 Sm (0), Sim (0), Smm (0);
+	const uint8 *pFirst (mFirst);
+	const uint8 *pSecond (mSecond);
+	static uint32* sqr_lut = square_table().lut_ptr();
+    
+	for (const uint8 *pEnd = mFirst + mWidth; pFirst < pEnd; ++pFirst, ++pSecond)
+	{
+		const uint8 i = *pFirst;
+		const uint8 j = *pSecond;
+		
+		Sm  += j;
+		Smm += sqr_lut[j];
+		Sim += sqr_lut[i + j];
+	}
+	mRes.accumulateM (Sim, Smm, Sm);
+	
+	mFirst += mRUP.x();
+	mSecond += mRUP.y();
+}
+template <>
+inline void rcBasicCorrRowFunc<uint8>::rowFuncMCached ()
+{
+	uint32 Si (0), Sim (0), Sii (0);
+	const uint8 *pFirst (mFirst);
+	const uint8 *pSecond (mSecond);
+	static uint32* sqr_lut = square_table().lut_ptr();    
+	
+	for (const uint8 *pEnd = mFirst + mWidth; pFirst < pEnd; ++pFirst, ++pSecond)
+	{
+		const uint8 i = *pFirst;
+		const uint8 j = *pSecond;
+		
+		Si  += i;
+		Sii += sqr_lut[i];
+		Sim += sqr_lut[i + j];
+	}
+	mRes.accumulate (Sim, Sii, Si);
+	
+	mFirst += mRUP.x();
+	mSecond += mRUP.y();
+}
+template <>
+inline void rcBasicCorrRowFunc<uint8>::rowFuncIMCached ()
+{
+	uint32 Sim (0);
+	const uint8 *pFirst (mFirst);
+	const uint8 *pSecond (mSecond);
+	static uint32* sqr_lut = square_table().lut_ptr(); 
+    
+	for (const uint8 *pEnd = mFirst + mWidth; pFirst < pEnd; ++pFirst, ++pSecond)
+	{
+		const uint8 i = *pFirst;
+		const uint8 j = *pSecond;
+		
+		Sim += sqr_lut[i + j];
+	}
+	mRes.accumulate (Sim);
+	
+	mFirst += mRUP.x();
+	mSecond += mRUP.y();
+}
+template <>
+inline void rcBasicCorrRowFunc<uint8>::rowFunc ()
+{
+	switch ( mCacheState ) {
+		case eNone:
+			rowFuncNoneCached();
+			break;
+		case eImageI:
+			rowFuncICached();
+			break;
+		case eImageM:
+			rowFuncMCached();
+			break;
+		case eImageIM:
+			rowFuncIMCached();
+			break;
+	}
+}
+
+
+// uint8 version uses the Square Table technique
+// Correlate two sources. We can not cache sums since we do not have a model representation
+// Use Square table technique [reference Moravoc paper in the 80s]
+template <>
+inline void rcBasicCorrRowFunc<uint8>::epilog (rcCorr& res)
+{
+	mRes.Sim ((mRes.Sim() - mRes.Sii() - mRes.Smm())/2.);
+	mRes.n (mWidth * mHeight);
+	mRes.compute ();
+	res = mRes;
+}
+
+
+template <>
+inline void rcBasicPixelMap<uint8>::rowFunc ()
+{
+	const uint8 *pFirst (mFirst);
+	uint8 *pSecond (mSecond);
+	
+	for (const uint8 *pEnd = mFirst + mWidth; pFirst < pEnd; )
+	{
+		*pSecond++ = mLut[*pFirst++];
+	}
+	mFirst += mRUP.x();
+	mSecond += mRUP.y();
+}
+template <>
+inline void rcBasicPixelMap<uint16>::rowFunc ()
+{
+	const uint16 *pFirst (mFirst);
+	uint16 *pSecond (mSecond);
+	
+	for (const uint16 *pEnd = mFirst + mWidth; pFirst < pEnd; )
+	{
+		*pSecond++ = mLut[*pFirst++];
+	}
+	mFirst += mRUP.x();
+	mSecond += mRUP.y();
+}
+
 //
 // rcAltiVecCorrRowFunc class implementation
 //
 #ifdef __ppc__
+static const uint32 rcAltiVecBytesInVector = 16;
+static const uint32 rcAltiVecShortsInVector = 8;
+static const uint32 rcAltiVecVectorsInStrip = 16;
+static const uint32 rcAltiVecDefaultStripCount = rcAltiVecVectorsInStrip * rcAltiVecBytesInVector;
+static const uint32 rcAltiVecShortsStripCount = rcAltiVecVectorsInStrip * rcAltiVecShortsInVector;
+
 
 // Nothing to expuge for now
 template <>
@@ -417,150 +558,6 @@ inline void rcAltiVecCorrRowFunc<uint16>::rowFunc()
 }
 
 #endif
-//
-// rcBasicCorrRowFunc class implementation
-//
-template <>
-inline void rcBasicCorrRowFunc<uint8>::rowFuncNoneCached ()
-{
-	uint32 Si (0), Sm (0), Sim (0), Smm (0), Sii (0);
-	const uint8 *pFirst (mFirst);
-	const uint8 *pSecond (mSecond);
-	
-	for (const uint8 *pEnd = mFirst + mWidth; pFirst < pEnd; ++pFirst, ++pSecond)
-	{
-		const uint8 i = *pFirst;
-		const uint8 j = *pSecond;
-		
-		Si  += i;
-		Sm  += j;
-		Sii += gSquareTable512[i];
-		Smm += gSquareTable512[j];
-		Sim += gSquareTable512[i + j];
-	}
-	mRes.accumulate (Sim, Sii, Smm, Si, Sm);
-	
-	mFirst += mRUP.x();
-	mSecond += mRUP.y();
-}
-template <>
-inline void rcBasicCorrRowFunc<uint8>::rowFuncICached ()
-{
-	uint32 Sm (0), Sim (0), Smm (0);
-	const uint8 *pFirst (mFirst);
-	const uint8 *pSecond (mSecond);
-	
-	for (const uint8 *pEnd = mFirst + mWidth; pFirst < pEnd; ++pFirst, ++pSecond)
-	{
-		const uint8 i = *pFirst;
-		const uint8 j = *pSecond;
-		
-		Sm  += j;
-		Smm += gSquareTable512[j];
-		Sim += gSquareTable512[i + j];
-	}
-	mRes.accumulateM (Sim, Smm, Sm);
-	
-	mFirst += mRUP.x();
-	mSecond += mRUP.y();
-}
-template <>
-inline void rcBasicCorrRowFunc<uint8>::rowFuncMCached ()
-{
-	uint32 Si (0), Sim (0), Sii (0);
-	const uint8 *pFirst (mFirst);
-	const uint8 *pSecond (mSecond);
-	
-	for (const uint8 *pEnd = mFirst + mWidth; pFirst < pEnd; ++pFirst, ++pSecond)
-	{
-		const uint8 i = *pFirst;
-		const uint8 j = *pSecond;
-		
-		Si  += i;
-		Sii += gSquareTable512[i];
-		Sim += gSquareTable512[i + j];
-	}
-	mRes.accumulate (Sim, Sii, Si);
-	
-	mFirst += mRUP.x();
-	mSecond += mRUP.y();
-}
-template <>
-inline void rcBasicCorrRowFunc<uint8>::rowFuncIMCached ()
-{
-	uint32 Sim (0);
-	const uint8 *pFirst (mFirst);
-	const uint8 *pSecond (mSecond);
-	
-	for (const uint8 *pEnd = mFirst + mWidth; pFirst < pEnd; ++pFirst, ++pSecond)
-	{
-		const uint8 i = *pFirst;
-		const uint8 j = *pSecond;
-		
-		Sim += gSquareTable512[i + j];
-	}
-	mRes.accumulate (Sim);
-	
-	mFirst += mRUP.x();
-	mSecond += mRUP.y();
-}
-template <>
-inline void rcBasicCorrRowFunc<uint8>::rowFunc ()
-{
-	switch ( mCacheState ) {
-		case eNone:
-			rowFuncNoneCached();
-			break;
-		case eImageI:
-			rowFuncICached();
-			break;
-		case eImageM:
-			rowFuncMCached();
-			break;
-		case eImageIM:
-			rowFuncIMCached();
-			break;
-	}
-}
-template <>
-inline void rcBasicPixelMap<uint8>::rowFunc ()
-{
-	const uint8 *pFirst (mFirst);
-	uint8 *pSecond (mSecond);
-	
-	for (const uint8 *pEnd = mFirst + mWidth; pFirst < pEnd; )
-	{
-		*pSecond++ = mLut[*pFirst++];
-	}
-	mFirst += mRUP.x();
-	mSecond += mRUP.y();
-}
-template <>
-inline void rcBasicPixelMap<uint16>::rowFunc ()
-{
-	const uint16 *pFirst (mFirst);
-	uint16 *pSecond (mSecond);
-	
-	for (const uint16 *pEnd = mFirst + mWidth; pFirst < pEnd; )
-	{
-		*pSecond++ = mLut[*pFirst++];
-	}
-	mFirst += mRUP.x();
-	mSecond += mRUP.y();
-}
-
-// uint8 version uses the Square Table technique
-// Correlate two sources. We can not cache sums since we do not have a model representation
-// Use Square table technique [reference Moravoc paper in the 80s]
-template <>
-inline void rcBasicCorrRowFunc<uint8>::epilog (rcCorr& res)
-{
-	mRes.Sim ((mRes.Sim() - mRes.Sii() - mRes.Smm())/2.);
-	mRes.n (mWidth * mHeight);
-	mRes.compute ();
-	res = mRes;
-}
-
 
 // Instantiate : Keep this at the bottom
 #ifdef __ppc__

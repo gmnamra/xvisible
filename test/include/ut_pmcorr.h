@@ -10,7 +10,7 @@
 #define _rcUT_CORR_H_
 
 #include <rc_unittest.h>
-#include <rc_analysis.h>
+#include <rc_ncs.h>
 #include <rc_ip.h>
 #include <rc_window.h>
 

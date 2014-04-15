@@ -10,7 +10,7 @@
 
 #include <rc_unittest.h>
 #include <rc_correlationwindow.h>
-#include <rc_analysis.h>
+#include <rc_ncs.h>
 
 class UT_Correlationwindow : public rcUnitTest {
   public:

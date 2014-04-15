@@ -512,7 +512,7 @@ void UT_Analyzer::testOptions()
         rcAnalyzerOptions opt2( opt1 );
         rcAnalyzerOptions opt3( opt1 );
         rcPixel d1 = rcPixel8;
-        rcPixel d2 = rcPixel32;
+        rcPixel d2 = rcPixel32S;
         
         rcUNITTEST_ASSERT( d1 != d2 );
                 

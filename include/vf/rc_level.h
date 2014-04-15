@@ -6,7 +6,7 @@
  *
  *****************************************************************************/
 
-#ifndef rrclevel_h_h
+#ifndef rc_level_h_h
 #define rc_level_h_h
 
 #include <rc_window.h>

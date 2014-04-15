@@ -11,6 +11,7 @@
 #include "rc_thread.h"
 #include "rc_videocache.h"
 #include "opencv2/highgui/highgui.hpp"
+#include <rc_pixel.hpp>
 
 using namespace cv;
 
@@ -71,7 +72,7 @@ rcFrame::rcFrame( int32 width, int32 height, rcPixel depth, int32 alignMod) :
     // Make sure starting addresses are at the correct alignment boundary
     // Start of each row pointer is mAlignMod aligned
     
-    int32 rowBytes = mWidth * mPixelDepth;
+    int32 rowBytes = mWidth * bytes ();
     mPad = rowBytes % mAlignMod;
     int32 size;
 
@@ -153,7 +154,7 @@ rcFrame::rcFrame (char* rawPixels,
     // Make sure starting addresses are at the correct alignment boundary
     // Start of each row pointer is mAlignMod aligned
     
-    int32 rowBytes = mWidth * mPixelDepth;
+    int32 rowBytes = mWidth * bytes ();
     mPad = rowBytes % mAlignMod;
 
     if (mPad) mPad = mAlignMod - mPad;
@@ -192,7 +193,7 @@ void rcFrame::loadImage(const char* rawPixels,
   rmAssert(mHeight == height);
   rmAssert(mPixelDepth == pixelDepth);
 
-  int32 bytesInRow = mWidth * mPixelDepth;
+  int32 bytesInRow = mWidth * bytes ();
   
   if ((mPad == 0) && (rawPixelsRowUpdate == bytesInRow)) {
       int32 bytesInImage = bytesInRow * mHeight;
@@ -224,7 +225,7 @@ int32 rcFrame::bits () const
 
 int32 rcFrame::bytes () const
 {
-  return ((int32)mPixelDepth);
+  return get_bytes().count (depth());
 }
 
 uint32 
@@ -240,13 +241,13 @@ rcFrame::getPixel( int32 x, int32 y ) const
         switch (mPixelDepth)
         {
 	   case rcPixel8:
-	       val = *((uint8 *) (mStartPtr + y * mRowUpdate + x * mPixelDepth));
+	       val = *((uint8 *) (mStartPtr + y * mRowUpdate + x * bytes()));
 	       return val;
 	   case rcPixel16:
-	       val = *((uint16 *) (mStartPtr + y * mRowUpdate + x * mPixelDepth));
+	       val = *((uint16 *) (mStartPtr + y * mRowUpdate + x * bytes()));
 	       return val;
-	   case rcPixel32:
-	      val = *((uint32 *) (mStartPtr + y * mRowUpdate + x * mPixelDepth));
+	   case rcPixel32S:
+	      val = *((uint32 *) (mStartPtr + y * mRowUpdate + x * bytes () ));
 	       return val;
 
 	    default:
@@ -268,15 +269,15 @@ uint32 rcFrame::setPixel( int32 x, int32 y, uint32 val )
     switch (mPixelDepth)
       {
       case rcPixel8:
-	* ((uint8 *) (mStartPtr + y * mRowUpdate + x * mPixelDepth)) = (uint8) val;
+	* ((uint8 *) (mStartPtr + y * mRowUpdate + x * bytes())) = (uint8) val;
 	break;
 	      
       case rcPixel16:
-	*((uint16 *) (mStartPtr + y * mRowUpdate + x * mPixelDepth)) = (uint16) val;
+	*((uint16 *) (mStartPtr + y * mRowUpdate + x * bytes())) = (uint16) val;
 	break;
 
-      case rcPixel32:
-	*((uint32 *) (mStartPtr + y * mRowUpdate + x * mPixelDepth)) = val;
+      case rcPixel32S:
+	*((uint32 *) (mStartPtr + y * mRowUpdate + x * bytes())) = val;
 	break;
 
       default:
@@ -326,7 +327,7 @@ double rcFrame::getDoublePixel( int32 x, int32 y ) const
    rmAssertDebug (x >= 0);
    rmAssertDebug (x < mWidth);
 
-   val = *((double *) (mStartPtr + y * mRowUpdate + x * mPixelDepth));
+   val = *((double *) (mStartPtr + y * mRowUpdate + x * bytes()));
    return val;
 }
 
@@ -339,7 +340,7 @@ double rcFrame::setDoublePixel( int32 x, int32 y, double val )
    rmAssertDebug (x >= 0);
    rmAssertDebug (x < mWidth);
 
-   *((double *) (mStartPtr + y * mRowUpdate + x * mPixelDepth)) = val;
+   *((double *) (mStartPtr + y * mRowUpdate + x * bytes())) = val;
 
    return val;
 }
@@ -348,18 +349,18 @@ double rcFrame::operator() (double xDb, double yDb) const
 {
   int32 x = (int32) xDb;
   int32 y = (int32) yDb;
-
+  
   switch (mPixelDepth)
     {
     case rcPixel8:
     case rcPixel16:
       return (double) getPixel (x, y);
 
-    case rcPixel32:
+    case rcPixel32S:
       if (isD32Float())
-	return (double) (*((float *) (mStartPtr + y * mRowUpdate + x * mPixelDepth)));
+	return (double) (*((float *) (mStartPtr + y * mRowUpdate + x * bytes())));
       else 
-	return (double) (*((uint32 *) (mStartPtr + y * mRowUpdate + x * mPixelDepth)));
+	return (double) (*((uint32 *) (mStartPtr + y * mRowUpdate + x * bytes())));
 
     case rcPixelDouble:
       return (double) getDoublePixel (x, y);

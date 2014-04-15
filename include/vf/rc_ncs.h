@@ -1,6 +1,6 @@
 
-#ifndef _RC_ANALYSIS_H_
-#define _RC_ANALYSIS_H_
+#ifndef _RC_NCS_H_
+#define _RC_NCS_H_
 
 #include <vector>
 #include <deque>
@@ -9,35 +9,8 @@ using namespace std;
 #include <rc_types.h>
 #include <rc_pair.h>
 #include <rc_window.h>
-#include <rc_vector2d.h>
 #include <rc_correlationwindow.h>
-#include <rc_peak.h>
-#include <rc_polygon.h>
 
-// A class to encapsulate a table of pre-computed squares
-class rcSquareTable {
-    enum { RC_SQUARE_TABLE_SIZE = 511 };
-
-public:
-    // ctor
-    rcSquareTable() {
-        for (uint32 i = 0; i < RC_SQUARE_TABLE_SIZE; i++)
-            mTable[i] = i * i;
-    };
-    
-    // Array access operator
-    uint32 operator [] (int index) const { rmAssertDebug( index < RC_SQUARE_TABLE_SIZE ); return mTable[index]; };
-
-    // Array size
-    uint32 size() const { return RC_SQUARE_TABLE_SIZE; };
-    
-private:
-    uint32 mTable[RC_SQUARE_TABLE_SIZE];
-};
-
-// For correlation finding and motion vector we report integer correlation values
-
-#define cmIntegerCorr 1000000
 
 // Correlation results. For Sum of Absolute differences. Sim is the sum. r is Average intensity difference normalized
 
@@ -224,50 +197,29 @@ private:
 ostream& operator << ( ostream& os, const rcCorr& corr );
 
 enum RC_MatchMethod {
-    RC_NormalizedCorr = 0,           //One match position correlation
-    RC_IntFrequencyDist = 1         // 3x3 match space, max - min
-};
-
-enum RC_PreProcessMethod {
-    RC_PreNone = 0,           //One match position correlation
-    RC_PreSharpen = 1,         // Highpass before matching
-    RC_PreSmooth = 2          // Lowpass before matching
+    NormalizedCorr = 0,           //One match position correlation
 };
 
 enum RC_EnergyMethod {
-    RC_SumSquare = 0,      // Square
-    RC_SumPlogP = 1,       // Shannon's Entropy
-    RC_SumPlogPNorm = 2    // Shannon's Entropy, fully normalized
+    Mean = 0,      // Mean
+    SumPlogPNorm = 1    // Shannon's Entropy, fully normalized
 };
 
 enum RC_PixelInterp {
-    RC_Whole = 0,        // Use the whole 32 bit or 16. Width = number of pixels
-    RC_ByteWise = 1      // Use Byte wise. Width = number of bytes
+    Whole = 0,        // Use the whole 32 bit or 16. Width = number of pixels
+    ByteWise = 1      // Use Byte wise. Width = number of bytes
 };
 
-enum RC_EnergyReport {
-  RC_TimeDerivative = 0,  // Raw Energy is dE / dt
-  RC_TimeIntegral = 1   // Intgral of E 
-};
 
-enum RC_ColorMethod {
-    RC_ColorReduceAll32to8 = 0, // Reduce all 32-bit images to 8-bit gray scale images 
-    RC_ColorReduceGray32to8,    // Reduce 32-bit gray scale images to 8-bit gray scale images, analyze all bytes of color images
-    RC_ColorUse32               // Analyze all bytes in all 32-bit images
-    // TODO: what to do with 8-bit color images?
-};
 
 struct rsCorrParams
 {
   RC_MatchMethod match;
-  RC_PreProcessMethod pp;
   RC_EnergyMethod em;
   RC_PixelInterp pd;
-  RC_EnergyReport rp;
-  RC_ColorMethod rc;
+    int maskN;
 
-  rsCorrParams () : match (RC_NormalizedCorr), pp (RC_PreNone), em (RC_SumPlogPNorm), pd (RC_ByteWise), rp (RC_TimeDerivative),
-        rc(RC_ColorReduceAll32to8) {}
+    rsCorrParams () : match (NormalizedCorr), em (SumPlogPNorm), pd (ByteWise), maskN (-1) {}
 
     // default copy, assignment, dtor ok
 };
@@ -276,10 +228,9 @@ struct rsCorrParams
 // 
 void rfCorrelate (const rcWindow& sourceA, const rcWindow& sourceB, const rsCorrParams& params, rcCorr& res);
 void rfCorrelate(const rcWindow& sourceA, const rcWindow& sourceB, rcCorr& res);
-void rfCorrelate (const rcWindow& sourceA, const rcWindow& sourceB,
-		  const rcWindow& mask, const rsCorrParams& params, rcCorr& res,
-		  int32 maskN = -1);
+void rfCorrelate (const rcWindow& sourceA, const rcWindow& sourceB, const rcWindow& mask, const rsCorrParams& params, rcCorr& res, int32 maskN = -1);
 void rfCorrelate(const uint8* baseA, const uint8* baseB, uint32 rupA, uint32 rupB, uint32 width, uint32 height, rcCorr& res);
+
 // T is the image pixel storage type, e.g. uint8, uint16, rcUin32 etc.
 template <class T>
 void rfCorrelateWindow(rcCorrelationWindow<T>& sourceA, rcCorrelationWindow<T>& sourceB, const rsCorrParams& params, rcCorr& res);

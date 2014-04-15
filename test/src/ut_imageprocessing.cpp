@@ -484,7 +484,7 @@ UT_ImageProcessing::testRfRcWindow32to8( bool isGray )
     const uint32 height = 777;
 
     // Create 32-bit buffer and image
-    rcFrame* buf32 = new rcFrame( width, height, rcPixel32 );
+    rcFrame* buf32 = new rcFrame( width, height, rcPixel32S );
     buf32->setIsGray( isGray );
     rcWindow img32( buf32 );
        
@@ -521,7 +521,7 @@ UT_ImageProcessing::testRfRcWindow8to32( bool isGray )
     const uint32 height = 777;
 
     // Create 32-bit buffer and image
-    rcFrame* buf32 = new rcFrame( width, height, rcPixel32 );
+    rcFrame* buf32 = new rcFrame( width, height, rcPixel32S );
     buf32->setIsGray( isGray );
     rcWindow img32( buf32 );
        

@@ -155,20 +155,20 @@ UT_Correlation::run() {
 
       testCorrelation (51, 47, rcPixel8, true);
       testCorrelation (51, 47, rcPixel16, true);
-      testCorrelation (51, 47, rcPixel32, true);
-      testCorrelation (1280, 960, rcPixel32, true);
+      testCorrelation (51, 47, rcPixel32S, true);
+      testCorrelation (1280, 960, rcPixel32S, true);
 
       testCorrelation (51, 47, rcPixel8, false);
       testCorrelation (51, 47, rcPixel16, false);
-      testCorrelation (51, 47, rcPixel32, false);
-      testCorrelation (1280, 960, rcPixel32, false);
+      testCorrelation (51, 47, rcPixel32S, false);
+      testCorrelation (1280, 960, rcPixel32S, false);
 
       rfForceSIMD ( true );
 
       for ( int32 width = 320; width <= 1280; width *= 2 ) {
           int32 height = (width * 3)/4;
           testOptoKinetic (width, height, rcPixel8);
-          testOptoKinetic (width, height, rcPixel32);
+          testOptoKinetic (width, height, rcPixel32S);
       }
 
 
@@ -385,7 +385,7 @@ void UT_Correlation::testCorrelation (uint32 width, uint32 height, rcPixel d, bo
            ++exceptions;
        }
        rcUNITTEST_ASSERT( exceptions == 0 );
-   } else if ( d == rcPixel32 ) {
+   } else if ( d == rcPixel32S ) {
        uint32 exceptions = 0;
        try {
            rcCorrelationWindow<uint32> cimgA( imgA );

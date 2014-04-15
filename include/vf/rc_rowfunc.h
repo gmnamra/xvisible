@@ -28,7 +28,7 @@
 #ifndef __rcROWFUNC_H
 #define __rcROWFUNC_H
 
-#include <rc_analysis.h>
+#include <rc_ncs.h>
 #include <rc_pair.h>
 
 /*
@@ -44,7 +44,6 @@
  * 
  */
 
-extern const rcSquareTable gSquareTable512;
 
 enum rcCorrMomentsCached {
 	eNone = 0,      // Nothing cached 

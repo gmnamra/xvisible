@@ -143,7 +143,7 @@ void UT_Blum::testBlum()
       }
 
     rcWindow feat (uint32 (maxi.x() + 1),
-		   uint32 (maxi.y() + 1), rcPixel32);
+		   uint32 (maxi.y() + 1), rcPixel32S);
     rcWindow dist (uint32 (maxi.x() + 1),
 		   uint32 (maxi.y() + 1), rcPixelDouble);
 
@@ -197,7 +197,7 @@ void UT_Blum::testBlum()
     }
 
   rcWindow feature (uint32 (maxi.x() + 1),
-		    uint32 (maxi.y() + 1), rcPixel32);
+		    uint32 (maxi.y() + 1), rcPixel32S);
   rcWindow distance (uint32 (maxi.x() + 1),
 		     uint32 (maxi.y() + 1), rcPixelDouble);
 

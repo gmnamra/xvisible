@@ -368,7 +368,7 @@ rcWindow& rcWindow::set(double pixelValue)
     case rcPixel16:
       return setAllPixels ((uint32) pixelValue);
 
-    case rcPixel32:
+    case rcPixel32S:
       if (!isD32Float ())
 	return setAllPixels ((uint32) pixelValue);	
       else
@@ -445,7 +445,7 @@ rcWindow& rcWindow::setAllPixels(uint32 pixelValue)
             }
             break;
             
-        case rcPixel32:            
+        case rcPixel32S:            
             for ( ; row <= lastRow; row++)
             {
                 uint32* pixelPtr = (uint32*) rowPointer(row);
@@ -530,7 +530,7 @@ uint32 rcWindow::randomFill( uint32 seed )
         for (int32 j = 0; j < height(); j++)
             for (int32 i = 0; i < width(); i++)
                 setPixel (i, j, uint32 (uint16 (random ())));
-    else if (depth() == rcPixel32)
+    else if (depth() == rcPixel32S)
         for (int32 j = 0; j < height(); j++)
             for (int32 i = 0; i < width(); i++)
                 setPixel (i, j, uint32 (random ()));
@@ -604,7 +604,7 @@ int32 rcWindow::bits () const
 
 int32 rcWindow::bytes () const
 {
-  return ((int32)depth());
+    return (get_bytes().count (depth()));
 }
 
 bool rcWindow::canPeekOutSide (const rcIPair range) const
@@ -771,7 +771,7 @@ double rcWindow::getDoublePixel( int32 x, int32 y ) const
 		{
 			switch (depth())
 			{
-				PIXELEQUAL(rcPixel32, float*, 0.1f);
+				PIXELEQUAL(rcPixel32S, float*, 0.1f);
 				default:
 				rmExceptionMacro ("Pixel Type Not Implemented");
 			}
@@ -783,7 +783,7 @@ double rcWindow::getDoublePixel( int32 x, int32 y ) const
 			{
 				PIXELCOMPARE(rcPixel8, uint8*);
 				PIXELCOMPARE(rcPixel16, uint16*);
-				PIXELCOMPARE(rcPixel32, uint32*);
+				PIXELCOMPARE(rcPixel32S, uint32*);
 				default:
 				rmExceptionMacro ("Pixel Type Not Implemented");
 			}
@@ -794,7 +794,7 @@ double rcWindow::getDoublePixel( int32 x, int32 y ) const
 				{
 					PIXELCOMPAREVERBOSE(rcPixel8, uint8*);
 					PIXELCOMPAREVERBOSE(rcPixel16, uint16*);
-					PIXELCOMPAREVERBOSE(rcPixel32, uint32*);
+					PIXELCOMPAREVERBOSE(rcPixel32S, uint32*);
 					default:
 					rmExceptionMacro ("Pixel Type Not Implemented");
 				}
@@ -815,7 +815,7 @@ bool rcWindow::contentMaskCompare (const rcWindow& other, const rcWindow& mask) 
     {
       MASKEDPIXELCOMPARE(rcPixel8, uint8*,uint8*);
       MASKEDPIXELCOMPARE(rcPixel16, uint16*,uint8*);
-      MASKEDPIXELCOMPARE(rcPixel32, uint32*,uint8*);
+      MASKEDPIXELCOMPARE(rcPixel32S, uint32*,uint8*);
     default:
     rmExceptionMacro ("Pixel Type Not Implemented");
 
@@ -851,7 +851,7 @@ void rfSetWindowBorder (rcWindow& win, double val)
       SETPIXELBORDER(rcPixel8,uint8);
       SETPIXELBORDER(rcPixel16,uint16);
       SETPIXELBORDER(rcPixelDouble,double);
-    case rcPixel32:
+    case rcPixel32S:
       if (!win.isD32Float())
 	rf_SetWindowBorder (win, (uint32) val);
       else
@@ -878,7 +878,7 @@ CGImageRef rcWindow::CGImage() const
 	void  *bitmapData = (void *) root.rowPointer (0);
 	int    bitmapBytesPerRow = ( root.rowUpdate ());
 	
-	colorSpace = depth () == rcPixel32 ? CGColorSpaceCreateDeviceRGB () : CGColorSpaceCreateDeviceGray();
+	colorSpace = depth () == rcPixel32S ? CGColorSpaceCreateDeviceRGB () : CGColorSpaceCreateDeviceGray();
 	
 	// Create a data provider with a pointer to the memory bits
 	provider = CGDataProviderCreateWithData(NULL, bitmapData, bitmapBytesPerRow * root.height(), NULL);

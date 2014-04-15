@@ -1,65 +1,3 @@
-/*
- *
- *$Id $
- *$Log$
- *Revision 1.14  2005/10/27 22:58:19  arman
- *z additions and cleanup
- *
- *Revision 1.13  2005/09/12 15:28:01  arman
- *Pre 2.0
- *
- *Revision 1.12  2005/09/07 02:48:44  arman
- *fixed a bug in reflect. Added 32 bit support
- *
- *Revision 1.11  2005/08/30 20:57:16  arman
- *Cell Lineage
- *
- *Revision 1.14  2005/08/23 23:32:32  arman
- *Cell Lineage II
- *
- *Revision 1.13  2005/08/15 20:29:38  arman
- *Cell Lineage II
- *
- *Revision 1.12  2005/08/15 12:58:00  arman
- *Cell Lineage II
- *
- *Revision 1.11  2005/08/15 12:51:18  arman
- *added 16bit morphology support (using vImage)
- *
- *Revision 1.10  2005/03/29 16:10:46  arman
- *fixed rowupdate bug in doubel specialization of rfSetWindowBorder
- *
- *Revision 1.9  2004/07/21 21:22:52  arman
- *added reflect
- *
- *Revision 1.8  2004/04/20 15:41:24  arman
- *added rcCopyWindowBorder
- *
- *Revision 1.7  2004/04/19 20:49:49  arman
- *added borderCopy
- *
- *Revision 1.6  2003/12/19 06:58:04  arman
- *added specialization for double for SetWindowBorder
- *
- *Revision 1.5  2003/08/28 02:34:15  arman
- *unsigned to signed fixes
- *
- *Revision 1.4  2003/05/06 22:06:24  sami
- *Silenced compiler warning
- *
- *Revision 1.3  2003/05/06 22:04:44  sami
- *Silenced compiler warnings
- *
- *Revision 1.2  2003/03/03 14:10:35  arman
- *Added sample and expand
- *
- *Revision 1.1  2003/01/07 03:00:06  arman
- *Additional image processing functions
- *
- *
- *
- * Copyright (c) 2002 Reify Corp. All rights reserved.
- */
 
 #include <rc_window.h>
 #include <rc_math.h>
@@ -84,9 +22,9 @@ void rfPixelMin3By3(const rcWindow& srcImg, rcWindow& dstImg)
       vImage_Buffer s16, sf, d16, df;
       srcImg.vImage (s16);
       dstImg.vImage (d16);
-      rcWindow f (srcImg.width(), dstImg.height(), rcPixel32);
+      rcWindow f (srcImg.width(), dstImg.height(), rcPixel32S);
       f.vImage (sf);
-      rcWindow ff (srcImg.width(), dstImg.height(), rcPixel32);
+      rcWindow ff (srcImg.width(), dstImg.height(), rcPixel32S);
       ff.vImage (df);
       vImage_Error ve;       
       ve = vImageConvert_16UToF (&s16, &sf, 0.0f, 1.0f, kvImageNoFlags);
@@ -131,9 +69,9 @@ void rfPixelMax3By3(const rcWindow& srcImg, rcWindow& dstImg)
       vImage_Buffer s16, sf, d16, df;
       srcImg.vImage (s16);
       dstImg.vImage (d16);
-      rcWindow f (srcImg.width(), dstImg.height(), rcPixel32);
+      rcWindow f (srcImg.width(), dstImg.height(), rcPixel32S);
       f.vImage (sf);
-      rcWindow ff (srcImg.width(), dstImg.height(), rcPixel32);
+      rcWindow ff (srcImg.width(), dstImg.height(), rcPixel32S);
       ff.vImage (df);
       vImage_Error ve;       
       ve = vImageConvert_16UToF (&s16, &sf, 0.0f, 1.0f, kvImageNoFlags);
@@ -185,7 +123,7 @@ void rfImageVerticalReflect (const rcWindow& src, rcWindow& dst)
       rmAssert (ve == kvImageNoError);
       break;
 
-    case rcPixel32:
+    case rcPixel32S:
       ve = vImageVerticalReflect_ARGB8888(&vb, &vd, vf);
       rmAssert (ve == kvImageNoError);
       break;

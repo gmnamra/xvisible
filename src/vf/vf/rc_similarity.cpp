@@ -4,7 +4,7 @@
 
 // analysis
 #include <rc_similarity.h>
-#include <rc_analysis.h>
+#include <rc_ncs.h>
 
 #include <rc_filter1d.h>
 #include <rc_histstats.h>
@@ -52,10 +52,11 @@ rcSimilarator::rcSimilarator(rcMatrixGeneration type,
     _notify(notify), _finished(true),
     _guiUpdate(guiUpdate), _tiny(tiny)
 {
+    _corrParams.pd = ByteWise; // use each byte of a multibyte pixel
   switch (_depth) {
   case rcPixel8:
   case rcPixel16:
-  case rcPixel32:
+  case rcPixel32S:
     break;
   default:
     rmAssert(0);
@@ -92,7 +93,7 @@ bool rcSimilarator::fill(vector<rcWindow>& firstImages)
   case rcPixel16:
     _tw16.resize(0);
     return internalFill(start, firstImages.end(), _tw16);
-  case rcPixel32:
+  case rcPixel32S:
     _tw32.resize(0);
     return internalFill(start, firstImages.end(), _tw32);
   default:
@@ -139,7 +140,7 @@ bool rcSimilarator::fill(const rcWindow& projective, bool isColumns)
   case rcPixel16:
     _tw16.resize(0);
     return internalFill(start, firstImages.end(), _tw16);
-  case rcPixel32:
+  case rcPixel32S:
     _tw32.resize(0);
     return internalFill(start, firstImages.end(), _tw32);
   default:
@@ -238,7 +239,7 @@ bool rcSimilarator::fill(deque<rcWindow>& firstImages)
   case rcPixel16:
     _tw16.resize(0);
     return internalFill(start, firstImages.end(), _tw16);
-  case rcPixel32:
+  case rcPixel32S:
     _tw32.resize(0);
     return internalFill(start, firstImages.end(), _tw32);
   default:
@@ -256,7 +257,7 @@ rcIPair rcSimilarator::fillImageSize() const
     return rcIPair (_tw8[0].width(), _tw8[0].height());
   case rcPixel16:
     return rcIPair (_tw16[0].width(), _tw16[0].height());
-  case rcPixel32:
+  case rcPixel32S:
     return rcIPair (_tw32[0].width(), _tw32[0].height());
   default:
     rmAssert(0);
@@ -274,7 +275,7 @@ bool rcSimilarator::update(rcWindow nextImage)
     return internalUpdate(nextImage, _tw8);
   case rcPixel16:
     return internalUpdate(nextImage, _tw16);
-  case rcPixel32:
+  case rcPixel32S:
     return internalUpdate(nextImage, _tw32);
   default:
     rmAssert(0);
@@ -304,7 +305,7 @@ void rcSimilarator::setMask(const rcWindow& mask)
   uint32 allOnes = 0xFF;
   if (_depth == rcPixel16)
     allOnes = 0xFFFF;
-  else if (_depth == rcPixel32)
+  else if (_depth == rcPixel32S)
     allOnes = 0xFFFFFFFF;
   else
     rmAssert(_depth == rcPixel8);
@@ -807,7 +808,9 @@ double rcSimilarator::correlate(rcCorrelationWindow<T>& i,
     }
 
   if (_maskValid)
+  {
     rfCorrelate(i.window(), m.window(), _mask, _corrParams, res, _maskN);
+  }
   else
     rfCorrelateWindow(i, m, _corrParams, res);
 

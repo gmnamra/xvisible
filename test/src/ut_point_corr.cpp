@@ -5,7 +5,7 @@
  *
  */
 #include "ut_point_corr.h"
-#include <rc_analysis.h>
+#include <rc_ncs.h>
 #include <rc_time.h>
 #include <rc_moments.h>
 

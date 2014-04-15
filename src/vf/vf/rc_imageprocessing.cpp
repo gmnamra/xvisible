@@ -343,7 +343,7 @@ void rfWindow8to32(const rcWindow& rgbInput, rcWindow& rgbOutput)
     rmAssert( rgbInput.width() == rgbOutput.width() );
     rmAssert( rgbInput.height() == rgbOutput.height() );
     rmAssert( rgbInput.depth() == rcPixel8 );
-    rmAssert( rgbOutput.depth() == rcPixel32 );
+    rmAssert( rgbOutput.depth() == rcPixel32S );
     
     const uint32 width = rgbInput.width();
     const uint32 height = rgbInput.height();
@@ -367,7 +367,7 @@ void rfRcWindow8to32(const rcWindow& rgbInput, rcWindow& rgbOutput)
     rmAssert( rgbInput.width() == rgbOutput.width() );
     rmAssert( rgbInput.height() == rgbOutput.height() );
     rmAssert( rgbInput.depth() == rcPixel8 );
-    rmAssert( rgbOutput.depth() == rcPixel32 );
+    rmAssert( rgbOutput.depth() == rcPixel32S );
     
     const uint32 width = rgbInput.width();
     const uint32 height = rgbInput.height();
@@ -560,7 +560,7 @@ void rfAndImage(const rcWindow& srcWin, const rcWindow& maskWin,
 {
   if ((srcWin.depth() != rcPixel8 &&
       srcWin.depth() != rcPixel16 &&
-       srcWin.depth() != rcPixel32) ||
+       srcWin.depth() != rcPixel32S) ||
       srcWin.depth() != maskWin.depth() ||
       srcWin.depth() != destWin.depth() ||
       srcWin.width() != maskWin.width() || 
@@ -873,11 +873,11 @@ void rfMutualChannel (const rcWindow& rgbInput, rcWindow& channelOutput)
   if ( rgbInput.isGray() ) return;
 
   rmAssert (rgbInput.isBound ());
-  rmAssert( rgbInput.depth() == rcPixel32 );
+  rmAssert( rgbInput.depth() == rcPixel32S );
 
   const uint32 width = rgbInput.width();
   const uint32 height = rgbInput.height();
-  rcWindow mu (256, 256, rcPixel32);
+  rcWindow mu (256, 256, rcPixel32S);
   mu.setAllPixels (0);
   float maxb (0.0f);
   rc2Fvector maxdv (256.0f, 256.0f);

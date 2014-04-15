@@ -377,7 +377,7 @@ uint32 UT_WindowMutator::run()
 void UT_WindowMutator::setTest ()
 {
     const int32 depthCount = 3;
-    rcPixel depths[depthCount] = { rcPixel8, rcPixel16, rcPixel32 };
+    rcPixel depths[depthCount] = { rcPixel8, rcPixel16, rcPixel32S };
     uint32 pixelMasks[depthCount] = { 0x000000FF, 0x0000FFFF, 0xFFFFFFFF };
    
     const int32 widthCount = 20;
@@ -441,7 +441,7 @@ void UT_WindowMutator::setTest ()
 void UT_WindowMutator::copyTest ()
 {
     const int32 depthCount = 3;
-    rcPixel depths[depthCount] = { rcPixel8, rcPixel16, rcPixel32 };
+    rcPixel depths[depthCount] = { rcPixel8, rcPixel16, rcPixel32S };
     uint32 pixelMasks[depthCount] = { 0x000000FF, 0x0000FFFF, 0xFFFFFFFF };
    
     const int32 widthCount = 20;
@@ -522,8 +522,8 @@ void UT_WindowMutator::randomTest ()
 
     for ( int32 width = 32; width < maxWidth; width*=2 ) {
         for ( int32 height = 32; height < maxHeight; height*=2 ) {
-            rcSharedFrameBufPtr buf1 = new rcFrame( width, height, rcPixel32 );
-            rcSharedFrameBufPtr buf2 = new rcFrame( width, height, rcPixel32 );
+            rcSharedFrameBufPtr buf1 = new rcFrame( width, height, rcPixel32S );
+            rcSharedFrameBufPtr buf2 = new rcFrame( width, height, rcPixel32S );
             rcSharedFrameBufPtr buf3 = new rcFrame( width, height, rcPixel8 );
             rcSharedFrameBufPtr buf4 = new rcFrame( width, height, rcPixel8 );
             
@@ -637,7 +637,7 @@ void UT_WindowMutator::mirrorTest()
     for ( int32 incr = 0; incr < 3; ++incr ) {
         for ( int32 width = 1; width < maxWidth; width = width*3 + incr ) {
             for ( int32 height = 1; height < maxHeight; height = height*4 + incr ) {
-                rcSharedFrameBufPtr buf32 = new rcFrame( width, height, rcPixel32 );
+                rcSharedFrameBufPtr buf32 = new rcFrame( width, height, rcPixel32S );
                 rcSharedFrameBufPtr buf16 = new rcFrame( width, height, rcPixel16 );
                 rcWindow w32( buf32 );
                 rcWindow w16( buf16 );

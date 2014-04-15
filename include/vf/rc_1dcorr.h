@@ -50,7 +50,7 @@
 #include <rc_window.h>
 #include <rc_vector2d.h>
 #include <rc_pair.h>
-#include <rc_analysis.h>
+#include <rc_ncs.h>
 #include <rc_fit.h>
 #include <rc_stats.h>
 

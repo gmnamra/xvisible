@@ -18,6 +18,7 @@
 #include "main.h"
 #include <gtest/gtest.h>
 #include <rc_framework_core.hpp>
+#include <rc_pixel.hpp>
 
 class genv: public testing::Environment
 {
@@ -58,6 +59,14 @@ private:
 
 
 static ::testing::Environment* envp = 0;
+
+
+TEST( UT_FrameBuf, run )
+{
+	UT_FrameBuf test;
+	EXPECT_EQ(0, test.run());
+}
+
 
 
 TEST(UT_similarity_producer, run)

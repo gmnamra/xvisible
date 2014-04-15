@@ -1325,7 +1325,8 @@ rcVideoCacheError rcVideoCache::headerLoadRev2( bool getTOC )
 
     movieHdr.fixEndian();
 
-    if ( movieHdr.depth() < rcPixel8 || movieHdr.depth() > rcPixel32 ) {
+    if ( ! rc_pixel().validate (movieHdr.depth()) ) // < rcPixel8 || movieHdr.depth() > rcPixel32S ) 
+    {
         if (_verbose) {
             char buf[256];
             snprintf( buf, rmDim(buf), "Unsupported pixel depth %i",
@@ -1345,7 +1346,7 @@ rcVideoCacheError rcVideoCache::headerLoadRev2( bool getTOC )
     _frameCount = movieHdr.frameCount();
     _frameWidth = movieHdr.width();
     _frameHeight = movieHdr.height();
-    _frameDepth = movieHdr.depth();
+    _frameDepth = get_new_version().update (movieHdr.depth());
     _averageFrameRate = movieHdr.averageFrameRate();
  // Legacy format is always big-endian
     _byteOrder = rfPlatformByteOrder (movieHdr.bom() );

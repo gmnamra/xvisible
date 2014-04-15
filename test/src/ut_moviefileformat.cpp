@@ -378,7 +378,7 @@ void UT_moviefileformat::testOrgExt()
 	    testOrgExt( movieOriginType(org), getCurrentTimestamp(), w*h, w, h,
 			rcPixel16, movieFormatRev(rev), "Thor" );
 	    testOrgExt( movieOriginType(org), getCurrentTimestamp(), w*h, w, h,
-			rcPixel32, movieFormatRev(rev), "Zeus" );
+			rcPixel32S, movieFormatRev(rev), "Zeus" );
 	    testOrgExt( movieOriginType(org), getCurrentTimestamp(), w*h, w, h,
 			rcPixel8, movieFormatRev(rev),
 			"A somewhat longer name for a creator should not be a problem" );

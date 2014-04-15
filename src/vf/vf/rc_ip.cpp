@@ -102,9 +102,9 @@ if (rfHasSIMD () && kernelSize == (a) && src.depth() == rcPixel16)\
 	vImage_Buffer s16, sf, d16, df;\
 	src.vImage (s16);\
 	dest.vImage (d16);\
-	rcWindow f (src.width(), dest.height(), rcPixel32);\
+	rcWindow f (src.width(), dest.height(), rcPixel32S);\
 	f.vImage (sf);\
-	rcWindow ff (src.width(), dest.height(), rcPixel32);\
+	rcWindow ff (src.width(), dest.height(), rcPixel32S);\
 	ff.vImage (df);\
 	vImage_Error ve;       \
 	ve = vImageConvert_16UToF (&s16, &sf, 0.0f, 1.0f, kvImageNoFlags);\
@@ -266,9 +266,9 @@ void rfGaussianConv (const rcWindow& src, rcWindow& dest, int32 kernelSize)
 			vImage_Buffer s16, sf, d16, df;
 			src.vImage (s16);
 			dest.vImage (d16);
-			rcWindow f (src.width(), dest.height(), rcPixel32);
+			rcWindow f (src.width(), dest.height(), rcPixel32S);
 			f.vImage (sf);
-			rcWindow ff (src.width(), dest.height(), rcPixel32);
+			rcWindow ff (src.width(), dest.height(), rcPixel32S);
 			ff.vImage (df);
 			vImage_Error ve;       
 			ve = vImageConvert_16UToF (&s16, &sf, 0.0f, 1.0f, kvImageNoFlags);
@@ -281,7 +281,7 @@ void rfGaussianConv (const rcWindow& src, rcWindow& dest, int32 kernelSize)
 			rmAssert (!ve);
 			return;
 		}
-		else if (src.depth() == rcPixel32 && Depth32IsFloat)
+		else if (src.depth() == rcPixel32S && Depth32IsFloat)
 		{
 			vImage_Buffer vb, vd;
 			src.vImage (vb);	  dest.vImage (vd);
@@ -292,7 +292,7 @@ void rfGaussianConv (const rcWindow& src, rcWindow& dest, int32 kernelSize)
 			rmAssert (!ve);
 			return;
 		}
-		else if (src.depth() == rcPixel32)
+		else if (src.depth() == rcPixel32S)
 		{
 			unsigned char edgeFill[4] = { 0, 0, 0, 0 };
 			vImage_Buffer vb, vd;
@@ -371,9 +371,9 @@ static void rfGauss3(const rcWindow& src, rcWindow& dest, bool dIsFloat)
 	 vImage_Buffer s16, sf, d16, df;
 	 src.vImage (s16);
 	 dest.vImage (d16);
-	 rcWindow f (src.width(), dest.height(), rcPixel32);
+	 rcWindow f (src.width(), dest.height(), rcPixel32S);
 	 f.vImage (sf);
-	 rcWindow ff (src.width(), dest.height(), rcPixel32);
+	 rcWindow ff (src.width(), dest.height(), rcPixel32S);
 	 ff.vImage (df);
 	 vImage_Error ve;       
 	 ve = vImageConvert_16UToF (&s16, &sf, 0.0f, 1.0f, kvImageNoFlags);
@@ -386,7 +386,7 @@ static void rfGauss3(const rcWindow& src, rcWindow& dest, bool dIsFloat)
 	 rmAssert (!ve);
 	 return;
        }
-     else if (src.depth() == rcPixel32 && dIsFloat)
+     else if (src.depth() == rcPixel32S && dIsFloat)
        {
 	 vImage_Buffer vb, vd;
 	 src.vImage (vb);	  dest.vImage (vd);
@@ -397,7 +397,7 @@ static void rfGauss3(const rcWindow& src, rcWindow& dest, bool dIsFloat)
 	 rmAssert (!ve);
 	 return;
        }
-     else if (src.depth() == rcPixel32)
+     else if (src.depth() == rcPixel32S)
        {
 	 unsigned char edgeFill[4] = { 0, 0, 0, 0 };
 	 vImage_Buffer vb, vd;

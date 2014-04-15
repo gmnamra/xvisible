@@ -148,7 +148,7 @@ void rfImageConvert8ToARGB (const rcWindow& byteImage, const rcWindow& alpha, rc
   rmAssert (alpha.isBound());
   rmAssert (byteImage.isBound());
   rmAssert (argb.isBound());
-  rmAssert (argb.depth() == rcPixel32);
+  rmAssert (argb.depth() == rcPixel32S);
 
   //@todo add if has SIMD 
   vImage_Buffer va, v8, vargb;
@@ -164,7 +164,7 @@ void rfImageConvert8ToARGB (const rcWindow& byteImage, const rcWindow& alpha, rc
 rcWindow rfImageConvert8ToARGB (const rcWindow& byteImage, const rcWindow& alpha) 
 {
   rmAssert (byteImage.isBound());
-  rcWindow newdest (byteImage.width(), byteImage.height(), rcPixel32);
+  rcWindow newdest (byteImage.width(), byteImage.height(), rcPixel32S);
   rfImageConvert8ToARGB (byteImage, alpha, newdest);
   return newdest;
 }
@@ -265,7 +265,7 @@ void rfImageConvert168 (const rcWindow& twobyteImage, rcWindow& byteImage, rcCha
 
   vImage_Buffer vu16, vf, v8;
   twobyteImage.vImage (vu16);
-  rcWindow f (twobyteImage.width(), twobyteImage.height(), rcPixel32);
+  rcWindow f (twobyteImage.width(), twobyteImage.height(), rcPixel32S);
   f.vImage (vf);
   rcWindow e (twobyteImage.width(), twobyteImage.height(), rcPixel8);
   e.vImage (v8);
@@ -301,7 +301,7 @@ void rfImageConvert32to8(const rcWindow& rgbInput, rcWindow& channelOutput, rcCh
 {
     rmAssert( rgbInput.width() == channelOutput.width() );
     rmAssert( rgbInput.height() == channelOutput.height() );
-    rmAssert( rgbInput.depth() == rcPixel32 );
+    rmAssert( rgbInput.depth() == rcPixel32S );
 
     if (1)
       {
@@ -415,7 +415,7 @@ void rfImageConvert8to32(const rcWindow& rgbInput, rcWindow& rgbOutput)
     rmAssert( rgbInput.width() == rgbOutput.width() );
     rmAssert( rgbInput.height() == rgbOutput.height() );
     rmAssert( rgbInput.depth() == rcPixel8 );
-    rmAssert( rgbOutput.depth() == rcPixel32 );
+    rmAssert( rgbOutput.depth() == rcPixel32S );
 
     const uint32 width = rgbInput.width();
     const uint32 height = rgbInput.height();
@@ -497,7 +497,7 @@ void rfImageAddMask (const rcWindow& image, const rcWindow& mask, rcWindow& four
 			}
 		}
 	}
-	else if (image.depth() == rcPixel32)   // 32 bit case needs to be reworked
+	else if (image.depth() == rcPixel32S)   // 32 bit case needs to be reworked
 	{
 		for (int32 j = 0; j < image.height(); j++)
 		{
@@ -555,7 +555,7 @@ static void _rfRcWindow32to8(const rcWindow& rgbInput, rcWindow& channelOutput, 
 {
     rmAssert( rgbInput.width() == channelOutput.width() );
     rmAssert( rgbInput.height() == channelOutput.height() );
-    rmAssert( rgbInput.depth() == rcPixel32 );
+    rmAssert( rgbInput.depth() == rcPixel32S );
   
     const uint32 width = rgbInput.width();
     const uint32 height = rgbInput.height();

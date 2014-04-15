@@ -15,8 +15,8 @@ public:
     virtual uint32 run();
 
 private:
-    void testFrameBuffer( int32 width, int32 height, uint32 d );
-    void testRowPointers( int32 width, int32 height, uint32 d );
+    void testFrameBuffer( int32 width, int32 height,rcPixel d );
+    void testRowPointers( int32 width, int32 height, rcPixel d );
     void testPixel( int32 x, int32 y, rcFrame& buf );
 };
 

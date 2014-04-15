@@ -139,7 +139,7 @@ rcGenMovieFileError rcGenMovieFile::addFrame(const rcWindow& frame)
     if ( frame.depth() == rcPixel8 ) {
         // 8-bit, no conversion
         write( frame, timestamp );
-    } else if ( frame.depth() == rcPixel32 ) {
+    } else if ( frame.depth() == rcPixel32S ) {
         if (  _conversion == rcSelectAll ) {
             // 32-bit, no conversion
             write( frame, timestamp );
@@ -460,7 +460,7 @@ rcGenMovieFileError rcGenMovieFile::write( const rcWindow& frame,
     if ( !valid() )
         return _lastError;
   
-    const uint32 rowDataLth = frame.width() * frame.depth();
+    const uint32 rowDataLth = frame.width() * get_bytes().count (frame.depth());
     const uint32 rowUpdateLth = (rowDataLth + 15) & 0xFFFFFFF0;
     const uint32 byteCnt = sizeof(int64) + rowUpdateLth*frame.height();
 
@@ -492,18 +492,18 @@ rcGenMovieFileError rcGenMovieFile::write( const rcWindow& frame,
 rcGenMovieFileError rcGenMovieFile::initHeader( const rcWindow& frame )
 {
     rmAssert(rcPixel8 == frame.depth() || rcPixel16 == frame.depth() ||
-             rcPixel32 == frame.depth());
+             rcPixel32S == frame.depth());
 
     uint32 rowDataLth = frame.width();
     uint32 rowUpdateLth = (rowDataLth + 15) & 0xFFFFFFF0;
     
-    if ( _conversion == rcSelectAll && frame.depth() == rcPixel32) {
-        rowDataLth = frame.width() * frame.depth();
+    if ( _conversion == rcSelectAll && frame.depth() == rcPixel32S) {
+        rowDataLth = frame.width() * get_bytes().count (frame.depth());
         rowUpdateLth = (rowDataLth + 15) & 0xFFFFFFF0;
     }
 
     if ( _conversion == rcSelectAll && frame.depth() == rcPixel16) {
-      rowDataLth = frame.width() * frame.depth();
+      rowDataLth = frame.width() * get_bytes().count (frame.depth());
       rowUpdateLth = (rowDataLth + 15) & 0xFFFFFFF0;
     }
     

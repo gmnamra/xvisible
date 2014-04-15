@@ -105,7 +105,7 @@ bool rcWindow::tiff (std::string& outfile, bool doCompress) const // int argc, c
       dtype = TIFF_SHORT;
       _depth = 2;
       break;
-    case rcPixel32:
+    case rcPixel32S:
       dtype = isD32Float() ? TIFF_FLOAT : TIFF_LONG;
       _depth = 4;
       break;

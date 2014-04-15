@@ -24,7 +24,7 @@
 #define __UT_BLUM_H
 
 #include <rc_unittest.h>
-#include <rc_analysis.h>
+#include <rc_ncs.h>
 
 
 extern vector<float> rfCBLDistance (vector<rc2Fvector>& edges);

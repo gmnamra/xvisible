@@ -5,7 +5,7 @@
  *
  */
 #include <rc_moments.h>
-#include <rc_analysis.h>
+#include <rc_ncs.h>
 #include <rc_time.h>
 #include <rc_windowhist.h>
 #include "ut_moments.h"
@@ -201,7 +201,7 @@ void UT_moments::testMomentGenerator()
 	gen1D.update(frame);
 	gen2D.update(frame);
 	gen2DFast.update(frame);
-	rcWindow expVProj(fWidth, 1, rcPixel32);
+	rcWindow expVProj(fWidth, 1, rcPixel32S);
 	for (int32 yOff = 0; yOff < fHeight; yOff++)
 	  for (int32 xOff = 0; xOff < fWidth; xOff++)
 	    for (int32 yDim = 1; yDim <= (fHeight - yOff); yDim++) {
@@ -243,9 +243,9 @@ void UT_moments::testMomentGenerator()
 
 		/* Calculate the actual vertical projection results.
 		 */
-		rcWindow actVProj1D(xDim, 1, rcPixel32);
-		rcWindow actVProj2D(xDim, 1, rcPixel32);
-		rcWindow actVProj2DFast(xDim, 1, rcPixel32);
+		rcWindow actVProj1D(xDim, 1, rcPixel32S);
+		rcWindow actVProj2D(xDim, 1, rcPixel32S);
+		rcWindow actVProj2DFast(xDim, 1, rcPixel32S);
 		gen1D.vProject(curLoc, actVProj1D);
 		gen2D.vProject(curLoc, actVProj2D);
 		if (testFast)
@@ -263,7 +263,7 @@ void UT_moments::testMomentGenerator()
 	      } // End of: for ( ... ; xDim <= (fWidth - xOff); xDim++) {
 	    } // End of: for ( ... ; yDim <= (fHeight - yOff); yDim++) {
 
-	rcWindow expHProj(fHeight, 1, rcPixel32);
+	rcWindow expHProj(fHeight, 1, rcPixel32S);
 	for (int32 yOff = 0; yOff < fHeight; yOff++)
 	  for (int32 xOff = 0; xOff < fWidth; xOff++)
 	    for (int32 xDim = 1; xDim <= (fWidth - xOff); xDim++) {
@@ -275,8 +275,8 @@ void UT_moments::testMomentGenerator()
 
 		/* Calculate the actual horizontal projection results.
 		 */
-		rcWindow actHProj2D(yDim, 1, rcPixel32);
-		rcWindow actHProj2DFast(yDim, 1, rcPixel32);
+		rcWindow actHProj2D(yDim, 1, rcPixel32S);
+		rcWindow actHProj2DFast(yDim, 1, rcPixel32S);
 		gen2D.hProject(curLoc, actHProj2D);
 		if (testFast)
 		  gen2DFast.hProject(curLoc, actHProj2DFast);

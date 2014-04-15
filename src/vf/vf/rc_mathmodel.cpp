@@ -111,7 +111,7 @@ void rcMathematicalImage::mMakeImage (rcWindow& frame, distribution d, polarity 
 
   uint32 umax = (frame.depth() == rcPixel8) ? rcUINT8_MAX :
     (frame.depth() == rcPixel16) ? rcUINT16_MAX :
-    (frame.depth() == rcPixel32) ? rcUINT32_MAX : 0;
+    (frame.depth() == rcPixel32S) ? rcUINT32_MAX : 0;
   rmAssert (umax);
   double scale = ((double) umax) / (maxV - minV);
 
@@ -170,7 +170,7 @@ void rcMathematicalImage::mMakeField (rcWindow& frame, distribution d, float dr)
 	    }
 	    break;
 
-	  case rcPixel32:
+	  case rcPixel32S:
 	    if (!frame.isD32Float())
 	      {
 		rcAngle16 d (rd);

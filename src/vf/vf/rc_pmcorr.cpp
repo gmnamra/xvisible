@@ -1,37 +1,6 @@
 
-/*
- *  pmcorr.cpp
- *  correlation
- *  $Log$
- *  Revision 1.27  2005/11/15 23:26:05  arman
- *  motionpath redesign
- *
- *  Revision 1.26  2005/11/04 22:04:25  arman
- *  cell lineage iv
- *
- *  Revision 1.25  2003/12/30 23:13:21  proberts
- *  add masked operation support
- *
- *  Revision 1.24  2003/04/12 01:47:05  arman
- *  moderate pipelining in correlation innerloops
- *
- *  Revision 1.23  2003/04/03 22:56:14  sami
- *  Correlation sum caching support added
- *
- *  Revision 1.22  2003/04/02 22:20:59  sami
- *  Removed redundant res.compute() calls
- *
- *  Revision 1.21  2003/04/01 02:50:11  arman
- *  re-implemented correlations on top of rowfuncs
- * 
- *  $Id: rc_pmcorr.cpp 7297 2011-03-07 00:17:55Z arman $
- *  Created by Arman Garakani on Tue Jun 04 2002.
- *  Copyright (c) 2002 Reify Corp. . All rights reserved.
- *
- */
 
-#include <rc_analysis.h>
-
+#include <rc_ncs.h>
 #include <rc_rowfunc.h>
 #include <rc_correlationwindow.h>
 #include <rc_imageprocessing.h>
@@ -42,33 +11,13 @@ using namespace std;
 static const  rsCorrParams sDefaultCorrParams;
 
 
-// TODO: all this globally mutable data should be object instance state instead
-#ifdef __ppc__
-
-
-static void bunaligned_productsUS ( const unsigned short *input1, const unsigned short *input2, rcCorr& res, unsigned int m8, 
-																	 vector unsigned char, vector unsigned char);
-static void baligned_productsUS ( const unsigned short *input1, const unsigned short *input2, rcCorr& res, unsigned int m8);
-
-static void bunaligned_products ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16, 
-																 vector unsigned char, vector unsigned char);
-static void baligned_products ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16);
-static void bunaligned_products_sumI ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16, 
-																			vector unsigned char, vector unsigned char);
-static void baligned_products_sumI ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16);
-static void bunaligned_products_sumM ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16, 
-																			vector unsigned char, vector unsigned char);
-static void baligned_products_sumM ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16);
-static void bunaligned_products_sumIM ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16, 
-																			 vector unsigned char, vector unsigned char);
-
-
-static void baligned_products_sumIM ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16);
-
-#endif
-
-static void correlate16a32 (const rcWindow& sourceA, const rcWindow& sourceB, rcCorr& res);
-
+// Stream output operator
+ostream& operator << ( ostream& os, const rcCorr& corr )
+{
+    os << "R " << corr.r() << " N " <<  corr.n() << " Rp " <<  corr.singular();
+    os << " Si " <<  corr.Si() << " Sii " <<  corr.Sii() << " Sm " <<  corr.Sm() << " Smm " <<  corr.Smm() << " Sim " <<  corr.Sim() << endl;
+    return os;
+}
 
 // Explicit template instantation
 // gcc cannot automatically instantiate templates that are not in header files
@@ -76,7 +25,157 @@ template void rfCorrelateWindow(rcCorrelationWindow<uint16>& sourceA, rcCorrelat
 template void rfCorrelateWindow(rcCorrelationWindow<uint32>& sourceA, rcCorrelationWindow<uint32>& sourceB, const rsCorrParams& params, rcCorr& res);
 template void rfCorrelateWindow(rcCorrelationWindow<float>& sourceA, rcCorrelationWindow<float>& sourceB, const rsCorrParams& params, rcCorr& res);
 
+// Pure Byte wise correlation
+void rfCorrelate(const uint8* baseA, const uint8* baseB, uint32 rupA, uint32 rupB, uint32 width, uint32 height,
+                 rcCorr& res)
+{
+	rcBasicCorrRowFunc<uint8> bc (baseA, baseB, rupA, rupB, width, height);
+	
+	bc.prolog ();
+	bc.areaFunc();
+	bc.epilog (res);
+}
+
+void rfCorrelate(const rcWindow& sourceA, const rcWindow& sourceB, const rsCorrParams& params, rcCorr& res)
+{
+	rmAssert (sourceA.depth() == sourceB.depth());
+    int width_bytes = (params.pd == ByteWise) ? sourceA.width() * get_bytes().count (sourceA.depth()) : sourceA.width();
+    rfCorrelate (sourceA.rowPointer(0),sourceB.rowPointer(0),
+                 sourceA.rowUpdate(), sourceB.rowUpdate(),
+                 width_bytes, 
+                 sourceA.height(), 
+                 res);
+}
+
+
+// Perform masked version of correlate.
+// Only pixel locations that are set in the corresponding masked image are
+// used in the calculation.
+// All images must be the same size and depth and pixels in the mask image
+// must all be either 0 or all ones.
+void rfCorrelate(const rcWindow& img, const rcWindow& mdl,
+                 const rcWindow& mask, const rsCorrParams& params, rcCorr& res,
+                 int32 maskN)
+{
+    rcWindow iMasked(img.width(), img.height(), img.depth());
+    rcWindow mMasked(img.width(), img.height(), img.depth());
+	
+    rfAndImage(img, mask, iMasked);
+    rfAndImage(mdl, mask, mMasked);
+    rfCorrelate(iMasked, mMasked, params, res);
+	
+    if (maskN < 0) {
+        uint32 allOnes = 0xFF;
+        if (img.depth() == rcPixel16)
+            allOnes = 0xFFFF;
+        else if (img.depth() == rcPixel32S)
+            allOnes = 0xFFFFFFFF;
+        else
+            rmAssert(img.depth() == rcPixel8);
+		
+        maskN = 0;
+        for (int32 y = 0; y < mask.height(); y++)
+            for (int32 x = 0; x < mask.width(); x++) {
+				uint32 val = mask.getPixel(x, y);
+				if (val == allOnes)
+					maskN++;
+				else
+					rmAssert(val == 0);
+            }
+    }
+    res.n(maskN);
+    res.compute();
+}
+
+
+//Correlate two same depth rcWindows -- convenient function using default settings
+void rfCorrelate(const rcWindow& sourceA, const rcWindow& sourceB, rcCorr& res)
+{
+    rfCorrelate(sourceA, sourceB, sDefaultCorrParams, res);
+}
+
+
+// Specialization for CorrelationWindow 
+
+// Specialization for 8-bit depth
+template<>
+void rfCorrelateWindow(rcCorrelationWindow<uint8>& sourceA, rcCorrelationWindow<uint8>& sourceB, const rsCorrParams& params, rcCorr& res)
+{
+	rmUnused( params );
+	rmAssert (sourceA.depth() == sourceB.depth());
+	
+    rcBasicCorrRowFunc<uint8> bc( sourceA, sourceB );
+    
+    bc.prolog ();
+    bc.areaFunc();
+    bc.epilog (res);
+	
+	// Cache sums
+	if ( !sourceA.sumValid() ) {
+		sourceA.sum( res.Si() );
+		sourceA.sumSquares( res.Sii() );
+	}
+	if ( !sourceB.sumValid() ) {
+		sourceB.sum( res.Sm() );
+		sourceB.sumSquares( res.Smm() );
+	}
+}
+
+// For depths other than 8-bit
+template <class T>
+void rfCorrelateWindow(rcCorrelationWindow<T>& sourceA, rcCorrelationWindow<T>& sourceB, const rsCorrParams& params, rcCorr& res)
+{
+	rmAssert (sourceA.depth() == sourceB.depth());
+    rmAssert (params.pd == ByteWise);
+    
+    // Bytewise correlation
+    rcBasicCorrRowFunc<uint8> bc( sourceA.rowPointer(0), sourceB.rowPointer(0),
+                                 sourceA.rowUpdate(), sourceB.rowUpdate(),
+                                 sourceA.width() * get_bytes().count (sourceA.depth()), 
+                                 sourceA.height() );
+    bc.prolog ();
+    bc.areaFunc();
+    bc.epilog (res);
+  	
+	// Cache sums
+	if ( !sourceA.sumValid() ) {
+		sourceA.sum( res.Si() );
+		sourceA.sumSquares( res.Sii() );
+	}
+	if ( !sourceB.sumValid() ) {
+		sourceB.sum( res.Sm() );
+		sourceB.sumSquares( res.Smm() );
+	}
+}
+
+
+//  PowerPC implementation for nostalgic reasons !!
 #ifdef __ppc__
+
+
+static void bunaligned_productsUS ( const unsigned short *input1, const unsigned short *input2, rcCorr& res, unsigned int m8, 
+                                   vector unsigned char, vector unsigned char);
+static void baligned_productsUS ( const unsigned short *input1, const unsigned short *input2, rcCorr& res, unsigned int m8);
+
+static void bunaligned_products ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16, 
+                                 vector unsigned char, vector unsigned char);
+static void baligned_products ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16);
+static void bunaligned_products_sumI ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16, 
+                                      vector unsigned char, vector unsigned char);
+static void baligned_products_sumI ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16);
+static void bunaligned_products_sumM ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16, 
+                                      vector unsigned char, vector unsigned char);
+static void baligned_products_sumM ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16);
+static void bunaligned_products_sumIM ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16, 
+                                       vector unsigned char, vector unsigned char);
+
+
+static void baligned_products_sumIM ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16);
+
+
+
+
+
 void altiVecCorrelate(const uint8* baseA, const uint8* baseB, uint32 rowbytesA, uint32 rowbytesB, 
                       uint32 width, uint32 height, rcCorr& res)
 {
@@ -90,46 +189,19 @@ void altiVecCorrelate(const uint8* baseA, const uint8* baseB, uint32 rowbytesA, 
 void altiVecCorrelate(const rcWindow& sourceA, const rcWindow& sourceB, rcCorr& res)
 {
 	altiVecCorrelate (sourceA.rowPointer(0), sourceB.rowPointer(0), sourceA.rowUpdate(), sourceB.rowUpdate(),
-										sourceA.width(), sourceA.height(), res);
-}
-#endif
-
-
-static void correlate16a32 (const rcWindow& sourceA, const rcWindow& sourceB, rcCorr& res)
-{
-	// rcBasicCorrRowFunc ctor checks the depth so we do not repeat it
-	if (sourceA.depth() == rcPixel32)
-	{
-		uint32 dummy;
-		rcBasicCorrRowFunc<uint32> bc (sourceA, sourceB, dummy);
-		
-		bc.prolog ();
-		bc.areaFunc();
-		bc.epilog (res);
-	}
-	else if (sourceA.depth() == rcPixel16)
-	{
-		uint16 dummy;
-		rcBasicCorrRowFunc<uint16> bc (sourceA, sourceB, dummy);
-		
-		bc.prolog ();
-		bc.areaFunc();
-		bc.epilog (res);
-	}
+                      sourceA.width(), sourceA.height(), res);
 }
 
 
 void rfCorrelate(const uint8* baseA, const uint8* baseB, uint32 rupA, uint32 rupB, uint32 width, uint32 height,
                  rcCorr& res)
 {
-#ifdef __ppc__	
 	if (rfHasSIMD ())
 	{
 		// Use AltiVec for processing
 		altiVecCorrelate (baseA, baseB, rupA, rupB, width, height, res);
 	} 
 	else
-#endif
 	{
 		rcBasicCorrRowFunc<uint8> bc (baseA, baseB, rupA, rupB, width, height);
 		
@@ -139,63 +211,6 @@ void rfCorrelate(const uint8* baseA, const uint8* baseB, uint32 rupA, uint32 rup
 	}
 }
 
-// Perform masked version of correlate.
-// Only pixel locations that are set in the corresponding masked image are
-// used in the calculation.
-// All images must be the same size and depth and pixels in the mask image
-// must all be either 0 or all ones.
-void rfCorrelate(const rcWindow& img, const rcWindow& mdl,
-								 const rcWindow& mask, const rsCorrParams& params, rcCorr& res,
-								 int32 maskN)
-{
-  rcWindow iMasked(img.width(), img.height(), img.depth());
-  rcWindow mMasked(img.width(), img.height(), img.depth());
-	
-  rfAndImage(img, mask, iMasked);
-  rfAndImage(mdl, mask, mMasked);
-  rfCorrelate(iMasked, mMasked, params, res);
-	
-  if (maskN < 0) {
-    uint32 allOnes = 0xFF;
-    if (img.depth() == rcPixel16)
-      allOnes = 0xFFFF;
-    else if (img.depth() == rcPixel32)
-      allOnes = 0xFFFFFFFF;
-    else
-      rmAssert(img.depth() == rcPixel8);
-		
-    maskN = 0;
-    for (int32 y = 0; y < mask.height(); y++)
-      for (int32 x = 0; x < mask.width(); x++) {
-				uint32 val = mask.getPixel(x, y);
-				if (val == allOnes)
-					maskN++;
-				else
-					rmAssert(val == 0);
-      }
-  }
-  res.n(maskN);
-  res.compute();
-}
-
-
-// Correlate two sources. We can not cache sums since we do not have a model representation
-// Use Square table technique [reference Moravoc paper in the 80s]
-
-void rfCorrelate(const rcWindow& sourceA, const rcWindow& sourceB, const rsCorrParams& params, rcCorr& res)
-{
-	rmAssert (sourceA.depth() == sourceB.depth());
-		rfCorrelate (sourceA.rowPointer(0),sourceB.rowPointer(0),
-								 sourceA.rowUpdate(), sourceB.rowUpdate(),
-								 sourceA.width() * sourceA.depth(), 
-								 sourceA.height(), 
-								 res);
-}
-
-void rfCorrelate(const rcWindow& sourceA, const rcWindow& sourceB, rcCorr& res)
-{
-  rfCorrelate(sourceA, sourceB, sDefaultCorrParams, res);
-}
 
 // Specialization for 8-bit depth
 template<>
@@ -203,7 +218,6 @@ void rfCorrelateWindow(rcCorrelationWindow<uint8>& sourceA, rcCorrelationWindow<
 {
 	rmUnused( params );
 	rmAssert (sourceA.depth() == sourceB.depth());
-#ifdef __ppc__
 	
 	if (rfHasSIMD ()) {
 		// Altivec enabled
@@ -213,8 +227,6 @@ void rfCorrelateWindow(rcCorrelationWindow<uint8>& sourceA, rcCorrelationWindow<
 		bc.areaFunc();
 		bc.epilog (res);
 	} else
-		
-#endif
 	{
 		// Altivec disabled
 		rcBasicCorrRowFunc<uint8> bc( sourceA, sourceB );
@@ -235,35 +247,6 @@ void rfCorrelateWindow(rcCorrelationWindow<uint8>& sourceA, rcCorrelationWindow<
 	}
 }
 
-// For depths other than 8-bit
-template <class T>
-void rfCorrelateWindow(rcCorrelationWindow<T>& sourceA, rcCorrelationWindow<T>& sourceB, const rsCorrParams& params, rcCorr& res)
-{
-	rmAssert (sourceA.depth() == sourceB.depth());
-	
-		// Bytewise correlation
-		// Note: cannot construct rcCorrelationWindow because of window depth difference
-		rcBasicCorrRowFunc<uint8> bc( sourceA.rowPointer(0), sourceB.rowPointer(0),
-																	 sourceA.rowUpdate(), sourceB.rowUpdate(),
-																	 sourceA.width() * sourceA.depth(), 
-																	 sourceA.height() );
-		bc.prolog ();
-		bc.areaFunc();
-		bc.epilog (res);
-
-	
-	// Cache sums
-	if ( !sourceA.sumValid() ) {
-		sourceA.sum( res.Si() );
-		sourceA.sumSquares( res.Sii() );
-	}
-	if ( !sourceB.sumValid() ) {
-		sourceB.sum( res.Sm() );
-		sourceB.sumSquares( res.Smm() );
-	}
-}
-
-#ifdef __ppc__
 
 // Normalized Correlation Products
 // Note: The following code is written for readability and efficiency. 
@@ -274,7 +257,7 @@ void rfCorrelateWindow(rcCorrelationWindow<T>& sourceA, rcCorrelationWindow<T>& 
 //                            both sum cached      both sum cached
 
 void altivec8bitPelProducts ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16,
-														 vector unsigned char perm1, vector unsigned char perm2)
+                             vector unsigned char perm1, vector unsigned char perm2)
 {
 	if (!((uint32) input1 & 0xf) && !((uint32) input2 & 0xf))
 	{
@@ -301,7 +284,7 @@ void altivec16bitPelProducts ( const unsigned short *input1, const unsigned shor
 
 
 void altivec8bitPelProductsSumI ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16, 
-																 vector unsigned char perm1, vector unsigned char perm2)
+                                 vector unsigned char perm1, vector unsigned char perm2)
 {
 	if (!((uint32) input1 & 0xf) && !((uint32) input2 & 0xf))
 	{
@@ -314,7 +297,7 @@ void altivec8bitPelProductsSumI ( const unsigned char *input1, const unsigned ch
 }
 
 void altivec8bitPelProductsSumM ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16, 
-																 vector unsigned char perm1, vector unsigned char perm2)
+                                 vector unsigned char perm1, vector unsigned char perm2)
 {
 	if (!((uint32) input1 & 0xf) && !((uint32) input2 & 0xf))
 	{
@@ -327,7 +310,7 @@ void altivec8bitPelProductsSumM ( const unsigned char *input1, const unsigned ch
 }
 
 void altivec8bitPelProductsSumIM ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16, 
-																	vector unsigned char perm1, vector unsigned char perm2)
+                                  vector unsigned char perm1, vector unsigned char perm2)
 {
 	if (!((uint32) input1 & 0xf) && !((uint32) input2 & 0xf))
 	{
@@ -389,7 +372,7 @@ accum:
 	sumim = (vector unsigned int) (vec_sums((vector signed int) cross, (vector signed int) zero));
 	ACUMMOM1;
 	ACUMMOM2;
-  
+    
 	// replicate the partial sums in to the other ints in an int vector
 	sumim = vec_splat( sumim, 3 );
 	REPLMOM1;
@@ -464,7 +447,7 @@ static void baligned_products ( const unsigned char *input1, const unsigned char
 	
 	// Sum 4 partial sums in a vector of int in to a single int of a int vector [s,s,s,s] = [-,-,-,S]
 	sumim = (vector unsigned int) (vec_sums((vector signed int) cross, (vector signed int) zero));
-  
+    
 	// replicate the partial sums in to the other ints in an int vector
 	sumim = vec_splat( sumim, 3 );
 	
@@ -525,7 +508,7 @@ accum:
 	// Sum 4 partial sums in a vector of int in to a single int of a int vector [s,s,s,s] = [-,-,-,S]
 	sumim = (vector unsigned int) (vec_sums((vector signed int) cross, (vector signed int) zero));
 	ACUMMOM1;
-  
+    
 	// replicate the partial sums in to the other ints in an int vector
 	sumim = vec_splat( sumim, 3 );
 	REPLMOM1;
@@ -585,7 +568,7 @@ accum:
 	// Sum 4 partial sums in a vector of int in to a single int of a int vector [s,s,s,s] = [-,-,-,S]
 	sumim = (vector unsigned int) (vec_sums((vector signed int) cross, (vector signed int) zero));
 	ACUMMOM2;
-  
+    
 	// replicate the partial sums in to the other ints in an int vector
 	sumim = vec_splat( sumim, 3 );
 	REPLMOM2;
@@ -599,7 +582,7 @@ accum:
 }
 
 static void bunaligned_products_sumIM ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16,
-																			 vector unsigned char perm1, vector unsigned char perm2)
+                                       vector unsigned char perm1, vector unsigned char perm2)
 {
 	vector unsigned char *current, *previous;
 	vector unsigned char t1, t2;
@@ -648,7 +631,7 @@ uaccum:
 	sumim = (vector unsigned int) (vec_sums((vector signed int) cross, (vector signed int) zero));
 	ACUMMOM1;
 	ACUMMOM2;
-  
+    
 	// replicate the partial sums in to the other ints in an int vector
 	sumim = vec_splat( sumim, 3 );
 	REPLMOM1;
@@ -665,7 +648,7 @@ uaccum:
 
 
 static void bunaligned_products_sumI ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16,
-																			vector unsigned char perm1, vector unsigned char perm2)
+                                      vector unsigned char perm1, vector unsigned char perm2)
 {
 	vector unsigned char *current, *previous;
 	vector unsigned char t1, t2;
@@ -712,7 +695,7 @@ uaccum:
 	// Sum 4 partial sums in a vector of int in to a single int of a int vector [s,s,s,s] = [-,-,-,S]
 	sumim = (vector unsigned int) (vec_sums((vector signed int) cross, (vector signed int) zero));
 	ACUMMOM1;
-  
+    
 	// replicate the partial sums in to the other ints in an int vector
 	sumim = vec_splat( sumim, 3 );
 	REPLMOM1;
@@ -726,7 +709,7 @@ uaccum:
 }
 
 static void bunaligned_products_sumM ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16,
-																			vector unsigned char perm1, vector unsigned char perm2)
+                                      vector unsigned char perm1, vector unsigned char perm2)
 {
 	vector unsigned char *current, *previous;
 	vector unsigned char t1, t2;
@@ -773,7 +756,7 @@ uaccum:
 	// Sum 4 partial sums in a vector of int in to a single int of a int vector [s,s,s,s] = [-,-,-,S]
 	sumim = (vector unsigned int) (vec_sums((vector signed int) cross, (vector signed int) zero));
 	ACUMMOM2;
-  
+    
 	// replicate the partial sums in to the other ints in an int vector
 	sumim = vec_splat( sumim, 3 );
 	REPLMOM2;
@@ -787,7 +770,7 @@ uaccum:
 }
 
 static void bunaligned_products ( const unsigned char *input1, const unsigned char *input2, rcCorr& res, unsigned int m16,
-																 vector unsigned char perm1, vector unsigned char perm2)
+                                 vector unsigned char perm1, vector unsigned char perm2)
 {
 	vector unsigned char *current, *previous;
 	vector unsigned char t1, t2;
@@ -829,7 +812,7 @@ static void bunaligned_products ( const unsigned char *input1, const unsigned ch
 uaccum:
 	// Sum 4 partial sums in a vector of int in to a single int of a int vector [s,s,s,s] = [-,-,-,S]
 	sumim = (vector unsigned int) (vec_sums((vector signed int) cross, (vector signed int) zero));
-  
+    
 	// replicate the partial sums in to the other ints in an int vector
 	sumim = vec_splat( sumim, 3 );
 	
@@ -892,7 +875,7 @@ accum:
 	// Sum 4 partial sums in a vector of int in to a single int of a int vector [s,s,s,s] = [-,-,-,S]
 	sumim = vec_sums((vector signed int) cross, (vector signed int) zero);
 	ACUMMOM1S;
-  
+    
 	// replicate the partial sums in to the other ints in an int vector
 	sumim = vec_splat( sumim, 3 );
 	REPLMOMS;
@@ -907,7 +890,7 @@ accum:
 
 
 static void bunaligned_productsUS ( const unsigned short *input1, const unsigned short *input2, rcCorr& res, unsigned int m16,
-																	 vector unsigned char perm1, vector unsigned char perm2)
+                                   vector unsigned char perm1, vector unsigned char perm2)
 {
 	vector signed short *current, *previous;
 	vector signed short t1, t2;
@@ -953,7 +936,7 @@ uaccum:
 	// Sum 4 partial sums in a vector of int in to a single int of a int vector [s,s,s,s] = [-,-,-,S]
 	sumim = vec_sums((vector signed int) cross, (vector signed int) zero);
 	ACUMMOM1S;
-  
+    
 	// replicate the partial sums in to the other ints in an int vector
 	sumim = vec_splat( sumim, 3 );
 	REPLMOMS;
@@ -967,11 +950,3 @@ uaccum:
 }
 
 #endif
-
-// Stream output operator
-ostream& operator << ( ostream& os, const rcCorr& corr )
-{
-  os << "R " << corr.r() << " N " <<  corr.n() << " Rp " <<  corr.singular();
-  os << " Si " <<  corr.Si() << " Sii " <<  corr.Sii() << " Sm " <<  corr.Sm() << " Smm " <<  corr.Smm() << " Sim " <<  corr.Sim() << endl;
-  return os;
-}

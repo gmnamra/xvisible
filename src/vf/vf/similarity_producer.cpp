@@ -522,7 +522,7 @@ void SimilarityProducer::spImpl::ipp (const rcWindow& tmp, rcWindow& image, rcTi
         return;
     }
     
-    if (tmp.depth() == rcPixel32)
+    if (tmp.depth() == rcPixel32S)
     {
         
         //        image = rfImageConvert32to8 (tmp, _channelConversion);
