@@ -35,8 +35,9 @@ UT_similarity_producer::~UT_similarity_producer()
 
 uint32 UT_similarity_producer::run ()
 {
-    if (test (mRfyInputMovie)) return 0;
-    return 1;
+    int errors = test (mRfyInputMovie) ? 0 : 1;
+    errors += test (mQTInputMovie) ? 0 : 1;
+    return errors;
 }
 
 

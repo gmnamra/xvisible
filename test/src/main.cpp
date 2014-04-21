@@ -61,6 +61,16 @@ private:
 static ::testing::Environment* envp = 0;
 
 
+TEST (UT_fileutils, run)
+{
+    genv* gvp = reinterpret_cast<genv*>(envp);
+    EXPECT_TRUE (gvp != 0 );
+    
+    UT_fileutils test (gvp->test_data_folder ());
+    EXPECT_EQ(0, test.run () );
+}
+
+
 TEST( UT_FrameBuf, run )
 {
 	UT_FrameBuf test;
@@ -120,13 +130,6 @@ TEST(UT_similarity_producer, run)
     
 	UT_similarity_producer test (rfymov, qmov);
     EXPECT_EQ(0, test.run());
-}
-
-
-TEST (UT_fileutils, run)
-{
-    UT_fileutils test;
-    EXPECT_EQ(0, test.run () );
 }
 
 

@@ -24,6 +24,7 @@
 #include <iterator>
 #include <stdexcept>
 #include <deque>
+#include <vector>
 using namespace std;
 
 
@@ -62,6 +63,18 @@ static const char *defaultBase = "zoubin";
 
 std::string RFY_API rfDumpMatrix (deque<deque<double> >& matrix, const char *pathFormat = 0,
 		       const char* baseName = defaultBase);
+
+
+namespace csv
+{
+   typedef std::vector<std::string> row_type;
+   typedef std::vector<row_type> rows_type;
+        
+   //! Convert an input stream to csv rows.
+   RFY_API rows_type to_rows(std::istream &input);
+        
+} //namespace csv
+
 
 #define __rcFILEUTILS_H
 

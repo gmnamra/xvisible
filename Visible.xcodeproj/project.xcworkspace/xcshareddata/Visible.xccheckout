@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>2188BBDA-C9F3-4D4B-84F0-F14FB9EE30BE</string>
+	<string>99C80F61-6403-4829-B2CA-B9B3FE6F85D0</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Visible</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>F657B237-1CFA-4195-8B20-9E8F4779BDD6</key>
+		<key>B3E611E6-21E4-461C-9EF9-5E31FBC51B30</key>
 		<string>ssh://feynman.local/git/visibleqt105</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Visible.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>F657B237-1CFA-4195-8B20-9E8F4779BDD6</key>
+		<key>B3E611E6-21E4-461C-9EF9-5E31FBC51B30</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F657B237-1CFA-4195-8B20-9E8F4779BDD6</string>
+	<string>B3E611E6-21E4-461C-9EF9-5E31FBC51B30</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F657B237-1CFA-4195-8B20-9E8F4779BDD6</string>
+			<string>B3E611E6-21E4-461C-9EF9-5E31FBC51B30</string>
 			<key>IDESourceControlWCCName</key>
 			<string>visibleqt105</string>
 		</dict>
