@@ -13,7 +13,10 @@
 #include <rc_rect.h>
 #include <iomanip>
 #include <Accelerate/Accelerate.h>
+
+#ifdef CINDER_BUILTIN
 #include <cinder/Channel.h>
+#endif
 
 #include <vector>
 using namespace std;
@@ -295,7 +298,9 @@ public:
  template <class T>
   void print (T);
 
- ci::Channel8u* new_channel () const;
+#ifdef CINDER_BUILTIN
+  ci::Channel8u* new_channel () const;
+#endif
     
  protected:
 

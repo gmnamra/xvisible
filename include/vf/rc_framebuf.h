@@ -17,7 +17,10 @@
 #include <opencv2/core/core.hpp>
 #include <rc_pixel.hpp>
 #include <opencv2/highgui/highgui.hpp>
+
+#ifdef CINDER_BUILTIN
 #include <cinder/Channel.h>
+#endif
 
 
 using namespace cv;
@@ -68,9 +71,13 @@ class rcFrame
   rcFrame( int32 width, int32 height, rcPixel depth, int32 alignMod = ROW_ALIGNMENT_MODULUS );
   /* Row update for SRC pixels, not DEST frame */    
   rcFrame (char* rawPixels, int32 rawPixelsRowUpdate, int32 width, int32 height, rcPixel pixelDepth, bool isGray);
+  rcFrame ( const cv::Mat& );  
     
+#ifdef CINDER_BUILTIN
   rcFrame ( const ci::Channel8u&  );
-    rcFrame ( const cv::Mat& );
+#endif
+    
+
 
   // Destructor
   virtual ~rcFrame();
@@ -191,7 +198,9 @@ class rcFrame
 	
 	int refCount () const { return refcount_.load (); }
 	
+#ifdef CINDER_BUILTIN    
     const ci::Channel8u*  newCiChannel ();  // copies only one channel
+#endif
     
 
 protected:

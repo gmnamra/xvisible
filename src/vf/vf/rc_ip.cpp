@@ -11,7 +11,6 @@
  */
 
 #include <rc_window.h>
-#include <rc_platform.h>
 #include <rc_rowfunc.h>
 #include <rc_ip.h>
 #include <rc_histstats.h>

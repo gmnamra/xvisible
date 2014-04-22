@@ -3,7 +3,7 @@
 #ifndef __rcSYSTEMINFO_H__
 #define __rcSYSTEMINFO_H__
 
-#include <rc_types.h>
+#include "rc_types.h"
 
 /* Amount of ram, in bytes.
  */

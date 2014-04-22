@@ -2,7 +2,6 @@
 
 #include <rc_imageprocessing.h>
 #include <rc_types.h>
-#include <rc_platform.h>
 #include <rc_ipconvert.h>
 
 #define FAST_GEN_MODULUS 32

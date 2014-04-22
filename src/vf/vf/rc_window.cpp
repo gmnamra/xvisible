@@ -7,9 +7,13 @@
 #include <rc_tiff.h>
 #include <tiff.h>
 #include <rc_systeminfo.h>
+
+#ifdef CINDER_BUILTIN
 #include <cinder/Channel.h>
 #include <cinder/Area.h>
+#endif
 
+#ifdef CINDER_BUILTIN
 ci::Channel8u* rcWindow::new_channel () const
 {
     if (!isBound()) return 0;
@@ -31,6 +35,7 @@ ci::Channel8u* rcWindow::new_channel () const
     return ch8;
     
 }
+#endif
 
 
 const uint8 *rcWindow::rowPointer (int32 y) const

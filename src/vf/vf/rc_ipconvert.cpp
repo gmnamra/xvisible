@@ -78,7 +78,6 @@
 
 #include <rc_types.h>
 #include <rc_ipconvert.h>
-#include <rc_platform.h>
 #include <rc_histstats.h>
 #include <rc_imageprocessing.h>
 

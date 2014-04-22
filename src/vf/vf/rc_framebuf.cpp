@@ -95,11 +95,6 @@ rcFrame::rcFrame( int32 width, int32 height, rcPixel depth, int32 alignMod) :
     mStartPtr = startPtr;
 }
 
-rcFrame::rcFrame ( const ci::Channel8u & onec )
-: rcFrame ( onec.getWidth (), onec.getHeight (), rcPixel8, ROW_ALIGNMENT_MODULUS )
-{
-    loadImage (reinterpret_cast<const char*>(onec.getData()), onec.getRowBytes (), onec.getWidth (), onec.getHeight (), rcPixel8, true);    
-}
 
 
 rcFrame::rcFrame ( const cv::Mat & onec )
@@ -110,6 +105,13 @@ rcFrame::rcFrame ( const cv::Mat & onec )
     loadImage (reinterpret_cast<const char*>(ipli.imageData), ipli.widthStep, ipli.width , ipli.height, rcPixel8, true);    
 }
 
+
+#ifdef CINDER_BUILTIN
+rcFrame::rcFrame ( const ci::Channel8u & onec )
+: rcFrame ( onec.getWidth (), onec.getHeight (), rcPixel8, ROW_ALIGNMENT_MODULUS )
+{
+    loadImage (reinterpret_cast<const char*>(onec.getData()), onec.getRowBytes (), onec.getWidth (), onec.getHeight (), rcPixel8, true);    
+}
 
 
 const ci::Channel8u*  rcFrame::newCiChannel ()  // copies only one channel
@@ -133,6 +135,7 @@ const ci::Channel8u*  rcFrame::newCiChannel ()  // copies only one channel
     
 }
 
+#endif
 
 
 rcFrame::rcFrame (char* rawPixels,
