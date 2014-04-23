@@ -14,6 +14,7 @@
 #include <vfi386_d/rc_stats.h>
 #include <boost/foreach.hpp>
 
+#include "cimovinggraph.h"
 
 #include <sstream>
 #include <fstream>
@@ -62,7 +63,7 @@ public:
     int m_fc;
     
     std::vector<float> buffer;
-    ciUIMovingGraph *mvg; 
+    ciMovingGraph *mvg; 
     ciUICanvas *gui;  
     ciUICanvas *gui1;  
     ciUICanvas *gui2;  
@@ -155,7 +156,7 @@ void CVisibleApp::update()
     }
 
     gui2->update();    
-    //mvg->addPoint(getAverageFps());
+   
 }
 
 void CVisibleApp::draw()
@@ -169,6 +170,11 @@ void CVisibleApp::draw()
         int frame_index = vtick_scaled * m_fc;
         m_movie.seekToFrame (frame_index);
     }
+    if (m_result_valid && m_fc > 0 )
+    {
+        int frame_index = vtick_scaled * mvg->getBuffer().size();
+        mvg->seekToIndex(frame_index);
+    }    
     
     gui->draw();
     gui1->draw();
@@ -362,6 +368,8 @@ void CVisibleApp::loadCSVFile( const fs::path &csv_file, std::vector<vector<floa
     std::ifstream istream (csv_file.string());
     csv::rows_type rows = csv::to_rows (istream);
     datas.resize (0);    
+    // Detect Legacy Visible Format
+    bool is_visible_legacy 
 
     BOOST_FOREACH(const csv::row_type &row, rows)
     {
@@ -381,19 +389,18 @@ void CVisibleApp::loadCSVFile( const fs::path &csv_file, std::vector<vector<floa
 
     if (datas.size())
     {
-        vector< vector<float> > columns;
-        columns.resize(4);
+        m_results.resize(4);
         
         for (uint i = 0; i < datas.size (); i++)
         {
             const vector<float>& vc = datas[i];
             for (uint cc=0; cc<4;cc++)
-              columns[cc].push_back(vc[cc]);
+              m_results[cc].push_back(vc[cc]);
         }
-
-        gui2->addWidgetDown(new ciUILabel("MOVING PLOT (USING FPS)", CI_UI_FONT_SMALL),CI_UI_ALIGN_BOTTOM);    
-        mvg = (ciUIMovingGraph *) gui1->addWidgetDown(new ciUIMovingGraph(menuWidth, 30, columns[1], 128, 0, 120, "MOVING GRAPH"),CI_UI_ALIGN_BOTTOM); 
+        vector<float>& column = m_results[3];
+        gui2->addWidgetDown(mvg = new ciMovingGraph (menuWidth, 30, column, 128, 0.0, 1.0, "WAVEFORM"),CI_UI_ALIGN_BOTTOM);  
         m_result_valid = true;
+        gui2->draw();
     }
     
 }

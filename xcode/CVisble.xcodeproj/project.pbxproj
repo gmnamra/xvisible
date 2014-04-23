@@ -76,6 +76,7 @@
 		C2ADE5841907265F0083564A /* vf_window.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_window.hpp; path = ../include/cvisible/vf_window.hpp; sourceTree = "<group>"; };
 		C2ADE585190726730083564A /* vf_movieconverter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vf_movieconverter.cpp; path = ../src/cvisible/vf_movieconverter.cpp; sourceTree = "<group>"; };
 		C2ADE586190726730083564A /* vf_qtime_grabber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = vf_qtime_grabber.cpp; path = ../src/cvisible/vf_qtime_grabber.cpp; sourceTree = "<group>"; };
+		C2ADE59219082E530083564A /* cimovinggraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cimovinggraph.h; path = ../include/cvisible/cimovinggraph.h; sourceTree = "<group>"; };
 		F540111A15A7732F00465A6C /* ciUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ciUI.h; path = ../usr/local/Cinder/include/ciUI/ciUI.h; sourceTree = "<group>"; };
 		F540111B15A7732F00465A6C /* ciUI2DPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ciUI2DPad.h; path = ../usr/local/Cinder/include/ciUI/ciUI2DPad.h; sourceTree = "<group>"; };
 		F540111C15A7732F00465A6C /* ciUIBiLabelSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ciUIBiLabelSlider.h; path = ../usr/local/Cinder/include/ciUI/ciUIBiLabelSlider.h; sourceTree = "<group>"; };
@@ -211,6 +212,7 @@
 		29B97315FDCFA39411CA2CEA /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				C2ADE59219082E530083564A /* cimovinggraph.h */,
 				C2ADE5801907263D0083564A /* CVisble_Prefix.pch */,
 			);
 			name = Headers;
