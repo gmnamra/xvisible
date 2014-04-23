@@ -21,7 +21,7 @@
  *
  * Copyright (c) 2002 Reify Corp. All rights reserved.
  */
-#include <rc_types.h>
+#include "rc_types.h"
 #include <sys/sysctl.h>
 
 static bool sForceAltiVec = true;

@@ -29,7 +29,7 @@
    See SACmds.h for more info.
 ------------------------------------------------------*/
 
-#include <rc_parametermap.h>
+#include "rc_parametermap.h"
 
 /*------------------------------------------------------
   int rcCmdLine::splitLine(int argc, char **argv)

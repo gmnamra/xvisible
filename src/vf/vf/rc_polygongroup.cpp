@@ -24,7 +24,7 @@
  *
  * Copyright (c) 2002 Reify Corp. All rights reserved.
  */
-#include <rc_polygongroup.h>
+#include "rc_polygongroup.h"
 
 
 #if 0

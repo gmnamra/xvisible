@@ -17,8 +17,8 @@
 
 #include <iostream>
 #include <string.h>
-#include <rc_types.h>
-#include <rc_pair.h>
+#include "rc_types.h"
+#include "rc_pair.h"
 #include <cstdio>
 #include <list>
 #include <iterator>

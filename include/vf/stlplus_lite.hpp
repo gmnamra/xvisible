@@ -48,7 +48,6 @@ std::string stlplus_build(void);
 #include "time.hpp"
 
 // Subsystems
-#include "cli_parser.hpp"
 #include "file_system.hpp"
 #include "error_handler.hpp"
 #include "ini_manager.hpp"

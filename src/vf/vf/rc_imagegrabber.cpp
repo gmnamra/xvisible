@@ -1,7 +1,7 @@
 
 
-#include <rc_imagegrabber.h>
-#include <rc_fileutils.h>
+#include "rc_imagegrabber.h>
+#include "rc_fileutils.h>
 #include <cinder/Channel.h>
 #include <cinder/ImageIo.h>
 

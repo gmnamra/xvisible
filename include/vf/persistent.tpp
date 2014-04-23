@@ -57,7 +57,7 @@ void restore_basic_string(restore_context& context, std::basic_string<charT,trai
 template<typename T>
 void dump_pointer(dump_context& context, const T* const data) throw(persistent_dump_failed)
 {
-  // register the address and get the magic key for it
+  // the address and get the magic key for it
   std::pair<bool,unsigned> mapping = context.pointer_map(data);
   dump(context,mapping.second);
   // if the address is null, then that is all that we need to do
@@ -105,7 +105,7 @@ void restore_pointer(restore_context& context, T*& data) throw(persistent_restor
 template<typename T>
 void dump_xref(dump_context& context, const T* const data) throw(persistent_dump_failed)
 {
-  // register the address and get the magic key for it
+  // the address and get the magic key for it
   std::pair<bool,unsigned> mapping = context.pointer_map(data);
   // if this is the first view of this pointer, simply throw an exception
   if (!mapping.first) throw persistent_dump_failed("tried to dump a cross-reference not seen before");
@@ -138,7 +138,7 @@ void dump_polymorph(dump_context& context, const T* data) throw(persistent_dump_
 {
   try
   {
-    // register the address and get the magic key for it
+    // the address and get the magic key for it
     std::pair<bool,unsigned> mapping = context.pointer_map(data);
     dump(context,mapping.second);
     // if the address is null, then that is all that we need to do
@@ -230,7 +230,7 @@ void dump_interface(dump_context& context, const T* data) throw(persistent_dump_
 {
   try
   {
-    // register the address and get the magic key for it
+    // the address and get the magic key for it
     std::pair<bool,unsigned> mapping = context.pointer_map(data);
     dump(context,mapping.second);
     // if the address is null, then that is all that we need to do

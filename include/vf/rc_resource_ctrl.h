@@ -11,8 +11,8 @@ typedef int pid_t;
 typedef void *pthread_t;
 #endif
 
-#include <rc_types.h>
-#include <rc_atomic.h>
+#include "rc_types.h"
+#include "rc_atomic.h>
 
 enum rcSharedMemError {
   rcSharedMemNoError = 0,

@@ -9,10 +9,10 @@
 #ifndef _rcREIFYMOVIEGRABBER_H_
 #define _rcREIFYMOVIEGRABBER_H_
 
-#include <rc_types.h>
-#include <rc_filegrabber.h>
-#include <rc_moviefileformat.h>
-#include <rc_videocache.h>
+#include "rc_types.h"
+#include "rc_filegrabber.h"
+#include "rc_moviefileformat.h"
+#include "rc_videocache.h"
 //
 // Class to grab frames from a movie file
 //

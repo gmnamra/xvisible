@@ -11,7 +11,7 @@
 #include "rc_thread.h"
 #include "rc_videocache.h"
 #include "opencv2/highgui/highgui.hpp"
-#include <rc_pixel.hpp>
+#include "rc_pixel.hpp"
 
 using namespace cv;
 

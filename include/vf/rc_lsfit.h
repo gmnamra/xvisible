@@ -49,11 +49,11 @@
 #ifndef __rcLSFIT_H
 #define __rcLSFIT_H
 
-#include <rc_vector2d.h>
-#include <rc_fit.h>
-#include <rc_matrix.h>
-#include <rc_xforms.h>
-#include <rc_line.h>
+#include "rc_vector2d.h"
+#include "rc_fit.h>
+#include "rc_matrix.h>
+#include "rc_xforms.h>
+#include "rc_line.h>
 
 
 // Least Square Solver Support for

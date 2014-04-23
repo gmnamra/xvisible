@@ -10,8 +10,8 @@
 #include <pthread.h>
 #include <assert.h>
 #include <sched.h>
-#include <rc_exception.h>
-#include <rc_thread.h>
+#include "rc_exception.h"
+#include "rc_thread.h"
 
 #ifdef REAL_TIME_SUPPORT
 

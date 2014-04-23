@@ -9,7 +9,12 @@
 #ifndef _rcFRAMEGRABBER_H_
 #define _rcFRAMEGRABBER_H_
 
-#include <rc_types.h>
+
+#include <vector>
+#include <algorithm>
+#include <iterator>
+#include "rc_types.h"
+#include "rc_window.h"
 
 class rcSharedFrameBufPtr;
 
@@ -118,11 +123,6 @@ class rcCarbonLock {
 // A convenience class to offer rcFrameGrabber API to a vector of images.
 // TODO: Replace this with one that takes generic iterator arguments instead of a vector.
 //
-
-#include <vector>
-#include <algorithm>
-#include <iterator>
-#include <rc_window.h>
 
 class rcVectorGrabber : public rcFrameGrabber {
   public:

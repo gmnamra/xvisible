@@ -18,7 +18,7 @@
 #include "rc_tiff.h"
 #include <iostream>
 #include <fstream>
-#include <rc_systeminfo.h>
+#include "rc_systeminfo.h"
 using namespace std;
 static const char *photoNames[] = {
 	"min-is-white",				/* PHOTOMETRIC_MINISWHITE */
@@ -190,7 +190,7 @@ int TIFFReaderInternal::Open( const char *filename )
 
 
 	TIFF* tif = Image;
-	register TIFFDirectory *td;
+	TIFFDirectory *td;
 	td = &tif->tif_dir;
 
 	rmAssert (NumberOfPages == 1);

@@ -10,12 +10,12 @@
 #ifndef _rcMOVIEFILEFORMAT_H_
 #define _rcMOVIEFILEFORMAT_H_
 
-#include <rc_types.h>
-#include <rc_framebuf.h>
-#include <rc_rect.h>
+#include "rc_types.h"
+#include "rc_framebuf.h"
+#include "rc_rect.h"
 #include <vector>
 
-//#include <rc_dcam_capture.h>
+//#include "rc_dcam_capture.h>
 
 // Notice: this movie file format is defined to be big-endian.
 // Byte-swapping will have to be performed on little-endian platforms.

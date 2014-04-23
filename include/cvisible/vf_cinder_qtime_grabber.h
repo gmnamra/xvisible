@@ -6,8 +6,8 @@
 #include "cinder/qtime/QuickTime.h"
 #include "cinder/ImageIo.h"
 
-#include <rc_framegrabber.h>
-#include <rc_filegrabber.h>
+#include <vfi386_d/rc_framegrabber.h>
+#include <vfi386_d/rc_filegrabber.h>
 
 using namespace std;
 using namespace ci;

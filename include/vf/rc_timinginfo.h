@@ -3,8 +3,8 @@
 #ifndef _rcTIMINGINFO_H_
 #define _rcTIMINGINFO_H_
 
-#include <rc_types.h>
-#include <rc_timestamp.h>
+#include "rc_types.h"
+#include "rc_timestamp.h"
 #include <vector>
 #include <string>
 

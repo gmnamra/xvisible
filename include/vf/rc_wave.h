@@ -17,10 +17,10 @@
    in Graphics Gems V (edited by A. Paeth), Academic Press
 */
 
-extern double Rwave (register double t, double s, double Fvar, double Avar); 
+extern double Rwave (double t, double s, double Fvar, double Avar); 
 
-extern double Twave (register double t, double s, double Fvar, double Avar); 
+extern double Twave (double t, double s, double Fvar, double Avar); 
 
-extern double Swave (register double t, double s, double Fvar, double Avar); #endif 
+extern double Swave (double t, double s, double Fvar, double Avar); #endif 
 
 #endif /* __rcWAVE_H */

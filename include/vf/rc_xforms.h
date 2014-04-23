@@ -41,8 +41,8 @@
 #define __rcXFORMS_H
 
 
-#include <rc_math.h>
-#include <rc_matrix.h>
+#include "rc_math.h"
+#include "rc_matrix.h"
 
 /* To start we use a 1D xform for calibration. It retains
  * many of the same member functions as the higher-dimension xforms,

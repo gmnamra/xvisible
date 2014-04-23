@@ -74,9 +74,9 @@
 +  * advice: Scott B. Marovich <marovich@hpl.hp.com>, Hewlett-Packard Labs, 6/01.
 +  */
 + GLOBAL(void)
-+ jpeg_reset_huff_decode (register j_decompress_ptr cinfo)
-+ { register huff_entropy_ptr entropy = (huff_entropy_ptr)cinfo->entropy;
-+   register int ci = 0;
++ jpeg_reset_huff_decode (j_decompress_ptr cinfo)
++ { huff_entropy_ptr entropy = (huff_entropy_ptr)cinfo->entropy;
++   int ci = 0;
 + 
 +   /* Discard encoded input bits, up to the next Byte boundary */
 +   entropy->bitstate.bits_left &= ~7;
@@ -117,10 +117,10 @@
 +  * advice: Scott B. Marovich <marovich@hpl.hp.com>, Hewlett-Packard Labs, 6/01.
 +  */
 + GLOBAL(void)
-+ jpeg_reset_huff_decode (register j_decompress_ptr cinfo)
-+ { register shuff_entropy_ptr entropy = (shuff_entropy_ptr)
++ jpeg_reset_huff_decode (j_decompress_ptr cinfo)
++ { shuff_entropy_ptr entropy = (shuff_entropy_ptr)
 +                                        ((j_lossy_d_ptr)cinfo->codec)->entropy_private;
-+   register int ci = 0;
++   int ci = 0;
 + 
 +   /* Discard encoded input bits, up to the next Byte boundary */
 +   entropy->bitstate.bits_left &= ~7;
@@ -327,7 +327,7 @@ static const char JPEGLib_name[]={"JPEG Library"},
    diagnostic messages to a client application.
 */
 static void
-TIFFojpeg_error_exit(register j_common_ptr cinfo)
+TIFFojpeg_error_exit(j_common_ptr cinfo)
 {
     char buffer[JMSG_LENGTH_MAX];
     int code = cinfo->err->msg_code;
@@ -344,7 +344,7 @@ TIFFojpeg_error_exit(register j_common_ptr cinfo)
 }
 
 static void
-TIFFojpeg_output_message(register j_common_ptr cinfo)
+TIFFojpeg_output_message(j_common_ptr cinfo)
   { char buffer[JMSG_LENGTH_MAX];
 
  /* This subroutine is invoked only for warning messages, since the JPEG
@@ -364,7 +364,7 @@ TIFFojpeg_output_message(register j_common_ptr cinfo)
 #ifdef never
 
 static int
-TIFFojpeg_create_compress(register OJPEGState *sp)
+TIFFojpeg_create_compress(OJPEGState *sp)
   {
     sp->cinfo.c.err = jpeg_std_error(&sp->err); /* Initialize error handling */
     sp->err.error_exit = TIFFojpeg_error_exit;
@@ -377,13 +377,13 @@ TIFFojpeg_create_compress(register OJPEGState *sp)
    buffer.
 */
 static void
-std_init_destination(register j_compress_ptr cinfo){} /* "Dummy" stub */
+std_init_destination(j_compress_ptr cinfo){} /* "Dummy" stub */
 
 static boolean
-std_empty_output_buffer(register j_compress_ptr cinfo)
+std_empty_output_buffer(j_compress_ptr cinfo)
   {
 #   define sp ((OJPEGState *)cinfo)
-    register TIFF *tif = sp->tif;
+    TIFF *tif = sp->tif;
 
     tif->tif_rawcc = tif->tif_rawdatasize; /* Entire buffer has been filled */
     TIFFFlushData1(tif);
@@ -394,10 +394,10 @@ std_empty_output_buffer(register j_compress_ptr cinfo)
   }
 
 static void
-std_term_destination(register j_compress_ptr cinfo)
+std_term_destination(j_compress_ptr cinfo)
   {
 #   define sp ((OJPEGState *)cinfo)
-    register TIFF *tif = sp->tif;
+    TIFF *tif = sp->tif;
 
  /* NB: The TIFF Library does the final buffer flush. */
     tif->tif_rawcp = (tidata_t)sp->dest.next_output_byte;
@@ -408,7 +408,7 @@ std_term_destination(register j_compress_ptr cinfo)
 /* Alternate destination manager to output JPEGTables field: */
 
 static void
-tables_init_destination(register j_compress_ptr cinfo)
+tables_init_destination(j_compress_ptr cinfo)
   {
 #   define sp ((OJPEGState *)cinfo)
  /* The "jpegtables_length" field is the allocated buffer size while building */
@@ -418,7 +418,7 @@ tables_init_destination(register j_compress_ptr cinfo)
   }
 
 static boolean
-tables_empty_output_buffer(register j_compress_ptr cinfo)
+tables_empty_output_buffer(j_compress_ptr cinfo)
   { void *newbuf;
 #   define sp ((OJPEGState *)cinfo)
 
@@ -437,7 +437,7 @@ tables_empty_output_buffer(register j_compress_ptr cinfo)
   }
 
 static void
-tables_term_destination(register j_compress_ptr cinfo)
+tables_term_destination(j_compress_ptr cinfo)
   {
 #   define sp ((OJPEGState *)cinfo)
  /* Set tables length to no. of Bytes actually emitted. */
@@ -446,7 +446,7 @@ tables_term_destination(register j_compress_ptr cinfo)
   }
 
 /*ARGSUSED*/ static int
-TIFFojpeg_tables_dest(register OJPEGState *sp, TIFF *tif)
+TIFFojpeg_tables_dest(OJPEGState *sp, TIFF *tif)
   {
 
  /* Allocate a working buffer for building tables.  The initial size is 1000
@@ -471,7 +471,7 @@ TIFFojpeg_tables_dest(register OJPEGState *sp, TIFF *tif)
 #else /* well, hardly ever */
 
 static int
-_notSupported(register TIFF *tif)
+_notSupported(TIFF *tif)
   { const TIFFCodec *c = TIFFFindCODEC(tif->tif_dir.td_compression);
 
     TIFFError(tif->tif_name,"%s compression not supported",c->name);
@@ -484,10 +484,10 @@ _notSupported(register TIFF *tif)
    buffer.
 */
 static void
-std_init_source(register j_decompress_ptr cinfo)
+std_init_source(j_decompress_ptr cinfo)
   {
 #   define sp ((OJPEGState *)cinfo)
-    register TIFF *tif = sp->tif;
+    TIFF *tif = sp->tif;
 
     if (sp->src.bytes_in_buffer == 0)
       {
@@ -498,7 +498,7 @@ std_init_source(register j_decompress_ptr cinfo)
   }
 
 static boolean
-std_fill_input_buffer(register j_decompress_ptr cinfo)
+std_fill_input_buffer(j_decompress_ptr cinfo)
   { static const JOCTET dummy_EOI[2]={0xFF,JPEG_EOI};
 #   define sp ((OJPEGState *)cinfo)
 
@@ -514,7 +514,7 @@ std_fill_input_buffer(register j_decompress_ptr cinfo)
   }
 
 static void
-std_skip_input_data(register j_decompress_ptr cinfo, long num_bytes)
+std_skip_input_data(j_decompress_ptr cinfo, long num_bytes)
   {
 #   define sp ((OJPEGState *)cinfo)
 
@@ -532,7 +532,7 @@ std_skip_input_data(register j_decompress_ptr cinfo, long num_bytes)
   }
 
 /*ARGSUSED*/ static void
-std_term_source(register j_decompress_ptr cinfo){} /* "Dummy" stub */
+std_term_source(j_decompress_ptr cinfo){} /* "Dummy" stub */
 
 /* Allocate temporary I/O buffers for downsampled data, using values computed in
    "jpeg_start_{de}compress()".  We use the JPEG Library's allocator so that
@@ -542,7 +542,7 @@ std_term_source(register j_decompress_ptr cinfo){} /* "Dummy" stub */
 static int
 alloc_downsampled_buffers(TIFF *tif,jpeg_component_info *comp_info,
                           int num_components)
-  { register OJPEGState *sp = OJState(tif);
+  { OJPEGState *sp = OJState(tif);
 
     sp->samplesperclump = 0;
     if (num_components > 0)
@@ -558,7 +558,7 @@ alloc_downsampled_buffers(TIFF *tif,jpeg_component_info *comp_info,
                      : DCTSIZE;
 #                    endif
         int ci = 0;
-        register jpeg_component_info *compptr = comp_info;
+        jpeg_component_info *compptr = comp_info;
 
         do
           { JSAMPARRAY buf;
@@ -582,9 +582,9 @@ alloc_downsampled_buffers(TIFF *tif,jpeg_component_info *comp_info,
 /* JPEG Encoding begins here. */
 
 /*ARGSUSED*/ static int
-OJPEGEncode(register TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
+OJPEGEncode(TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
   { tsize_t rows;                          /* No. of unprocessed rows in file */
-    register OJPEGState *sp = OJState(tif);
+    OJPEGState *sp = OJState(tif);
 
  /* Encode a chunk of pixels, where returned data is NOT down-sampled (the
     standard case).  The data is expected to be written in scan-line multiples.
@@ -605,10 +605,10 @@ OJPEGEncode(register TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
   }
 
 /*ARGSUSED*/ static int
-OJPEGEncodeRaw(register TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
+OJPEGEncodeRaw(TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
   { tsize_t rows;                          /* No. of unprocessed rows in file */
     JDIMENSION lines_per_MCU, size;
-    register OJPEGState *sp = OJState(tif);
+    OJPEGState *sp = OJState(tif);
 
  /* Encode a chunk of pixels, where returned data is down-sampled as per the
     sampling factors.  The data is expected to be written in scan-line
@@ -626,7 +626,7 @@ OJPEGEncodeRaw(register TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
 #   endif
     while (--cc >= 0)
       { int ci = 0, clumpoffset = 0;
-        register jpeg_component_info *compptr = sp->cinfo.c.comp_info;
+        jpeg_component_info *compptr = sp->cinfo.c.comp_info;
 
      /* The fastest way to separate the data is to make 1 pass over the scan
         line for each row of each component.
@@ -636,11 +636,11 @@ OJPEGEncodeRaw(register TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
 
             do
               { int padding;
-                register JSAMPLE *inptr = (JSAMPLE*)buf + clumpoffset,
+                JSAMPLE *inptr = (JSAMPLE*)buf + clumpoffset,
                                  *outptr =
                   sp->ds_buffer[ci][sp->scancount*compptr->v_samp_factor+ypos];
              /* Cb,Cr both have sampling factors 1, so this is correct */
-                register int clumps_per_line =
+                int clumps_per_line =
                   sp->cinfo.c.comp_info[1].downsampled_width,
                              xpos;
 
@@ -684,11 +684,11 @@ OJPEGEncodeRaw(register TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
   }
 
 static int
-OJPEGSetupEncode(register TIFF *tif)
+OJPEGSetupEncode(TIFF *tif)
   { static const char module[]={"OJPEGSetupEncode"};
     uint32 segment_height, segment_width;
     int status = 1;                              /* Assume success by default */
-    register OJPEGState *sp = OJState(tif);
+    OJPEGState *sp = OJState(tif);
 #   define td (&tif->tif_dir)
 
  /* Verify miscellaneous parameters.  This will need work if the TIFF Library
@@ -831,8 +831,8 @@ OJPEGSetupEncode(register TIFF *tif)
     sp->cinfo.c.input_components = 1; /* Default for JCS_UNKNOWN */
     if (!CALLVJPEG(sp,jpeg_set_defaults(&sp->cinfo.c))) status = 0;
     switch (sp->jpegtablesmode & (JPEGTABLESMODE_HUFF|JPEGTABLESMODE_QUANT))
-      { register JHUFF_TBL *htbl;
-        register JQUANT_TBL *qtbl;
+      { JHUFF_TBL *htbl;
+        JQUANT_TBL *qtbl;
 
         case 0                                       :
           sp->cinfo.c.optimize_coding = true;
@@ -906,8 +906,8 @@ OJPEGSetupEncode(register TIFF *tif)
   }
 
 static int
-OJPEGPreEncode(register TIFF *tif,tsample_t s)
-  { register OJPEGState *sp = OJState(tif);
+OJPEGPreEncode(TIFF *tif,tsample_t s)
+  { OJPEGState *sp = OJState(tif);
 #   define td (&tif->tif_dir)
 
  /* If we are about to write the first row of an image plane, which should
@@ -942,8 +942,8 @@ OJPEGPreEncode(register TIFF *tif,tsample_t s)
   }
 
 static int
-OJPEGPostEncode(register TIFF *tif)
-  { register OJPEGState *sp = OJState(tif);
+OJPEGPostEncode(TIFF *tif)
+  { OJPEGState *sp = OJState(tif);
 
  /* Finish up at the end of a strip or tile. */
 
@@ -963,7 +963,7 @@ OJPEGPostEncode(register TIFF *tif)
 #           else
                 size = DCTSIZE;
 #           endif
-            register jpeg_component_info *compptr = sp->cinfo.c.comp_info;
+            jpeg_component_info *compptr = sp->cinfo.c.comp_info;
 
             do
 #              ifdef C_LOSSLESS_SUPPORTED
@@ -993,12 +993,12 @@ OJPEGPostEncode(register TIFF *tif)
 /* JPEG Decoding begins here. */
 
 /*ARGSUSED*/ static int
-OJPEGDecode(register TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
+OJPEGDecode(TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
   { tsize_t bytesperline = isTiled(tif)
                          ? TIFFTileRowSize(tif)
                          : tif->tif_scanlinesize,
             rows;                          /* No. of unprocessed rows in file */
-    register OJPEGState *sp = OJState(tif);
+    OJPEGState *sp = OJState(tif);
 
  /* Decode a chunk of pixels, where the input data has not NOT been down-
     sampled, or else the TIFF Library's client has used the "JPEGColorMode" TIFF
@@ -1043,10 +1043,10 @@ OJPEGDecode(register TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
   }
 
 /*ARGSUSED*/ static int
-OJPEGDecodeRawContig(register TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
+OJPEGDecodeRawContig(TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
   { tsize_t rows;                          /* No. of unprocessed rows in file */
     JDIMENSION lines_per_MCU, size;
-    register OJPEGState *sp = OJState(tif);
+    OJPEGState *sp = OJState(tif);
 
  /* Decode a chunk of pixels, where the input data has pixel-interleaved color
     planes, some of which have been down-sampled, but the TIFF Library's client
@@ -1067,7 +1067,7 @@ OJPEGDecodeRawContig(register TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
 #   endif
     while (--cc >= 0)
       { int clumpoffset, ci;
-        register jpeg_component_info *compptr;
+        jpeg_component_info *compptr;
 
         if (sp->scancount >= size) /* reload downsampled-data buffers */
           {
@@ -1087,10 +1087,10 @@ OJPEGDecodeRawContig(register TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
 
             if (compptr->h_samp_factor == 1) /* fast path */
               do
-                { register JSAMPLE *inptr =
+                { JSAMPLE *inptr =
                     sp->ds_buffer[ci][sp->scancount*compptr->v_samp_factor+ypos],
                                    *outptr = (JSAMPLE *)buf + clumpoffset;
-                  register int clumps_per_line = compptr->downsampled_width;
+                  int clumps_per_line = compptr->downsampled_width;
 
                   do *outptr = *inptr++;
                   while ((outptr += sp->samplesperclump),--clumps_per_line > 0);
@@ -1100,13 +1100,13 @@ OJPEGDecodeRawContig(register TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
                     );
             else /* general case */
               do
-                { register JSAMPLE *inptr =
+                { JSAMPLE *inptr =
                     sp->ds_buffer[ci][sp->scancount*compptr->v_samp_factor+ypos],
                                    *outptr = (JSAMPLE *)buf + clumpoffset;
-                  register int clumps_per_line = compptr->downsampled_width;
+                  int clumps_per_line = compptr->downsampled_width;
 
                   do
-                    { register int xpos = 0;
+                    { int xpos = 0;
 
                       do outptr[xpos] = *inptr++;
                       while (++xpos < compptr->h_samp_factor);
@@ -1137,13 +1137,13 @@ OJPEGDecodeRawContig(register TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
   }
 
 /*ARGSUSED*/ static int
-OJPEGDecodeRawSeparate(TIFF *tif,register tidata_t buf,tsize_t cc,tsample_t s)
+OJPEGDecodeRawSeparate(TIFF *tif,tidata_t buf,tsize_t cc,tsample_t s)
   { tsize_t rows;                          /* No. of unprocessed rows in file */
     JDIMENSION lines_per_MCU,
                size,                                             /* ...of MCU */
                v;                   /* Component's vertical up-sampling ratio */
-    register OJPEGState *sp = OJState(tif);
-    register jpeg_component_info *compptr = sp->cinfo.d.comp_info + s;
+    OJPEGState *sp = OJState(tif);
+    jpeg_component_info *compptr = sp->cinfo.d.comp_info + s;
 
  /* Decode a chunk of pixels, where the input data has separate color planes,
     some of which have been down-sampled, but the TIFF Library's client has NOT
@@ -1170,9 +1170,9 @@ OJPEGDecodeRawSeparate(TIFF *tif,register tidata_t buf,tsize_t cc,tsample_t s)
       };
     rows = 0;
     do
-      { register JSAMPLE *inptr =
+      { JSAMPLE *inptr =
           sp->ds_buffer[s][sp->scancount*compptr->v_samp_factor + rows];
-        register int clumps_per_line = compptr->downsampled_width;
+        int clumps_per_line = compptr->downsampled_width;
 
         do *buf++ = *inptr++; while (--clumps_per_line > 0); /* Copy scanline */
         tif->tif_row += v;
@@ -1202,8 +1202,8 @@ suspend(j_decompress_ptr cinfo){return JPEG_SUSPENDED;}
    color plane specified by the current JPEG "scan".
 */
 METHODDEF(void)
-ycc_rgb_convert(register j_decompress_ptr cinfo,JSAMPIMAGE in,JDIMENSION row,
-                register JSAMPARRAY out,register int nrows)
+ycc_rgb_convert(j_decompress_ptr cinfo,JSAMPIMAGE in,JDIMENSION row,
+                JSAMPARRAY out,int nrows)
   { typedef struct                /* "jdcolor.c" color-space conversion state */
       {
 
@@ -1221,19 +1221,19 @@ ycc_rgb_convert(register j_decompress_ptr cinfo,JSAMPIMAGE in,JDIMENSION row,
       } *my_cconvert_ptr;
     my_cconvert_ptr cconvert = (my_cconvert_ptr)cinfo->cconvert;
     JSAMPARRAY irow0p = in[0] + row;
-    register JSAMPLE *range_limit = cinfo->sample_range_limit;
-    register JSAMPROW outp, Y;
+    JSAMPLE *range_limit = cinfo->sample_range_limit;
+    JSAMPROW outp, Y;
 
     switch (cinfo->output_scan_number - 1)
       { JSAMPARRAY irow1p, irow2p;
-        register INT32 *table0, *table1;
+        INT32 *table0, *table1;
         SHIFT_TEMPS
 
         case RGB_RED  : irow2p = in[2] + row;
                         table0 = (INT32 *)cconvert->Cr_r_tab;
                         while (--nrows >= 0)
-                          { register JSAMPROW Cr = *irow2p++;
-                             register int i = cinfo->output_width;
+                          { JSAMPROW Cr = *irow2p++;
+                             int i = cinfo->output_width;
 
                              Y = *irow0p++;
                              outp = *out++;
@@ -1246,9 +1246,9 @@ ycc_rgb_convert(register j_decompress_ptr cinfo,JSAMPIMAGE in,JDIMENSION row,
                         table0 = cconvert->Cb_g_tab;
                         table1 = cconvert->Cr_g_tab;
                         while (--nrows >= 0)
-                          { register JSAMPROW Cb = *irow1p++,
+                          { JSAMPROW Cb = *irow1p++,
                                               Cr = *irow2p++;
-                             register int i = cinfo->output_width;
+                             int i = cinfo->output_width;
 
                              Y = *irow0p++;
                              outp = *out++;
@@ -1262,8 +1262,8 @@ ycc_rgb_convert(register j_decompress_ptr cinfo,JSAMPIMAGE in,JDIMENSION row,
         case RGB_BLUE : irow1p = in[1] + row;
                         table0 = (INT32 *)cconvert->Cb_b_tab;
                         while (--nrows >= 0)
-                          { register JSAMPROW Cb = *irow1p++;
-                             register int i = cinfo->output_width;
+                          { JSAMPROW Cb = *irow1p++;
+                             int i = cinfo->output_width;
 
                              Y = *irow0p++;
                              outp = *out++;
@@ -1274,15 +1274,15 @@ ycc_rgb_convert(register j_decompress_ptr cinfo,JSAMPIMAGE in,JDIMENSION row,
   }
 
 METHODDEF(void)
-null_convert(register j_decompress_ptr cinfo,JSAMPIMAGE in,JDIMENSION row,
-             register JSAMPARRAY out,register int nrows)
-  { register JSAMPARRAY irowp = in[cinfo->output_scan_number - 1] + row;
+null_convert(j_decompress_ptr cinfo,JSAMPIMAGE in,JDIMENSION row,
+             JSAMPARRAY out,int nrows)
+  { JSAMPARRAY irowp = in[cinfo->output_scan_number - 1] + row;
 
     while (--nrows >= 0) _TIFFmemcpy(*out++,*irowp++,cinfo->output_width);
   }
 
 static int
-OJPEGSetupDecode(register TIFF *tif)
+OJPEGSetupDecode(TIFF *tif)
   { static char module[]={"OJPEGSetupDecode"};
     J_COLOR_SPACE jpeg_color_space,   /* Color space of JPEG-compressed image */
                   out_color_space;       /* Color space of decompressed image */
@@ -1290,7 +1290,7 @@ OJPEGSetupDecode(register TIFF *tif)
     int status = 1;                              /* Assume success by default */
     boolean downsampled_output=FALSE, /* <=> Want JPEG Library's "raw" image? */
             is_JFIF;                                       /* <=> JFIF image? */
-    register OJPEGState *sp = OJState(tif);
+    OJPEGState *sp = OJState(tif);
 #   define td (&tif->tif_dir)
 
  /* Verify miscellaneous parameters.  This will need work if the TIFF Library
@@ -1427,8 +1427,8 @@ OJPEGSetupDecode(register TIFF *tif)
     if (is_JFIF) /* JFIF image */
       { unsigned char *end_of_data;
         int subsampling_factors;
-        register unsigned char *p;
-        register int i;
+        unsigned char *p;
+        int i;
 
      /* WARNING:  Although the image file contains a JFIF bit stream, it might
                   also contain some old TIFF records causing "OJPEGVSetField()"
@@ -1448,10 +1448,10 @@ OJPEGSetupDecode(register TIFF *tif)
      */
 #       ifdef someday
         if (sp->jpegtablesmode & JPEGTABLESMODE_QUANT) /* free quant. tables */
-          { register int i = 0;
+          { int i = 0;
 
             do
-              { register JQUANT_TBL *q;
+              { JQUANT_TBL *q;
 
                 if (q = sp->cinfo.d.quant_tbl_ptrs[i])
                   {
@@ -1462,10 +1462,10 @@ OJPEGSetupDecode(register TIFF *tif)
             while (++i < NUM_QUANT_TBLS);
           };
         if (sp->jpegtablesmode & JPEGTABLESMODE_HUFF) /* free Huffman tables */
-          { register int i = 0;
+          { int i = 0;
 
             do
-              { register JHUFF_TBL *h;
+              { JHUFF_TBL *h;
 
                 if (h = sp->cinfo.d.dc_huff_tbl_ptrs[i])
                   {
@@ -1611,7 +1611,7 @@ OJPEGSetupDecode(register TIFF *tif)
       }
     else /* not JFIF image */
       { int (*save)(j_decompress_ptr cinfo) = sp->cinfo.d.marker->read_markers;
-        register int i;
+        int i;
 
      /* We're not assuming that this file's JPEG bit stream has any header
         "metadata", so fool the JPEG Library into thinking that we read a
@@ -1811,8 +1811,8 @@ OJPEGSetupDecode(register TIFF *tif)
   }
 
 static int
-OJPEGPreDecode(register TIFF *tif,tsample_t s)
-  { register OJPEGState *sp = OJState(tif);
+OJPEGPreDecode(TIFF *tif,tsample_t s)
+  { OJPEGState *sp = OJState(tif);
 #   define td (&tif->tif_dir)
 
  /* If we are about to read the first row of an image plane (hopefully, these
@@ -1843,8 +1843,8 @@ OJPEGPreDecode(register TIFF *tif,tsample_t s)
   }
 
 /*ARGSUSED*/ static void
-OJPEGPostDecode(register TIFF *tif,tidata_t buf,tsize_t cc)
-  { register OJPEGState *sp = OJState(tif);
+OJPEGPostDecode(TIFF *tif,tidata_t buf,tsize_t cc)
+  { OJPEGState *sp = OJState(tif);
 #   define td (&tif->tif_dir)
 
  /* The JPEG Library decompressor has reached the end of a strip/tile.  If this
@@ -1864,10 +1864,10 @@ OJPEGPostDecode(register TIFF *tif,tidata_t buf,tsize_t cc)
   }
 
 static int
-OJPEGVSetField(register TIFF *tif,ttag_t tag,va_list ap)
+OJPEGVSetField(TIFF *tif,ttag_t tag,va_list ap)
 {
     uint32 v32;
-    register OJPEGState *sp = OJState(tif);
+    OJPEGState *sp = OJState(tif);
 #   define td (&tif->tif_dir)
     toff_t tiffoff=0;
     uint32 bufoff=0;
@@ -1911,7 +1911,7 @@ OJPEGVSetField(register TIFF *tif,ttag_t tag,va_list ap)
              )
 	  {
             if ( (td->td_refblackwhite = _TIFFmalloc(6*sizeof(float))) )
-              { register long top = 1 << td->td_bitspersample;
+              { long top = 1 << td->td_bitspersample;
 
                 td->td_refblackwhite[0] = 0;
                 td->td_refblackwhite[1] = td->td_refblackwhite[3] =
@@ -2145,9 +2145,9 @@ OJPEGVSetField(register TIFF *tif,ttag_t tag,va_list ap)
                 TIFFSeekFile(tif, tiffoff, SEEK_SET);
 
               do /* read quantization table */
-                { register UINT8 *from = tif->tif_base + *v++;
-                  register UINT16 *to;
-                  register int j = DCTSIZE2;
+                { UINT8 *from = tif->tif_base + *v++;
+                  UINT16 *to;
+                  int j = DCTSIZE2;
 
                   if (!( sp->cinfo.d.quant_tbl_ptrs[i]
                        = CALLJPEG(sp,0,jpeg_alloc_quant_table(&sp->cinfo.comm))
@@ -2231,8 +2231,8 @@ OJPEGVSetField(register TIFF *tif,ttag_t tag,va_list ap)
               i = 0;
               do /* copy each Huffman table */
                 { int size = 0;
-                  register UINT8 *from = tif->tif_base + *v++, *to;
-                  register int j = sizeof (*h)->bits;
+                  UINT8 *from = tif->tif_base + *v++, *to;
+                  int j = sizeof (*h)->bits;
 
                /* WARNING:  This code relies on the fact that an image file not
                             "memory mapped" was read entirely into a single
@@ -2312,8 +2312,8 @@ OJPEGVSetField(register TIFF *tif,ttag_t tag,va_list ap)
   }
 
 static int
-OJPEGVGetField(register TIFF *tif,ttag_t tag,va_list ap)
-  { register OJPEGState *sp = OJState(tif);
+OJPEGVGetField(TIFF *tif,ttag_t tag,va_list ap)
+  { OJPEGState *sp = OJState(tif);
 
     switch (tag)
       {
@@ -2389,8 +2389,8 @@ OJPEGVGetField(register TIFF *tif,ttag_t tag,va_list ap)
   }
 
 static void
-OJPEGPrintDir(register TIFF *tif,FILE *fd,long flags)
-  { register OJPEGState *sp = OJState(tif);
+OJPEGPrintDir(TIFF *tif,FILE *fd,long flags)
+  { OJPEGState *sp = OJState(tif);
 
     if (   ( flags
            & (TIFFPRINT_JPEGQTABLES|TIFFPRINT_JPEGDCTABLES|TIFFPRINT_JPEGACTABLES)
@@ -2402,12 +2402,12 @@ OJPEGPrintDir(register TIFF *tif,FILE *fd,long flags)
   }
 
 static uint32
-OJPEGDefaultStripSize(register TIFF *tif,register uint32 s)
-  { register OJPEGState *sp = OJState(tif);
+OJPEGDefaultStripSize(TIFF *tif,uint32 s)
+  { OJPEGState *sp = OJState(tif);
 #   define td (&tif->tif_dir)
 
     if ((s = (*sp->defsparent)(tif,s)) < td->td_imagelength)
-      { register tsize_t size = sp->cinfo.comm.is_decompressor
+      { tsize_t size = sp->cinfo.comm.is_decompressor
 #                             ifdef D_LOSSLESS_SUPPORTED
                               ? sp->cinfo.d.min_codec_data_unit
 #                             else
@@ -2427,9 +2427,9 @@ OJPEGDefaultStripSize(register TIFF *tif,register uint32 s)
   }
 
 static void
-OJPEGDefaultTileSize(register TIFF *tif,register uint32 *tw,register uint32 *th)
-  { register OJPEGState *sp = OJState(tif);
-    register tsize_t size;
+OJPEGDefaultTileSize(TIFF *tif,uint32 *tw,uint32 *th)
+  { OJPEGState *sp = OJState(tif);
+    tsize_t size;
 #   define td (&tif->tif_dir)
 
     size = sp->cinfo.comm.is_decompressor
@@ -2451,8 +2451,8 @@ OJPEGDefaultTileSize(register TIFF *tif,register uint32 *tw,register uint32 *th)
   }
 
 static void
-OJPEGCleanUp(register TIFF *tif)
-  { register OJPEGState *sp;
+OJPEGCleanUp(TIFF *tif)
+  { OJPEGState *sp;
 
     if ( (sp = OJState(tif)) )
       {
@@ -2484,8 +2484,8 @@ OJPEGCleanUp(register TIFF *tif)
   }
 
 int
-TIFFInitOJPEG(register TIFF *tif,int scheme)
-  { register OJPEGState *sp;
+TIFFInitOJPEG(TIFF *tif,int scheme)
+  { OJPEGState *sp;
 #   define td (&tif->tif_dir)
 #   ifndef never
 

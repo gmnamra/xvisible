@@ -12,10 +12,10 @@
 #ifndef _RC_FILTER1D_H_
 #define _RC_FILTER1D_H_
 
-#include <rc_types.h>
+#include "rc_types.h"
 #include <vector>
-#include <rc_window.h>
-#include <rc_fit.h>
+#include "rc_window.h"
+#include "rc_fit.h"
 
 template <class T>
 class rc1dPeak

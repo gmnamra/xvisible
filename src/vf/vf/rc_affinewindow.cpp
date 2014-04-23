@@ -10,10 +10,10 @@
  *
  ***************************************************************************/
 
-#include <rc_affinewindow.h>
-#include <rc_def_generators.h>
-#include <rc_cubic_generators.h>
-#include <rc_lin_generators.h>
+#include "rc_affinewindow.h"
+#include "rc_def_generators.h"
+#include "rc_cubic_generators.h"
+#include "rc_lin_generators.h"
 
 
 

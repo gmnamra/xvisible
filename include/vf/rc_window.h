@@ -9,8 +9,8 @@
 #ifndef _rcWINDOW_H_
 #define _rcWINDOW_H_
 
-#include <rc_framebuf.h>
-#include <rc_rect.h>
+#include "rc_framebuf.h"
+#include "rc_rect.h"
 #include <iomanip>
 #include <Accelerate/Accelerate.h>
 

@@ -12,8 +12,8 @@
 #include <vector>
 
 
-#include <rc_framegrabber.h>
-#include <rc_filegrabber.h>
+#include "rc_framegrabber.h"
+#include "rc_filegrabber.h"
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>

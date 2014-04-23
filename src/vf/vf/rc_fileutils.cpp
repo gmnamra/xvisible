@@ -8,7 +8,7 @@
 #include <sstream> // std::istringstream
 #include <vector>
 #include <cctype> // std::isdigit
-#include <rc_timestamp.h>
+#include "rc_timestamp.h"
 #include <iomanip>
 #include <sys/stat.h>
 #include <dirent.h>

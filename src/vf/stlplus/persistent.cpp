@@ -755,7 +755,7 @@ void restore(restore_context& context, double& data) throw(persistent_restore_fa
 
 void dump(dump_context& context, char*& data) throw(persistent_dump_failed)
 {
-  // register the address and get the magic key for it
+  // the address and get the magic key for it
   std::pair<bool,unsigned> mapping = context.pointer_map(data);
   dump(context,mapping.second);
   // if the address is null, then that is all that we need to do

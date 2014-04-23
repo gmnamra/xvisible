@@ -1,7 +1,7 @@
 #ifndef __rcFIT_H
 #define __rcFIT_H
 
-#include <rc_vector2d.h>
+#include "rc_vector2d.h"
 #include<vector>
 
 #define rmSigmoid(a) (1.0/(1.0+exp(-(double) a)))

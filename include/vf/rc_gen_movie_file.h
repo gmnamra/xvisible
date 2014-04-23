@@ -13,10 +13,10 @@
 #ifndef _rcGEN_MOVIE_FILE_H_
 #define _rcGEN_MOVIE_FILE_H_
 
-#include <rc_types.h>
-#include <rc_window.h>
-#include <rc_moviefileformat.h>
-#include <rc_ipconvert.h>
+#include "rc_types.h"
+#include "rc_window.h"
+#include "rc_moviefileformat.h"
+#include "rc_ip.h"
 
 
 enum rcGenMovieFileError {

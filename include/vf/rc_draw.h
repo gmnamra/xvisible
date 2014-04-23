@@ -11,10 +11,10 @@
 #define _rcDRAW_H_
 
 #include <math.h>
-#include <rc_types.h>
-#include <rc_window.h>
-#include <rc_polygon.h>
-#include <rc_affine.h>
+#include "rc_types.h"
+#include "rc_window.h"
+#include "rc_polygon.h>
+#include "rc_affine.h"
 
 #ifndef rmPrintImage
 #define rmPrintImage(a){					    \

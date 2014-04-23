@@ -105,7 +105,7 @@
 #ifndef rcPARAM_DEF
 #define rcPARAM_DEF
 
-#include <rc_types.h>
+#include "rc_types.h"
 
 #include <iostream> // you may need this
 #include <map>

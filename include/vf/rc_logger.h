@@ -9,8 +9,8 @@
 #include <iomanip> 
 #include <map> 
 
-// A class with which users can register logging streams 
-struct LogRegister 
+// A class with which users can logging streams 
+struct Log
 { 
    typedef std::multimap<unsigned, std::ostream*> log_map_t; 
    log_map_t   log_map; 
@@ -24,7 +24,7 @@ struct LogRegister
 	} 
 	
    static LogRegister& instance()
-	{ static LogRegister lr; return lr; } 
+	{ static Loglr; return lr; } 
 
    private: 
       LogRegister()
@@ -115,7 +115,7 @@ std::ostream& operator<<(std::ostream& out, LogLevelManipulator l) {
 int main() { 
    std::ofstream log_stream("/tmp/test.log"); 
    std::ofstream error_stream("/tmp/test.err"); 
-   // Register the streams.  The higher the level, the more messages 
+   // the streams.  The higher the level, the more messages 
    // that stream will receive.  Here std::cout is reserved for only 
    // the serious messages which the user needs to see right now. 
    LogRegister::instance().register_stream(std::cout, 0); 

@@ -9,7 +9,7 @@
  *
  * Copyright (c) 2002 Reify Corp. All rights reserved.
  */
-#include <rc_math.h>
+#include "rc_math.h"
 #include "rc_numeric.h"
 
 

@@ -8,11 +8,11 @@
  * "Computational Geometry in C" by Joseph O'Rourke.
  */
 
-#include <rc_polygon.h>
+#include "rc_polygon.h"
 #include <map>
 #include <set>
 #include <iostream>
-#include <rc_macro.h>
+
 
 #define DBGPRT  0
 #define DBGPRT2 0

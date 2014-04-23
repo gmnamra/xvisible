@@ -10,7 +10,7 @@
  *
  ***************************************************************************/
 
-#include <rc_cubic_generators.h>
+#include "rc_cubic_generators.h"
 
 double rcCubicGeneratePixel::genPixel(const rcAffineWindow* src,
 					     double xoff, double yoff)

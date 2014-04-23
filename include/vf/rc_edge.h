@@ -5,9 +5,10 @@
 #include <vector>
 using namespace std;
 
-#include <rc_types.h>
-#include <rc_window.h>
-#include <rc_pair.h>
+#include "rc_types.h"
+#include "rc_window.h"
+#include "rc_pair.h"
+
 
 
 uint32 rfSpatialEdge (rcWindow& magImage, rcWindow& angleImage, rcWindow& peaks, uint8 threshold, bool angleLabel = false);

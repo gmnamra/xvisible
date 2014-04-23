@@ -13,8 +13,8 @@
 #ifndef _rcLIN_GENERATORS_H_
 #define _rcLIN_GENERATORS_H_
 
-#include <rc_generator.h>
-#include <rc_affinewindow.h>
+#include "rc_generator.h"
+#include "rc_affinewindow.h"
 
 /* rcLinGeneratePixel - Returns the pixel containing the point x, y.
  */

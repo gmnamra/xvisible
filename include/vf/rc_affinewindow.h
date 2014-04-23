@@ -13,9 +13,9 @@
 #ifndef _rcAFFINEWINDOW_H_
 #define _rcAFFINEWINDOW_H_
 
-#include <rc_window.h>
-#include <rc_affine.h>
-#include <rc_generator.h>
+#include "rc_window.h"
+#include "rc_affine.h"
+#include "rc_generator.h"
 
 class rcAffineWindow : public rcWindow {
  public:

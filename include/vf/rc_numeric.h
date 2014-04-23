@@ -13,7 +13,7 @@
 #ifndef __rcNUMERIC_H
 #define __rcNUMERIC_H
 
-#include <rc_types.h>
+#include "rc_types.h"
 
 #undef min
 #undef max

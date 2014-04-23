@@ -22,13 +22,12 @@
 #ifndef __rcTIFF_H
 #define __rcTIFF_H
 
-#include <rc_types.h>
+#include "rc_types.h"
 #include <sys/stat.h>
 #include <iostream>
 #include <ostream>
-#include <rc_macro.h>
 #include <vector>
-#include <rc_window.h>
+#include "rc_window.h"
 
 extern "C" {
 #include <tiffio.h>

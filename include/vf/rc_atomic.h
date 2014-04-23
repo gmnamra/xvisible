@@ -6,7 +6,7 @@
 #if defined (_USE_NATIVE_ATOMIC_)
 #include "assert.h"
 #include "string.h"
-#include <rc_assemblyfcts.h>
+#include "rc_assemblyfcts.h>
 #else
 #include <boost/atomic.hpp>
 #endif

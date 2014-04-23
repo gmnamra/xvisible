@@ -13,9 +13,9 @@
 #ifndef __RC_SIGNALFOLD_H
 #define __RC_SIGNALFOLD_H
 
-#include <rc_sample.h>
-#include <rc_fixedarray.h>
-#include <rc_listhistogram.h>
+#include "rc_sample.h>
+#include "rc_fixedarray.h>
+#include "rc_listhistogram.h>
 
 /*!
     @class rcSignalFold

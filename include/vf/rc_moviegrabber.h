@@ -11,9 +11,9 @@
 
 #include <vector>
 
-#include <rc_qtime.h>
-#include <rc_framegrabber.h>
-#include <rc_filegrabber.h>
+#include "rc_qtime.h>
+#include "rc_framegrabber.h"
+#include "rc_filegrabber.h>
 
 
 using namespace std;

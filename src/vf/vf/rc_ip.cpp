@@ -10,11 +10,11 @@
  *
  */
 
-#include <rc_window.h>
-#include <rc_rowfunc.h>
-#include <rc_ip.h>
-#include <rc_histstats.h>
-#include <rc_mathmodel.h>
+#include "rc_window.h"
+#include "rc_rowfunc.h"
+#include "rc_ip.h"
+#include "rc_histstats.h"
+#include "rc_mathmodel.h"
 #include <vector>
 using namespace std;
 
@@ -27,10 +27,6 @@ using namespace std;
       fprintf (stderr, "\n");					    \
     }}
 
-
-template int32 rfGradHist1d (const uint8*, const uint8*);
-template int32 rfGradHist1d (const uint16*, const uint16*);
-template int32 rfGradHist1d (const uint32*, const uint32*);
 
 static void rfGauss3by3 (const rcWindow& src, rcWindow& dest);
 static void rfGauss163by3 (const rcWindow& src, rcWindow& dest);

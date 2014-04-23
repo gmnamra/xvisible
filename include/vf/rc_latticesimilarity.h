@@ -31,7 +31,7 @@
 #ifndef __RC_LATTICESIMILARITY_H
 #define __RC_LATTICESIMILARITY_H
 
-#include <rc_similarity.h>
+#include "rc_similarity.h"
 #include <boost/shared_ptr.hpp>
 
   //@class rcLatticeSimilarator

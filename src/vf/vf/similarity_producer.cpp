@@ -1,12 +1,12 @@
 
 #include "rc_cinder_qtime_grabber.h"
-#include <rc_similarity_producer.h>
-#include <rc_similarity.h>
-#include <rc_videocache.h>
-#include <rc_reifymoviegrabber.h>
-#include <rc_tiff.h>
-#include <rc_window2jpg.h>
-#include <rc_fileutils.h>
+#include "rc_similarity_producer.h>
+#include "rc_similarity.h"
+#include "rc_videocache.h"
+#include "rc_reifymoviegrabber.h>
+#include "rc_tiff.h>
+#include "rc_window2jpg.h>
+#include "rc_fileutils.h>
 #include <iostream>
 #include <algorithm>
 #include <cctype>

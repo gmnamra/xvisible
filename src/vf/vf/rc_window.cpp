@@ -1,12 +1,11 @@
 
 
-#include <rc_window.h>
-#include <rc_videocache.h>
+#include "rc_window.h"
+#include "rc_videocache.h"
 #include <sys/param.h>
-#include <rc_macro.h>
-#include <rc_tiff.h>
+#include "rc_tiff.h"
 #include <tiff.h>
-#include <rc_systeminfo.h>
+#include "rc_systeminfo.h"
 
 #ifdef CINDER_BUILTIN
 #include <cinder/Channel.h>

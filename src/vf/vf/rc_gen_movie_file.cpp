@@ -13,9 +13,9 @@
 
 #include <stdio.h>
 
-#include <rc_gen_movie_file.h>
-#include <rc_moviefileformat.h>
-#include <rc_ipconvert.h>
+#include "rc_gen_movie_file.h"
+#include "rc_moviefileformat.h"
+#include "rc_ip.h"
 #include <boost/shared_ptr.hpp>
 
 rcGenMovieFile::rcGenMovieFile( const std::string& fName ) :

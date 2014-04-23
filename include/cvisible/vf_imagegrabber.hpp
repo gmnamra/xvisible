@@ -1,19 +1,14 @@
-/*
- *  rc_imagegrabber.h
- *
- *  Created by Sami Kukkonen on Fri Sep 27 11:47:32 EDT 2002
- *  Copyright (c) 2002 Reify Corp. All rights reserved.
- *
- */
+
 
 #ifndef _rcIMAGEGRABBER_H_
 #define _rcIMAGEGRABBER_H_
 
 #include <vector>
 
+#include "vf_window.hpp"
 
-#include <rc_framegrabber.h>
-#include <rc_filegrabber.h>
+#include <vfi386_d/rc_framegrabber.h>
+#include <vfi386_d/rc_filegrabber.h>
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -34,7 +29,7 @@ class rcImageGrabber : public rcFileGrabber
                     double frameInterval = 0.0, // Forced frame interval in seconds (calls setTimestamp())
                     bool nameSort = true)
 :
-        rcFileGrabber( cLock ),
+        rcFileGrabber( lock ),
         mFileNames( fileNames ),
         mCurrentIndex( 0 ),
         mFrameInterval( frameInterval ), mCurrentTimeStamp( frameInterval )
@@ -113,7 +108,7 @@ class rcImageGrabber : public rcFileGrabber
             }
             else
             {
-                ptr =  new rcFrame (ci_image) ;
+                ptr =  vf_utils::newFromChannel8u (ci_image) ;
                 rcWindow image (ptr);
                 if ( image.isBound () )
                 {

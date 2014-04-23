@@ -12,7 +12,7 @@
  *
  * Copyright (c) 2002 Reify Corp. All rights reserved.
  */
-#include <rc_rectangle.h>
+#include "rc_rectangle.h"
 
 // Always instantiated
 template class rcRectangle<uint32>;

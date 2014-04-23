@@ -3,7 +3,7 @@
 #ifndef _rcPOINT_H_
 #define _rcPOINT_H_
 
-#include <rc_types.h>
+#include "rc_types.h"
 
 // Point class
 

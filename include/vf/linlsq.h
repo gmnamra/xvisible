@@ -3,7 +3,7 @@
 #ifndef _LINLSQ_H_
 #define _LINLSQ_H_
 
-#include <rc_vector2d.h>
+#include "rc_vector2d.h"
 #include <vector>
 
 using namespace std;

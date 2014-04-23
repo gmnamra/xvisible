@@ -51,11 +51,11 @@
 #define _rc2DVECTOR_H_
 
 #include <math.h>
-#include <rc_types.h>
-#include <rc_exception.h>
-#include <rc_pair.h>
-#include <rc_math.h>
-#include <rc_macro.h>
+#include "rc_types.h"
+#include "rc_exception.h"
+#include "rc_pair.h"
+#include "rc_math.h"
+
 
 // Note:
 // Other than doubles and floats, integer vectors are not currently 

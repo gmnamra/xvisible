@@ -16,7 +16,7 @@
   - decide on a file extension for the type
   - decide on a description of the type
   - write a create callback for this type
-  - register the file extension, description and callback with the library manager
+  - the file extension, description and callback with the library manager
 
   ------------------------------------------------------------------------------*/
 #include "os_fixes.hpp"

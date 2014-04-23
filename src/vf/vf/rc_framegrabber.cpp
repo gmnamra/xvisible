@@ -6,7 +6,7 @@
  *
  */
 
-#include <rc_framegrabber.h>
+#include "rc_framegrabber.h"
 
 // Static method for mapping an error value to a string
 std::string rcFrameGrabber::getErrorString( rcFrameGrabberError error )

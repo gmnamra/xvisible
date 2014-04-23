@@ -6,10 +6,10 @@
 #include <deque>
 using namespace std;
 
-#include <rc_types.h>
-#include <rc_pair.h>
-#include <rc_window.h>
-#include <rc_correlationwindow.h>
+#include "rc_types.h"
+#include "rc_pair.h"
+#include "rc_window.h"
+#include "rc_correlationwindow.h"
 
 
 // Correlation results. For Sum of Absolute differences. Sim is the sum. r is Average intensity difference normalized

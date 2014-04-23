@@ -112,7 +112,7 @@ public:
   bool is_interface(const std::type_info& info) const;
   unsigned short lookup_interface(const std::type_info&) const throw(persistent_illegal_type);
 
-  // Register all Polymorphous classes using either approach by calling an installer callback
+  // all Polymorphous classes using either approach by calling an installer callback
   void register_all(installer);
 
 private:
@@ -181,7 +181,7 @@ public:
   bool is_interface(unsigned short) const;
   const persistent& lookup_interface(unsigned short) const throw(persistent_illegal_type);
 
-  // Register all Polymorphous classes using either approach by calling an installer callback
+  // all Polymorphous classes using either approach by calling an installer callback
   void register_all(installer);
 
 private:

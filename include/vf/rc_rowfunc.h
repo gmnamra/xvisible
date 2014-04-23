@@ -28,8 +28,8 @@
 #ifndef __rcROWFUNC_H
 #define __rcROWFUNC_H
 
-#include <rc_ncs.h>
-#include <rc_pair.h>
+#include  "rc_ncs.h"
+#include "rc_pair.h"
 
 /*
  * Base class for two sources (and a scaler or a non-image

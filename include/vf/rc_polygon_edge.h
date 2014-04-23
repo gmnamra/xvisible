@@ -12,7 +12,7 @@
 
 
 #include <iterator>
-#include <rc_vector2d.h>
+#include "rc_vector2d.h"
 
 //#include <CGAL/circulator.h>
 

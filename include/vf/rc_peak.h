@@ -2,8 +2,8 @@
 #define _rcPEAK_H_
 
 #include <list>
-#include <rc_window.h>
-#include <rc_vector2d.h>
+#include "rc_window.h"
+#include "rc_vector2d.h"
 #include <bitset>
 
 template <typename T> 

@@ -8,8 +8,8 @@
    Processing, Vol. ASSP-29, No. 6, December 1981.  pp. 1153-1160.
    */
 
-#include <rc_math.h>
-#include <rc_window.h>
+#include "rc_math.h"
+#include "rc_window.h"
 
 
 typedef struct

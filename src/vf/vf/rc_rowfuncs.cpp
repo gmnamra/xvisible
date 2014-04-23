@@ -1,6 +1,6 @@
 
-#include <rc_rowfunc.h>
-#include <static.hpp>
+#include "rc_rowfunc.h"
+#include "static.hpp"
 
 
 // A class to encapsulate a table of pre-computed squares

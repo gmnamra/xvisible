@@ -10,8 +10,9 @@
 #ifndef _rcPOINT_CORR_H_
 #define _rcPOINT_CORR_H_
 
-#include <rc_pair.h>
-#include <rc_moments.h>
+#include "rc_pair.h"
+
+#include "rc_moments.h>
 
 /* rcPointCorrelation - Calculates correlation space for a model.  Class is
  * optimized for performing high speed calculations in certain cases

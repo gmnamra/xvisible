@@ -31,7 +31,7 @@
 #ifndef __rcPAIR_H
 #define __rcPAIR_H
 
-#include <rc_types.h>
+#include "rc_types.h"
 using namespace std;
 
 template<class T>

@@ -43,7 +43,7 @@
 #ifndef __rcUTDRAWUTILS_H
 #define __rcUTDRAWUTILS_H
 
-#include <rc_window.h>
+#include "rc_window.h"
 #include <iomanip>
 
 // These utility drawing functions are for UT and development puposes ONLY. 

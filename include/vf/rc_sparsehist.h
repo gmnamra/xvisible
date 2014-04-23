@@ -3,7 +3,7 @@
 #ifndef _rcSPARSEHIST_H_
 #define _rcSPARSEHIST_H_
 
-#include <rc_types.h>
+#include "rc_types.h"
 #include <map>
 
 /* rcSparseHistogram - Allows users to create a "bounded" sparse

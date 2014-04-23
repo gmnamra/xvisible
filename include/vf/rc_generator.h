@@ -15,8 +15,8 @@
 #ifndef _rcGENERATOR_H_
 #define _rcGENERATOR_H_
 
-#include <rc_window.h>
-#include <rc_xforms.h>
+#include "rc_window.h"
+#include "rc_xforms.h"
 
 class rcAffineWindow;
 

@@ -47,12 +47,17 @@
 #ifndef __rc1DCORR_H
 #define __rc1DCORR_H
 
-#include <rc_window.h>
-#include <rc_vector2d.h>
-#include <rc_pair.h>
-#include <rc_ncs.h>
-#include <rc_fit.h>
-#include <rc_stats.h>
+#include "rc_window.h"
+#include "rc_vector2d.h"
+#include "rc_pair.h"
+
+#include  "rc_ncs.h"
+
+
+
+
+#include "rc_fit.h"
+#include "rc_stats.h"
 
 // 1D correlation: Normalized Correlation
 //
@@ -199,7 +204,7 @@ void rf1DAutoCorr (Iterator Ib, Iterator Ie, deque<double>& acb, bool op = true)
 // @todo: constant time implementation
 
 template <class Iterator>
-double rf1DRegister (Iterator Ib, Iterator Ie, Iterator Mb, Iterator Me, uint32 slide, double& pose)
+double rf1D(Iterator Ib, Iterator Ie, Iterator Mb, Iterator Me, uint32 slide, double& pose)
 {
 
   rmAssert (slide >= 1);
@@ -249,7 +254,7 @@ double rf1DRegister (Iterator Ib, Iterator Ie, Iterator Mb, Iterator Me, uint32 
 
 
 template <class Iterator>
-double rf1DRegister (Iterator Ib, Iterator Ie, Iterator Mb, Iterator Me, uint32 slide, double& pose, double& acc)
+double rf1D(Iterator Ib, Iterator Ie, Iterator Mb, Iterator Me, uint32 slide, double& pose, double& acc)
 {
 
 	rmAssert (slide >= 1);
@@ -308,7 +313,7 @@ double rf1DRegister (Iterator Ib, Iterator Ie, Iterator Mb, Iterator Me, uint32 
 
 
 template <class Iterator>
-double rf1DRegister (Iterator Ib, Iterator Ie, Iterator Mb, Iterator Me, 
+double rf1D(Iterator Ib, Iterator Ie, Iterator Mb, Iterator Me, 
 		     uint32 slideLeft, uint32 slideRight, double& pose)
 {
   uint32 slide = slideLeft + slideRight;

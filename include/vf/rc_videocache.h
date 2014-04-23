@@ -23,13 +23,13 @@
 using namespace std;
 
 // util
-#include <rc_types.h>
-#include <rc_thread.h>
+#include "rc_types.h"
+#include "rc_thread.h"
 
 // visual
-#include <rc_framebuf.h>
-#include <rc_timestamp.h>
-#include <rc_moviefileformat.h>
+#include "rc_framebuf.h"
+#include "rc_timestamp.h"
+#include "rc_moviefileformat.h"
 
 enum rcVideoCacheError {
     eVideoCacheErrorOK = 0,            // No error

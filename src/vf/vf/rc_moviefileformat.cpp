@@ -7,9 +7,9 @@
  *
  ******************************************************************************/
 
-#include <rc_moviefileformat.h>
-#include <rc_systeminfo.h>
-    //#include <rc_capture.hpp>
+#include "rc_moviefileformat.h"
+#include "rc_systeminfo.h"
+    //#include "rc_capture.hpp>
 #include <algorithm> //required for std::swap
 
 

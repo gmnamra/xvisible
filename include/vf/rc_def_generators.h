@@ -14,8 +14,8 @@
 #ifndef _rcDEF_GENERATORS_H_
 #define _rcDEF_GENERATORS_H_
 
-#include <rc_generator.h>
-#include <rc_affinewindow.h>
+#include "rc_generator.h"
+#include "rc_affinewindow.h"
 
 /* rcDefGeneratePixel - Returns the pixel containing the point x, y.
  */

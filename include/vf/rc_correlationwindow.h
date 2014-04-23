@@ -9,7 +9,7 @@
 #ifndef _RC_CORRELATIONWINDOW_H_
 #define _RC_CORRELATIONWINDOW_H_
 
-#include <rc_window.h>
+#include "rc_window.h"
 
 // This class can cache pixel sum and pixel sum squared values for reuse
 

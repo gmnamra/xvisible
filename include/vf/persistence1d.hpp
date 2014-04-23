@@ -10,8 +10,8 @@
 #include <cmath> 
 #include <algorithm>     // std::transform
 #include <functional>    // std::bind2nd, std::divides
-#include <rc_stlplus.h>
-#include <rc_signal1d.hpp>
+#include "rc_stlplus.h>
+#include "rc_signal1d.hpp>
 
 #define NO_COLOR -1
 #define RESIZE_FACTOR 20

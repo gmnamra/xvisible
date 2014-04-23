@@ -4,11 +4,11 @@
 *	Macintosh-specific support for timestamps.
 ******************************************************************************/
 
-#include <rc_exception.h>
+#include "rc_exception.h"
 
 #include <sys/time.h>
 
-#include <rc_timestamp.h>
+#include "rc_timestamp.h"
 
 static const int64 cMicrosPerSec = 1000000;
 static const double cResolution = 1.0/cMicrosPerSec;

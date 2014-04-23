@@ -25,8 +25,8 @@
 #ifndef __rcELLIPSE_H
 #define __rcELLIPSE_H
 
-#include <rc_matrix.h>
-#include <rc_rectangle.h>
+#include "rc_matrix.h>
+#include "rc_rectangle.h>
 
 // @note simple ellipse characterising class using normalization to a unit circle
 // This class is mainly used to draw a circle by using a within test.

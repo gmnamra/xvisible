@@ -76,10 +76,10 @@
  * Copyright (c) 2002 Reify Corp. All rights reserved.
  */
 
-#include <rc_types.h>
-#include <rc_ipconvert.h>
-#include <rc_histstats.h>
-#include <rc_imageprocessing.h>
+#include "rc_types.h"
+#include "rc_ip.h"
+#include "rc_histstats.h"
+#include "rc_imageprocessing.h"
 
 static void _rfRcWindow32to8(const rcWindow& rgbInput, rcWindow& channelOutput, rcChannelConversion opt);
 

@@ -37,7 +37,7 @@
 #ifndef __RC_MATHMODEL_H
 #define __RC_MATHMODEL_H
 
-#include <rc_window.h>
+#include "rc_window.h"
 
 //// OptoKinetic Model of Biological Motion ///////////
 //// Gabor = Gaussian * Sine  

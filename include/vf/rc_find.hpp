@@ -3,8 +3,8 @@
 
 #include <bitset>
 #include <vector>
-#include <rc_vector2d.h>
-#include <rc_rectangle.h>
+#include "rc_vector2d.h"
+#include "rc_rectangle.h"
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 

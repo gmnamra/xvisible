@@ -39,6 +39,13 @@
 		C299934418FCAE3D008397D2 /* ut_framebuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA27A0F21357A0046570D /* ut_framebuf.cpp */; };
 		C299934518FDB17F008397D2 /* ut_reifymoviegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA29A0F21357A0046570D /* ut_reifymoviegrabber.cpp */; };
 		C299934718FDBD44008397D2 /* rc_mathmodel.h in Headers */ = {isa = PBXBuildFile; fileRef = C299934618FDBD44008397D2 /* rc_mathmodel.h */; };
+		C2ADE58919072BF90083564A /* rc_filegrabber.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C28F8C18F4A6B200BA7E79 /* rc_filegrabber.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2ADE58B19072E6B0083564A /* rc_thread.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C28FC618F4A6B200BA7E79 /* rc_thread.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2ADE58C1907320E0083564A /* rc_rect.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C28FB618F4A6B200BA7E79 /* rc_rect.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2ADE58E19073CEF0083564A /* string_vectorio.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2C292A018F4C5D400BA7E79 /* string_vectorio.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2ADE58F19074D120083564A /* rc_videocache.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C28FD018F4A6B200BA7E79 /* rc_videocache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2ADE59019074D590083564A /* rc_gen_movie_file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2917B18F4B9A000BA7E79 /* rc_gen_movie_file.cpp */; };
+		C2ADE59119075EFC0083564A /* rc_gen_movie_file.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C28F9418F4A6B200BA7E79 /* rc_gen_movie_file.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2B8E99C187DDC510060D961 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA26D0F21357A0046570D /* main.cpp */; };
 		C2B8EA02187E11F20060D961 /* ut_timestamp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2A70F21357A0046570D /* ut_timestamp.cpp */; };
 		C2B8EA03187E13170060D961 /* ut_atomic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2720F21357A0046570D /* ut_atomic.cpp */; };
@@ -156,7 +163,6 @@
 		C2C291E118F4B9A000BA7E79 /* rc_fixcord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2917718F4B9A000BA7E79 /* rc_fixcord.cpp */; };
 		C2C291E218F4B9A000BA7E79 /* rc_framebuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2917818F4B9A000BA7E79 /* rc_framebuf.cpp */; };
 		C2C291E318F4B9A000BA7E79 /* rc_framegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2917918F4B9A000BA7E79 /* rc_framegrabber.cpp */; };
-		C2C291E518F4B9A000BA7E79 /* rc_gen_movie_file.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2917B18F4B9A000BA7E79 /* rc_gen_movie_file.cpp */; };
 		C2C291E718F4B9A000BA7E79 /* rc_histstats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2917D18F4B9A000BA7E79 /* rc_histstats.cpp */; };
 		C2C291EA18F4B9A000BA7E79 /* rc_imageprocessing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2918018F4B9A000BA7E79 /* rc_imageprocessing.cpp */; };
 		C2C291EC18F4B9A000BA7E79 /* rc_ip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2918218F4B9A000BA7E79 /* rc_ip.cpp */; };
@@ -303,10 +309,9 @@
 		C2C292E818F4F6DA00BA7E79 /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D07F2C80486CC7A007CD1D0 /* vfi386_d.framework */; };
 		C2C292ED18F4F8EE00BA7E79 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C28F4018F44CE700BA7E79 /* gtest.framework */; };
 		C2C292F318F662D500BA7E79 /* rc_similarity_producer.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C292F218F662D500BA7E79 /* rc_similarity_producer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2C292F518F72CFB00BA7E79 /* similarity_producer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C292F418F72CFB00BA7E79 /* similarity_producer.cpp */; };
 		C2C292F618F72CFB00BA7E79 /* similarity_producer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C292F418F72CFB00BA7E79 /* similarity_producer.cpp */; };
 		C2C292F818F748EE00BA7E79 /* signaler.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C292F718F748EE00BA7E79 /* signaler.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2C292FA18F8570900BA7E79 /* static.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2C292F918F8570900BA7E79 /* static.hpp */; };
+		C2C292FA18F8570900BA7E79 /* static.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2C292F918F8570900BA7E79 /* static.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2C292FE18F85C4A00BA7E79 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C292FD18F85C4A00BA7E79 /* libboost_system.a */; };
 		C2C2930018F85F5800BA7E79 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C292FF18F85F5800BA7E79 /* QTKit.framework */; };
 		C2C2930E18F8600B00BA7E79 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C2930D18F8600B00BA7E79 /* AudioUnit.framework */; };
@@ -316,7 +321,7 @@
 		C2C2931618F8605200BA7E79 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C2931518F8605200BA7E79 /* CoreVideo.framework */; };
 		C2C2931818F8605F00BA7E79 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C2931718F8605F00BA7E79 /* CoreAudio.framework */; };
 		C2C2931918F8D54800BA7E79 /* ut_videocache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2A90F21357A0046570D /* ut_videocache.cpp */; };
-		C2C2931B18F8D64400BA7E79 /* timing.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2C2931A18F8D64400BA7E79 /* timing.hpp */; };
+		C2C2931B18F8D64400BA7E79 /* timing.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2C2931A18F8D64400BA7E79 /* timing.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2C2931C18F9F5F600BA7E79 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C292FD18F85C4A00BA7E79 /* libboost_system.a */; };
 		C2C4452718FAFC1C00B1C00B /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAEEB0F4223E9003CC197 /* GLUT.framework */; };
 		C2C4452818FAFC1C00B1C00B /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CADD70F421E98003CC197 /* AGL.framework */; };
@@ -473,6 +478,7 @@
 		C2A9A6730F29200900DA781F /* ut_analysis_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_analysis_main.cpp; path = ../test/src/ut_analysis_main.cpp; sourceTree = SOURCE_ROOT; };
 		C2A9AB7A0F2FD4B000DA781F /* ut_simd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_simd.cpp; path = ../test/src/ut_simd.cpp; sourceTree = SOURCE_ROOT; };
 		C2ADE54B190619D90083564A /* rc_cinder_qtime_grabber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_cinder_qtime_grabber.cpp; sourceTree = "<group>"; };
+		C2ADE58A19072CD10083564A /* rc_framegrabber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_framegrabber.h; path = ../include/vf/rc_framegrabber.h; sourceTree = "<group>"; };
 		C2B8E993187DDC2B0060D961 /* gut */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gut; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C28F3C18F44C0700BA7E79 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C2C28F3D18F44C0700BA7E79 /* vf-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "vf-Info.plist"; sourceTree = "<group>"; };
@@ -531,14 +537,12 @@
 		C2C28F9818F4A6B200BA7E79 /* rc_imagegrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_imagegrabber.h; sourceTree = "<group>"; };
 		C2C28F9918F4A6B200BA7E79 /* rc_imageprocessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_imageprocessing.h; sourceTree = "<group>"; };
 		C2C28F9A18F4A6B200BA7E79 /* rc_ip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_ip.h; sourceTree = "<group>"; };
-		C2C28F9B18F4A6B200BA7E79 /* rc_ipconvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_ipconvert.h; sourceTree = "<group>"; };
 		C2C28F9C18F4A6B200BA7E79 /* rc_latticesimilarity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_latticesimilarity.h; sourceTree = "<group>"; };
 		C2C28F9D18F4A6B200BA7E79 /* rc_limits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_limits.h; sourceTree = "<group>"; };
 		C2C28F9E18F4A6B200BA7E79 /* rc_lin_generators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_lin_generators.h; sourceTree = "<group>"; };
 		C2C28F9F18F4A6B200BA7E79 /* rc_line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_line.h; sourceTree = "<group>"; };
 		C2C28FA018F4A6B200BA7E79 /* rc_logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_logger.h; sourceTree = "<group>"; };
 		C2C28FA118F4A6B200BA7E79 /* rc_lsfit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_lsfit.h; sourceTree = "<group>"; };
-		C2C28FA218F4A6B200BA7E79 /* rc_macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_macro.h; sourceTree = "<group>"; };
 		C2C28FA318F4A6B200BA7E79 /* rc_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_math.h; sourceTree = "<group>"; };
 		C2C28FA418F4A6B200BA7E79 /* rc_matrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_matrix.h; sourceTree = "<group>"; };
 		C2C28FA718F4A6B200BA7E79 /* rc_movieconverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_movieconverter.h; sourceTree = "<group>"; };
@@ -941,6 +945,7 @@
 		0867D691FE84028FC02AAC07 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C2ADE58A19072CD10083564A /* rc_framegrabber.h */,
 				C2C292FD18F85C4A00BA7E79 /* libboost_system.a */,
 				C2C292FB18F85BE500BA7E79 /* libboost_system.a */,
 				C26FA2ED0F2135830046570D /* test */,
@@ -1287,14 +1292,12 @@
 				C2C28F9818F4A6B200BA7E79 /* rc_imagegrabber.h */,
 				C2C28F9918F4A6B200BA7E79 /* rc_imageprocessing.h */,
 				C2C28F9A18F4A6B200BA7E79 /* rc_ip.h */,
-				C2C28F9B18F4A6B200BA7E79 /* rc_ipconvert.h */,
 				C2C28F9C18F4A6B200BA7E79 /* rc_latticesimilarity.h */,
 				C2C28F9D18F4A6B200BA7E79 /* rc_limits.h */,
 				C2C28F9E18F4A6B200BA7E79 /* rc_lin_generators.h */,
 				C2C28F9F18F4A6B200BA7E79 /* rc_line.h */,
 				C2C28FA018F4A6B200BA7E79 /* rc_logger.h */,
 				C2C28FA118F4A6B200BA7E79 /* rc_lsfit.h */,
-				C2C28FA218F4A6B200BA7E79 /* rc_macro.h */,
 				C2C28FA318F4A6B200BA7E79 /* rc_math.h */,
 				C2C28FA418F4A6B200BA7E79 /* rc_matrix.h */,
 				C2C28FA718F4A6B200BA7E79 /* rc_movieconverter.h */,
@@ -1602,6 +1605,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2C292F818F748EE00BA7E79 /* signaler.h in Headers */,
+				C2ADE58C1907320E0083564A /* rc_rect.h in Headers */,
 				C2C2908118F4A6B200BA7E79 /* rc_vector2d.h in Headers */,
 				C2C2904C18F4A6B200BA7E79 /* rc_ip.h in Headers */,
 				C2C2907418F4A6B200BA7E79 /* rc_statistics.h in Headers */,
@@ -1620,12 +1624,14 @@
 				C2C292D718F4C5D500BA7E79 /* ini_manager.hpp in Headers */,
 				C2C2903F18F4A6B200BA7E79 /* rc_fileutils.h in Headers */,
 				C2C2905D18F4A6B200BA7E79 /* rc_pair.h in Headers */,
+				C2ADE58F19074D120083564A /* rc_videocache.h in Headers */,
 				C2C2904918F4A6B200BA7E79 /* rc_histstats.h in Headers */,
 				C2C2907B18F4A6B200BA7E79 /* rc_timestamp.h in Headers */,
 				C2C2907018F4A6B200BA7E79 /* rc_signalfold.h in Headers */,
 				C2C2908718F4A6B200BA7E79 /* rc_xforms.h in Headers */,
 				C2C2905B18F4A6B200BA7E79 /* rc_moviegrabber.h in Headers */,
 				C2C2906A18F4A6B200BA7E79 /* rc_reifymoviegrabber.h in Headers */,
+				C2ADE58919072BF90083564A /* rc_filegrabber.h in Headers */,
 				C299934718FDBD44008397D2 /* rc_mathmodel.h in Headers */,
 				C2C2903618F4A6B200BA7E79 /* rc_correlationwindow.h in Headers */,
 				C2C2903C18F4A6B200BA7E79 /* rc_ellipse.h in Headers */,
@@ -1638,10 +1644,12 @@
 				C2C2906E18F4A6B200BA7E79 /* rc_security.h in Headers */,
 				C2C2905F18F4A6B200BA7E79 /* rc_peak.h in Headers */,
 				C2C290CE18F4A6B200BA7E79 /* tif_config.h in Headers */,
+				C2ADE58E19073CEF0083564A /* string_vectorio.hpp in Headers */,
 				C2C292D618F4C5D500BA7E79 /* inf.hpp in Headers */,
 				C2C292F318F662D500BA7E79 /* rc_similarity_producer.h in Headers */,
 				C2C292C718F4C5D500BA7E79 /* time.hpp in Headers */,
 				C2C292D018F4C5D500BA7E79 /* exceptions.hpp in Headers */,
+				C2ADE58B19072E6B0083564A /* rc_thread.h in Headers */,
 				C2C2906C18F4A6B200BA7E79 /* rc_ring.h in Headers */,
 				C2C292C118F4C5D500BA7E79 /* string_utilities.hpp in Headers */,
 				C2C292D818F4C5D500BA7E79 /* iostreamio.hpp in Headers */,
@@ -1675,6 +1683,7 @@
 				C2C2907E18F4A6B200BA7E79 /* rc_types.h in Headers */,
 				C2C292C918F4C5D500BA7E79 /* triple.hpp in Headers */,
 				C2C292C618F4C5D500BA7E79 /* textio.hpp in Headers */,
+				C2ADE59119075EFC0083564A /* rc_gen_movie_file.h in Headers */,
 				C2C292DB18F4C5D500BA7E79 /* multiio.hpp in Headers */,
 				C2C2902918F4A6B200BA7E79 /* nr.h in Headers */,
 				C2C2907918F4A6B200BA7E79 /* rc_tiff.h in Headers */,
@@ -1693,7 +1702,6 @@
 				C2C292CE18F4C5D500BA7E79 /* dprintf.hpp in Headers */,
 				C2C292BE18F4C5D500BA7E79 /* stlplus_lite.hpp in Headers */,
 				C2C292D918F4C5D500BA7E79 /* library_manager.hpp in Headers */,
-				C2C2904418F4A6B200BA7E79 /* rc_framegrabber.h in Headers */,
 				C2C2903D18F4A6B200BA7E79 /* rc_exception.h in Headers */,
 				C2C2904118F4A6B200BA7E79 /* rc_find.hpp in Headers */,
 				C2C292C318F4C5D500BA7E79 /* stringio.hpp in Headers */,
@@ -1702,6 +1710,7 @@
 				C2C292E218F4C6B400BA7E79 /* persistent.tpp in Headers */,
 				C2C292DE18F4C6A000BA7E79 /* foursome.tpp in Headers */,
 				C2C292E018F4C6AA00BA7E79 /* matrix.tpp in Headers */,
+				C2C2904418F4A6B200BA7E79 /* rc_framegrabber.h in Headers */,
 				C2C292E418F4C6BD00BA7E79 /* string_utilities.tpp in Headers */,
 				C2C292E318F4C6B700BA7E79 /* smart_ptr.tpp in Headers */,
 				C2C292DF18F4C6A700BA7E79 /* hash.tpp in Headers */,
@@ -1987,7 +1996,6 @@
 				C2C2921B18F4B9A000BA7E79 /* rc_window2tiff.cpp in Sources */,
 				C2C291C918F4B9A000BA7E79 /* tcp.cpp in Sources */,
 				C2C2921718F4B9A000BA7E79 /* rc_units.cpp in Sources */,
-				C2C291E518F4B9A000BA7E79 /* rc_gen_movie_file.cpp in Sources */,
 				C2C291B718F4B9A000BA7E79 /* dprintf.cpp in Sources */,
 				C2C2921518F4B9A000BA7E79 /* rc_timestamp_mac.cpp in Sources */,
 				C2C2926718F4C1F300BA7E79 /* tif_extension.c in Sources */,
@@ -2032,6 +2040,7 @@
 				C2C291CD18F4B9A000BA7E79 /* avevar.cpp in Sources */,
 				C2C2921C18F4B9A000BA7E79 /* rc_windowhist.cpp in Sources */,
 				C2C2921618F4B9A000BA7E79 /* rc_timinginfo.cpp in Sources */,
+				C2ADE59019074D590083564A /* rc_gen_movie_file.cpp in Sources */,
 				C2C2920C18F4B9A000BA7E79 /* rc_similarity.cpp in Sources */,
 				C2C2927218F4C1F300BA7E79 /* tif_packbits.c in Sources */,
 				C2C2927118F4C1F300BA7E79 /* tif_open.c in Sources */,
@@ -2050,7 +2059,6 @@
 				C2C291DA18F4B9A000BA7E79 /* rc_def_generators.cpp in Sources */,
 				C2C2926318F4C1F300BA7E79 /* tif_dirread.c in Sources */,
 				C2C2925D18F4C1F300BA7E79 /* tif_close.c in Sources */,
-				C2C292F518F72CFB00BA7E79 /* similarity_producer.cpp in Sources */,
 				C2C291D118F4B9A000BA7E79 /* rc_affinewindow.cpp in Sources */,
 				C2C2920518F4B9A000BA7E79 /* rc_reifymoviegrabber.cpp in Sources */,
 				C2C2927C18F4C1F300BA7E79 /* tif_warning.c in Sources */,
@@ -2245,7 +2253,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OPENCV_PATH = "$(SRCROOT)/../usr/local/OpenCv_2.4_i386\n";
 				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder_d.a\"";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = vfi386_d;
 				RFY_DLL_EXPORT = "";
 				SDKROOT = macosx10.8;
@@ -2321,7 +2329,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OPENCV_PATH = "$(SRCROOT)/../usr/local/OpenCv_2.4_i386\n";
 				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder.a\"";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = vfi386;
 				RFY_DLL_EXPORT = "";
 				SDKROOT = macosx10.8;

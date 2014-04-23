@@ -9,7 +9,7 @@
  *
  *****************************************************************************/
 
-#include <rc_filter1d.h>
+#include "rc_filter1d.h"
 
 rcEdgeFilter1D::rcEdgeFilter1D() : _filter(1), _stdDev(0.0), _min(0), _max(0)
 {

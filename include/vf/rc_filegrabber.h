@@ -9,7 +9,7 @@
 #ifndef _rcFILEGRABBER_H_
 #define _rcFILEGRABBER_H_
 
-#include <rc_framegrabber.h>
+#include "rc_framegrabber.h"
 
 using namespace std;
 

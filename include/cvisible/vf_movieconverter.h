@@ -10,8 +10,9 @@
 #ifndef _rcMOVIE_CONVERTER_H_
 #define _rcMOVIE_CONVERTER_H_
 
-#include <rc_gen_movie_file.h>
-#include <rc_framegrabber.h>
+#include <vfi386_d/rc_moviefileformat.h>
+#include <vfi386_d/rc_framegrabber.h>
+#include <vfi386_d/rc_ip.h>
 
     //using namespace qtime;
 

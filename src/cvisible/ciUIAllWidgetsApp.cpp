@@ -24,7 +24,7 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 
-class _TBOX_PREFIX_App : public AppBasic
+class CVisibleApp : public AppBasic
 {    
 public:
     void prepareSettings( Settings *settings ); 
@@ -84,18 +84,18 @@ public:
     vector< vector<float> > m_results;
 };
 
-Renderer* _TBOX_PREFIX_App::prepareRenderer()
+Renderer* CVisibleApp::prepareRenderer()
 {
     return new RendererGl( RendererGl::AA_MSAA_2 ); 
 }
 
-void _TBOX_PREFIX_App::prepareSettings( Settings *settings )
+void CVisibleApp::prepareSettings( Settings *settings )
 {
     settings->setWindowSize( 768, 1024 );
     settings->setFrameRate( 60.0f );
 }
 
-void _TBOX_PREFIX_App::gui_configuration (float image_aspect_ratio)
+void CVisibleApp::gui_configuration (float image_aspect_ratio)
 {
     menuWidth = getWindowWidth(); 
     menuHeight = getWindowHeight();
@@ -120,7 +120,7 @@ void _TBOX_PREFIX_App::gui_configuration (float image_aspect_ratio)
     gui2 = new ciUICanvas (gui_rects[2].getUpperLeft().x, gui_rects[2].getUpperLeft().y, gui_rects[2].getWidth(), gui_rects[2].getHeight());    
     
 }
-void _TBOX_PREFIX_App::setup()
+void CVisibleApp::setup()
 {
     gl::enableAlphaBlending(); 
 	setFpsSampleInterval(1.0); 
@@ -147,7 +147,7 @@ void _TBOX_PREFIX_App::setup()
     
 }
 
-void _TBOX_PREFIX_App::update()
+void CVisibleApp::update()
 {
     for(int i = 0; i < buffer.size(); i++)
     {
@@ -155,10 +155,10 @@ void _TBOX_PREFIX_App::update()
     }
 
     gui2->update();    
-    mvg->addPoint(getAverageFps());
+    //mvg->addPoint(getAverageFps());
 }
 
-void _TBOX_PREFIX_App::draw()
+void CVisibleApp::draw()
 {
 	gl::setMatricesWindow( getWindowSize() );
 	gl::clear( Color( bgColorR, bgColorG, bgColorB ) ); 
@@ -175,14 +175,14 @@ void _TBOX_PREFIX_App::draw()
     gui2->draw();    
 }
 
-void _TBOX_PREFIX_App::shutDown()
+void CVisibleApp::shutDown()
 {
     delete gui; 
     delete gui1; 
     delete gui2;     
 }
 
-void _TBOX_PREFIX_App::keyDown( KeyEvent event )
+void CVisibleApp::keyDown( KeyEvent event )
 {
     if(gui2->hasKeyboardFocus())        
     {
@@ -233,11 +233,11 @@ void _TBOX_PREFIX_App::keyDown( KeyEvent event )
     }
 }
 
-void _TBOX_PREFIX_App::keyUp( KeyEvent event )
+void CVisibleApp::keyUp( KeyEvent event )
 {
 }
 
-void _TBOX_PREFIX_App::guiEvent(ciUIEvent *event)
+void CVisibleApp::guiEvent(ciUIEvent *event)
 {
     const std::string& name = event->widget->getName();
     
@@ -270,7 +270,7 @@ void _TBOX_PREFIX_App::guiEvent(ciUIEvent *event)
     }
 }
 
-void _TBOX_PREFIX_App::setupGUI1()
+void CVisibleApp::setupGUI1()
 {
     float w = menuWidth; 
     float spacerHeight = 2; 
@@ -291,10 +291,10 @@ void _TBOX_PREFIX_App::setupGUI1()
     //  gui->addWidgetRight(new ciUISlider(h,120,0.0,100.0,25.0,"1"));
     // gui->addWidgetRight(new ciUIRangeSlider(h,120,0.0,100.0,50.0,75.0,"5"));    
     
-    gui->registerUIEvents(this, &_TBOX_PREFIX_App::guiEvent); 
+    gui->registerUIEvents(this, &CVisibleApp::guiEvent); 
 }
 
-void _TBOX_PREFIX_App::setupGUI2()
+void CVisibleApp::setupGUI2()
 {
      float w = widgetWidth; 
     float h = widgetHeight;
@@ -310,10 +310,10 @@ void _TBOX_PREFIX_App::setupGUI2()
     gui1->addWidgetDown(m_screen = new ciUIImage(w - CI_UI_GLOBAL_WIDGET_SPACING,h/2 - CI_UI_GLOBAL_WIDGET_SPACING,  &mImage, "IMAGE VIEW"),CI_UI_ALIGN_BOTTOM);
     //    gui1->addWidgetRight(m_sampler = new ciUIImageSampler(w/2 - CI_UI_GLOBAL_WIDGET_SPACING,h/2 - CI_UI_GLOBAL_WIDGET_SPACING, &mImageSurface, "IMAGE SAMPLER"));
   
-    gui1->registerUIEvents(this, &_TBOX_PREFIX_App::guiEvent);     
+    gui1->registerUIEvents(this, &CVisibleApp::guiEvent);     
 }
 
-void _TBOX_PREFIX_App::setupGUI3()
+void CVisibleApp::setupGUI3()
 {
     float w = widgetWidth / 3;
     gui2->addWidgetDown(new ciUIImageSlider(menuWidth - CI_UI_GLOBAL_WIDGET_SPACING, 24, 0, 1.0, vtick_scaled, "..", "VTICK")); 
@@ -325,11 +325,11 @@ void _TBOX_PREFIX_App::setupGUI3()
              
     // gui2 = new ciUICanvas(0,menuHeight+menuHeight,menuWidth,menuHeight);
    
-    gui2->registerUIEvents(this, &_TBOX_PREFIX_App::guiEvent);     
+    gui2->registerUIEvents(this, &CVisibleApp::guiEvent);     
   }
 
 
-void _TBOX_PREFIX_App::loadMovieFile( const fs::path &moviePath )
+void CVisibleApp::loadMovieFile( const fs::path &moviePath )
 {
 	
 	try {
@@ -356,7 +356,7 @@ void _TBOX_PREFIX_App::loadMovieFile( const fs::path &moviePath )
 }
 
 
-void _TBOX_PREFIX_App::loadCSVFile( const fs::path &csv_file, std::vector<vector<float> >& datas)
+void CVisibleApp::loadCSVFile( const fs::path &csv_file, std::vector<vector<float> >& datas)
 {
     
     std::ifstream istream (csv_file.string());
@@ -400,7 +400,7 @@ void _TBOX_PREFIX_App::loadCSVFile( const fs::path &csv_file, std::vector<vector
 
 
 
-void _TBOX_PREFIX_App::fileDrop( FileDropEvent event )
+void CVisibleApp::fileDrop( FileDropEvent event )
 {
 	for( size_t s = 0; s < event.getNumFiles(); ++s )
 		loadMovieFile( event.getFile( s ) );
@@ -408,4 +408,4 @@ void _TBOX_PREFIX_App::fileDrop( FileDropEvent event )
 
 
 
-CINDER_APP_BASIC( _TBOX_PREFIX_App, RendererGl )
+CINDER_APP_BASIC( CVisibleApp, RendererGl )

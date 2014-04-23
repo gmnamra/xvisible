@@ -7,7 +7,7 @@
  *
  */
 
-#include <rc_window.h>
+#include "rc_window.h"
 
 vector<uint32>& rfGenDepth8Histogram(const rcWindow& src, vector<uint32>& histogram)
 {

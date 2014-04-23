@@ -9,7 +9,7 @@
 
 #ifndef RCEXCEPTION
 #define RCEXCEPTION
-#include <rc_types.h>
+#include "rc_types.h"
 #include <exception>
 #include <iostream>
 #include <sstream>

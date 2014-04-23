@@ -15,7 +15,7 @@
  *
  * Copyright (c) 2002 Reify Corp. All rights reserved.
  */
-#include <rc_line.h>
+#include "rc_line.h"
 
 inline rcInfLine rcInfLine::parallel(const rc2Dvector& p) const
 { return rcInfLine(dir(), p); }

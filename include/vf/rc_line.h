@@ -37,8 +37,8 @@
 #ifndef _rcLINE_H_
 #define _rcLINE_H_
 
-#include <rc_xforms.h>
-#include <rc_types.h>
+#include "rc_xforms.h"
+#include "rc_types.h"
 #include <vector>
 
 

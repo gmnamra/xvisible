@@ -5,8 +5,8 @@
 
 #include "assert.h"
 #include <vector>
-#include <rc_atomic.h>
-#include <rc_types.h>
+#include "rc_atomic.h>
+#include "rc_types.h"
 
 typedef uint8* (*sMemAllocator)(long);
 

@@ -1,7 +1,7 @@
 // Copyright 2003 Reify, Inc.
 
-#include <rc_systeminfo.h>
-#include <rc_videocache.h>
+#include "rc_systeminfo.h"
+#include "rc_videocache.h"
 #include <stdio.h>
 
 #define VID_TRACE

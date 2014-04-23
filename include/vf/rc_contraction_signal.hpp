@@ -4,12 +4,12 @@
 #include <vector>
 #include <map>
 #include <algorithm>
-#include <rc_signal1d.hpp>
+#include "rc_signal1d.hpp>
 #include <boost/shared_ptr.hpp>
 #include <boost/algorithm/minmax_element.hpp>
 #include <boost/math/special_functions/sign.hpp>
 
-#include <rc_stlplus.h>
+#include "rc_stlplus.h>
 
 
 struct contraction_window 

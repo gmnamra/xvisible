@@ -8,14 +8,13 @@
 #ifndef _rcFRAMEBUF_H_
 #define _rcFRAMEBUF_H_
 
-#include <rc_timestamp.h>
-#include <rc_thread.h>
-#include <rc_macro.h>
-#include <rc_pixel.hpp>
+#include "rc_timestamp.h"
+#include "rc_thread.h"
+#include "rc_pixel.hpp"
 #include <boost/intrusive_ptr.hpp>
 #include <boost/atomic.hpp>
 #include <opencv2/core/core.hpp>
-#include <rc_pixel.hpp>
+#include "rc_pixel.hpp"
 #include <opencv2/highgui/highgui.hpp>
 
 #ifdef CINDER_BUILTIN

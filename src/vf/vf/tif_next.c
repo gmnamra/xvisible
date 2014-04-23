@@ -48,9 +48,9 @@
 static int
 NeXTDecode(TIFF* tif, tidata_t buf, tsize_t occ, tsample_t s)
 {
-	register unsigned char *bp, *op;
-	register tsize_t cc;
-	register int n;
+	unsigned char *bp, *op;
+	tsize_t cc;
+	int n;
 	tidata_t row;
 	tsize_t scanline;
 
@@ -95,7 +95,7 @@ NeXTDecode(TIFF* tif, tidata_t buf, tsize_t occ, tsample_t s)
 			break;
 		}
 		default: {
-			register int npixels = 0, grey;
+			int npixels = 0, grey;
 			unsigned long imagewidth = tif->tif_dir.td_imagewidth;
 
 			/*

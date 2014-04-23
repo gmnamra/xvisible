@@ -16,7 +16,7 @@
  * Copyright (c) 2002 Reify Corp. All rights reserved.
  */
 
-#include <rc_types.h>
+#include "rc_types.h"
 
 
 
@@ -97,11 +97,11 @@ typedef int32 TFract;	/* f * 2^30 */
 inline TFract FFracMul(TFract a, TFract b);
 
 
-static void PseudoRotate(int32 *px, int32 *py, register int32 theta)
+static void PseudoRotate(int32 *px, int32 *py, int32 theta)
 {
-	register int i;
-	register int32 x, y, xtemp;
-	register int32 *arctanptr;
+	int i;
+	int32 x, y, xtemp;
+	int32 *arctanptr;
 
 	x = *px;
 	y = *py;
@@ -156,10 +156,10 @@ static void PseudoRotate(int32 *px, int32 *py, register int32 theta)
 
 static void PseudoPolarize(int32 *argx, int32 *argy)
 {
-	register int32 theta;
-	register int32 yi, i;
-	register int32 x, y;
-	register int32 *arctanptr;
+	int32 theta;
+	int32 yi, i;
+	int32 x, y;
+	int32 *arctanptr;
 
 	x = *argx;
 	y = *argy;
@@ -216,9 +216,9 @@ static void PseudoPolarize(int32 *argx, int32 *argy)
 static int
 FxPreNorm(int32 *argx, int32 *argy)
 {
-	register int32 x, y;
+	int32 x, y;
 	int signx, signy;
-	register int shiftexp;
+	int shiftexp;
 
 	shiftexp = 0;		/* Block normalization exponent */
 	signx = signy = 1;
@@ -261,7 +261,7 @@ FxPreNorm(int32 *argx, int32 *argy)
 	*argy = (signy < 0) ? -y : y;
 	return(shiftexp);
 }
-#endif FASTER
+#endif 
 
 
 /* Return a unit vector corresponding to theta.
@@ -280,14 +280,14 @@ void rfFxRotate(int32 *argx, int32 *argy, int32 theta)
 {
 #ifndef FASTER
 	int shiftexp;
-#endif FASTER
+#endif 
 
 	if (((*argx == 0) && (*argy == 0)) || (theta == 0))
 		return;
 
 #ifndef FASTER
 	shiftexp = FxPreNorm(argx, argy);  /* Prenormalize vector */
-#endif FASTER
+#endif 
 	PseudoRotate(argx, argy, theta);   /* Perform CORDIC pseudorotation */
 	*argx = FFracMul(*argx, COSCALE);	/* Compensate for CORDIC enlargement */
 	*argy = FFracMul(*argy, COSCALE);
@@ -300,7 +300,7 @@ void rfFxRotate(int32 *argx, int32 *argy, int32 theta)
 		*argx <<= shiftexp;
 		*argy <<= shiftexp;
 	}
-#endif FASTER
+#endif 
 }
 
 
@@ -310,7 +310,7 @@ int32 rfFxAtan2(int32 x, int32 y)
 		return(0);
 #ifndef FASTER
 	FxPreNorm(&x, &y);	/* Prenormalize vector for maximum precision */
-#endif FASTER
+#endif
 	PseudoPolarize(&x, &y);	/* Convert to polar coordinates */
 	return(y);
 }
@@ -320,7 +320,7 @@ void rfFxPolarize(int32 *argx, int32 *argy)
 {
 #ifndef FASTER
 	int shiftexp;
-#endif FASTER
+#endif 
 
 	if ((*argx == 0) && (*argy == 0)) {
 		return;
@@ -329,7 +329,7 @@ void rfFxPolarize(int32 *argx, int32 *argy)
 #ifndef FASTER
 	/* Prenormalize vector for maximum precision */
 	shiftexp = FxPreNorm(argx, argy);
-#endif FASTER
+#endif 
 
 	/* Perform CORDIC conversion to polar coordinates */
 	PseudoPolarize(argx, argy);
@@ -340,7 +340,7 @@ void rfFxPolarize(int32 *argx, int32 *argy)
 #ifndef FASTER
 	/* Denormalize radius */
 	*argx = (shiftexp < 0) ? (*argx >> -shiftexp) : (*argx << shiftexp);
-#endif FASTER
+#endif 
 }
 
 

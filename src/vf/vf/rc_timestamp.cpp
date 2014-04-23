@@ -6,7 +6,7 @@
 
 #include <exception>
 
-#include <rc_timestamp.h>
+#include "rc_timestamp.h"
 
 // Timestamp for 0.0.
 // It is much faster to do "rcTimestamp foo = cZeroTime" than "rcTimestamp foo = 0.0"

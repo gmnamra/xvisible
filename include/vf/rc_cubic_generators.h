@@ -13,8 +13,8 @@
 #ifndef _rcCUBIC_GENERATORS_H_
 #define _rcCUBIC_GENERATORS_H_
 
-#include <rc_generator.h>
-#include <rc_affinewindow.h>
+#include "rc_generator.h"
+#include "rc_affinewindow.h"
 
 /* rcCubicGeneratePixel - Returns the pixel containing the point x, y.
  */

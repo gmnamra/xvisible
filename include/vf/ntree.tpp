@@ -1038,7 +1038,7 @@ void dump_ntree(dump_context& context, const ntree<T>& tree)
   throw(persistent_dump_failed)
 {
   // dump a magic key to the address of the tree for use in persistence of iterators
-  // and register it as a dumped address
+  // and it as a dumped address
   std::pair<bool,unsigned> mapping = context.pointer_map(&tree);
   if (mapping.first) throw persistent_dump_failed("ntree: already dumped this tree");
   dump(context,mapping.second);

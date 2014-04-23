@@ -7,15 +7,15 @@
  * @file
  ***************************************************************************/
 
-#include <rc_cinder_qtime_grabber.h>
+#include "rc_cinder_qtime_grabber.h>
 #include <unistd.h>
 #include <iostream>
-#include <rc_movieconverter.h>
-#include <rc_videocache.h>
-#include <rc_imagegrabber.h>
+#include "rc_movieconverter.h>
+#include "rc_videocache.h"
+#include "rc_imagegrabber.h>
 #include <file_system.hpp>
-#include <rc_fileutils.h>
-#include <rc_stlplus.h>
+#include "rc_fileutils.h>
+#include "rc_stlplus.h>
 #include <cinder/qtime/QuickTime.h>
 #include <cinder/qtime/MovieWriter.h>
 

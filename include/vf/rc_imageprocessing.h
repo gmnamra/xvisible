@@ -6,7 +6,7 @@
 #ifndef _rcIMAGEPROCESSING_H_
 #define _rcIMAGEPROCESSING_H_
 
-#include <rc_window.h>
+#include "rc_window.h"
 
 /* Generate a version of an 8 bit, grey scale src image that is
  * half-res in x and y. Odd pixels/rows will be ignored. In other

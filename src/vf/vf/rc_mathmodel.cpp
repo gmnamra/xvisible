@@ -34,7 +34,7 @@
  * Copyright (c) 2002 Reify Corp. All rights reserved.
  */
 #include "rc_mathmodel.h"
-#include <rc_vector2d.h>
+#include "rc_vector2d.h"
 
 #define MAIN \
 x = (double)(h - nw) / nw;\

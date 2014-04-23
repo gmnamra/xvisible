@@ -28,8 +28,8 @@
 #ifndef __rcMATRIX_H
 #define __rcMATRIX_H
 
-#include <rc_pair.h>
-#include <rc_vector2d.h>
+#include "rc_pair.h"
+#include "rc_vector2d.h"
 #include <ostream>
 
 // A General Templated Matrix Class (pieced together from various open sources)

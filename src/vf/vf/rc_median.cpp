@@ -7,8 +7,8 @@
  *
  */
 
-#include <rc_window.h>
-#include <rc_ip.h>
+#include "rc_window.h"
+#include "rc_ip.h"
 
 /*
  A reasonably efficient C implementation of the true 3x3 median

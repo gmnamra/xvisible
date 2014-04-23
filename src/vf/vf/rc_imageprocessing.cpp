@@ -1,8 +1,8 @@
 // Copyright 2002 Reify, Inc.
 
-#include <rc_imageprocessing.h>
-#include <rc_types.h>
-#include <rc_ipconvert.h>
+#include "rc_imageprocessing.h"
+#include "rc_types.h"
+#include "rc_ip.h"
 
 #define FAST_GEN_MODULUS 32
 #define ALTIVEC_MODULUS 16

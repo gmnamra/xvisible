@@ -15,8 +15,8 @@
 #include <vector>
 using namespace std;
 
-#include <rc_types.h>
-#include <rc_window.h>
+#include "rc_types.h"
+#include "rc_window.h"
 
 typedef vector<uint32> rc256BinHist;
 

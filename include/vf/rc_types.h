@@ -162,4 +162,118 @@ inline bool areNotEqP( const void *p1, const void *p2)
 }
 
 
+
+// 16 byte Address Alignment and count multiple of 4
+#define rmIsAlignedAddr(a)    ( ((long)a & 15L) == 0 )
+#define rmIsAlignedCount(n)   ( (n > 0) && ((n & 3L) == 0) )
+
+
+#define rmBytesInGig 1000000000
+
+#define SetTrait(nspace,trait,type,val)\
+namespace nspace { \
+template <> \
+struct trait < type > { \
+public: \
+static const bool value = val; \
+}; }
+
+
+
+
+
+
+#   define rmStaticConstMacro(name,type,value) enum { name = value }
+
+#   define rmGetStaticConstMacro(name) (Self::name)
+
+#define rmWarningMacro(x) \
+{\
+cerr << "WARNING: In " __FILE__ ", line " << __LINE__ << "\n" \
+x << "\n\n"; \
+}
+
+/** Get built-in type.  Creates member Get"name"() (e.g., GetVisibility());
+ * This is the "const" form of the itkGetMacro.  It should be used unless
+ * the member can be changed through the "Get" access routine. */
+#define rmGetConstMacro(name,type) \
+virtual type Get##name () const \
+{ \
+rmWarningMacro("returning " << #name " of " << this->m##name ); \
+return this->m##name; \
+}
+
+
+
+/** Set built-in type.  Creates member Set"name"() (e.g., SetVisibility()); */
+#define rmSetMacro(name,type) \
+virtual void Set##name (const type _arg) \
+{ \
+if (this->m##name != _arg) \
+{ \
+this->m##name = _arg; \
+} \
+}
+
+/** Get built-in type.  Creates member Get"name"() (e.g., GetVisibility()); */
+
+#define rmGetMacro(name,type) \
+virtual type Get##name () \
+{ \
+return this->m_##name; \
+}
+
+
+/** Set character string.  Creates member Set"name"()
+ * (e.g., SetFilename(char *)). The macro assumes that
+ * the class member (name) is declared a type std::string.
+ */
+
+#define rmSetStringMacro(name) \
+virtual void Set##name (const char* _arg) \
+{ \
+if ( _arg && (_arg == this->m##name) ) { return;} \
+if (_arg) \
+{ \
+this->m##name = _arg;\
+} \
+else \
+{ \
+this->m##name = ""; \
+} \
+}
+
+
+/** Get character string.  Creates member Get"name"()
+ * (e.g., SetFilename(char *)). The macro assumes that
+ * the class member (name) is declared a type std::string.
+ */
+
+#define rmGetStringMacro(name) \
+const char* Get##name () const		\
+{ \
+return this->m##name.c_str(); \
+}
+
+
+
+// Use this instead of incorrectly names rcFoo
+
+#define rmExceptionMacro(x) \
+{ \
+ostringstream message; \
+message << "Reify Class Libray: " x; \
+throw general_exception(__FILE__, __LINE__, message.str().c_str()); \
+}
+
+
+#define rmGplot(a,b,c)\
+{    GnuPlotInterface gpi;			\
+gpi.Plot2DFct ((a), \
+0.0, (double) ((a).width() -1), (uint32) (a).width(),\
+0.0, (double) ((a).height() -1), (uint32) (a).height());\
+}
+
+
+
 #endif

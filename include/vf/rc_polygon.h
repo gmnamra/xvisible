@@ -8,11 +8,11 @@
 #ifndef _rcPOLYGON_H_
 #define _rcPOLYGON_H_
 
-#include <rc_types.h>
-#include <rc_vector2d.h>
-#include <rc_affine.h>
-#include <rc_xforms.h>
-#include <rc_polygon_edge.h>
+#include "rc_types.h"
+#include "rc_vector2d.h"
+#include "rc_affine.h"
+#include "rc_xforms.h"
+#include "rc_polygon_edge.h"
 
 #include <algorithm> // for reverse, unique
 #include <iostream>

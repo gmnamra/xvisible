@@ -11,7 +11,7 @@
  *
  ***************************************************************************/
 
-#include <rc_def_generators.h>
+#include "rc_def_generators.h"
 
 void rcDefGenerateImage::genImage(const rcAffineWindow* src, rcWindow& dest,
 				  const rcIRect& region)

@@ -1766,7 +1766,7 @@ void digraph<NT,AT>::dump(dump_context& context) const
   throw(persistent_dump_failed)
 {
   // dump a magic key to the address of the graph for use in persistence of iterators
-  // and register it as a dumped address
+  // and it as a dumped address
   std::pair<bool,unsigned> mapping = context.pointer_map(this);
   if (mapping.first) throw persistent_dump_failed("digraph: already dumped this graph");
   ::dump(context,mapping.second);

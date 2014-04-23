@@ -19,7 +19,7 @@
 #ifndef __rcPOLYGONGROUP_H
 #define __rcPOLYGONGROUP_H
 
-#include <rc_polygon.h>
+#include "rc_polygon.h"
 #include <boost/shared_ptr.hpp>
 
 // Two polygon groups represent fixed and moving set in a motion segmentation iteration.

@@ -9,8 +9,9 @@
 #ifndef __PEAKER_H
 #define __PEAKER_H
 
-#include <rc_filter1d.h>
-#include <rc_pair.h>
+#include "rc_filter1d.h>
+#include "rc_pair.h"
+
 
 template <class Iterator>
 vector<float> rf1dPeaker (Iterator Ib, Iterator Ie)

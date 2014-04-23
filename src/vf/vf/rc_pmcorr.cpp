@@ -1,9 +1,9 @@
 
 
-#include <rc_ncs.h>
-#include <rc_rowfunc.h>
-#include <rc_correlationwindow.h>
-#include <rc_imageprocessing.h>
+#include "rc_ncs.h"
+#include "rc_rowfunc.h"
+#include "rc_correlationwindow.h"
+#include "rc_imageprocessing.h"
 
 #include <vector>
 using namespace std;

@@ -8,8 +8,8 @@
 #ifndef _rcRECT_H_
 #define _rcRECT_H_
 
-#include <rc_types.h>
-#include <rc_rectangle.h>
+#include "rc_types.h"
+#include "rc_rectangle.h"
 
 // Rectangle geometry class
 // It is drived from the template class rcRectangle.

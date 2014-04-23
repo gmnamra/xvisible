@@ -113,8 +113,8 @@
 #define __rcAFFINE_H
 
 
-#include <rc_xforms.h>
-#include <rc_rect.h>
+#include "rc_xforms.h"
+#include "rc_rect.h"
 
 
 #include <Accelerate/Accelerate.h>

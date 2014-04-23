@@ -3,16 +3,14 @@
  */
 
 // analysis
-#include <rc_similarity.h>
-#include <rc_ncs.h>
+#include "rc_similarity.h"
+#include  "rc_ncs.h"
+#include "rc_filter1d.h"
+#include "rc_histstats.h"
+#include "rc_1dcorr.h"
+#include "rc_ip.h"
+#include "rc_edge.h"
 
-#include <rc_filter1d.h>
-#include <rc_histstats.h>
-#include <rc_1dcorr.h>
-#include <rc_ip.h>
-#include <rc_ipconvert.h>
-#include <rc_edge.h>
-#include <rc_macro.h>
 
 
 

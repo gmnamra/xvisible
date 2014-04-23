@@ -1,8 +1,7 @@
 
-#include <rc_window.h>
-#include <rc_math.h>
-#include <rc_macro.h>
-#include <rc_ip.h>
+#include "rc_window.h"
+#include "rc_math.h"
+#include "rc_ip.h"
 
 static const short sFlatKernel3 [3][3] = {{1,1,1},{1,1,1},{1,1,1}};
 

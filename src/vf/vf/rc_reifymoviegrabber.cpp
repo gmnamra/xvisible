@@ -5,8 +5,8 @@
  *  Copyright (c) 2002 Reify Corp. All rights reserved.
  *
  */
-#include <rc_types.h>
-#include <rc_reifymoviegrabber.h>
+#include "rc_types.h"
+#include "rc_reifymoviegrabber.h"
 
 rcReifyMovieGrabber::rcReifyMovieGrabber(rcVideoCache& cache) 
   : rcFileGrabber(0), _framesLeft(0), _curFrame(0), _started(false),

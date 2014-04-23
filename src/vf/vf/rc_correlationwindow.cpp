@@ -6,7 +6,7 @@
  *  Copyright (c) 2003 Reify Corp. All rights reserved.
  */
 
-#include <rc_correlationwindow.h>
+#include "rc_correlationwindow.h"
 
 // Always instantiate
 template class rcCorrelationWindow<uint8>;

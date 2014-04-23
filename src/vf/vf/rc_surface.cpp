@@ -19,8 +19,8 @@
  * Copyright (c) 2002 Reify Corp. All rights reserved.
  */
 
-#include <rc_window.h>
-#include <rc_ip.h>
+#include "rc_window.h"
+#include "rc_ip.h"
 
 /*
  * Can be solved with carring the normalization:

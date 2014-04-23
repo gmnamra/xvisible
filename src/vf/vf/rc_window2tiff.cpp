@@ -36,7 +36,7 @@
 #include <sys/types.h>
 #include <math.h>
 #include <ctype.h>
-#include <rc_window.h>
+#include "rc_window.h"
 
 #ifdef HAVE_UNISTD_H
 # include <unistd.h>

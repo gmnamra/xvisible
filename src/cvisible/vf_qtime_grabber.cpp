@@ -1,15 +1,16 @@
 
 
-#include "rc_cinder_qtime_grabber.h"
+#include "vf_cinder_qtime_grabber.h"
 
-#include <stlplus_lite.hpp>
+#include <vfi386_d/stlplus_lite.hpp>
 
 
 using namespace ci;
 using namespace ci::qtime;
 
 
-#include <rc_ipconvert.h>
+#include <vfi386_d/rc_ip.h>
+#include "vf_window.hpp"
 
 #define kBogusStartingTime  -1      // an invalid starting time
 #define Debug_Log
@@ -98,7 +99,7 @@ rcCinderGrabber::getNextFrame( rcSharedFrameBufPtr& fptr, bool isBlocking )
         if ( mMovie.checkNewFrame () )
         {
             double tp = mMovie.getCurrentTime ();
-            fptr = rcSharedFrameBufPtr ( new rcFrame ( mMovie.getSurface ().getChannelGreen () ) );
+            fptr = vf_utils::newFromChannel8u ( mMovie.getSurface ().getChannelGreen () );
             fptr->setTimestamp(tp);
             ret = eFrameStatusOK;
             setLastError( eFrameErrorOK );

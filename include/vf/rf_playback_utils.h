@@ -10,11 +10,11 @@
 #include <vector>
 
 // util
-#include <rc_types.h>
+#include "rc_types.h"
 
 // visual
-#include <rc_framebuf.h>
-#include <rc_videocache.h>
+#include "rc_framebuf.h"
+#include "rc_videocache.h"
 
 typedef struct rsPlayElement {
   rcSharedFrameBufPtr buf;

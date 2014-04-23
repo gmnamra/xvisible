@@ -30,13 +30,13 @@
  *Cell Lineage
  */
 
-#include <rc_level.h>
-#include <rc_histstats.h>
-#include <rc_ip.h>
-#include <rc_similarity.h>
+#include "rc_level.h"
+#include "rc_histstats.h"
+#include "rc_ip.h"
+#include "rc_similarity.h"
 
-#include <rc_filter1d.h>
-#include <rc_stats.h>
+#include "rc_filter1d.h"
+#include "rc_stats.h"
 #include <map>
 
 rcTails::rcTails(const  vector<uint32>& histogram,

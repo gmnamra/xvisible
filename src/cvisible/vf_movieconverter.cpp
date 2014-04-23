@@ -7,17 +7,23 @@
  * @file
  ***************************************************************************/
 
-#include <rc_cinder_qtime_grabber.h>
+
+#include "vf_cinder_qtime_grabber.h"
+#include "vf_movieconverter.h"
+#include "vf_window.hpp"
+#include "vf_imagegrabber.hpp"
 #include <unistd.h>
 #include <iostream>
-#include <rc_movieconverter.h>
-#include <rc_videocache.h>
-#include <rc_imagegrabber.h>
-#include <file_system.hpp>
-#include <rc_fileutils.h>
-#include <rc_stlplus.h>
+#include <vfi386_d/rc_videocache.h>
+#include <vfi386_d/rc_imagegrabber.h>
+#include <vfi386_d/file_system.hpp>
+#include <vfi386_d/rc_fileutils.h>
+#include <vfi386_d/rc_stlplus.h>
+#include <vfi386_d/rc_ip.h>
+#include <vfi386_d/rc_gen_movie_file.h>
 #include <cinder/qtime/QuickTime.h>
 #include <cinder/qtime/MovieWriter.h>
+
 
 using namespace ci;
 
@@ -697,12 +703,12 @@ rcMovieConverterError rcMovieConverterToQT::createQTMovie( rcVideoCache* inputCa
         
         frameBuf = clippedFrame( frameBuf, mOptions );
         
-        if ( mOptions.reversePixels() ) {
-            rcWindow w( frameBuf );
-            rfReversePixels8( w );
-        }
+        // if ( mOptions.reversePixels() ) {
+        //     rcWindow w( frameBuf );
+        //      rfReversePixels8( w );
+        //  }
         
-        mMovieWriter->addFrame (ImageSourceRef ( * frameBuf->newCiChannel() ) );
+        mMovieWriter->addFrame (ImageSourceRef ( * vf_utils::newCiChannel(frameBuf) ) );
         
         rcTimestamp startTime, endTime;
         if ((i+period) < cache.frameCount()) {

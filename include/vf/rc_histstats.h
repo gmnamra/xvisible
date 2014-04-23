@@ -2,8 +2,8 @@
 #ifndef __rcHISTOSTAT_H__
 #define __rcHISTOSTAT_H__
 
-#include <rc_types.h>
-#include <rc_window.h>
+#include "rc_types.h"
+#include "rc_window.h"
 
 #include <vector>
 using namespace std;

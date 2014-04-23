@@ -1,7 +1,7 @@
 // Copyright 2002 Reify, Inc.
 
-#include <rc_types.h>
-#include <rc_timinginfo.h>
+#include "rc_types.h"
+#include "rc_timinginfo.h"
 
 #include <stdio.h>
 

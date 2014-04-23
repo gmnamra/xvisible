@@ -2,9 +2,9 @@
 #ifndef rc_peak_cpp
 #define rc_peak_cpp
 
-#include <rc_types.h>
-#include <rc_peak.h>
-#include <rc_window.h>
+#include "rc_types.h"
+#include "rc_peak.h"
+#include "rc_window.h"
 
 void rfPeakDetect8Bit(const rcWindow& win, uint32 accept, list<rcPeak <uint8> >& peaks)
 {
