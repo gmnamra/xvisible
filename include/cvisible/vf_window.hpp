@@ -83,70 +83,89 @@ struct vf_utils
         
     }
     
-    static bool is_legacy_Visible_output (csv::rows_type& rows, int& offset)
+  
+    // Returns number of rows as a positive number if it is a legacy visible file or negative if it is not
+    static int is_legacy_visible_output (csv::rows_type& rows)
     {
         if (rows.size () < 1) return false;
         const csv::row_type& row = rows[0];
         bool is_visible = false;
         for (int i = 0; i < row.size(); i++)
         {
-            if (row[i].contains ("Visible")) { is_visible = true; break; }
+            if (row[i].find ("Visible") != string::npos ) { is_visible = true; break; }
         }
-        if (! is_visible ) return is_visible;
+        if (! is_visible ) return -1 * rows.size ();
         int last_row = -1;
-        for (int rr = 1; rr < rows.size(); rows++)
+        for (int rr = 1; rr < rows.size(); rr++)
         {
             const csv::row_type& row = rows[rr];
             for (int i = 0; i < row.size(); i++)
             {
-                if (row[i].contains ("seconds")) { last_row = i; break; }
+                if (row[i].find ("seconds") != string::npos )
+                { 
+                    last_row = rr + ( rr < (rows.size() - 1) ? 1 : 0) ; break;
+                }
             }
             if (last_row > 0) break;
         }
-        offset = last_row;        
+        return last_row; 
     }
     
-    
-    static bool ( const fs::path &csv_file, std::vector<vector<float> >& datas, bool force_all_numeric)
+    // Returns number of rows as a positive number if it is a legacy visible file or negative if it is not
+    static int file_is_legacy_visible_output (std::string& fqfn)
     {
-        std::ifstream istream (csv_file.string());
+        std::ifstream istream (fqfn);
         csv::rows_type rows = csv::to_rows (istream);
-        int start_row = 0;
-        bool is_visible_legacy = force_all_numeric ? false : vf_utils::is_legacy_Visible_output (rows, start_row);
-        datas.resize (0);            
-
-        if ( ! is_visible_legacy )
-        // if is_visible is true start_row has to be -1 or 0 -> rows.size() - 1
-          
-            vector<float> data (4);
-            if (row.size () != 4) continue;
-            int c=0;
-            for (int i = 0; i < 4; i++) 
+        return is_legacy_visible_output ( rows);
+        
+    }    
+    
+    static bool csv2vectors ( const std::string &csv_file, std::vector<vector<float> >& m_results, bool force_all_numeric)
+    {
+        std::ifstream istream (csv_file);
+        csv::rows_type rows = csv::to_rows (istream);
+        int visible_row = vf_utils::is_legacy_visible_output (rows);
+        int start_row = visible_row < 0 ? 0 : visible_row;
+        if ( ! force_all_numeric && visible_row < 0 ) return false;
+        if (visible_row < 0 ) assert (start_row >= 0 && start_row < rows.size ());
+        
+        std::vector<vector<float> > datas;
+        vector<uint32> column_width;
+        
+        // Get All rows 
+        for (int rr = start_row; rr < rows.size(); rr++)
+        {
+            const csv::row_type& row = rows[rr];
+            if (column_width.empty () || column_width.back() != row.size()) column_width.push_back (row.size());
+            vector<float> data;
+            data.resize (row.size ());
+            for (int t = 0; t < row.size(); t++) 
             {
-                std::istringstream iss(row[i]);
-                iss >> data[i];
-                c++;
+                std::istringstream iss(row[t]);
+                iss >> data[t];
             }
-            if (c != 4) continue;
-            if (rfSum(data) == 0) continue;
             datas.push_back(data);
         }
         
-        if (datas.size())
+        if (datas.size() && column_width.size () == 1) // if there were all same number of columns
         {
-            m_results.resize(4);
-            
+            uint32 cw = column_width.front();
+            m_results.resize(cw);
             for (uint i = 0; i < datas.size (); i++)
             {
                 const vector<float>& vc = datas[i];
-                for (uint cc=0; cc<4;cc++)
+                for (uint cc=0; cc<cw;cc++)
                     m_results[cc].push_back(vc[cc]);
             }
-            vector<float>& column = m_results[3];
-    
+        }
+        else
+            m_results = datas;
+        
+        return true;
+    }
     
 };
-
-
+        
+        
 #endif
-
+        
