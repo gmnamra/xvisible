@@ -9,17 +9,22 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>4</integer>
 		</dict>
 		<key>batchconvert.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>3</integer>
+		</dict>
+		<key>gut copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
 		</dict>
 		<key>gut.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>5</integer>
 		</dict>
 		<key>libvf32.xcscheme_^#shared#^_</key>
 		<dict>
@@ -36,17 +41,17 @@
 		<key>persistence1d.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>7</integer>
 		</dict>
 		<key>vf.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>6</integer>
 		</dict>
 		<key>vsigmatch.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -97,6 +102,11 @@
 			<true/>
 		</dict>
 		<key>C2ADE3DD18427C5B00BDA932</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C2ADE5931908ACEB0083564A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
