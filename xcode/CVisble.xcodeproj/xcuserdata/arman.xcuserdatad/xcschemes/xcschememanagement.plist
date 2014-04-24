@@ -11,10 +11,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>gutc.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>8D1107260486CEB800E47090</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C2ADE5B11908AD610083564A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
