@@ -2346,8 +2346,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				BOOST_PATH = "$(SRCROOT)/../usr/local/boost";
-				CINDER_PATH = "$(SRCROOT)/../usr/local/Cinder";
+				BOOST_PATH = "$(WS_USR_LOCAL_DIR)/boost";
+				CINDER_PATH = "$(WS_USR_LOCAL_DIR)/Cinder";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
@@ -2358,11 +2358,12 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				New_Setting1 = "";
 				ONLY_ACTIVE_ARCH = NO;
-				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCv_2.4_i386";
+				OPENCV_PATH = "$(WS_USR_LOCAL_DIR)/OpenCv_2.4_i386";
 				OTHER_CFLAGS = "-mmacosx-version-min=10.8";
 				PREBINDING = NO;
 				SDKROOT = macosx10.8;
 				VALID_ARCHS = i386;
+				WS_USR_LOCAL_DIR = "$(SRCROOT)/../usr/local/";
 			};
 			name = Debug;
 		};
@@ -2370,8 +2371,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				BOOST_PATH = "$(SRCROOT)/../usr/local/boost";
-				CINDER_PATH = "$(SRCROOT)/../usr/local/Cinder";
+				BOOST_PATH = "$(WS_USR_LOCAL_DIR)/boost";
+				CINDER_PATH = "$(WS_USR_LOCAL_DIR)/Cinder";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
@@ -2381,11 +2382,12 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				New_Setting1 = "";
-				OPENCV_PATH = "$(SRCROOT)/usr/local/OpenCv_2.4_i386";
+				OPENCV_PATH = "$(WS_USR_LOCAL_DIR)/OpenCv_2.4_i386";
 				OTHER_CFLAGS = "-mmacosx-version-min=10.8";
 				PREBINDING = NO;
 				SDKROOT = macosx10.8;
 				VALID_ARCHS = i386;
+				WS_USR_LOCAL_DIR = "$(SRCROOT)/../usr/local/";
 			};
 			name = Release;
 		};
@@ -2856,6 +2858,7 @@
 				SEPARATE_STRIP = YES;
 				VALID_ARCHS = "i386 x86_64";
 				VF_NAME = vfi386_d;
+				WS_BUILD_DIR = "$(SRCROOT)/../build";
 			};
 			name = Debug;
 		};
@@ -2928,6 +2931,7 @@
 				SEPARATE_STRIP = YES;
 				VALID_ARCHS = "i386 x86_64";
 				VF_NAME = vfi386;
+				WS_BUILD_DIR = "$(SRCROOT)/../build";
 			};
 			name = Release;
 		};
