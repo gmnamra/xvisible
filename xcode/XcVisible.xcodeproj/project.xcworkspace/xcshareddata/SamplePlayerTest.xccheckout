@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7ABC4A4A-C6FD-42A5-A20D-1072E524B9B0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SamplePlayerTest</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F657B237-1CFA-4195-8B20-9E8F4779BDD6</key>
+		<string>ssh://feynman.local/git/visibleqt105</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>xcode/SamplePlayerTest.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F657B237-1CFA-4195-8B20-9E8F4779BDD6</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://feynman.local/git/visibleqt105</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F657B237-1CFA-4195-8B20-9E8F4779BDD6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F657B237-1CFA-4195-8B20-9E8F4779BDD6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>visibleqt105</string>
+		</dict>
+	</array>
+</dict>
+</plist>
