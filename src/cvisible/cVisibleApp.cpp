@@ -14,7 +14,7 @@
 #include <vfi386_d/rc_stats.h>
 #include <boost/foreach.hpp>
 
-#include "cimovinggraph.h"
+#include "AudioDrawUtils.h"
 
 #include <sstream>
 #include <fstream>
@@ -24,6 +24,7 @@
 using namespace ci;
 using namespace ci::app;
 using namespace std;
+using namespace ci::audio2;
 
 class CVisibleApp : public AppBasic
 {    
@@ -63,7 +64,7 @@ public:
     int m_fc;
     
     std::vector<float> buffer;
-    ciMovingGraph *mvg; 
+    WaveformPlot mWaveformPlot;
     ciUICanvas *gui;  
     ciUICanvas *gui1;  
     ciUICanvas *gui2;  
@@ -141,7 +142,16 @@ void CVisibleApp::setup()
     m_movie_valid = false;
     const fs::path& exec_path = getAppPath();
     std::cout << "Application Executive @ " << exec_path.string () << std::endl;
+
+    ci::audio2::BufferRef buf = make_shared<ci::audio2::Buffer> (100);    
     
+    float signal = 0.0f;
+    float step = 1.0f / buf->getNumFrames();
+    for (int ff=0;ff<buf->getNumFrames();ff++){ buf->getData()[ff] = signal; signal += step; }
+    mWaveformPlot.load (buf, getWindowBounds());
+
+    
+
     setupGUI1(); 
     setupGUI2(); 
     setupGUI3();
@@ -161,6 +171,11 @@ void CVisibleApp::update()
 
 void CVisibleApp::draw()
 {
+    gl::clear ();
+    gl::enableAlphaBlending ();
+    
+    mWaveformPlot.draw();
+    
 	gl::setMatricesWindow( getWindowSize() );
 	gl::clear( Color( bgColorR, bgColorG, bgColorB ) ); 
     if (m_movie_valid)
@@ -170,11 +185,11 @@ void CVisibleApp::draw()
         int frame_index = vtick_scaled * m_fc;
         m_movie.seekToFrame (frame_index);
     }
-    if (m_result_valid && m_fc > 0 )
-    {
-        int frame_index = vtick_scaled * mvg->getBuffer().size();
-        mvg->seekToIndex(frame_index);
-    }    
+    //   if (m_result_valid && m_fc > 0 )
+    //   {
+    //       int frame_index = vtick_scaled * mvg->getBuffer().size();
+    //        mvg->seekToIndex(frame_index);
+    //    }    
     
     gui->draw();
     gui1->draw();
@@ -364,12 +379,7 @@ void CVisibleApp::loadMovieFile( const fs::path &moviePath )
 
 void CVisibleApp::loadCSVFile( const fs::path &csv_file, std::vector<vector<float> >& datas)
 {
-    
-        gui2->addWidgetDown(mvg = new ciMovingGraph (menuWidth, 30, column, 128, 0.0, 1.0, "WAVEFORM"),CI_UI_ALIGN_BOTTOM);  
-        m_result_valid = true;
-        gui2->draw();
-    }
-    
+     
 }
 
 

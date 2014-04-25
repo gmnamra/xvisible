@@ -8,8 +8,10 @@
 #include "cinder/Utilities.h"
 #include <vfi386_d/rc_window.h>
 #include <boost/algorithm/string.hpp>
+#include <vfi386_d/rc_fileutils.h>
+#include "sshist.hpp"
 
-#include <sshist.hpp>
+#include <fstream>
 
 using namespace ci;
 using namespace std;
