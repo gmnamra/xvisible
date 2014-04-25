@@ -14,8 +14,10 @@
 #include <string>
 #include <iostream>
 #include "vf_window.hpp"
+#include "sshist.hpp"
 
 using namespace std;
+using namespace vf_utils::csv;
 
 struct UT_fileutils 
 {
@@ -42,15 +44,12 @@ struct UT_fileutils
         errs += (rf_sensitive_case_compare(sanspath, Filename) == true);
         errs += (rf_insensitive_case_compare(sanspath, filename) == false);
         
-        std::cerr << sanspath << std::endl;
         std::string sansext = rfStripExtension (pathy);
-      
         
         errs += (rf_sensitive_case_compare(sansext, Filename) == true);
         errs += (rf_insensitive_case_compare(sansext, rfmovfile) == false);
                 
         
-        std::cerr << sansext << std::endl;        
         std::string ext = rfGetExtension (pathy);
         
         errs += (rf_sensitive_case_compare(ext, dotfileext) == true);
@@ -87,20 +86,44 @@ struct UT_fileutils
         uint32 expected = rows.size() - 14;
         errs += ( ( datas.size () == expected ) == false);
 
-        int row_start= vf_utils::is_legacy_visible_output (rows);
+        int row_start= is_legacy_visible_output (rows);
         EXPECT_TRUE (row_start == 14);
-        EXPECT_TRUE (vf_utils::file_is_legacy_visible_output (csv_filename) == 14);
+        EXPECT_TRUE (file_is_legacy_visible_output (csv_filename) == 14);
 
         std::string onecol ("onecolumn.txt");
         std::string onec_filename = create_filespec (test_data_path, onecol);
-        EXPECT_TRUE (vf_utils::file_is_legacy_visible_output (onec_filename) == -3296);    
+        EXPECT_TRUE (file_is_legacy_visible_output (onec_filename) == -3296);    
         
         std::string matx ("matrix.txt");
         std::string matx_filename = create_filespec (test_data_path, matx);
-        EXPECT_TRUE (vf_utils::file_is_legacy_visible_output (matx_filename) == -300);    
+        EXPECT_TRUE (file_is_legacy_visible_output (matx_filename) == -300);    
 
+        bool only_visible_format = true;
+
+        // test accepting only visible format and getting columns or rows
+        test_file (csv_filename, true, 4, only_visible_format, true);
+        test_file (csv_filename, true, 3296, only_visible_format, false);     
+        test_file (onec_filename, false, 3296, only_visible_format, false);  
+        test_file (onec_filename, false, 1, only_visible_format, true);        
+        
+        // test getting rows
+        only_visible_format = false;
+        test_file (onec_filename, true, 3296, only_visible_format, false);  
+        test_file (onec_filename, true, 1, only_visible_format, true);        
+        
+        test_file (matx_filename, true, 300, only_visible_format, false);  
+        test_file (matx_filename, true, 300, only_visible_format, true);        
         
         return errs;        
+    }
+    
+    void test_file (std::string& fqfn, bool is_valid, int rows_or_columns, bool force_numeric, bool columns_if )
+    {
+        std::vector<vector<float> > datas;
+        bool verify = csv2vectors (fqfn, datas, force_numeric, columns_if);
+        EXPECT_TRUE(is_valid == verify);
+        if (! is_valid ) { EXPECT_TRUE (datas.empty()); return; }
+        EXPECT_TRUE (rows_or_columns == datas.size());
     }
     
 private:

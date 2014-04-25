@@ -75,6 +75,7 @@
 		C21733B81909A67E00A01365 /* ut_file.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ut_file.hpp; path = ../test/vf_cvisible/ut_file.hpp; sourceTree = "<group>"; };
 		C21733BC1909A9B300A01365 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../usr/local/gtest/build/Debug/gtest.framework; sourceTree = "<group>"; };
 		C21733C21909ADEA00A01365 /* gutc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = gutc.cpp; path = ../test/vf_cvisible/gutc.cpp; sourceTree = SOURCE_ROOT; };
+		C21733C5190AAA9200A01365 /* sshist.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = sshist.hpp; sourceTree = "<group>"; };
 		C2ADE537190476FD0083564A /* vfi386_d.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386_d.framework; path = ../build/Debug/vfi386_d.framework; sourceTree = "<group>"; };
 		C2ADE5451905F6E90083564A /* libcinder_d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcinder_d.a; path = ../usr/local/Cinder/lib/libcinder_d.a; sourceTree = "<group>"; };
 		C2ADE5801907263D0083564A /* CVisble_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVisble_Prefix.pch; sourceTree = "<group>"; };
@@ -274,6 +275,7 @@
 		C2ADE57F190724870083564A /* vf_support */ = {
 			isa = PBXGroup;
 			children = (
+				C21733C5190AAA9200A01365 /* sshist.hpp */,
 				C2ADE585190726730083564A /* vf_movieconverter.cpp */,
 				C2ADE586190726730083564A /* vf_qtime_grabber.cpp */,
 				C2ADE5811907265F0083564A /* vf_cinder_qtime_grabber.h */,

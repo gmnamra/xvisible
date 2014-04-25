@@ -7,14 +7,16 @@
 #include "cinder/ImageIo.h"
 #include "cinder/Utilities.h"
 #include <vfi386_d/rc_window.h>
-#include <vfi386_d/rc_fileutils.h>
+#include <boost/algorithm/string.hpp>
+
+#include <sshist.hpp>
 
 using namespace ci;
 using namespace std;
 
 
 
-struct vf_utils
+namespace vf_utils
 {
     
     static rcSharedFrameBufPtr newFromChannel8u ( ci::Channel8u& onec )
@@ -83,89 +85,134 @@ struct vf_utils
         
     }
     
-  
-    // Returns number of rows as a positive number if it is a legacy visible file or negative if it is not
-    static int is_legacy_visible_output (csv::rows_type& rows)
+    
+    namespace csv
     {
-        if (rows.size () < 1) return false;
-        const csv::row_type& row = rows[0];
-        bool is_visible = false;
-        for (int i = 0; i < row.size(); i++)
+        
+        typedef std::vector<std::string> row_type;
+        typedef std::vector<row_type> rows_type;
+
+        // c++11 
+        static bool is_number(const std::string& s)
         {
-            if (row[i].find ("Visible") != string::npos ) { is_visible = true; break; }
+            return !s.empty() && std::find_if(s.begin(), 
+                                             s.end(), [](char c) { return !std::isdigit(c); }) == s.end();
         }
-        if (! is_visible ) return -1 * rows.size ();
-        int last_row = -1;
-        for (int rr = 1; rr < rows.size(); rr++)
+        
+        //! Convert an input stream to csv rows.
+        
+        rows_type to_rows(std::istream &input)
         {
-            const csv::row_type& row = rows[rr];
+            csv::rows_type rows;
+            std::string line;
+            //for each line in the input stream
+            while (std::getline(input, line))
+            {
+                boost::trim_if(line, boost::is_any_of(" ")); 
+                csv::row_type row(1, "");                
+                boost::split(row, line, boost::is_any_of("\t ,"));
+                rows.push_back(row);
+            }
+            return rows;
+        }
+        
+        // Returns starting row of numeric data as a positive number if it is a legacy visible file or 
+        // -1 * number of rows if it is not
+        static int is_legacy_visible_output (csv::rows_type& rows)
+        {
+            if (rows.size () < 1) return false;
+            const csv::row_type& row = rows[0];
+            bool is_visible = false;
             for (int i = 0; i < row.size(); i++)
             {
-                if (row[i].find ("seconds") != string::npos )
-                { 
-                    last_row = rr + ( rr < (rows.size() - 1) ? 1 : 0) ; break;
+                if (row[i].find ("Visible") != string::npos ) { is_visible = true; break; }
+            }
+            if (! is_visible ) return -1 * rows.size ();
+            int last_row = -1;
+            for (int rr = 1; rr < rows.size(); rr++)
+            {
+                const csv::row_type& row = rows[rr];
+                for (int i = 0; i < row.size(); i++)
+                {
+                    if (row[i].find ("seconds") != string::npos )
+                    { 
+                        last_row = rr + ( rr < (rows.size() - 1) ? 1 : 0) ; break;
+                    }
+                }
+                if (last_row > 0) break;
+            }
+            return last_row; 
+        }
+
+        // Returns starting row of numeric data as a positive number if it is a legacy visible file or 
+        // -1 * number of rows if it is not
+        static int file_is_legacy_visible_output (std::string& fqfn)
+        {
+            std::ifstream istream (fqfn);
+            csv::rows_type rows = csv::to_rows (istream);
+            return is_legacy_visible_output ( rows);
+            
+        }    
+        
+        
+        static bool csv2vectors ( const std::string &csv_file, std::vector<vector<float> >& m_results, bool only_visible_format, bool columns_if_possible, bool verbose = false)
+        {
+            std::ifstream istream (csv_file);
+            csv::rows_type rows = csv::to_rows (istream);
+            int visible_row = is_legacy_visible_output (rows);
+            int start_row = visible_row < 0 ? 0 : visible_row;
+            if ( only_visible_format && visible_row < 0 ) return false;
+            if (visible_row < 0 ) assert (start_row >= 0 && start_row < rows.size ());
+            
+            std::vector<vector<float> > datas;
+            sshist  column_width (16);
+            
+            // Get All rows 
+            for (int rr = start_row; rr < rows.size(); rr++)
+            {
+                const csv::row_type& row = rows[rr];
+                vector<float> data;
+                for (int t = 0; t < row.size(); t++) 
+                {
+                    char *end_ptr;
+                    float f = strtof(row[t].c_str(), &end_ptr);
+                    if (end_ptr == row[t].c_str()) continue;
+                    data.push_back (f);
+                }
+                datas.push_back(data);
+                column_width.add (data.size());  
+            }
+            
+            sshist::sorted_container_t shist;
+            column_width.get_value_sorted (shist);
+            if (verbose)
+            {
+            for (auto pt : shist) std::cout << "[" << pt.first << "]: " << pt.second << std::endl;
+            }
+
+            if (! shist.empty () && datas.size() && columns_if_possible) // if there were all same number of columns
+            {
+                uint32 cw = shist.front().first;
+                m_results.resize(cw);
+                for (uint i = 0; i < datas.size (); i++)
+                {
+                    const vector<float>& vc = datas[i];
+                    if (vc.size () != cw) continue;
+                    
+                    for (uint cc=0; cc<cw;cc++)
+                        m_results[cc].push_back(vc[cc]);
                 }
             }
-            if (last_row > 0) break;
+            else
+                m_results = datas;
+
+            
+            return true;
         }
-        return last_row; 
-    }
-    
-    // Returns number of rows as a positive number if it is a legacy visible file or negative if it is not
-    static int file_is_legacy_visible_output (std::string& fqfn)
-    {
-        std::ifstream istream (fqfn);
-        csv::rows_type rows = csv::to_rows (istream);
-        return is_legacy_visible_output ( rows);
-        
-    }    
-    
-    static bool csv2vectors ( const std::string &csv_file, std::vector<vector<float> >& m_results, bool force_all_numeric)
-    {
-        std::ifstream istream (csv_file);
-        csv::rows_type rows = csv::to_rows (istream);
-        int visible_row = vf_utils::is_legacy_visible_output (rows);
-        int start_row = visible_row < 0 ? 0 : visible_row;
-        if ( ! force_all_numeric && visible_row < 0 ) return false;
-        if (visible_row < 0 ) assert (start_row >= 0 && start_row < rows.size ());
-        
-        std::vector<vector<float> > datas;
-        vector<uint32> column_width;
-        
-        // Get All rows 
-        for (int rr = start_row; rr < rows.size(); rr++)
-        {
-            const csv::row_type& row = rows[rr];
-            if (column_width.empty () || column_width.back() != row.size()) column_width.push_back (row.size());
-            vector<float> data;
-            data.resize (row.size ());
-            for (int t = 0; t < row.size(); t++) 
-            {
-                std::istringstream iss(row[t]);
-                iss >> data[t];
-            }
-            datas.push_back(data);
-        }
-        
-        if (datas.size() && column_width.size () == 1) // if there were all same number of columns
-        {
-            uint32 cw = column_width.front();
-            m_results.resize(cw);
-            for (uint i = 0; i < datas.size (); i++)
-            {
-                const vector<float>& vc = datas[i];
-                for (uint cc=0; cc<cw;cc++)
-                    m_results[cc].push_back(vc[cc]);
-            }
-        }
-        else
-            m_results = datas;
-        
-        return true;
     }
     
 };
-        
-        
+
+
 #endif
-        
+

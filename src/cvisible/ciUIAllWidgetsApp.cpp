@@ -365,39 +365,6 @@ void CVisibleApp::loadMovieFile( const fs::path &moviePath )
 void CVisibleApp::loadCSVFile( const fs::path &csv_file, std::vector<vector<float> >& datas)
 {
     
-    std::ifstream istream (csv_file.string());
-    csv::rows_type rows = csv::to_rows (istream);
-    datas.resize (0);    
-    // Detect Legacy Visible Format
-    bool is_visible_legacy 
-
-    BOOST_FOREACH(const csv::row_type &row, rows)
-    {
-        vector<float> data (4);
-        if (row.size () != 4) continue;
-        int c=0;
-        for (int i = 0; i < 4; i++) 
-        {
-            std::istringstream iss(row[i]);
-            iss >> data[i];
-            c++;
-        }
-        if (c != 4) continue;
-        if (rfSum(data) == 0) continue;
-        datas.push_back(data);
-    }
-
-    if (datas.size())
-    {
-        m_results.resize(4);
-        
-        for (uint i = 0; i < datas.size (); i++)
-        {
-            const vector<float>& vc = datas[i];
-            for (uint cc=0; cc<4;cc++)
-              m_results[cc].push_back(vc[cc]);
-        }
-        vector<float>& column = m_results[3];
         gui2->addWidgetDown(mvg = new ciMovingGraph (menuWidth, 30, column, 128, 0.0, 1.0, "WAVEFORM"),CI_UI_ALIGN_BOTTOM);  
         m_result_valid = true;
         gui2->draw();
