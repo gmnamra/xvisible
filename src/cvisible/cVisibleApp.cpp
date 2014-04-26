@@ -1,3 +1,4 @@
+
 #include "cinder/app/AppBasic.h"
 #include "cinder/Rand.h"
 #include "cinder/CinderMath.h"
@@ -7,14 +8,14 @@
 #include "cinder/gl/Texture.h"
 #include "cinder/gl/TextureFont.h"
 #include "cinder/qtime/Quicktime.h"
-#include "Resources.h"
-#include "ciUI.h"
+#include "cvisible/Resources.h"
+#include "ciUI/ciUI.h"
 #include <vector>
 #include <vfi386_d/rc_fileutils.h>
 #include <vfi386_d/rc_stats.h>
 #include <boost/foreach.hpp>
 
-#include "AudioDrawUtils.h"
+#include "cvisible/AudioDrawUtils.h"
 
 #include <sstream>
 #include <fstream>
@@ -59,7 +60,7 @@ public:
     Perlin myPerlin;
     gl::Texture mImage;
     Surface mImageSurface; 
-    qtime::MovieGl m_movie;    
+    ci::qtime::MovieGl m_movie;    
     bool m_movie_valid, m_result_valid;
     int m_fc;
     

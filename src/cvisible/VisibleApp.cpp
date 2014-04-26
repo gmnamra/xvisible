@@ -12,10 +12,10 @@
 #include "cinder/audio2/Scope.h"
 #include "cinder/audio2/Debug.h"
 
-#include "Resources.h"
+#include "assets/Resources.h"
 
-#include "../../common/AudioTestGui.h"
-#include "../../../samples/common/AudioDrawUtils.h"
+#include "cvisible/AudioTestGui.h"
+#include "cvisible/AudioDrawUtils.h"
 
 //#define INITIAL_AUDIO_RES	RES_TONE440_WAV
 //#define INITIAL_AUDIO_RES	RES_TONE440L220R_WAV

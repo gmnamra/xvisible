@@ -17,7 +17,10 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		C21733FA190B101D00A01365 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C21733F9190B101D00A01365 /* Config.xcconfig */; };
 		C2173401190B175500A01365 /* AudioDrawUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21733FC190B175500A01365 /* AudioDrawUtils.cpp */; };
-		C2173402190B175500A01365 /* cVisibleApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21733FD190B175500A01365 /* cVisibleApp.cpp */; };
+		C2DB225D190B296A00BBC93C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB225C190B296A00BBC93C /* Carbon.framework */; };
+		C2DB225F190B298700BBC93C /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB225E190B298700BBC93C /* QuickTime.framework */; };
+		C2DB2261190B2CCB00BBC93C /* VisibleApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2173400190B175500A01365 /* VisibleApp.cpp */; };
+		C2E78DF7190B32C000F586E2 /* cash_satisfied_mind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2E78DF6190B32C000F586E2 /* cash_satisfied_mind.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,10 @@
 		C21733FE190B175500A01365 /* vf_movieconverter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vf_movieconverter.cpp; sourceTree = "<group>"; };
 		C21733FF190B175500A01365 /* vf_qtime_grabber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vf_qtime_grabber.cpp; sourceTree = "<group>"; };
 		C2173400190B175500A01365 /* VisibleApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VisibleApp.cpp; sourceTree = "<group>"; };
+		C2DB225C190B296A00BBC93C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		C2DB225E190B298700BBC93C /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
+		C2DB2262190B2F3400BBC93C /* Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../resources/assets/Resources.h; sourceTree = "<group>"; };
+		C2E78DF6190B32C000F586E2 /* cash_satisfied_mind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = cash_satisfied_mind.mp3; path = ../resources/assets/cash_satisfied_mind.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,11 +53,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2DB225F190B298700BBC93C /* QuickTime.framework in Frameworks */,
+				C2DB225D190B296A00BBC93C /* Carbon.framework in Frameworks */,
+				00B784B30FF439BC000DE1D7 /* Accelerate.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				0091D8F90E81B9330029341E /* OpenGL.framework in Frameworks */,
 				5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */,
 				5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */,
-				00B784B30FF439BC000DE1D7 /* Accelerate.framework in Frameworks */,
 				00B784B40FF439BC000DE1D7 /* AudioToolbox.framework in Frameworks */,
 				00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */,
 				00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */,
@@ -107,6 +116,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C2E78DF6190B32C000F586E2 /* cash_satisfied_mind.mp3 */,
+				C2DB2262190B2F3400BBC93C /* Resources.h */,
 				459C1BCAC77D495892F10286 /* Info.plist */,
 			);
 			name = Resources;
@@ -115,6 +126,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2DB225E190B298700BBC93C /* QuickTime.framework */,
+				C2DB225C190B296A00BBC93C /* Carbon.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -187,6 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2E78DF7190B32C000F586E2 /* cash_satisfied_mind.mp3 in Resources */,
 				C21733FA190B101D00A01365 /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2173402190B175500A01365 /* cVisibleApp.cpp in Sources */,
+				C2DB2261190B2CCB00BBC93C /* VisibleApp.cpp in Sources */,
 				C2173401190B175500A01365 /* AudioDrawUtils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,11 +238,26 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"$(CINDER_PATH)/include",
+					"$(CINDER_PATH)/ciUI",
+					"$(BOOST_PATH)/include",
+					"$(OPENCV_PATH)/include",
+					"$(SRCROOT)/include",
+					"$(SRCROOT)/resources",
+				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder_d.a\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = (
+					"\"$(CINDER_PATH)/lib/libcinder_d.a\"",
+					"\"$(CINDER_PATH)/lib/libaudio2_d.a\"",
+				);
 				PRODUCT_NAME = XcVisible;
+				SEPARATE_STRIP = NO;
 				SYMROOT = ./build;
+				WARNING_CFLAGS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -248,12 +277,27 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CVisible_Prefix.pch;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"$(CINDER_PATH)/include",
+					"$(CINDER_PATH)/ciUI",
+					"$(BOOST_PATH)/include",
+					"$(OPENCV_PATH)/include",
+					"$(SRCROOT)/include",
+					"$(SRCROOT)/resources",
+				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = "\"$(CINDER_PATH)/lib/libcinder.a\"";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = (
+					"\"$(CINDER_PATH)/lib/libcinder.a\"",
+					"\"$(CINDER_PATH)/lib/libaudio2.a\"",
+				);
 				PRODUCT_NAME = XcVisible;
+				SEPARATE_STRIP = NO;
 				STRIP_INSTALLED_PRODUCT = YES;
 				SYMROOT = ./build;
+				WARNING_CFLAGS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -265,7 +309,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				SDKROOT = macosx;
+				MACH_O_TYPE = mh_execute;
+				SDKROOT = macosx10.9;
 			};
 			name = Debug;
 		};
@@ -276,7 +321,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				SDKROOT = macosx;
+				MACH_O_TYPE = mh_execute;
+				SDKROOT = macosx10.9;
 			};
 			name = Release;
 		};
