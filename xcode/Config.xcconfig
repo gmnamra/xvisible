@@ -13,7 +13,7 @@ BUILD_ROOT = BUILD_DIR
 BUILT_PRODUCTS_DIR = $(BUILD_DIR)/$(CONFIGURATION)
 
 
-// Build for PPC and Intel, 32- and 64-bit
+// Intel, 32- and 64-bit
 ARCHS = i386 x86_64
 
 // Zerolink prevents link warnings so turn it off
