@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		C2354418190D458200388271 /* vf_config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C2354417190D458200388271 /* vf_config.xcconfig */; };
 		C24BF56E18DBBECF0039C53D /* ut_movieconverter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA28C0F21357A0046570D /* ut_movieconverter.cpp */; };
 		C24EA9611842FD0D00E88B0A /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0440F212DEC0046570D /* IOKit.framework */; };
 		C24EA9621842FD0D00E88B0A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0480F212DF40046570D /* CoreServices.framework */; };
@@ -358,6 +359,7 @@
 		C21CAEE00F42239D003CC197 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = ../../../../../../System/Library/Frameworks/AppKit.framework; sourceTree = "<group>"; };
 		C21CAEEB0F4223E9003CC197 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../../../../System/Library/Frameworks/GLUT.framework; sourceTree = "<group>"; };
 		C22DD24813159A2C00801DE4 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = ../../../../../../System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<group>"; };
+		C2354417190D458200388271 /* vf_config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = vf_config.xcconfig; sourceTree = "<group>"; };
 		C247023A18E5D7C900D5942E /* ut_file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ut_file.h; path = ../test/include/ut_file.h; sourceTree = "<group>"; };
 		C24EA96D1842FD0D00E88B0A /* batch_convert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = batch_convert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26F48C718FC75D6006DF78F /* rc_ncs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_ncs.h; sourceTree = "<group>"; };
@@ -945,6 +947,7 @@
 		0867D691FE84028FC02AAC07 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C2354417190D458200388271 /* vf_config.xcconfig */,
 				C2ADE58A19072CD10083564A /* rc_framegrabber.h */,
 				C2C292FD18F85C4A00BA7E79 /* libboost_system.a */,
 				C2C292FB18F85BE500BA7E79 /* libboost_system.a */,
@@ -1879,6 +1882,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2354418190D458200388271 /* vf_config.xcconfig in Resources */,
 				C2C28F3F18F44C0700BA7E79 /* vf-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1941,7 +1945,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = /Users/arman/gwc/vqt105/visibleqt105/build_scripts/bump_git_plist.sh;
+			shellScript = "\necho \"recording build number...\"                                                                                          \nplist=${INFOPLIST_FILE}                                                                                                   \n\nbuildnum=`git rev-parse --short HEAD`                                                                                     \n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildnum\" \"${plist}\"                                                    \n\necho \"Committing the build number...\"                                                                                     \ncd ${PROJECT_DIR};git add ${INFOPLIST_FILE}                                                                               \ncd ${PROJECT_DIR};git commit -m \"Bumped the build number.\"                                                                \ncd ${PROJECT_DIR};git push -u origin master                                                                               \necho \"Build number committed.\"                                                                                            \n\n";
 		};
 		C2A39C150F339AD100845D59 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2198,9 +2202,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				BOOST_PATH = "$(SRCROOT)/../usr/local/boost";
-				CINDER_PATH = "$(SRCROOT)/../usr/local/Cinder";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2210,16 +2211,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = "";
 				EXPORTED_SYMBOLS_FILE = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"/Users/arman/gwc/vqt105/visibleqt105/usr/local/googletest-read-only/xcode/lib/i386/Release",
-					"$(SDKROOT)/../../../../../../System/Library/Frameworks",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_ENABLE_SYMBOL_SEPARATION = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_MODEL_TUNING = "";
@@ -2235,23 +2230,23 @@
 				);
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(BOOST_PATH)/include",
-					"$(SRCROOT)/../include/vf",
-					"$(OPENCV_PATH)/include",
 					"$(CINDER_PATH)/include",
+					"$(CINDER_PATH)/ciUI",
+					"$(BOOST_INCLUDE)",
+					"$(OPENCV_PATH)/include",
+					"$(SRCROOT)/include/vf",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/../resources/vf/vf-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/resources/vf/vf-Info.plist";
 				INSTALL_PATH = "";
 				LD_DYLIB_INSTALL_NAME = "";
 				LIBRARY_SEARCH_PATHS = (
+					"$(CINDER_PATH)/lib",
+					"$(GTEST_PATH)/build/Release",
+					"$(OPENCV_PATH)/lib",
 					"$(BOOST_PATH)/lib",
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/OpenCv_2.4_i386/lib,
-					"/Users/arman/gwc/vqt105/visibleqt105/usr/local/googletest-read-only/xcode/lib/i386/Release",
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/boost/lib,
 				);
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				OPENCV_PATH = "$(SRCROOT)/../usr/local/OpenCv_2.4_i386\n";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = vfi386_d;
@@ -2259,7 +2254,6 @@
 				SDKROOT = macosx10.8;
 				SKIP_INSTALL = YES;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = static;
-				VALID_ARCHS = "i386 ";
 				WRAPPER_EXTENSION = framework;
 				ZERO_LINK = YES;
 			};
@@ -2269,9 +2263,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				BOOST_PATH = "$(SRCROOT)/../usr/local/boost";
-				CINDER_PATH = "$(SRCROOT)/../usr/local/Cinder";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2283,15 +2274,9 @@
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = "";
 				EXPORTED_SYMBOLS_FILE = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"/Users/arman/gwc/vqt105/visibleqt105/usr/local/googletest-read-only/xcode/lib/i386/Release",
-					"$(SDKROOT)/../../../../../../System/Library/Frameworks",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_VERSION = A;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_ENABLE_SYMBOL_SEPARATION = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_MODEL_TUNING = "";
@@ -2309,25 +2294,25 @@
 				GCC_THREADSAFE_STATICS = YES;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(BOOST_PATH)/include",
-					"$(SRCROOT)/../include/vf",
-					"$(OPENCV_PATH)/include",
 					"$(CINDER_PATH)/include",
+					"$(CINDER_PATH)/ciUI",
+					"$(BOOST_INCLUDE)",
+					"$(OPENCV_PATH)/include",
+					"$(SRCROOT)/include/vf",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/../resources/vf/vf-Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/resources/vf/vf-Info.plist";
 				INSTALL_PATH = "";
 				LD_DYLIB_INSTALL_NAME = "";
 				LIBRARY_SEARCH_PATHS = (
+					"$(CINDER_PATH)/lib",
+					"$(GTEST_PATH)/build/Release",
+					"$(OPENCV_PATH)/lib",
 					"$(BOOST_PATH)/lib",
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/OpenCv_2.4_i386/lib,
-					"/Users/arman/gwc/vqt105/visibleqt105/usr/local/googletest-read-only/xcode/lib/i386/Release",
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/boost/lib,
 				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = NO;
-				OPENCV_PATH = "$(SRCROOT)/../usr/local/OpenCv_2.4_i386\n";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = vfi386;
@@ -2336,7 +2321,6 @@
 				SKIP_INSTALL = YES;
 				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = static;
 				STRIP_STYLE = debugging;
-				VALID_ARCHS = "i386 ";
 				WRAPPER_EXTENSION = framework;
 				ZERO_LINK = YES;
 			};
@@ -2344,10 +2328,9 @@
 		};
 		4FADC24708B4156D00ABE55E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2354417190D458200388271 /* vf_config.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				BOOST_PATH = "$(WS_USR_LOCAL_DIR)/boost";
-				CINDER_PATH = "$(WS_USR_LOCAL_DIR)/Cinder";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
@@ -2358,21 +2341,18 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				New_Setting1 = "";
 				ONLY_ACTIVE_ARCH = NO;
-				OPENCV_PATH = "$(WS_USR_LOCAL_DIR)/OpenCv_2.4_i386";
 				OTHER_CFLAGS = "-mmacosx-version-min=10.8";
 				PREBINDING = NO;
 				SDKROOT = macosx10.8;
 				VALID_ARCHS = i386;
-				WS_USR_LOCAL_DIR = "$(SRCROOT)/../usr/local/";
 			};
 			name = Debug;
 		};
 		4FADC24808B4156D00ABE55E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2354417190D458200388271 /* vf_config.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				BOOST_PATH = "$(WS_USR_LOCAL_DIR)/boost";
-				CINDER_PATH = "$(WS_USR_LOCAL_DIR)/Cinder";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				DOXYGEN_PATH = /Applications/Doxygen.app/Contents/Resources/doxygen;
@@ -2382,12 +2362,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				New_Setting1 = "";
-				OPENCV_PATH = "$(WS_USR_LOCAL_DIR)/OpenCv_2.4_i386";
 				OTHER_CFLAGS = "-mmacosx-version-min=10.8";
 				PREBINDING = NO;
 				SDKROOT = macosx10.8;
 				VALID_ARCHS = i386;
-				WS_USR_LOCAL_DIR = "$(SRCROOT)/../usr/local/";
 			};
 			name = Release;
 		};
@@ -2945,7 +2923,7 @@
 				4FADC24408B4156D00ABE55E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		4FADC24608B4156D00ABE55E /* Build configuration list for PBXProject "vf" */ = {
 			isa = XCConfigurationList;
@@ -2954,7 +2932,7 @@
 				4FADC24808B4156D00ABE55E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		C24EA96A1842FD0D00E88B0A /* Build configuration list for PBXNativeTarget "batchconvert" */ = {
 			isa = XCConfigurationList;
@@ -2963,7 +2941,7 @@
 				C24EA96C1842FD0D00E88B0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		C27C02E518D75F3E00FD9FE6 /* Build configuration list for PBXNativeTarget "libvf32" */ = {
 			isa = XCConfigurationList;
@@ -2972,7 +2950,7 @@
 				C27C02E718D75F3E00FD9FE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		C297DD4818A1D7B400F217A5 /* Build configuration list for PBXNativeTarget "persistence1d" */ = {
 			isa = XCConfigurationList;
@@ -2981,7 +2959,7 @@
 				C297DD4A18A1D7B400F217A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		C2A39C190F339AF000845D59 /* Build configuration list for PBXAggregateTarget "Doxygen" */ = {
 			isa = XCConfigurationList;
@@ -2990,7 +2968,7 @@
 				C2A39C180F339AD200845D59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		C2B8E999187DDC2B0060D961 /* Build configuration list for PBXNativeTarget "gut" */ = {
 			isa = XCConfigurationList;
@@ -2999,7 +2977,7 @@
 				C2B8E99B187DDC2B0060D961 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		C2EC9C71183E692A00AC3300 /* Build configuration list for PBXNativeTarget "vsigmatch" */ = {
 			isa = XCConfigurationList;
@@ -3008,7 +2986,7 @@
 				C27C024318D75A8A00FD9FE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
