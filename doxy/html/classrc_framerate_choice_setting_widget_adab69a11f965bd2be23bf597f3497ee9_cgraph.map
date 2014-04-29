@@ -1,9 +1,0 @@
-<map id="rcFramerateChoiceSettingWidget::choiceSelected" name="rcFramerateChoiceSettingWidget::choiceSelected">
-<area shape="rect" id="node2" href="$classrc_setting_info.html#a6d3cda0e1b71a0f7c2061015fb02d3d8" title="rcSettingInfo::getChoice" alt="" coords="262,5,426,33"/>
-<area shape="rect" id="node3" href="$structrc_setting_choice.html#a2d47fcdec3c4938ae6ffd0581fa22887" title="rcSettingChoice::getFloat\lValue" alt="" coords="258,57,430,101"/>
-<area shape="rect" id="node4" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="233,125,455,153"/>
-<area shape="rect" id="node5" href="$classrc_setting_info.html#a1b99595ec48ea7982c8a8c7f3afd0534" title="rcSettingInfo::getNChoices" alt="" coords="254,177,434,205"/>
-<area shape="rect" id="node6" href="$classrc_model_domain.html#a964f8cb50c816a0826dbbbc60bb78006" title="rcModelDomain::notifySetting\lChange" alt="" coords="246,229,442,273"/>
-<area shape="rect" id="node8" href="$classrc_setting_info.html#a56e4a99afd7b35b9ac8bfcb853dcdc4d" title="rcSettingInfo::setValue" alt="" coords="267,297,421,325"/>
-<area shape="rect" id="node7" href="$classrc_model_domain.html#af20f3010314a2ddf0ec3b3aa82f466b5" title="rcModelDomain::updateSettings" alt="" coords="504,237,715,265"/>
-</map>

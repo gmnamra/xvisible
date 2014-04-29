@@ -1,8 +1,0 @@
-<map id="rcACIHistogramTrackRenderInfo" name="rcACIHistogramTrackRenderInfo">
-<area shape="rect" id="node2" href="$classrc2_d_track_render_info.html" title="rc2DTrackRenderInfo" alt="" coords="221,225,368,253"/>
-<area shape="rect" id="node3" href="$classrc_track_render_info.html" title="rcTrackRenderInfo" alt="" coords="85,115,216,143"/>
-<area shape="rect" id="node4" href="$classrc_timestamp.html" title="rcTimestamp" alt="" coords="4,6,101,34"/>
-<area shape="rect" id="node5" href="$classrc_track.html" title="rcTrack" alt="" coords="126,6,191,34"/>
-<area shape="rect" id="node6" href="$classrc_pair.html" title="rcPair\&lt; int32 \&gt;" alt="" coords="241,115,348,143"/>
-<area shape="rect" id="node8" href="$classrc_pair.html" title="rcPair\&lt; float \&gt;" alt="" coords="378,115,483,143"/>
-</map>

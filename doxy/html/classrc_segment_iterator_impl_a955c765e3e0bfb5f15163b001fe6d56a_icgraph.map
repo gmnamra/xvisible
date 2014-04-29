@@ -1,6 +1,0 @@
-<map id="rcSegmentIteratorImpl::getSegmentCount" name="rcSegmentIteratorImpl::getSegmentCount">
-<area shape="rect" id="node2" href="$classrc_graphics_segment_iterator_impl.html#abcfcc41931bf5145b91b9c49a91c8add" title="rcGraphicsSegmentIterator\lImpl::getSegmentCount" alt="" coords="213,5,395,49"/>
-<area shape="rect" id="node3" href="$classrc_scalar_segment_iterator_impl.html#aac3a0c5b5bd39bb479576aaf16c7fdd9" title="rcScalarSegmentIteratorImpl\l::getSegmentCount" alt="" coords="208,73,400,117"/>
-<area shape="rect" id="node4" href="$classrc_position_segment_iterator_impl.html#a53d8f57a964b75d25f09722d296c31fc" title="rcPositionSegmentIterator\lImpl::getSegmentCount" alt="" coords="216,141,392,185"/>
-<area shape="rect" id="node5" href="$classrc_video_segment_iterator_impl.html#a3ba90db625729a15d3a5eb1b8d5f043b" title="rcVideoSegmentIteratorImpl\l::getSegmentCount" alt="" coords="210,209,398,253"/>
-</map>

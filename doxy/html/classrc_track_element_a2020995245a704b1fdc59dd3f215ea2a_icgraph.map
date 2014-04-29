@@ -1,9 +1,0 @@
-<map id="rcTrackElement::isValid" name="rcTrackElement::isValid">
-<area shape="rect" id="node2" href="$classrc_id_mapper.html#acd230f0c44b1fb7cf9e6af58d669b843" title="rcIdMapper::flushWriters" alt="" coords="473,5,639,33"/>
-<area shape="rect" id="node6" href="$classrc_native_importer.html#a5aa704a4c6a0559da4666f7146abfae9" title="rcNativeImporter::parseValue" alt="" coords="214,57,408,85"/>
-<area shape="rect" id="node3" href="$classrc_native_importer.html#aec2b9d0745ceb8c0f75ae5d7b2d28076" title="rcNativeImporter::import\lExperiment" alt="" coords="1009,23,1173,67"/>
-<area shape="rect" id="node4" href="$classrc_experiment_impl.html#a23195f3ff1ec159207ba1784d919434c" title="rcExperimentImpl::loadExperiment" alt="" coords="1222,31,1447,59"/>
-<area shape="rect" id="node5" href="$classrc_experiment_domain_impl.html#a5c45f8064944cafb71471e3a576f1ad3" title="rcExperimentDomainImpl\l::loadExperiment" alt="" coords="1496,23,1667,67"/>
-<area shape="rect" id="node7" href="$classrc_native_importer.html#af5adf061fe00108fe51b90bfb8747527" title="rcNativeImporter::parseExperimentData" alt="" coords="704,57,960,85"/>
-<area shape="rect" id="node8" href="$classrc_native_importer.html#a7b324728b3d25b9cfdc6341a3123c488" title="rcNativeImporter::parseFrame" alt="" coords="456,109,656,137"/>
-</map>

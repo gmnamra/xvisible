@@ -1,8 +1,0 @@
-<map id="rcTrackImpl" name="rcTrackImpl">
-<area shape="rect" id="node4" href="$classrc_graphics_track_impl.html" title="rcGraphicsTrackImpl" alt="" coords="4,161,147,189"/>
-<area shape="rect" id="node5" href="$classrc_position_track_impl.html" title="rcPositionTrackImpl" alt="" coords="172,161,309,189"/>
-<area shape="rect" id="node6" href="$classrc_scalar_track_impl.html" title="rcScalarTrackImpl" alt="" coords="335,161,463,189"/>
-<area shape="rect" id="node7" href="$classrc_video_track_impl.html" title="rcVideoTrackImpl" alt="" coords="487,161,611,189"/>
-<area shape="rect" id="node2" href="$classrc_track.html" title="rcTrack" alt="" coords="242,6,307,34"/>
-<area shape="rect" id="node3" href="$classrc_writer.html" title="rcWriter" alt="" coords="331,6,399,34"/>
-</map>

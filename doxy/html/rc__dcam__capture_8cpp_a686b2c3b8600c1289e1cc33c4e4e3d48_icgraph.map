@@ -1,8 +1,0 @@
-<map id="VDGETSHUTTER" name="VDGETSHUTTER">
-<area shape="rect" id="node2" href="$rc__dcam__capture_8cpp.html#a8fcb91e1b2e6adaad571752a59ac3dad" title="InitializeMungData2" alt="" coords="411,31,549,59"/>
-<area shape="rect" id="node7" href="$rc__dcam__capture_8cpp.html#ad35f20ca73f5feeaba8b27476b80536e" title="VDGETVIDEODEFAULTS" alt="" coords="185,57,362,85"/>
-<area shape="rect" id="node3" href="$rc__dcam__capture_8h.html#aa3528bb0b33aa9119084d4b082f8c0aa" title="rfDCAMVideoCapture" alt="" coords="598,5,748,33"/>
-<area shape="rect" id="node5" href="$rc__qtime__capture_8h.html#adf4b66b022a2bc6ba21cddbc179756cb" title="rfQTVideoCapture" alt="" coords="609,57,738,85"/>
-<area shape="rect" id="node4" href="$rc__dcam__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="798,5,848,33"/>
-<area shape="rect" id="node6" href="$rc__qtime__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="798,57,848,85"/>
-</map>

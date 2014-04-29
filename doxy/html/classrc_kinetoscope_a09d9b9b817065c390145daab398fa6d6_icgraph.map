@@ -1,7 +1,0 @@
-<map id="rcKinetoscope::sourceMotion" name="rcKinetoscope::sourceMotion">
-<area shape="rect" id="node2" href="$classrc_kinetoscope.html#a6c7d26c32da53421777db8041fb1e3a9" title="rcKinetoscope::advance" alt="" coords="500,5,663,33"/>
-<area shape="rect" id="node3" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="905,57,1098,85"/>
-<area shape="rect" id="node4" href="$classrc_kinetoscope.html#afe805a453ae10008a433841fa9c8ad1e" title="rcKinetoscope::selfSimilar\lMotionField_AttentiveCapture" alt="" coords="248,109,445,153"/>
-<area shape="rect" id="node5" href="$classrc_kinetoscope.html#a0b18f2bfdf0f15e136add61040f57f62" title="rcKinetoscope::selfSimilar\lMotionField" alt="" coords="494,109,669,153"/>
-<area shape="rect" id="node6" href="$classrc_kinetoscope.html#a30274b84c57f86e667b614556f6c569b" title="rcKinetoscope::step" alt="" coords="717,113,856,141"/>
-</map>

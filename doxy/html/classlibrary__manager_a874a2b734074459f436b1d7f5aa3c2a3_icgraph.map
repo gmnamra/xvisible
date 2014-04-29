@@ -1,7 +1,0 @@
-<map id="library_manager::close" name="library_manager::close">
-<area shape="rect" id="node2" href="$classlibrary__manager.html#a0cd027b7336471ac38d1b6baf4a62a27" title="library_manager::open" alt="" coords="219,81,373,109"/>
-<area shape="rect" id="node6" href="$classlibrary__manager.html#a45cfddaaf4e1400c68112a843303a531" title="library_manager::~library\l_manager" alt="" coords="211,133,381,177"/>
-<area shape="rect" id="node3" href="$classlibrary__manager.html#a12e20333489fef2db96ea08e93d821f1" title="library_manager::load\l_mappings" alt="" coords="436,5,586,49"/>
-<area shape="rect" id="node4" href="$classlibrary__manager.html#a595ca94278cb510626c5fd37d80bebcf" title="library_manager::set\l_ini_manager" alt="" coords="439,73,582,117"/>
-<area shape="rect" id="node5" href="$classlibrary__manager.html#aa0f9af009d4e4cbba74d88544e328323" title="library_manager::create" alt="" coords="430,141,592,169"/>
-</map>

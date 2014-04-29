@@ -1,5 +1,0 @@
-<map id="rcStatusBar::rcStatusBar" name="rcStatusBar::rcStatusBar">
-<area shape="rect" id="node2" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="222,5,445,33"/>
-<area shape="rect" id="node3" href="$classrc_status_bar.html#a50224746f58a6e55cb4762bc5376c775" title="rcStatusBar::updateState" alt="" coords="248,57,418,85"/>
-<area shape="rect" id="node4" href="$classrc_status_bar.html#a67165a8011aa3946035fc1da961230ed" title="rcStatusBar::updateStatus" alt="" coords="245,109,422,137"/>
-</map>

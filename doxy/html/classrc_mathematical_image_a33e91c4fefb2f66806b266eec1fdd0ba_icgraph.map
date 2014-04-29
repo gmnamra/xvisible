@@ -1,5 +1,0 @@
-<map id="rcMathematicalImage::gauss" name="rcMathematicalImage::gauss">
-<area shape="rect" id="node2" href="$classrc_visual_function.html#a81d62d2048dc44ec3538d22e02857121" title="rcVisualFunction::create\lIrradianceModel" alt="" coords="213,5,377,49"/>
-<area shape="rect" id="node4" href="$classrc_gauss_kernel2_d.html#a070f777aa3df792c76e4d4511671fbed" title="rcGaussKernel2D::rcGauss\lKernel2D" alt="" coords="203,73,386,117"/>
-<area shape="rect" id="node3" href="$classrc_visual_function.html#ab5e34886e06cd4b26e1aa8a1f185f1bf" title="rcVisualFunction::rcVisual\lFunction" alt="" coords="436,5,610,49"/>
-</map>

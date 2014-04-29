@@ -1,7 +1,0 @@
-<map id="rcMatrix_2d::rcMatrix_2d" name="rcMatrix_2d::rcMatrix_2d">
-<area shape="rect" id="node2" href="$rc__math_8h.html#a6699cdaca52c9f90fbc27d377ac74cff" title="cos" alt="" coords="236,5,278,33"/>
-<area shape="rect" id="node4" href="$rc__math_8h.html#adac5d992515c3417b2ab21dd654a272c" title="sin" alt="" coords="238,57,277,85"/>
-<area shape="rect" id="node5" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="222,109,292,137"/>
-<area shape="rect" id="node6" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="222,161,292,189"/>
-<area shape="rect" id="node3" href="$classrc_radian.html#a2e41a3904c1fefd6989ddc3124dfaa32" title="rcRadian::Double" alt="" coords="342,31,466,59"/>
-</map>

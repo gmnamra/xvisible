@@ -1,5 +1,0 @@
-<map id="rcThumbWheelSettingWidget::valueChanged" name="rcThumbWheelSettingWidget::valueChanged">
-<area shape="rect" id="node2" href="$classrc_setting_info.html#a97d3386417e33e46df6f361ccfb430a5" title="rcSettingInfo::getValue" alt="" coords="268,5,423,33"/>
-<area shape="rect" id="node3" href="$classrc_setting_info.html#a56e4a99afd7b35b9ac8bfcb853dcdc4d" title="rcSettingInfo::setValue" alt="" coords="268,57,423,85"/>
-<area shape="rect" id="node4" href="$classrc_thumb_wheel_setting_widget.html#a484dc0874807466a18cc7916f09a199a" title="Update value display label." alt="" coords="248,109,443,153"/>
-</map>

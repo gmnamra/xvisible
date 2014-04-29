@@ -1,6 +1,0 @@
-<map id="rcTimeline::getScalarTrackMinMax" name="rcTimeline::getScalarTrackMinMax">
-<area shape="rect" id="node2" href="$classrc_scalar_track.html#a79425dc1404b3dcf8c2b2b40168fdd9a" title="rcScalarTrack::getCurrent\lMaximumValue" alt="" coords="237,5,411,49"/>
-<area shape="rect" id="node3" href="$classrc_scalar_track.html#a832a660d65f66b8ac1b03df339bc3d38" title="rcScalarTrack::getCurrent\lMinimumValue" alt="" coords="237,73,411,117"/>
-<area shape="rect" id="node4" href="$classrc_scalar_track.html#a070b8f11b447f77b5b13c50a135806ae" title="rcScalarTrack::getExpected\lMaximumValue" alt="" coords="232,141,416,185"/>
-<area shape="rect" id="node5" href="$classrc_scalar_track.html#a09b777dc0a45460104b25eed920123bc" title="rcScalarTrack::getExpected\lMinimumValue" alt="" coords="232,209,416,253"/>
-</map>

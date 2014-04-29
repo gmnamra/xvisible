@@ -1,7 +1,0 @@
-<map id="rcOptoKineticImage::decrementU8" name="rcOptoKineticImage::decrementU8">
-<area shape="rect" id="node2" href="$classrc_opto_kinetic_image.html#a73a3081b5619012d25bc2113dd2eb5cd" title="rcOptoKineticImage\l::decLogRMSImg" alt="" coords="192,5,331,49"/>
-<area shape="rect" id="node4" href="$classrc_opto_kinetic_image.html#ad521319b33a9e53c6ac8361e89a6da8b" title="rcOptoKineticImage\l::decStdDevImg" alt="" coords="192,73,331,117"/>
-<area shape="rect" id="node5" href="$classrc_opto_kinetic_image.html#ad4a792bffec3741c95d431c3d10e767f" title="rcOptoKineticImage\l::decVarImg" alt="" coords="192,141,331,185"/>
-<area shape="rect" id="node6" href="$classrc_opto_kinetic_image.html#aeef60903fe60869f3cb092ace603ddb0" title="rcOptoKineticImage\l::decVelEntropyImg" alt="" coords="192,209,331,253"/>
-<area shape="rect" id="node3" href="$classrc_opto_kinetic_image.html#ad2976aa250b041101bea90c7bbb1a0bd" title="rcOptoKineticImage\l::rcOptoKineticImage" alt="" coords="379,107,525,151"/>
-</map>

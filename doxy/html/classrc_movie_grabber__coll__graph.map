@@ -1,6 +1,0 @@
-<map id="rcMovieGrabber" name="rcMovieGrabber">
-<area shape="rect" id="node2" href="$classrc_file_grabber.html" title="rcFileGrabber" alt="" coords="81,99,183,127"/>
-<area shape="rect" id="node3" href="$classrc_frame_grabber.html" title="rcFrameGrabber" alt="" coords="4,6,123,34"/>
-<area shape="rect" id="node4" href="$classrc_carbon_lock.html" title="rcCarbonLock" alt="" coords="148,6,252,34"/>
-<area shape="rect" id="node5" href="$classrc_timestamp.html" title="rcTimestamp" alt="" coords="207,99,304,127"/>
-</map>

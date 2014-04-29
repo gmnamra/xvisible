@@ -1,6 +1,0 @@
-<map id="rcAffineRectangle" name="rcAffineRectangle">
-<area shape="rect" id="node2" href="$classrc2_xform.html" title="rc2Xform" alt="" coords="101,101,176,129"/>
-<area shape="rect" id="node3" href="$classrc_matrix_3_012_01_4.html" title="rcMatrix\&lt; 2 \&gt;" alt="" coords="5,6,104,34"/>
-<area shape="rect" id="node4" href="$classrc2d_vector.html" title="rc2dVector\&lt; double \&gt;" alt="" coords="159,6,307,34"/>
-<area shape="rect" id="node5" href="$classrc_pair.html" title="rcPair\&lt; int32 \&gt;" alt="" coords="331,101,439,129"/>
-</map>

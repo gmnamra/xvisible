@@ -1,7 +1,0 @@
-<map id="rcExperimentObserver::notifyState" name="rcExperimentObserver::notifyState">
-<area shape="rect" id="node2" href="$classrc_experiment_domain_impl.html#a5c45f8064944cafb71471e3a576f1ad3" title="rcExperimentDomainImpl\l::loadExperiment" alt="" coords="426,5,598,49"/>
-<area shape="rect" id="node3" href="$classrc_experiment_domain_impl.html#a56f76b97722440bcbcb71e28b1ad3cdd" title="rcExperimentDomainImpl\l::newExperiment" alt="" coords="208,65,379,109"/>
-<area shape="rect" id="node5" href="$classrc_experiment_domain_impl.html#aeb33eaef09c3172ff9962482b9259a75" title="rcExperimentDomainImpl\l::setInternalState" alt="" coords="208,133,379,177"/>
-<area shape="rect" id="node4" href="$rc__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="487,73,537,101"/>
-<area shape="rect" id="node6" href="$classrc_experiment_domain_impl.html#a18f6cad7350022bb2d54efe53bfdf02f" title="rcExperimentDomainImpl\l::notifyState" alt="" coords="426,133,598,177"/>
-</map>

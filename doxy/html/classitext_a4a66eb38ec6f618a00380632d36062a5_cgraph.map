@@ -1,8 +1,0 @@
-<map id="itext::operator&gt;&gt;" name="itext::operator&gt;&gt;">
-<area shape="rect" id="node2" href="$classitext.html#a22a3de7513de1b92b666d24c430645e4" title="itext::getline" alt="" coords="174,30,266,58"/>
-<area shape="rect" id="node6" href="$classitext.html#a4862548bad47cab2919ef91cc01be783" title="itext::line" alt="" coords="183,82,257,110"/>
-<area shape="rect" id="node3" href="$classitext.html#a38bd74dce665f9902b0be3ebc89fa236" title="itext::peek" alt="" coords="315,30,397,58"/>
-<area shape="rect" id="node4" href="$classibuff.html#af83bd07bbed7b837d08c8bafdfbd3e87" title="ibuff::peek" alt="" coords="475,5,557,33"/>
-<area shape="rect" id="node5" href="$classibuff.html#a34316b72de5ddac433ef6d29d7c00eb4" title="ibuff::newline_mode" alt="" coords="446,57,586,85"/>
-<area shape="rect" id="node7" href="$classibuff.html#ab0d4491d8362313e77161a4fb51f0cf8" title="ibuff::line" alt="" coords="319,82,393,110"/>
-</map>

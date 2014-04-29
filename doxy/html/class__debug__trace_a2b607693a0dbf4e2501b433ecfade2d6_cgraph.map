@@ -1,8 +1,0 @@
-<map id="_debug_trace::~_debug_trace" name="_debug_trace::~_debug_trace">
-<area shape="rect" id="node2" href="$class__debug__trace.html#a6d91fd43b6933e754f98a6edcc7cf92a" title="_debug_trace::debug" alt="" coords="217,5,364,33"/>
-<area shape="rect" id="node3" href="$class__debug__trace.html#a46cee874d7bd5d4c662ed2336115b041" title="_debug_trace::report" alt="" coords="218,57,363,85"/>
-<area shape="rect" id="node4" href="$class__debug__trace.html#af662d6c484b3ec12fabac3ea4cb43490" title="_debug_trace::do_report" alt="" coords="414,57,581,85"/>
-<area shape="rect" id="node5" href="$class__debug__trace.html#a0a69e3ceed983b4d613bdce505b12cfc" title="_debug_trace::prefix" alt="" coords="630,57,773,85"/>
-<area shape="rect" id="node6" href="$file__system_8cpp.html#acf89fa1738d4f789e4cc5b9c3c3bec72" title="filename_part" alt="" coords="822,57,924,85"/>
-<area shape="rect" id="node7" href="$file__system_8cpp.html#a99e06c76afffe1f1d77f01c905b1a5fd" title="is_separator" alt="" coords="974,57,1069,85"/>
-</map>

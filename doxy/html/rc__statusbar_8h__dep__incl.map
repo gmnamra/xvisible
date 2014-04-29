@@ -1,5 +1,0 @@
-<map id="include/visUI/rc_statusbar.h" name="include/visUI/rc_statusbar.h">
-<area shape="rect" id="node2" href="$moc__rc__statusbar_8cpp.html" title="src/visible/moc/moc\l_rc_statusbar.cpp" alt="" coords="5,83,141,127"/>
-<area shape="rect" id="node3" href="$rc__mainwindow_8cpp.html" title="src/visible/qt/rc_mainwindow.cpp" alt="" coords="166,91,380,119"/>
-<area shape="rect" id="node4" href="$rc__statusbar_8cpp.html" title="src/visible/qt/rc_statusbar.cpp" alt="" coords="405,91,600,119"/>
-</map>

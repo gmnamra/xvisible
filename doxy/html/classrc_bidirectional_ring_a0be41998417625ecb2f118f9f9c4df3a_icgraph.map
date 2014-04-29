@@ -1,7 +1,0 @@
-<map id="rcBidirectionalRing::takeResource" name="rcBidirectionalRing::takeResource">
-<area shape="rect" id="node2" href="$classrc_engine_movie_capture.html#ac35da60d880240d3634b0768a7d6b3bf" title="rcEngineMovieCapture\l::saveComplete" alt="" coords="187,5,344,49"/>
-<area shape="rect" id="node4" href="$classrc_engine_movie_saver.html#a6abf59057b5ba519217a1f5f43853046" title="rcEngineMovieSaver\l::saveHdlr" alt="" coords="193,73,338,117"/>
-<area shape="rect" id="node3" href="$classrc_engine_movie_capture.html#a0d8bfe4fd32e11bdbdb2c0ad113425ff" title="rcEngineMovieCapture::run" alt="" coords="392,13,576,41"/>
-<area shape="rect" id="node5" href="$classrc_engine_movie_saver.html#a1bb43ad35af079b3c901552205cd176d" title="rcEngineMovieSaver\l::uninitializedHdlr" alt="" coords="412,69,556,113"/>
-<area shape="rect" id="node6" href="$classrc_engine_movie_saver.html#a216e88884a3dd557507ea93dc3609a91" title="rcEngineMovieSaver::run" alt="" coords="624,107,795,135"/>
-</map>

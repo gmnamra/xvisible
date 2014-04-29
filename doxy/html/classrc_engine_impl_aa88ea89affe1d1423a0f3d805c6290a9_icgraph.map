@@ -1,9 +1,0 @@
-<map id="rcEngineImpl::writeTimedScalar" name="rcEngineImpl::writeTimedScalar">
-<area shape="rect" id="node2" href="$classrc_engine_impl.html#a1ec71befab88914b35b700cd5fe03ba2" title="rcEngineImpl::entropyTracker\lWindow" alt="" coords="483,5,679,49"/>
-<area shape="rect" id="node7" href="$classrc_engine_impl.html#aed3e25c038699a7e34add46870c2a8e4" title="rcEngineImpl::writeEntropyData" alt="" coords="225,69,434,97"/>
-<area shape="rect" id="node3" href="$classrc_engine_impl.html#a3ad6dbc54b2a53acae4d345ff14974ae" title="rcEngineImpl::analyzeFocusArea" alt="" coords="729,43,946,71"/>
-<area shape="rect" id="node4" href="$classrc_engine_impl.html#ae320706cbcafd64f219018b9842c8290" title="rcEngineImpl::analyze" alt="" coords="994,43,1147,71"/>
-<area shape="rect" id="node5" href="$classrc_engine_impl.html#a507e034c1e43ae1dd6ec95a11ec0bb02" title="rcEngineImpl::process" alt="" coords="1195,17,1349,45"/>
-<area shape="rect" id="node6" href="$classrc_engine_analyzer.html#a064037f0ec3e68fcb11dabbcba790cdd" title="rcEngineAnalyzer::run" alt="" coords="1196,69,1348,97"/>
-<area shape="rect" id="node8" href="$classrc_engine_impl.html#afeacc2314f49f0c2ebda1adc29845367" title="rcEngineImpl::entropyTracker" alt="" coords="483,73,679,101"/>
-</map>

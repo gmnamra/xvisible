@@ -1,5 +1,0 @@
-<map id="rcFpsCalculator::addTime" name="rcFpsCalculator::addTime">
-<area shape="rect" id="node2" href="$classrc_timestamp.html#a7a76776edb5c337196cf10c009339d15" title="rcTimestamp::secs" alt="" coords="227,5,360,33"/>
-<area shape="rect" id="node3" href="$rc__timestamp_8h.html#ac624900be52fa7f30d3ad72543cc725d" title="convertTimestampToSeconds" alt="" coords="408,5,605,33"/>
-<area shape="rect" id="node4" href="$rc__timestamp__mac_8cpp.html#a7962719b626553bf7a913f7c2671b777" title="getTimestampResolution" alt="" coords="653,5,821,33"/>
-</map>

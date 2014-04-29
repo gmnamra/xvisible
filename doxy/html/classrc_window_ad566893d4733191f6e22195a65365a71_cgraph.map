@@ -1,7 +1,0 @@
-<map id="rcWindow::contains" name="rcWindow::contains">
-<area shape="rect" id="node2" href="$classrc_rectangle.html#ad69317345e356a2e6f70362c50dd543d" title="rcRectangle::contains" alt="" coords="192,30,341,58"/>
-<area shape="rect" id="node5" href="$classrc_window.html#a3286f93b0d223617111f3ac62b854b2f" title="rcWindow::isBound" alt="" coords="199,82,334,110"/>
-<area shape="rect" id="node6" href="$classrc_window.html#a89b86cca79113a99ef305290e81765b6" title="rcWindow::rectangle" alt="" coords="196,134,338,162"/>
-<area shape="rect" id="node3" href="$classrc_rectangle.html#aad573ed10aad598b8ca0a6a351fbe72f" title="rcRectangle::lr" alt="" coords="392,5,499,33"/>
-<area shape="rect" id="node4" href="$classrc_rectangle.html#a503fad35feaa849fc21d0c5895cf9b63" title="rcRectangle::ul" alt="" coords="390,57,500,85"/>
-</map>

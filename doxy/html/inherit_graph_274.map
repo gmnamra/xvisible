@@ -1,7 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classrc_segment_impl.html" title="rcSegmentImpl" alt="" coords="6,83,117,111"/>
-<area shape="rect" id="node2" href="$classrc_graphics_segment.html" title="rcGraphicsSegment" alt="" coords="165,5,304,33"/>
-<area shape="rect" id="node3" href="$classrc_position_segment.html" title="rcPositionSegment" alt="" coords="168,57,301,85"/>
-<area shape="rect" id="node4" href="$classrc_scalar_segment.html" title="rcScalarSegment" alt="" coords="173,109,296,137"/>
-<area shape="rect" id="node5" href="$classrc_video_segment.html" title="rcVideoSegment" alt="" coords="175,161,295,189"/>
-</map>

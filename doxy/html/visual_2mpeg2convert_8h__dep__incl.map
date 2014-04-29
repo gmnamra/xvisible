@@ -1,7 +1,0 @@
-<map id="include/visual/mpeg2convert.h" name="include/visual/mpeg2convert.h">
-<area shape="rect" id="node2" href="$rc__mpeg2_8h.html" title="include/visual/rc_mpeg2.h" alt="" coords="138,83,312,111"/>
-<area shape="rect" id="node3" href="$rc__mpeg2grabber_8h.html" title="include/visual/rc_mpeg2grabber.h" alt="" coords="115,161,335,189"/>
-<area shape="rect" id="node4" href="$bcnvrt__main_8cpp.html" title="src/support/bcnvrt\l_main.cpp" alt="" coords="4,238,131,282"/>
-<area shape="rect" id="node5" href="$rc__mpeg2grabber_8cpp.html" title="src/visual/code/rc\l_mpeg2grabber.cpp" alt="" coords="155,238,295,282"/>
-<area shape="rect" id="node6" href="$visimatch_8cpp.html" title="src/vsigmatch/visimatch.cpp" alt="" coords="320,246,507,274"/>
-</map>

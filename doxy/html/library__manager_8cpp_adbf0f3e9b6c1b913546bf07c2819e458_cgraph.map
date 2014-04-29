@@ -1,9 +1,0 @@
-<map id="write_context" name="write_context">
-<area shape="rect" id="node2" href="$file__system_8cpp.html#a62475ca973dfe0094c00d60286c7c286" title="create_filespec" alt="" coords="155,5,266,33"/>
-<area shape="rect" id="node4" href="$visimatch_8cpp.html#a455a979b4529b4ab9bf44ef7f4c535eb" title="dump" alt="" coords="183,57,238,85"/>
-<area shape="rect" id="node6" href="$rc__xml_8cpp.html#a127c366ab4e46d552c39dd2d2e7d6b89" title="output" alt="" coords="181,109,240,137"/>
-<area shape="rect" id="node3" href="$file__system_8cpp.html#a99e06c76afffe1f1d77f01c905b1a5fd" title="is_separator" alt="" coords="338,5,433,33"/>
-<area shape="rect" id="node5" href="$persistent_8hpp.html#ad663f7090f251c9983d60cd899eed527" title="dump_deque" alt="" coords="336,57,435,85"/>
-<area shape="rect" id="node7" href="$classrc_x_m_l_element.html#a16e3743f305544ac5d7b71a1c5b7e54b" title="rcXMLElement::type" alt="" coords="315,109,456,137"/>
-<area shape="rect" id="node8" href="$classrc_progress_indicator.html#ae01451b2ec83eef63852f3ce8c238bf5" title="rcProgressIndicator\l::progress" alt="" coords="317,161,454,205"/>
-</map>

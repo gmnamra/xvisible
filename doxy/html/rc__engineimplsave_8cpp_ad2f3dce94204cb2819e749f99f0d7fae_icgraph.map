@@ -1,5 +1,0 @@
-<map id="getMovieErrorString" name="getMovieErrorString">
-<area shape="rect" id="node2" href="$classrc_engine_movie_saver.html#a32276bec2dea00cc5439e6f7cd3d586c" title="rcEngineMovieSaver\l::closeHdlr" alt="" coords="194,5,339,49"/>
-<area shape="rect" id="node4" href="$classrc_engine_movie_saver.html#acfcf110c1e056627ecf64589d5efc035" title="rcEngineMovieSaver\l::errorHdlr" alt="" coords="194,73,339,117"/>
-<area shape="rect" id="node3" href="$classrc_engine_movie_saver.html#a216e88884a3dd557507ea93dc3609a91" title="rcEngineMovieSaver::run" alt="" coords="386,47,558,75"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="otext::error" name="otext::error">
-<area shape="rect" id="node2" href="$classotext.html#a60813396a8ea5fd4b2782a40eadfe7aa" title="otext::error_string" alt="" coords="153,45,279,73"/>
-<area shape="rect" id="node3" href="$classlm__unit.html#ac60ef6f753aa0b074a26e834874c7274" title="lm_unit::write" alt="" coords="375,5,475,33"/>
-<area shape="rect" id="node5" href="$classdump__context__body.html#a80f164f353cd71d5307692beebdd3fe4" title="dump_context_body::put" alt="" coords="342,75,509,103"/>
-<area shape="rect" id="node7" href="$classotext.html#af703d5326f5597c25fda4e5b11c7b75d" title="otext::operator!" alt="" coords="160,149,272,177"/>
-<area shape="rect" id="node8" href="$classlibrary__manager.html#a8c791a80cabeaaf982680c41aa54713d" title="library_manager::save\l_mappings" alt="" coords="139,201,293,245"/>
-<area shape="rect" id="node4" href="$classlm__unit.html#a538312ce419bf422b958f6c50f15854f" title="lm_unit::save" alt="" coords="582,5,682,33"/>
-<area shape="rect" id="node6" href="$classdump__context__body.html#a10accf1d666a0531c9d62e916a8728f9" title="dump_context_body::\ldump_context_body" alt="" coords="558,67,706,111"/>
-</map>

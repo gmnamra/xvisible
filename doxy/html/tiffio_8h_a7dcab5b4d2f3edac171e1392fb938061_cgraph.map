@@ -1,8 +1,0 @@
-<map id="TIFFWriteRawStrip" name="TIFFWriteRawStrip">
-<area shape="rect" id="node2" href="$tif__write_8c.html#a26e4e0756dea1aebc15c275e0714cef8" title="TIFFAppendToStrip" alt="" coords="189,5,325,33"/>
-<area shape="rect" id="node3" href="$tif__error_8c.html#a2e8b77a2d4e7b7283b55b963dd67ec31" title="TIFFErrorExt" alt="" coords="376,30,475,58"/>
-<area shape="rect" id="node4" href="$tif__write_8c.html#a9566917f4b4c4398b084f7171a503f67" title="TIFFGrowStrips" alt="" coords="200,109,315,137"/>
-<area shape="rect" id="node5" href="$tif__apple_8c.html#a6bb8a05190e8eefa70db67b4c20f2aeb" title="_TIFFrealloc" alt="" coords="377,82,473,110"/>
-<area shape="rect" id="node6" href="$tif__apple_8c.html#adcb814cdc66530ea86553b6840c19819" title="_TIFFfree" alt="" coords="385,134,465,162"/>
-<area shape="rect" id="node7" href="$tif__apple_8c.html#abbc4b30de2ac6b7eecdf9362bfa74c39" title="_TIFFmemset" alt="" coords="373,186,477,214"/>
-</map>

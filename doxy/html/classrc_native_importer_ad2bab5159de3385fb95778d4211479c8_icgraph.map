@@ -1,6 +1,0 @@
-<map id="rcNativeImporter::findSettingCategory" name="rcNativeImporter::findSettingCategory">
-<area shape="rect" id="node2" href="$classrc_native_importer.html#a9b6997ba2648e5efcda88a0d30d33503" title="rcNativeImporter::parseSetting\lCategory" alt="" coords="246,5,448,49"/>
-<area shape="rect" id="node3" href="$classrc_native_importer.html#aec2b9d0745ceb8c0f75ae5d7b2d28076" title="rcNativeImporter::import\lExperiment" alt="" coords="497,5,661,49"/>
-<area shape="rect" id="node4" href="$classrc_experiment_impl.html#a23195f3ff1ec159207ba1784d919434c" title="rcExperimentImpl::loadExperiment" alt="" coords="710,13,935,41"/>
-<area shape="rect" id="node5" href="$classrc_experiment_domain_impl.html#a5c45f8064944cafb71471e3a576f1ad3" title="rcExperimentDomainImpl\l::loadExperiment" alt="" coords="984,5,1155,49"/>
-</map>

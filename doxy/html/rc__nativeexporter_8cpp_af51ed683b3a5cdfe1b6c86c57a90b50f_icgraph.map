@@ -1,8 +1,0 @@
-<map id="cTimeComment" name="cTimeComment">
-<area shape="rect" id="node2" href="$classrc_native_exporter.html#ae65218a34b08adf1acf907608c909b98" title="rcNativeExporter::produce\lTimes" alt="" coords="168,35,344,79"/>
-<area shape="rect" id="node3" href="$classrc_native_exporter.html#a75a5374634d85e7bc85f7ae501563e0d" title="rcNativeExporter::export\lExperiment" alt="" coords="392,35,557,79"/>
-<area shape="rect" id="node4" href="$classrc_experiment_impl.html#a375595b76e0c9f303a7135e096391b9a" title="rcExperimentImpl::saveTo" alt="" coords="606,43,781,71"/>
-<area shape="rect" id="node5" href="$classrc_experiment_domain_impl.html#a8db39db2ae092474f985b4c2997d5b72" title="rcExperimentDomainImpl\l::saveExperiment" alt="" coords="829,35,1000,79"/>
-<area shape="rect" id="node6" href="$classrc_experiment_domain_impl.html#a29b2a73f82318c9faec49f9a1178f90b" title="rcExperimentDomainImpl\l::notifyRequestSave" alt="" coords="1048,5,1219,49"/>
-<area shape="rect" id="node7" href="$rc__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1108,73,1158,101"/>
-</map>

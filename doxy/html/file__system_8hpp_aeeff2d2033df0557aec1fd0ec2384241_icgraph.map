@@ -1,8 +1,0 @@
-<map id="folder_files" name="folder_files">
-<area shape="rect" id="node2" href="$file__system_8hpp.html#a5bf621ffe8aff1601bcda9b05b1e1af0" title="folder_delete" alt="" coords="139,65,237,93"/>
-<area shape="rect" id="node3" href="$library__manager_8cpp.html#a61deb030ff6c9831e255cc93181f9af0" title="erase_library" alt="" coords="285,65,384,93"/>
-<area shape="rect" id="node4" href="$classlm__library.html#a67c3b958302cdf31f7c3ed61fc8c7047" title="lm_library::erase" alt="" coords="432,65,552,93"/>
-<area shape="rect" id="node5" href="$classlm__library.html#a008338d3a220ddc880b2540e8b57d9dd" title="lm_library::create" alt="" coords="609,5,732,33"/>
-<area shape="rect" id="node6" href="$classlm__library.html#a5e913849cba45b03ba14a60fa07672a3" title="lm_library::erase_by\l_source" alt="" coords="600,57,741,101"/>
-<area shape="rect" id="node7" href="$classlm__library.html#a0f0d928c549b095099e11b19740ab4f9" title="lm_library::tidy" alt="" coords="617,125,724,153"/>
-</map>

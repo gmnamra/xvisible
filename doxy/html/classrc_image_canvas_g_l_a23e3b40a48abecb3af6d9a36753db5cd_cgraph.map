@@ -1,6 +1,0 @@
-<map id="rcImageCanvasGL::modelToDevCoord" name="rcImageCanvasGL::modelToDevCoord">
-<area shape="rect" id="node2" href="$classrc_image_canvas_g_l.html#a66fa650171152fa4e33c5303ff34c037" title="rcImageCanvasGL::modelTo\lWorldCoord" alt="" coords="246,5,436,49"/>
-<area shape="rect" id="node5" href="$classrc_image_canvas_g_l.html#a9e1599e336ede7c18f8c25c63017c4b5" title="rcImageCanvasGL::worldTo\lDevCoord" alt="" coords="248,73,434,117"/>
-<area shape="rect" id="node3" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="485,17,584,45"/>
-<area shape="rect" id="node4" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="485,73,584,101"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="_debug_trace::stackdump" name="_debug_trace::stackdump">
-<area shape="rect" id="node2" href="$class__debug__trace.html#af662d6c484b3ec12fabac3ea4cb43490" title="_debug_trace::do_report" alt="" coords="234,5,401,33"/>
-<area shape="rect" id="node6" href="$class__debug__trace.html#aff0b489adce5209f68ad7a10b9ddcf72" title="_debug_trace::stackdump" alt="" coords="230,57,405,85"/>
-<area shape="rect" id="node3" href="$class__debug__trace.html#a0a69e3ceed983b4d613bdce505b12cfc" title="_debug_trace::prefix" alt="" coords="454,5,597,33"/>
-<area shape="rect" id="node4" href="$file__system_8cpp.html#acf89fa1738d4f789e4cc5b9c3c3bec72" title="filename_part" alt="" coords="646,5,748,33"/>
-<area shape="rect" id="node5" href="$file__system_8cpp.html#a99e06c76afffe1f1d77f01c905b1a5fd" title="is_separator" alt="" coords="798,5,893,33"/>
-</map>

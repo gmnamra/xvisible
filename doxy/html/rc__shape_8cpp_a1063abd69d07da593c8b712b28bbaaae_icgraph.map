@@ -1,8 +1,0 @@
-<map id="hornMoments" name="hornMoments">
-<area shape="rect" id="node2" href="$classrc_shape.html#a1c904a3745adb635813b83128222d80e" title="rcShape::needMass" alt="" coords="158,31,298,59"/>
-<area shape="rect" id="node3" href="$classrc_shape.html#a4439732e74874fa24b75f89776d0c0f3" title="rcShape::mass" alt="" coords="348,31,458,59"/>
-<area shape="rect" id="node4" href="$classrc_shape.html#ac14842387b7ed2fe31f5b16965efc954" title="rcShape::needCenterOfmass" alt="" coords="507,5,701,33"/>
-<area shape="rect" id="node6" href="$classrc_shape.html#afee4daa999d12bcb9448e7ec4be75b2e" title="rcShape::needMedian" alt="" coords="528,57,680,85"/>
-<area shape="rect" id="node5" href="$classrc_shape.html#a83c022cdb9f8c4796a30d9023bf2f701" title="rcShape::centerOfmass" alt="" coords="750,5,911,33"/>
-<area shape="rect" id="node7" href="$classrc_shape.html#aad8635e3f48b30c54c85e6c9f287e344" title="rcShape::median" alt="" coords="770,57,892,85"/>
-</map>

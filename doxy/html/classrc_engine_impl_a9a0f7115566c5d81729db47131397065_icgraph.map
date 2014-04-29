@@ -1,9 +1,0 @@
-<map id="rcEngineImpl::stop" name="rcEngineImpl::stop">
-<area shape="rect" id="node2" href="$classrc_engine_movie_saver.html#a32276bec2dea00cc5439e6f7cd3d586c" title="rcEngineMovieSaver\l::closeHdlr" alt="" coords="212,5,356,49"/>
-<area shape="rect" id="node4" href="$classrc_engine_movie_saver.html#a7282a1f65f3db0878397239984e4a02c" title="rcEngineMovieSaver\l::doneHdlr" alt="" coords="212,73,356,117"/>
-<area shape="rect" id="node5" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="187,141,381,169"/>
-<area shape="rect" id="node6" href="$classrc_engine_movie_playback.html#a4d6bea668df96688763fda9650921578" title="rcEngineMoviePlayback\l::playbackCleanup" alt="" coords="202,193,366,237"/>
-<area shape="rect" id="node8" href="$classrc_engine_movie_capture.html#a0d8bfe4fd32e11bdbdb2c0ad113425ff" title="rcEngineMovieCapture::run" alt="" coords="192,261,376,289"/>
-<area shape="rect" id="node3" href="$classrc_engine_movie_saver.html#a216e88884a3dd557507ea93dc3609a91" title="rcEngineMovieSaver::run" alt="" coords="440,47,611,75"/>
-<area shape="rect" id="node7" href="$classrc_engine_movie_playback.html#ab5cff6edcb8b3d901f96d0fde1766f18" title="rcEngineMoviePlayback::run" alt="" coords="430,201,620,229"/>
-</map>

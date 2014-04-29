@@ -1,5 +1,0 @@
-<map id="rcMenuChoiceSettingWidget::findChoice" name="rcMenuChoiceSettingWidget::findChoice">
-<area shape="rect" id="node2" href="$classrc_setting_info.html#a6d3cda0e1b71a0f7c2061015fb02d3d8" title="rcSettingInfo::getChoice" alt="" coords="254,5,418,33"/>
-<area shape="rect" id="node3" href="$classrc_setting_info.html#a1b99595ec48ea7982c8a8c7f3afd0534" title="rcSettingInfo::getNChoices" alt="" coords="246,57,426,85"/>
-<area shape="rect" id="node4" href="$structrc_setting_choice.html#a1171657e8b731eaf1ce4acddc732f9c3" title="rcSettingChoice::getValue" alt="" coords="249,109,423,137"/>
-</map>

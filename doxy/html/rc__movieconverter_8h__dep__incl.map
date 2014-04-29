@@ -1,8 +1,0 @@
-<map id="include/visual/rc_movieconverter.h" name="include/visual/rc_movieconverter.h">
-<area shape="rect" id="node2" href="$bcnvrt__main_8cpp.html" title="src/support/bcnvrt\l_main.cpp" alt="" coords="4,83,131,127"/>
-<area shape="rect" id="node3" href="$rc__experimentimpl_8cpp.html" title="src/visible/src/rc\l_experimentimpl.cpp" alt="" coords="137,177,281,221"/>
-<area shape="rect" id="node4" href="$rc__movieconverter_8cpp.html" title="src/visual/code/rc\l_movieconverter.cpp" alt="" coords="206,83,351,127"/>
-<area shape="rect" id="node5" href="$rc__experimentimpl_8h.html" title="include/visiCore/rc\l_experimentimpl.h" alt="" coords="375,83,504,127"/>
-<area shape="rect" id="node6" href="$rc__experimentdomainimpl_8cpp.html" title="src/visible/src/rc\l_experimentdomainimpl.cpp" alt="" coords="326,177,513,221"/>
-<area shape="rect" id="node7" href="$rc__nativeimporter_8cpp.html" title="src/visible/src/rc\l_nativeimporter.cpp" alt="" coords="538,177,675,221"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="rf1DFourierAnalysisVoxels" name="rf1DFourierAnalysisVoxels">
-<area shape="rect" id="node2" href="$classrc_opto_kinetic_image.html#ab8c6bd963086ef561d0f65ec8240e139" title="rcOptoKineticImage\l::genFreqImg" alt="" coords="232,5,371,49"/>
-<area shape="rect" id="node3" href="$classrc_muscle_segmenter.html#a61c65559f55fd9fa632b96e09ef50b2e" title="rcMuscleSegmenter::\lgenFrequencySegmentation" alt="" coords="419,5,608,49"/>
-<area shape="rect" id="node4" href="$classrc_muscle_segmenter.html#a660d7b3d1c240efa0b725e0db65154e3" title="rcMuscleSegmenter::\lfilterByActivity" alt="" coords="656,5,803,49"/>
-<area shape="rect" id="node5" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="851,13,1045,41"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="getCtrlInfo" name="getCtrlInfo">
-<area shape="rect" id="node2" href="$rc__qtime__capture_8cpp.html#a8d0ba828ab3f434bcecd5c62a5f2b363" title="processControlRequests" alt="" coords="136,31,304,59"/>
-<area shape="rect" id="node3" href="$rc__qtime__capture_8cpp.html#a624fb0d42c16afe3ebc037ff4106afab" title="MungGrabDataProc" alt="" coords="499,5,639,33"/>
-<area shape="rect" id="node6" href="$rc__qtime__capture_8cpp.html#a9f1dc7cfc889a86496a942ebb577c308" title="MGIdleTimer" alt="" coords="352,57,450,85"/>
-<area shape="rect" id="node4" href="$rc__qtime__capture_8h.html#adf4b66b022a2bc6ba21cddbc179756cb" title="rfQTVideoCapture" alt="" coords="689,31,818,59"/>
-<area shape="rect" id="node5" href="$rc__qtime__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="867,31,917,59"/>
-<area shape="rect" id="node7" href="$rc__qtime__capture_8cpp.html#a2949d8b66a729bde282524f2fcc99e0e" title="InstallEvenHandlers" alt="" coords="499,57,639,85"/>
-</map>

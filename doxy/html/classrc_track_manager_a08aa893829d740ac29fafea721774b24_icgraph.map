@@ -1,7 +1,0 @@
-<map id="rcTrackManager::displayableTrack" name="rcTrackManager::displayableTrack">
-<area shape="rect" id="node2" href="$classrc_track_manager.html#af0e0f11a899618172fdbd6f2db0e1dbc" title="rcTrackManager::hasManageable\lTracks" alt="" coords="246,5,466,49"/>
-<area shape="rect" id="node3" href="$classrc_track_manager.html#a3cc4a3846132b4e2a0dcf986fc6dc731" title="rcTrackManager::monitorable\lTrack" alt="" coords="259,73,453,117"/>
-<area shape="rect" id="node6" href="$classrc_track_group_widget.html#ad61eb6b64b90a1f10be6562ae339923b" title="rcTrackGroupWidget\l::rcTrackGroupWidget" alt="" coords="280,141,432,185"/>
-<area shape="rect" id="node4" href="$classrc_scalar_track_widget.html#aec406498f8a4809dbdcf36d8deba3c7a" title="rcScalarTrackWidget\l::setEnabled" alt="" coords="514,73,659,117"/>
-<area shape="rect" id="node5" href="$classrc_scalar_track_widget.html#afc60cc8a08bd8f16560757beef569858" title="rcScalarTrackWidget\l::rcScalarTrackWidget" alt="" coords="707,73,859,117"/>
-</map>

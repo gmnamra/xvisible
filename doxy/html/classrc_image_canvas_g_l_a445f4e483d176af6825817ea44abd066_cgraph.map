@@ -1,9 +1,0 @@
-<map id="rcImageCanvasGL::mouseDoubleClickEvent" name="rcImageCanvasGL::mouseDoubleClickEvent">
-<area shape="rect" id="node2" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="278,5,501,33"/>
-<area shape="rect" id="node3" href="$classrc_model_domain.html#a512985ca2a536f47018740fe670ae7d3" title="rcModelDomain::notifyPolys" alt="" coords="296,57,483,85"/>
-<area shape="rect" id="node5" href="$classrc_model_domain.html#a741e3ed28ea337c5a6bf2e124223abf9" title="rcModelDomain::notifySelection\lState" alt="" coords="285,109,494,153"/>
-<area shape="rect" id="node7" href="$classrc_model_domain.html#a1a883312418971744682d2f7c55d9130" title="rcModelDomain::polysSize" alt="" coords="300,177,479,205"/>
-<area shape="rect" id="node4" href="$classrc_experiment_domain.html#a36f7c5e9badc1e4f5138a9ab350df166" title="rcExperimentDomain\l::notifyPolys" alt="" coords="586,41,732,85"/>
-<area shape="rect" id="node6" href="$classrc_model_domain.html#a32a691418467101834b7e1bba0d896e2" title="rcModelDomain::updateSelection\lState" alt="" coords="550,109,768,153"/>
-<area shape="rect" id="node8" href="$classrc_polygon_group_ref.html#a0ac90e873a6001690cc32ae34cbab265" title="rcPolygonGroupRef::size" alt="" coords="574,177,743,205"/>
-</map>

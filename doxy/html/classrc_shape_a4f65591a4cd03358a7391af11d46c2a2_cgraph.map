@@ -1,6 +1,0 @@
-<map id="rcShape::rcShape" name="rcShape::rcShape">
-<area shape="rect" id="node2" href="$classrc_shape.html#ae0a138559845f1c288e199e2c523e94b" title="rcShape::inValidate" alt="" coords="365,24,501,52"/>
-<area shape="rect" id="node3" href="$classrc_window.html#a3286f93b0d223617111f3ac62b854b2f" title="rcWindow::isBound" alt="" coords="182,24,317,52"/>
-<area shape="rect" id="node4" href="$classrc_shape.html#a0f7999c4da8eb497933f4461ea91abb6" title="rcShape::reset" alt="" coords="195,76,303,104"/>
-<area shape="rect" id="node5" href="$classrc_shape.html#a4e81fb442d9c9d695e84257fe361f6e8" title="rcShape::validate" alt="" coords="187,128,312,156"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="rcThumbWheelSettingWidget::updateLabel" name="rcThumbWheelSettingWidget::updateLabel">
-<area shape="rect" id="node2" href="$classrc_thumb_wheel_setting_widget.html#ab55d0507f3da4afe900e0f72ef5b5745" title="rcThumbWheelSettingWidget\l::rcThumbWheelSettingWidget" alt="" coords="734,98,936,142"/>
-<area shape="rect" id="node3" href="$classrc_thumb_wheel_setting_widget.html#a84dd253c191de3668a2f5a93c8c1f6c7" title="Setting has changed, update widget." alt="" coords="491,158,685,202"/>
-<area shape="rect" id="node4" href="$classrc_thumb_wheel_setting_widget.html#a8dba8d347cfaae172731acd412bb27e3" title="Setting has been changed, update widget." alt="" coords="491,38,685,82"/>
-<area shape="rect" id="node5" href="$classrc_thumb_wheel_setting_widget.html#aaceeba6182b1d12aa9e4b5d7c99bb694" title="Makes valueChanged() available as a slot." alt="" coords="248,98,443,142"/>
-</map>

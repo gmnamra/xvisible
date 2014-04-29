@@ -1,9 +1,0 @@
-<map id="subprocess::close_stdin" name="subprocess::close_stdin">
-<area shape="rect" id="node2" href="$classsubprocess.html#a9e2c0f10c8fd3ec2a4b37f4ae7b19f0d" title="subprocess::kill" alt="" coords="242,30,355,58"/>
-<area shape="rect" id="node3" href="$classsubprocess.html#ab0dbac0795d8f5c5c84bceaaf339b937" title="subprocess::~subprocess" alt="" coords="427,5,600,33"/>
-<area shape="rect" id="node4" href="$classsubprocess.html#abf44f57a3afc7798ea7bc78aa6397f5d" title="subprocess::spawn" alt="" coords="446,69,581,97"/>
-<area shape="rect" id="node8" href="$classsubprocess.html#a892354c73b6356645e9227d1201fc524" title="subprocess::write_stdin" alt="" coords="218,134,379,162"/>
-<area shape="rect" id="node5" href="$classsubprocess.html#aca31f4a811773426d2feaa9a7ff5ca55" title="subprocess::spawn" alt="" coords="654,38,789,66"/>
-<area shape="rect" id="node6" href="$classbacktick__subprocess.html#a76d93b38c570d15deefe7c56896ee430" title="backtick_subprocess\l::spawn" alt="" coords="649,90,794,134"/>
-<area shape="rect" id="node7" href="$subprocesses_8hpp.html#a0c0f0f6762546636e0a6dc1185f3e66d" title="backtick" alt="" coords="843,98,912,126"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="library_manager::up_to_date" name="library_manager::up_to_date">
-<area shape="rect" id="node2" href="$classlibrary__manager.html#a9bf17691f97e961004f252919272d9d6" title="library_manager::out\l_of_date" alt="" coords="200,22,344,66"/>
-<area shape="rect" id="node7" href="$classlm__library.html#adedd98796624f7e063014524f21d5124" title="lm_library::up_to_date" alt="" coords="195,90,349,118"/>
-<area shape="rect" id="node3" href="$classlm__library.html#af53b88e6e3bd0a40f844823fd79a8c23" title="lm_library::out_of_date" alt="" coords="398,30,554,58"/>
-<area shape="rect" id="node4" href="$classlm__unit.html#acff66d4e8d929cabc4bc5c07c25afb18" title="lm_unit::out_of_date" alt="" coords="604,5,746,33"/>
-<area shape="rect" id="node6" href="$classlm__library.html#a0f0d928c549b095099e11b19740ab4f9" title="lm_library::tidy" alt="" coords="621,57,728,85"/>
-<area shape="rect" id="node5" href="$classlm__unit.html#aaf906aef678a910a3d4aef087efb6d7b" title="lm_unit::load" alt="" coords="796,5,892,33"/>
-<area shape="rect" id="node8" href="$classlm__unit.html#a6c229dcb208249f76274f53e3802189e" title="lm_unit::up_to_date" alt="" coords="407,90,545,118"/>
-</map>

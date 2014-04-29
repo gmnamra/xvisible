@@ -1,5 +1,0 @@
-<map id="rcIdMapper::flushWriters" name="rcIdMapper::flushWriters">
-<area shape="rect" id="node2" href="$classrc_writer.html#a21ae0d79ab61ca3a93c7776c8fe64895" title="rcWriter::flush" alt="" coords="250,5,353,33"/>
-<area shape="rect" id="node3" href="$classrc_track_element.html#a2020995245a704b1fdc59dd3f215ea2a" title="rcTrackElement::isValid" alt="" coords="221,57,381,85"/>
-<area shape="rect" id="node4" href="$classrc_track_element.html#a0ec7a49c4d73b3e95fb77f3d1cf1a6ee" title="rcTrackElement::track" alt="" coords="226,109,377,137"/>
-</map>

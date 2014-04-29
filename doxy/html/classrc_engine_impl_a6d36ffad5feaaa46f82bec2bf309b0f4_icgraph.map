@@ -1,6 +1,0 @@
-<map id="rcEngineImpl::start" name="rcEngineImpl::start">
-<area shape="rect" id="node2" href="$classrc_engine_movie_playback.html#ab5cff6edcb8b3d901f96d0fde1766f18" title="rcEngineMoviePlayback::run" alt="" coords="188,5,378,33"/>
-<area shape="rect" id="node3" href="$classrc_engine_movie_capture.html#a0d8bfe4fd32e11bdbdb2c0ad113425ff" title="rcEngineMovieCapture::run" alt="" coords="191,57,374,85"/>
-<area shape="rect" id="node4" href="$classrc_engine_movie_saver.html#abb624bdd44b94c6a21f9e34dfc2da081" title="rcEngineMovieSaver\l::waitHdlr" alt="" coords="210,109,355,153"/>
-<area shape="rect" id="node5" href="$classrc_engine_movie_saver.html#a216e88884a3dd557507ea93dc3609a91" title="rcEngineMovieSaver::run" alt="" coords="426,117,598,145"/>
-</map>

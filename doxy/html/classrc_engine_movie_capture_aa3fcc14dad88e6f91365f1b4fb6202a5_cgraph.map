@@ -1,5 +1,0 @@
-<map id="rcEngineMovieCapture::sendShutdown" name="rcEngineMovieCapture::sendShutdown">
-<area shape="rect" id="node2" href="$classrc_frame_grabber.html#a89f335fc268ffdcbb1e49fa9bb6a67d1" title="rcFrameGrabber::getError\lString" alt="" coords="234,5,409,49"/>
-<area shape="rect" id="node3" href="$classrc_frame_grabber.html#acf1e7da1167f3b05b327e9481e9a7d35" title="rcFrameGrabber::getLastError" alt="" coords="221,73,422,101"/>
-<area shape="rect" id="node4" href="$classrc_camera_grabber.html#aed45d929dc0115e167dc596937cce421" title="rcCameraGrabber::setAcqControl" alt="" coords="211,125,431,153"/>
-</map>

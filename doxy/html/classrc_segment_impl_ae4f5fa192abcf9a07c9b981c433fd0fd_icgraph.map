@@ -1,7 +1,0 @@
-<map id="rcSegmentImpl::focus" name="rcSegmentImpl::focus">
-<area shape="rect" id="node2" href="$classrc_segment_iterator_impl.html#ab12610f22ae91cd2aa3442c590e088d5" title="rcSegmentIteratorImpl\l::getFocus" alt="" coords="206,107,359,151"/>
-<area shape="rect" id="node3" href="$classrc_graphics_segment_iterator_impl.html#a60b929e44f4314aa9c411b384bf9e636" title="rcGraphicsSegmentIterator\lImpl::getFocus" alt="" coords="413,5,595,49"/>
-<area shape="rect" id="node4" href="$classrc_position_segment_iterator_impl.html#a1a6797acd10f2334a61deef79d3ecac6" title="rcPositionSegmentIterator\lImpl::getFocus" alt="" coords="416,73,592,117"/>
-<area shape="rect" id="node5" href="$classrc_scalar_segment_iterator_impl.html#ab41d563dac8ea0498592fef98cd7acc2" title="rcScalarSegmentIteratorImpl\l::getFocus" alt="" coords="408,141,600,185"/>
-<area shape="rect" id="node6" href="$classrc_video_segment_iterator_impl.html#a130dde036f5bc1c683e4a5868d319313" title="rcVideoSegmentIteratorImpl\l::getFocus" alt="" coords="410,209,598,253"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="rcTimeline::getValueOffset" name="rcTimeline::getValueOffset">
-<area shape="rect" id="node2" href="$classrc_timeline.html#a6f0a926a10d7e2a59f03a7fd7def64d9" title="rcTimeline::paintScalarScale\lMarks" alt="" coords="232,5,422,49"/>
-<area shape="rect" id="node5" href="$classrc_timeline.html#ae7dd0b5a74e0dd38b2a344217ee9a48c" title="rcTimeline::paintScalarTrack" alt="" coords="232,73,421,101"/>
-<area shape="rect" id="node6" href="$classrc_timeline.html#ad67a9dee3be6a4bf1b5771cb0f72d0e7" title="rcTimeline::valueToPixel" alt="" coords="244,125,409,153"/>
-<area shape="rect" id="node3" href="$classrc_timeline.html#a1ccc2d8b2395a4d1620ddc4fd97a0490" title="rcTimeline::paintTimeline" alt="" coords="469,43,638,71"/>
-<area shape="rect" id="node4" href="$classrc_timeline.html#a7eee350d60e6b09f19e2701c109c7f56" title="rcTimeline::paintEvent" alt="" coords="686,43,839,71"/>
-</map>

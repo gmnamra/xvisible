@@ -1,9 +1,0 @@
-<map id="rcVideoCaptureCtrl" name="rcVideoCaptureCtrl">
-<area shape="rect" id="node2" href="$classrc_video_capture_ctrl_reader.html" title="rcVideoCaptureCtrlReader" alt="" coords="624,178,802,206"/>
-<area shape="rect" id="node3" href="$classrc_atomic_value.html" title="rcAtomicValue\&lt; bool \&gt;" alt="" coords="261,25,416,53"/>
-<area shape="rect" id="node5" href="$classrc_atomic_value.html" title="rcAtomicValue\&lt; uint32 \&gt;" alt="" coords="256,77,421,105"/>
-<area shape="rect" id="node7" href="$classrc_atomic_value.html" title="rcAtomicValue\&lt; int32 \&gt;" alt="" coords="260,135,418,163"/>
-<area shape="rect" id="node9" href="$classrc_atomic_value.html" title="rcAtomicValue\&lt; rcSimilarator\l::rcEntropyDefinition \&gt;" alt="" coords="242,187,435,231"/>
-<area shape="rect" id="node11" href="$classrc_atomic_value.html" title="rcAtomicValue\&lt; rcAnalyzer\lResultOrigin \&gt;" alt="" coords="248,255,429,299"/>
-<area shape="rect" id="node13" href="$classrc_atomic_value.html" title="rcAtomicValue\&lt; int \&gt;" alt="" coords="267,323,410,351"/>
-</map>

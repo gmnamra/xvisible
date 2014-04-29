@@ -1,6 +1,0 @@
-<map id="envp_copy" name="envp_copy">
-<area shape="rect" id="node2" href="$subprocesses_8cpp.html#a6e9cf45406bcb5b50e4a7c6a44743853" title="envp_append" alt="" coords="140,5,242,33"/>
-<area shape="rect" id="node4" href="$subprocesses_8cpp.html#a6e062180232ca20bac58ac9f4a065830" title="envp_extract" alt="" coords="142,57,240,85"/>
-<area shape="rect" id="node5" href="$subprocesses_8cpp.html#a9d5e0180793640161b1232345eb8238e" title="envp_size" alt="" coords="150,109,231,137"/>
-<area shape="rect" id="node3" href="$subprocesses_8cpp.html#a926651a6370abeed0ad2d73468d1af99" title="copy_string" alt="" coords="291,5,381,33"/>
-</map>

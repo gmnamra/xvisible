@@ -1,5 +1,0 @@
-<map id="exportCGImageToJPGFile" name="exportCGImageToJPGFile">
-<area shape="rect" id="node2" href="$rc__window2jpg_8h.html#aafff9f578cb98cab6bdf83fbd405e12f" title="rfImageExport2JPG" alt="" coords="232,5,371,33"/>
-<area shape="rect" id="node3" href="$classrc_engine_impl.html#ac9ec0bb61f06d077f4bb56be6f0e884a" title="rcEngineImpl::saveFrames" alt="" coords="419,5,599,33"/>
-<area shape="rect" id="node4" href="$classrc_engine_importer.html#a2e45417f1c29adf01483b2b8fca6b27b" title="rcEngineImporter::run" alt="" coords="649,5,799,33"/>
-</map>

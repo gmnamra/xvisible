@@ -1,8 +1,0 @@
-<map id="rcTrackGroup::getTag" name="rcTrackGroup::getTag">
-<area shape="rect" id="node2" href="$classrc_native_exporter.html#a42689f424d289758e9558db33ffa523b" title="rcNativeExporter::produce\lGroups" alt="" coords="203,27,379,71"/>
-<area shape="rect" id="node3" href="$classrc_native_exporter.html#a75a5374634d85e7bc85f7ae501563e0d" title="rcNativeExporter::export\lExperiment" alt="" coords="427,27,592,71"/>
-<area shape="rect" id="node4" href="$classrc_experiment_impl.html#a375595b76e0c9f303a7135e096391b9a" title="rcExperimentImpl::saveTo" alt="" coords="641,35,815,63"/>
-<area shape="rect" id="node5" href="$classrc_experiment_domain_impl.html#a8db39db2ae092474f985b4c2997d5b72" title="rcExperimentDomainImpl\l::saveExperiment" alt="" coords="864,27,1035,71"/>
-<area shape="rect" id="node6" href="$rc__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1143,5,1193,33"/>
-<area shape="rect" id="node7" href="$classrc_experiment_domain_impl.html#a29b2a73f82318c9faec49f9a1178f90b" title="rcExperimentDomainImpl\l::notifyRequestSave" alt="" coords="1082,57,1254,101"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="rcAngle8::basic" name="rcAngle8::basic">
-<area shape="rect" id="node2" href="$classrc_mathematical_image.html#a6dae5b83113b53f6315ba9f54aa4f983" title="rcMathematicalImage\l::mMakeField" alt="" coords="187,5,336,49"/>
-<area shape="rect" id="node4" href="$classrc_feature.html#a8c0b2d9d038c16a01f4660ae45deca81" title="rcFeature::octants" alt="" coords="197,73,326,101"/>
-<area shape="rect" id="node5" href="$classrc_edge_tables.html#a3f68b37e7ac46c8e8e3af4ec058ec915" title="rcEdgeTables::rcEdgeTables" alt="" coords="166,125,356,153"/>
-<area shape="rect" id="node6" href="$classrc_feature.html#aeeabe38bdb580dda39e3353ce4525408" title="rcFeature::rcFeature" alt="" coords="190,177,333,205"/>
-<area shape="rect" id="node7" href="$classrc_lattice_similarator.html#af730cb72756862796fafbd4cfad1109b" title="rcLatticeSimilarator::ttc" alt="" coords="183,229,340,257"/>
-<area shape="rect" id="node3" href="$classrc_mathematical_image.html#adb4a1567cfa19d0e7462c92f202d7982" title="rcMathematicalImage\l::frustum" alt="" coords="406,5,554,49"/>
-</map>

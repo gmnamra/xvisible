@@ -1,8 +1,0 @@
-<map id="rcTimeline::timeToPixel" name="rcTimeline::timeToPixel">
-<area shape="rect" id="node2" href="$classrc_timeline.html#a1cda21b65dec2c7ad5002a2764c9c9a1" title="rcTimeline::paintCursor" alt="" coords="226,5,385,33"/>
-<area shape="rect" id="node5" href="$classrc_timeline.html#a4fe483f9293dc5b5bae1c50cc2483803" title="rcTimeline::paintFrameTicks" alt="" coords="211,57,399,85"/>
-<area shape="rect" id="node6" href="$classrc_timeline.html#ae7dd0b5a74e0dd38b2a344217ee9a48c" title="rcTimeline::paintScalarTrack" alt="" coords="211,109,400,137"/>
-<area shape="rect" id="node7" href="$classrc_timeline.html#a0ca363a1d297bc356a1834dc1a71ec63" title="rcTimeline::timeToPixel" alt="" coords="226,161,384,189"/>
-<area shape="rect" id="node3" href="$classrc_timeline.html#a1ccc2d8b2395a4d1620ddc4fd97a0490" title="rcTimeline::paintTimeline" alt="" coords="448,57,616,85"/>
-<area shape="rect" id="node4" href="$classrc_timeline.html#a7eee350d60e6b09f19e2701c109c7f56" title="rcTimeline::paintEvent" alt="" coords="665,57,818,85"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="async_subprocess::spawn" name="async_subprocess::spawn">
-<area shape="rect" id="node2" href="$classarg__vector.html#ac1572560b2893481d0ac4fae0d8a612e" title="arg_vector::argv" alt="" coords="252,5,370,33"/>
-<area shape="rect" id="node3" href="$textio_8cpp.html#acf3fee36b85acdf7fae42a766218d233" title="close" alt="" coords="284,57,337,85"/>
-<area shape="rect" id="node5" href="$classasync__subprocess.html#a42af6ce5c6721ee251e5e29dfd1d1502" title="async_subprocess::set\l_error" alt="" coords="232,109,389,153"/>
-<area shape="rect" id="node4" href="$classotext.html#ab8cc31aaff71191e9cb95a5330a7bc5f" title="otext::close" alt="" coords="438,57,527,85"/>
-</map>

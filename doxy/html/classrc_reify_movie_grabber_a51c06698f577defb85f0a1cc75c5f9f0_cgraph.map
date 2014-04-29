@@ -1,5 +1,0 @@
-<map id="rcReifyMovieGrabber::start" name="rcReifyMovieGrabber::start">
-<area shape="rect" id="node2" href="$classrc_video_cache.html#ab08964be9e7f1b496ec9dc5baf4a187b" title="rcVideoCache::frameCount" alt="" coords="200,5,382,33"/>
-<area shape="rect" id="node3" href="$classrc_file_grabber.html#aa1db231700cc4b52379d5ad5eb835bcf" title="rcFileGrabber::isValid" alt="" coords="216,57,365,85"/>
-<area shape="rect" id="node4" href="$classrc_file_grabber.html#acd5f108bd22f010b5f1eaec69315c2c1" title="rcFileGrabber::getLastError" alt="" coords="430,57,613,85"/>
-</map>

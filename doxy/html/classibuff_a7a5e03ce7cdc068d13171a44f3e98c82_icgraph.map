@@ -1,8 +1,0 @@
-<map id="ibuff::error_string" name="ibuff::error_string">
-<area shape="rect" id="node2" href="$classifbuff.html#aae2824eab8639926d8dfe83fa67b9fa1" title="ifbuff::error_string" alt="" coords="176,5,301,33"/>
-<area shape="rect" id="node3" href="$classitext.html#aa195288e63717cdd02e170ed60868c1e" title="itext::error_string" alt="" coords="178,57,299,85"/>
-<area shape="rect" id="node4" href="$classlm__unit.html#af80fd74c3f44000e569536ab7ccf8e3d" title="lm_unit::read" alt="" coords="388,30,487,58"/>
-<area shape="rect" id="node6" href="$classrestore__context__body.html#acdcc751c5066513b19961cce1a02b3ca" title="restore_context_body::get" alt="" coords="350,82,525,110"/>
-<area shape="rect" id="node5" href="$classlm__unit.html#aaf906aef678a910a3d4aef087efb6d7b" title="lm_unit::load" alt="" coords="594,30,691,58"/>
-<area shape="rect" id="node7" href="$classrestore__context.html#a483b31369171dac9534d562ad22b4af3" title="restore_context::get" alt="" coords="573,82,712,110"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="ini_manager::filename" name="ini_manager::filename">
-<area shape="rect" id="node2" href="$classini__manager.html#a8e69e8c8d08f2638caca669590372644" title="ini_manager::add_file" alt="" coords="206,5,354,33"/>
-<area shape="rect" id="node5" href="$classini__manager.html#a3348c2576d09475b967d5c78c5145af7" title="ini_manager::erase" alt="" coords="212,57,348,85"/>
-<area shape="rect" id="node6" href="$classini__manager.html#a429da28d776027d44d6f6d7396c51134" title="ini_manager::variable\l_filename" alt="" coords="206,109,354,153"/>
-<area shape="rect" id="node3" href="$classini__manager.html#ab8f70f244dd50c6792d8c81f1d22cd6b" title="ini_manager::add_files" alt="" coords="404,5,559,33"/>
-<area shape="rect" id="node4" href="$classini__manager.html#acf52df52e24da444e9159b6367b1b09d" title="ini_manager::ini_manager" alt="" coords="608,5,784,33"/>
-<area shape="rect" id="node7" href="$classlibrary__manager.html#a595ca94278cb510626c5fd37d80bebcf" title="library_manager::set\l_ini_manager" alt="" coords="410,82,553,126"/>
-<area shape="rect" id="node8" href="$classlibrary__manager.html#a8c791a80cabeaaf982680c41aa54713d" title="library_manager::save\l_mappings" alt="" coords="405,150,558,194"/>
-</map>

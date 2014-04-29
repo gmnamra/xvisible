@@ -1,9 +1,0 @@
-<map id="rcVisualTarget::rcVisualTarget" name="rcVisualTarget::rcVisualTarget">
-<area shape="rect" id="node2" href="$classrc_rectangle.html#abe44205fccdffe80fbfdd4de79b406dc" title="rcRectangle::height" alt="" coords="213,5,349,33"/>
-<area shape="rect" id="node3" href="$classrc_rectangle.html#a503fad35feaa849fc21d0c5895cf9b63" title="rcRectangle::ul" alt="" coords="226,57,336,85"/>
-<area shape="rect" id="node4" href="$classrc_rectangle.html#a37c8043dcda3dc1076e57c4a1c219263" title="rcRectangle::width" alt="" coords="216,109,347,137"/>
-<area shape="rect" id="node5" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="246,161,316,189"/>
-<area shape="rect" id="node6" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="232,213,331,241"/>
-<area shape="rect" id="node7" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="246,265,316,293"/>
-<area shape="rect" id="node8" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="232,317,331,345"/>
-</map>

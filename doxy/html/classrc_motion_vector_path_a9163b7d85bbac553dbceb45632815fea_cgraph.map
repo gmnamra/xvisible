@@ -1,6 +1,0 @@
-<map id="rcMotionVectorPath::match" name="rcMotionVectorPath::match">
-<area shape="rect" id="node2" href="$classrc_motion_vector_path.html#a200aac86ab8178b806d51c21a62ade77" title="rcMotionVectorPath\l::_match_u16" alt="" coords="192,5,330,49"/>
-<area shape="rect" id="node3" href="$classrc_motion_vector_path.html#a2225fc3180b0b950486c0716dc2c6d5b" title="rcMotionVectorPath\l::_match_u32" alt="" coords="192,73,330,117"/>
-<area shape="rect" id="node4" href="$classrc_motion_vector_path.html#a4dbd0d706ecf802c577e3d479f7ea2a7" title="rcMotionVectorPath\l::_match_u8" alt="" coords="192,141,330,185"/>
-<area shape="rect" id="node5" href="$classrc_window.html#a9ab724dc45a3c3c2beee6c8ed558de1e" title="rcWindow::depth" alt="" coords="201,209,322,237"/>
-</map>

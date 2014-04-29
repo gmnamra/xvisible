@@ -1,9 +1,0 @@
-<map id="rc2Xform::inverse" name="rc2Xform::inverse">
-<area shape="rect" id="node2" href="$classrc2_xform.html#ade99ff157bd7a2f7e997e631f46e2b7c" title="rc2Xform::invMapPoint" alt="" coords="179,87,335,115"/>
-<area shape="rect" id="node8" href="$classrc_visual_function.html#a39b0eae4df10a782d7b9f8fede2b4f63" title="rcVisualFunction::vXform" alt="" coords="603,177,773,205"/>
-<area shape="rect" id="node3" href="$classrc_base_motion_path.html#a0b15f724a990d21c60e023a87c81d018" title="move (vector) &#160;Move assuming the (t) &#45;&gt; (t+1) &#160;for motion vectors we assume translation" alt="" coords="384,5,554,33"/>
-<area shape="rect" id="node4" href="$classrc_ls_fit.html#a5f924d00463baf4a0699933c1f114026" title="rcLsFit::rms" alt="" coords="424,57,515,85"/>
-<area shape="rect" id="node5" href="$classrc_affine_rectangle.html#a6955eb515ff30a2bef835792c5c2354f" title="rcAffineRectangle::\limageToAffine" alt="" coords="402,109,536,153"/>
-<area shape="rect" id="node6" href="$classrc_visual_function.html#a1df64c3605f3a0a4670118911ac783b1" title="rcVisualFunction::cardiac\lMeasure" alt="" coords="603,109,773,153"/>
-<area shape="rect" id="node7" href="$classrc_visual_function.html#ac3135ba614a9ba5080e78c3f2f426312" title="rcVisualFunction::measure" alt="" coords="821,147,1000,175"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="rcEngineBaseImpl::process" name="rcEngineBaseImpl::process">
-<area shape="rect" id="node2" href="$classrc_engine_base_impl.html#a3d789faf33f5e0f99f06667eb45a4fbd" title="rcEngineBaseImpl::getState" alt="" coords="244,5,431,33"/>
-<area shape="rect" id="node3" href="$classrc_engine_base_impl.html#ad1a3c29ccf0e208a73a72309fbc0303b" title="rcEngineBaseImpl::setInternal\lState" alt="" coords="238,57,437,101"/>
-<area shape="rect" id="node4" href="$classrc_engine_observer.html#aca4c1ca348b1469046c1d9a8070a017d" title="rcEngineObserver::notify\lState" alt="" coords="485,57,653,101"/>
-</map>

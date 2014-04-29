@@ -1,6 +1,0 @@
-<map id="rcKinetoscope::reconcile" name="rcKinetoscope::reconcile">
-<area shape="rect" id="node2" href="$classrc_kinetoscope.html#a30274b84c57f86e667b614556f6c569b" title="rcKinetoscope::step" alt="" coords="472,24,611,52"/>
-<area shape="rect" id="node4" href="$classrc_kinetoscope.html#ae0addfc3a10c4c69ba027d9bfc351217" title="rcKinetoscope::stepContractile" alt="" coords="222,24,424,52"/>
-<area shape="rect" id="node5" href="$classrc_kinetoscope.html#a431144623d201c5aeb857893d8460ca2" title="rcKinetoscope::stepEpi" alt="" coords="244,76,402,104"/>
-<area shape="rect" id="node3" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="659,24,853,52"/>
-</map>

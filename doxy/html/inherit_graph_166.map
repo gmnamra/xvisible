@@ -1,6 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$classrc_model_domain.html" title="rcModelDomain" alt="" coords="245,57,360,85"/>
-<area shape="rect" id="node3" href="$classrc_track_manager.html" title="rcTrackManager" alt="" coords="244,5,362,33"/>
-<area shape="rect" id="node4" href="$classrc_experiment_observer.html" title="rcExperimentObserver" alt="" coords="5,83,160,111"/>
-<area shape="rect" id="node5" href="$classrc_batch_experiment_observer.html" title="rcBatchExperimentObserver" alt="" coords="208,109,397,137"/>
-</map>

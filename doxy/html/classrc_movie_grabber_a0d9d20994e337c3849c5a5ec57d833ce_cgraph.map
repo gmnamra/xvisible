@@ -1,6 +1,0 @@
-<map id="rcMovieGrabber::stop" name="rcMovieGrabber::stop">
-<area shape="rect" id="node2" href="$classrc_file_grabber.html#aec38f5ee4c719127b5566011c981dbab" title="rcFileGrabber::lock" alt="" coords="210,5,344,33"/>
-<area shape="rect" id="node4" href="$classrc_file_grabber.html#a207b9e0a09e52ae34ec586b3bcb3ac8c" title="rcFileGrabber::unlock" alt="" coords="203,57,352,85"/>
-<area shape="rect" id="node3" href="$classrc_carbon_lock.html#ac56248341ae4b7fb1d32d22c6d6adc78" title="rcCarbonLock::lock" alt="" coords="408,5,544,33"/>
-<area shape="rect" id="node5" href="$classrc_carbon_lock.html#a7e71f89f7b34564243ccd27ef365642c" title="rcCarbonLock::unlock" alt="" coords="401,57,551,85"/>
-</map>

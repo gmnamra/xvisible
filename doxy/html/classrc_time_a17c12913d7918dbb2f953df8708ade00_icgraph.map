@@ -1,6 +1,0 @@
-<map id="rcTime::mReadTBR" name="rcTime::mReadTBR">
-<area shape="rect" id="node2" href="$classrc_time.html#aac2f29bac0a4b756ffc63a98a9792f3a" title="rcTime::end" alt="" coords="194,5,286,33"/>
-<area shape="rect" id="node3" href="$classrc_time.html#a9880463e8bdab63b4ed0df55b23e3e76" title="rcTime::start" alt="" coords="193,57,287,85"/>
-<area shape="rect" id="node4" href="$classrc_time.html#a95254f8d3d2a46c44bc08c567867a1d9" title="rcTime::rcTime" alt="" coords="336,30,445,58"/>
-<area shape="rect" id="node5" href="$classrc_time.html#a3991d0143ab9e2fbcf7f83c33ef991b5" title="rcTime::reset" alt="" coords="341,82,440,110"/>
-</map>

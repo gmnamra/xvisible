@@ -1,7 +1,0 @@
-<map id="lm_library::purge" name="lm_library::purge">
-<area shape="rect" id="node2" href="$classlm__library.html#ac4e2425c5ba2a8006aa7fdda13262865" title="lm_library::find" alt="" coords="177,31,285,59"/>
-<area shape="rect" id="node6" href="$classlm__library.html#a54d331ae570cf87b05c3886b64a24517" title="lm_library::save" alt="" coords="173,83,288,111"/>
-<area shape="rect" id="node3" href="$classlm__library.html#a52bdce9d79e7b26625caf6423c4ee1d5" title="lm_library::local_find" alt="" coords="337,31,479,59"/>
-<area shape="rect" id="node4" href="$classlm__unit__name.html#a245b61a5e15f2ef85c0200a5879d6cad" title="lm_unit_name::lowercase" alt="" coords="528,5,701,33"/>
-<area shape="rect" id="node5" href="$classlm__library.html#a52fb90a71aca4d11010787509453d650" title="lm_library::name" alt="" coords="555,57,675,85"/>
-</map>

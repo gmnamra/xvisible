@@ -1,7 +1,0 @@
-<map id="rc2Xform::invMapPoint" name="rc2Xform::invMapPoint">
-<area shape="rect" id="node2" href="$classrc2_xform.html#a82b83615c4ae911ab21adf6d08a5a397" title="rc2Xform::inverse" alt="" coords="210,30,336,58"/>
-<area shape="rect" id="node5" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="224,82,323,110"/>
-<area shape="rect" id="node6" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="224,134,323,162"/>
-<area shape="rect" id="node3" href="$classrc_matrix__2d.html#adcebad9f37bbe700ab70b5fb5b29c8c6" title="rcMatrix_2d::inverse" alt="" coords="384,5,525,33"/>
-<area shape="rect" id="node4" href="$classrc2_xform.html#abb63067ff95c0c86e1d855376f94fbe7" title="rc2Xform::rc2Xform" alt="" coords="386,57,523,85"/>
-</map>

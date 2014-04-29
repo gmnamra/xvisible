@@ -1,5 +1,0 @@
-<map id="rcAnalyzer::~rcAnalyzer" name="rcAnalyzer::~rcAnalyzer">
-<area shape="rect" id="node2" href="$classrc_analyzer.html#af52e48b0cb7d1ed5a512d6b739dcbedd" title="rcAnalyzer::stop" alt="" coords="216,31,333,59"/>
-<area shape="rect" id="node3" href="$classrc_frame_grabber.html#a0a3539e319bfd0afb0339b6449744fc6" title="rcFrameGrabber::stop" alt="" coords="405,5,558,33"/>
-<area shape="rect" id="node4" href="$classrc_frame_grabber.html#acf1e7da1167f3b05b327e9481e9a7d35" title="rcFrameGrabber::getLastError" alt="" coords="381,57,582,85"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$classassert__failed.html" title="assert_failed" alt="" coords="168,5,264,33"/>
-<area shape="rect" id="node3" href="$classend__dereference.html" title="end_dereference" alt="" coords="155,57,277,85"/>
-<area shape="rect" id="node4" href="$classinf_1_1divide__by__zero.html" title="inf::divide_by_zero" alt="" coords="150,109,282,137"/>
-<area shape="rect" id="node5" href="$classnull__dereference.html" title="null_dereference" alt="" coords="156,161,276,189"/>
-<area shape="rect" id="node6" href="$classpersistent__illegal__type.html" title="persistent_illegal_type" alt="" coords="139,213,293,241"/>
-<area shape="rect" id="node7" href="$classwrong__object.html" title="wrong_object" alt="" coords="166,265,266,293"/>
-</map>

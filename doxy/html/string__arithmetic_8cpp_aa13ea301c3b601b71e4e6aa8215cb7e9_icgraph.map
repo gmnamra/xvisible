@@ -1,6 +1,0 @@
-<map id="signed_add" name="signed_add">
-<area shape="rect" id="node2" href="$string__arithmetic_8hpp.html#a2e8b975956735b659e2ce6940a1b19a5" title="signed_modulus" alt="" coords="145,5,263,33"/>
-<area shape="rect" id="node3" href="$string__arithmetic_8hpp.html#a3330004ebec2ed1bce81c84710f91e1e" title="signed_multiply" alt="" coords="147,57,261,85"/>
-<area shape="rect" id="node4" href="$string__arithmetic_8hpp.html#ad0516fe3afc0dfb4884ab079d65a8572" title="unsigned_exponent" alt="" coords="312,30,450,58"/>
-<area shape="rect" id="node5" href="$string__arithmetic_8hpp.html#aeb8b4ac2bac4a911ada4b1b8823475b3" title="signed_exponent" alt="" coords="320,82,443,110"/>
-</map>

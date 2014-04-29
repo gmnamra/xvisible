@@ -1,6 +1,0 @@
-<map id="signed_negate" name="signed_negate">
-<area shape="rect" id="node2" href="$string__arithmetic_8hpp.html#af518e5e03c09204d61158fd4ff5deede" title="signed_abs" alt="" coords="163,30,253,58"/>
-<area shape="rect" id="node3" href="$string__arithmetic_8hpp.html#aadea3688ea789af8751de7438de2b81a" title="signed_divide" alt="" coords="314,5,417,33"/>
-<area shape="rect" id="node4" href="$string__arithmetic_8hpp.html#a045a224c929ce31ed52a22c98778f8db" title="signed_remainder" alt="" coords="301,69,429,97"/>
-<area shape="rect" id="node5" href="$string__arithmetic_8hpp.html#a2e8b975956735b659e2ce6940a1b19a5" title="signed_modulus" alt="" coords="478,69,597,97"/>
-</map>

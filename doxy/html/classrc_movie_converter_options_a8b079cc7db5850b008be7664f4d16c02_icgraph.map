@@ -1,9 +1,0 @@
-<map id="rcMovieConverterOptions::frameInterval" name="rcMovieConverterOptions::frameInterval">
-<area shape="rect" id="node2" href="$classrc_movie_converter_to_rfy.html#af3af0dd934f527a9c08669e49f7f2304" title="rcMovieConverterToRfy\l::convert" alt="" coords="434,57,595,101"/>
-<area shape="rect" id="node3" href="$bcnvrt__main_8cpp.html#accc22075ea7eb720aed5cad6e10344b9" title="rfConvertMovie" alt="" coords="672,125,784,153"/>
-<area shape="rect" id="node5" href="$bcnvrt__main_8cpp.html#add0a6eef95e64e05a21758380072e136" title="rfConvertTwoMovies" alt="" coords="657,5,799,33"/>
-<area shape="rect" id="node7" href="$classrc_movie_converter_to_rfy.html#a14ff503f33fc8496d34f367992430ebb" title="rcMovieConverterToRfy\l::createRfyMovie" alt="" coords="226,82,387,126"/>
-<area shape="rect" id="node8" href="$rc__movieconverter_8h.html#a58de5a2419699e52c7215cdc4aa6e1a6" title="operator\&lt;\&lt;" alt="" coords="263,202,350,230"/>
-<area shape="rect" id="node6" href="$classrc_experiment_impl.html#ac08b9d15f5bb7db0b85a6d67406f95fa" title="rcExperimentImpl::export\lMovie" alt="" coords="643,57,813,101"/>
-<area shape="rect" id="node4" href="$bcnvrt__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="862,65,912,93"/>
-</map>

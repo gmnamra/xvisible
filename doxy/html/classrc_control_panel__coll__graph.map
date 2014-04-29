@@ -1,5 +1,0 @@
-<map id="rcControlPanel" name="rcControlPanel">
-<area shape="rect" id="node3" href="$classrc_rect.html" title="rcRect" alt="" coords="107,275,167,303"/>
-<area shape="rect" id="node4" href="$classrc_rectangle.html" title="rcIRect" alt="" coords="106,195,168,223"/>
-<area shape="rect" id="node5" href="$classrc_pair.html" title="rcPair\&lt; int32 \&gt;" alt="" coords="83,86,191,114"/>
-</map>

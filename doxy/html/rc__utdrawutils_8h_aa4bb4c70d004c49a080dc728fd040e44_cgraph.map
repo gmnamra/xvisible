@@ -1,9 +1,0 @@
-<map id="rfDrawLine" name="rfDrawLine">
-<area shape="rect" id="node2" href="$classrc_window.html#a36bd7fdef6e5edc028aceb8656944034" title="rcWindow::setPixel" alt="" coords="138,109,272,137"/>
-<area shape="rect" id="node6" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="505,5,575,33"/>
-<area shape="rect" id="node8" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="505,211,575,239"/>
-<area shape="rect" id="node3" href="$classrc_window.html#a3286f93b0d223617111f3ac62b854b2f" title="rcWindow::isBound" alt="" coords="320,82,456,110"/>
-<area shape="rect" id="node4" href="$classrc_frame.html#a28af1b24a02c5946d1e8cd173ba177b3" title="rcFrame::setPixel" alt="" coords="325,134,451,162"/>
-<area shape="rect" id="node5" href="$classrc_rect.html#ac0f95519a41dcf7e33bec85ccb8e7aff" title="rcRect::x" alt="" coords="351,30,425,58"/>
-<area shape="rect" id="node7" href="$classrc_rect.html#a50236160751c949d8718f8d4d17f7923" title="rcRect::y" alt="" coords="351,186,425,214"/>
-</map>

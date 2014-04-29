@@ -1,6 +1,0 @@
-<map id="LLSQ::vector_fit_angle" name="LLSQ::vector_fit_angle">
-<area shape="rect" id="node2" href="$nrutil__nr_8h.html#ad642c6665fb6e512b57b2531cbd081bf" title="atan2" alt="" coords="247,5,302,33"/>
-<area shape="rect" id="node3" href="$class_l_l_s_q.html#a36d6bf1e469425fc4f9b97521aee481e" title="LLSQ::covariance" alt="" coords="211,57,338,85"/>
-<area shape="rect" id="node4" href="$class_l_l_s_q.html#a27994b02b1ea16d8e3a6c951c90205dd" title="LLSQ::x_variance" alt="" coords="211,109,338,137"/>
-<area shape="rect" id="node5" href="$class_l_l_s_q.html#a3e386f3db4343cca32ac4a4f028c6ea4" title="LLSQ::y_variance" alt="" coords="211,161,338,189"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="rcVideoCache::prefetchFrame" name="rcVideoCache::prefetchFrame">
-<area shape="rect" id="node2" href="$classrc_video_cache.html#a4c3142d693b4308db8b4e46ac60da99b" title="rcVideoCache::cachePrefetch" alt="" coords="253,13,451,41"/>
-<area shape="rect" id="node3" href="$classrc_shared_frame_buf_ptr.html#a3a63472e958153aa52867cfcb2b15e2b" title="rcSharedFrameBufPtr\l::prefetch" alt="" coords="499,5,650,49"/>
-<area shape="rect" id="node4" href="$classrc_engine_movie_playback.html#ab5cff6edcb8b3d901f96d0fde1766f18" title="rcEngineMoviePlayback::run" alt="" coords="700,13,890,41"/>
-</map>

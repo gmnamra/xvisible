@@ -1,8 +1,0 @@
-<map id="subprocess::~subprocess" name="subprocess::~subprocess">
-<area shape="rect" id="node2" href="$classsubprocess.html#a6c094be24bfb11f259116b7d1e38b7d0" title="subprocess::close_stderr" alt="" coords="389,5,558,33"/>
-<area shape="rect" id="node5" href="$classsubprocess.html#a93a5a36b980b0a8135690eca34a0fed8" title="subprocess::close_stdin" alt="" coords="392,57,555,85"/>
-<area shape="rect" id="node6" href="$classsubprocess.html#a513a73712c337d5406e87a2e67a38454" title="subprocess::close_stdout" alt="" coords="387,109,559,137"/>
-<area shape="rect" id="node7" href="$classsubprocess.html#a9e2c0f10c8fd3ec2a4b37f4ae7b19f0d" title="subprocess::kill" alt="" coords="226,31,339,59"/>
-<area shape="rect" id="node3" href="$textio_8cpp.html#acf3fee36b85acdf7fae42a766218d233" title="close" alt="" coords="608,57,661,85"/>
-<area shape="rect" id="node4" href="$classotext.html#ab8cc31aaff71191e9cb95a5330a7bc5f" title="otext::close" alt="" coords="710,57,799,85"/>
-</map>
