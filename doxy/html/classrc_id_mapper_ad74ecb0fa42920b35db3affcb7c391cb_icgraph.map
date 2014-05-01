@@ -1,9 +1,0 @@
-<map id="rcIdMapper::group" name="rcIdMapper::group">
-<area shape="rect" id="node2" href="$classrc_id_mapper.html#a853a15657f0c15536964f21be0e0b983" title="rcIdMapper::addGroup" alt="" coords="185,5,340,33"/>
-<area shape="rect" id="node8" href="$classrc_native_importer.html#a71c3426c535c6f694642c060226490b0" title="rcNativeImporter::parseTrack" alt="" coords="391,57,585,85"/>
-<area shape="rect" id="node3" href="$classrc_native_importer.html#aebd99fd3489774a30d1ce7e8942dcbd6" title="rcNativeImporter::parseGroup" alt="" coords="389,5,587,33"/>
-<area shape="rect" id="node4" href="$classrc_native_importer.html#af5adf061fe00108fe51b90bfb8747527" title="rcNativeImporter::parseExperimentData" alt="" coords="635,31,891,59"/>
-<area shape="rect" id="node5" href="$classrc_native_importer.html#aec2b9d0745ceb8c0f75ae5d7b2d28076" title="rcNativeImporter::import\lExperiment" alt="" coords="939,23,1103,67"/>
-<area shape="rect" id="node6" href="$classrc_experiment_impl.html#a23195f3ff1ec159207ba1784d919434c" title="rcExperimentImpl::loadExperiment" alt="" coords="1153,31,1378,59"/>
-<area shape="rect" id="node7" href="$classrc_experiment_domain_impl.html#a5c45f8064944cafb71471e3a576f1ad3" title="rcExperimentDomainImpl\l::loadExperiment" alt="" coords="1426,23,1598,67"/>
-</map>

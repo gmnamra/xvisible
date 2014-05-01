@@ -1,6 +1,0 @@
-<map id="signed_not" name="signed_not">
-<area shape="rect" id="node2" href="$string__arithmetic_8hpp.html#a1f4624df79dda05c230d1540b69ea565" title="inf_to_signed" alt="" coords="147,5,248,33"/>
-<area shape="rect" id="node3" href="$string__arithmetic_8hpp.html#a06390d0cd7a69f65eb556a8371c5d1b8" title="long_to_signed" alt="" coords="141,57,253,85"/>
-<area shape="rect" id="node4" href="$string__arithmetic_8hpp.html#acd0ad29ff6c029f1f82df01bad62a3c7" title="signed_to_inf" alt="" coords="147,109,248,137"/>
-<area shape="rect" id="node5" href="$string__arithmetic_8hpp.html#aa2a61c5c6b7a719e3abc9ba565bf7d1f" title="signed_to_long" alt="" coords="141,161,253,189"/>
-</map>

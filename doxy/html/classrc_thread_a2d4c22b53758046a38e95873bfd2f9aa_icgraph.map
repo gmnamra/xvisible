@@ -1,5 +1,0 @@
-<map id="rcThread::setPriority" name="rcThread::setPriority">
-<area shape="rect" id="node2" href="$classrc_engine_impl.html#a99af1b4b3222745ecd46f3701e521044" title="rcEngineImpl::initialize" alt="" coords="196,5,350,33"/>
-<area shape="rect" id="node3" href="$classrc_engine_movie_capture.html#a10672d7a2c7b923890dbbad9d464bfa0" title="rcEngineMovieCapture\l::startSaveThread" alt="" coords="195,57,352,101"/>
-<area shape="rect" id="node4" href="$classrc_engine_movie_capture.html#a0d8bfe4fd32e11bdbdb2c0ad113425ff" title="rcEngineMovieCapture::run" alt="" coords="400,65,584,93"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="rfIsWhiteReversed" name="rfIsWhiteReversed">
-<area shape="rect" id="node2" href="$classrc_frame.html#ada48d0692c865c7463264007d99b1961" title="rcFrame::colorMap" alt="" coords="197,5,331,33"/>
-<area shape="rect" id="node3" href="$classrc_frame.html#ae3ac88de540e922eabef93511072b05a" title="rcFrame::colorMapSize" alt="" coords="184,57,344,85"/>
-<area shape="rect" id="node4" href="$classrc_window.html#a21071d7c895af110edf6fb9e19342d6b" title="rcWindow::frameBuf" alt="" coords="193,109,335,137"/>
-<area shape="rect" id="node5" href="$classrc_frame.html#ac8264644f2c97390f190b792cf8c1c32" title="rcFrame::getColor" alt="" coords="200,161,328,189"/>
-<area shape="rect" id="node6" href="$classrc_frame.html#af1a10fd97a2b54fc9bffffd92403f6cf" title="rcFrame::isGray" alt="" coords="206,213,322,241"/>
-</map>

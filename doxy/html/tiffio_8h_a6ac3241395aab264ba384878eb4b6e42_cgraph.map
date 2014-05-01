@@ -1,9 +1,0 @@
-<map id="TIFFSetupStrips" name="TIFFSetupStrips">
-<area shape="rect" id="node2" href="$tif__apple_8c.html#aaa739de67506b8254e9d150190425b4f" title="_TIFFmalloc" alt="" coords="199,5,294,33"/>
-<area shape="rect" id="node3" href="$tif__apple_8c.html#abbc4b30de2ac6b7eecdf9362bfa74c39" title="_TIFFmemset" alt="" coords="195,57,299,85"/>
-<area shape="rect" id="node4" href="$tif__strip_8c.html#a5328073d6865037bd8be7d3b17f0d9c0" title="TIFFNumberOfStrips" alt="" coords="174,109,319,137"/>
-<area shape="rect" id="node7" href="$tif__tile_8c.html#a9e48a8f5a668c37c6a05373f18532fa6" title="TIFFNumberOfTiles" alt="" coords="177,161,316,189"/>
-<area shape="rect" id="node5" href="$tif__strip_8c.html#a3d2583ed5901992de25556d454e42054" title="multiply" alt="" coords="368,109,435,137"/>
-<area shape="rect" id="node6" href="$tif__error_8c.html#a2e8b77a2d4e7b7283b55b963dd67ec31" title="TIFFErrorExt" alt="" coords="483,135,581,163"/>
-<area shape="rect" id="node8" href="$tif__tile_8c.html#a3d2583ed5901992de25556d454e42054" title="multiply" alt="" coords="368,161,435,189"/>
-</map>

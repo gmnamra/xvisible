@@ -1,9 +1,0 @@
-<map id="rf1DFourierAnalysis" name="rf1DFourierAnalysis">
-<area shape="rect" id="node2" href="$nrutil__nr_8h.html#ad642c6665fb6e512b57b2531cbd081bf" title="atan2" alt="" coords="210,5,265,33"/>
-<area shape="rect" id="node3" href="$rc__math_8h.html#a6699cdaca52c9f90fbc27d377ac74cff" title="cos" alt="" coords="331,109,373,137"/>
-<area shape="rect" id="node5" href="$rc__fit_8h.html#aab8b94282f03e5c40b03bda83b781d23" title="parabolicFit" alt="" coords="192,109,282,137"/>
-<area shape="rect" id="node6" href="$rc__frequency_8cpp.html#a5872e59343f1bf16ab5a397ff50245ca" title="rf1Ddft" alt="" coords="207,161,268,189"/>
-<area shape="rect" id="node8" href="$rc__frequency_8cpp.html#a0ab463a7898aa8c25b9d0e1113bcd3e8" title="rf1Dfft" alt="" coords="209,213,266,241"/>
-<area shape="rect" id="node4" href="$classrc_radian.html#a2e41a3904c1fefd6989ddc3124dfaa32" title="rcRadian::Double" alt="" coords="422,135,546,163"/>
-<area shape="rect" id="node7" href="$rc__math_8h.html#adac5d992515c3417b2ab21dd654a272c" title="sin" alt="" coords="333,161,371,189"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="rcImageCanvasGL::drawRubberBandRect" name="rcImageCanvasGL::drawRubberBandRect">
-<area shape="rect" id="node2" href="$classrc_image_canvas_g_l.html#a8bccf12c0ecdc02e4830f0b80fb8e8dc" title="rcImageCanvasGL::drawFocusRect" alt="" coords="266,5,499,33"/>
-<area shape="rect" id="node4" href="$classrc_image_canvas_g_l.html#aef9949c8e7bacf03aa2c62673e2bb708" title="rcImageCanvasGL::drawZoomRect" alt="" coords="268,57,498,85"/>
-<area shape="rect" id="node3" href="$classrc_image_canvas_g_l.html#ab57b93a733a4e2b8703a4ee083d46737" title="rcImageCanvasGL::mouseMove\lEvent" alt="" coords="547,23,760,67"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="rcPolygon::translate" name="rcPolygon::translate">
-<area shape="rect" id="node2" href="$classrc_polygon.html#a6d552acb94436392fdc21de35ec225d7" title="rcPolygon::translate" alt="" coords="192,57,331,85"/>
-<area shape="rect" id="node4" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="402,5,502,33"/>
-<area shape="rect" id="node5" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="402,109,502,137"/>
-<area shape="rect" id="node3" href="$classrc_polygon.html#a41869bd1a096e2b77d7304242e2c1e1e" title="rcPolygon::vertexCnt" alt="" coords="379,57,525,85"/>
-</map>

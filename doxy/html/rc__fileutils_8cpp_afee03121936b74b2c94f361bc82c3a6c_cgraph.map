@@ -1,7 +1,0 @@
-<map id="rfMakeTmpFileName" name="rfMakeTmpFileName">
-<area shape="rect" id="node2" href="$classrc_timestamp.html#a7e749f376ff8741e79a2dbba2419e78f" title="rcTimestamp::now" alt="" coords="202,5,332,33"/>
-<area shape="rect" id="node4" href="$classrc_timestamp.html#a7a76776edb5c337196cf10c009339d15" title="rcTimestamp::secs" alt="" coords="200,57,333,85"/>
-<area shape="rect" id="node3" href="$rc__timestamp__mac_8cpp.html#af7988734f76c2effcc4118da588b8779" title="getCurrentTimestamp" alt="" coords="405,5,555,33"/>
-<area shape="rect" id="node5" href="$rc__timestamp_8h.html#ac624900be52fa7f30d3ad72543cc725d" title="convertTimestampToSeconds" alt="" coords="382,57,578,85"/>
-<area shape="rect" id="node6" href="$rc__timestamp__mac_8cpp.html#a7962719b626553bf7a913f7c2671b777" title="getTimestampResolution" alt="" coords="627,57,795,85"/>
-</map>

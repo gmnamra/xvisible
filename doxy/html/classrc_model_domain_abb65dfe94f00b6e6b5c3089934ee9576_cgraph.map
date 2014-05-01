@@ -1,7 +1,0 @@
-<map id="rcModelDomain::requestStop" name="rcModelDomain::requestStop">
-<area shape="rect" id="node2" href="$classrc_experiment_domain.html#a6abeb9bb031e7bf26116f5cb914e2a56" title="rcExperimentDomain\l::getExperimentAttributes" alt="" coords="268,5,439,49"/>
-<area shape="rect" id="node3" href="$classrc_experiment_domain.html#aad0cfe78090f8444ba58c60a434f49cb" title="rcExperimentDomain\l::operatingOnLiveInput" alt="" coords="275,73,431,117"/>
-<area shape="rect" id="node4" href="$classrc_experiment_domain.html#ac698113c9648c968fc820c6bd8714436" title="rcExperimentDomain\l::stopExperiment" alt="" coords="280,141,426,185"/>
-<area shape="rect" id="node5" href="$classrc_model_domain.html#a027449fa211347da01119998c07d467c" title="rcModelDomain::updateCamera\lState" alt="" coords="248,209,458,253"/>
-<area shape="rect" id="node6" href="$classgeneral__exception.html#a94a11f479c950ebf385096aec6f6e8bf" title="general_exception::what" alt="" coords="270,277,436,305"/>
-</map>

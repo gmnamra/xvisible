@@ -1,6 +1,0 @@
-<map id="PeakSpotter" name="PeakSpotter">
-<area shape="rect" id="node2" href="$classrc_radian.html" title="rcRadian" alt="" coords="5,6,80,34"/>
-<area shape="rect" id="node3" href="$class_histogram.html" title="Histogram" alt="" coords="104,6,185,34"/>
-<area shape="rect" id="node4" href="$class_l_l_s_q.html" title="LLSQ" alt="" coords="211,6,265,34"/>
-<area shape="rect" id="node5" href="$classrc_mutex.html" title="rcMutex" alt="" coords="291,6,359,34"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="ifbuff::ifbuff" name="ifbuff::ifbuff">
-<area shape="rect" id="node2" href="$classifbuff.html#a865755bba321ed46d7df24b8ce121c4c" title="ifbuff::open" alt="" coords="142,5,229,33"/>
-<area shape="rect" id="node3" href="$classibuff.html#a8add995ecf0a95ef60c0ae122905b933" title="ibuff::set_error" alt="" coords="277,5,384,33"/>
-<area shape="rect" id="node4" href="$class_t_c_p__client__data.html#a970f6bf6bb6e6166615813c5f7768381" title="TCP_client_data::error" alt="" coords="433,5,588,33"/>
-<area shape="rect" id="node5" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="638,5,767,33"/>
-</map>

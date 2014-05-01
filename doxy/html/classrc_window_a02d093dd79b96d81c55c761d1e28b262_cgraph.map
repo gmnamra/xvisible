@@ -1,6 +1,0 @@
-<map id="rcWindow::maxTrim" name="rcWindow::maxTrim">
-<area shape="rect" id="node2" href="$classrc_window.html#a1a7217157a96651214200a5314864cea" title="rcWindow::frame" alt="" coords="198,5,319,33"/>
-<area shape="rect" id="node3" href="$classrc_window.html#a9f7a0bcb8e06c40b325741195a6f9116" title="rcWindow::position" alt="" coords="192,57,325,85"/>
-<area shape="rect" id="node4" href="$classrc_window.html#aae85efa83f5cad9ca30bd96c7d624860" title="rcWindow::size" alt="" coords="203,109,314,137"/>
-<area shape="rect" id="node5" href="$classrc_rectangle.html#abf237ae523e116f84025b7f130988b6e" title="rcRectangle::size" alt="" coords="197,161,320,189"/>
-</map>

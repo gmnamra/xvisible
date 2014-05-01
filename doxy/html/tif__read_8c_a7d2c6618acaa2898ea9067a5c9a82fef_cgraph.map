@@ -1,6 +1,0 @@
-<map id="TIFFReadRawTile" name="TIFFReadRawTile">
-<area shape="rect" id="node2" href="$tif__read_8c.html#a90b7068de0a3d5ef5d1dbfb1a945d61f" title="TIFFCheckRead" alt="" coords="192,5,312,33"/>
-<area shape="rect" id="node3" href="$tif__error_8c.html#a2e8b77a2d4e7b7283b55b963dd67ec31" title="TIFFErrorExt" alt="" coords="372,57,471,85"/>
-<area shape="rect" id="node4" href="$tif__read_8c.html#aaed93e58502dc1c095a087d972429802" title="TIFFReadRawTile1" alt="" coords="184,109,320,137"/>
-<area shape="rect" id="node5" href="$tif__apple_8c.html#aacf23567597faf7b8f01f31f397217f0" title="_TIFFmemcpy" alt="" coords="368,109,475,137"/>
-</map>

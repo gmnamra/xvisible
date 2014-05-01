@@ -1,5 +1,0 @@
-<map id="LogBuffer::flush" name="LogBuffer::flush">
-<area shape="rect" id="node2" href="$class_log_stream.html#ac8ccc0ee090186543bc8083ca5836659" title="LogStream::get_level" alt="" coords="170,5,318,33"/>
-<area shape="rect" id="node3" href="$struct_log_register.html#aab8879f7f99157c98487a6317506d0b8" title="LogRegister::instance" alt="" coords="169,57,319,85"/>
-<area shape="rect" id="node4" href="$struct_log_register.html#ab004272c1542558a26bc6718dce1a8b1" title="LogRegister::write" alt="" coords="180,109,308,137"/>
-</map>

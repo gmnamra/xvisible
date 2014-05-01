@@ -1,7 +1,0 @@
-<map id="rcShape::perimeter" name="rcShape::perimeter">
-<area shape="rect" id="node2" href="$classrc_shape.html#a82b0967ec378cc747feff8a833c7196f" title="rcShape::needPerimeter" alt="" coords="189,57,355,85"/>
-<area shape="rect" id="node3" href="$classrc_shape.html#acc0e95b282384746658f087098f02e3d" title="rcShape::isValid" alt="" coords="416,5,533,33"/>
-<area shape="rect" id="node4" href="$classrc_polygon.html#a705cfa9235fe0e00f743200ea22dcf3e" title="rcPolygon::perimeter" alt="" coords="402,57,547,85"/>
-<area shape="rect" id="node6" href="$classrc_shape.html#a4e81fb442d9c9d695e84257fe361f6e8" title="rcShape::validate" alt="" coords="412,109,537,137"/>
-<area shape="rect" id="node5" href="$classrc2d_vector.html#ac4a413b49950f1664b29d4b436b2c83b" title="rc2dVector::len" alt="" coords="596,57,706,85"/>
-</map>

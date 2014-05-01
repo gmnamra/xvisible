@@ -1,7 +1,0 @@
-<map id="FxPreNorm" name="FxPreNorm">
-<area shape="rect" id="node2" href="$rc__math_8h.html#a941d7dddd9677d45cee6701838dbdeea" title="rfFxAtan2" alt="" coords="151,5,230,33"/>
-<area shape="rect" id="node3" href="$rc__math_8h.html#a12e07d4aab6917e3d7555c4f04cc0e84" title="rfFxPolarize" alt="" coords="144,57,237,85"/>
-<area shape="rect" id="node6" href="$rc__math_8h.html#af46cd3ab9067355ab140ebac37444b58" title="rfFxRotate" alt="" coords="149,109,232,137"/>
-<area shape="rect" id="node4" href="$classrc_feature.html#a8c0b2d9d038c16a01f4660ae45deca81" title="rcFeature::octants" alt="" coords="286,31,415,59"/>
-<area shape="rect" id="node5" href="$classrc_feature.html#a7e8d4122949961dfdbb297b155c2c9f4" title="rcFeature::polar" alt="" coords="293,83,408,111"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="rcMonitor::inputIsStored" name="rcMonitor::inputIsStored">
-<area shape="rect" id="node2" href="$classrc_monitor.html#a901703dc8b45b6978b636d18d8fc9e84" title="rcMonitor::keyPressEvent" alt="" coords="219,5,392,33"/>
-<area shape="rect" id="node3" href="$classrc_monitor.html#ad85bf9190c2c9332d24d2ee2dd4c1acf" title="rcMonitor::settingChanged" alt="" coords="216,57,394,85"/>
-<area shape="rect" id="node5" href="$classrc_monitor.html#a127ffb18fd0cc155f5b9d73d76be92b8" title="rcMonitor::updateDisplay" alt="" coords="221,109,390,137"/>
-<area shape="rect" id="node6" href="$classrc_monitor.html#a86955f05aa2947844ad5d2c924f0558f" title="rcMonitor::updateScale" alt="" coords="226,161,385,189"/>
-<area shape="rect" id="node7" href="$classrc_monitor.html#ab6e8c725da9df124ce56d3a8693bc6b6" title="rcMonitor::updateState" alt="" coords="227,213,383,241"/>
-<area shape="rect" id="node4" href="$classrc_monitor.html#ac08d61628243cd2d0bf2f6388f42995b" title="rcMonitor::rcMonitor" alt="" coords="443,161,583,189"/>
-</map>

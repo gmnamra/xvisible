@@ -1,7 +1,0 @@
-<map id="LLSQ::covariance" name="LLSQ::covariance">
-<area shape="rect" id="node2" href="$class_l_l_s_q.html#ad3aed3a5a46cf180dd80893c1034aa9e" title="LLSQ::m" alt="" coords="223,5,297,33"/>
-<area shape="rect" id="node3" href="$class_l_l_s_q.html#a8537176180a1cd3ff9c3b1f97d1ffb78" title="LLSQ::pearson" alt="" coords="204,57,316,85"/>
-<area shape="rect" id="node4" href="$class_l_l_s_q.html#ab6cc855b60e25574570b54b14235135d" title="LLSQ::rms_orth" alt="" coords="202,109,318,137"/>
-<area shape="rect" id="node5" href="$class_l_l_s_q.html#a6a261d5ce8a751b239bc56649fe35322" title="LLSQ::vector_fit_angle" alt="" coords="182,161,338,189"/>
-<area shape="rect" id="node6" href="$class_l_l_s_q.html#a83e18776ce1c392d23c147ef827ef9fb" title="LLSQ::vector_fit" alt="" coords="387,161,504,189"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="signed_abs" name="signed_abs">
-<area shape="rect" id="node2" href="$string__arithmetic_8cpp.html#aa19eed0b96f17cfe786e83058b5ecffb" title="is_negative" alt="" coords="154,5,243,33"/>
-<area shape="rect" id="node3" href="$string__arithmetic_8cpp.html#adf27f3cb51dced903b8c7dc5b7b70eff" title="signed_negate" alt="" coords="144,109,253,137"/>
-<area shape="rect" id="node4" href="$string__arithmetic_8cpp.html#a81d7a054172ae982785819c0c51a87c5" title="signed_resize" alt="" coords="302,57,405,85"/>
-<area shape="rect" id="node5" href="$string__arithmetic_8cpp.html#aa479141a8083df6b46cd98c13609d224" title="bit_xor" alt="" coords="323,109,384,137"/>
-<area shape="rect" id="node6" href="$string__arithmetic_8cpp.html#a3f0dedb0825234f431e364e025ff9452" title="bit_or" alt="" coords="326,161,381,189"/>
-</map>

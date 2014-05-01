@@ -1,8 +1,0 @@
-<map id="filespec_elements" name="filespec_elements">
-<area shape="rect" id="node2" href="$classfile__specification.html#a2b4f2e2d4cfea960a783f5522faeea0c" title="file_specification\l::drive" alt="" coords="182,5,301,49"/>
-<area shape="rect" id="node3" href="$classfile__specification.html#a306bfe5170955349033fdd2206d1d826" title="file_specification\l::file" alt="" coords="182,73,301,117"/>
-<area shape="rect" id="node4" href="$classfile__specification.html#a6f642b1647711db00a995cf993dbb143" title="file_specification\l::initialise_file" alt="" coords="182,141,301,185"/>
-<area shape="rect" id="node7" href="$classfile__specification.html#ab6e2c3cc492528550d2c4021d3a1c225" title="file_specification\l::path" alt="" coords="518,171,637,215"/>
-<area shape="rect" id="node5" href="$file__system_8cpp.html#a99e06c76afffe1f1d77f01c905b1a5fd" title="is_separator" alt="" coords="530,119,625,147"/>
-<area shape="rect" id="node6" href="$classfile__specification.html#aefefc9da1b64f7ed66a436750a88ffa2" title="file_specification\l::initialise_folder" alt="" coords="350,141,469,185"/>
-</map>

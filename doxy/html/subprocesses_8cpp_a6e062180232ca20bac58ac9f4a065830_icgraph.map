@@ -1,9 +1,0 @@
-<map id="envp_extract" name="envp_extract">
-<area shape="rect" id="node2" href="$classenv__vector.html#adaaf30041433ba0ee2ededbc8fe0c317" title="env_vector::add" alt="" coords="163,5,279,33"/>
-<area shape="rect" id="node3" href="$subprocesses_8cpp.html#a472f35001de232490ad8a28c0833a1d4" title="envp_copy" alt="" coords="178,57,264,85"/>
-<area shape="rect" id="node6" href="$classenv__vector.html#a37030f0d07bc4fd891f3c80f448e2513" title="env_vector::get" alt="" coords="165,109,278,137"/>
-<area shape="rect" id="node8" href="$classenv__vector.html#a157d13b3936e611476887c30a5923326" title="env_vector::remove" alt="" coords="152,161,291,189"/>
-<area shape="rect" id="node4" href="$classenv__vector.html#af0ce1da6806802eaaa4e317f4227b760" title="env_vector::env_vector" alt="" coords="339,5,498,33"/>
-<area shape="rect" id="node5" href="$classenv__vector.html#a6436fda0423dd544791dce02bb939f18" title="env_vector::operator=" alt="" coords="343,57,494,85"/>
-<area shape="rect" id="node7" href="$subprocesses_8hpp.html#a54f412e67d2001876bdb2d430e8ec5e5" title="operator\&lt;\&lt;" alt="" coords="375,109,462,137"/>
-</map>

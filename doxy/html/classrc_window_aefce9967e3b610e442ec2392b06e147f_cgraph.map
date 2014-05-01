@@ -1,8 +1,0 @@
-<map id="rcWindow::getPixel" name="rcWindow::getPixel">
-<area shape="rect" id="node2" href="$classrc_frame.html#afe29820f04ff401b75e23226cbec4c03" title="rcFrame::getPixel" alt="" coords="194,5,320,33"/>
-<area shape="rect" id="node3" href="$classrc_window.html#a3286f93b0d223617111f3ac62b854b2f" title="rcWindow::isBound" alt="" coords="190,57,325,85"/>
-<area shape="rect" id="node4" href="$classrc_rect.html#ac0f95519a41dcf7e33bec85ccb8e7aff" title="rcRect::x" alt="" coords="220,109,294,137"/>
-<area shape="rect" id="node6" href="$classrc_rect.html#a50236160751c949d8718f8d4d17f7923" title="rcRect::y" alt="" coords="220,161,294,189"/>
-<area shape="rect" id="node5" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="374,109,444,137"/>
-<area shape="rect" id="node7" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="374,161,444,189"/>
-</map>

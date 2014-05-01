@@ -1,6 +1,0 @@
-<map id="rcExperimentDomain::loadExperiment" name="rcExperimentDomain::loadExperiment">
-<area shape="rect" id="node2" href="$classrc_model_domain.html#a13bae0fdfe648f4b69bfbba62de82ea4" title="rcModelDomain::requestOpen" alt="" coords="200,31,400,59"/>
-<area shape="rect" id="node3" href="$classrc_menu_bar.html#a6c16d367445a29969c123644d9d92ede" title="rcMenuBar::doOpen" alt="" coords="472,5,613,33"/>
-<area shape="rect" id="node5" href="$classrc_menu_bar.html#a1c0076a5a7b2cff029d0db7976a8fdc8" title="rcMenuBar::doOpenSettings" alt="" coords="448,57,637,85"/>
-<area shape="rect" id="node4" href="$classrc_menu_bar.html#ac519f881b1d9d23fbc907d1c50ea9651" title="rcMenuBar::rcMenuBar" alt="" coords="686,31,845,59"/>
-</map>

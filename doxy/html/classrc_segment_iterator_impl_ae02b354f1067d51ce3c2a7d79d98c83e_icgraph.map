@@ -1,6 +1,0 @@
-<map id="rcSegmentIteratorImpl::hasNextSegment" name="rcSegmentIteratorImpl::hasNextSegment">
-<area shape="rect" id="node2" href="$classrc_graphics_segment_iterator_impl.html#a2094e946d2c748f89f0653d0b2c14de6" title="rcGraphicsSegmentIterator\lImpl::hasNextSegment" alt="" coords="213,5,395,49"/>
-<area shape="rect" id="node3" href="$classrc_scalar_segment_iterator_impl.html#afe66231b220e53830a8937080f382064" title="rcScalarSegmentIteratorImpl\l::hasNextSegment" alt="" coords="208,73,400,117"/>
-<area shape="rect" id="node4" href="$classrc_position_segment_iterator_impl.html#a78a11b8d479e515b3f363a4b00ad3f8b" title="rcPositionSegmentIterator\lImpl::hasNextSegment" alt="" coords="216,141,392,185"/>
-<area shape="rect" id="node5" href="$classrc_video_segment_iterator_impl.html#af379adcdaa24e679f1aba6c2b51316f3" title="rcVideoSegmentIteratorImpl\l::hasNextSegment" alt="" coords="210,209,398,253"/>
-</map>

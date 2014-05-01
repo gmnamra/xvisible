@@ -1,7 +1,0 @@
-<map id="envp_clear" name="envp_clear">
-<area shape="rect" id="node2" href="$classenv__vector.html#adaaf30041433ba0ee2ededbc8fe0c317" title="env_vector::add" alt="" coords="153,5,269,33"/>
-<area shape="rect" id="node3" href="$classenv__vector.html#aac42ce2126933335c3c43a810a7f8f58" title="env_vector::clear" alt="" coords="149,57,272,85"/>
-<area shape="rect" id="node6" href="$classenv__vector.html#a157d13b3936e611476887c30a5923326" title="env_vector::remove" alt="" coords="141,109,280,137"/>
-<area shape="rect" id="node4" href="$classenv__vector.html#a5a16c114c1d527ed655476e0a64c716c" title="env_vector::~env_vector" alt="" coords="329,31,495,59"/>
-<area shape="rect" id="node5" href="$classenv__vector.html#a6436fda0423dd544791dce02bb939f18" title="env_vector::operator=" alt="" coords="336,83,488,111"/>
-</map>

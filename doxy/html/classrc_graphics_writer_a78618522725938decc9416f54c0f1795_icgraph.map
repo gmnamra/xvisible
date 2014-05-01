@@ -1,7 +1,0 @@
-<map id="rcGraphicsWriter::flush" name="rcGraphicsWriter::flush">
-<area shape="rect" id="node2" href="$classrc_engine_impl.html#ad385f9e8d19842d61874534938c98513" title="rcEngineImpl::flushGraphics\lWriters" alt="" coords="211,23,399,67"/>
-<area shape="rect" id="node3" href="$classrc_engine_impl.html#a3ad6dbc54b2a53acae4d345ff14974ae" title="rcEngineImpl::analyzeFocusArea" alt="" coords="449,31,666,59"/>
-<area shape="rect" id="node4" href="$classrc_engine_impl.html#ae320706cbcafd64f219018b9842c8290" title="rcEngineImpl::analyze" alt="" coords="714,31,867,59"/>
-<area shape="rect" id="node5" href="$classrc_engine_impl.html#a507e034c1e43ae1dd6ec95a11ec0bb02" title="rcEngineImpl::process" alt="" coords="915,5,1069,33"/>
-<area shape="rect" id="node6" href="$classrc_engine_analyzer.html#a064037f0ec3e68fcb11dabbcba790cdd" title="rcEngineAnalyzer::run" alt="" coords="916,57,1068,85"/>
-</map>

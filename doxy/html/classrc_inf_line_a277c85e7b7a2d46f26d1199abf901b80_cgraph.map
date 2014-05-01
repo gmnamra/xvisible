@@ -1,7 +1,0 @@
-<map id="rcInfLine::angle" name="rcInfLine::angle">
-<area shape="rect" id="node2" href="$rc__math_8h.html#a6699cdaca52c9f90fbc27d377ac74cff" title="cos" alt="" coords="194,5,236,33"/>
-<area shape="rect" id="node4" href="$rc__math_8h.html#adac5d992515c3417b2ab21dd654a272c" title="sin" alt="" coords="195,57,234,85"/>
-<area shape="rect" id="node5" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="165,109,264,137"/>
-<area shape="rect" id="node6" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="165,161,264,189"/>
-<area shape="rect" id="node3" href="$classrc_radian.html#a2e41a3904c1fefd6989ddc3124dfaa32" title="rcRadian::Double" alt="" coords="312,31,437,59"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="lm_unit::header_filename" name="lm_unit::header_filename">
-<area shape="rect" id="node2" href="$file__system_8cpp.html#a62475ca973dfe0094c00d60286c7c286" title="create_filespec" alt="" coords="242,5,353,33"/>
-<area shape="rect" id="node4" href="$classlm__unit.html#a6a490d308afbd21957f40bf77fb4c4c4" title="lm_unit::library_path" alt="" coords="227,57,368,85"/>
-<area shape="rect" id="node6" href="$classlm__unit__name.html#af0e9f16bb8f96adc5c73fedb876bda2a" title="lm_unit_name::name" alt="" coords="224,109,370,137"/>
-<area shape="rect" id="node7" href="$classlm__unit__name.html#a94e6a4f8cf0cf3674c231fc30c533fe6" title="lm_unit_name::type" alt="" coords="228,161,366,189"/>
-<area shape="rect" id="node3" href="$file__system_8cpp.html#a99e06c76afffe1f1d77f01c905b1a5fd" title="is_separator" alt="" coords="427,5,522,33"/>
-<area shape="rect" id="node5" href="$classlm__library.html#aa025c61299499f986c5f2724354ee874" title="lm_library::path" alt="" coords="418,57,531,85"/>
-</map>

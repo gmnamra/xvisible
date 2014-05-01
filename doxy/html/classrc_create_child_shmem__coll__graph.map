@@ -1,7 +1,0 @@
-<map id="rcCreateChildShmem" name="rcCreateChildShmem">
-<area shape="rect" id="node2" href="$structsh_mem_ctrl.html" title="shMemCtrl" alt="" coords="5,291,91,319"/>
-<area shape="rect" id="node3" href="$classrc_shared_memory_user.html" title="rcSharedMemoryUser" alt="" coords="112,181,263,209"/>
-<area shape="rect" id="node6" href="$structwatchdog_info.html" title="watchdogInfo" alt="" coords="268,291,368,319"/>
-<area shape="rect" id="node4" href="$classrc_atomic_value.html" title="rcAtomicValue\&lt; uint8 \&gt;" alt="" coords="165,86,323,114"/>
-<area shape="rect" id="node7" href="$classrc_atomic_value.html" title="rcAtomicValue\&lt; uint16 \&gt;" alt="" coords="399,181,564,209"/>
-</map>

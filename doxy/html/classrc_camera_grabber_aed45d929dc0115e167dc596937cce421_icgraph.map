@@ -1,6 +1,0 @@
-<map id="rcCameraGrabber::setAcqControl" name="rcCameraGrabber::setAcqControl">
-<area shape="rect" id="node2" href="$classrc_engine_movie_capture.html#a6a8350d80d9ae7a2b10eb473f64b7354" title="rcEngineMovieCapture\l::initializeCamera" alt="" coords="279,5,436,49"/>
-<area shape="rect" id="node4" href="$classrc_engine_movie_capture.html#aa3fcc14dad88e6f91365f1b4fb6202a5" title="rcEngineMovieCapture\l::sendShutdown" alt="" coords="279,73,436,117"/>
-<area shape="rect" id="node5" href="$classrc_engine_movie_capture.html#afaf656a16ca51064930066a79975475a" title="rcEngineMovieCapture\l::updateCameraSettings" alt="" coords="275,141,440,185"/>
-<area shape="rect" id="node3" href="$classrc_engine_movie_capture.html#a0d8bfe4fd32e11bdbdb2c0ad113425ff" title="rcEngineMovieCapture::run" alt="" coords="488,81,672,109"/>
-</map>

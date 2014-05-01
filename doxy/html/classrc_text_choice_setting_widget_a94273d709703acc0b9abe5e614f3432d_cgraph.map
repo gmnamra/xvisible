@@ -1,5 +1,0 @@
-<map id="rcTextChoiceSettingWidget::findChoice" name="rcTextChoiceSettingWidget::findChoice">
-<area shape="rect" id="node2" href="$classrc_setting_info.html#a6d3cda0e1b71a0f7c2061015fb02d3d8" title="rcSettingInfo::getChoice" alt="" coords="244,5,407,33"/>
-<area shape="rect" id="node3" href="$classrc_setting_info.html#a1b99595ec48ea7982c8a8c7f3afd0534" title="rcSettingInfo::getNChoices" alt="" coords="235,57,415,85"/>
-<area shape="rect" id="node4" href="$structrc_setting_choice.html#a070feb5f1050f3e828f32d42bd58ae31" title="rcSettingChoice::getText" alt="" coords="242,109,408,137"/>
-</map>

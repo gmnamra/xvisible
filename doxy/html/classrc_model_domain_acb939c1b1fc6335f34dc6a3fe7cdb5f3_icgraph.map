@@ -1,7 +1,0 @@
-<map id="rcModelDomain::updateInputSource" name="rcModelDomain::updateInputSource">
-<area shape="rect" id="node2" href="$classrc_model_domain.html#ababf529c281a7ef2121e3d03ce877225" title="rcModelDomain::requestInput\lSource" alt="" coords="246,39,442,83"/>
-<area shape="rect" id="node3" href="$classrc_radio_choice_setting_widget.html#a7e3c71b86244478f9926cdb0629a225a" title="rcRadioChoiceSettingWidget\l::settingChanged" alt="" coords="491,5,683,49"/>
-<area shape="rect" id="node5" href="$classrc_menu_choice_setting_widget.html#adc0bde10bdaaf545cfe3e660064cbb5a" title="rcMenuChoiceSettingWidget\l::settingChanged" alt="" coords="492,73,682,117"/>
-<area shape="rect" id="node4" href="$classrc_radio_choice_setting_widget.html#a449e29641d3c4ceba7d506eddbb4bc9e" title="rcRadioChoiceSettingWidget\l::rcRadioChoiceSettingWidget" alt="" coords="731,5,930,49"/>
-<area shape="rect" id="node6" href="$classrc_menu_choice_setting_widget.html#a773fae1f1eb050ae4eaaff392c83454e" title="rcMenuChoiceSettingWidget\l::rcMenuChoiceSettingWidget" alt="" coords="732,73,930,117"/>
-</map>

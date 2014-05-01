@@ -1,8 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classrc_movie_file_ext.html" title="rcMovieFileExt" alt="" coords="6,109,114,137"/>
-<area shape="rect" id="node2" href="$classrc_movie_file_cam_ext.html" title="rcMovieFileCamExt" alt="" coords="165,5,302,33"/>
-<area shape="rect" id="node3" href="$classrc_movie_file_conv_ext.html" title="rcMovieFileConvExt" alt="" coords="163,57,303,85"/>
-<area shape="rect" id="node4" href="$classrc_movie_file_exp_ext.html" title="rcMovieFileExpExt" alt="" coords="167,109,299,137"/>
-<area shape="rect" id="node5" href="$classrc_movie_file_org_ext.html" title="rcMovieFileOrgExt" alt="" coords="168,161,299,189"/>
-<area shape="rect" id="node6" href="$classrc_movie_file_toc_ext.html" title="rcMovieFileTocExt" alt="" coords="169,213,298,241"/>
-</map>

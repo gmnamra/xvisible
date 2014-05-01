@@ -1,8 +1,0 @@
-<map id="unsigned_add" name="unsigned_add">
-<area shape="rect" id="node2" href="$string__arithmetic_8cpp.html#a94695ea56cea67bf729e29e05a1a919e" title="bit_carry" alt="" coords="184,57,256,85"/>
-<area shape="rect" id="node5" href="$string__arithmetic_8cpp.html#a5908e619ca6762dbb4a713ef69a04ed7" title="bit_sum" alt="" coords="186,109,254,137"/>
-<area shape="rect" id="node7" href="$string__arithmetic_8cpp.html#ac03b6b6ac3421fe0895d15048e0f1bd7" title="unsigned_resize" alt="" coords="161,161,279,189"/>
-<area shape="rect" id="node3" href="$string__arithmetic_8cpp.html#afe7cda5eba463b65d65687c2fd389fff" title="bit_and" alt="" coords="329,5,394,33"/>
-<area shape="rect" id="node4" href="$string__arithmetic_8cpp.html#a3f0dedb0825234f431e364e025ff9452" title="bit_or" alt="" coords="334,57,389,85"/>
-<area shape="rect" id="node6" href="$string__arithmetic_8cpp.html#aa479141a8083df6b46cd98c13609d224" title="bit_xor" alt="" coords="331,109,392,137"/>
-</map>

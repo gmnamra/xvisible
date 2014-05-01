@@ -1,6 +1,0 @@
-<map id="FFracMul" name="FFracMul">
-<area shape="rect" id="node2" href="$rc__math_8h.html#a12e07d4aab6917e3d7555c4f04cc0e84" title="rfFxPolarize" alt="" coords="131,30,224,58"/>
-<area shape="rect" id="node5" href="$rc__math_8h.html#af46cd3ab9067355ab140ebac37444b58" title="rfFxRotate" alt="" coords="136,82,219,110"/>
-<area shape="rect" id="node3" href="$classrc_feature.html#a8c0b2d9d038c16a01f4660ae45deca81" title="rcFeature::octants" alt="" coords="273,5,402,33"/>
-<area shape="rect" id="node4" href="$classrc_feature.html#a7e8d4122949961dfdbb297b155c2c9f4" title="rcFeature::polar" alt="" coords="280,57,395,85"/>
-</map>

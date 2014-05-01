@@ -1,7 +1,0 @@
-<map id="rcVideoCache::createDefaultOriginHeader" name="rcVideoCache::createDefaultOriginHeader">
-<area shape="rect" id="node2" href="$classrc_video_cache.html#a3e53a498573481ded50ecf3a740d9b89" title="rcVideoCache::baseTime" alt="" coords="254,5,424,33"/>
-<area shape="rect" id="node3" href="$classrc_video_cache.html#ab08964be9e7f1b496ec9dc5baf4a187b" title="rcVideoCache::frameCount" alt="" coords="248,57,430,85"/>
-<area shape="rect" id="node4" href="$classrc_video_cache.html#ada6fc2cf5ccd190929bec028862a3e45" title="rcVideoCache::frameDepth" alt="" coords="248,109,430,137"/>
-<area shape="rect" id="node5" href="$classrc_video_cache.html#ada83b7f23ec6dc403179a8445bd06880" title="rcVideoCache::frameHeight" alt="" coords="246,161,431,189"/>
-<area shape="rect" id="node6" href="$classrc_video_cache.html#a4647ad077bee8d1e2dc913f10da8e5cd" title="rcVideoCache::frameWidth" alt="" coords="248,213,429,241"/>
-</map>

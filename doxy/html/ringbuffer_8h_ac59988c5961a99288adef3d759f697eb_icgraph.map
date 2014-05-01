@@ -1,7 +1,0 @@
-<map id="RingBuffer_GetReadAvailable" name="RingBuffer_GetReadAvailable">
-<area shape="rect" id="node2" href="$ringbuffer_8h.html#adaac7cc69fc4525cce77ee54e15f5b02" title="RingBuffer_GetReadRegions" alt="" coords="255,5,449,33"/>
-<area shape="rect" id="node4" href="$ringbuffer_8h.html#a91c1b7c3b47dc12df82486e234251e89" title="RingBuffer_GetWriteAvailable" alt="" coords="253,57,451,85"/>
-<area shape="rect" id="node3" href="$ringbuffer_8h.html#a6d63fd42cac6f1ada2b0550745310a3c" title="RingBuffer_Read" alt="" coords="534,5,658,33"/>
-<area shape="rect" id="node5" href="$ringbuffer_8h.html#a2b55f50da6a9380f5f838ca6b90a9ec4" title="RingBuffer_GetWriteRegions" alt="" coords="500,57,692,85"/>
-<area shape="rect" id="node6" href="$ringbuffer_8h.html#adf35cec106c4606ba56d82065c1f8eaa" title="RingBuffer_Write" alt="" coords="741,57,864,85"/>
-</map>

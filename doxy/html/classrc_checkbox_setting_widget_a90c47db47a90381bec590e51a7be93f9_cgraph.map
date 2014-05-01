@@ -1,6 +1,0 @@
-<map id="rcCheckboxSettingWidget::settingChanged" name="rcCheckboxSettingWidget::settingChanged">
-<area shape="rect" id="node2" href="$classrc_setting_info.html#a97d3386417e33e46df6f361ccfb430a5" title="rcSettingInfo::getValue" alt="" coords="254,5,410,33"/>
-<area shape="rect" id="node3" href="$classrc_setting_widget.html#aca95d3b856ab397c63567ae71dba446b" title="Update widget visibility/editability state based on setting state." alt="" coords="229,57,435,101"/>
-<area shape="rect" id="node4" href="$classrc_setting_info.html#a776ac0e50f5e8d632e6cb2c4099d6c59" title="rcSettingInfo::isEditable" alt="" coords="483,38,645,66"/>
-<area shape="rect" id="node5" href="$classrc_setting_info.html#a2663e0e877560ec8a958fb92184c1c63" title="rcSettingInfo::isEnabled" alt="" coords="483,90,645,118"/>
-</map>

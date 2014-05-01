@@ -1,6 +1,0 @@
-<map id="rcTimeline::pixelToTime" name="rcTimeline::pixelToTime">
-<area shape="rect" id="node2" href="$classrc_timeline.html#ad1d70f959d24b9ea66e06f1a11512000" title="rcTimeline::reducedContentsRect" alt="" coords="213,5,432,33"/>
-<area shape="rect" id="node3" href="$classrc_timestamp.html#a7a76776edb5c337196cf10c009339d15" title="rcTimestamp::secs" alt="" coords="256,57,389,85"/>
-<area shape="rect" id="node4" href="$rc__timestamp_8h.html#ac624900be52fa7f30d3ad72543cc725d" title="convertTimestampToSeconds" alt="" coords="480,57,677,85"/>
-<area shape="rect" id="node5" href="$rc__timestamp__mac_8cpp.html#a7962719b626553bf7a913f7c2671b777" title="getTimestampResolution" alt="" coords="725,57,893,85"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="rfSetCapability" name="rfSetCapability">
-<area shape="rect" id="node2" href="$rc__dcam_8h.html#a471b8dac84c06d5437ad0e873b84da77" title="rfGetCameraCapabilities" alt="" coords="163,31,330,59"/>
-<area shape="rect" id="node3" href="$rc__dcam__capture_8cpp.html#a8fcb91e1b2e6adaad571752a59ac3dad" title="InitializeMungData2" alt="" coords="379,31,517,59"/>
-<area shape="rect" id="node4" href="$rc__dcam__capture_8h.html#aa3528bb0b33aa9119084d4b082f8c0aa" title="rfDCAMVideoCapture" alt="" coords="566,5,716,33"/>
-<area shape="rect" id="node6" href="$rc__qtime__capture_8h.html#adf4b66b022a2bc6ba21cddbc179756cb" title="rfQTVideoCapture" alt="" coords="577,57,706,85"/>
-<area shape="rect" id="node5" href="$rc__dcam__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="766,5,816,33"/>
-<area shape="rect" id="node7" href="$rc__qtime__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="766,57,816,85"/>
-</map>

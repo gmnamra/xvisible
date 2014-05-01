@@ -1,8 +1,0 @@
-<map id="rcAffineWindow::rcAffineWindow" name="rcAffineWindow::rcAffineWindow">
-<area shape="rect" id="node2" href="$classrc_affine_rectangle.html#a46b559065a39d3bb5b7ceaeebcf86c57" title="rcAffineRectangle::\lboundingBox" alt="" coords="221,65,355,109"/>
-<area shape="rect" id="node7" href="$classrc_window.html#a1838f7ac1e13653c84b24e93b384898c" title="isWithin / isWithin takes a position in the frameBuf coordinate" alt="" coords="221,133,355,161"/>
-<area shape="rect" id="node3" href="$classrc_affine_rectangle.html#aabaf03089f1ca6cda7f910291b25bf64" title="rcAffineRectangle::\laffineToImage" alt="" coords="402,5,536,49"/>
-<area shape="rect" id="node5" href="$classrc2d_vector.html#a510fd549126da1dfe80d60ee866ff628" title="rc2dVector::x" alt="" coords="420,73,519,101"/>
-<area shape="rect" id="node6" href="$classrc2d_vector.html#a07f5517208bbd1d2a3ef6fb8eb3fddf8" title="rc2dVector::y" alt="" coords="420,125,519,153"/>
-<area shape="rect" id="node4" href="$classrc2_xform.html#a44d8bfc2fca67ec4126f15be742281fd" title="rc2Xform::mapPoint" alt="" coords="584,13,723,41"/>
-</map>

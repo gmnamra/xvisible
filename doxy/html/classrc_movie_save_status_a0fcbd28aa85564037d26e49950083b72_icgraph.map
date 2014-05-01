@@ -1,5 +1,0 @@
-<map id="rcMovieSaveStatus::captureTime" name="rcMovieSaveStatus::captureTime">
-<area shape="rect" id="node2" href="$classrc_engine_movie_saver.html#a7282a1f65f3db0878397239984e4a02c" title="rcEngineMovieSaver\l::doneHdlr" alt="" coords="197,5,342,49"/>
-<area shape="rect" id="node4" href="$classrc_engine_movie_saver.html#abb624bdd44b94c6a21f9e34dfc2da081" title="rcEngineMovieSaver\l::waitHdlr" alt="" coords="197,73,342,117"/>
-<area shape="rect" id="node3" href="$classrc_engine_movie_saver.html#a216e88884a3dd557507ea93dc3609a91" title="rcEngineMovieSaver::run" alt="" coords="389,47,560,75"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="stripCommas" name="stripCommas">
-<area shape="rect" id="node2" href="$classrc_c_s_v_exporter.html#a9ae5e2e7a0f6a907074a9b0005f0f636" title="rcCSVExporter::exportTracks" alt="" coords="155,43,349,71"/>
-<area shape="rect" id="node3" href="$classrc_c_s_v_exporter.html#a17104d6206faff99633d785ed9fb00f9" title="rcCSVExporter::exportExperiment" alt="" coords="398,43,620,71"/>
-<area shape="rect" id="node4" href="$classrc_experiment_impl.html#a375595b76e0c9f303a7135e096391b9a" title="rcExperimentImpl::saveTo" alt="" coords="670,43,845,71"/>
-<area shape="rect" id="node5" href="$classrc_experiment_domain_impl.html#a8db39db2ae092474f985b4c2997d5b72" title="rcExperimentDomainImpl\l::saveExperiment" alt="" coords="893,35,1064,79"/>
-<area shape="rect" id="node6" href="$classrc_experiment_domain_impl.html#a29b2a73f82318c9faec49f9a1178f90b" title="rcExperimentDomainImpl\l::notifyRequestSave" alt="" coords="1112,5,1283,49"/>
-<area shape="rect" id="node7" href="$rc__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1172,73,1222,101"/>
-</map>

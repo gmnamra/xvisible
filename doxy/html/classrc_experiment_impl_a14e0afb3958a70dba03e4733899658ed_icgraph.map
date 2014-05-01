@@ -1,6 +1,0 @@
-<map id="rcExperimentImpl::setSettingValue" name="rcExperimentImpl::setSettingValue">
-<area shape="rect" id="node2" href="$classrc_experiment_domain_impl.html#a5c45f8064944cafb71471e3a576f1ad3" title="rcExperimentDomainImpl\l::loadExperiment" alt="" coords="245,5,416,49"/>
-<area shape="rect" id="node3" href="$classrc_experiment_domain_impl.html#a3f84aaf27478b51eed5e33e26bd8637f" title="rcExperimentDomainImpl\l::notifyMovieImport" alt="" coords="245,73,416,117"/>
-<area shape="rect" id="node4" href="$classrc_experiment_domain_impl.html#a18f6cad7350022bb2d54efe53bfdf02f" title="rcExperimentDomainImpl\l::notifyState" alt="" coords="245,141,416,185"/>
-<area shape="rect" id="node5" href="$classrc_experiment_domain_impl.html#af25fa4f78d3b7d267c56dcd4b3d9677e" title="rcExperimentDomainImpl\l::setExperimentAttributes" alt="" coords="245,209,416,253"/>
-</map>

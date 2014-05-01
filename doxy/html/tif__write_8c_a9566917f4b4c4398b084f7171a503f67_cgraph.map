@@ -1,6 +1,0 @@
-<map id="TIFFGrowStrips" name="TIFFGrowStrips">
-<area shape="rect" id="node2" href="$tif__apple_8c.html#adcb814cdc66530ea86553b6840c19819" title="_TIFFfree" alt="" coords="183,5,263,33"/>
-<area shape="rect" id="node3" href="$tif__apple_8c.html#abbc4b30de2ac6b7eecdf9362bfa74c39" title="_TIFFmemset" alt="" coords="171,57,275,85"/>
-<area shape="rect" id="node4" href="$tif__apple_8c.html#a6bb8a05190e8eefa70db67b4c20f2aeb" title="_TIFFrealloc" alt="" coords="175,109,271,137"/>
-<area shape="rect" id="node5" href="$tif__error_8c.html#a2e8b77a2d4e7b7283b55b963dd67ec31" title="TIFFErrorExt" alt="" coords="173,161,272,189"/>
-</map>

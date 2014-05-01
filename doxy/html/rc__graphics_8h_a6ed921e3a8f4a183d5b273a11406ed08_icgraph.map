@@ -1,8 +1,0 @@
-<map id="rfGradientImageToVisualSegment" name="rfGradientImageToVisualSegment">
-<area shape="rect" id="node2" href="$rc__graphics_8h.html#a10bc6f7b7db72f7f9f90f3e7ab55fcf9" title="rfImageGradientToVisualSegment" alt="" coords="275,31,496,59"/>
-<area shape="rect" id="node3" href="$classrc_engine_impl.html#a7eec21aabd0c657881fc6eac91787480" title="rcEngineImpl::modelTracker" alt="" coords="545,31,732,59"/>
-<area shape="rect" id="node4" href="$classrc_engine_impl.html#a3ad6dbc54b2a53acae4d345ff14974ae" title="rcEngineImpl::analyzeFocusArea" alt="" coords="782,31,999,59"/>
-<area shape="rect" id="node5" href="$classrc_engine_impl.html#ae320706cbcafd64f219018b9842c8290" title="rcEngineImpl::analyze" alt="" coords="1048,31,1200,59"/>
-<area shape="rect" id="node6" href="$classrc_engine_impl.html#a507e034c1e43ae1dd6ec95a11ec0bb02" title="rcEngineImpl::process" alt="" coords="1249,5,1402,33"/>
-<area shape="rect" id="node7" href="$classrc_engine_analyzer.html#a064037f0ec3e68fcb11dabbcba790cdd" title="rcEngineAnalyzer::run" alt="" coords="1249,57,1402,85"/>
-</map>

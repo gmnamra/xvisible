@@ -1,9 +1,0 @@
-<map id="fft_real_forward_scalar" name="fft_real_forward_scalar">
-<area shape="rect" id="node2" href="$vbigdsp_8h.html#a149c566750d66eb4dc6b32c060ebba74" title="FFTRealForward" alt="" coords="211,43,333,71"/>
-<area shape="rect" id="node3" href="$classrc_opto_kinetic_image.html#a1d1715dc28a0eea84834c136e02c26c4" title="rcOptoKineticImage\l::genDFT" alt="" coords="401,5,540,49"/>
-<area shape="rect" id="node4" href="$rc__analysis_8h.html#ae51d37ad5797d5b59058fafde4fb4248" title="rf1DFourierAnalysisVoxels" alt="" coords="382,73,560,101"/>
-<area shape="rect" id="node5" href="$classrc_opto_kinetic_image.html#ab8c6bd963086ef561d0f65ec8240e139" title="rcOptoKineticImage\l::genFreqImg" alt="" coords="608,65,747,109"/>
-<area shape="rect" id="node6" href="$classrc_muscle_segmenter.html#a61c65559f55fd9fa632b96e09ef50b2e" title="rcMuscleSegmenter::\lgenFrequencySegmentation" alt="" coords="795,65,984,109"/>
-<area shape="rect" id="node7" href="$classrc_muscle_segmenter.html#a660d7b3d1c240efa0b725e0db65154e3" title="rcMuscleSegmenter::\lfilterByActivity" alt="" coords="1032,65,1179,109"/>
-<area shape="rect" id="node8" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1227,73,1421,101"/>
-</map>

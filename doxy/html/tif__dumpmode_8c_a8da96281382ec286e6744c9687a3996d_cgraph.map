@@ -1,7 +1,0 @@
-<map id="DumpModeEncode" name="DumpModeEncode">
-<area shape="rect" id="node2" href="$tif__apple_8c.html#aacf23567597faf7b8f01f31f397217f0" title="_TIFFmemcpy" alt="" coords="194,5,302,33"/>
-<area shape="rect" id="node3" href="$tif__write_8c.html#aa86d61423d269a88d674ffc565cd9663" title="TIFFFlushData1" alt="" coords="189,57,307,85"/>
-<area shape="rect" id="node4" href="$tif__swab_8c.html#a96ad4adba41a35b63c5f739441265359" title="TIFFReverseBits" alt="" coords="362,30,483,58"/>
-<area shape="rect" id="node5" href="$tif__write_8c.html#a26e4e0756dea1aebc15c275e0714cef8" title="TIFFAppendToStrip" alt="" coords="355,82,491,110"/>
-<area shape="rect" id="node6" href="$tif__error_8c.html#a2e8b77a2d4e7b7283b55b963dd67ec31" title="TIFFErrorExt" alt="" coords="539,82,637,110"/>
-</map>

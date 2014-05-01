@@ -1,8 +1,0 @@
-<map id="rcModelDomain::updateMonitorDisplay" name="rcModelDomain::updateMonitorDisplay">
-<area shape="rect" id="node2" href="$classrc_model_domain.html#a51cc7ebdbee803914a0483ac67a55b2d" title="rcModelDomain::notifyUpdate\lMonitor" alt="" coords="262,39,458,83"/>
-<area shape="rect" id="node3" href="$classrc_scalar_track_widget.html#aec406498f8a4809dbdcf36d8deba3c7a" title="rcScalarTrackWidget\l::setEnabled" alt="" coords="506,5,651,49"/>
-<area shape="rect" id="node5" href="$classrc_track_group_widget.html#acd0f4f43430b7dc7130b6ef6dc3e2b6c" title="rcTrackGroupWidget\l::setEnabled" alt="" coords="507,73,651,117"/>
-<area shape="rect" id="node4" href="$classrc_scalar_track_widget.html#afc60cc8a08bd8f16560757beef569858" title="rcScalarTrackWidget\l::rcScalarTrackWidget" alt="" coords="699,5,851,49"/>
-<area shape="rect" id="node6" href="$classrc_track_group_widget.html#ad61eb6b64b90a1f10be6562ae339923b" title="rcTrackGroupWidget\l::rcTrackGroupWidget" alt="" coords="899,99,1050,143"/>
-<area shape="rect" id="node7" href="$classrc_track_group_widget.html#a921fe29cf7f76be8059df16a50f4f318" title="rcTrackGroupWidget\l::updateSettings" alt="" coords="703,129,847,173"/>
-</map>

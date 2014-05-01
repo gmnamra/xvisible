@@ -1,6 +1,0 @@
-<map id="rcKinetoscope::currentTime" name="rcKinetoscope::currentTime">
-<area shape="rect" id="node2" href="$classrc1_xform.html#a51702eb6cd0bd70319dfefa197d40e3f" title="rc1Xform::mapVector" alt="" coords="237,5,384,33"/>
-<area shape="rect" id="node3" href="$classrc_timestamp.html#a7a76776edb5c337196cf10c009339d15" title="rcTimestamp::secs" alt="" coords="244,57,377,85"/>
-<area shape="rect" id="node4" href="$rc__timestamp_8h.html#ac624900be52fa7f30d3ad72543cc725d" title="convertTimestampToSeconds" alt="" coords="432,57,629,85"/>
-<area shape="rect" id="node5" href="$rc__timestamp__mac_8cpp.html#a7962719b626553bf7a913f7c2671b777" title="getTimestampResolution" alt="" coords="677,57,845,85"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="rcEngineMovieCapture::delayLeft" name="rcEngineMovieCapture::delayLeft">
-<area shape="rect" id="node2" href="$classrc_engine_impl.html#a8defbaa20c5f1f2cfa987a1c6556b5f5" title="rcEngineImpl::processCapturedData" alt="" coords="211,13,447,41"/>
-<area shape="rect" id="node3" href="$classrc_engine_impl.html#a08582f48ac2811b56b0fbbe48c1afaf5" title="rcEngineImpl::frameInterrupt" alt="" coords="497,13,687,41"/>
-<area shape="rect" id="node4" href="$classrc_engine_movie_capture.html#a0d8bfe4fd32e11bdbdb2c0ad113425ff" title="rcEngineMovieCapture::run" alt="" coords="736,13,920,41"/>
-</map>

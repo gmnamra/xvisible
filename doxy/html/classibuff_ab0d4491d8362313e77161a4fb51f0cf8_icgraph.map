@@ -1,7 +1,0 @@
-<map id="ibuff::line" name="ibuff::line">
-<area shape="rect" id="node2" href="$classisvbuff.html#a8e277242d6f677ce625c4a48e73da317" title="isvbuff::get" alt="" coords="133,5,219,33"/>
-<area shape="rect" id="node3" href="$classitext.html#a4862548bad47cab2919ef91cc01be783" title="itext::line" alt="" coords="139,57,213,85"/>
-<area shape="rect" id="node6" href="$classisvbuff.html#a160e69b3c312d7c69b0b4d7903155137" title="isvbuff::peek" alt="" coords="128,109,224,137"/>
-<area shape="rect" id="node4" href="$classlibrary__manager.html#a12e20333489fef2db96ea08e93d821f1" title="library_manager::load\l_mappings" alt="" coords="273,19,423,63"/>
-<area shape="rect" id="node5" href="$classitext.html#a4a66eb38ec6f618a00380632d36062a5" title="itext::operator\&gt;\&gt;" alt="" coords="289,87,407,115"/>
-</map>

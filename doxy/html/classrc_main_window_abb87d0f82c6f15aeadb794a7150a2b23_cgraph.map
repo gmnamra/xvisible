@@ -1,8 +1,0 @@
-<map id="rcMainWindow::rcMainWindow" name="rcMainWindow::rcMainWindow">
-<area shape="rect" id="node2" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="518,39,741,67"/>
-<area shape="rect" id="node3" href="$classrc_persistence_manager_factory.html#ab45216ea21c13d548a0afc8825287c8d" title="rcPersistenceManagerFactory\l::getPersistenceManager" alt="" coords="264,27,464,71"/>
-<area shape="rect" id="node4" href="$classrc_persistence_manager.html#a1ff8b9a45f3216f405a06ccdbfcda1fc" title="rcPersistenceManager\l::setGeneratorComment" alt="" coords="282,95,446,139"/>
-<area shape="rect" id="node5" href="$classrc_main_window.html#a954cac181763e9eb8b42f22b94c89b7f" title="rcMainWindow::settingChanged" alt="" coords="259,163,469,191"/>
-<area shape="rect" id="node6" href="$classrc_model_domain.html#aa43d293533bcf88d4fff6846aa52d1d3" title="rcModelDomain::getExperiment\lAttributes" alt="" coords="525,155,733,199"/>
-<area shape="rect" id="node7" href="$classrc_experiment_domain.html#a6abeb9bb031e7bf26116f5cb914e2a56" title="rcExperimentDomain\l::getExperimentAttributes" alt="" coords="789,155,960,199"/>
-</map>

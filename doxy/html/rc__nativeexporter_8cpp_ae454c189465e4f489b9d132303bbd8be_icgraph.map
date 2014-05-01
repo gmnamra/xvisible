@@ -1,8 +1,0 @@
-<map id="cTrackComment" name="cTrackComment">
-<area shape="rect" id="node2" href="$classrc_native_exporter.html#ac6198892969d2146be5d422876ff1b9f" title="rcNativeExporter::produce\lTracks" alt="" coords="173,35,349,79"/>
-<area shape="rect" id="node3" href="$classrc_native_exporter.html#a75a5374634d85e7bc85f7ae501563e0d" title="rcNativeExporter::export\lExperiment" alt="" coords="397,35,563,79"/>
-<area shape="rect" id="node4" href="$classrc_experiment_impl.html#a375595b76e0c9f303a7135e096391b9a" title="rcExperimentImpl::saveTo" alt="" coords="611,43,786,71"/>
-<area shape="rect" id="node5" href="$classrc_experiment_domain_impl.html#a8db39db2ae092474f985b4c2997d5b72" title="rcExperimentDomainImpl\l::saveExperiment" alt="" coords="834,35,1006,79"/>
-<area shape="rect" id="node6" href="$classrc_experiment_domain_impl.html#a29b2a73f82318c9faec49f9a1178f90b" title="rcExperimentDomainImpl\l::notifyRequestSave" alt="" coords="1053,5,1224,49"/>
-<area shape="rect" id="node7" href="$rc__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="1114,73,1164,101"/>
-</map>

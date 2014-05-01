@@ -1,8 +1,0 @@
-<map id="rcExperimentDomain::storingLiveInput" name="rcExperimentDomain::storingLiveInput">
-<area shape="rect" id="node2" href="$classrc_model_domain.html#abf45f359d0cc72ee2531e0585828c03a" title="rcModelDomain::storingLive\lInput" alt="" coords="200,75,387,119"/>
-<area shape="rect" id="node3" href="$classrc_control_panel.html#ae23fcd481d145da2b0460a7f6b04aed5" title="rcControlPanel::updateCursorTime" alt="" coords="435,83,661,111"/>
-<area shape="rect" id="node4" href="$classrc_control_panel.html#aa9afee306e1819f8cb45365384f08ca6" title="rcControlPanel::inputSource" alt="" coords="733,5,921,33"/>
-<area shape="rect" id="node5" href="$classrc_control_panel.html#a1d81139159e25744274b18bdc03d4948" title="rcControlPanel::rcControl\lPanel" alt="" coords="992,49,1163,93"/>
-<area shape="rect" id="node6" href="$classrc_control_panel.html#aa7e44df1bde3fa091e12c704435a7d02" title="rcControlPanel::updateCursorTime" alt="" coords="713,109,940,137"/>
-<area shape="rect" id="node7" href="$classrc_control_panel.html#acc61e3dd8c4709619cdfe4de344ca770" title="rcControlPanel::updateElapsedTime" alt="" coords="709,161,944,189"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="segment" name="segment">
-<area shape="rect" id="node2" href="$classrc_track_impl.html#a0660ada182460225bf3dddbb6f3bf309" title="rcTrackImpl::lastSegment\lLength" alt="" coords="126,107,298,151"/>
-<area shape="rect" id="node3" href="$classrc_graphics_track_impl.html#a6d0d9d386ab05fab37405386e4f33a5b" title="rcGraphicsTrackImpl\l::flush" alt="" coords="355,5,499,49"/>
-<area shape="rect" id="node4" href="$classrc_position_track_impl.html#ac27c33ee80032f3dbbc79f86dcb73bcf" title="rcPositionTrackImpl\l::flush" alt="" coords="358,73,496,117"/>
-<area shape="rect" id="node5" href="$classrc_scalar_track_impl.html#afbf80019aa49e8212d47a308419706f9" title="rcScalarTrackImpl::\lflush" alt="" coords="359,141,495,185"/>
-<area shape="rect" id="node6" href="$classrc_video_track_impl.html#a3c77cf3e548499bf555bcf1fc9ee24f2" title="rcVideoTrackImpl::flush" alt="" coords="347,209,507,237"/>
-</map>

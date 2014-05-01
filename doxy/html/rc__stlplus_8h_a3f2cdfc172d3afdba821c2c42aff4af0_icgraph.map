@@ -1,8 +1,0 @@
-<map id="rfPRINT_STL_ELEMENTS" name="rfPRINT_STL_ELEMENTS">
-<area shape="rect" id="node2" href="$classrc_kinetoscope.html#aeb4e292dbf28c00e8aa73b18debdc6d6" title="rcKinetoscope::associate" alt="" coords="235,24,405,52"/>
-<area shape="rect" id="node3" href="$classrc_kinetoscope.html#a9e34ed1b237aa970f30995cb75245233" title="rcKinetoscope::connected\lFunctions" alt="" coords="454,16,629,60"/>
-<area shape="rect" id="node4" href="$classrc_kinetoscope.html#a30274b84c57f86e667b614556f6c569b" title="rcKinetoscope::step" alt="" coords="928,24,1067,52"/>
-<area shape="rect" id="node6" href="$classrc_kinetoscope.html#ae0addfc3a10c4c69ba027d9bfc351217" title="rcKinetoscope::stepContractile" alt="" coords="678,24,880,52"/>
-<area shape="rect" id="node7" href="$classrc_kinetoscope.html#a431144623d201c5aeb857893d8460ca2" title="rcKinetoscope::stepEpi" alt="" coords="700,76,858,104"/>
-<area shape="rect" id="node5" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1115,24,1309,52"/>
-</map>

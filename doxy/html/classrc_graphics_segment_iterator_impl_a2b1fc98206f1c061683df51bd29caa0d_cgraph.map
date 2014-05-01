@@ -1,9 +1,0 @@
-<map id="rcGraphicsSegmentIteratorImpl::rcGraphicsSegmentIteratorImpl" name="rcGraphicsSegmentIteratorImpl::rcGraphicsSegmentIteratorImpl">
-<area shape="rect" id="node2" href="$classrc_graphics_segment_iterator_impl.html#a3ff1621673307ae84d6fd10db1332aca" title="rcGraphicsSegmentIterator\lImpl::lock" alt="" coords="293,5,475,49"/>
-<area shape="rect" id="node5" href="$classrc_segment_iterator_impl.html#abaa5d758a85788273fd632136d089f09" title="rcSegmentIteratorImpl\l::mutex" alt="" coords="307,73,461,117"/>
-<area shape="rect" id="node6" href="$classrc_graphics_segment_iterator_impl.html#ac58237095f50b8130be91059565f83db" title="rcGraphicsSegmentIterator\lImpl::setCurrentValue" alt="" coords="293,141,475,185"/>
-<area shape="rect" id="node3" href="$classrc_segment_iterator_impl.html#a22abc78fcb201cdca524b10299558f03" title="rcSegmentIteratorImpl\l::lock" alt="" coords="523,5,677,49"/>
-<area shape="rect" id="node4" href="$classrc_mutex.html#ab3d2138979404d7f06abe308ca2177a8" title="rcMutex::lock" alt="" coords="726,13,826,41"/>
-<area shape="rect" id="node7" href="$classrc_segment_iterator_impl.html#aa6314211f43757b3bbde20e5749518b4" title="rcSegmentIteratorImpl\l::getSegmentIndex" alt="" coords="523,106,677,150"/>
-<area shape="rect" id="node8" href="$classrc_graphics_track_impl.html#afe1d505fb8ce2db00ad223054a4e74d7" title="rcGraphicsTrackImpl\l::segments" alt="" coords="528,174,672,218"/>
-</map>

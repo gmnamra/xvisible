@@ -1,7 +1,0 @@
-<map id="rcTrackManager::monitorableTrack" name="rcTrackManager::monitorableTrack">
-<area shape="rect" id="node2" href="$classrc_track_manager.html#a08aa893829d740ac29fafea721774b24" title="rcTrackManager::displayable\lTrack" alt="" coords="248,46,440,90"/>
-<area shape="rect" id="node4" href="$classrc_track.html#aa92c4dfed7e9cdfe07f52769061086be" title="rcTrack::getTrackType" alt="" coords="500,113,652,141"/>
-<area shape="rect" id="node3" href="$classrc_track.html#a70b58187ae19ac809a958ba4e5fe2b33" title="rcTrack::getTag" alt="" coords="520,5,632,33"/>
-<area shape="rect" id="node5" href="$classrc_writer_manager.html#aab01438b6a98fb863e1c6cba969e0173" title="rcWriterManager::tagType" alt="" coords="488,57,664,85"/>
-<area shape="rect" id="node6" href="$classrc_writer_mapper.html#a9208d582bb49ebf7321a61d7a3d95bda" title="rcWriterMapper::typeTag" alt="" coords="712,57,880,85"/>
-</map>

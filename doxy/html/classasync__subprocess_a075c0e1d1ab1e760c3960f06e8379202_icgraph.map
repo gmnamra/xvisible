@@ -1,6 +1,0 @@
-<map id="async_subprocess::close_stderr" name="async_subprocess::close_stderr">
-<area shape="rect" id="node2" href="$classasync__subprocess.html#afabbb79ed1383cd1f6acc7f41ffd55da" title="async_subprocess::kill" alt="" coords="229,65,384,93"/>
-<area shape="rect" id="node3" href="$classasync__subprocess.html#ac92988d321f578bc1bcad5f3890df470" title="async_subprocess::\l~async_subprocess" alt="" coords="448,5,587,49"/>
-<area shape="rect" id="node5" href="$classasync__subprocess.html#a1926346152045010c836850c42aa16f5" title="async_subprocess::read\l_stderr" alt="" coords="224,117,390,161"/>
-<area shape="rect" id="node4" href="$classasync__subprocess.html#acde5e2400ba28b985db83a164faa78fa" title="async_subprocess::tick" alt="" coords="438,73,597,101"/>
-</map>

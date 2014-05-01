@@ -1,8 +1,0 @@
-<map id="rfPixelMin3By3" name="rfPixelMin3By3">
-<area shape="rect" id="node2" href="$classrc_kinetoscope.html#a9e34ed1b237aa970f30995cb75245233" title="rcKinetoscope::connected\lFunctions" alt="" coords="166,16,341,60"/>
-<area shape="rect" id="node7" href="$rc__ip_8h.html#a66496689cd4a73d94b4c049c3ef51f1d" title="rfPixelMin3By3" alt="" coords="198,84,308,112"/>
-<area shape="rect" id="node3" href="$classrc_kinetoscope.html#a30274b84c57f86e667b614556f6c569b" title="rcKinetoscope::step" alt="" coords="640,24,779,52"/>
-<area shape="rect" id="node5" href="$classrc_kinetoscope.html#ae0addfc3a10c4c69ba027d9bfc351217" title="rcKinetoscope::stepContractile" alt="" coords="390,24,592,52"/>
-<area shape="rect" id="node6" href="$classrc_kinetoscope.html#a431144623d201c5aeb857893d8460ca2" title="rcKinetoscope::stepEpi" alt="" coords="412,76,570,104"/>
-<area shape="rect" id="node4" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="827,24,1021,52"/>
-</map>

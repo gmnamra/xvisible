@@ -1,9 +1,0 @@
-<map id="rcWindow::pixelCount" name="rcWindow::pixelCount">
-<area shape="rect" id="node2" href="$rc__ip_8h.html#a301df491ff5a582a7155eb7227aeacf0" title="rfSurfaceHessian" alt="" coords="206,24,330,52"/>
-<area shape="rect" id="node3" href="$classrc_kinetoscope.html#a5bd456cddde670d3d54b72d58e1b85a5" title="rcKinetoscope::validate" alt="" coords="379,24,538,52"/>
-<area shape="rect" id="node4" href="$classrc_kinetoscope.html#a9e34ed1b237aa970f30995cb75245233" title="rcKinetoscope::connected\lFunctions" alt="" coords="587,16,762,60"/>
-<area shape="rect" id="node5" href="$classrc_kinetoscope.html#a30274b84c57f86e667b614556f6c569b" title="rcKinetoscope::step" alt="" coords="1061,24,1200,52"/>
-<area shape="rect" id="node7" href="$classrc_kinetoscope.html#ae0addfc3a10c4c69ba027d9bfc351217" title="rcKinetoscope::stepContractile" alt="" coords="811,24,1013,52"/>
-<area shape="rect" id="node8" href="$classrc_kinetoscope.html#a431144623d201c5aeb857893d8460ca2" title="rcKinetoscope::stepEpi" alt="" coords="833,76,991,104"/>
-<area shape="rect" id="node6" href="$classrc_engine_impl.html#a00ca0d227e480ddb5bd6be293b55d2c9" title="rcEngineImpl::muscleTracker" alt="" coords="1249,24,1442,52"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="rcImageCanvasGL::drawModelRect" name="rcImageCanvasGL::drawModelRect">
-<area shape="rect" id="node2" href="$classrc_image_canvas_g_l.html#a20eeb995b882e553bd5c16e19a22b03e" title="rcImageCanvasGL::drawCurrent\lFocus" alt="" coords="285,5,499,49"/>
-<area shape="rect" id="node4" href="$classrc_image_canvas_g_l.html#af15875c8c53e2424f3e7f3f1453d10eb" title="rcImageCanvasGL::drawRubber\lBandRect" alt="" coords="286,73,498,117"/>
-<area shape="rect" id="node3" href="$classrc_image_canvas_g_l.html#a13613e3b67ed570184de3526df233e23" title="Render display lists." alt="" coords="569,13,756,41"/>
-<area shape="rect" id="node5" href="$classrc_image_canvas_g_l.html#aef9949c8e7bacf03aa2c62673e2bb708" title="rcImageCanvasGL::drawZoomRect" alt="" coords="548,73,778,101"/>
-<area shape="rect" id="node7" href="$classrc_image_canvas_g_l.html#a8bccf12c0ecdc02e4830f0b80fb8e8dc" title="rcImageCanvasGL::drawFocusRect" alt="" coords="546,125,779,153"/>
-<area shape="rect" id="node6" href="$classrc_image_canvas_g_l.html#ab57b93a733a4e2b8703a4ee083d46737" title="rcImageCanvasGL::mouseMove\lEvent" alt="" coords="827,91,1040,135"/>
-</map>

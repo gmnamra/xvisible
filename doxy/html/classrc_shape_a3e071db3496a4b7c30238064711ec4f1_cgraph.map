@@ -1,6 +1,0 @@
-<map id="rcShape::majorEndConstraints" name="rcShape::majorEndConstraints">
-<area shape="rect" id="node2" href="$classrc_shape.html#acc0e95b282384746658f087098f02e3d" title="rcShape::isValid" alt="" coords="260,5,377,33"/>
-<area shape="rect" id="node3" href="$classrc_shape.html#a4e81fb442d9c9d695e84257fe361f6e8" title="rcShape::validate" alt="" coords="256,57,381,85"/>
-<area shape="rect" id="node4" href="$classrc_pair.html#ad1a3cb1e7fdbe119ce1295514b1bb49d" title="rcPair::x" alt="" coords="284,109,354,137"/>
-<area shape="rect" id="node5" href="$classrc_pair.html#a87400f83938e920c405c40aa449d3607" title="rcPair::y" alt="" coords="284,161,354,189"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="rcTimeline::scrollRange" name="rcTimeline::scrollRange">
-<area shape="rect" id="node2" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="214,5,437,33"/>
-<area shape="rect" id="node3" href="$classrc_model_domain.html#a43d17f0701f1458a2541280333659546" title="rcModelDomain::notifyTimeline\lRange" alt="" coords="223,57,427,101"/>
-<area shape="rect" id="node4" href="$classrc_model_domain.html#a05f82788d2ccac5e64337aae7bfc6966" title="rcModelDomain::updateTimeline\lRange" alt="" coords="486,57,698,101"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="bitwise_nor" name="bitwise_nor">
-<area shape="rect" id="node2" href="$string__arithmetic_8cpp.html#adf047787cbf9834b41cdd9fd05f4de77" title="bitwise_not" alt="" coords="144,5,232,33"/>
-<area shape="rect" id="node4" href="$string__arithmetic_8cpp.html#a872880fa465c333fc5ab14617675e7df" title="bitwise_or" alt="" coords="147,57,229,85"/>
-<area shape="rect" id="node3" href="$string__arithmetic_8cpp.html#a1a22bf947511ecf8da04a7cead2979ad" title="bit_not" alt="" coords="280,5,341,33"/>
-<area shape="rect" id="node5" href="$string__arithmetic_8cpp.html#a3f0dedb0825234f431e364e025ff9452" title="bit_or" alt="" coords="283,57,338,85"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="rcRadian::basic" name="rcRadian::basic">
-<area shape="rect" id="node2" href="$classrc_mathematical_image.html#a6dae5b83113b53f6315ba9f54aa4f983" title="rcMathematicalImage\l::mMakeField" alt="" coords="207,5,356,49"/>
-<area shape="rect" id="node4" href="$classrc_value.html#ae421fe86f94db1c1650e35b24cd35593" title="rcValue::rcValue" alt="" coords="223,73,340,101"/>
-<area shape="rect" id="node5" href="$classrc_affine_window.html#a8948da1594b1d6712d422fb663accbd0" title="rcAffineWindow::vImageTransform" alt="" coords="169,125,394,153"/>
-<area shape="rect" id="node3" href="$classrc_mathematical_image.html#adb4a1567cfa19d0e7462c92f202d7982" title="rcMathematicalImage\l::frustum" alt="" coords="458,5,606,49"/>
-<area shape="rect" id="node6" href="$classrc_affine_window.html#a9aa4d64aeae21263e779235d0cedcf55" title="rcAffineWindow::vAffineTo\lImage" alt="" coords="444,94,620,138"/>
-<area shape="rect" id="node7" href="$classrc_affine_window.html#a1bd6460d6e9216afb7cd897da375df2e" title="rcAffineWindow::vImageTo\lAffine" alt="" coords="442,162,622,206"/>
-<area shape="rect" id="node8" href="$classrc_def_generate_image.html#abaf414018792172efa91b653757bae81" title="rcDefGenerateImage\l::genImage" alt="" coords="670,162,816,206"/>
-</map>

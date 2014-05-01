@@ -1,8 +1,0 @@
-<map id="rcTimeline::paintScalarScaleMarks" name="rcTimeline::paintScalarScaleMarks">
-<area shape="rect" id="node2" href="$classrc_track.html#a780479078cd4b8aa50e4fc4ae6e5dad3" title="rcTrack::getDisplayFormat\lString" alt="" coords="265,5,442,49"/>
-<area shape="rect" id="node3" href="$classrc_timeline.html#a2a9d89e6993f83a4a09ef6f005a56fb2" title="rcTimeline::getValueOffset" alt="" coords="265,73,442,101"/>
-<area shape="rect" id="node4" href="$classrc_timeline.html#ab452a1afc4a68bcc82e4918b60845e22" title="rcTimeline::getValueScale" alt="" coords="266,125,441,153"/>
-<area shape="rect" id="node5" href="$classrc_timeline.html#a5717b9da123ce3656afef626100f4893" title="rcTimeline::paintScalarScaleMark" alt="" coords="244,177,463,205"/>
-<area shape="rect" id="node6" href="$classrc_timeline.html#ad1d70f959d24b9ea66e06f1a11512000" title="rcTimeline::reducedContentsRect" alt="" coords="244,229,463,257"/>
-<area shape="rect" id="node7" href="$classrc_timeline.html#a1246c9b67c1bf3874ea0d94085fbaca7" title="rcTimeline::valueToPixel" alt="" coords="271,281,436,309"/>
-</map>

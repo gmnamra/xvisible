@@ -1,7 +1,0 @@
-<map id="generateHeader" name="generateHeader">
-<area shape="rect" id="node2" href="$rc__movie__generator__main_8cpp.html#a5550a91ae12b5e67dfd875fc254297c7" title="generateExpansionMovie" alt="" coords="173,5,345,33"/>
-<area shape="rect" id="node4" href="$rc__movie__generator__main_8cpp.html#a92109472abf27accd174041f883f63f4" title="generateRandomMovie" alt="" coords="179,57,339,85"/>
-<area shape="rect" id="node5" href="$rc__movie__generator__main_8cpp.html#a985cd5fa3dfb30e1cd9fbc88bb733ed1" title="generateTinyMovie" alt="" coords="192,109,326,137"/>
-<area shape="rect" id="node6" href="$rc__movie__generator__main_8cpp.html#a962307a7d6fb769d8a773be64259653b" title="generateTranslationMovie" alt="" coords="171,161,346,189"/>
-<area shape="rect" id="node3" href="$rc__movie__generator__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="395,83,445,111"/>
-</map>

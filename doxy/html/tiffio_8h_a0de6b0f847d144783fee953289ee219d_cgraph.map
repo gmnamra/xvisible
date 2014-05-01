@@ -1,7 +1,0 @@
-<map id="TIFFTileSize" name="TIFFTileSize">
-<area shape="rect" id="node2" href="$tif__tile_8c.html#ac2b6fed7e66c77d417c67d8088e36b66" title="TIFFVTileSize" alt="" coords="150,51,255,79"/>
-<area shape="rect" id="node3" href="$tif__tile_8c.html#a3d2583ed5901992de25556d454e42054" title="multiply" alt="" coords="485,25,552,53"/>
-<area shape="rect" id="node4" href="$tif__error_8c.html#a2e8b77a2d4e7b7283b55b963dd67ec31" title="TIFFErrorExt" alt="" coords="611,77,709,105"/>
-<area shape="rect" id="node5" href="$tif__tile_8c.html#ab148b812d46cc98adb3fafbb631f08fd" title="summarize" alt="" coords="475,129,562,157"/>
-<area shape="rect" id="node6" href="$tif__tile_8c.html#a423193eb74c9eb9178517131614f5c01" title="TIFFTileRowSize" alt="" coords="304,25,427,53"/>
-</map>

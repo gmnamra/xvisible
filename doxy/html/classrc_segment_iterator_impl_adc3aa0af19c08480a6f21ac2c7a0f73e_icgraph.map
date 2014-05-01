@@ -1,6 +1,0 @@
-<map id="rcSegmentIteratorImpl::getSegmentStartAbsolute" name="rcSegmentIteratorImpl::getSegmentStartAbsolute">
-<area shape="rect" id="node2" href="$classrc_graphics_segment_iterator_impl.html#ae76be3ba85f1734d0daa4c4b4a8211ed" title="rcGraphicsSegmentIterator\lImpl::getSegmentStartAbsolute" alt="" coords="234,5,440,49"/>
-<area shape="rect" id="node3" href="$classrc_scalar_segment_iterator_impl.html#a525dce65eb78fc2eb20c49ab811e3e12" title="rcScalarSegmentIteratorImpl\l::getSegmentStartAbsolute" alt="" coords="242,73,433,117"/>
-<area shape="rect" id="node4" href="$classrc_position_segment_iterator_impl.html#a821c19d04dcf3a73ad382c75703b86de" title="rcPositionSegmentIterator\lImpl::getSegmentStartAbsolute" alt="" coords="234,141,440,185"/>
-<area shape="rect" id="node5" href="$classrc_video_segment_iterator_impl.html#a18025e90fb3c93989e810f63ebb81b61" title="rcVideoSegmentIteratorImpl\l::getSegmentStartAbsolute" alt="" coords="244,209,431,253"/>
-</map>

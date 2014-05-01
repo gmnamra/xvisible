@@ -1,7 +1,0 @@
-<map id="rcLsFit::rms" name="rcLsFit::rms">
-<area shape="rect" id="node2" href="$classrc2d_vector.html#a63342b71909f7c9eff569f59682e51f3" title="rc2dVector::distanceSquared" alt="" coords="144,5,336,33"/>
-<area shape="rect" id="node3" href="$classrc2_xform.html#ade99ff157bd7a2f7e997e631f46e2b7c" title="rc2Xform::invMapPoint" alt="" coords="162,57,318,85"/>
-<area shape="rect" id="node4" href="$classrc2_xform.html#a82b83615c4ae911ab21adf6d08a5a397" title="rc2Xform::inverse" alt="" coords="384,57,510,85"/>
-<area shape="rect" id="node5" href="$classrc_matrix__2d.html#adcebad9f37bbe700ab70b5fb5b29c8c6" title="rcMatrix_2d::inverse" alt="" coords="557,30,699,58"/>
-<area shape="rect" id="node6" href="$classrc2_xform.html#abb63067ff95c0c86e1d855376f94fbe7" title="rc2Xform::rc2Xform" alt="" coords="560,82,696,110"/>
-</map>

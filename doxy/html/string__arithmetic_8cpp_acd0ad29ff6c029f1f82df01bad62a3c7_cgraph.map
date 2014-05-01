@@ -1,7 +1,0 @@
-<map id="signed_to_inf" name="signed_to_inf">
-<area shape="rect" id="node2" href="$string__arithmetic_8cpp.html#aa19eed0b96f17cfe786e83058b5ecffb" title="is_negative" alt="" coords="156,5,244,33"/>
-<area shape="rect" id="node3" href="$string__arithmetic_8cpp.html#afeb7b86cd741095a4cbcc645cb9f17f0" title="signed_not" alt="" coords="157,57,243,85"/>
-<area shape="rect" id="node4" href="$string__arithmetic_8cpp.html#adf047787cbf9834b41cdd9fd05f4de77" title="bitwise_not" alt="" coords="301,30,389,58"/>
-<area shape="rect" id="node6" href="$string__arithmetic_8cpp.html#a81d7a054172ae982785819c0c51a87c5" title="signed_resize" alt="" coords="294,82,397,110"/>
-<area shape="rect" id="node5" href="$string__arithmetic_8cpp.html#a1a22bf947511ecf8da04a7cead2979ad" title="bit_not" alt="" coords="445,30,507,58"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="ofbuff::~ofbuff" name="ofbuff::~ofbuff">
-<area shape="rect" id="node2" href="$classofbuff.html#a53df491fc21065f4309d4ee945c1854b" title="ofbuff::flush" alt="" coords="158,5,248,33"/>
-<area shape="rect" id="node3" href="$classobuff.html#ae388e9608d1c873d1feaf621f4044c25" title="obuff::set_error" alt="" coords="296,5,408,33"/>
-<area shape="rect" id="node4" href="$class_t_c_p__client__data.html#a970f6bf6bb6e6166615813c5f7768381" title="TCP_client_data::error" alt="" coords="457,5,612,33"/>
-<area shape="rect" id="node5" href="$class_t_c_p__socket.html#adb70059ca46476efe0ced51ed377a975" title="TCP_socket::error" alt="" coords="662,5,791,33"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="setProperties" name="setProperties">
-<area shape="rect" id="node2" href="$rc__dcam_8h.html#abdaac796c588bd54040222228f90bd0f" title="rfGetCameraInformation" alt="" coords="155,31,320,59"/>
-<area shape="rect" id="node3" href="$rc__dcam__capture_8cpp.html#a8fcb91e1b2e6adaad571752a59ac3dad" title="InitializeMungData2" alt="" coords="368,31,507,59"/>
-<area shape="rect" id="node4" href="$rc__dcam__capture_8h.html#aa3528bb0b33aa9119084d4b082f8c0aa" title="rfDCAMVideoCapture" alt="" coords="556,5,706,33"/>
-<area shape="rect" id="node6" href="$rc__qtime__capture_8h.html#adf4b66b022a2bc6ba21cddbc179756cb" title="rfQTVideoCapture" alt="" coords="566,57,695,85"/>
-<area shape="rect" id="node5" href="$rc__dcam__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="755,5,805,33"/>
-<area shape="rect" id="node7" href="$rc__qtime__main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="755,57,805,85"/>
-</map>

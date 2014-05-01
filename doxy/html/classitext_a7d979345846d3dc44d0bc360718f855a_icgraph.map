@@ -1,9 +1,0 @@
-<map id="itext::bytes" name="itext::bytes">
-<area shape="rect" id="node2" href="$classsubprocess.html#a573b4926e612d0e50018ef0efcb315e6" title="subprocess::read_stderr" alt="" coords="140,5,305,33"/>
-<area shape="rect" id="node3" href="$classasync__subprocess.html#a1926346152045010c836850c42aa16f5" title="async_subprocess::read\l_stderr" alt="" coords="140,57,306,101"/>
-<area shape="rect" id="node4" href="$classsubprocess.html#ac0092c704d9c53ee07b57ac649e863d4" title="subprocess::read_stdout" alt="" coords="139,125,306,153"/>
-<area shape="rect" id="node6" href="$classasync__subprocess.html#a7c9c0428798e6c27e5dc32e8946ae451" title="async_subprocess::read\l_stdout" alt="" coords="140,177,306,221"/>
-<area shape="rect" id="node7" href="$classsubprocess.html#a892354c73b6356645e9227d1201fc524" title="subprocess::write_stdin" alt="" coords="142,245,303,273"/>
-<area shape="rect" id="node8" href="$classasync__subprocess.html#a94f56d9658526c745756918b4da9d68e" title="async_subprocess::write\l_stdin" alt="" coords="139,297,306,341"/>
-<area shape="rect" id="node5" href="$classbacktick__subprocess.html#a52cf56592ab0f1cb20e0cb9e88c4b0f3" title="backtick_subprocess\l::callback" alt="" coords="355,117,501,161"/>
-</map>

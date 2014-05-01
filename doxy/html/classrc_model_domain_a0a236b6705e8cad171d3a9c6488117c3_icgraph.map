@@ -1,8 +1,0 @@
-<map id="rcModelDomain::notifyAnalysisRect" name="rcModelDomain::notifyAnalysisRect">
-<area shape="rect" id="node2" href="$classrc_image_canvas_g_l.html#afd5e75f95cc8f23cf8601e6e4b49788c" title="rcImageCanvasGL::keyPress\lEvent" alt="" coords="303,5,497,49"/>
-<area shape="rect" id="node3" href="$classrc_scalar_track_widget.html#a6108b831424259c957069a6523315e81" title="rcScalarTrackWidget\l::mousePressEvent" alt="" coords="328,73,472,117"/>
-<area shape="rect" id="node4" href="$classrc_image_canvas_g_l.html#acb25a27713e20842e6bb0a741570480b" title="rcImageCanvasGL::mouseRelease\lEvent" alt="" coords="286,141,514,185"/>
-<area shape="rect" id="node5" href="$classrc_rect_setting_widget.html#a7bb53b7b9721006281fca24a9b3bbd00" title="rcRectSettingWidget\l::selectAll" alt="" coords="329,209,471,253"/>
-<area shape="rect" id="node7" href="$classrc_rect_setting_widget.html#ab390a7ad40831ac356424e2ed5ad59b7" title="rcRectSettingWidget\l::valueChanged" alt="" coords="329,277,471,321"/>
-<area shape="rect" id="node6" href="$classrc_rect_setting_widget.html#a8eeeacdb8f58de8b0f29a7e9a500d169" title="rcRectSettingWidget\l::rcRectSettingWidget" alt="" coords="564,243,714,287"/>
-</map>

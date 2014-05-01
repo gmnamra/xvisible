@@ -1,7 +1,0 @@
-<map id="useLargestAvailableColorMode" name="useLargestAvailableColorMode">
-<area shape="rect" id="node2" href="$classrc_camera_format.html#ac5a8c98572e87824fda69d6ecdccaaff" title="rcCameraFormat::format" alt="" coords="264,5,432,33"/>
-<area shape="rect" id="node3" href="$classrc_camera_format.html#ab23aefae5560d84a8396eb66fb2ee806" title="rcCameraFormat::height" alt="" coords="265,57,431,85"/>
-<area shape="rect" id="node4" href="$classrc_camera_format.html#a22eb3e376afaf5ad282a375a640d5455" title="rcCameraFormat::isMono" alt="" coords="262,109,434,137"/>
-<area shape="rect" id="node5" href="$classrc_camera_format.html#a73f9dc0563f6420fc97c5c2c8f2370b3" title="rcCameraFormat::mode" alt="" coords="267,161,429,189"/>
-<area shape="rect" id="node6" href="$classrc_camera_format.html#ac726dcaa0d55a8b6cd9adcf4b004e737" title="rcCameraFormat::width" alt="" coords="268,213,428,241"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="rcTimeline::resetAllScales" name="rcTimeline::resetAllScales">
-<area shape="rect" id="node2" href="$classrc_model_domain.html#a3333b7bc68fec7cc0365f17671b9cacf" title="rcModelDomain::getExperiment\lLength" alt="" coords="237,5,445,49"/>
-<area shape="rect" id="node4" href="$classrc_model_domain.html#a8fafb31fce65382de4c9d4c35b72eb3d" title="rcModelDomain::getModelDomain" alt="" coords="230,73,453,101"/>
-<area shape="rect" id="node3" href="$classrc_experiment_domain.html#af94746dded5d9a6ec4a1d6c8fa6a7a1b" title="rcExperimentDomain\l::getExperimentLength" alt="" coords="502,5,658,49"/>
-</map>

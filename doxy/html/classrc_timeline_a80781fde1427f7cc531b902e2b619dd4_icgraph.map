@@ -1,7 +1,0 @@
-<map id="rcTimeline::getEnabledVideoTrack" name="rcTimeline::getEnabledVideoTrack">
-<area shape="rect" id="node2" href="$classrc_timeline.html#a8348ce7479a333e369ac8a27bc5170e9" title="rcTimeline::getFrameTime" alt="" coords="259,5,435,33"/>
-<area shape="rect" id="node5" href="$classrc_timeline.html#a2f96be772f5fb7f24d9724b97105c2d8" title="rcTimeline::getSegmentLength" alt="" coords="245,57,448,85"/>
-<area shape="rect" id="node3" href="$classrc_timeline.html#aeaaccfa10a612c29679497245a78cf87" title="rcTimeline::keyNavigateEvent" alt="" coords="496,5,693,33"/>
-<area shape="rect" id="node4" href="$classrc_timeline.html#a54f33ca884fce920f42c3643c305d341" title="rcTimeline::keyPressEvent" alt="" coords="741,31,920,59"/>
-<area shape="rect" id="node6" href="$classrc_timeline.html#af887d004d83598a1565bc4ad000500e8" title="rcTimeline::keyScrollEvent" alt="" coords="506,57,684,85"/>
-</map>
