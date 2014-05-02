@@ -4,7 +4,7 @@
 
 #include "ut_reifymoviegrabber.h"
 
-#include <rc_windowhist.h>
+#include "rc_windowhist.h"
 
 static std::string fileName;
 

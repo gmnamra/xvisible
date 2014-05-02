@@ -1,9 +1,9 @@
 #include "ut_cordic.h"
-#include <rc_math.h>
+#include "rc_math.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <rc_vector2d.h>
+#include "rc_vector2d.h"
 
 typedef int32 TFixed;	/* f * 2^16 */
 

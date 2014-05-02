@@ -17,7 +17,7 @@
 #define __UT_CORDIC_H
 
 
-#include <rc_unittest.h>
+#include "rc_unittest.h"
 
 class UT_cordic : public rcUnitTest {
 public:

@@ -8,7 +8,7 @@
 #ifndef _rcUT_SYSTEMINFO_H_
 #define _rcUT_SYSTEMINFO_H_
 
-#include <rc_unittest.h>
+#include "rc_unittest.h"
 
 class UT_Systeminfo : public rcUnitTest {
 public:

@@ -3,17 +3,17 @@
 
 
 #include <gtest/gtest.h>
-#include <rc_fileutils.h>
+#include <vfi386_d/rc_fileutils.h>
 #include <string>
 #include <fstream>
 #include <streambuf>
 #include <boost/foreach.hpp>
 #include <cstdio>
-#include <rc_stats.h>
+#include <vfi386_d/rc_stats.h>
 #include <sstream>
 #include <string>
 #include <iostream>
-#include "vf_window.hpp"
+#include "vf_utils.hpp"
 #include "sshist.hpp"
 
 using namespace std;

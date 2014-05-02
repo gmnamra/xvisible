@@ -22,7 +22,7 @@ public:
     typedef std::exception Superclass;
 
     general_exception( const std::string& msg ) throw() :
-	_location (""), _file (__FILE__), _line (__LINE__), _description( msg )
+	_location (""),  _description( msg ), _file (__FILE__), _line (__LINE__)
 	{ }
 
     general_exception(const char *file="Unknown", unsigned int lineNumber=0,

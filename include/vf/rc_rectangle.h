@@ -479,10 +479,12 @@ rcRectangle<T> rcRectangle<T>::intersect(const rcRectangle<T>& other,
 
   if ((overlapUpperLeft.x() > overlapLowerRight.x()) ||
 	 (overlapUpperLeft.y() > overlapLowerRight.y()))
+    {    
       if (throwIfNoOverlap)
-	throw general_exception("rcRectErrors::NoOverlap");
+        throw general_exception("rcRectErrors::NoOverlap");
       else
-          overlapLowerRight = overlapUpperLeft; // Force a null rectangle
+        overlapLowerRight = overlapUpperLeft; // Force a null rectangle
+    }
 
   return rcRectangle<T>(overlapUpperLeft, overlapLowerRight);
 }

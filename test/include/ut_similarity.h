@@ -23,10 +23,10 @@
 #ifndef __UT_SIMILARITY_H
 #define __UT_SIMILARITY_H
 
-#include <rc_unittest.h>
-#include <rc_similarity.h>
-#include <rc_latticesimilarity.h>
-#include <rc_similarity_producer.h>
+#include "rc_unittest.h"
+#include "rc_similarity.h"
+#include "rc_latticesimilarity.h"
+#include "rc_similarity_producer.h"
 
 class UT_similarity : public rcUnitTest {
 public:

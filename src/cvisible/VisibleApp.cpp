@@ -16,16 +16,19 @@
 
 #include "cvisible/AudioTestGui.h"
 #include "cvisible/AudioDrawUtils.h"
+#include "cvisible/vf_cinder.hpp"
 
 //#define INITIAL_AUDIO_RES	RES_TONE440_WAV
 //#define INITIAL_AUDIO_RES	RES_TONE440L220R_WAV
 //#define INITIAL_AUDIO_RES	RES_TONE440L220R_FLOAT_WAV
 //#define INITIAL_AUDIO_RES	RES_TONE440_MP3
 //#define INITIAL_AUDIO_RES	RES_TONE440L220R_MP3
-#define INITIAL_AUDIO_RES	RES_CASH_MP3
+#define INITIAL_AUDIO_RES	RES_SINGLE_NORM_COLUMN
+//#define INITIAL_AUDIO_RES	RES_CASH_MP3
 //#define INITIAL_AUDIO_RES	RES_TONE440_OGG
 //#define INITIAL_AUDIO_RES	RES_TONE440L220R_OGG
 //#define INITIAL_AUDIO_RES	RES_RADIOHEAD_OGG
+
 
 using namespace ci;
 using namespace ci::app;
@@ -87,8 +90,6 @@ void SamplePlayerTestApp::setup()
 	mUnderrunFade = mOverrunFade = mRecorderOverrunFade = 0;
 	mSamplePlayerEnabledState = false;
 
-	setSourceFile( loadResource( INITIAL_AUDIO_RES ) );
-
 	auto ctx = audio2::master();
 
 	mPan = ctx->makeNode( new audio2::Pan2d() );
@@ -113,6 +114,10 @@ void SamplePlayerTestApp::setup()
 void SamplePlayerTestApp::setupBufferPlayer()
 {
 	auto bufferPlayer = audio2::master()->makeNode( new audio2::BufferPlayer() );
+
+    fs::path fpath ( "/Users/arman/Desktop/visibleqt105/resources/assets/data.txt" );
+    
+    setSourceFile(DataSourcePath::create (fpath ) );
 
 	auto loadFn = [bufferPlayer, this] {
 		bufferPlayer->loadBuffer( mSourceFile );
@@ -587,5 +592,7 @@ void SamplePlayerTestApp::testWrite()
 		CI_LOG_E( "AudioFileExc, what: " << exc.what() );
 	}
 }
+
+
 
 CINDER_APP_NATIVE( SamplePlayerTestApp, RendererGl )

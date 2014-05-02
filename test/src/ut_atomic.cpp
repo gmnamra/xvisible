@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <vector>
-#include <rc_atomic.h>
+#include "rc_atomic.h"
 #include <ut_atomic.h>
 #include <typeinfo>
 #include <stdio.h>

@@ -3,8 +3,8 @@
 #ifndef _UT_REIFYMOVIEGRABBER_H_
 #define _UT_REIFYMOVIEGRABBER_H_
 
-#include <rc_unittest.h>
-#include <rc_reifymoviegrabber.h>
+#include "rc_unittest.h"
+#include "rc_reifymoviegrabber.h"
 
 class UT_ReifyMovieGrabber : public rcUnitTest {
  public:

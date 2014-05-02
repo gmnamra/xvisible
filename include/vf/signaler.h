@@ -1,7 +1,7 @@
 #ifndef __IO_GRABBER__
 #define __IO_GRABBER__
 
-#include "rc_exception.h>
+#include "rc_exception.h"
 #include <map>
 #include <iostream>
 #include <string>

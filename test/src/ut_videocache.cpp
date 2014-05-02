@@ -3,9 +3,9 @@
 #include <stdlib.h>
 
 #include "ut_videocache.h"
-#include <rc_videocache.h>
-#include <rc_windowhist.h>
-#include <timing.hpp>
+#include "rc_videocache.h"
+#include "rc_windowhist.h"
+#include "timing.hpp"
 
 
 static std::string fileName;

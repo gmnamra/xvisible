@@ -3,8 +3,8 @@
 #ifndef _rcUT_FRAMEBUF_H_
 #define _rcUT_FRAMEBUF_H_
 
-#include <rc_unittest.h>
-#include <rc_framebuf.h>
+#include "rc_unittest.h"
+#include "rc_framebuf.h"
 
 class UT_FrameBuf : public rcUnitTest {
 public:

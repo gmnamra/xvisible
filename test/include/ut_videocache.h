@@ -3,10 +3,10 @@
 #ifndef _UT_VIDEOCACHE_H_
 #define _UT_VIDEOCACHE_H_
 
-#include <rc_unittest.h>
-#include <rc_videocache.h>
-#include <rc_thread.h>
-#include <rc_atomic.h>
+#include "rc_unittest.h"
+#include "rc_videocache.h"
+#include "rc_thread.h"
+#include "rc_atomic.h"
 
 typedef struct utExpMapResult {
   rcVideoCacheError  expError;

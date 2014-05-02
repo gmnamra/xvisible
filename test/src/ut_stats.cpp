@@ -6,7 +6,7 @@
  */
 
 #include "ut_stats.h"
-#include <rc_lsfit.h>
+#include "rc_lsfit.h"
 
 UT_stats::UT_stats ()
 {

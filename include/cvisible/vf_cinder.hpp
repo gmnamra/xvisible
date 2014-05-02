@@ -4,15 +4,20 @@
 
 
 #include "vf_utils.hpp"
-#include <cinder/DataSource.h>
+#include "cinder/Filesystem.h"
+#include "cinder/DataSource.h"
 #include "cinder/audio2/WaveformType.h"
 #include "cinder/audio2/Buffer.h"
+
 #include <vector>
 #include <tuple>
+#include <boost/filesystem/path.hpp>
+#include <boost/filesystem/convenience.hpp>
 
 using namespace vf_utils;
 using namespace cinder;
 using namespace audio2;
+using namespace std;
 
 
 namespace vf_cinder
@@ -29,9 +34,7 @@ namespace vf_cinder
         
         static DataSourcePathRef create (const std::string& fqfn)
         {
-            DataSourcePathRef dp = reinterprete_cast<DataSourcePathRef> (loadFile (fs::path  (fqfn)));
-            dp->setFilePathHint ("rfys");
-            return dp;
+            return  DataSourcePath::create (fs::path  (fqfn));
         }
         
         VisibleAudioSource ( const DataSourceRef &dataSource, int column_select = -1) : SourceFile ()
@@ -44,7 +47,7 @@ namespace vf_cinder
         
         virtual ~VisibleAudioSource()	{}
         
-        size_t	read( Buffer *buffer ) override
+        size_t	read( audio2::Buffer *buffer ) 
         {
             CI_ASSERT( buffer->getNumChannels() == mNumChannels );
             CI_ASSERT( mReadPos < mNumFrames );
@@ -60,11 +63,9 @@ namespace vf_cinder
         void	setOutputFormat( size_t outputSampleRate, size_t outputNumChannels = 0 ) override;
         
         //! Returns a clone of this Source.
-        virtual VisibleAudioSourceRef clone() const
+        virtual SourceFileRef clone() const override
         {
-            shared_ptr<VisbleAudioSource> result( new VisibleAudioSource );
-            result->mDataSource = mDataSource;
-            result->m_column_select = m_column_select;
+            std::shared_ptr<VisibleAudioSource> result( new VisibleAudioSource (mDataSource, m_column_select ));
             result->init();
             return result;
         }
@@ -73,9 +74,9 @@ namespace vf_cinder
         //! Loads and returns the entire contents of this VisibleAudioSource. \return a BufferRef containing the file contents.
         BufferRef loadBuffer()
         {
-            BufferRef result = make_shared<Buffer>( mNumFrames, 1);
+            BufferRef result = make_shared<audio2::Buffer>( mNumFrames, 1);
             const std::vector<float>& data = mdat[m_column_select];
-            std::memmove( result->getChannel( 0 ), & data[0], rows * sizeof( T ) );
+            std::memmove( result->getChannel( 0 ), & data[0], mNumFrames  * sizeof(float) );
             return result;
         }
         //! Seek the read position to \a readPositionFrames
@@ -90,17 +91,17 @@ namespace vf_cinder
         
     protected:
         
-        size_t performRead( Buffer *buffer, size_t bufferFrameOffset, size_t numFramesNeeded )
+        size_t performRead( audio2::Buffer *buffer, size_t bufferFrameOffset, size_t numFramesNeeded )
         {
             CI_ASSERT( buffer->getNumFrames() >= bufferFrameOffset + numFramesNeeded );
             const std::vector<float>& data = mdat[m_column_select];
             size_t offset = bufferFrameOffset + numFramesNeeded;
-            memcpy( buffer->getChannel( 0 ) + offset, &data[0], NumFramesNeeded * sizeof( float ) );
-            mReadPos += NumFramesNeeded;
-            return static_cast<size_t>( NumFramesNeeded );
+            memcpy( buffer->getChannel( 0 ) + offset, &data[0], numFramesNeeded * sizeof( float ) );
+            mReadPos += numFramesNeeded;
+            return static_cast<size_t>( numFramesNeeded );
         }
         //! Implement to perform seek. \a readPositionFrames is in native file units.
-        virtual void performSeek( size_t readPositionFrames ) = 0;
+        void performSeek( size_t readPositionFrames ) {}
         
         size_t mNumFrames, mFileNumFrames, mReadPos;
         std::vector<vector<float> > mdat;
@@ -137,7 +138,11 @@ namespace vf_cinder
     };
     
     //! Convenience method for loading a VisibleAudioSource from \a dataSource. \return VisibleAudioSourceRef. \see VisibleAudioSource::create()
-    inline VisibleAudioSourceRef	load( const DataSourceRef &dataSource )	{ return VisibleAudioSource::create( dataSource ); }
+    //    inline VisibleAudioSourceRef	load( const DataSourceRef &dataSource )	{ return VisibleAudioSource::create( dataSource ); }
     
     
 }
+
+
+
+#endif

@@ -8,7 +8,7 @@
 #include <strstream>
 #include <unistd.h>
 
-#include <rc_systeminfo.h>
+#include "rc_systeminfo.h"
 
 #include "ut_systeminfo.h"
 

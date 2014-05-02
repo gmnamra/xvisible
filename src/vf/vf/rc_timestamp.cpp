@@ -4,9 +4,57 @@
 *	Non-platform-specific support for timestamps.
 ******************************************************************************/
 
-#include <exception>
+#include <rc_exception.h>
 
 #include "rc_timestamp.h"
+#include <sys/time.h>
+
+
+
+
+// get the current timestamp
+int64 getCurrentTimestamp( void )
+{
+    // TODO: use high resolution clock
+    struct timeval t;
+#if 1
+    // Warning: gettimeofday values do not always monotonically increase
+    if ( gettimeofday( &t, NULL ) != 0 )
+        throw general_exception( "timestamp not available" );
+#else
+    // Hack from Apple technical support
+    // TODO: validate that this works, it seems that sometimes 0 is returned in t
+#include <sys/syscall.h>
+    
+    if ( syscall(SYS_gettimeofday, &t, NULL) < 0 )
+        throw general_exception( "timestamp not available" );
+#endif
+    static const int64 cMicrosPerSec = mMicrosPerSecond;    
+    
+    int64 now = t.tv_sec * cMicrosPerSec + t.tv_usec;
+    return now;
+}
+
+// get the timestamp resolution
+double getTimestampResolution( void )
+{
+    static const double cResolution = 1.0/mMicrosPerSecond;    
+    return cResolution;
+}
+
+
+// convert timestamp to seconds.
+double convertTimestampToSeconds( int64 timestamp )
+{
+	return (double) (timestamp * mMicrosPerSecond );
+}
+
+// convert timestamp to seconds.
+int64 convertSecondsToTimestamp( double secs )
+{
+	return (int64) (secs / mMicrosPerSecond );
+}
+
 
 // Timestamp for 0.0.
 // It is much faster to do "rcTimestamp foo = cZeroTime" than "rcTimestamp foo = 0.0"
@@ -80,3 +128,7 @@ std::string rcTimestamp::localtime() const
 
     return localTime;
 }
+
+
+
+

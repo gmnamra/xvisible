@@ -8,9 +8,9 @@
 #ifndef _UT_CORRELATIONWINDOW_H_
 #define _UT_CORRELATIONWINDOW_H_
 
-#include <rc_unittest.h>
-#include <rc_correlationwindow.h>
-#include <rc_ncs.h>
+#include "rc_unittest.h"
+#include "rc_correlationwindow.h"
+#include "rc_ncs.h"
 
 class UT_Correlationwindow : public rcUnitTest {
   public:

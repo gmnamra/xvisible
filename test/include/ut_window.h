@@ -4,8 +4,8 @@
 #define _rcUT_WINDOW_H_
 
 #include "rc_unittest.h"
-#include <rc_window.h>
-#include <rc_framebuf.h>
+#include "rc_window.h"
+#include "rc_framebuf.h"
 
 class UT_Window : public rcUnitTest {
 public:

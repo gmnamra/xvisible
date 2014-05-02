@@ -3,9 +3,9 @@
 #ifndef _UT_POLYGON_H_
 #define _UT_POLYGON_H_
 
-#include <rc_unittest.h>
-#include <rc_polygon.h>
-#include <rc_polygongroup.h>
+#include "rc_unittest.h"
+#include "rc_polygon.h"
+#include "rc_polygongroup.h"
 
 class UT_Polygon : public rcUnitTest {
 public:
