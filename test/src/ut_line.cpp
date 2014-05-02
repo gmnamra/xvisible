@@ -34,10 +34,10 @@
  * Copyright (c) 2002 Reify Corp. All rights reserved.
  */
 #include "ut_line.h"
-#include <rc_math.h>
+#include "rc_math.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <rc_line.h>
+#include "rc_line.h"
 
 #define UTCHECKLINE(a,b,c) \
 { \

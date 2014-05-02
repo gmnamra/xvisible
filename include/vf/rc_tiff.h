@@ -30,7 +30,7 @@
 #include "rc_window.h"
 
 extern "C" {
-#include <tiffio.h>
+#include "tiffio.h"
 #include <tiffiop.h>
 }
 

@@ -5,7 +5,7 @@
  */
 
 #include "ut_window.h"
-#include <rc_window.h>
+#include "rc_window.h"
 
 #include <vector>
 using namespace std;

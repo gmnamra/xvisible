@@ -3,7 +3,7 @@
 #ifndef _rcUT_RING_H_
 #define _rcUT_RING_H_
 
-#include <rc_unittest.h>
+#include "rc_unittest.h"
 
 class UT_RingBuffer : public rcUnitTest {
 public:

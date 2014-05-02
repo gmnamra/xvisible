@@ -3,7 +3,7 @@
 #ifndef _rcUT_THREAD_H_
 #define _rcUT_THREAD_H_
 
-#include <rc_unittest.h>
+#include "rc_unittest.h"
 
 class UT_Thread : public rcUnitTest {
 public:

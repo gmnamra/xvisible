@@ -22,32 +22,27 @@ class rcGenMovieFile;
 
 using namespace std;
 
+#define mMicrosPerSecond 1000000
 
 /******************************************************************************
 *	Platform-specific timestamp support routines
 ******************************************************************************/
 
 // get the current timestamp
-int64 getCurrentTimestamp( void );
+RFY_API int64 getCurrentTimestamp( void );
 
 // get timestamp resolution (in seconds)
-double getTimestampResolution( void );
+RFY_API double getTimestampResolution( void );
 
 /******************************************************************************
 *	Conversion routines
 ******************************************************************************/
 
 // convert timestamp to seconds.
-inline double convertTimestampToSeconds( int64 timestamp )
-{
-	return (double) (timestamp * getTimestampResolution());
-}
+RFY_API double convertTimestampToSeconds( int64 timestamp );
 
 // convert timestamp to seconds.
-inline int64 convertSecondsToTimestamp( double secs )
-{
-	return (int64) (secs / getTimestampResolution());
-}
+RFY_API int64 convertSecondsToTimestamp( double secs );
 
 /******************************************************************************
 *	rcTimestamp class definition
@@ -69,7 +64,7 @@ public:
 	}
 
 	// constructor 
-	rcTimestamp( double secs ) :  _timestamp (convertSecondsToTimestamp( secs )) {}
+	rcTimestamp( double secs ) :  _timestamp ((int64) (secs / mMicrosPerSecond ) ) {}
 
 	// internal constructor
 	rcTimestamp( int64 timestamp ) : _timestamp (timestamp) {}

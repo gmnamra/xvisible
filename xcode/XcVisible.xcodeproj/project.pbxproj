@@ -15,8 +15,13 @@
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C20BB3481910577D00884EB2 /* gutc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20BB3471910577D00884EB2 /* gutc.cpp */; };
+		C20BB34F1910599400884EB2 /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20BB34E1910599400884EB2 /* vfi386_d.framework */; };
+		C20BB351191059BC00884EB2 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20BB350191059BC00884EB2 /* gtest.framework */; };
 		C21733FA190B101D00A01365 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C21733F9190B101D00A01365 /* Config.xcconfig */; };
 		C2173401190B175500A01365 /* AudioDrawUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21733FC190B175500A01365 /* AudioDrawUtils.cpp */; };
+		C23E89AD1912869C00AE27A3 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C23E89AC1912869C00AE27A3 /* libboost_system.a */; };
+		C23E89B01912E98D00AE27A3 /* libopencv_core.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C23E89AF1912E98C00AE27A3 /* libopencv_core.dylib */; };
 		C2DB225D190B296A00BBC93C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB225C190B296A00BBC93C /* Carbon.framework */; };
 		C2DB225F190B298700BBC93C /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB225E190B298700BBC93C /* QuickTime.framework */; };
 		C2DB2261190B2CCB00BBC93C /* VisibleApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2173400190B175500A01365 /* VisibleApp.cpp */; };
@@ -36,12 +41,23 @@
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		8D1107320486CEB800E47090 /* XcVisible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XcVisible.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C20BB33819102F5A00884EB2 /* vf_cinder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_cinder.hpp; path = ../../include/cvisible/vf_cinder.hpp; sourceTree = "<group>"; };
+		C20BB3391910508E00884EB2 /* vf_utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_utils.hpp; path = ../../include/cvisible/vf_utils.hpp; sourceTree = "<group>"; };
+		C20BB33E1910569C00884EB2 /* gutc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gutc; sourceTree = BUILT_PRODUCTS_DIR; };
+		C20BB3471910577D00884EB2 /* gutc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = gutc.cpp; path = ../../test/vf_cvisible/gutc.cpp; sourceTree = "<group>"; };
+		C20BB349191058FA00884EB2 /* ut_file.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ut_file.hpp; path = ../../test/vf_cvisible/ut_file.hpp; sourceTree = "<group>"; };
+		C20BB34A1910593A00884EB2 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../usr/local/gtest/build/Release/gtest.framework; sourceTree = "<group>"; };
+		C20BB34C1910597C00884EB2 /* vfi386.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386.framework; path = ../build/Debug/vfi386.framework; sourceTree = "<group>"; };
+		C20BB34E1910599400884EB2 /* vfi386_d.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386_d.framework; path = ../build/Frameworks/vfi386_d.framework; sourceTree = "<group>"; };
+		C20BB350191059BC00884EB2 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../build/Frameworks/gtest.framework; sourceTree = "<group>"; };
 		C21733F9190B101D00A01365 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		C21733FC190B175500A01365 /* AudioDrawUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioDrawUtils.cpp; sourceTree = "<group>"; };
 		C21733FD190B175500A01365 /* cVisibleApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cVisibleApp.cpp; sourceTree = "<group>"; };
 		C21733FE190B175500A01365 /* vf_movieconverter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vf_movieconverter.cpp; sourceTree = "<group>"; };
 		C21733FF190B175500A01365 /* vf_qtime_grabber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vf_qtime_grabber.cpp; sourceTree = "<group>"; };
 		C2173400190B175500A01365 /* VisibleApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VisibleApp.cpp; sourceTree = "<group>"; };
+		C23E89AC1912869C00AE27A3 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../usr/local/boost/lib/libboost_system.a; sourceTree = "<group>"; };
+		C23E89AF1912E98C00AE27A3 /* libopencv_core.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.dylib; path = ../usr/local/OpenCv_2.4_i386/lib/libopencv_core.dylib; sourceTree = "<group>"; };
 		C2DB225C190B296A00BBC93C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		C2DB225E190B298700BBC93C /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
 		C2DB2262190B2F3400BBC93C /* Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../resources/assets/Resources.h; sourceTree = "<group>"; };
@@ -63,6 +79,17 @@
 				00B784B40FF439BC000DE1D7 /* AudioToolbox.framework in Frameworks */,
 				00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */,
 				00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C20BB33B1910569C00884EB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C23E89B01912E98D00AE27A3 /* libopencv_core.dylib in Frameworks */,
+				C23E89AD1912869C00AE27A3 /* libboost_system.a in Frameworks */,
+				C20BB351191059BC00884EB2 /* gtest.framework in Frameworks */,
+				C20BB34F1910599400884EB2 /* vfi386_d.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* XcVisible.app */,
+				C20BB33E1910569C00884EB2 /* gutc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,6 +135,7 @@
 				C21733FB190B175500A01365 /* cvisible */,
 				C21733F9190B101D00A01365 /* Config.xcconfig */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				C20BB33F1910569C00884EB2 /* gutc */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -126,6 +155,12 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C23E89AF1912E98C00AE27A3 /* libopencv_core.dylib */,
+				C23E89AC1912869C00AE27A3 /* libboost_system.a */,
+				C20BB350191059BC00884EB2 /* gtest.framework */,
+				C20BB34E1910599400884EB2 /* vfi386_d.framework */,
+				C20BB34C1910597C00884EB2 /* vfi386.framework */,
+				C20BB34A1910593A00884EB2 /* gtest.framework */,
 				C2DB225E190B298700BBC93C /* QuickTime.framework */,
 				C2DB225C190B296A00BBC93C /* Carbon.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
@@ -134,9 +169,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C20BB33F1910569C00884EB2 /* gutc */ = {
+			isa = PBXGroup;
+			children = (
+				C20BB349191058FA00884EB2 /* ut_file.hpp */,
+				C20BB3471910577D00884EB2 /* gutc.cpp */,
+			);
+			path = gutc;
+			sourceTree = "<group>";
+		};
 		C21733FB190B175500A01365 /* cvisible */ = {
 			isa = PBXGroup;
 			children = (
+				C20BB3391910508E00884EB2 /* vf_utils.hpp */,
+				C20BB33819102F5A00884EB2 /* vf_cinder.hpp */,
 				C21733FC190B175500A01365 /* AudioDrawUtils.cpp */,
 				C21733FD190B175500A01365 /* cVisibleApp.cpp */,
 				C21733FE190B175500A01365 /* vf_movieconverter.cpp */,
@@ -168,6 +214,23 @@
 			productReference = 8D1107320486CEB800E47090 /* XcVisible.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C20BB33D1910569C00884EB2 /* gutc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C20BB3441910569C00884EB2 /* Build configuration list for PBXNativeTarget "gutc" */;
+			buildPhases = (
+				C20BB33A1910569C00884EB2 /* Sources */,
+				C20BB33B1910569C00884EB2 /* Frameworks */,
+				C23E89AE1912896B00AE27A3 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = gutc;
+			productName = gutc;
+			productReference = C20BB33E1910569C00884EB2 /* gutc */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -191,6 +254,7 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* XcVisible */,
+				C20BB33D1910569C00884EB2 /* gutc */,
 			);
 		};
 /* End PBXProject section */
@@ -207,6 +271,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C23E89AE1912896B00AE27A3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "#!/bin/bash\n\nGUTPATH=${CONFIGURATION_BUILD_DIR}/${PRODUCT_NAME}\necho $GUTPATH\nFRAMEWORK_DIR=@executable_path/../Frameworks\nCURRENT=Versions/Current\n\n# get current rpath for vfi386\nCURNAME=`otool -L $GUTPATH | grep ${VF_NAME/%.framework/} | sed -e 's/([^()]*)//g'`\necho $CURNAME\n# switch to using Frameworks of off build_dir\ninstall_name_tool -change $CURNAME \"${FRAMEWORK_DIR}/$VF_NAME.framework/$CURRENT/$VF_NAME\" $GUTPATH \n\n# get current rpath for gtest\nCURNAME=`otool -L $GUTPATH | grep gtest | sed -e 's/([^()]*)//g'`\necho $CURNAME\n# switch to using Frameworks of off build_dir\ninstall_name_tool -change $CURNAME \"${FRAMEWORK_DIR}/gtest.framework/$CURRENT/gtest\" $GUTPATH\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -217,6 +297,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C20BB33A1910569C00884EB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C20BB3481910577D00884EB2 /* gutc.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
@@ -224,7 +312,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C21733F9190B101D00A01365 /* Config.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
@@ -266,7 +354,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C21733F9190B101D00A01365 /* Config.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -310,7 +398,8 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACH_O_TYPE = mh_execute;
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx10.8;
+				VF_NAME = vfi386_d;
 			};
 			name = Debug;
 		};
@@ -322,7 +411,98 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACH_O_TYPE = mh_execute;
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx10.8;
+				VF_NAME = vfi386;
+			};
+			name = Release;
+		};
+		C20BB3451910569C00884EB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(GTEST_PATH)/build/Release",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/arman/Desktop/visibleqt105/usr/local/boost/lib,
+					/Users/arman/Desktop/visibleqt105/usr/local/OpenCv_2.4_i386/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "$(CINDER_PATH)/lib/libcinder_d.a";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.8;
+			};
+			name = Debug;
+		};
+		C20BB3461910569C00884EB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(GTEST_PATH)/build/Release",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/arman/Desktop/visibleqt105/usr/local/boost/lib,
+					/Users/arman/Desktop/visibleqt105/usr/local/OpenCv_2.4_i386/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "$(CINDER_PATH)/lib/libcinder_d.a";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.8;
 			};
 			name = Release;
 		};
@@ -343,6 +523,15 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C20BB3441910569C00884EB2 /* Build configuration list for PBXNativeTarget "gutc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C20BB3451910569C00884EB2 /* Debug */,
+				C20BB3461910569C00884EB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

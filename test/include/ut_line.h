@@ -17,7 +17,7 @@
 #define __UT_LINE_H
 
 
-#include <rc_unittest.h>
+#include "rc_unittest.h"
 
 class UT_line : public rcUnitTest {
 public:

@@ -4,7 +4,7 @@
 #include "rc_videocache.h"
 #include <sys/param.h>
 #include "rc_tiff.h"
-#include <tiff.h>
+#include "tiff.h"
 #include "rc_systeminfo.h"
 
 #ifdef CINDER_BUILTIN

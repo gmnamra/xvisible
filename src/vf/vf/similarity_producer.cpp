@@ -1,23 +1,22 @@
 
-#include "rc_cinder_qtime_grabber.h"
-#include "rc_similarity_producer.h>
+
+#include "rc_similarity_producer.h"
 #include "rc_similarity.h"
 #include "rc_videocache.h"
-#include "rc_reifymoviegrabber.h>
-#include "rc_tiff.h>
-#include "rc_window2jpg.h>
-#include "rc_fileutils.h>
+#include "rc_reifymoviegrabber.h"
+#include "rc_tiff.h"
+#include "rc_fileutils.h"
 #include <iostream>
 #include <algorithm>
 #include <cctype>
 #include <string>
 #include <signaler.h>
 #include <static.hpp>
-#include <cinder/Rand.h>
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/lock_guard.hpp>
 #include <boost/ref.hpp>
-using namespace ci;
+#include <random>
+
 using namespace boost;
 
  static boost::mutex         s_mutex;   
@@ -31,9 +30,12 @@ bool insensitive_case_compare (const std::string& str1, const std::string& str2)
     return true;
 }
 
-struct random_name : ci::Rand
+class random_name
 {
+    
     std::string _chars;
+    std::mt19937 mBase;
+public:
     
     random_name ()
     {
@@ -42,9 +44,15 @@ struct random_name : ci::Rand
                               "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                               "1234567890");
     }
+
+	int32_t nextInt( int32_t v )
+	{
+		if( v <= 0 ) return 0;
+		return mBase() % v;
+	}
+
     std::string get_anew ()
     {
-        randomize ();
         std::string ns;
         for(int i = 0; i < 8; ++i) ns.push_back (_chars[nextInt(_chars.size()-1)]);
         rmAssert (ns.length() == 8);
@@ -200,7 +208,8 @@ int SimilarityProducer::spImpl::loadMovie( const std::string& movieFile, rcFrame
 		}
 		else 
 		{
-			grabber = reinterpret_cast<rcFrameGrabber*> (new rcCinderGrabber( movieFile, mCarbonLock));
+			// grabber = reinterpret_cast<rcFrameGrabber*> (new rcCinderGrabber( movieFile, mCarbonLock));
+            assert (0);
 		}
         
 		count = loadFrames( *grabber, error );

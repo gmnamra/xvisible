@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <vector>
-#include <rc_ring.h>
+#include "rc_ring.h"
 #include <ut_ring.h>
 
 void UT_RingBuffer::ringBufferTest()

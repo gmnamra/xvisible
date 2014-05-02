@@ -13,12 +13,12 @@
 #include <Carbon/Carbon.h>
 #include <iostream>
 #include <string>
-#include <stlplus_lite.hpp>
+#include "stlplus_lite.hpp"
 #include <unistd.h>
 #include "main.h"
 #include <gtest/gtest.h>
-#include <rc_framework_core.hpp>
-#include <rc_pixel.hpp>
+#include "rc_framework_core.hpp"
+#include "rc_pixel.hpp"
 
 class genv: public testing::Environment
 {

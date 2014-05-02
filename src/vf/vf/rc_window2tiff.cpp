@@ -81,7 +81,6 @@ bool rcWindow::tiff (std::string& outfile, bool doCompress) const // int argc, c
 {
   uint32	_width = width(), length = height(), linebytes;
   uint32	nbands = 1;		    /* number of bands in input image*/
-  off_t	hdr_size = 0;		    /* size of the header to skip */
   TIFFDataType dtype = TIFF_BYTE;
   int16	_depth = 1;		    /* bytes per pixel in input image */
   InterleavingType interleaving = PIXEL;  /* interleaving type flag */
@@ -89,7 +88,6 @@ bool rcWindow::tiff (std::string& outfile, bool doCompress) const // int argc, c
   uint16	photometric = PHOTOMETRIC_MINISBLACK;
   uint16	config = PLANARCONFIG_CONTIG;
   uint16	fillorder = FILLORDER_MSB2LSB;
-  int	fd;
   TIFF	*out;
 
   uint32 row;
@@ -187,8 +185,9 @@ bool rcWindow::tiff (std::string& outfile, bool doCompress) const // int argc, c
     break;
   }
 
+  rowsperstrip =   MAX(1, 8192/_width);
+    
   TIFFSetField(out, TIFFTAG_ROWSPERSTRIP, TIFFDefaultStripSize(out, rowsperstrip));
-  lseek(fd, hdr_size, SEEK_SET);		/* Skip the file header */
   for (row = 0; row < length; row++)
     {
       if (TIFFWriteScanline(out,  (unsigned char *) rowPointer (row), row, 0) < 0)

@@ -22,6 +22,12 @@
 
 /* Begin PBXBuildFile section */
 		C2354418190D458200388271 /* vf_config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C2354417190D458200388271 /* vf_config.xcconfig */; };
+		C23E89B11912FD4500AE27A3 /* rc_assemblymacros.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C28F8018F4A6B100BA7E79 /* rc_assemblymacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C23E89B7191310DB00AE27A3 /* vf_debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */; };
+		C23E89B8191310DB00AE27A3 /* vf_debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */; };
+		C23E89BA191310F800AE27A3 /* vf_release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C23E89B9191310F800AE27A3 /* vf_release.xcconfig */; };
+		C23E89BB191310F800AE27A3 /* vf_release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C23E89B9191310F800AE27A3 /* vf_release.xcconfig */; };
+		C23E89BC191314CB00AE27A3 /* similarity_producer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C292F418F72CFB00BA7E79 /* similarity_producer.cpp */; };
 		C24BF56E18DBBECF0039C53D /* ut_movieconverter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA28C0F21357A0046570D /* ut_movieconverter.cpp */; };
 		C24EA9611842FD0D00E88B0A /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0440F212DEC0046570D /* IOKit.framework */; };
 		C24EA9621842FD0D00E88B0A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0480F212DF40046570D /* CoreServices.framework */; };
@@ -29,14 +35,7 @@
 		C24EA9641842FD0D00E88B0A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0530F212E300046570D /* Accelerate.framework */; };
 		C24EA9651842FD0D00E88B0A /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAEE00F42239D003CC197 /* AppKit.framework */; };
 		C24EA9681842FD0D00E88B0A /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAED60F421FE2003CC197 /* Carbon.framework */; };
-		C24ED3F018D76D7F0066AA0E /* gut in Resources */ = {isa = PBXBuildFile; fileRef = C2B8E993187DDC2B0060D961 /* gut */; };
 		C26F48C818FC75D6006DF78F /* rc_ncs.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F48C718FC75D6006DF78F /* rc_ncs.h */; };
-		C27C02DD18D75F3E00FD9FE6 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0440F212DEC0046570D /* IOKit.framework */; };
-		C27C02DE18D75F3E00FD9FE6 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0480F212DF40046570D /* CoreServices.framework */; };
-		C27C02DF18D75F3E00FD9FE6 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA04E0F212E170046570D /* QuickTime.framework */; };
-		C27C02E018D75F3E00FD9FE6 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0530F212E300046570D /* Accelerate.framework */; };
-		C27C02E118D75F3E00FD9FE6 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAEE00F42239D003CC197 /* AppKit.framework */; };
-		C27C02E418D75F3E00FD9FE6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAED60F421FE2003CC197 /* Carbon.framework */; };
 		C299934418FCAE3D008397D2 /* ut_framebuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA27A0F21357A0046570D /* ut_framebuf.cpp */; };
 		C299934518FDB17F008397D2 /* ut_reifymoviegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA29A0F21357A0046570D /* ut_reifymoviegrabber.cpp */; };
 		C299934718FDBD44008397D2 /* rc_mathmodel.h in Headers */ = {isa = PBXBuildFile; fileRef = C299934618FDBD44008397D2 /* rc_mathmodel.h */; };
@@ -181,7 +180,6 @@
 		C2C2920418F4B9A000BA7E79 /* rc_rectspec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2919A18F4B9A000BA7E79 /* rc_rectspec.cpp */; };
 		C2C2920518F4B9A000BA7E79 /* rc_reifymoviegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2919B18F4B9A000BA7E79 /* rc_reifymoviegrabber.cpp */; };
 		C2C2920818F4B9A000BA7E79 /* rc_rowfuncs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2919E18F4B9A000BA7E79 /* rc_rowfuncs.cpp */; };
-		C2C2920A18F4B9A000BA7E79 /* rc_seglevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A018F4B9A000BA7E79 /* rc_seglevel.cpp */; };
 		C2C2920B18F4B9A000BA7E79 /* rc_simd_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A118F4B9A000BA7E79 /* rc_simd_mac.cpp */; };
 		C2C2920C18F4B9A000BA7E79 /* rc_similarity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A218F4B9A000BA7E79 /* rc_similarity.cpp */; };
 		C2C2920D18F4B9A000BA7E79 /* rc_sparsehist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A318F4B9A000BA7E79 /* rc_sparsehist.cpp */; };
@@ -190,7 +188,6 @@
 		C2C2921218F4B9A000BA7E79 /* rc_thread_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A818F4B9A000BA7E79 /* rc_thread_mac.cpp */; };
 		C2C2921318F4B9A000BA7E79 /* rc_tiff.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A918F4B9A000BA7E79 /* rc_tiff.cpp */; };
 		C2C2921418F4B9A000BA7E79 /* rc_timestamp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291AA18F4B9A000BA7E79 /* rc_timestamp.cpp */; };
-		C2C2921518F4B9A000BA7E79 /* rc_timestamp_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291AB18F4B9A000BA7E79 /* rc_timestamp_mac.cpp */; };
 		C2C2921618F4B9A000BA7E79 /* rc_timinginfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291AC18F4B9A000BA7E79 /* rc_timinginfo.cpp */; };
 		C2C2921718F4B9A000BA7E79 /* rc_units.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291AD18F4B9A000BA7E79 /* rc_units.cpp */; };
 		C2C2921818F4B9A000BA7E79 /* rc_videocache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291AE18F4B9A000BA7E79 /* rc_videocache.cpp */; };
@@ -199,29 +196,6 @@
 		C2C2921C18F4B9A000BA7E79 /* rc_windowhist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291B218F4B9A000BA7E79 /* rc_windowhist.cpp */; };
 		C2C2921D18F4B9A000BA7E79 /* rf_playback_utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291B318F4B9A000BA7E79 /* rf_playback_utils.cpp */; };
 		C2C2921E18F4B9A000BA7E79 /* svdfit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291B418F4B9A000BA7E79 /* svdfit.cpp */; };
-		C2C2921F18F4B9BE00BA7E79 /* cli_parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2914A18F4B9A000BA7E79 /* cli_parser.cpp */; };
-		C2C2922018F4B9BE00BA7E79 /* debug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2914B18F4B9A000BA7E79 /* debug.cpp */; };
-		C2C2922118F4B9BE00BA7E79 /* dprintf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2914C18F4B9A000BA7E79 /* dprintf.cpp */; };
-		C2C2922218F4B9BE00BA7E79 /* error_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2914D18F4B9A000BA7E79 /* error_handler.cpp */; };
-		C2C2922318F4B9BE00BA7E79 /* exceptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2914E18F4B9A000BA7E79 /* exceptions.cpp */; };
-		C2C2922418F4B9BE00BA7E79 /* file_system.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2914F18F4B9A000BA7E79 /* file_system.cpp */; };
-		C2C2922518F4B9BE00BA7E79 /* fileio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2915018F4B9A000BA7E79 /* fileio.cpp */; };
-		C2C2922618F4B9BE00BA7E79 /* inf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2915118F4B9A000BA7E79 /* inf.cpp */; };
-		C2C2922718F4B9BE00BA7E79 /* ini_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2915218F4B9A000BA7E79 /* ini_manager.cpp */; };
-		C2C2922818F4B9BE00BA7E79 /* iostreamio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2915318F4B9A000BA7E79 /* iostreamio.cpp */; };
-		C2C2922918F4B9BE00BA7E79 /* library_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2915418F4B9A000BA7E79 /* library_manager.cpp */; };
-		C2C2922A18F4B9BE00BA7E79 /* multiio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2915518F4B9A000BA7E79 /* multiio.cpp */; };
-		C2C2922B18F4B9BE00BA7E79 /* os_fixes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2915618F4B9A000BA7E79 /* os_fixes.cpp */; };
-		C2C2922C18F4B9BE00BA7E79 /* persistent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2915718F4B9A000BA7E79 /* persistent.cpp */; };
-		C2C2922D18F4B9BE00BA7E79 /* stlplus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2915818F4B9A000BA7E79 /* stlplus.cpp */; };
-		C2C2922E18F4B9BE00BA7E79 /* string_arithmetic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2915918F4B9A000BA7E79 /* string_arithmetic.cpp */; };
-		C2C2922F18F4B9BE00BA7E79 /* string_utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2915A18F4B9A000BA7E79 /* string_utilities.cpp */; };
-		C2C2923018F4B9BE00BA7E79 /* string_vectorio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2915B18F4B9A000BA7E79 /* string_vectorio.cpp */; };
-		C2C2923118F4B9BE00BA7E79 /* stringio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2915C18F4B9A000BA7E79 /* stringio.cpp */; };
-		C2C2923218F4B9C700BA7E79 /* tcp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2915E18F4B9A000BA7E79 /* tcp.cpp */; };
-		C2C2923318F4B9C700BA7E79 /* textio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2915F18F4B9A000BA7E79 /* textio.cpp */; };
-		C2C2923418F4B9C700BA7E79 /* time.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2916018F4B9A000BA7E79 /* time.cpp */; };
-		C2C2923518F4B9C700BA7E79 /* timer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2916118F4B9A000BA7E79 /* timer.cpp */; };
 		C2C2923618F4BFA000BA7E79 /* rc_pmcorr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2919518F4B9A000BA7E79 /* rc_pmcorr.cpp */; };
 		C2C2923718F4C12000BA7E79 /* rc_moreip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2918918F4B9A000BA7E79 /* rc_moreip.cpp */; };
 		C2C2925C18F4C1F300BA7E79 /* tif_aux.c in Sources */ = {isa = PBXBuildFile; fileRef = C2C2923918F4C1F300BA7E79 /* tif_aux.c */; };
@@ -257,15 +231,6 @@
 		C2C2927B18F4C1F300BA7E79 /* tif_version.c in Sources */ = {isa = PBXBuildFile; fileRef = C2C2925818F4C1F300BA7E79 /* tif_version.c */; };
 		C2C2927C18F4C1F300BA7E79 /* tif_warning.c in Sources */ = {isa = PBXBuildFile; fileRef = C2C2925918F4C1F300BA7E79 /* tif_warning.c */; };
 		C2C2927D18F4C1F300BA7E79 /* tif_write.c in Sources */ = {isa = PBXBuildFile; fileRef = C2C2925A18F4C1F300BA7E79 /* tif_write.c */; };
-		C2C2928818F4C56D00BA7E79 /* digraph.tpp in Resources */ = {isa = PBXBuildFile; fileRef = C2C2927E18F4C56D00BA7E79 /* digraph.tpp */; };
-		C2C2928A18F4C56D00BA7E79 /* foursome.tpp in Resources */ = {isa = PBXBuildFile; fileRef = C2C2927F18F4C56D00BA7E79 /* foursome.tpp */; };
-		C2C2928C18F4C56D00BA7E79 /* hash.tpp in Resources */ = {isa = PBXBuildFile; fileRef = C2C2928018F4C56D00BA7E79 /* hash.tpp */; };
-		C2C2928E18F4C56D00BA7E79 /* matrix.tpp in Resources */ = {isa = PBXBuildFile; fileRef = C2C2928118F4C56D00BA7E79 /* matrix.tpp */; };
-		C2C2929018F4C56D00BA7E79 /* ntree.tpp in Resources */ = {isa = PBXBuildFile; fileRef = C2C2928218F4C56D00BA7E79 /* ntree.tpp */; };
-		C2C2929218F4C56D00BA7E79 /* persistent.tpp in Resources */ = {isa = PBXBuildFile; fileRef = C2C2928318F4C56D00BA7E79 /* persistent.tpp */; };
-		C2C2929418F4C56D00BA7E79 /* smart_ptr.tpp in Resources */ = {isa = PBXBuildFile; fileRef = C2C2928418F4C56D00BA7E79 /* smart_ptr.tpp */; };
-		C2C2929618F4C56D00BA7E79 /* string_utilities.tpp in Resources */ = {isa = PBXBuildFile; fileRef = C2C2928518F4C56D00BA7E79 /* string_utilities.tpp */; };
-		C2C2929818F4C56D00BA7E79 /* triple.tpp in Resources */ = {isa = PBXBuildFile; fileRef = C2C2928618F4C56D00BA7E79 /* triple.tpp */; };
 		C2C292BB18F4C5D500BA7E79 /* os_fixes.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2C2929918F4C5D400BA7E79 /* os_fixes.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2C292BC18F4C5D500BA7E79 /* persistent.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2C2929A18F4C5D400BA7E79 /* persistent.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2C292BD18F4C5D500BA7E79 /* smart_ptr.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2C2929B18F4C5D400BA7E79 /* smart_ptr.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -310,7 +275,6 @@
 		C2C292E818F4F6DA00BA7E79 /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D07F2C80486CC7A007CD1D0 /* vfi386_d.framework */; };
 		C2C292ED18F4F8EE00BA7E79 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C28F4018F44CE700BA7E79 /* gtest.framework */; };
 		C2C292F318F662D500BA7E79 /* rc_similarity_producer.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C292F218F662D500BA7E79 /* rc_similarity_producer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2C292F618F72CFB00BA7E79 /* similarity_producer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C292F418F72CFB00BA7E79 /* similarity_producer.cpp */; };
 		C2C292F818F748EE00BA7E79 /* signaler.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C292F718F748EE00BA7E79 /* signaler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2C292FA18F8570900BA7E79 /* static.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2C292F918F8570900BA7E79 /* static.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2C292FE18F85C4A00BA7E79 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C292FD18F85C4A00BA7E79 /* libboost_system.a */; };
@@ -331,25 +295,7 @@
 		C2C4452B18FAFC1C00B1C00B /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0480F212DF40046570D /* CoreServices.framework */; };
 		C2C4452C18FAFC1C00B1C00B /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA04E0F212E170046570D /* QuickTime.framework */; };
 		C2C4452D18FAFC1C00B1C00B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0530F212E300046570D /* Accelerate.framework */; };
-		C2EC9C67183E692A00AC3300 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0440F212DEC0046570D /* IOKit.framework */; };
-		C2EC9C68183E692A00AC3300 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0480F212DF40046570D /* CoreServices.framework */; };
-		C2EC9C69183E692A00AC3300 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA04E0F212E170046570D /* QuickTime.framework */; };
-		C2EC9C6A183E692A00AC3300 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0530F212E300046570D /* Accelerate.framework */; };
-		C2EC9C6B183E692A00AC3300 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAEE00F42239D003CC197 /* AppKit.framework */; };
-		C2EC9C6F183E692A00AC3300 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAED60F421FE2003CC197 /* Carbon.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		C297DD4018A1D7B400F217A5 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8D07F2C80486CC7A007CD1D0 /* vfi386_d.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = vfi386_d.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -360,6 +306,8 @@
 		C21CAEEB0F4223E9003CC197 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../../../../System/Library/Frameworks/GLUT.framework; sourceTree = "<group>"; };
 		C22DD24813159A2C00801DE4 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = ../../../../../../System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<group>"; };
 		C2354417190D458200388271 /* vf_config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = vf_config.xcconfig; sourceTree = "<group>"; };
+		C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = vf_debug.xcconfig; path = configs/vf_debug.xcconfig; sourceTree = "<group>"; };
+		C23E89B9191310F800AE27A3 /* vf_release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = vf_release.xcconfig; path = configs/vf_release.xcconfig; sourceTree = "<group>"; };
 		C247023A18E5D7C900D5942E /* ut_file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ut_file.h; path = ../test/include/ut_file.h; sourceTree = "<group>"; };
 		C24EA96D1842FD0D00E88B0A /* batch_convert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = batch_convert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26F48C718FC75D6006DF78F /* rc_ncs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_ncs.h; sourceTree = "<group>"; };
@@ -473,13 +421,10 @@
 		C26FA2AA0F21357A0046570D /* ut_visual_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_visual_main.cpp; path = ../test/src/ut_visual_main.cpp; sourceTree = SOURCE_ROOT; };
 		C26FA2AB0F21357A0046570D /* ut_window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_window.cpp; path = ../test/src/ut_window.cpp; sourceTree = SOURCE_ROOT; };
 		C26FA2AC0F21357A0046570D /* ut_windowhist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_windowhist.cpp; path = ../test/src/ut_windowhist.cpp; sourceTree = SOURCE_ROOT; };
-		C27C02E818D75F3E00FD9FE6 /* libvf32_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libvf32_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C297DD3C18A1B5F100F217A5 /* ut_persistence1d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ut_persistence1d.h; path = ../test/include/ut_persistence1d.h; sourceTree = "<group>"; };
-		C297DD4218A1D7B400F217A5 /* persistence1d */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = persistence1d; sourceTree = BUILT_PRODUCTS_DIR; };
 		C299934618FDBD44008397D2 /* rc_mathmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_mathmodel.h; sourceTree = "<group>"; };
 		C2A9A6730F29200900DA781F /* ut_analysis_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_analysis_main.cpp; path = ../test/src/ut_analysis_main.cpp; sourceTree = SOURCE_ROOT; };
 		C2A9AB7A0F2FD4B000DA781F /* ut_simd.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_simd.cpp; path = ../test/src/ut_simd.cpp; sourceTree = SOURCE_ROOT; };
-		C2ADE54B190619D90083564A /* rc_cinder_qtime_grabber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_cinder_qtime_grabber.cpp; sourceTree = "<group>"; };
 		C2ADE58A19072CD10083564A /* rc_framegrabber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_framegrabber.h; path = ../include/vf/rc_framegrabber.h; sourceTree = "<group>"; };
 		C2B8E993187DDC2B0060D961 /* gut */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gut; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C28F3C18F44C0700BA7E79 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -676,7 +621,6 @@
 		C2C291A818F4B9A000BA7E79 /* rc_thread_mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_thread_mac.cpp; sourceTree = "<group>"; };
 		C2C291A918F4B9A000BA7E79 /* rc_tiff.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_tiff.cpp; sourceTree = "<group>"; };
 		C2C291AA18F4B9A000BA7E79 /* rc_timestamp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_timestamp.cpp; sourceTree = "<group>"; };
-		C2C291AB18F4B9A000BA7E79 /* rc_timestamp_mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_timestamp_mac.cpp; sourceTree = "<group>"; };
 		C2C291AC18F4B9A000BA7E79 /* rc_timinginfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_timinginfo.cpp; sourceTree = "<group>"; };
 		C2C291AD18F4B9A000BA7E79 /* rc_units.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_units.cpp; sourceTree = "<group>"; };
 		C2C291AE18F4B9A000BA7E79 /* rc_videocache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_videocache.cpp; sourceTree = "<group>"; };
@@ -885,26 +829,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C27C02DB18D75F3E00FD9FE6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C27C02DD18D75F3E00FD9FE6 /* IOKit.framework in Frameworks */,
-				C27C02DE18D75F3E00FD9FE6 /* CoreServices.framework in Frameworks */,
-				C27C02DF18D75F3E00FD9FE6 /* QuickTime.framework in Frameworks */,
-				C27C02E018D75F3E00FD9FE6 /* Accelerate.framework in Frameworks */,
-				C27C02E118D75F3E00FD9FE6 /* AppKit.framework in Frameworks */,
-				C27C02E418D75F3E00FD9FE6 /* Carbon.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C297DD3F18A1D7B400F217A5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C2B8E990187DDC2B0060D961 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -912,19 +836,6 @@
 				C2C2931C18F9F5F600BA7E79 /* libboost_system.a in Frameworks */,
 				C2C292E818F4F6DA00BA7E79 /* vfi386_d.framework in Frameworks */,
 				C2C292ED18F4F8EE00BA7E79 /* gtest.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C2EC9C66183E692A00AC3300 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C2EC9C67183E692A00AC3300 /* IOKit.framework in Frameworks */,
-				C2EC9C68183E692A00AC3300 /* CoreServices.framework in Frameworks */,
-				C2EC9C69183E692A00AC3300 /* QuickTime.framework in Frameworks */,
-				C2EC9C6A183E692A00AC3300 /* Accelerate.framework in Frameworks */,
-				C2EC9C6B183E692A00AC3300 /* AppKit.framework in Frameworks */,
-				C2EC9C6F183E692A00AC3300 /* Carbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -937,8 +848,6 @@
 				8D07F2C80486CC7A007CD1D0 /* vfi386_d.framework */,
 				C24EA96D1842FD0D00E88B0A /* batch_convert.app */,
 				C2B8E993187DDC2B0060D961 /* gut */,
-				C297DD4218A1D7B400F217A5 /* persistence1d */,
-				C27C02E818D75F3E00FD9FE6 /* libvf32_d.a */,
 			);
 			name = Products;
 			path = build;
@@ -947,6 +856,8 @@
 		0867D691FE84028FC02AAC07 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */,
+				C23E89B9191310F800AE27A3 /* vf_release.xcconfig */,
 				C2354417190D458200388271 /* vf_config.xcconfig */,
 				C2ADE58A19072CD10083564A /* rc_framegrabber.h */,
 				C2C292FD18F85C4A00BA7E79 /* libboost_system.a */,
@@ -1398,7 +1309,6 @@
 		C2C2916218F4B9A000BA7E79 /* vf */ = {
 			isa = PBXGroup;
 			children = (
-				C2ADE54B190619D90083564A /* rc_cinder_qtime_grabber.cpp */,
 				C2C292F418F72CFB00BA7E79 /* similarity_producer.cpp */,
 				C2C2923818F4C1F300BA7E79 /* tif_apple.c */,
 				C2C2923918F4C1F300BA7E79 /* tif_aux.c */,
@@ -1484,7 +1394,6 @@
 				C2C291A818F4B9A000BA7E79 /* rc_thread_mac.cpp */,
 				C2C291A918F4B9A000BA7E79 /* rc_tiff.cpp */,
 				C2C291AA18F4B9A000BA7E79 /* rc_timestamp.cpp */,
-				C2C291AB18F4B9A000BA7E79 /* rc_timestamp_mac.cpp */,
 				C2C291AC18F4B9A000BA7E79 /* rc_timinginfo.cpp */,
 				C2C291AD18F4B9A000BA7E79 /* rc_units.cpp */,
 				C2C291AE18F4B9A000BA7E79 /* rc_videocache.cpp */,
@@ -1609,6 +1518,7 @@
 			files = (
 				C2C292F818F748EE00BA7E79 /* signaler.h in Headers */,
 				C2ADE58C1907320E0083564A /* rc_rect.h in Headers */,
+				C23E89B11912FD4500AE27A3 /* rc_assemblymacros.h in Headers */,
 				C2C2908118F4A6B200BA7E79 /* rc_vector2d.h in Headers */,
 				C2C2904C18F4A6B200BA7E79 /* rc_ip.h in Headers */,
 				C2C2907418F4A6B200BA7E79 /* rc_statistics.h in Headers */,
@@ -1772,41 +1682,6 @@
 			productReference = C24EA96D1842FD0D00E88B0A /* batch_convert.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C27C024E18D75F3E00FD9FE6 /* libvf32 */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C27C02E518D75F3E00FD9FE6 /* Build configuration list for PBXNativeTarget "libvf32" */;
-			buildPhases = (
-				C27C024F18D75F3E00FD9FE6 /* Resources */,
-				C27C025518D75F3E00FD9FE6 /* Sources */,
-				C27C02DB18D75F3E00FD9FE6 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = libvf32;
-			productInstallPath = "$(HOME)/Library/Frameworks";
-			productName = vf;
-			productReference = C27C02E818D75F3E00FD9FE6 /* libvf32_d.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		C297DD4118A1D7B400F217A5 /* persistence1d */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C297DD4818A1D7B400F217A5 /* Build configuration list for PBXNativeTarget "persistence1d" */;
-			buildPhases = (
-				C297DD3E18A1D7B400F217A5 /* Sources */,
-				C297DD3F18A1D7B400F217A5 /* Frameworks */,
-				C297DD4018A1D7B400F217A5 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = persistence1d;
-			productName = persistence1d;
-			productReference = C297DD4218A1D7B400F217A5 /* persistence1d */;
-			productType = "com.apple.product-type.tool";
-		};
 		C2B8E992187DDC2B0060D961 /* gut */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2B8E999187DDC2B0060D961 /* Build configuration list for PBXNativeTarget "gut" */;
@@ -1823,23 +1698,6 @@
 			productName = gut;
 			productReference = C2B8E993187DDC2B0060D961 /* gut */;
 			productType = "com.apple.product-type.tool";
-		};
-		C2EC9B43183E692A00AC3300 /* vsigmatch */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C2EC9C71183E692A00AC3300 /* Build configuration list for PBXNativeTarget "vsigmatch" */;
-			buildPhases = (
-				C2EC9BCF183E692A00AC3300 /* Resources */,
-				C2EC9BF0183E692A00AC3300 /* Sources */,
-				C2EC9C66183E692A00AC3300 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = vsigmatch;
-			productInstallPath = "$(HOME)/Library/Frameworks";
-			productName = vf;
-			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -1868,11 +1726,8 @@
 			targets = (
 				8D07F2BC0486CC7A007CD1D0 /* vf */,
 				C2A39C160F339AD100845D59 /* Doxygen */,
-				C2EC9B43183E692A00AC3300 /* vsigmatch */,
 				C24EA7FF1842FD0D00E88B0A /* batchconvert */,
 				C2B8E992187DDC2B0060D961 /* gut */,
-				C297DD4118A1D7B400F217A5 /* persistence1d */,
-				C27C024E18D75F3E00FD9FE6 /* libvf32 */,
 			);
 		};
 /* End PBXProject section */
@@ -1882,7 +1737,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C23E89B7191310DB00AE27A3 /* vf_debug.xcconfig in Resources */,
 				C2354418190D458200388271 /* vf_config.xcconfig in Resources */,
+				C23E89BA191310F800AE27A3 /* vf_release.xcconfig in Resources */,
 				C2C28F3F18F44C0700BA7E79 /* vf-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1891,30 +1748,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C27C024F18D75F3E00FD9FE6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C2C2928E18F4C56D00BA7E79 /* matrix.tpp in Resources */,
-				C2C2928818F4C56D00BA7E79 /* digraph.tpp in Resources */,
-				C2C2929218F4C56D00BA7E79 /* persistent.tpp in Resources */,
-				C2C2929618F4C56D00BA7E79 /* string_utilities.tpp in Resources */,
-				C2C2929418F4C56D00BA7E79 /* smart_ptr.tpp in Resources */,
-				C2C2928A18F4C56D00BA7E79 /* foursome.tpp in Resources */,
-				C2C2929818F4C56D00BA7E79 /* triple.tpp in Resources */,
-				C2C2929018F4C56D00BA7E79 /* ntree.tpp in Resources */,
-				C2C2928C18F4C56D00BA7E79 /* hash.tpp in Resources */,
-				C24ED3F018D76D7F0066AA0E /* gut in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C2EC9BCF183E692A00AC3300 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				C23E89BB191310F800AE27A3 /* vf_release.xcconfig in Resources */,
+				C23E89B8191310DB00AE27A3 /* vf_debug.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1971,7 +1806,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "\n/Users/arman/gwc/vqt105/visibleqt105/build_scripts/misc/ut_copy_frameworks.sh\n\n";
+			shellScript = "\n#!/bin/bash\n\nGUTPATH=${CONFIGURATION_BUILD_DIR}/${PRODUCT_NAME}\necho $GUTPATH\nFRAMEWORK_DIR=@executable_path/Frameworks\nCURRENT=Versions/Current\n\n# get current rpath for vfi386\nCURNAME=`otool -L $GUTPATH | grep ${VF_NAME/%.framework/} | sed -e 's/([^()]*)//g'`\necho $CURNAME\n# switch to using Frameworks of off build_dir\ninstall_name_tool -change $CURNAME \"${FRAMEWORK_DIR}/$VF_NAME.framework/$CURRENT/$VF_NAME\" $GUTPATH \n\n# get current rpath for gtest\nCURNAME=`otool -L $GUTPATH | grep gtest | sed -e 's/([^()]*)//g'`\necho $CURNAME\n# switch to using Frameworks of off build_dir\ninstall_name_tool -change $CURNAME \"${FRAMEWORK_DIR}/gtest.framework/$CURRENT/gtest\" $GUTPATH\n\n\n";
 		};
 		C2FDA4321002E38400A36E5F /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2001,7 +1836,6 @@
 				C2C291C918F4B9A000BA7E79 /* tcp.cpp in Sources */,
 				C2C2921718F4B9A000BA7E79 /* rc_units.cpp in Sources */,
 				C2C291B718F4B9A000BA7E79 /* dprintf.cpp in Sources */,
-				C2C2921518F4B9A000BA7E79 /* rc_timestamp_mac.cpp in Sources */,
 				C2C2926718F4C1F300BA7E79 /* tif_extension.c in Sources */,
 				C2C291F018F4B9A000BA7E79 /* rc_mathmodel.cpp in Sources */,
 				C2C2927418F4C1F300BA7E79 /* tif_print.c in Sources */,
@@ -2029,6 +1863,7 @@
 				C2C2920818F4B9A000BA7E79 /* rc_rowfuncs.cpp in Sources */,
 				C2C2923718F4C12000BA7E79 /* rc_moreip.cpp in Sources */,
 				C2C291BD18F4B9A000BA7E79 /* ini_manager.cpp in Sources */,
+				C23E89BC191314CB00AE27A3 /* similarity_producer.cpp in Sources */,
 				C2C291C718F4B9A000BA7E79 /* stringio.cpp in Sources */,
 				C2C2921218F4B9A000BA7E79 /* rc_thread_mac.cpp in Sources */,
 				C2C291E018F4B9A000BA7E79 /* rc_find.cpp in Sources */,
@@ -2098,7 +1933,6 @@
 				C2C2927518F4C1F300BA7E79 /* tif_read.c in Sources */,
 				C2C2926518F4C1F300BA7E79 /* tif_dumpmode.c in Sources */,
 				C2C291C318F4B9A000BA7E79 /* stlplus.cpp in Sources */,
-				C2C2920A18F4B9A000BA7E79 /* rc_seglevel.cpp in Sources */,
 				C2C291F118F4B9A000BA7E79 /* rc_median.cpp in Sources */,
 				C2C2926618F4C1F300BA7E79 /* tif_error.c in Sources */,
 				C2C291DC18F4B9A000BA7E79 /* rc_edge.cpp in Sources */,
@@ -2110,44 +1944,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C24EA8D41842FD0D00E88B0A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C27C025518D75F3E00FD9FE6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C2C2922118F4B9BE00BA7E79 /* dprintf.cpp in Sources */,
-				C2C2922518F4B9BE00BA7E79 /* fileio.cpp in Sources */,
-				C2C292F618F72CFB00BA7E79 /* similarity_producer.cpp in Sources */,
-				C2C2923318F4B9C700BA7E79 /* textio.cpp in Sources */,
-				C2C2922218F4B9BE00BA7E79 /* error_handler.cpp in Sources */,
-				C2C2923418F4B9C700BA7E79 /* time.cpp in Sources */,
-				C2C2923518F4B9C700BA7E79 /* timer.cpp in Sources */,
-				C2C2922918F4B9BE00BA7E79 /* library_manager.cpp in Sources */,
-				C2C2922318F4B9BE00BA7E79 /* exceptions.cpp in Sources */,
-				C2C2922718F4B9BE00BA7E79 /* ini_manager.cpp in Sources */,
-				C2C2923118F4B9BE00BA7E79 /* stringio.cpp in Sources */,
-				C2C2922E18F4B9BE00BA7E79 /* string_arithmetic.cpp in Sources */,
-				C2C2922818F4B9BE00BA7E79 /* iostreamio.cpp in Sources */,
-				C2C2921F18F4B9BE00BA7E79 /* cli_parser.cpp in Sources */,
-				C2C2922618F4B9BE00BA7E79 /* inf.cpp in Sources */,
-				C2C2923218F4B9C700BA7E79 /* tcp.cpp in Sources */,
-				C2C2922418F4B9BE00BA7E79 /* file_system.cpp in Sources */,
-				C2C2923018F4B9BE00BA7E79 /* string_vectorio.cpp in Sources */,
-				C2C2922B18F4B9BE00BA7E79 /* os_fixes.cpp in Sources */,
-				C2C2922018F4B9BE00BA7E79 /* debug.cpp in Sources */,
-				C2C2922C18F4B9BE00BA7E79 /* persistent.cpp in Sources */,
-				C2C2922A18F4B9BE00BA7E79 /* multiio.cpp in Sources */,
-				C2C2922F18F4B9BE00BA7E79 /* string_utilities.cpp in Sources */,
-				C2C2922D18F4B9BE00BA7E79 /* stlplus.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C297DD3E18A1D7B400F217A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2177,13 +1973,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C2EC9BF0183E692A00AC3300 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -2200,42 +1989,19 @@
 /* Begin XCBuildConfiguration section */
 		4FADC24308B4156D00ABE55E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = "";
 				EXPORTED_SYMBOLS_FILE = "";
 				FRAMEWORK_VERSION = A;
-				GCC_C_LANGUAGE_STANDARD = "compiler-default";
-				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_MODEL_TUNING = "";
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PFE_FILE_C_DIALECTS = "c c++";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					RFY_DLL,
-					"$(inherited)",
-					RFY_DLL_EXPORTS,
-					"__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0",
-				);
 				GENERATE_PKGINFO_FILE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(CINDER_PATH)/include",
-					"$(CINDER_PATH)/ciUI",
-					"$(BOOST_INCLUDE)",
-					"$(OPENCV_PATH)/include",
-					"$(SRCROOT)/include/vf",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/resources/vf/vf-Info.plist";
 				INSTALL_PATH = "";
 				LD_DYLIB_INSTALL_NAME = "";
@@ -2251,55 +2017,28 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = vfi386_d;
 				RFY_DLL_EXPORT = "";
-				SDKROOT = macosx10.8;
 				SKIP_INSTALL = YES;
-				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = static;
 				WRAPPER_EXTENSION = framework;
-				ZERO_LINK = YES;
 			};
 			name = Debug;
 		};
 		4FADC24408B4156D00ABE55E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C23E89B9191310F800AE27A3 /* vf_release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEPLOYMENT_POSTPROCESSING = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = "";
 				EXPORTED_SYMBOLS_FILE = "";
 				FRAMEWORK_VERSION = A;
-				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_MODEL_TUNING = "";
-				GCC_OBJC_CALL_CXX_CDTORS = "";
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PFE_FILE_C_DIALECTS = "c c++";
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					RFY_DLL,
-					"$(inherited)",
-					RFY_DLL_EXPORTS,
-					"__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0",
-				);
-				GCC_THREADSAFE_STATICS = YES;
 				GENERATE_PKGINFO_FILE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(CINDER_PATH)/include",
-					"$(CINDER_PATH)/ciUI",
-					"$(BOOST_INCLUDE)",
-					"$(OPENCV_PATH)/include",
-					"$(SRCROOT)/include/vf",
-				);
 				INFOPLIST_FILE = "$(SRCROOT)/resources/vf/vf-Info.plist";
 				INSTALL_PATH = "";
 				LD_DYLIB_INSTALL_NAME = "";
@@ -2312,23 +2051,19 @@
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = vfi386;
 				RFY_DLL_EXPORT = "";
-				SDKROOT = macosx10.8;
 				SKIP_INSTALL = YES;
-				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = static;
 				STRIP_STYLE = debugging;
 				WRAPPER_EXTENSION = framework;
-				ZERO_LINK = YES;
 			};
 			name = Release;
 		};
 		4FADC24708B4156D00ABE55E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2354417190D458200388271 /* vf_config.xcconfig */;
+			baseConfigurationReference = C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
@@ -2350,7 +2085,7 @@
 		};
 		4FADC24808B4156D00ABE55E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2354417190D458200388271 /* vf_config.xcconfig */;
+			baseConfigurationReference = C23E89B9191310F800AE27A3 /* vf_release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
@@ -2371,6 +2106,7 @@
 		};
 		C24EA96B1842FD0D00E88B0A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
@@ -2439,6 +2175,7 @@
 		};
 		C24EA96C1842FD0D00E88B0A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C23E89B9191310F800AE27A3 /* vf_release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
@@ -2507,246 +2244,9 @@
 			};
 			name = Release;
 		};
-		C27C024218D75A8A00FD9FE6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				PRODUCT_NAME = vf;
-			};
-			name = Debug;
-		};
-		C27C024318D75A8A00FD9FE6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				PRODUCT_NAME = vf;
-			};
-			name = Release;
-		};
-		C27C02E618D75F3E00FD9FE6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				BOOST_PATH = "$(SRCROOT)/../usr/local/boost";
-				CINDER_PATH = "$(SRCROOT)/../usr/local/Cinder";
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				EXECUTABLE_PREFIX = "";
-				EXPORTED_SYMBOLS_FILE = "";
-				FRAMEWORK_SEARCH_PATHS = "";
-				FRAMEWORK_VERSION = A;
-				GCC_C_LANGUAGE_STANDARD = "compiler-default";
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_ENABLE_SYMBOL_SEPARATION = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_MODEL_TUNING = "";
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PFE_FILE_C_DIALECTS = "c c++";
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					RFY_DLL,
-					"$(inherited)",
-					RFY_DLL_EXPORTS,
-				);
-				GENERATE_PKGINFO_FILE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(BOOST_PATH)/include",
-					"$(SRCROOT)/../include",
-					"$(OPENCV_PATH)/include",
-					"$(CINDER_PATH)/include",
-				);
-				INFOPLIST_EXPAND_BUILD_SETTINGS = YES;
-				INFOPLIST_FILE = "${PRODUCT_NAME}-Info.plist";
-				INSTALL_PATH = "";
-				LD_DYLIB_INSTALL_NAME = "";
-				LIBRARY_SEARCH_PATHS = (
-					"$(BOOST_PATH)/lib",
-					"$(CINDER_PATH)/lib/macosx",
-				);
-				LIBRARY_STYLE = STATIC;
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				OPENCV_PATH = "$(SRCROOT)/../usr/local/OpenCv_2.4_i386";
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = /usr/local/include;
-				PRODUCT_NAME = libvf32_d;
-				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
-				RFY_DLL_EXPORT = "";
-				SDKROOT = macosx10.8;
-				SKIP_INSTALL = YES;
-				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
-				VALID_ARCHS = "i386 x86_64";
-			};
-			name = Debug;
-		};
-		C27C02E718D75F3E00FD9FE6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				BOOST_PATH = "$(SRCROOT)/../usr/local/boost";
-				CINDER_PATH = "$(SRCROOT)/../usr/local/Cinder";
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEPLOYMENT_POSTPROCESSING = NO;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				EXECUTABLE_PREFIX = "";
-				EXPORTED_SYMBOLS_FILE = "";
-				FRAMEWORK_SEARCH_PATHS = "";
-				FRAMEWORK_VERSION = A;
-				GCC_C_LANGUAGE_STANDARD = "compiler-default";
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_ENABLE_SYMBOL_SEPARATION = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_MODEL_TUNING = "";
-				GCC_OBJC_CALL_CXX_CDTORS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PFE_FILE_C_DIALECTS = "c c++";
-				GCC_PRECOMPILE_PREFIX_HEADER = NO;
-				GCC_PREFIX_HEADER = "";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					RFY_DLL,
-					"$(inherited)",
-					RFY_DLL_EXPORTS,
-				);
-				GCC_THREADSAFE_STATICS = YES;
-				GENERATE_PKGINFO_FILE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(BOOST_PATH)/include",
-					"$(SRCROOT)/../include",
-					"$(OPENCV_PATH)/include",
-					"$(CINDER_PATH)/include",
-				);
-				INFOPLIST_FILE = "libvf32-Info.plist";
-				INSTALL_PATH = "";
-				LD_DYLIB_INSTALL_NAME = "";
-				LIBRARY_SEARCH_PATHS = (
-					"$(BOOST_PATH)/lib",
-					"$(CINDER_PATH)/lib/macosx",
-				);
-				LIBRARY_STYLE = STATIC;
-				LINKER_DISPLAYS_MANGLED_NAMES = NO;
-				MACH_O_TYPE = staticlib;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				ONLY_ACTIVE_ARCH = NO;
-				OPENCV_PATH = "$(SRCROOT)/../usr/local/OpenCv_2.4_i386";
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = libvf32;
-				RFY_DLL_EXPORT = "";
-				SDKROOT = macosx10.8;
-				SKIP_INSTALL = YES;
-				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = dynamic;
-				STRIP_STYLE = debugging;
-				VALID_ARCHS = "i386 x86_64";
-			};
-			name = Release;
-		};
-		C297DD4918A1D7B400F217A5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = "compiler-default";
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/include/util\n",
-					"$(BOOST_PATH)/include",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				VALID_ARCHS = "i386 x86_64";
-			};
-			name = Debug;
-		};
-		C297DD4A18A1D7B400F217A5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = "compiler-default";
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/include/util\n",
-					"$(BOOST_PATH)/include",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				OTHER_CFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				VALID_ARCHS = "i386 x86_64";
-			};
-			name = Release;
-		};
 		C2A39C170F339AD200845D59 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2757,6 +2257,7 @@
 		};
 		C2A39C180F339AD200845D59 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C23E89B9191310F800AE27A3 /* vf_release.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -2768,148 +2269,25 @@
 		};
 		C2B8E99A187DDC2B0060D961 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				BOOST_PATH = "$(SRCROOT)/../usr/local/boost";
-				CINDER_PATH = "$(SRCROOT)/../usr/local/Cinder";
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/../usr/local/googletest-read-only/xcode/lib/i386/Release",
-					"/Users/arman/gwc/vqt105/visibleqt105/usr/local/googletest-read-only/xcode/lib/i386/Release",
-					"/Users/arman/gwc/vqt105/visibleqt105/usr/local/googletest-read-only/xcode/lib/x86_64/Release",
-				);
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_LINK_WITH_DYNAMIC_LIBRARIES = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-					_USE_NATIVE_ATOMIC_,
-					RFY_DLL,
-					"$(inherited)",
-					RFY_DLL_EXPORTS,
-					"__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0",
-					"GTEST_HAS_RTTI=0",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GTEST_PATH = "$(SRCROOT)/../usr/local/googletest-read-only";
-				HEADER_SEARCH_PATHS = (
-					"$(BOOST_PATH)/include",
-					"$(PROJECT_DIR)/../include/vf",
-					"$(OPENCV_PATH)/include",
-					"$(CINDER_PATH)/include/**",
-					"$(SRCROOT)/../test/include",
-					"\"$(SRCROOT)/../usr/local/googletest-read-only/xcode/include\"",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib,
-					"$(PROJECT_DIR)/usr/local/googletest-read-only/xcode/lib/i386/Release",
-					"$(PROJECT_DIR)/usr/local/OpenCv_2.4_i386/lib",
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib/macosx,
-				);
 				MACH_O_TYPE = mh_execute;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				ONLY_ACTIVE_ARCH = NO;
-				OPENCV_PATH = "$(SRCROOT)/../usr/local/OpenCv_2.4_i386";
-				OTHER_LDFLAGS = "$(CINDER_PATH)/lib/libcinder_d.a";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.8;
 				SEPARATE_STRIP = YES;
-				VALID_ARCHS = "i386 x86_64";
-				VF_NAME = vfi386_d;
-				WS_BUILD_DIR = "$(SRCROOT)/../build";
 			};
 			name = Debug;
 		};
 		C2B8E99B187DDC2B0060D961 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C23E89B9191310F800AE27A3 /* vf_release.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				BOOST_PATH = "$(SRCROOT)/../usr/local/boost";
-				CINDER_PATH = "$(SRCROOT)/../usr/local/Cinder";
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/../usr/local/googletest-read-only/xcode/lib/i386/Release",
-					"/Users/arman/gwc/vqt105/visibleqt105/usr/local/googletest-read-only/xcode/lib/i386/Release",
-					"/Users/arman/gwc/vqt105/visibleqt105/usr/local/googletest-read-only/xcode/lib/x86_64/Release",
-				);
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_LINK_WITH_DYNAMIC_LIBRARIES = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					_USE_NATIVE_ATOMIC_,
-					RFY_DLL,
-					"$(inherited)",
-					RFY_DLL_EXPORTS,
-					"__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GTEST_PATH = "$(SRCROOT)/../usr/local/googletest-read-only";
-				HEADER_SEARCH_PATHS = (
-					"$(BOOST_PATH)/include",
-					"$(PROJECT_DIR)/../include/vf",
-					"$(OPENCV_PATH)/include",
-					"$(CINDER_PATH)/include/**",
-					"$(SRCROOT)/../test/include",
-					"\"$(SRCROOT)/../usr/local/googletest-read-only/xcode/include\"",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib,
-					"$(PROJECT_DIR)/usr/local/googletest-read-only/xcode/lib/i386/Release",
-					"$(PROJECT_DIR)/usr/local/OpenCv_2.4_i386/lib",
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib/macosx,
-				);
 				MACH_O_TYPE = mh_execute;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				ONLY_ACTIVE_ARCH = NO;
-				OPENCV_PATH = "$(SRCROOT)/../usr/local/OpenCv_2.4_i386";
-				OTHER_LDFLAGS = "$(CINDER_PATH)/lib/libcinder.a";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.8;
 				SEPARATE_STRIP = YES;
-				VALID_ARCHS = "i386 x86_64";
-				VF_NAME = vfi386;
-				WS_BUILD_DIR = "$(SRCROOT)/../build";
 			};
 			name = Release;
 		};
@@ -2943,24 +2321,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C27C02E518D75F3E00FD9FE6 /* Build configuration list for PBXNativeTarget "libvf32" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C27C02E618D75F3E00FD9FE6 /* Debug */,
-				C27C02E718D75F3E00FD9FE6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C297DD4818A1D7B400F217A5 /* Build configuration list for PBXNativeTarget "persistence1d" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C297DD4918A1D7B400F217A5 /* Debug */,
-				C297DD4A18A1D7B400F217A5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		C2A39C190F339AF000845D59 /* Build configuration list for PBXAggregateTarget "Doxygen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2975,15 +2335,6 @@
 			buildConfigurations = (
 				C2B8E99A187DDC2B0060D961 /* Debug */,
 				C2B8E99B187DDC2B0060D961 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C2EC9C71183E692A00AC3300 /* Build configuration list for PBXNativeTarget "vsigmatch" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C27C024218D75A8A00FD9FE6 /* Debug */,
-				C27C024318D75A8A00FD9FE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

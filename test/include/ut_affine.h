@@ -20,8 +20,8 @@
 #define __UT_AFFINE_H
 
 
-#include <rc_unittest.h>
-#include <rc_affine.h>
+#include "rc_unittest.h"
+#include "rc_affine.h"
 
 class UT_affine : public rcUnitTest {
  public:

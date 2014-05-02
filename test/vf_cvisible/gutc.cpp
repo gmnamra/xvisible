@@ -1,21 +1,13 @@
-/*
- *  main.cpp
- *  zoubin
- *
- *  Created by Arman Garakani on 9/21/08.
- *  Copyright 2008 Reify Corporation. All rights reserved.
- *
- */
 
 
 
 
 #include <iostream>
 #include <string>
-#include <stlplus_lite.hpp>
+#include <vfi386_d/stlplus_lite.hpp>
 #include <unistd.h>
-#include "ut_file.hpp"
 #include <gtest/gtest.h>
+#include "ut_file.hpp"
 
 class genv: public testing::Environment
 {
@@ -139,7 +131,7 @@ int main(int argc, char **argv)
     ::testing::Environment* const g_env  = ::testing::AddGlobalTestEnvironment(new     genv (installpath) );
     envp = g_env;
 	testing::InitGoogleTest(&argc, argv);
-	int rtn_val = RUN_ALL_TESTS();
+	return RUN_ALL_TESTS();
 
 	
 	

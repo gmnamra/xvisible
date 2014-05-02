@@ -15,7 +15,7 @@ unsigned char* internalData = 0;
 #include <stdlib.h>
 #include <vector>
 #include <algorithm>
-#include <rc_atomic.h>
+#include "rc_atomic.h"
 #include <ut_atomic.h>
 
 struct writePattern

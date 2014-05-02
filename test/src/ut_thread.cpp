@@ -4,7 +4,7 @@
 #include "rc_thread.h"
 #include <ut_thread.h>
 #include <pthread.h>
-#include <rc_atomic.h>
+#include "rc_atomic.h"
 
 // Static thread test data and defines
 

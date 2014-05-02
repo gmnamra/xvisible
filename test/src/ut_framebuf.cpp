@@ -1,8 +1,8 @@
 // Copyright 2002 Reify, Inc.
 
 #include "ut_framebuf.h"
-#include <rc_window.h>
-#include <rc_pixel.hpp>
+#include "rc_window.h"
+#include "rc_pixel.hpp"
 
 UT_FrameBuf::UT_FrameBuf()
 {
