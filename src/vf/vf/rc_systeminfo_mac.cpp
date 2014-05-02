@@ -38,7 +38,8 @@ std::string rfGetHostInfo()
 #endif
 	s << "Physical Memory (GB) : " << rfSystemRam () / (sHertzInGig) << std::endl;
 	s << std::ends;
-  return std::string (s.str());
+    std::string info = s.str();
+    return info;
 }
 
 double rfSystemRam ()

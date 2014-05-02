@@ -61,6 +61,14 @@ private:
 static ::testing::Environment* envp = 0;
 
 
+// System info tests
+TEST ( UT_Systeminfo, run )
+{
+    UT_Systeminfo test;
+    EXPECT_EQ(0,  test.run());
+}
+
+
 TEST (UT_fileutils, run)
 {
     genv* gvp = reinterpret_cast<genv*>(envp);
@@ -176,12 +184,6 @@ TEST ( UT_stats, run )
   EXPECT_EQ(0,  test.run());
 }
 
-// System info tests
-TEST ( UT_Systeminfo, run )
-{
-  UT_Systeminfo test;
-  EXPECT_EQ(0,  test.run());
-}
 // Line segment tests
 TEST ( UT_line, run )
 {

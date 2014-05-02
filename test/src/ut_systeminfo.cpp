@@ -24,7 +24,7 @@ UT_Systeminfo::~UT_Systeminfo()
 uint32 UT_Systeminfo::run()
 {
     // RAM test
-	cerr << rfGetHostInfo () << endl;
+	//cerr << rfGetHostInfo () << endl;
 
     rcUNITTEST_ASSERT( rfSystemRam () > 0 );
 
