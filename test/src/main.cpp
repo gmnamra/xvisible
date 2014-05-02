@@ -78,6 +78,7 @@ TEST( UT_FrameBuf, run )
 }
 
 
+#ifdef NATIVE_QTIME_SUPPORT
 
 TEST (UT_movieconverter, run)
 {
@@ -92,6 +93,7 @@ TEST (UT_movieconverter, run)
     
     EXPECT_EQ (0, test.run());
 }
+#endif
 
 
 TEST ( UT_ReifyMovieGrabber, run )

@@ -332,7 +332,7 @@ void UT_VideoCache::mappingTest()
     status = cacheP->frameIndexToTimestamp(i, actual, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
     if (status == eVideoCacheStatusOK)
-      rcUNITTEST_ASSERT(actual == times[i]);
+      rcUNITTEST_ASSERT(actual.secs() == times[i]);
 
     uint32 actualIndex;
     status = cacheP->timestampToFrameIndex(actual, actualIndex, &error);
@@ -346,12 +346,12 @@ void UT_VideoCache::mappingTest()
   status = cacheP->firstTimestamp(actual, &error);
   rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
   if (status == eVideoCacheStatusOK)
-    rcUNITTEST_ASSERT(actual == times[0]);
+    rcUNITTEST_ASSERT(actual.secs() == times[0]);
   
   status = cacheP->lastTimestamp(actual, &error);
   rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
   if (status == eVideoCacheStatusOK)
-    rcUNITTEST_ASSERT(actual == times[frameCount-1]);
+    rcUNITTEST_ASSERT(actual.secs() == times[frameCount-1]);
   
   /* Test for function closestTimestamp()
    */
@@ -380,7 +380,10 @@ void UT_VideoCache::mappingTest()
 
       rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
       if (status == eVideoCacheStatusOK)
-	rcUNITTEST_ASSERT(actual == expected[i]);
+      {
+          rcTimestamp et (expected[i]);          
+          rcUNITTEST_ASSERT(actual == et);
+      }
       
     }
   }
@@ -415,7 +418,7 @@ void UT_VideoCache::mappingTest()
       if (expected[i].expStatus == eVideoCacheStatusError)
 	rcUNITTEST_ASSERT(error == expected[i].expError);
       else
-	rcUNITTEST_ASSERT(actual == expected[i].expTime);
+          rcUNITTEST_ASSERT(actual == rcTimestamp (expected[i].expTime));
     }
   }
   
@@ -449,7 +452,7 @@ void UT_VideoCache::mappingTest()
       if (expected[i].expStatus == eVideoCacheStatusError)
 	rcUNITTEST_ASSERT(error == expected[i].expError);
       else
-	rcUNITTEST_ASSERT(actual == expected[i].expTime);
+	rcUNITTEST_ASSERT(actual == rcTimestamp(expected[i].expTime));
     }
   }
 

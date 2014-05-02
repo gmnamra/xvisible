@@ -928,7 +928,7 @@ rcVideoCache::internalGetFrame(uint32 frameIndex,
             return eVideoCacheStatusError;
         }
         fixEndian(timeInfo);
-        timestamp = timeInfo;
+        timestamp = rcTimestamp (timeInfo);
 
         if (fread((*cacheFrameBufPtr)->alignedRawData(), _bytesInFrame, 1,
                   _movieFile) != 1) {

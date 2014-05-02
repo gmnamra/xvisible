@@ -60,7 +60,7 @@ void UT_ReifyMovieGrabber::simpleTest()
   rc256BinHist hist(256);
 
   while ((status = grabber.getNextFrame(ptr, true))) {
-    rcUNITTEST_ASSERT(ptr->timestamp() == expectedTimes[frameIndex]);
+    rcUNITTEST_ASSERT(ptr->timestamp().secs() == expectedTimes[frameIndex]);
 
     rcWindow win(ptr);
     rfGenDepth8Histogram(win, hist);

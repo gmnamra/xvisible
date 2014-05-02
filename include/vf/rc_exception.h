@@ -186,6 +186,13 @@ public:
 	}
 };
 
+class not_implemented_error : public general_exception {
+public:
+	virtual const char* what() const throw() {
+		return " not implemented ";
+	}
+};
+
 
 
 

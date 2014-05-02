@@ -29,16 +29,15 @@ int64 getCurrentTimestamp( void )
     if ( syscall(SYS_gettimeofday, &t, NULL) < 0 )
         throw general_exception( "timestamp not available" );
 #endif
-    static const int64 cMicrosPerSec = mMicrosPerSecond;    
-    
-    int64 now = t.tv_sec * cMicrosPerSec + t.tv_usec;
+  
+    int64 now = t.tv_sec * 1000000 + t.tv_usec;
     return now;
 }
 
 // get the timestamp resolution
 double getTimestampResolution( void )
 {
-    static const double cResolution = 1.0/mMicrosPerSecond;    
+    static const double cResolution = 1.0/1000000.0;    
     return cResolution;
 }
 
@@ -46,13 +45,14 @@ double getTimestampResolution( void )
 // convert timestamp to seconds.
 double convertTimestampToSeconds( int64 timestamp )
 {
-	return (double) (timestamp * mMicrosPerSecond );
+
+	return (double) (timestamp / 1000000); // ts * ( 1 / mMicroSeconds )
 }
 
 // convert timestamp to seconds.
 int64 convertSecondsToTimestamp( double secs )
 {
-	return (int64) (secs / mMicrosPerSecond );
+	return (int64) (secs * 1000000 ); // secs / ( 1 / mMicroSeconds )
 }
 
 

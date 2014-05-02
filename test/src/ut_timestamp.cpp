@@ -108,9 +108,11 @@ void UT_Timestamp::testBasic()
         rcTimestamp stamp = rcTimestamp::now();
         rcUNITTEST_ASSERT( stamp.secs() > 0.0 );
 
+#ifdef QT_VISIBLE_SUPPORT        
         // Test special const
         rcUNITTEST_ASSERT( cCursorTimeCurrent != 0.0 );
-
+#endif
+        
         // Test localtime
         std::string localTime = stamp.localtime();
         rcUNITTEST_ASSERT( localTime.size() > 0 );
@@ -251,6 +253,8 @@ void UT_Timestamp::additionTest( int n, double inc )
     } 
 }
 
+#ifdef QT_VISIBLE_SUPPORT
+
 // Speed calculator tests
 void UT_Timestamp::testFps()
 {
@@ -318,3 +322,6 @@ void UT_Timestamp::testFpsInterval( double frameInterval )
         }
     }
 }
+
+#endif
+

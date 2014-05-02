@@ -18,10 +18,13 @@ public:
     void testBasic();
     // Test timestamp addition vs. multiplication
     void additionTest( int n, double inc );
+#ifdef QT_VISIBLE_SUPPORT    
     // Test speed calculator
     void testFps();
     // Test speed calculator with a specific frame interval
     void testFpsInterval( double frameInterval );
+#endif
+    
 };
 
 #endif // _rcUT_TIMESTAMP_H_

@@ -28,7 +28,7 @@
 #include <ut_correlationwindow.h>
 #include <ut_pmcorr.h>
 #include <ut_similarity.h>
-#include <ut_movieconverter.h>
+//#include <ut_movieconverter.h>
 #include <ut_reifymoviegrabber.h>
 #include <ut_videocache.h>
 

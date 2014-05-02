@@ -28,7 +28,6 @@
 		C23E89BA191310F800AE27A3 /* vf_release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C23E89B9191310F800AE27A3 /* vf_release.xcconfig */; };
 		C23E89BB191310F800AE27A3 /* vf_release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C23E89B9191310F800AE27A3 /* vf_release.xcconfig */; };
 		C23E89BC191314CB00AE27A3 /* similarity_producer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C292F418F72CFB00BA7E79 /* similarity_producer.cpp */; };
-		C24BF56E18DBBECF0039C53D /* ut_movieconverter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA28C0F21357A0046570D /* ut_movieconverter.cpp */; };
 		C24EA9611842FD0D00E88B0A /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0440F212DEC0046570D /* IOKit.framework */; };
 		C24EA9621842FD0D00E88B0A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0480F212DF40046570D /* CoreServices.framework */; };
 		C24EA9631842FD0D00E88B0A /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA04E0F212E170046570D /* QuickTime.framework */; };
@@ -1806,7 +1805,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "\n#!/bin/bash\n\nGUTPATH=${CONFIGURATION_BUILD_DIR}/${PRODUCT_NAME}\necho $GUTPATH\nFRAMEWORK_DIR=@executable_path/Frameworks\nCURRENT=Versions/Current\n\n# get current rpath for vfi386\nCURNAME=`otool -L $GUTPATH | grep ${VF_NAME/%.framework/} | sed -e 's/([^()]*)//g'`\necho $CURNAME\n# switch to using Frameworks of off build_dir\ninstall_name_tool -change $CURNAME \"${FRAMEWORK_DIR}/$VF_NAME.framework/$CURRENT/$VF_NAME\" $GUTPATH \n\n# get current rpath for gtest\nCURNAME=`otool -L $GUTPATH | grep gtest | sed -e 's/([^()]*)//g'`\necho $CURNAME\n# switch to using Frameworks of off build_dir\ninstall_name_tool -change $CURNAME \"${FRAMEWORK_DIR}/gtest.framework/$CURRENT/gtest\" $GUTPATH\n\n\n";
+			shellScript = "\n#!/bin/bash\n\nGUTPATH=${CONFIGURATION_BUILD_DIR}/${PRODUCT_NAME}\necho $GUTPATH\nFRAMEWORK_DIR=@executable_path/../Frameworks\nCURRENT=Versions/Current\n\n# get current rpath for vfi386\nCURNAME=`otool -L $GUTPATH | grep ${VF_NAME/%.framework/} | sed -e 's/([^()]*)//g'`\necho $CURNAME\n# switch to using Frameworks of off build_dir\ninstall_name_tool -change $CURNAME \"${FRAMEWORK_DIR}/$VF_NAME.framework/$CURRENT/$VF_NAME\" $GUTPATH \n\n# get current rpath for gtest\nCURNAME=`otool -L $GUTPATH | grep gtest | sed -e 's/([^()]*)//g'`\necho $CURNAME\n# switch to using Frameworks of off build_dir\ninstall_name_tool -change $CURNAME \"${FRAMEWORK_DIR}/gtest.framework/$CURRENT/gtest\" $GUTPATH\n\n\n";
 		};
 		C2FDA4321002E38400A36E5F /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1966,7 +1965,6 @@
 				C2B8EA0C187E43D30060D961 /* ut_cordic.cpp in Sources */,
 				C2B8EA06187E137C0060D961 /* ut_similarity.cpp in Sources */,
 				C2B8EA05187E132E0060D961 /* ut_ring.cpp in Sources */,
-				C24BF56E18DBBECF0039C53D /* ut_movieconverter.cpp in Sources */,
 				C2B8EA04187E13280060D961 /* ut_systeminfo.cpp in Sources */,
 				C2C2931918F8D54800BA7E79 /* ut_videocache.cpp in Sources */,
 				C2B8EA0B187E42310060D961 /* ut_atomic_race_test.cpp in Sources */,

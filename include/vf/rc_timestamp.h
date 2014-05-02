@@ -22,7 +22,7 @@ class rcGenMovieFile;
 
 using namespace std;
 
-#define mMicrosPerSecond 1000000
+
 
 /******************************************************************************
 *	Platform-specific timestamp support routines
@@ -64,10 +64,10 @@ public:
 	}
 
 	// constructor 
-	rcTimestamp( double secs ) :  _timestamp ((int64) (secs / mMicrosPerSecond ) ) {}
+	explicit rcTimestamp( double secs ) :  _timestamp ((int64) (secs * 1000000 ) ) {}
 
 	// internal constructor
-	rcTimestamp( int64 timestamp ) : _timestamp (timestamp) {}
+	explicit rcTimestamp( int64 timestamp ) : _timestamp (timestamp) {}
         
 	// static method to return current timestamp
 	static rcTimestamp now( void ) {  return (rcTimestamp( getCurrentTimestamp() ) ); }
@@ -180,6 +180,7 @@ rcTimestamp operator - ( const rcTimestamp& ts1 , const rcTimestamp& ts2 );
 *	Constants
 ******************************************************************************/
 
+#ifdef QT_VISIBLE_SUPPORT
 const rcTimestamp cCursorTimeCurrent = -1.0;
 
 /* Little helper class.
@@ -258,5 +259,7 @@ class rcFpsCalculator {
     double        mTotalTime;      // Total of all frame intervals
     deque<double> mFrameIntervals; // Queue of frame intervals
 };
+
+#endif
 
 #endif // _rcBASE_RCTIMESTAMP_H_

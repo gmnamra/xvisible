@@ -132,7 +132,6 @@ private:
     rcCarbonLock*                mCarbonLock;
     rcPixel                      m_depth;
     std::string                  m_name;    
-    
 };
 
 
@@ -209,7 +208,7 @@ int SimilarityProducer::spImpl::loadMovie( const std::string& movieFile, rcFrame
 		else 
 		{
 			// grabber = reinterpret_cast<rcFrameGrabber*> (new rcCinderGrabber( movieFile, mCarbonLock));
-            assert (0);
+            throw not_implemented_error ();
 		}
         
 		count = loadFrames( *grabber, error );
@@ -242,10 +241,10 @@ int SimilarityProducer::spImpl::loadFrames( rcFrameGrabber& grabber, rcFrameGrab
 	if ( grabber.isValid() && grabber.start())
 	{
 		uint32 frameMax = grabber.frameCount();
-		const double updateStatusInterval = 1.5; // Status display update interval in seconds
-		const double updateMovieInterval = 3.0;  // Movie display update interval in seconds
+		const rcTimestamp updateStatusInterval (1.5); // Status display update interval in seconds
+		const rcTimestamp updateMovieInterval (3.0);  // Movie display update interval in seconds
         
-		_currentTime = 0.0;
+		_currentTime = cZeroTime;
 		++_processCount;
         
 		rcTimestamp lastStatusUpdateTime = rcTimestamp::now() - updateStatusInterval;
@@ -303,7 +302,7 @@ int SimilarityProducer::spImpl::loadFrames( rcFrameGrabber& grabber, rcFrameGrab
 			{
                 // Use true frame interval
 				_currentTime += frameInt;
-				rmAssert(frameInt > 0.0 );// Zero time between frames is not allowed
+				rmAssert(frameInt > cZeroTime );// Zero time between frames is not allowed
 			}
             
 			prevTimeStamp = curTimeStamp;
@@ -324,7 +323,7 @@ int SimilarityProducer::spImpl::loadFrames( rcFrameGrabber& grabber, rcFrameGrab
 			rcTimestamp updateInterval = curTime - lastStatusUpdateTime;
             
             // Update status bar
-			if ( updateInterval.secs() > updateStatusInterval)  {
+			if ( updateInterval > updateStatusInterval)  {
 				lastStatusUpdateTime = curTime;
 				char buf[512];
 				snprintf( buf, rmDim( buf ), "Loading %i frames...%i%% complete", frameMax, int(double(i)/frameMax * 100) );
@@ -332,7 +331,7 @@ int SimilarityProducer::spImpl::loadFrames( rcFrameGrabber& grabber, rcFrameGrab
 			}
 			updateInterval = curTime - lastMovieUpdateTime;
             
-			if ( updateInterval.secs() > updateMovieInterval ) {
+			if ( updateInterval > updateMovieInterval ) {
                 // Update movie display
 				lastMovieUpdateTime = curTime;
                 //			if ( _observer->acceptingImageBlits() )
