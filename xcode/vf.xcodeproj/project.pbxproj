@@ -37,6 +37,7 @@
 		C26F48C818FC75D6006DF78F /* rc_ncs.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F48C718FC75D6006DF78F /* rc_ncs.h */; };
 		C27652261914089400EA3B55 /* rc_level.h in Headers */ = {isa = PBXBuildFile; fileRef = C27652251914089400EA3B55 /* rc_level.h */; };
 		C276522819140E1500EA3B55 /* Timer.h in Headers */ = {isa = PBXBuildFile; fileRef = C276522719140E1500EA3B55 /* Timer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C276522B1915599C00EA3B55 /* rc_seglevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A018F4B9A000BA7E79 /* rc_seglevel.cpp */; };
 		C299934418FCAE3D008397D2 /* ut_framebuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA27A0F21357A0046570D /* ut_framebuf.cpp */; };
 		C299934518FDB17F008397D2 /* ut_reifymoviegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA29A0F21357A0046570D /* ut_reifymoviegrabber.cpp */; };
 		C299934718FDBD44008397D2 /* rc_mathmodel.h in Headers */ = {isa = PBXBuildFile; fileRef = C299934618FDBD44008397D2 /* rc_mathmodel.h */; };
@@ -181,10 +182,8 @@
 		C2C2920418F4B9A000BA7E79 /* rc_rectspec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2919A18F4B9A000BA7E79 /* rc_rectspec.cpp */; };
 		C2C2920518F4B9A000BA7E79 /* rc_reifymoviegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2919B18F4B9A000BA7E79 /* rc_reifymoviegrabber.cpp */; };
 		C2C2920818F4B9A000BA7E79 /* rc_rowfuncs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2919E18F4B9A000BA7E79 /* rc_rowfuncs.cpp */; };
-		C2C2920B18F4B9A000BA7E79 /* rc_simd_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A118F4B9A000BA7E79 /* rc_simd_mac.cpp */; };
 		C2C2920C18F4B9A000BA7E79 /* rc_similarity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A218F4B9A000BA7E79 /* rc_similarity.cpp */; };
 		C2C2920D18F4B9A000BA7E79 /* rc_sparsehist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A318F4B9A000BA7E79 /* rc_sparsehist.cpp */; };
-		C2C2921018F4B9A000BA7E79 /* rc_surface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A618F4B9A000BA7E79 /* rc_surface.cpp */; };
 		C2C2921118F4B9A000BA7E79 /* rc_systeminfo_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A718F4B9A000BA7E79 /* rc_systeminfo_mac.cpp */; };
 		C2C2921218F4B9A000BA7E79 /* rc_thread_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A818F4B9A000BA7E79 /* rc_thread_mac.cpp */; };
 		C2C2921318F4B9A000BA7E79 /* rc_tiff.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A918F4B9A000BA7E79 /* rc_tiff.cpp */; };
@@ -615,10 +614,8 @@
 		C2C2919B18F4B9A000BA7E79 /* rc_reifymoviegrabber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_reifymoviegrabber.cpp; sourceTree = "<group>"; };
 		C2C2919E18F4B9A000BA7E79 /* rc_rowfuncs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_rowfuncs.cpp; sourceTree = "<group>"; };
 		C2C291A018F4B9A000BA7E79 /* rc_seglevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_seglevel.cpp; sourceTree = "<group>"; };
-		C2C291A118F4B9A000BA7E79 /* rc_simd_mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_simd_mac.cpp; sourceTree = "<group>"; };
 		C2C291A218F4B9A000BA7E79 /* rc_similarity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_similarity.cpp; sourceTree = "<group>"; };
 		C2C291A318F4B9A000BA7E79 /* rc_sparsehist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_sparsehist.cpp; sourceTree = "<group>"; };
-		C2C291A618F4B9A000BA7E79 /* rc_surface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_surface.cpp; sourceTree = "<group>"; };
 		C2C291A718F4B9A000BA7E79 /* rc_systeminfo_mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_systeminfo_mac.cpp; sourceTree = "<group>"; };
 		C2C291A818F4B9A000BA7E79 /* rc_thread_mac.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_thread_mac.cpp; sourceTree = "<group>"; };
 		C2C291A918F4B9A000BA7E79 /* rc_tiff.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rc_tiff.cpp; sourceTree = "<group>"; };
@@ -1390,10 +1387,8 @@
 				C2C2919B18F4B9A000BA7E79 /* rc_reifymoviegrabber.cpp */,
 				C2C2919E18F4B9A000BA7E79 /* rc_rowfuncs.cpp */,
 				C2C291A018F4B9A000BA7E79 /* rc_seglevel.cpp */,
-				C2C291A118F4B9A000BA7E79 /* rc_simd_mac.cpp */,
 				C2C291A218F4B9A000BA7E79 /* rc_similarity.cpp */,
 				C2C291A318F4B9A000BA7E79 /* rc_sparsehist.cpp */,
-				C2C291A618F4B9A000BA7E79 /* rc_surface.cpp */,
 				C2C291A718F4B9A000BA7E79 /* rc_systeminfo_mac.cpp */,
 				C2C291A818F4B9A000BA7E79 /* rc_thread_mac.cpp */,
 				C2C291A918F4B9A000BA7E79 /* rc_tiff.cpp */,
@@ -1854,7 +1849,6 @@
 				C2C2921918F4B9A000BA7E79 /* rc_window.cpp in Sources */,
 				C2C2926118F4C1F300BA7E79 /* tif_dir.c in Sources */,
 				C2C291E118F4B9A000BA7E79 /* rc_fixcord.cpp in Sources */,
-				C2C2920B18F4B9A000BA7E79 /* rc_simd_mac.cpp in Sources */,
 				C2C2923618F4BFA000BA7E79 /* rc_pmcorr.cpp in Sources */,
 				C2C291D818F4B9A000BA7E79 /* rc_cubic.cpp in Sources */,
 				C2C2921818F4B9A000BA7E79 /* rc_videocache.cpp in Sources */,
@@ -1907,6 +1901,7 @@
 				C2C2920518F4B9A000BA7E79 /* rc_reifymoviegrabber.cpp in Sources */,
 				C2C2927C18F4C1F300BA7E79 /* tif_warning.c in Sources */,
 				C2C2926018F4C1F300BA7E79 /* tif_compress.c in Sources */,
+				C276522B1915599C00EA3B55 /* rc_seglevel.cpp in Sources */,
 				C2C291CE18F4B9A000BA7E79 /* linlsq.cpp in Sources */,
 				C2C291BA18F4B9A000BA7E79 /* file_system.cpp in Sources */,
 				C2C291EA18F4B9A000BA7E79 /* rc_imageprocessing.cpp in Sources */,
@@ -1915,7 +1910,6 @@
 				C2C291B618F4B9A000BA7E79 /* debug.cpp in Sources */,
 				C2C291E218F4B9A000BA7E79 /* rc_framebuf.cpp in Sources */,
 				C2C291F618F4B9A000BA7E79 /* rc_moviefileformat.cpp in Sources */,
-				C2C2921018F4B9A000BA7E79 /* rc_surface.cpp in Sources */,
 				C2C2926D18F4C1F300BA7E79 /* tif_luv.c in Sources */,
 				C2C2927018F4C1F300BA7E79 /* tif_ojpeg.c in Sources */,
 				C2C291FD18F4B9A000BA7E79 /* rc_parametermap.cpp in Sources */,

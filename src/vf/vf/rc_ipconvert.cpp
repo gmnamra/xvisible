@@ -1,85 +1,10 @@
-/*@files
- *
- *$Id $
- *$Log$
- *Revision 1.8  2005/09/13 14:46:24  arman
- *16bit support
- *
- *Revision 1.7  2005/08/30 21:08:52  arman
- *Cell Lineage
- *
- *Revision 1.6  2005/04/17 22:06:41  arman
- *added transpose (needs minimal ut)
- *
- *Revision 1.5  2005/04/14 21:45:33  arman
- *fixed 16bit image conversion range to min to max of the 12 bit signed import
- *
- *Revision 1.4  2005/03/31 14:49:53  arman
- *added comment on time stamp behaviour
- *
- *Revision 1.3  2005/03/30 00:08:55  arman
- *added argb to 4 planar8 images
- *
- *Revision 1.2  2005/03/27 22:03:02  arman
- *vector<images> conversion now uses the faster method
- *
- *Revision 1.1  2005/01/28 02:15:11  arman
- *Moved to Visual
- *
- *Revision 1.15  2005/01/23 02:38:40  arman
- *added an assertion for 32 bit
- *
- *Revision 1.14  2005/01/21 18:27:03  arman
- *added more vImage supported composite layering support
- *
- *Revision 1.13  2005/01/19 22:54:46  arman
- *added 8ToARGB
- *
- *Revision 1.12  2005/01/14 16:34:53  arman
- *fixed not calling the src, dst api with min and max vals
- *
- *Revision 1.11  2005/01/14 16:28:46  arman
- *implementation of vImage supported float8 conversion
- *
- *Revision 1.10  2005/01/13 02:14:54  arman
- *added 16bit histogram computation and tail cuts
- *
- *Revision 1.9  2005/01/11 03:39:35  arman
- *16bit tif support
- *
- *Revision 1.8  2005/01/10 01:57:02  arman
- *hardcoded 12 bit (-2048 -> 0) range
- *
- *Revision 1.7  2005/01/09 21:00:02  arman
- *added vImage support for 16bit signed
- *
- *Revision 1.6  2005/01/09 20:55:55  arman
- *added 16bit support
- *
- *Revision 1.5  2005/01/09 01:47:01  arman
- *removed shift from all api
- *
- *Revision 1.4  2005/01/09 01:33:28  arman
- *added vImage support for 16to8 conversion
- *
- *Revision 1.3  2003/09/01 10:23:31  arman
- *added basic 32->8 conversion/scaling
- *
- *Revision 1.2  2003/08/28 02:34:45  arman
- *unsigned to signed fixes
- *
- *Revision 1.1  2002/12/31 22:10:55  arman
- *Image conversion routines
- *
- *
- *
- * Copyright (c) 2002 Reify Corp. All rights reserved.
- */
 
 #include "rc_types.h"
 #include "rc_ip.h"
 #include "rc_histstats.h"
 #include "rc_imageprocessing.h"
+
+#define rfHasSIMD false
 
 static void _rfRcWindow32to8(const rcWindow& rgbInput, rcWindow& channelOutput, rcChannelConversion opt);
 
@@ -420,7 +345,7 @@ void rfImageConvert8to32(const rcWindow& rgbInput, rcWindow& rgbOutput)
     const uint32 height = rgbInput.height();
 
     //@todo add hasSIMD 
-    if (rfHasSIMD ()) 
+    if (rfHasSIMD ) 
       {
 	vImage_Buffer v8, v32, va;
 	rgbInput.vImage (v8);

@@ -4,6 +4,7 @@
 #include <unistd.h>
 
 #include "rc_timestamp.h"
+#include "rc_framework_core.hpp"
 
 #include "ut_timestamp.h"
 
@@ -27,19 +28,22 @@ uint32 UT_Timestamp::run()
 // Basic timestamp tests
 void UT_Timestamp::testBasic()
 {
+    
+    {
+        rcUTCheck (visible_framework_core::instance().ticks_per_second() == 1000000);
+        
+    }
+    
     // Static method tests
     {
-        int64 now = getCurrentTimestamp();
-        rcUNITTEST_ASSERT( now > 0 );
+        rcTimestamp now = rcTimestamp::now();
+        rcUNITTEST_ASSERT( now.secs() > 0 );
 
-        double nowSeconds = convertTimestampToSeconds(now);
-        rcUNITTEST_ASSERT( nowSeconds > 0.0 );
-
-        int64 now2 = convertSecondsToTimestamp(nowSeconds);
-        int64 diff = rmABS(now - now2);
+        rcTimestamp now2 = rcTimestamp::now();
+        int64 diff = rmABS((now - now2).tick_type_value());
         
-        rcUNITTEST_ASSERT( diff < 2 );
-        if ( !(diff < 2) ) {
+        rcUNITTEST_ASSERT( diff < visible_framework_core::instance().ticks_per_second());
+        if ( !(diff < visible_framework_core::instance().ticks_per_second()) ) {
             cerr << "\tnow : " << now << endl
                  << "\tnow2: " << now2 << endl;
         }
@@ -97,22 +101,16 @@ void UT_Timestamp::testBasic()
             rcUNITTEST_ASSERT( !convertStringToTimestamp( result, "666" ) );
         }
         
-        double resolution = getTimestampResolution();
-        rcUNITTEST_ASSERT( resolution > 0.0 );
-        
+             
         // sleep to guarantee a new tick
         sleep( 1 );
-        int64 then = getCurrentTimestamp();
+        rcTimestamp then = rcTimestamp::now (); 
         rcUNITTEST_ASSERT( now != then );
 
         rcTimestamp stamp = rcTimestamp::now();
         rcUNITTEST_ASSERT( stamp.secs() > 0.0 );
 
-#ifdef QT_VISIBLE_SUPPORT        
-        // Test special const
-        rcUNITTEST_ASSERT( cCursorTimeCurrent != 0.0 );
-#endif
-        
+
         // Test localtime
         std::string localTime = stamp.localtime();
         rcUNITTEST_ASSERT( localTime.size() > 0 );
@@ -123,14 +121,14 @@ void UT_Timestamp::testBasic()
         // Default ctor
         {
             rcTimestamp now;
-            rcUNITTEST_ASSERT( now == rcTimestamp( 0.0 ) );
+            rcUNITTEST_ASSERT( now == rcTimestamp::from_seconds(0.0) );
             rcUNITTEST_ASSERT( now == cZeroTime );
         }
 
         // ctor
         {
             double secs = 6.0;
-            rcTimestamp now( secs );
+            rcTimestamp now = rcTimestamp::from_seconds(secs);
 
             rcUNITTEST_ASSERT( now.secs() == secs );
         }
@@ -138,7 +136,7 @@ void UT_Timestamp::testBasic()
         // copy ctor
         {
             double secs = 6.0;
-            rcTimestamp now( secs );
+            rcTimestamp now = rcTimestamp::from_seconds(secs);
             rcTimestamp now2( now );
             
             rcUNITTEST_ASSERT( now == now2 );
@@ -150,8 +148,8 @@ void UT_Timestamp::testBasic()
                 // operator +
                 double secs = 6.0;
                 double secs2 = 5.0;
-                rcTimestamp now( secs );
-                rcTimestamp now2( secs2 );
+                rcTimestamp now = rcTimestamp::from_seconds(secs);
+                rcTimestamp now2 = rcTimestamp::from_seconds(secs2);
                 rcUNITTEST_ASSERT( now != now2 );
 
                 rcTimestamp now1plus2 = now + now2;
@@ -183,14 +181,13 @@ void UT_Timestamp::testBasic()
                 // operator == and !=
                 double secs = 6.0;
                 double secs2 = 5.0;
-
-                rcTimestamp now( secs );
-                rcTimestamp now1( secs );
-
+                rcTimestamp now = rcTimestamp::from_seconds(secs);
+                rcTimestamp now1 = rcTimestamp::from_seconds(secs);
+                
                 rcUNITTEST_ASSERT( now == now1 );
                 rcUNITTEST_ASSERT( !(now != now1) );
 
-                rcTimestamp now2( secs2 );
+                rcTimestamp now2 = rcTimestamp::from_seconds (secs2 );
                 rcUNITTEST_ASSERT( now != now2 );
                 rcUNITTEST_ASSERT( !(now == now2) );
 
@@ -208,7 +205,7 @@ void UT_Timestamp::testBasic()
             {
                 // Unary -
                 double secs = 6.0;
-                rcTimestamp now( secs );
+                rcTimestamp now = rcTimestamp::from_seconds(secs);
                 rcUNITTEST_ASSERT( now > -now );
                 rcUNITTEST_ASSERT( -now.secs() == -secs );
             }
@@ -238,19 +235,19 @@ void UT_Timestamp::testBasic()
 // Test timestamp addition vs. multiplication
 void UT_Timestamp::additionTest( int n, double inc )
 {
-    rcTimestamp increment( inc );
-    rcTimestamp addition( 0.0 );
-    rcTimestamp multiplication( inc * n );
-
-    for ( int i = 0; i < n; i++ ) {
-        addition += increment;
-    }
-    rcUNITTEST_ASSERT( addition == multiplication );
-    
-    if ( addition != multiplication ) {
-        cerr << n << "x" << inc << " multiplication result " << multiplication;
-        cerr << " differs from addition result " << addition << endl;
-    } 
+//    rcTimestamp increment( inc );
+//    rcTimestamp addition( 0.0 );
+//    rcTimestamp multiplication( inc * n );
+//
+//    for ( int i = 0; i < n; i++ ) {
+//        addition += increment;
+//    }
+//    rcUNITTEST_ASSERT( addition == multiplication );
+//    
+//    if ( addition != multiplication ) {
+//        cerr << n << "x" << inc << " multiplication result " << multiplication;
+//        cerr << " differs from addition result " << addition << endl;
+//    } 
 }
 
 #ifdef QT_VISIBLE_SUPPORT

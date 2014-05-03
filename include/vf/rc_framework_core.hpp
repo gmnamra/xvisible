@@ -62,6 +62,8 @@ public:
     //! Return trrue for runs in the build directory (not installed)
     static bool isDevelopmentRun() { return instance()._dev_run; }
     
+    static bool force_simd (bool v) { instance()._force_simd_if_present = v; return instance()._force_simd_if_present; }
+    
     /**
      *   Absolute time
      */
@@ -105,6 +107,7 @@ private:
     
     visible_framework_core(const visible_framework_core&); 
     int                           _debug_level_logfile;      //!< The debug level for the log file (belongs to OutputHandler)
+    bool                          _force_simd_if_present;
     
 };
 

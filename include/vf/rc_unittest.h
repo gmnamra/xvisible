@@ -80,7 +80,7 @@ public:
       uint32 seed;
       rcTimestamp now = rcTimestamp::now();
       uint32 secs = uint32(now.secs());
-      seed = uint32( (now.secs() - secs) / getTimestampResolution() + clock() );
+        seed = uint32( (now.secs() - secs) / rcTimestamp::get_time_resolution() + clock() );
       srandom (seed);
     }
     

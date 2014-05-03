@@ -15,7 +15,10 @@
 #include "rc_ip.h"
 #include "rc_histstats.h"
 #include "rc_mathmodel.h"
+
+
 #include <vector>
+
 using namespace std;
 
 #define rmPrintFloatImage(a){					    \
@@ -27,6 +30,7 @@ using namespace std;
       fprintf (stderr, "\n");					    \
     }}
 
+#define rfHasSIMD false
 
 static void rfGauss3by3 (const rcWindow& src, rcWindow& dest);
 static void rfGauss163by3 (const rcWindow& src, rcWindow& dest);
@@ -240,7 +244,7 @@ void rfGaussianConv (const rcWindow& src, rcWindow& dest, int32 kernelSize)
 	}
 #endif
 
-	if (rfHasSIMD () && kernelSize == 5)
+	if (rfHasSIMD  && kernelSize == 5)
 	{
 		if (src.depth() == rcPixel8)
 		{
@@ -345,7 +349,7 @@ static void rfGauss3(const rcWindow& src, rcWindow& dest)
    assert(src.height() == dest.height());
 
    // Handle by vImage 
-   if (rfHasSIMD ()) 
+   if (rfHasSIMD ) 
      {
      if (src.depth() == rcPixel8)
        {
@@ -661,7 +665,7 @@ void rfPixel8Map (const rcWindow& src, rcWindow& dst, const vector<uint8>& lut)
   assert (dst.depth() == rcPixel8);
 
   // Direct all unaligned src and destinations to the basic calculations
-  if (rfHasSIMD ())
+  if (rfHasSIMD )
        {
 	 vImage_Buffer vb, vd;
 	 src.vImage (vb);	  dst.vImage (vd);

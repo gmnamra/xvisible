@@ -45,7 +45,7 @@ UT_FrameBuf::run()
         rcUNITTEST_ASSERT( dummyBuf.width() == 0 );
         rcUNITTEST_ASSERT( dummyBuf.depth() == rcPixelUnknown );
         rcUNITTEST_ASSERT( dummyBuf.rawData() == 0 );
-        rcUNITTEST_ASSERT( dummyBuf.timestamp() == rcTimestamp( 0.0 ) );
+        rcUNITTEST_ASSERT( dummyBuf.timestamp() == rcTimestamp () );
     }
 
    
@@ -224,7 +224,7 @@ void UT_FrameBuf::testFrameBuffer( int32 width, int32 height, rcPixel depth )
     rcUNITTEST_ASSERT( buf->width() == width );
     rcUNITTEST_ASSERT( buf->depth() == depth );
     rcUNITTEST_ASSERT( buf->rawData() != 0 );
-    rcUNITTEST_ASSERT( buf->timestamp() == rcTimestamp( 0.0 ) );
+    rcUNITTEST_ASSERT( buf->timestamp() == rcTimestamp() );
 
   
     int32 alignment = (buf->width() * buf->bytes()) % rcFrame::ROW_ALIGNMENT_MODULUS;

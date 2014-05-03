@@ -19,6 +19,7 @@
 #include <gtest/gtest.h>
 #include "rc_framework_core.hpp"
 #include "rc_pixel.hpp"
+//#include "Timer.h"
 
 class genv: public testing::Environment
 {
@@ -47,6 +48,7 @@ public:
         m_test_path = folder_append_separator (folder_current_full () ) + test_folder_name;
         m_test_content_path = folder_append_separator ( test_folder () ) + test_data_folder_name;
 
+        //        vf_init ();
     }
     
     void TearDown () {}
@@ -77,6 +79,43 @@ TEST (UT_fileutils, run)
     UT_fileutils test (gvp->test_data_folder ());
     EXPECT_EQ(0, test.run () );
 }
+
+
+
+// Stats test
+TEST ( UT_stats, run )
+{
+    UT_stats test;
+    EXPECT_EQ(0,  test.run());
+}
+
+// Line segment tests
+TEST ( UT_line, run )
+{
+    UT_line test;
+    EXPECT_EQ(0,  test.run());
+}
+
+// Fixed Point Cordic tests
+TEST ( UT_cordic, run )
+{
+    UT_cordic test;
+    EXPECT_EQ(0,  test.run());
+}
+
+
+// rcTimestamp tests
+TEST ( UT_Timestamp, run )
+{
+    //  TimeStamp ts;
+    //  TimeStamp tn = TimeStamp::now ();
+    
+    EXPECT_EQ(visible_framework_core::instance().ticks_per_second (), 1000000);
+    
+    UT_Timestamp test;
+    EXPECT_EQ(0,  test.run());
+}
+
 
 
 TEST( UT_FrameBuf, run )
@@ -173,37 +212,6 @@ TEST(UT_similarity, run)
 {
     UT_similarity test;
     EXPECT_EQ(0, test.run());
-}
-
-
-
-// Stats test
-TEST ( UT_stats, run )
-{
-  UT_stats test;
-  EXPECT_EQ(0,  test.run());
-}
-
-// Line segment tests
-TEST ( UT_line, run )
-{
-  UT_line test;
-  EXPECT_EQ(0,  test.run());
-}
-
-// Fixed Point Cordic tests
-TEST ( UT_cordic, run )
-{
-  UT_cordic test;
-  EXPECT_EQ(0,  test.run());
-}
-
-
-// rcTimestamp tests
-TEST ( UT_Timestamp, run )
-{
-  UT_Timestamp test;
-  EXPECT_EQ(0,  test.run());
 }
 
 
