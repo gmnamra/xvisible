@@ -11,7 +11,7 @@
 #include "rc_systeminfo.h"
     //#include "rc_capture.hpp>
 #include <algorithm> //required for std::swap
-
+#include "rc_framework_core.hpp"
 
 
 // Only use this for doubles and floats for now
@@ -112,7 +112,7 @@ rcMovieFileFormat::rcMovieFileFormat( const rcSharedFrameBufPtr& frame,
                                       movieFormatRev r ) :
         mId(r), mWidth(frame->width()), mHeight(frame->height()),
         mRowUpdate(frame->rowUpdate()),
-        mAverageFrameRate(0.0), mFrameCount(0), mBaseTime(frame->timestamp()._timestamp)
+        mAverageFrameRate(0.0), mFrameCount(0), mBaseTime(frame->timestamp().tick_type_value())
 {
 }
 
@@ -175,7 +175,7 @@ rcMovieFileFormat2::rcMovieFileFormat2( const rcSharedFrameBufPtr& frame,
                                         movieFormatRev r ) :
         mId(r), mBom(rfPlatformByteOrderMark()), mWidth(frame->width()), mHeight(frame->height()),
         mDepth(frame->depth()), mRowUpdate(frame->rowUpdate()),
-        mAverageFrameRate(0.0), mFrameCount(0), mBaseTime(frame->timestamp()._timestamp), mExtensionOffset(0)
+        mAverageFrameRate(0.0), mFrameCount(0), mBaseTime(frame->timestamp().tick_type_value()), mExtensionOffset(0)
 {
 }
 
@@ -388,10 +388,11 @@ ostream& rcMovieFileOrgExt::log( ostream& os ) const
     os << " Creator: " << creatorName() << endl;
     os << " Capture date: ";
     // Capture dates are in absolute epoch time
-    if ( baseTime() > convertSecondsToTimestamp(3600*24) ) {
+    if (visible_framework_core::instance().check_distance_from_epoch(baseTime(), 3600*24 )){
+        //    if ( baseTime() > convertSecondsToTimestamp(3600*24) ) {
         // Anything later than one day after start of epoch is 
         // considered a valid date
-        rcTimestamp creationDate = rcTimestamp( baseTime() );
+        rcTimestamp creationDate = rcTimestamp::from_tick_type( baseTime() );
         os << creationDate.localtime() << endl;
     } else {
         os << "Unknown" << endl;
@@ -417,7 +418,7 @@ ostream& rcMovieFileOrgExt::log( ostream& os ) const
 
 rcMovieFileConvExt::rcMovieFileConvExt() :
         rcMovieFileExt(movieExtensionCNV, sizeof(rcMovieFileConvExt)),
-        mStartOffset(0), mFrameCount(0), mSample(1), mDate( getCurrentTimestamp() ),
+        mStartOffset(0), mFrameCount(0), mSample(1), mDate( rcTimestamp::now ().tick_type_value() ),
         mChannel( movieChannelUnknown ), mFrameInterval(0.0), 
         mRev(movieFormatRevLatest), mId( 0 ), mPixelsReversed(false)
 {
@@ -431,7 +432,7 @@ rcMovieFileConvExt::rcMovieFileConvExt( uint32 so, uint32 fc,
                                         bool pixRev, const char* c ) :
         rcMovieFileExt(movieExtensionCNV, sizeof(rcMovieFileConvExt)),
         mStartOffset(so), mFrameCount(fc), mSample(sm), mCropRect(r),
-        mDate(getCurrentTimestamp()), mChannel(ch), mFrameInterval(frameInt),
+        mDate(rcTimestamp::now ().tick_type_value()), mChannel(ch), mFrameInterval(frameInt),
         mRev(movieFormatRevLatest), mId( 0 ), mPixelsReversed(pixRev)
 {
     memset( mComment, 0, rmDim(mComment) );
@@ -484,7 +485,7 @@ void rcMovieFileConvExt::fixEndian( const reByteOrder& fileByteOrder )
 // Write header to stream in human-readable log format
 ostream& rcMovieFileConvExt::log( ostream& os ) const
 {
-    os << "Conversion date: " << rcTimestamp(date()).localtime() << endl;
+    os << "Conversion date: " << rcTimestamp::from_tick_type(date()).localtime() << endl;
     os << " FileRev " << rev() << " FrameOffset: " << startOffset()
        << " FrameCount: " << frameCount() << endl;
     os << " FrameInterval " << frameInterval()
@@ -796,7 +797,7 @@ ostream& operator << ( ostream& os, const rcMovieFileFormat& e )
 {
     os << "Hdr rev " << e.rev() << " width " << e.width() << " height " << e.height()
        << " rowUpdate " << e.rowUpdate() << " frameCount " << e.frameCount()
-       << " avgFrameRate " << e.averageFrameRate() << " baseTime " << rcTimestamp(e.baseTime());
+    << " avgFrameRate " << e.averageFrameRate() << " baseTime " << rcTimestamp::from_tick_type(e.baseTime());
      
     return os;
 }
@@ -806,7 +807,7 @@ ostream& operator << ( ostream& os, const rcMovieFileFormat2& e )
     os << "Hdr rev " << e.rev() << " BOM " << e.bom() << " width " << e.width()
        << " height " << e.height() << " depth " << e.depth()
        << " rowUpdate " << e.rowUpdate() << " frameCount " << e.frameCount()
-       << " avgFrameRate " << e.averageFrameRate() << " baseTime " << rcTimestamp(e.baseTime())
+       << " avgFrameRate " << e.averageFrameRate() << " baseTime " << rcTimestamp::from_tick_type(e.baseTime())
        << " extOffset " << e.extensionOffset();
      
     return os;
@@ -919,7 +920,7 @@ ostream& operator << ( ostream& os, const rcMovieFileOrgExt& e )
 {
     const rcMovieFileExt& base = e;
     os << base
-       << " origin \"" << e.origin() << "\" baseTime " << rcTimestamp(e.baseTime())
+       << " origin \"" << e.origin() << "\" baseTime " << rcTimestamp::from_tick_type(e.baseTime())
        << " frameCount " << e.frameCount() << " depth " << e.depth()
        << " width " << e.width() << " height " << e.height()
        << " rev " << e.rev() << " generator \"" << e.creatorName() << "\""
@@ -936,7 +937,7 @@ ostream& operator << ( ostream& os, const rcMovieFileConvExt& e )
        << " startOffset " << e.startOffset() << " frameCount " << e.frameCount() << " sample " << e.sample()
        << " cropRect " << e.cropRect() << " channel " << e.channel() << " frameInt " << e.frameInterval()
        << " pixelsReversed " << e.pixelsReversed()
-       << " converter \"" << e.creatorName() << "\"" << " date " << rcTimestamp(e.date()).localtime()
+       << " converter \"" << e.creatorName() << "\"" << " date " << rcTimestamp::from_tick_type(e.date()).localtime()
        << " id " << e.id();
     
     return os;

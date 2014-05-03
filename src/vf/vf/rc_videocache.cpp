@@ -565,14 +565,15 @@ rcVideoCache::closestTimestamp(const rcTimestamp& goalTime,
         match = it->first;
     }
     else {
-        rcTimestamp afterGoal = it->first;
+        const rcTimestamp afterGoal = it->first;
         it--;
-        rcTimestamp beforeOrEqualGoal = it->first;
+        const rcTimestamp beforeOrEqualGoal = it->first;
 
-        if ((afterGoal - goalTime) < (goalTime - beforeOrEqualGoal))
-            match = afterGoal;
-        else
-            match = beforeOrEqualGoal;
+        goalTime.bi_compare (beforeOrEqualGoal, afterGoal, match);
+        //        if ((afterGoal - goalTime) < (goalTime - beforeOrEqualGoal))
+        //            match = afterGoal;
+        //        else
+        //            match = beforeOrEqualGoal;
     }
 
     return eVideoCacheStatusOK;
@@ -928,7 +929,7 @@ rcVideoCache::internalGetFrame(uint32 frameIndex,
             return eVideoCacheStatusError;
         }
         fixEndian(timeInfo);
-        timestamp = rcTimestamp (timeInfo);
+        timestamp = rcTimestamp::from_tick_type(timeInfo);
 
         if (fread((*cacheFrameBufPtr)->alignedRawData(), _bytesInFrame, 1,
                   _movieFile) != 1) {
@@ -1477,7 +1478,7 @@ rcVideoCacheError rcVideoCache::tocLoadFromFrames()
         }
         fixEndian(timeInfo);
 
-        rcTimestamp timestamp(timeInfo);
+        rcTimestamp timestamp = rcTimestamp::from_tick_type(timeInfo);
 
         _tocItoT[frameIndex] = timestamp;
         _tocTtoI[timestamp] = frameIndex;
@@ -1525,7 +1526,7 @@ rcVideoCacheError rcVideoCache::tocLoadFromTOC()
             return eVideoCacheErrorFileRead;
         }
         fixEndian(timeInfo);
-        rcTimestamp timestamp(timeInfo);
+        rcTimestamp timestamp = rcTimestamp::from_tick_type(timeInfo);        
 
         _tocItoT[frameIndex] = timestamp;
         _tocTtoI[timestamp] = frameIndex;

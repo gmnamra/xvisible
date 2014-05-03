@@ -68,6 +68,7 @@ ostream& operator<< (ostream& ous, const TIFFReaderInternal& tim)
 #endif        
 		return ous;
 	}
+    return ous;
 }
 
 void TIFFReaderInternal::Clean()
@@ -824,7 +825,7 @@ vector<rcWindow> TIFFImageIO::ReadPages()
 		//The problem is that this only supports 32 bit images 
 		//@note change when time and z are properly incorported
 		pages[page] = Read ();
-		pages[page].frameBuf()->setTimestamp( rcTimestamp((double) page) );
+		pages[page].frameBuf()->setTimestamp( rcTimestamp::from_seconds((double) page) );
 		mImageCount++;
 //		TIFFReadDirectory(mInternalImage->Image);
 	}

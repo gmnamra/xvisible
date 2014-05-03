@@ -241,13 +241,13 @@ int SimilarityProducer::spImpl::loadFrames( rcFrameGrabber& grabber, rcFrameGrab
 	if ( grabber.isValid() && grabber.start())
 	{
 		uint32 frameMax = grabber.frameCount();
-		const rcTimestamp updateStatusInterval (1.5); // Status display update interval in seconds
-		const rcTimestamp updateMovieInterval (3.0);  // Movie display update interval in seconds
+		const rcTimestamp updateStatusInterval = rcTimestamp::from_seconds (1.5); // Status display update interval in seconds
+		const rcTimestamp updateMovieInterval = rcTimestamp::from_seconds(3.0);  // Movie display update interval in seconds
         
 		_currentTime = cZeroTime;
 		++_processCount;
         
-		rcTimestamp lastStatusUpdateTime = rcTimestamp::now() - updateStatusInterval;
+		rcTimestamp lastStatusUpdateTime = rcTimestamp::now()  - updateStatusInterval;
 		rcTimestamp lastMovieUpdateTime = lastStatusUpdateTime - updateMovieInterval;
         
         // Time stamp of previous frame
@@ -289,7 +289,7 @@ int SimilarityProducer::spImpl::loadFrames( rcFrameGrabber& grabber, rcFrameGrab
 				curTimeStamp = tmp.frameBuf()->timestamp();
 			}
             
-			rcTimestamp frameInt = curTimeStamp - prevTimeStamp;
+			rcTimestamp frameInt = curTimeStamp  - prevTimeStamp;
             
 			if ( firstFrame )
 			{
@@ -331,7 +331,8 @@ int SimilarityProducer::spImpl::loadFrames( rcFrameGrabber& grabber, rcFrameGrab
 			}
 			updateInterval = curTime - lastMovieUpdateTime;
             
-			if ( updateInterval > updateMovieInterval ) {
+			if ( updateInterval > updateMovieInterval )
+            {
                 // Update movie display
 				lastMovieUpdateTime = curTime;
                 //			if ( _observer->acceptingImageBlits() )

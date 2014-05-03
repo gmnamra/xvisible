@@ -49,7 +49,8 @@ bool rfGenerateTimeline(vector<uint32>& timeline, double& msPerFrame,
     status = cache.nextTimestamp(curTime, nextTime, 0);
     rmAssert(status == eVideoCacheStatusOK);
 
-    rcTimestamp deltaTime(nextTime - curTime);
+    rcTimestamp deltaTime = nextTime;
+    deltaTime -= curTime;
     double deltaMS = deltaTime.secs() * 1000;
     uint32 iDeltaMS = (uint32)floor(deltaMS);
     if ((deltaMS - iDeltaMS) > 1.0) {

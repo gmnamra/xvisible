@@ -10,48 +10,16 @@
 #define _rcBASE_RCTIMESTAMP_H_
 
 #include "rc_types.h"
+
+#include "rc_types.h"
+#include "rc_framework_core.hpp"
+#include <iostream>
+
 #include <iostream>
 #include <deque>
 
-class rcMovieFileFormat;
-class rcMovieFileFormat2;
-class rcEngineMovieSaver;
-class rcVideoCache;
-class rcGenMovieFile;
 
-
-using namespace std;
-
-
-
-/******************************************************************************
-*	Platform-specific timestamp support routines
-******************************************************************************/
-
-// get the current timestamp
-RFY_API int64 getCurrentTimestamp( void );
-
-// get timestamp resolution (in seconds)
-RFY_API double getTimestampResolution( void );
-
-/******************************************************************************
-*	Conversion routines
-******************************************************************************/
-
-// convert timestamp to seconds.
-RFY_API double convertTimestampToSeconds( int64 timestamp );
-
-// convert timestamp to seconds.
-RFY_API int64 convertSecondsToTimestamp( double secs );
-
-/******************************************************************************
-*	rcTimestamp class definition
-*
-*	The rcTimestamp class represents wall-clock time with microsecond
-*	accuracy.  It is intended to be used with "value" semantics.
-******************************************************************************/
-
-class RFY_API rcTimestamp
+class RFY_API rcTimestamp : public boost::totally_ordered<rcTimestamp>, public boost::additive<rcTimestamp>
 {
 public:
 	// default constructor (time = 0)
@@ -63,19 +31,38 @@ public:
 		_timestamp = other._timestamp;
 	}
 
-	// constructor 
-	explicit rcTimestamp( double secs ) :  _timestamp ((int64) (secs * 1000000 ) ) {}
+    static double get_time_resolution ()
+    {
+        return (double) 1.0 / visible_framework_core::instance().ticks_per_second();
+    }
+    
 
-	// internal constructor
-	explicit rcTimestamp( int64 timestamp ) : _timestamp (timestamp) {}
+    static rcTimestamp from_seconds ( double dd )
+    {
+        return rcTimestamp::from_tick_type ( dd * visible_framework_core::instance().ticks_per_second() );
+    }
+
+	static rcTimestamp from_tick_type ( int64 timestamp )
+    {
+        rcTimestamp ts; ts._timestamp = timestamp; 
+        return ts;
+    }
+    
+    int64 tick_type_value () const 
+    {
+        return _timestamp;        
+    }
         
 	// static method to return current timestamp
-	static rcTimestamp now( void ) {  return (rcTimestamp( getCurrentTimestamp() ) ); }
+	static rcTimestamp now( void )
+    {  
+        return rcTimestamp::from_tick_type ( visible_framework_core::instance().get_ticks () );
+    } 
 
 	// convert to double-precision seconds
 	double secs( void ) const
 	{
-		return convertTimestampToSeconds( _timestamp );
+		return (double) _timestamp / visible_framework_core::instance().ticks_per_second();
 	}
 
 	// plus-equal operator
@@ -98,11 +85,6 @@ public:
 		return _timestamp == other._timestamp;
 	}
 
-	// not equals operator
-	bool operator != ( const rcTimestamp& other ) const
-	{
-		return _timestamp != other._timestamp;
-	}
 
 	// less than operator
 	bool operator < ( const rcTimestamp& other ) const
@@ -110,44 +92,33 @@ public:
 		return _timestamp < other._timestamp;
 	}
 
-	// less than or equals operator
-	bool operator <= ( const rcTimestamp& other ) const
-	{
-		return _timestamp <= other._timestamp;
-	}
-
-	// greater than operator
-	bool operator > ( const rcTimestamp& other ) const
-	{
-		return _timestamp > other._timestamp;
-	}
-
-	// greater than or equals operator
-	bool operator >= ( const rcTimestamp& other ) const
-	{
-		return _timestamp >= other._timestamp;
-	}
-
 	// unary negation operator
 	rcTimestamp operator - ( void ) const
 	{
-		return rcTimestamp( -_timestamp );
+		return rcTimestamp::from_tick_type ( -_timestamp );
 	}
-
+    
+    // interval helper
+    void bi_compare (const rcTimestamp& before, const rcTimestamp& after, rcTimestamp& match) const
+    {
+        auto ag = after._timestamp - _timestamp;
+        auto bg = _timestamp - before._timestamp;
+        match = (ag < bg) ? after : before;
+    }
+    
     // convert to local time string
     std::string localtime() const;
     
 private:
+#if 0    
     friend class rcMovieFileFormat;
     friend class rcMovieFileFormat2;
 	friend class rcEngineMovieSaver;
 	friend class rcVideoCache;
 	friend class rcGenMovieFile;
-	friend bool rfCreateReifyMovie(rcVideoCache* cache, char* destFile,
-				       uint32 firstIndex, uint32 frameCount,
-				       uint32 offset, uint32 period,
-                                       uint32 newFormat);
-
+	friend bool rfCreateReifyMovie(rcVideoCache* cache, char* destFile, uint32 firstIndex, uint32 frameCount, uint32 offset, uint32 period, uint32 newFormat);
+#endif
+    
 	// platform-specific information should fit in a 64bit word
 	int64		_timestamp;
 };
@@ -170,96 +141,5 @@ bool convertStringToTimestamp( rcTimestamp& result, const std::string& str );
 // insertion operator
 ostream& operator << ( ostream& os, const rcTimestamp& timestamp );
 
-// addition operator
-rcTimestamp operator + ( const rcTimestamp& ts1 , const rcTimestamp& ts2 );
-
-// subtraction operator
-rcTimestamp operator - ( const rcTimestamp& ts1 , const rcTimestamp& ts2 );
-
-/******************************************************************************
-*	Constants
-******************************************************************************/
-
-#ifdef QT_VISIBLE_SUPPORT
-const rcTimestamp cCursorTimeCurrent = -1.0;
-
-/* Little helper class.
- */
-class RFY_API rcTimestampPair
-{
- public:
-  rcTimestampPair (const rcTimestamp& first, const rcTimestamp& second) 
-    : _first(first), _second(second) {}
-
-  rcTimestamp first() { return _first; }
-  rcTimestamp second() { return _second; }
-
- private:
-  rcTimestamp _first;
-  rcTimestamp _second;
-};
-
-//
-// Class for calculating a sliding average FPS (frames per second) speed
-//
-
-class rcFpsCalculator {
-  public:
-    // Ctor
-    rcFpsCalculator( uint32 size ) :  mLastTime( cZeroTime ), mWindowSize( size ), mTotalTime( -1.0 ) {
-        rmAssert( mWindowSize > 0 ); };
-
-    // Accessor: get current speed
-    double fps() const {
-        if ( mTotalTime > 0.0 ) {
-            if ( !mFrameIntervals.empty() ) {
-                return 1.0 / (mTotalTime / (mFrameIntervals.size()));
-            }
-        }
-         
-        return 0.0;
-    }
-    
-    // Mutator: add new time
-    void addTime( const rcTimestamp& time ) {
-        if ( mTotalTime >= 0.0 ) {
-            // Add interval
-            rcTimestamp newInterval = time - mLastTime;
-            addInterval( newInterval.secs() );
-        } else {
-            // First time ever, just store the time
-            mTotalTime = 0.0;
-        }
-        mLastTime = time;
-    }
-
-    // Mutator: reset queue
-    void reset() {
-        mLastTime = cZeroTime;
-        mTotalTime = 0.0;
-        mFrameIntervals.clear();
-    };
-    
-  private:
-    // Mutator: add new interval
-    void addInterval( double frameInterval ) {
-        // Check for window overflow
-        if ( mFrameIntervals.size() > mWindowSize ) {
-            // Remove first interval
-            mTotalTime -= mFrameIntervals.front();
-            mFrameIntervals.pop_front();
-        } 
-        // Add new interval
-        mFrameIntervals.push_back( frameInterval );
-        mTotalTime += frameInterval;
-    }
-    
-    rcTimestamp   mLastTime;       // Timestamp of last update
-    uint32      mWindowSize;     // Size of sliding window
-    double        mTotalTime;      // Total of all frame intervals
-    deque<double> mFrameIntervals; // Queue of frame intervals
-};
-
-#endif
 
 #endif // _rcBASE_RCTIMESTAMP_H_

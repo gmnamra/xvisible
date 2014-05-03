@@ -35,6 +35,8 @@
 		C24EA9651842FD0D00E88B0A /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAEE00F42239D003CC197 /* AppKit.framework */; };
 		C24EA9681842FD0D00E88B0A /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAED60F421FE2003CC197 /* Carbon.framework */; };
 		C26F48C818FC75D6006DF78F /* rc_ncs.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F48C718FC75D6006DF78F /* rc_ncs.h */; };
+		C27652261914089400EA3B55 /* rc_level.h in Headers */ = {isa = PBXBuildFile; fileRef = C27652251914089400EA3B55 /* rc_level.h */; };
+		C276522819140E1500EA3B55 /* Timer.h in Headers */ = {isa = PBXBuildFile; fileRef = C276522719140E1500EA3B55 /* Timer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C299934418FCAE3D008397D2 /* ut_framebuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA27A0F21357A0046570D /* ut_framebuf.cpp */; };
 		C299934518FDB17F008397D2 /* ut_reifymoviegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA29A0F21357A0046570D /* ut_reifymoviegrabber.cpp */; };
 		C299934718FDBD44008397D2 /* rc_mathmodel.h in Headers */ = {isa = PBXBuildFile; fileRef = C299934618FDBD44008397D2 /* rc_mathmodel.h */; };
@@ -187,7 +189,6 @@
 		C2C2921218F4B9A000BA7E79 /* rc_thread_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A818F4B9A000BA7E79 /* rc_thread_mac.cpp */; };
 		C2C2921318F4B9A000BA7E79 /* rc_tiff.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A918F4B9A000BA7E79 /* rc_tiff.cpp */; };
 		C2C2921418F4B9A000BA7E79 /* rc_timestamp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291AA18F4B9A000BA7E79 /* rc_timestamp.cpp */; };
-		C2C2921618F4B9A000BA7E79 /* rc_timinginfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291AC18F4B9A000BA7E79 /* rc_timinginfo.cpp */; };
 		C2C2921718F4B9A000BA7E79 /* rc_units.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291AD18F4B9A000BA7E79 /* rc_units.cpp */; };
 		C2C2921818F4B9A000BA7E79 /* rc_videocache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291AE18F4B9A000BA7E79 /* rc_videocache.cpp */; };
 		C2C2921918F4B9A000BA7E79 /* rc_window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291AF18F4B9A000BA7E79 /* rc_window.cpp */; };
@@ -420,6 +421,8 @@
 		C26FA2AA0F21357A0046570D /* ut_visual_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_visual_main.cpp; path = ../test/src/ut_visual_main.cpp; sourceTree = SOURCE_ROOT; };
 		C26FA2AB0F21357A0046570D /* ut_window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_window.cpp; path = ../test/src/ut_window.cpp; sourceTree = SOURCE_ROOT; };
 		C26FA2AC0F21357A0046570D /* ut_windowhist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_windowhist.cpp; path = ../test/src/ut_windowhist.cpp; sourceTree = SOURCE_ROOT; };
+		C27652251914089400EA3B55 /* rc_level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_level.h; sourceTree = "<group>"; };
+		C276522719140E1500EA3B55 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
 		C297DD3C18A1B5F100F217A5 /* ut_persistence1d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ut_persistence1d.h; path = ../test/include/ut_persistence1d.h; sourceTree = "<group>"; };
 		C299934618FDBD44008397D2 /* rc_mathmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_mathmodel.h; sourceTree = "<group>"; };
 		C2A9A6730F29200900DA781F /* ut_analysis_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_analysis_main.cpp; path = ../test/src/ut_analysis_main.cpp; sourceTree = SOURCE_ROOT; };
@@ -1122,6 +1125,8 @@
 		C2C28F7318F4A6B100BA7E79 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C276522719140E1500EA3B55 /* Timer.h */,
+				C27652251914089400EA3B55 /* rc_level.h */,
 				C299934618FDBD44008397D2 /* rc_mathmodel.h */,
 				C26F48C718FC75D6006DF78F /* rc_ncs.h */,
 				C2C2931A18F8D64400BA7E79 /* timing.hpp */,
@@ -1545,6 +1550,7 @@
 				C2C2906A18F4A6B200BA7E79 /* rc_reifymoviegrabber.h in Headers */,
 				C2ADE58919072BF90083564A /* rc_filegrabber.h in Headers */,
 				C299934718FDBD44008397D2 /* rc_mathmodel.h in Headers */,
+				C276522819140E1500EA3B55 /* Timer.h in Headers */,
 				C2C2903618F4A6B200BA7E79 /* rc_correlationwindow.h in Headers */,
 				C2C2903C18F4A6B200BA7E79 /* rc_ellipse.h in Headers */,
 				C2C2908618F4A6B200BA7E79 /* rc_windowhist.h in Headers */,
@@ -1580,6 +1586,7 @@
 				C2C2905218F4A6B200BA7E79 /* rc_logger.h in Headers */,
 				C2C2903318F4A6B200BA7E79 /* rc_atomic.h in Headers */,
 				C2C2931B18F8D64400BA7E79 /* timing.hpp in Headers */,
+				C27652261914089400EA3B55 /* rc_level.h in Headers */,
 				C2C2904518F4A6B200BA7E79 /* rc_framework_core.hpp in Headers */,
 				C2C2905318F4A6B200BA7E79 /* rc_lsfit.h in Headers */,
 				C2C292CC18F4C5D500BA7E79 /* debug.hpp in Headers */,
@@ -1877,7 +1884,6 @@
 				C2C291FE18F4B9A000BA7E79 /* rc_peak.cpp in Sources */,
 				C2C291CD18F4B9A000BA7E79 /* avevar.cpp in Sources */,
 				C2C2921C18F4B9A000BA7E79 /* rc_windowhist.cpp in Sources */,
-				C2C2921618F4B9A000BA7E79 /* rc_timinginfo.cpp in Sources */,
 				C2ADE59019074D590083564A /* rc_gen_movie_file.cpp in Sources */,
 				C2C2920C18F4B9A000BA7E79 /* rc_similarity.cpp in Sources */,
 				C2C2927218F4C1F300BA7E79 /* tif_packbits.c in Sources */,
@@ -2270,8 +2276,12 @@
 			baseConfigurationReference = C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				KEEP_PRIVATE_EXTERNS = YES;
+				LINKER_DISPLAYS_MANGLED_NAMES = YES;
 				MACH_O_TYPE = mh_execute;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SEPARATE_STRIP = YES;
 			};
@@ -2282,8 +2292,12 @@
 			baseConfigurationReference = C23E89B9191310F800AE27A3 /* vf_release.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				KEEP_PRIVATE_EXTERNS = YES;
+				LINKER_DISPLAYS_MANGLED_NAMES = YES;
 				MACH_O_TYPE = mh_execute;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SEPARATE_STRIP = YES;
 			};

@@ -488,7 +488,7 @@ uint32 rcWindow::randomFill( uint32 seed )
         // Set a seed from two clocks
         const rcTimestamp now = rcTimestamp::now();
         const uint32 secs = uint32(now.secs());
-        const float s = (now.secs() - secs) / getTimestampResolution();
+        const float s = (now.secs() - secs) / rcTimestamp::get_time_resolution();
         seed = uint32( s + clock() );
     }
     

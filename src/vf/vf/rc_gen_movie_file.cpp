@@ -128,22 +128,22 @@ rcGenMovieFileError rcGenMovieFile::addFrame(const rcWindow& frame)
         rmAssert( _inputDepth == frame.depth() );
     }
     
-    int64 timestamp = 0;
+    rcTimestamp timestamp;
     
     if ( _frameInterval > 0.0f ) {
         // Generate timestamps from forced frame rate
         if ( !_toc.empty() )
-            timestamp = convertSecondsToTimestamp((rcTimestamp(_toc.back()) + rcTimestamp(_frameInterval)).secs());
+            timestamp = rcTimestamp::from_seconds(_toc.back() + _frameInterval);
     } else
-        timestamp = frame.frameBuf()->timestamp()._timestamp;
+        timestamp = frame.frameBuf()->timestamp();
     
     if ( frame.depth() == rcPixel8 ) {
         // 8-bit, no conversion
-        write( frame, timestamp );
+        write( frame, timestamp.tick_type_value() );
     } else if ( frame.depth() == rcPixel32S ) {
         if (  _conversion == rcSelectAll ) {
             // 32-bit, no conversion
-            write( frame, timestamp );
+            write( frame, timestamp.tick_type_value() );
         } else {
             // Convert 32-bit to 8-bit
             rcWindow frame8(frame.width(), frame.height());
@@ -151,12 +151,12 @@ rcGenMovieFileError rcGenMovieFile::addFrame(const rcWindow& frame)
             rmAssert( rcPixel8 == frame8.depth() );
             frame8.frameBuf()->setIsGray(true);
             frame8.frameBuf()->setTimestamp(rcTimestamp(timestamp));
-            write( frame8, timestamp );
+            write( frame8, timestamp.tick_type_value() );
         }
     } else if ( frame.depth() == rcPixel16) {
         if (  _conversion == rcSelectAll ) {
             // 16-bit, no conversion
-            write( frame, timestamp );
+            write( frame, timestamp.tick_type_value() );
         } else {      
             // @todo merge this and rc_ipconvert{h,cpp} move them to visual
             // Convert 16-bit to 8-bit
@@ -165,14 +165,14 @@ rcGenMovieFileError rcGenMovieFile::addFrame(const rcWindow& frame)
             rmAssert( rcPixel8 == frame8.depth() );
             frame8.frameBuf()->setIsGray(true);
             frame8.frameBuf()->setTimestamp(rcTimestamp(timestamp));
-            write( frame8, timestamp );
+            write( frame8, timestamp.tick_type_value() );
         }
     } else {
         // Unsupported depth
         rmAssert( 0 );
     }
     
-    _toc.push_back(timestamp);
+    _toc.push_back(timestamp.tick_type_value());
     
     return eGenMovieFileErrorOK;
 }
@@ -256,7 +256,7 @@ rcGenMovieFileError rcGenMovieFile::flush()
     
     // Update basic header
     int64 firstTime = _toc[0];
-    double movieTime = rcTimestamp(_toc[_toc.size()-1] - firstTime).secs();
+    double movieTime = (_toc[_toc.size()-1] - firstTime) * rcTimestamp::get_time_resolution();
     
     
     switch ( _rev ) {
@@ -512,7 +512,7 @@ rcGenMovieFileError rcGenMovieFile::initHeader( const rcWindow& frame )
         _movieHdr.rowUpdate( rowUpdateLth );
         if ( _frameInterval > 0.0f && _origin == movieOriginSynthetic ) {
             // Synthetic frame rate, set base time to current time
-            _movieHdr.baseTime( getCurrentTimestamp() );
+            _movieHdr.baseTime( rcTimestamp::now ().tick_type_value() );
         }
     } else if ( _rev >= movieFormatRev2 ) {
         _movieHdr2 = rcMovieFileFormat2( frame.frameBuf(), _rev );
@@ -524,7 +524,7 @@ rcGenMovieFileError rcGenMovieFile::initHeader( const rcWindow& frame )
         }
         if ( _frameInterval > 0.0f && _origin == movieOriginSynthetic ) {
             // Synthetic frame rate, set base time to current time
-            _movieHdr2.baseTime( getCurrentTimestamp() );
+            _movieHdr2.baseTime( rcTimestamp::now ().tick_type_value() );
         }
     } 
     

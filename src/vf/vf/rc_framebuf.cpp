@@ -35,7 +35,6 @@ rcFrame::rcFrame() :
     mAlignMod ( 0 ),
     mPixelDepth( rcPixelUnknown ),
     mRowUpdate( 0 ),
-    mTimestamp( 0.0 ),
     mColorMap( 0 ),
     mColorMapSize( 0 ),
     mIsGray( 0 ),
@@ -52,7 +51,6 @@ rcFrame::rcFrame( int32 width, int32 height, rcPixel depth, int32 alignMod) :
     mHeight( height ),
     mAlignMod ( alignMod),
     mPixelDepth( depth ),
-    mTimestamp( 0.0 ),
     mColorMap( 0 ),
     mColorMapSize( 0 ),
     mIsGray( false ),
@@ -143,7 +141,7 @@ rcFrame::rcFrame (char* rawPixels,
                   int32 width, int32 height,
                   rcPixel pixelDepth, bool isGray)
         : refcount_(0), mWidth( width ), mHeight( height ), mAlignMod (ROW_ALIGNMENT_MODULUS), 
-          mPixelDepth( pixelDepth ), mTimestamp( 0.0 ), mIsGray( isGray ), mOwnPixels (true), mCacheCtrl( 0 ), mFrameIndex( 0 ),
+          mPixelDepth( pixelDepth ), mIsGray( isGray ), mOwnPixels (true), mCacheCtrl( 0 ), mFrameIndex( 0 ),
     mD32IsFloat (false)
 {
     uint8 * startPtr;

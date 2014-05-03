@@ -4,6 +4,7 @@
 #include <cmath>
 #include <string>
 #include <boost/date_time/posix_time/posix_time.hpp>
+#include "rc_framework_core.hpp"
 
 
   /** \brief Posix based timer. Reports time since last reset
@@ -75,17 +76,6 @@
   ScopeTime scopeTime(__func__)
 #endif
 
-/**
-  *   Absolute time
-  */
-inline double 
-getTime ()
-{
-  boost::posix_time::ptime epoch_time (boost::gregorian::date (1970, 1, 1));
-  boost::posix_time::ptime current_time = boost::posix_time::microsec_clock::local_time ();
-  return (current_time - epoch_time).total_nanoseconds () * 1.0e-9;
-}
-
 /// Executes code, only if secs are gone since last exec.
 #ifndef DO_EVERY_TS
 #define DO_EVERY_TS(secs, currentTime, code) \
@@ -105,7 +95,7 @@ if (1) {\
 /// Executes code, only if secs are gone since last exec.
 #ifndef DO_EVERY
 #define DO_EVERY(secs, code) \
-  DO_EVERY_TS(secs, pcl::getTime(), code)
+  DO_EVERY_TS(secs, visible_framework_core::instance().get_ptime(), code)
 #endif
 
 
