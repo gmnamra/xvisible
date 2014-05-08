@@ -21,6 +21,7 @@
  POSSIBILITY OF SUCH DAMAGE.
 */
 
+#include "cinder/app/AppBasic.h"
 #include <cvisible/AudioDrawUtils.h>
 
 #include "cinder/audio2/Utilities.h"
@@ -32,6 +33,7 @@
 using namespace std;
 using namespace ci;
 
+
 void drawAudioBuffer( const audio2::Buffer &buffer, const Rectf &bounds, bool drawFrame, const ci::ColorA &color )
 {
 	gl::color( color );
@@ -39,7 +41,7 @@ void drawAudioBuffer( const audio2::Buffer &buffer, const Rectf &bounds, bool dr
 	const float waveHeight = bounds.getHeight() / (float)buffer.getNumChannels();
 	const float xScale = bounds.getWidth() / (float)buffer.getNumFrames();
 
-	float yOffset = bounds.y1;
+	float yOffset = bounds.getHeight() - waveHeight;
 	for( size_t ch = 0; ch < buffer.getNumChannels(); ch++ ) {
 		PolyLine2f waveform;
 		const float *channel = buffer.getChannel( ch );
@@ -94,30 +96,35 @@ inline void calcAverageForSection( const float *buffer, size_t samplesPerSection
 }
 
 } // anonymouse namespace
-
+  // Start from the bottom and graph up. 
 void Waveform::load( const float *samples, size_t numSamples, const ci::Vec2i &waveSize, size_t pixelsPerVertex, CalcMode mode )
 {
-    float height = waveSize.y / 2.0f;
-    size_t numSections = waveSize.x / pixelsPerVertex + 1;
-    size_t samplesPerSection = numSamples / numSections;
-
+    float height = waveSize.y; // / 2.0f;
+    m_num_sections = waveSize.x / pixelsPerVertex + 1;
+    m_section_size = numSamples / m_num_sections;
+    m_sample_size = numSamples;
+    
 	vector<Vec2f> &points = mOutline.getPoints();
-	points.resize( numSections * 2 );
+	points.resize( m_num_sections * 2 );
 
-    for( size_t i = 0; i < numSections; i++ ) {
+    for( size_t i = 0; i < m_num_sections; i++ )
+    {
 		float x = (float)i * pixelsPerVertex;
 		float yUpper, yLower;
-		if( mode == CalcMode::MIN_MAX ) {
-			calcMinMaxForSection( &samples[i * samplesPerSection], samplesPerSection, yUpper, yLower );
-		} else {
-			calcAverageForSection( &samples[i * samplesPerSection], samplesPerSection, yUpper, yLower );
+		if( mode == CalcMode::MIN_MAX )
+        {
+			calcMinMaxForSection( &samples[i * m_section_size], m_section_size, yUpper, yLower );
+		} else
+        {
+			calcAverageForSection( &samples[i * m_section_size], m_section_size, yUpper, yLower );
 		}
 		points[i] = Vec2f( x, height - height * yUpper );
-		points[numSections * 2 - i - 1] = Vec2f( x, height - height * yLower );
+		points[m_num_sections * 2 - i - 1] = Vec2f( x, height - height * yLower );
     }
 	mOutline.setClosed();
 
 	mMesh = Triangulator( mOutline ).calcMesh();
+    
 }
 
 
@@ -147,16 +154,17 @@ void WaveformPlot::load( const audio2::BufferRef &buffer, const ci::Rectf &bound
 
 void WaveformPlot::draw()
 {
-	auto &waveforms = getWaveforms();
+    auto &waveforms = getWaveforms();
 	if( waveforms.empty() ) {
 		return;
 	}
-
+    
+    
 	gl::color( mColorMinMax );
-	gl::draw( waveforms[0].getMesh() );
+	gl::draw( waveforms[0].getOutline() );
 
 	gl::color( mColorAverage );
-	gl::draw( waveforms[1].getMesh() );
+	gl::draw( waveforms[1].getOutline () );
 
 	if( waveforms.size() > 2 ) {
 		gl::pushMatrices();

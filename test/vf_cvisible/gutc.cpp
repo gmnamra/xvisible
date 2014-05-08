@@ -8,6 +8,11 @@
 #include <unistd.h>
 #include <gtest/gtest.h>
 #include "ut_file.hpp"
+#include "cinder/audio2/Source.h"
+#include "cvisible/vf_cinder.hpp"
+
+using namespace ci;
+using namespace std;
 
 class genv: public testing::Environment
 {
@@ -36,6 +41,16 @@ public:
         m_test_path = folder_append_separator (folder_current_full () ) + test_folder_name;
         m_test_content_path = folder_append_separator ( test_folder () ) + test_data_folder_name;
 
+        fs::path fs_test_content_path (m_test_content_path);
+        fs::directory_iterator itr(fs_test_content_path); fs::directory_iterator end_itr;
+        std::cout << fs_test_content_path.root_path() << std::endl; std::cout << fs_test_content_path.parent_path() << std::endl;
+        while(itr!=end_itr && !fs::is_directory(itr->path())){
+            std::cout << "-----------------------------------"<< std::endl;
+            std::cout << "Path: "<< itr->path()<< std::endl;
+            std::cout << "Filename: "<< itr->path().filename()<< std::endl;
+            std::cout << "Is File: "<< fs::is_regular_file(itr->path()) << std::endl; std::cout << "File Size :"<< fs::file_size(itr->path())<< std::endl; std::cout << "-----------------------------------"<< std::endl;
+            itr ++;
+        }
     }
     
     void TearDown () {}
@@ -55,8 +70,18 @@ TEST (UT_fileutils, run)
     genv* gvp = reinterpret_cast<genv*>(envp);
     EXPECT_TRUE (gvp != 0 );
     
-    UT_fileutils test (gvp->test_data_folder ());
-    EXPECT_EQ(0, test.run () );
+    //UT_fileutils test (gvp->test_data_folder ());
+    //EXPECT_EQ(0, test.run () );
+
+    std::string txtfile ("onecolumn.txt");
+    std::string csv_filename = create_filespec (gvp->test_data_folder(), txtfile);
+    
+    fs::path fpath ( csv_filename );
+    
+    unique_ptr<SourceFile> sfr =  unique_ptr<SourceFile>( new vf_cinder::VisibleAudioSource (DataSourcePath::create (fpath )) );
+    EXPECT_TRUE (sfr->getNumChannels() == 1);
+    EXPECT_TRUE (sfr->getNumFrames () == 3296);
+    
 }
 
 #if 0

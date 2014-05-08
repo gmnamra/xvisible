@@ -21,7 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		C2354418190D458200388271 /* vf_config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C2354417190D458200388271 /* vf_config.xcconfig */; };
 		C23E89B11912FD4500AE27A3 /* rc_assemblymacros.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C28F8018F4A6B100BA7E79 /* rc_assemblymacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C23E89B7191310DB00AE27A3 /* vf_debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */; };
 		C23E89B8191310DB00AE27A3 /* vf_debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */; };
@@ -36,7 +35,6 @@
 		C24EA9681842FD0D00E88B0A /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAED60F421FE2003CC197 /* Carbon.framework */; };
 		C26F48C818FC75D6006DF78F /* rc_ncs.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F48C718FC75D6006DF78F /* rc_ncs.h */; };
 		C27652261914089400EA3B55 /* rc_level.h in Headers */ = {isa = PBXBuildFile; fileRef = C27652251914089400EA3B55 /* rc_level.h */; };
-		C276522819140E1500EA3B55 /* Timer.h in Headers */ = {isa = PBXBuildFile; fileRef = C276522719140E1500EA3B55 /* Timer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C276522B1915599C00EA3B55 /* rc_seglevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A018F4B9A000BA7E79 /* rc_seglevel.cpp */; };
 		C299934418FCAE3D008397D2 /* ut_framebuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA27A0F21357A0046570D /* ut_framebuf.cpp */; };
 		C299934518FDB17F008397D2 /* ut_reifymoviegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA29A0F21357A0046570D /* ut_reifymoviegrabber.cpp */; };
@@ -304,7 +302,6 @@
 		C21CAEE00F42239D003CC197 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = ../../../../../../System/Library/Frameworks/AppKit.framework; sourceTree = "<group>"; };
 		C21CAEEB0F4223E9003CC197 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../../../../System/Library/Frameworks/GLUT.framework; sourceTree = "<group>"; };
 		C22DD24813159A2C00801DE4 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = ../../../../../../System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<group>"; };
-		C2354417190D458200388271 /* vf_config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = vf_config.xcconfig; sourceTree = "<group>"; };
 		C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = vf_debug.xcconfig; path = configs/vf_debug.xcconfig; sourceTree = "<group>"; };
 		C23E89B9191310F800AE27A3 /* vf_release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = vf_release.xcconfig; path = configs/vf_release.xcconfig; sourceTree = "<group>"; };
 		C247023A18E5D7C900D5942E /* ut_file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ut_file.h; path = ../test/include/ut_file.h; sourceTree = "<group>"; };
@@ -421,7 +418,6 @@
 		C26FA2AB0F21357A0046570D /* ut_window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_window.cpp; path = ../test/src/ut_window.cpp; sourceTree = SOURCE_ROOT; };
 		C26FA2AC0F21357A0046570D /* ut_windowhist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_windowhist.cpp; path = ../test/src/ut_windowhist.cpp; sourceTree = SOURCE_ROOT; };
 		C27652251914089400EA3B55 /* rc_level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_level.h; sourceTree = "<group>"; };
-		C276522719140E1500EA3B55 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
 		C297DD3C18A1B5F100F217A5 /* ut_persistence1d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ut_persistence1d.h; path = ../test/include/ut_persistence1d.h; sourceTree = "<group>"; };
 		C299934618FDBD44008397D2 /* rc_mathmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_mathmodel.h; sourceTree = "<group>"; };
 		C2A9A6730F29200900DA781F /* ut_analysis_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_analysis_main.cpp; path = ../test/src/ut_analysis_main.cpp; sourceTree = SOURCE_ROOT; };
@@ -857,7 +853,6 @@
 			children = (
 				C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */,
 				C23E89B9191310F800AE27A3 /* vf_release.xcconfig */,
-				C2354417190D458200388271 /* vf_config.xcconfig */,
 				C2ADE58A19072CD10083564A /* rc_framegrabber.h */,
 				C2C292FD18F85C4A00BA7E79 /* libboost_system.a */,
 				C2C292FB18F85BE500BA7E79 /* libboost_system.a */,
@@ -1122,7 +1117,6 @@
 		C2C28F7318F4A6B100BA7E79 /* vf */ = {
 			isa = PBXGroup;
 			children = (
-				C276522719140E1500EA3B55 /* Timer.h */,
 				C27652251914089400EA3B55 /* rc_level.h */,
 				C299934618FDBD44008397D2 /* rc_mathmodel.h */,
 				C26F48C718FC75D6006DF78F /* rc_ncs.h */,
@@ -1545,7 +1539,6 @@
 				C2C2906A18F4A6B200BA7E79 /* rc_reifymoviegrabber.h in Headers */,
 				C2ADE58919072BF90083564A /* rc_filegrabber.h in Headers */,
 				C299934718FDBD44008397D2 /* rc_mathmodel.h in Headers */,
-				C276522819140E1500EA3B55 /* Timer.h in Headers */,
 				C2C2903618F4A6B200BA7E79 /* rc_correlationwindow.h in Headers */,
 				C2C2903C18F4A6B200BA7E79 /* rc_ellipse.h in Headers */,
 				C2C2908618F4A6B200BA7E79 /* rc_windowhist.h in Headers */,
@@ -1739,7 +1732,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C23E89B7191310DB00AE27A3 /* vf_debug.xcconfig in Resources */,
-				C2354418190D458200388271 /* vf_config.xcconfig in Resources */,
 				C23E89BA191310F800AE27A3 /* vf_release.xcconfig in Resources */,
 				C2C28F3F18F44C0700BA7E79 /* vf-Info.plist in Resources */,
 			);

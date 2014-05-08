@@ -15,18 +15,49 @@
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		C20BB3481910577D00884EB2 /* gutc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20BB3471910577D00884EB2 /* gutc.cpp */; };
+		C20BB3481910577D00884EB2 /* ut_file.hpp in Sources */ = {isa = PBXBuildFile; fileRef = C20BB3471910577D00884EB2 /* ut_file.hpp */; };
 		C20BB34F1910599400884EB2 /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20BB34E1910599400884EB2 /* vfi386_d.framework */; };
 		C20BB351191059BC00884EB2 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20BB350191059BC00884EB2 /* gtest.framework */; };
-		C21733FA190B101D00A01365 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C21733F9190B101D00A01365 /* Config.xcconfig */; };
 		C2173401190B175500A01365 /* AudioDrawUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21733FC190B175500A01365 /* AudioDrawUtils.cpp */; };
 		C23E89AD1912869C00AE27A3 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C23E89AC1912869C00AE27A3 /* libboost_system.a */; };
 		C23E89B01912E98D00AE27A3 /* libopencv_core.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C23E89AF1912E98C00AE27A3 /* libopencv_core.dylib */; };
+		C27652451915E3B200EA3B55 /* gutc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20BB349191058FA00884EB2 /* gutc.cpp */; };
+		C276524D1915E90A00EA3B55 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB225E190B298700BBC93C /* QuickTime.framework */; };
+		C276524F1915E93300EA3B55 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C276524E1915E93300EA3B55 /* CoreFoundation.framework */; };
+		C27652501915E94200EA3B55 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27652461915E85400EA3B55 /* Cocoa.framework */; };
+		C27652521915E95800EA3B55 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27652511915E95800EA3B55 /* QTKit.framework */; };
+		C27652531915E97000EA3B55 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
+		C27652541915E97000EA3B55 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
+		C27652551915E99100EA3B55 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
+		C27652571915E99200EA3B55 /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27652561915E99200EA3B55 /* CoreAudioKit.framework */; };
+		C27652591915E9AB00EA3B55 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27652581915E9AB00EA3B55 /* OpenGL.framework */; };
+		C276525B1915E9CB00EA3B55 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C276525A1915E9CB00EA3B55 /* CoreVideo.framework */; };
+		C276525D1915E9FC00EA3B55 /* libaudio2_d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C276525C1915E9FC00EA3B55 /* libaudio2_d.a */; };
+		C276525E1915EA1400EA3B55 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
+		C2D713EB19171AFC009C503B /* assets in Resources */ = {isa = PBXBuildFile; fileRef = C2D713EA19171AFC009C503B /* assets */; };
+		C2D713EE19171B49009C503B /* Resources.h in Resources */ = {isa = PBXBuildFile; fileRef = C2D713EC19171B49009C503B /* Resources.h */; };
+		C2D713EF19171B49009C503B /* data.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2D713ED19171B49009C503B /* data.txt */; };
 		C2DB225D190B296A00BBC93C /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB225C190B296A00BBC93C /* Carbon.framework */; };
 		C2DB225F190B298700BBC93C /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB225E190B298700BBC93C /* QuickTime.framework */; };
 		C2DB2261190B2CCB00BBC93C /* VisibleApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2173400190B175500A01365 /* VisibleApp.cpp */; };
-		C2E78DF7190B32C000F586E2 /* cash_satisfied_mind.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C2E78DF6190B32C000F586E2 /* cash_satisfied_mind.mp3 */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C276523C191570F900EA3B55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2765237191570F900EA3B55 /* Audio2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1104F3C917753F10003EAA2B;
+			remoteInfo = "Audio2-mac";
+		};
+		C276523E191570F900EA3B55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2765237191570F900EA3B55 /* Audio2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 11B0421C179B90450034BEE2;
+			remoteInfo = "Audio2-ios";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0091D8F80E81B9330029341E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
@@ -44,13 +75,11 @@
 		C20BB33819102F5A00884EB2 /* vf_cinder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_cinder.hpp; path = ../../include/cvisible/vf_cinder.hpp; sourceTree = "<group>"; };
 		C20BB3391910508E00884EB2 /* vf_utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_utils.hpp; path = ../../include/cvisible/vf_utils.hpp; sourceTree = "<group>"; };
 		C20BB33E1910569C00884EB2 /* gutc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gutc; sourceTree = BUILT_PRODUCTS_DIR; };
-		C20BB3471910577D00884EB2 /* gutc.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = gutc.cpp; path = ../../test/vf_cvisible/gutc.cpp; sourceTree = "<group>"; };
-		C20BB349191058FA00884EB2 /* ut_file.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ut_file.hpp; path = ../../test/vf_cvisible/ut_file.hpp; sourceTree = "<group>"; };
+		C20BB3471910577D00884EB2 /* ut_file.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ut_file.hpp; path = ../test/vf_cvisible/ut_file.hpp; sourceTree = "<group>"; };
+		C20BB349191058FA00884EB2 /* gutc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gutc.cpp; path = ../../../../Users/arman/gwc/vqt105/visibleqt105/test/vf_cvisible/gutc.cpp; sourceTree = DEVELOPER_DIR; };
 		C20BB34A1910593A00884EB2 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../usr/local/gtest/build/Release/gtest.framework; sourceTree = "<group>"; };
-		C20BB34C1910597C00884EB2 /* vfi386.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386.framework; path = ../build/Debug/vfi386.framework; sourceTree = "<group>"; };
 		C20BB34E1910599400884EB2 /* vfi386_d.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386_d.framework; path = ../build/Frameworks/vfi386_d.framework; sourceTree = "<group>"; };
 		C20BB350191059BC00884EB2 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../build/Frameworks/gtest.framework; sourceTree = "<group>"; };
-		C21733F9190B101D00A01365 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		C21733FC190B175500A01365 /* AudioDrawUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioDrawUtils.cpp; sourceTree = "<group>"; };
 		C21733FD190B175500A01365 /* cVisibleApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cVisibleApp.cpp; sourceTree = "<group>"; };
 		C21733FE190B175500A01365 /* vf_movieconverter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vf_movieconverter.cpp; sourceTree = "<group>"; };
@@ -58,6 +87,23 @@
 		C2173400190B175500A01365 /* VisibleApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VisibleApp.cpp; sourceTree = "<group>"; };
 		C23E89AC1912869C00AE27A3 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../usr/local/boost/lib/libboost_system.a; sourceTree = "<group>"; };
 		C23E89AF1912E98C00AE27A3 /* libopencv_core.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.dylib; path = ../usr/local/OpenCv_2.4_i386/lib/libopencv_core.dylib; sourceTree = "<group>"; };
+		C2765231191568C400EA3B55 /* cv_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = cv_debug.xcconfig; path = configs/cv_debug.xcconfig; sourceTree = "<group>"; };
+		C2765232191568C400EA3B55 /* cv_release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = cv_release.xcconfig; path = configs/cv_release.xcconfig; sourceTree = "<group>"; };
+		C276523519156A9800EA3B55 /* cv_base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = cv_base.xcconfig; path = configs/cv_base.xcconfig; sourceTree = "<group>"; };
+		C2765237191570F900EA3B55 /* Audio2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Audio2.xcodeproj; path = "../usr/local/Cinder/Cinder-Audio2/xcode/Audio2.xcodeproj"; sourceTree = "<group>"; };
+		C27652411915E1EB00EA3B55 /* libaudio2_d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libaudio2_d.a; path = ../usr/local/Cinder/lib/libaudio2_d.a; sourceTree = "<group>"; };
+		C27652431915E25700EA3B55 /* libcinder_d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcinder_d.a; path = ../usr/local/Cinder/lib/libcinder_d.a; sourceTree = "<group>"; };
+		C27652461915E85400EA3B55 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C276524E1915E93300EA3B55 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		C27652511915E95800EA3B55 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
+		C27652561915E99200EA3B55 /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
+		C27652581915E9AB00EA3B55 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		C276525A1915E9CB00EA3B55 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		C276525C1915E9FC00EA3B55 /* libaudio2_d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libaudio2_d.a; path = "../usr/local/Cinder/Cinder-Audio2/lib/macosx/libaudio2_d.a"; sourceTree = "<group>"; };
+		C2D713EA19171AFC009C503B /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		C2D713EC19171B49009C503B /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Resources.h; sourceTree = "<group>"; };
+		C2D713ED19171B49009C503B /* data.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
+		C2D713F1191978D0009C503B /* AudioDrawUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioDrawUtils.h; path = ../../include/cvisible/AudioDrawUtils.h; sourceTree = "<group>"; };
 		C2DB225C190B296A00BBC93C /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		C2DB225E190B298700BBC93C /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
 		C2DB2262190B2F3400BBC93C /* Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../resources/assets/Resources.h; sourceTree = "<group>"; };
@@ -86,6 +132,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C276525E1915EA1400EA3B55 /* Accelerate.framework in Frameworks */,
+				C276525D1915E9FC00EA3B55 /* libaudio2_d.a in Frameworks */,
+				C276525B1915E9CB00EA3B55 /* CoreVideo.framework in Frameworks */,
+				C27652591915E9AB00EA3B55 /* OpenGL.framework in Frameworks */,
+				C27652571915E99200EA3B55 /* CoreAudioKit.framework in Frameworks */,
+				C27652551915E99100EA3B55 /* CoreAudio.framework in Frameworks */,
+				C27652531915E97000EA3B55 /* AudioToolbox.framework in Frameworks */,
+				C27652541915E97000EA3B55 /* AudioUnit.framework in Frameworks */,
+				C27652521915E95800EA3B55 /* QTKit.framework in Frameworks */,
+				C27652501915E94200EA3B55 /* Cocoa.framework in Frameworks */,
+				C276524F1915E93300EA3B55 /* CoreFoundation.framework in Frameworks */,
+				C276524D1915E90A00EA3B55 /* QuickTime.framework in Frameworks */,
 				C23E89B01912E98D00AE27A3 /* libopencv_core.dylib in Frameworks */,
 				C23E89AD1912869C00AE27A3 /* libboost_system.a in Frameworks */,
 				C20BB351191059BC00884EB2 /* gtest.framework in Frameworks */,
@@ -132,12 +190,18 @@
 		29B97314FDCFA39411CA2CEA /* SamplePlayerTest */ = {
 			isa = PBXGroup;
 			children = (
+				C2D713EC19171B49009C503B /* Resources.h */,
+				C2D713ED19171B49009C503B /* data.txt */,
+				C2D713EA19171AFC009C503B /* assets */,
+				C276523519156A9800EA3B55 /* cv_base.xcconfig */,
+				C2765231191568C400EA3B55 /* cv_debug.xcconfig */,
+				C2765232191568C400EA3B55 /* cv_release.xcconfig */,
 				C21733FB190B175500A01365 /* cvisible */,
-				C21733F9190B101D00A01365 /* Config.xcconfig */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				C20BB33F1910569C00884EB2 /* gutc */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				C2765237191570F900EA3B55 /* Audio2.xcodeproj */,
 			);
 			name = SamplePlayerTest;
 			sourceTree = "<group>";
@@ -155,11 +219,19 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C276525C1915E9FC00EA3B55 /* libaudio2_d.a */,
+				C276525A1915E9CB00EA3B55 /* CoreVideo.framework */,
+				C27652581915E9AB00EA3B55 /* OpenGL.framework */,
+				C27652561915E99200EA3B55 /* CoreAudioKit.framework */,
+				C27652511915E95800EA3B55 /* QTKit.framework */,
+				C276524E1915E93300EA3B55 /* CoreFoundation.framework */,
+				C27652461915E85400EA3B55 /* Cocoa.framework */,
+				C27652431915E25700EA3B55 /* libcinder_d.a */,
+				C27652411915E1EB00EA3B55 /* libaudio2_d.a */,
 				C23E89AF1912E98C00AE27A3 /* libopencv_core.dylib */,
 				C23E89AC1912869C00AE27A3 /* libboost_system.a */,
 				C20BB350191059BC00884EB2 /* gtest.framework */,
 				C20BB34E1910599400884EB2 /* vfi386_d.framework */,
-				C20BB34C1910597C00884EB2 /* vfi386.framework */,
 				C20BB34A1910593A00884EB2 /* gtest.framework */,
 				C2DB225E190B298700BBC93C /* QuickTime.framework */,
 				C2DB225C190B296A00BBC93C /* Carbon.framework */,
@@ -172,8 +244,8 @@
 		C20BB33F1910569C00884EB2 /* gutc */ = {
 			isa = PBXGroup;
 			children = (
-				C20BB349191058FA00884EB2 /* ut_file.hpp */,
-				C20BB3471910577D00884EB2 /* gutc.cpp */,
+				C20BB349191058FA00884EB2 /* gutc.cpp */,
+				C20BB3471910577D00884EB2 /* ut_file.hpp */,
 			);
 			path = gutc;
 			sourceTree = "<group>";
@@ -181,6 +253,7 @@
 		C21733FB190B175500A01365 /* cvisible */ = {
 			isa = PBXGroup;
 			children = (
+				C2D713F1191978D0009C503B /* AudioDrawUtils.h */,
 				C20BB3391910508E00884EB2 /* vf_utils.hpp */,
 				C20BB33819102F5A00884EB2 /* vf_cinder.hpp */,
 				C21733FC190B175500A01365 /* AudioDrawUtils.cpp */,
@@ -191,6 +264,15 @@
 			);
 			name = cvisible;
 			path = ../src/cvisible;
+			sourceTree = "<group>";
+		};
+		C2765238191570F900EA3B55 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C276523D191570F900EA3B55 /* libaudio2_d.a */,
+				C276523F191570F900EA3B55 /* libaudio2-ios_d.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +303,7 @@
 				C20BB33A1910569C00884EB2 /* Sources */,
 				C20BB33B1910569C00884EB2 /* Frameworks */,
 				C23E89AE1912896B00AE27A3 /* ShellScript */,
+				C2D713E719171AD8009C503B /* Resources */,
 			);
 			buildRules = (
 			);
@@ -251,6 +334,12 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* SamplePlayerTest */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C2765238191570F900EA3B55 /* Products */;
+					ProjectRef = C2765237191570F900EA3B55 /* Audio2.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* XcVisible */,
@@ -259,13 +348,38 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		C276523D191570F900EA3B55 /* libaudio2_d.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libaudio2_d.a;
+			remoteRef = C276523C191570F900EA3B55 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C276523F191570F900EA3B55 /* libaudio2-ios_d.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libaudio2-ios_d.a";
+			remoteRef = C276523E191570F900EA3B55 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		8D1107290486CEB800E47090 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2E78DF7190B32C000F586E2 /* cash_satisfied_mind.mp3 in Resources */,
-				C21733FA190B101D00A01365 /* Config.xcconfig in Resources */,
+				C2D713EE19171B49009C503B /* Resources.h in Resources */,
+				C2D713EF19171B49009C503B /* data.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2D713E719171AD8009C503B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2D713EB19171AFC009C503B /* assets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,7 +415,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C20BB3481910577D00884EB2 /* gutc.cpp in Sources */,
+				C27652451915E3B200EA3B55 /* gutc.cpp in Sources */,
+				C20BB3481910577D00884EB2 /* ut_file.hpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +425,7 @@
 /* Begin XCBuildConfiguration section */
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C21733F9190B101D00A01365 /* Config.xcconfig */;
+			baseConfigurationReference = C2765231191568C400EA3B55 /* cv_debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -337,6 +452,10 @@
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_LDFLAGS = (
 					"\"$(CINDER_PATH)/lib/libcinder_d.a\"",
@@ -352,7 +471,7 @@
 		};
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C21733F9190B101D00A01365 /* Config.xcconfig */;
+			baseConfigurationReference = C2765232191568C400EA3B55 /* cv_release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -376,6 +495,10 @@
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_LDFLAGS = (
 					"\"$(CINDER_PATH)/lib/libcinder.a\"",
@@ -392,7 +515,6 @@
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C21733F9190B101D00A01365 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
@@ -405,7 +527,6 @@
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C21733F9190B101D00A01365 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
@@ -418,6 +539,7 @@
 		};
 		C20BB3451910569C00884EB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2765231191568C400EA3B55 /* cv_debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -433,10 +555,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(GTEST_PATH)/build/Release",
-				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -452,9 +570,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/arman/Desktop/visibleqt105/usr/local/boost/lib,
-					/Users/arman/Desktop/visibleqt105/usr/local/OpenCv_2.4_i386/lib,
+					"$(CINDER_PATH)/lib",
+					"$(GTEST_PATH)/build/Release",
+					"$(OPENCV_PATH)/lib",
+					"$(BOOST_PATH)/lib",
+					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib,
+					"/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/Cinder-Audio2/lib/macosx",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = NO;
@@ -466,6 +587,7 @@
 		};
 		C20BB3461910569C00884EB2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2765232191568C400EA3B55 /* cv_release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -498,9 +620,10 @@
 					"$(inherited)",
 					/Users/arman/Desktop/visibleqt105/usr/local/boost/lib,
 					/Users/arman/Desktop/visibleqt105/usr/local/OpenCv_2.4_i386/lib,
+					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib,
+					"/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/Cinder-Audio2/lib/macosx",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				OTHER_LDFLAGS = "$(CINDER_PATH)/lib/libcinder_d.a";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.8;
 			};

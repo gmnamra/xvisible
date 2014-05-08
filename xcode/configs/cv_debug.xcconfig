@@ -6,21 +6,7 @@
 //
 //
 
-SRCROOT = $(PROJECT_DIR)/..
-SOURCE_ROOT = SRCROOT
-BUILD_DIR = $(SRCROOT)/build
-BUILD_ROOT = BUILD_DIR
-BUILT_PRODUCTS_DIR = $(BUILD_DIR)/$(CONFIGURATION)
-
-
-// Intel, 32- and 64-bit
-ARCHS = i386 x86_64
-
-// Zerolink prevents link warnings so turn it off
-ZERO_LINK = NO
-
-// Prebinding considered unhelpful in 10.3 and later
-PREBINDING = NO
+#include "cv_base.xcconfig"
 
 // Strictest warning policy
 WARNING_CFLAGS = -Wall -Wendif-labels -Wnewline-eof 
@@ -30,31 +16,8 @@ WARNING_CFLAGS = -Wall -Wendif-labels -Wnewline-eof
 SEPARATE_STRIP = YES
 
 
-// C++ Compiler
-GCC_VERSION = com.apple.compilers.llvm.clang.1_0
-
-
-// C++ Language (C++11)
-CLANG_CXX_LANGUAGE_STANDARD = c++0x
-
-// C++ Standard Library
-CLANG_CXX_LIBRARY = libc++
-
-
-
-// not sure why apple defaults this on, but it's pretty risky
-ALWAYS_SEARCH_USER_PATHS = NO
-
-// Turn on position dependent code for most cases (overridden where appropriate)
-GCC_DYNAMIC_NO_PIC = NO
-
 // Minimum OS version is 10.7
 MACOSX_DEPLOYMENT_TARGET = 10.8
-
-CINDER_PATH = $(SRCROOT)/usr/local/Cinder
-BOOST_PATH = $(SRCROOT)/usr/local/BOOST
-OPENCV_PATH = $(SRCROOT)/usr/local/OpenCv_2.4_i386
-GTEST_PATH = $(SRCROOT)/usr/local/gtest
 
 LIBRARY_SEARCH_PATHS = $(CINDER_PATH)/lib $(GTEST_PATH)/build/Release $(OPENCV_PATH)/lib
 FRAMEWORK_SEARCH_PATHS = $(GTEST_PATH)/build/Release $(BUILD_DIR)/Frameworks 

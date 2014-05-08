@@ -44,12 +44,20 @@ class Waveform {
 
     const ci::PolyLine2f& getOutline() const	{ return mOutline; }
 	const ci::TriMesh2d& getMesh() const		{ return mMesh; };
-
     bool loaded() { return mOutline.getPoints().size() > 0; }
+    
+    const size_t sections () const { return m_num_sections; }
+    const size_t section_size () const { return m_section_size; }
+    const size_t samples () const { return m_sample_size; }    
+    
     
   private:
     ci::PolyLine2f mOutline;
 	ci::TriMesh2d mMesh;
+    size_t m_num_sections;
+    size_t m_sample_size;
+    size_t m_section_size;    
+    
 };
 
 class WaveformPlot {
@@ -61,6 +69,7 @@ class WaveformPlot {
 	void load( const ci::audio2::BufferRef &buffer, const ci::Rectf &bounds, size_t pixelsPerVertex = 2 );
 
 	const std::vector<Waveform>& getWaveforms() const	{ return mWaveforms; }
+    
 	const ci::Rectf& getBounds() const					{ return mBounds; }
 
 	void draw();

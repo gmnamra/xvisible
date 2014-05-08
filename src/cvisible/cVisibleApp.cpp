@@ -70,7 +70,6 @@ public:
     ciUICanvas *gui1;  
     ciUICanvas *gui2;  
     ciUIImage  *m_screen;
-    ciUIImageSampler *m_sampler;
     
     float menuWidth; 
     float menuHeight; 
@@ -330,8 +329,6 @@ void CVisibleApp::setupGUI2()
 
     //   gui1 = new ciUICanvas(0,menuHeight,menuWidth,menuHeight);
     gui1->addWidgetDown(m_screen = new ciUIImage(w - CI_UI_GLOBAL_WIDGET_SPACING,h/2 - CI_UI_GLOBAL_WIDGET_SPACING,  &mImage, "IMAGE VIEW"),CI_UI_ALIGN_BOTTOM);
-    //    gui1->addWidgetRight(m_sampler = new ciUIImageSampler(w/2 - CI_UI_GLOBAL_WIDGET_SPACING,h/2 - CI_UI_GLOBAL_WIDGET_SPACING, &mImageSurface, "IMAGE SAMPLER"));
-  
     gui1->registerUIEvents(this, &CVisibleApp::guiEvent);     
 }
 
