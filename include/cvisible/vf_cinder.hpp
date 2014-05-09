@@ -145,6 +145,7 @@ namespace vf_cinder
     //    inline VisibleAudioSourceRef	load( const DataSourceRef &dataSource )	{ return VisibleAudioSource::create( dataSource ); }
     
     
+    
 }
 
 

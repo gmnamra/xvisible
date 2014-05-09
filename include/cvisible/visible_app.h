@@ -23,13 +23,16 @@
 #include "cinder/audio2/Debug.h"
 #include "cinder/qtime/Quicktime.h"
 #include "cinder/params/Params.h"
+#include "cinder/gl/Vbo.h"
+#include "cinder/MayaCamUI.h"
+#include "cinder/ImageIo.h"
 
 #include "assets/Resources.h"
 
 #include "cvisible/AudioTestGui.h"
 #include "cvisible/AudioDrawUtils.h"
 #include "cvisible/vf_cinder.hpp"
-
+#include "cvisible/vf_utils.hpp"
 
 
 using namespace ci;
@@ -64,23 +67,20 @@ struct marker_t
     }
 };
 
+class CVisibleApp;
+
 struct Signal_value
 {
     void post_update ()
     {
         label = toString(mark_val().readout);
-        //        CI_LOG_V( "post_update: " );
-        //        console() << mark_val().readout << endl;
-        //        console() << mark_val().display_pixel_pos << endl;        
-        //        console() << mark_val().buffer_index << endl;                
-        
     }
     
-    void draw()
+    void draw(const Rectf& display)
     {
         const Vec2i& readPos = mark_val().display_pixel_pos;
 		gl::color( ColorA( 0, 1, 0, 0.7f ) );
-		gl::drawSolidRoundedRect( Rectf( readPos.x - 2, 0, readPos.x + 2, (float)getWindowHeight() ), 2 );
+		gl::drawSolidRoundedRect( Rectf( readPos.x - 2, 0, readPos.x + 2, (float)display.getHeight() ), 2 );
 		gl::color( Color( 1.0f, 0.5f, 0.25f ) );
 		gl::drawStringCentered(label, readPos );
     }
@@ -89,22 +89,47 @@ struct Signal_value
     std::string label;
 };
 
+// The window-specific data for each window
+class WindowData
+{
+public:
+	WindowData()
+    : mColor( Color( CM_RGB, 0.1f, 0.8f, 0.8f ) ) 
+	{
+        mId = AppNative::get()->getNumWindows ();
+    }
+    
+	Color			mColor;
+    size_t          mSignalLength;
+    size_t          mId;
+};
 
 
 class CVisibleApp : public AppNative {
 public:
+
+    static CVisibleApp* master ();
+    
 	void prepareSettings( Settings *settings );
 	void setup();
 	void mouseDown( MouseEvent event );
   	void mouseMove( MouseEvent event );
+    void mouseDrag( MouseEvent event );    
+    
 	void keyDown( KeyEvent event );
 	void fileDrop( FileDropEvent event );
 	void update();
     void movie_update ();
 	void draw();
+    void draw_mat ();
     
 	void setupBufferPlayer();
 	void setupFilePlayer();
+    void setupMatrixPlayer ();
+    void createNewWindow();
+    void internal_setupmat_from_file (const fs::path &);
+    void internal_setupmat_from_mat (const vf_utils::csv::matf_t &);
+    
 	void setSourceFile( const DataSourceRef &dataSource );
     void resize_areas (); 
     void loadMovieFile( const fs::path &moviePath );
@@ -126,29 +151,31 @@ public:
 	std::future<void>			mAsyncLoadFuture;
     marker_t                    mCurrent;
     
+    params::InterfaceGl         mTopParams;
+    
+    Rectf                       mGraphDisplayRect;    
+    Rectf                       mMovieDisplayRect;
+    Rectf                       mMenuDisplayRect;
+    Rectf                       mLogDisplayRect;
+    
     
     gl::Texture mImage;
-    Surface mImageSurface; 
     ci::qtime::MovieGl m_movie;    
     bool m_movie_valid, m_result_valid;
     int m_fc;
-    float vtick_scaled;
-    
     Signal_value                mSigv;
 
     params::InterfaceGl         mMovieParams;
     float mMoviePosition, mPrevMoviePosition;
+    size_t mMovieIndexPosition, mPrevMovieIndexPosition;    
     float mMovieRate, mPrevMovieRate;
     bool mMoviePlay, mPrevMoviePlay;
     bool mMovieLoop, mPrevMovieLoop;
+
+    gl::VboMesh mPointCloud;
+    MayaCamUI mCam;
     
-    
-    params::InterfaceGl         mTopParams;
-    Rectf                       mGraphDisplayRect;    
-    Rectf                       mMovieDisplayRect;
-    Rectf                       mControls;
-    
-    
+
 };
 
 

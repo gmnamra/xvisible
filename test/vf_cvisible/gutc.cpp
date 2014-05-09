@@ -82,6 +82,18 @@ TEST (UT_fileutils, run)
     EXPECT_TRUE (sfr->getNumChannels() == 1);
     EXPECT_TRUE (sfr->getNumFrames () == 3296);
     
+    std::string matfile ("matrix.txt");
+    std::string mat_filename = create_filespec (gvp->test_data_folder(), matfile);
+    vector<vector<float> > matrix;
+    vf_utils::csv::csv2vectors(mat_filename, matrix, false, false, true);
+    EXPECT_TRUE(matrix.size() == 300);
+    for (int rr=0; rr < matrix.size(); rr++) 
+        EXPECT_TRUE(matrix[rr].size() == 300);
+    
+    
+    //    fs::path fpath ( csv_filename );
+
+    
 }
 
 #if 0

@@ -1,6 +1,8 @@
 
 #include "visible_app.h"
 
+using namespace vf_utils::csv;
+
 
 size_t xposInRect2Index (size_t pixel_pos, size_t pixel_range, size_t index_range)
 {
@@ -8,22 +10,29 @@ size_t xposInRect2Index (size_t pixel_pos, size_t pixel_range, size_t index_rang
     return math<size_t>::clamp(pixel_pos * index_range / pixel_range, 0, index_range);
 }
 
+CVisibleApp* CVisibleApp::master () { return (CVisibleApp*) AppNative::get(); }
+
+
 void CVisibleApp::prepareSettings( Settings *settings )
 {
-    settings->setWindowSize( 1000, 500 );
+    settings->setWindowSize( 1200, 576 );
     settings->setResizable(true);
 }
 
 void CVisibleApp::resize_areas ()
 {
-    mGraphDisplayRect = getWindowBounds();
-    mMovieDisplayRect = getWindowBounds();    
-    mGraphDisplayRect.offset (Vec2i (0, mGraphDisplayRect.getHeight() / 2));
-    mMovieDisplayRect.clipBy(mGraphDisplayRect);
+    const Vec2i& c_ul = getWindowBounds().getUL();
+    const Vec2i& c_lr = getWindowBounds().getLR();
+    Vec2i c_mr (c_lr.x, (c_lr.y - c_ul.y) / 2);
+    Vec2i c_ml (c_ul.x, (c_lr.y - c_ul.y) / 2);    
+    mGraphDisplayRect = Area (c_ul, c_mr);
+    mMovieDisplayRect = Area (c_ml, c_lr);
 }
 
 void CVisibleApp::setup()
 {
+    getWindow()->setUserData( new WindowData );
+    
     m_movie_valid = false;
 	mSamplePlayerEnabledState = false;
     
@@ -39,11 +48,91 @@ void CVisibleApp::setup()
     
     mTopParams = params::InterfaceGl (" CVisible ", Vec2i( 200, 400) );
     mTopParams.addButton("Select Movie ", std::bind(&CVisibleApp::setupFilePlayer, this ) );
-    mTopParams.addButton("Select Signature ", std::bind(&CVisibleApp::setupBufferPlayer, this ) );    
+    mTopParams.addButton("Select Signature ", std::bind(&CVisibleApp::setupBufferPlayer, this ) );
+    mTopParams.addButton("Select Matrix ", std::bind(&CVisibleApp::setupMatrixPlayer, this ) );    
     
 	ctx->enable();
 	CI_LOG_V( "context samplerate: " << ctx->getSampleRate() );
     
+}
+
+void CVisibleApp::setupMatrixPlayer ()
+{
+    // Browse for a matrix file
+    fs::path matPath = getOpenFilePath();   
+    if(! matPath.empty() ) internal_setupmat_from_file(matPath);
+    createNewWindow ();
+}
+
+
+void CVisibleApp::createNewWindow()
+{
+	app::WindowRef newWindow = createWindow( Window::Format().size( 400, 400 ) );
+	newWindow->setUserData( new WindowData );
+	
+	// for demonstration purposes, we'll connect a lambda unique to this window which fires on close
+	int uniqueId = getNumWindows();
+	newWindow->getSignalClose().connect(
+                                        [uniqueId,this] { this->console() << "You closed window #" << uniqueId << std::endl; }
+                                        );
+}
+
+void CVisibleApp::internal_setupmat_from_file (const fs::path & fp)
+{
+    vf_utils::csv::matf_t mat;
+    vf_utils::csv::csv2vectors(fp.string(), mat, false, false, true);
+    if (vf_utils::csv::validate_matf (mat) ) internal_setupmat_from_mat (mat);
+}
+
+void CVisibleApp::internal_setupmat_from_mat (const vf_utils::csv::matf_t & mat)
+{
+    m_result_valid = false;
+    size_t dL = mat.size ();
+    int numPixels = dL * dL;
+    gl::VboMesh::Layout layout;
+    layout.setDynamicColorsRGB();
+    layout.setDynamicPositions();
+    mPointCloud = gl::VboMesh( numPixels, 0, layout, GL_POINTS );
+    
+    
+    gl::VboMesh::VertexIter vertexIt( mPointCloud );
+    size_t my = 0;
+    while (my < dL)
+    {
+        const rowf_t& rowf = mat[my];
+        const float* elm_ptr = &rowf[0];
+        size_t mx = 0;
+        while (mx < dL)
+        {
+            float val = *elm_ptr++;
+            vertexIt.setPosition(static_cast<float>(mx),static_cast<float>(dL - my), val * 100 );
+            Color color( val, 0, (1 - val) );
+            vertexIt.setColorRGB( color );
+            ++vertexIt;
+            mx++;
+        }
+        my++;        
+    }
+    
+    Vec3f center( (float)dL/2.0f, (float)dL/2.0f, 50.0f );
+    CameraPersp camera( getWindowWidth(), getWindowHeight(), 60.0f );
+    camera.setEyePoint( Vec3f( center.x, center.y, (float)dL ) );
+    camera.setCenterOfInterestPoint( center );
+    mCam.setCurrentCam( camera );
+    m_result_valid = true;
+}
+
+void CVisibleApp::draw_mat()
+{
+    
+	gl::clear( Color( 0, 0, 0 ) ); 
+    gl::setMatrices( mCam.getCamera() );
+    gl::enableDepthRead();
+    gl::enableDepthWrite();
+    
+    if( mPointCloud ){
+        gl::draw( mPointCloud );
+    }
 }
 
 
@@ -93,18 +182,18 @@ void CVisibleApp::setupBufferPlayer()
         //	mSamplePlayer->setLoopEndTime( mLoopEndSlider.mValueScaled != 0 ? mLoopEndSlider.mValueScaled : mSamplePlayer->getNumSeconds() );
 	};
     
-//	CI_LOG_V( "async load: " << boolalpha << asyncLoad << dec );
-//	if( asyncLoad ) {
-//		mWaveformPlot.clear();
-//		mAsyncLoadFuture = std::async( [=] {
-//			loadFn();
-//			dispatchAsync( [=] {
-//				connectFn();
-//			} );
-//		} );
-//	}
-//	else 
-
+    //	CI_LOG_V( "async load: " << boolalpha << asyncLoad << dec );
+    //	if( asyncLoad ) {
+    //		mWaveformPlot.clear();
+    //		mAsyncLoadFuture = std::async( [=] {
+    //			loadFn();
+    //			dispatchAsync( [=] {
+    //				connectFn();
+    //			} );
+    //		} );
+    //	}
+    //	else 
+    
     {
 		loadFn();
 		connectFn();
@@ -126,7 +215,7 @@ void CVisibleApp::setupFilePlayer()
         std::cout << moviePath.string ();
         loadMovieFile (moviePath);
     }
-
+    
     if( m_movie_valid )
     {
         string max = ci::toString( m_movie.getDuration() );
@@ -139,7 +228,7 @@ void CVisibleApp::setupFilePlayer()
         mMovieParams.addParam( "Loop", &mMovieLoop );
         
     }
-
+    
     
 }
 
@@ -185,10 +274,7 @@ void CVisibleApp::seek( size_t xPos )
 {
     auto waves = mWaveformPlot.getWaveforms ();
 	if (have_sampler () ) mSamplePlayer->seek( waves[0].sections() * xPos / mGraphDisplayRect.getWidth() );
-    if (have_movie ())
-        m_movie.seekToFrame (xposInRect2Index (xPos, mMovieDisplayRect.getWidth(), m_fc) );
-        
-
+    if (have_movie ()) mMovieIndexPosition = xposInRect2Index (xPos, mMovieDisplayRect.getWidth(), m_fc);
 }
 
 
@@ -200,9 +286,10 @@ marker_t CVisibleApp::marker_at( MouseEvent& me )
 	auto buffer = bufferPlayer->getBuffer();
     auto waves = mWaveformPlot.getWaveforms ();
     marker_t current;
-    size_t xScaled = (me.getX() * waves[0].sections()) / mGraphDisplayRect.getWidth();
-    xScaled *= waves[0].section_size ();
-    xScaled = math<size_t>::clamp( xScaled, 0, waves[0].samples () );
+    size_t xScaled = xposInRect2Index (me.getX(), mGraphDisplayRect.getWidth(), waves[0].samples () );
+    //    size_t xScaled = (me.getX() * waves[0].sections()) / mGraphDisplayRect.getWidth();
+    //    xScaled *= waves[0].section_size ();
+    //    xScaled = math<size_t>::clamp( xScaled, 0, waves[0].samples () );
     current.display_pixel_pos = me.getPos ();    
     current.buffer_index = xScaled;
     current.readout = buffer->getChannel( 0 )[xScaled];
@@ -219,6 +306,8 @@ void setBackgroundToBlue()
 
 void CVisibleApp::mouseMove( MouseEvent event )
 {
+    if (getWindow()->getUserData<WindowData>()->mId != 1) return;
+    
     timeline().apply( &mSigv.mark_val, marker_at (event), 1.0f)
     .startFn( setBackgroundToBlue )
     .updateFn( std::bind( &Signal_value::post_update, &mSigv ))
@@ -227,9 +316,18 @@ void CVisibleApp::mouseMove( MouseEvent event )
 }
 
 
+void CVisibleApp::mouseDrag( MouseEvent event )
+{
+    if (getWindow()->getUserData<WindowData>()->mId != 2) return;
+    mCam.mouseDrag( event.getPos(), event.isLeft(), event.isMiddle(), event.isRight() );
+}
+
+
 void CVisibleApp::mouseDown( MouseEvent event )
 {
-    mCurrent = marker_at (event);
+    if (getWindow()->getUserData<WindowData>()->mId != 2) return;
+    mCam.mouseDown( event.getPos() );
+    
 }
 
 void CVisibleApp::keyDown( KeyEvent event )
@@ -272,23 +370,20 @@ void CVisibleApp::fileDrop( FileDropEvent event )
 
 void CVisibleApp::update()
 {
-    
-    if (mSettings.isResizable() || mSettings.isFullScreen())
+    switch (getWindow()->getUserData<WindowData>()->mId )
     {
-        resize_areas ();
+            
+        case 2:
+            break;
+        default:
+        case 1:
+        if (mSettings.isResizable() || mSettings.isFullScreen())
+        {
+            resize_areas ();
+        }
+        movie_update ();    
+        break;
     }
-    
-//	// light up rects if an xrun was detected
-//	const float xrunFadeTime = 1.3f;
-//	auto filePlayer = dynamic_pointer_cast<audio2::FilePlayer>( mSamplePlayer );
-//	if( filePlayer ) {
-//		if( filePlayer->getLastUnderrun() )
-//			timeline().apply( &mUnderrunFade, 1.0f, 0.0f, xrunFadeTime );
-//		if( filePlayer->getLastOverrun() )
-//			timeline().apply( &mOverrunFade, 1.0f, 0.0f, xrunFadeTime );
-//	}
-//    
-	movie_update ();    
     
 }
 
@@ -297,17 +392,16 @@ void CVisibleApp::movie_update ()
     
     if( m_movie_valid )
     {
-        
-//        if( mMoviePosition != mPrevMoviePosition )
-//        {
-//            mPrevMoviePosition = mMoviePosition;
-//            m_movie.seekToTime( mMoviePosition );
-//        }
-//        else
-//        {
-//            mMoviePosition = m_movie.getCurrentTime();
-//            mPrevMoviePosition = mMoviePosition;
-//        }
+        if( mMovieIndexPosition != mPrevMovieIndexPosition )
+        {
+            mPrevMovieIndexPosition = mMovieIndexPosition;
+            m_movie.seekToFrame(mMovieIndexPosition);
+        }
+        else
+        {
+            mMoviePosition = m_movie.getCurrentTime();
+            mPrevMoviePosition = mMoviePosition;
+        }
         if( mMovieRate != mPrevMovieRate )
         {
             mPrevMovieRate = mMovieRate;
@@ -316,13 +410,8 @@ void CVisibleApp::movie_update ()
         if( mMoviePlay != mPrevMoviePlay )
         {
             mPrevMoviePlay = mMoviePlay;
-            if( mMoviePlay )
-            {
-                m_movie.play();
-            } else
-            {
-                m_movie.stop();
-            }
+            if( mMoviePlay ) m_movie.play();
+            else m_movie.stop();
         }
         if( mMovieLoop != mPrevMovieLoop ){
             mPrevMovieLoop = mMovieLoop;
@@ -333,40 +422,53 @@ void CVisibleApp::movie_update ()
     if( m_movie ){
         mImage = m_movie.getTexture();
     }
-
+    
     
 }
 
 void CVisibleApp::draw()
 {
-    gl::enableAlphaBlending();
-
-	gl::clear();
-    
-    gl::setMatricesWindowPersp( getWindowSize() );
-    
-    auto bufferPlayer = dynamic_pointer_cast<audio2::BufferPlayer>( mSamplePlayer );
-    if( bufferPlayer )
+    switch (getWindow()->getUserData<WindowData>()->mId )
     {
-        if (mSettings.isResizable() || mSettings.isFullScreen())
-        {
-            mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
-        }
-        mWaveformPlot.draw();
+            
+        case 2:
+            if (m_result_valid) draw_mat ();
+            break;
+            
+        default:
+        case 1:
+            gl::enableAlphaBlending();
+            
+            gl::clear();
+            
+            gl::setMatricesWindowPersp( getWindowSize() );
+            
+            mTopParams.draw ();
+            mMovieParams.draw();
+            
+            
+            auto bufferPlayer = dynamic_pointer_cast<audio2::BufferPlayer>( mSamplePlayer );
+            if( bufferPlayer )
+            {
+                if (mSettings.isResizable() || mSettings.isFullScreen())
+                {
+                    mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
+                }
+                mWaveformPlot.draw();
+            }
+            
+            
+            //	drawWidgets( mWidgets );
+            
+            if (m_movie_valid && mImage )
+            {
+                gl::draw (mImage, mMovieDisplayRect);
+                mImage.disable ();
+            }        
+            
+            mSigv.draw (mGraphDisplayRect);
+            break;
     }
-  
-    mTopParams.draw ();
-    mMovieParams.draw();
-     
-    //	drawWidgets( mWidgets );
-    
-    if (m_movie_valid && mImage )
-    {
-        gl::draw (mImage, mMovieDisplayRect);
-        mImage.disable ();
-    }        
-      
-    mSigv.draw ();
 }
 
 

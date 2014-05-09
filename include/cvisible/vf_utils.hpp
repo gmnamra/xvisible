@@ -91,7 +91,8 @@ namespace vf_utils
     
     namespace csv
     {
-        
+        typedef std::vector<float> rowf_t;
+        typedef std::vector<rowf_t> matf_t;
         typedef std::vector<std::string> row_type;
         typedef std::vector<row_type> rows_type;
         
@@ -180,6 +181,17 @@ namespace vf_utils
             return is_legacy_visible_output ( rows);
             
         }    
+        
+        static bool validate_matf (matf_t tm) 
+        {
+            if (tm.empty()) return false;
+            size_t d = tm.size();
+            if (d <= 0 || d > 10000 ) return false; // arbitrary upper limit. I know !!
+            for (int rr=0; rr < d; rr++) 
+                if (tm[rr].size() != d) return false;
+            return true;            
+            
+        }
         
         
         static bool csv2vectors ( const std::string &csv_file, std::vector<vector<float> >& m_results, bool only_visible_format, bool columns_if_possible, bool verbose = false)
