@@ -32,8 +32,8 @@
 		C27652571915E99200EA3B55 /* CoreAudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27652561915E99200EA3B55 /* CoreAudioKit.framework */; };
 		C27652591915E9AB00EA3B55 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27652581915E9AB00EA3B55 /* OpenGL.framework */; };
 		C276525B1915E9CB00EA3B55 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C276525A1915E9CB00EA3B55 /* CoreVideo.framework */; };
-		C276525D1915E9FC00EA3B55 /* libaudio2_d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C276525C1915E9FC00EA3B55 /* libaudio2_d.a */; };
 		C276525E1915EA1400EA3B55 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
+		C277F726192048A800BCDE80 /* libaudio2_d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C27652411915E1EB00EA3B55 /* libaudio2_d.a */; };
 		C2D713EB19171AFC009C503B /* assets in Resources */ = {isa = PBXBuildFile; fileRef = C2D713EA19171AFC009C503B /* assets */; };
 		C2D713EE19171B49009C503B /* Resources.h in Resources */ = {isa = PBXBuildFile; fileRef = C2D713EC19171B49009C503B /* Resources.h */; };
 		C2D713EF19171B49009C503B /* data.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2D713ED19171B49009C503B /* data.txt */; };
@@ -41,23 +41,6 @@
 		C2DB225F190B298700BBC93C /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB225E190B298700BBC93C /* QuickTime.framework */; };
 		C2DB2261190B2CCB00BBC93C /* VisibleApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2173400190B175500A01365 /* VisibleApp.cpp */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		C276523C191570F900EA3B55 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C2765237191570F900EA3B55 /* Audio2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1104F3C917753F10003EAA2B;
-			remoteInfo = "Audio2-mac";
-		};
-		C276523E191570F900EA3B55 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C2765237191570F900EA3B55 /* Audio2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 11B0421C179B90450034BEE2;
-			remoteInfo = "Audio2-ios";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0091D8F80E81B9330029341E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
@@ -89,8 +72,6 @@
 		C23E89AF1912E98C00AE27A3 /* libopencv_core.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.dylib; path = ../usr/local/OpenCv_2.4_i386/lib/libopencv_core.dylib; sourceTree = "<group>"; };
 		C2765231191568C400EA3B55 /* cv_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = cv_debug.xcconfig; path = configs/cv_debug.xcconfig; sourceTree = "<group>"; };
 		C2765232191568C400EA3B55 /* cv_release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = cv_release.xcconfig; path = configs/cv_release.xcconfig; sourceTree = "<group>"; };
-		C276523519156A9800EA3B55 /* cv_base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = cv_base.xcconfig; path = configs/cv_base.xcconfig; sourceTree = "<group>"; };
-		C2765237191570F900EA3B55 /* Audio2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Audio2.xcodeproj; path = "../usr/local/Cinder/Cinder-Audio2/xcode/Audio2.xcodeproj"; sourceTree = "<group>"; };
 		C27652411915E1EB00EA3B55 /* libaudio2_d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libaudio2_d.a; path = ../usr/local/Cinder/lib/libaudio2_d.a; sourceTree = "<group>"; };
 		C27652431915E25700EA3B55 /* libcinder_d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcinder_d.a; path = ../usr/local/Cinder/lib/libcinder_d.a; sourceTree = "<group>"; };
 		C27652461915E85400EA3B55 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -99,7 +80,6 @@
 		C27652561915E99200EA3B55 /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
 		C27652581915E9AB00EA3B55 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		C276525A1915E9CB00EA3B55 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		C276525C1915E9FC00EA3B55 /* libaudio2_d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libaudio2_d.a; path = "../usr/local/Cinder/Cinder-Audio2/lib/macosx/libaudio2_d.a"; sourceTree = "<group>"; };
 		C2D713EA19171AFC009C503B /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		C2D713EC19171B49009C503B /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Resources.h; sourceTree = "<group>"; };
 		C2D713ED19171B49009C503B /* data.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
@@ -133,8 +113,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C277F726192048A800BCDE80 /* libaudio2_d.a in Frameworks */,
 				C276525E1915EA1400EA3B55 /* Accelerate.framework in Frameworks */,
-				C276525D1915E9FC00EA3B55 /* libaudio2_d.a in Frameworks */,
 				C276525B1915E9CB00EA3B55 /* CoreVideo.framework in Frameworks */,
 				C27652591915E9AB00EA3B55 /* OpenGL.framework in Frameworks */,
 				C27652571915E99200EA3B55 /* CoreAudioKit.framework in Frameworks */,
@@ -194,7 +174,6 @@
 				C2D713EC19171B49009C503B /* Resources.h */,
 				C2D713ED19171B49009C503B /* data.txt */,
 				C2D713EA19171AFC009C503B /* assets */,
-				C276523519156A9800EA3B55 /* cv_base.xcconfig */,
 				C2765231191568C400EA3B55 /* cv_debug.xcconfig */,
 				C2765232191568C400EA3B55 /* cv_release.xcconfig */,
 				C21733FB190B175500A01365 /* cvisible */,
@@ -202,7 +181,6 @@
 				C20BB33F1910569C00884EB2 /* gutc */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				C2765237191570F900EA3B55 /* Audio2.xcodeproj */,
 			);
 			name = SamplePlayerTest;
 			sourceTree = "<group>";
@@ -220,7 +198,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C276525C1915E9FC00EA3B55 /* libaudio2_d.a */,
 				C276525A1915E9CB00EA3B55 /* CoreVideo.framework */,
 				C27652581915E9AB00EA3B55 /* OpenGL.framework */,
 				C27652561915E99200EA3B55 /* CoreAudioKit.framework */,
@@ -266,15 +243,6 @@
 			);
 			name = cvisible;
 			path = ../src/cvisible;
-			sourceTree = "<group>";
-		};
-		C2765238191570F900EA3B55 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C276523D191570F900EA3B55 /* libaudio2_d.a */,
-				C276523F191570F900EA3B55 /* libaudio2-ios_d.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,12 +304,6 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* SamplePlayerTest */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = C2765238191570F900EA3B55 /* Products */;
-					ProjectRef = C2765237191570F900EA3B55 /* Audio2.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* XcVisible */,
@@ -349,23 +311,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		C276523D191570F900EA3B55 /* libaudio2_d.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libaudio2_d.a;
-			remoteRef = C276523C191570F900EA3B55 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C276523F191570F900EA3B55 /* libaudio2-ios_d.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libaudio2-ios_d.a";
-			remoteRef = C276523E191570F900EA3B55 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8D1107290486CEB800E47090 /* Resources */ = {
@@ -577,7 +522,6 @@
 					"$(OPENCV_PATH)/lib",
 					"$(BOOST_PATH)/lib",
 					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib,
-					"/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/Cinder-Audio2/lib/macosx",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = NO;
@@ -619,11 +563,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/arman/Desktop/visibleqt105/usr/local/boost/lib,
-					/Users/arman/Desktop/visibleqt105/usr/local/OpenCv_2.4_i386/lib,
+					"$(CINDER_PATH)/lib",
+					"$(GTEST_PATH)/build/Release",
+					"$(OPENCV_PATH)/lib",
+					"$(BOOST_PATH)/lib",
 					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib,
-					"/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/Cinder-Audio2/lib/macosx",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
