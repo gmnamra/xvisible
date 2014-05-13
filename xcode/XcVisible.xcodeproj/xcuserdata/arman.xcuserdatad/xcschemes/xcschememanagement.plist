@@ -9,7 +9,7 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>gutc.xcscheme</key>
+		<key>gutc.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>5</integer>
@@ -23,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>C20BB33D1910569C00884EB2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C277F737192156C200BCDE80</key>
 		<dict>
 			<key>primary</key>
 			<true/>

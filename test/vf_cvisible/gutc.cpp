@@ -4,10 +4,13 @@
 
 #include <iostream>
 #include <string>
-#include <vfi386_d/stlplus_lite.hpp>
+#include <stlplus_lite.hpp>
 #include <unistd.h>
 #include <gtest/gtest.h>
 #include "ut_file.hpp"
+#include "ut_framebuf.h"
+#include "ut_similarity.h"
+#include "ut_videocache.h"
 #include "cinder/audio2/Source.h"
 #include "cvisible/vf_cinder.hpp"
 
@@ -96,7 +99,6 @@ TEST (UT_fileutils, run)
     
 }
 
-#if 0
 TEST( UT_FrameBuf, run )
 {
 	UT_FrameBuf test;
@@ -104,6 +106,34 @@ TEST( UT_FrameBuf, run )
 }
 
 
+
+TEST(UT_similarity_producer, run)
+{
+    genv* gvp = reinterpret_cast<genv*>(envp);
+    EXPECT_TRUE (gvp != 0 );
+    static std::string qmov_name ("box-move.mov");
+    static std::string rfymov_name ("box-move.rfymov");
+    std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
+    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);
+    
+	UT_similarity_producer test (rfymov, qmov);
+    EXPECT_EQ(0, test.run());
+}
+
+
+TEST (UT_videocache, run)
+{
+    genv* gvp = reinterpret_cast<genv*>(envp);
+    EXPECT_TRUE (gvp != 0 );
+    static std::string rfymov_name ("rev2.rfymov");
+    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);
+    
+    UT_VideoCache test (rfymov);
+    EXPECT_EQ(0, test.run () );
+}
+
+
+#if 0
 
 TEST (UT_movieconverter, run)
 {

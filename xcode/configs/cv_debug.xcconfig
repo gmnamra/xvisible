@@ -11,20 +11,25 @@
 //
 //  Created by Arman Garakani on 4/25/14.
 //
-//
+// PROJECT_DIR is where xcodeproj files are
+// Debug and Release differ in libs they link to
 
 
 
 SRCROOT = $(PROJECT_DIR)/..
-SOURCE_ROOT = SRCROOT
+SOURCE_ROOT = $(SRCROOT)
 USR_LOCAL = $(SRCROOT)/usr/local
 BUILD_DIR = $(SRCROOT)/build
-BUILD_ROOT = BUILD_DIR
+BUILD_ROOT = $(BUILD_DIR)
+TEMP_ROOT = $(BUILD_DIR)
+SYMROOT= $(BUILD_DIR)
+OBJROOT= $(BUILD_ROOT)
+PROJECT_TEMP_ROOT = $(BUILD_DIR)
 BUILT_PRODUCTS_DIR = $(BUILD_DIR)/$(CONFIGURATION)
 TEST_DIR = $(SRCROOT)/test
 
 // Intel, 32- and 64-bit
-ARCHS = i386 x86_64
+ARCHS = i386
 
 // Zerolink prevents link warnings so turn it off
 ZERO_LINK = NO
