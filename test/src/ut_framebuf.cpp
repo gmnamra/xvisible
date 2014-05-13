@@ -264,7 +264,7 @@ void UT_FrameBuf::testRowPointers( int32 width, int32 height, rcPixel depth )
    // RowPointer Tests
    for ( int32 row = 0; row < buf->height(); row++ )
       {
-         rcUNITTEST_ASSERT (!((uint32) (buf->rowPointer (row)) % buf->alignment ()));
+         rcUNITTEST_ASSERT (!((uint64) (buf->rowPointer (row)) % buf->alignment ()));
          if (!row) continue;
          rcUNITTEST_ASSERT ((uint32)(buf->rowPointer (row) - buf->rowPointer (row - 1)) ==
                              buf->rowUpdate ());
