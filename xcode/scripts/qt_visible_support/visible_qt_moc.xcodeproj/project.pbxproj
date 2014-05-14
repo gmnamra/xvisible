@@ -1,0 +1,857 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		031AE02E6E5EF32803F3428D /* Qt3Support.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = AB52C34CB4C351ACB3D05237 /* Qt3Support.framework */; };
+		03EA959255464FA43B98EF29 /* rc_timeline.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 3C7C4B869E7C1AA105386B08 /* rc_timeline.cpp */; settings = {ATTRIBUTES = (); }; };
+		069D05B0128AE5DC7EE31738 /* QtCore.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = 7BC2E65A5E699A5E5D834CA2 /* QtCore.framework */; };
+		0C92E8BCF7BBC76981966186 /* rc_modifierkeys.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 6315DC79E03823085876C601 /* rc_modifierkeys.cpp */; settings = {ATTRIBUTES = (); }; };
+		0F910BF76C72C72264692B83 /* rc_settingpage.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = FD3A2BB79B757287ED925E7F /* rc_settingpage.cpp */; settings = {ATTRIBUTES = (); }; };
+		2FC92ED40E58EC5896E8E74F /* rc_controlpanel.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 3596124F79C14785C1FB01EC /* rc_controlpanel.cpp */; settings = {ATTRIBUTES = (); }; };
+		33A2D84DFB462A4CB33368EA /* rc_checkboxsettingwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 98B73215A70C6C32407186C7 /* rc_checkboxsettingwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		3816570EE45884F89E3C7046 /* rc_trackgroupwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 1510EF3F52FDF7518F691E7E /* rc_trackgroupwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		3826A0833FCB54E86728C6EF /* QtNetwork.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = B6B9970B86A6C219B0869FE9 /* QtNetwork.framework */; };
+		3CFFA41B3587A79880E576D9 /* rc_customeventmanager.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = D636F94A99526702C06F2867 /* rc_customeventmanager.cpp */; settings = {ATTRIBUTES = (); }; };
+		3FFE8ADE0A43C87C6E357FEE /* rc_monitor.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 7B9E4C6DED975D4AD48F625D /* rc_monitor.cpp */; settings = {ATTRIBUTES = (); }; };
+		4ACD9DDCB030AD397050BBC5 /* rc_textareasettingwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 25B4FD6F9E1EACD73006BF6C /* rc_textareasettingwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		501667F26B3C1FF6767A7C12 /* QtGui.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = 9B36DA7E32F0304E780E7972 /* QtGui.framework */; };
+		53F1EA62335B296329866CF9 /* rc_menuchoicesettingwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 54B8C5EBC7A3958B70C265A2 /* rc_menuchoicesettingwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		555679880AE1FC46D3A4627C /* rc_textchoicesettingwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 8E3E92C9FBB124D4EE027F77 /* rc_textchoicesettingwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		59DCB1550CA3B34C3D322F40 /* rc_textlinesettingwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 0259307562B78323403AB8D0 /* rc_textlinesettingwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		59F5EB6CBEC1B88ACCECE78F /* rc_trackmanager.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = F12D715DE12BBD6A2051ABE9 /* rc_trackmanager.cpp */; settings = {ATTRIBUTES = (); }; };
+		5F17CA243762AF9DCEC28CF0 /* rc_radiochoicesettingwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 02740E953853AE60778D30CE /* rc_radiochoicesettingwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		67A26EB2292632BE65925502 /* rc_imagecanvasgl.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = F8E97B778DAD4A34684F94CA /* rc_imagecanvasgl.cpp */; settings = {ATTRIBUTES = (); }; };
+		68B3B5C3ED4533540725A47E /* rc_rectsettingwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 0E8CB4076C8C181CA483870E /* rc_rectsettingwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		7133B43E2B1F083E8CBA4049 /* rc_trackpanel.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 87D14F14816855898424BE60 /* rc_trackpanel.cpp */; settings = {ATTRIBUTES = (); }; };
+		7E82CBED6AB622361DB7763E /* rc_xmlparser.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = E22AB11A9C2B19D3FAE04AB9 /* rc_xmlparser.cpp */; settings = {ATTRIBUTES = (); }; };
+		80D0A49F5C163ADBC201199B /* rc_spinboxsettingwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = CC2ADE3C3109619744154C0B /* rc_spinboxsettingwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		822E948E21EEAF532B830A40 /* rc_about.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = C46E03290354345AACF102CC /* rc_about.cpp */; settings = {ATTRIBUTES = (); }; };
+		8B5EAFBD96F5AAEA326D12DC /* rc_filesavesettingwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = FD04F2C851908222BE4408EF /* rc_filesavesettingwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		8EC68C0A0C89E7DA866B7F0A /* rc_settingpanel.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 39BC96FC525D3B4476DD44CD /* rc_settingpanel.cpp */; settings = {ATTRIBUTES = (); }; };
+		959A7BE7D7DBDC3591484FC1 /* rc_thumbwheelsettingwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 6D3C24F12A90BC53C660B906 /* rc_thumbwheelsettingwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		99E4BE0259C88257927AB1CE /* rc_modeldomain.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 0C8B74071344577372F7E58E /* rc_modeldomain.cpp */; settings = {ATTRIBUTES = (); }; };
+		9D105D3F16866270E6ECFEDF /* rc_numericchoicesettingwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 7CE74C21FB6BDB2EE7042A0C /* rc_numericchoicesettingwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		9FD222D3627B9EA3832068D8 /* rc_settingwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = C2FD2DA60A1B8CF9D188B1A2 /* rc_settingwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		ACEC82FC64890969CF6AF591 /* rc_trackrender.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 8292F4694E49666C1B847727 /* rc_trackrender.cpp */; settings = {ATTRIBUTES = (); }; };
+		B73C805166868AD13E6D0C66 /* rc_statusbar.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 278B56A400663C3ABDC4AFA4 /* rc_statusbar.cpp */; settings = {ATTRIBUTES = (); }; };
+		BD433D6B888C602644487BE7 /* rc_playbacksettingwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = B524998080459A8535EF173A /* rc_playbacksettingwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		C2643FEB592DBFD1429BE4E1 /* QtXml.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = 8EE92F8FA333C9E415C5B34E /* QtXml.framework */; };
+		C26A610F18EB66D2009E96C5 /* rc_main_window.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = C26A610D18EB66D2009E96C5 /* rc_main_window.cpp */; };
+		C26A611018EB66D2009E96C5 /* lpwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = C26A610E18EB66D2009E96C5 /* lpwidget.cpp */; };
+		C2924EC818EB630300623875 /* visible_qt_moc.app in Project Copy */ = {isa = PBXBuildFile; fileRef = C2924EC518EB630300623875 /* visible_qt_moc.app */; };
+		C78BFE0DD4D0FC1F4B157F30 /* QtSql.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = E0814A49DDD73EF0F620E7DB /* QtSql.framework */; };
+		CA8E3E546BDDA2B9F0D743AE /* rc_filechoicesettingwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 65203BB9200EEE862DBFF68A /* rc_filechoicesettingwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		EBF4EE9E7EAD354EA1B88567 /* rc_frameratechoicesettingwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = AAAB85F8E287E76691A5ABFB /* rc_frameratechoicesettingwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		FD12462A9D404815E4231934 /* rc_scalartrackwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = C2B02E55BC6EA9CC9E63AB3F /* rc_scalartrackwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F6069D5A5DA8AA28EDB8B3C6 /* Project Copy */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(BUILD_ROOT)";
+			dstSubfolderSpec = 0;
+			files = (
+				C2924EC818EB630300623875 /* visible_qt_moc.app in Project Copy */,
+			);
+			name = "Project Copy";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		014B5A2F44E677F4706987B4 /* moc_rc_lineedit.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_lineedit.cpp; sourceTree = "<group>"; };
+		01628C3E01A0CC15A1DD1033 /* rc_textchoicesettingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_textchoicesettingwidget.h; path = ../include/visUI/rc_textchoicesettingwidget.h; sourceTree = "<group>"; };
+		0204E87A82E0778323FD1B3E /* rc_timeline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_timeline.h; path = ../include/visUI/rc_timeline.h; sourceTree = "<group>"; };
+		0259307562B78323403AB8D0 /* rc_textlinesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_textlinesettingwidget.cpp; path = ../src/visible/qt/rc_textlinesettingwidget.cpp; sourceTree = "<group>"; };
+		02740E953853AE60778D30CE /* rc_radiochoicesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_radiochoicesettingwidget.cpp; path = ../src/visible/qt/rc_radiochoicesettingwidget.cpp; sourceTree = "<group>"; };
+		03E97F30A6CC9E59DAD66A48 /* moc_rc_mainwindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_mainwindow.cpp; sourceTree = "<group>"; };
+		062D0D9CC80EE541623F054A /* rc_monitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_monitor.h; path = ../include/visUI/rc_monitor.h; sourceTree = "<group>"; };
+		0787F4A2A0916E026E3D3CB7 /* rc_lineedit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_lineedit.h; path = ../include/visUI/rc_lineedit.h; sourceTree = "<group>"; };
+		0C8B74071344577372F7E58E /* rc_modeldomain.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_modeldomain.cpp; path = ../src/visible/qt/rc_modeldomain.cpp; sourceTree = "<group>"; };
+		0E8CB4076C8C181CA483870E /* rc_rectsettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_rectsettingwidget.cpp; path = ../src/visible/qt/rc_rectsettingwidget.cpp; sourceTree = "<group>"; };
+		1510EF3F52FDF7518F691E7E /* rc_trackgroupwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_trackgroupwidget.cpp; path = ../src/visible/qt/rc_trackgroupwidget.cpp; sourceTree = "<group>"; };
+		15E2C36093691F59E074F69D /* moc_rc_trackgroupwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_trackgroupwidget.cpp; sourceTree = "<group>"; };
+		184ECAA4E291ADB3FEEFB83D /* rc_cellinfowidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_cellinfowidget.h; path = ../include/visUI/rc_cellinfowidget.h; sourceTree = "<group>"; };
+		18876D690A6ADA535F391A1F /* moc_rc_cellinfowidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_cellinfowidget.cpp; sourceTree = "<group>"; };
+		193BFAE451E8AF73D9FAB225 /* moc_rc_imagecanvasgl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_imagecanvasgl.cpp; sourceTree = "<group>"; };
+		1DCA921CA8CB003C37244FED /* moc_rc_frameratechoicesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_frameratechoicesettingwidget.cpp; sourceTree = "<group>"; };
+		1DDAEAA257438C21E613AF67 /* rc_settingpage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_settingpage.h; path = ../include/visUI/rc_settingpage.h; sourceTree = "<group>"; };
+		21D488C33414EB8E9DC5BF4F /* rc_trackpanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_trackpanel.h; path = ../include/visUI/rc_trackpanel.h; sourceTree = "<group>"; };
+		21FB0F425676711D587152C5 /* rc_thumbwheelsettingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_thumbwheelsettingwidget.h; path = ../include/visUI/rc_thumbwheelsettingwidget.h; sourceTree = "<group>"; };
+		2273399F6B2E9BC3808657AE /* rc_timedisplay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_timedisplay.h; path = ../include/visUI/rc_timedisplay.h; sourceTree = "<group>"; };
+		25B4FD6F9E1EACD73006BF6C /* rc_textareasettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_textareasettingwidget.cpp; path = ../src/visible/qt/rc_textareasettingwidget.cpp; sourceTree = "<group>"; };
+		278B56A400663C3ABDC4AFA4 /* rc_statusbar.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_statusbar.cpp; path = ../src/visible/qt/rc_statusbar.cpp; sourceTree = "<group>"; };
+		2B134C17D17E10D8BCE2D2D3 /* moc_rc_thumbwheelsettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_thumbwheelsettingwidget.cpp; sourceTree = "<group>"; };
+		2B14A62CF91AFFEE258A5451 /* moc_rc_timedisplay.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_timedisplay.cpp; sourceTree = "<group>"; };
+		2BFC86AEE2E8499367822C3B /* rc_modifierkeys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_modifierkeys.h; path = ../include/visUI/rc_modifierkeys.h; sourceTree = "<group>"; };
+		2C58B5847B60E68CA34F8B73 /* moc_rc_modeldomain.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_modeldomain.cpp; sourceTree = "<group>"; };
+		321D6B413AC9095471D5D1F8 /* rc_trackgroupwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_trackgroupwidget.h; path = ../include/visUI/rc_trackgroupwidget.h; sourceTree = "<group>"; };
+		34DD72965BE0E6DAC303C703 /* rc_statusbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_statusbar.h; path = ../include/visUI/rc_statusbar.h; sourceTree = "<group>"; };
+		3596124F79C14785C1FB01EC /* rc_controlpanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_controlpanel.cpp; path = ../src/visible/qt/rc_controlpanel.cpp; sourceTree = "<group>"; };
+		39BC96FC525D3B4476DD44CD /* rc_settingpanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_settingpanel.cpp; path = ../src/visible/qt/rc_settingpanel.cpp; sourceTree = "<group>"; };
+		3C7C4B869E7C1AA105386B08 /* rc_timeline.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_timeline.cpp; path = ../src/visible/qt/rc_timeline.cpp; sourceTree = "<group>"; };
+		40C871226D88058C627313D9 /* moc_rc_choiceradiobutton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_choiceradiobutton.cpp; sourceTree = "<group>"; };
+		411C1AB248F68175665A1444 /* moc_rc_timeline.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_timeline.cpp; sourceTree = "<group>"; };
+		4421BA64B2C91645F97FADC5 /* moc_rc_monitor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_monitor.cpp; sourceTree = "<group>"; };
+		472618268CD8766B04298B83 /* moc_rc_trackpanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_trackpanel.cpp; sourceTree = "<group>"; };
+		477FCD223B4C666B6B8B21F1 /* moc_rc_scalartrackwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_scalartrackwidget.cpp; sourceTree = "<group>"; };
+		4C8D20EF0A9A30E75CA6BCAC /* moc_rc_textareasettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_textareasettingwidget.cpp; sourceTree = "<group>"; };
+		4F32ACD5A77049E4FEB8EC70 /* moc_rc_controlpanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_controlpanel.cpp; sourceTree = "<group>"; };
+		54B8C5EBC7A3958B70C265A2 /* rc_menuchoicesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_menuchoicesettingwidget.cpp; path = ../src/visible/qt/rc_menuchoicesettingwidget.cpp; sourceTree = "<group>"; };
+		5C1D1EB97114AE09D1949A1A /* moc_rc_settingpanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_settingpanel.cpp; sourceTree = "<group>"; };
+		60B72249F361373E1A489C12 /* rc_textlinesettingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_textlinesettingwidget.h; path = ../include/visUI/rc_textlinesettingwidget.h; sourceTree = "<group>"; };
+		6315DC79E03823085876C601 /* rc_modifierkeys.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_modifierkeys.cpp; path = ../src/visible/qt/rc_modifierkeys.cpp; sourceTree = "<group>"; };
+		65203BB9200EEE862DBFF68A /* rc_filechoicesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_filechoicesettingwidget.cpp; path = ../src/visible/qt/rc_filechoicesettingwidget.cpp; sourceTree = "<group>"; };
+		674EA924905BD171FA636C52 /* rc_numericchoicesettingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_numericchoicesettingwidget.h; path = ../include/visUI/rc_numericchoicesettingwidget.h; sourceTree = "<group>"; };
+		68BC763C5971A1A6B5C3CE42 /* rc_checkboxsettingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_checkboxsettingwidget.h; path = ../include/visUI/rc_checkboxsettingwidget.h; sourceTree = "<group>"; };
+		6C41DBC1CB98A0C6E8F8D0F9 /* rc_frameratechoicesettingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_frameratechoicesettingwidget.h; path = ../include/visUI/rc_frameratechoicesettingwidget.h; sourceTree = "<group>"; };
+		6D3C24F12A90BC53C660B906 /* rc_thumbwheelsettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_thumbwheelsettingwidget.cpp; path = ../src/visible/qt/rc_thumbwheelsettingwidget.cpp; sourceTree = "<group>"; };
+		707F926DC33FE0FF87C24FD4 /* rc_scalartrackwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_scalartrackwidget.h; path = ../include/visUI/rc_scalartrackwidget.h; sourceTree = "<group>"; };
+		720964A450FE1D05936D38CF /* rc_controlpanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_controlpanel.h; path = ../include/visUI/rc_controlpanel.h; sourceTree = "<group>"; };
+		781E6DE95CCF2B45407A1280 /* moc_rc_statusbar.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_statusbar.cpp; sourceTree = "<group>"; };
+		7B9E4C6DED975D4AD48F625D /* rc_monitor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_monitor.cpp; path = ../src/visible/qt/rc_monitor.cpp; sourceTree = "<group>"; };
+		7BC2E65A5E699A5E5D834CA2 /* QtCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtCore.framework; path = /Library/Frameworks/QtCore.framework; sourceTree = "<absolute>"; };
+		7CE74C21FB6BDB2EE7042A0C /* rc_numericchoicesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_numericchoicesettingwidget.cpp; path = ../src/visible/qt/rc_numericchoicesettingwidget.cpp; sourceTree = "<group>"; };
+		7D8EB18C5C85E905D49469CF /* rc_appconstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_appconstants.h; path = ../include/visUI/rc_appconstants.h; sourceTree = "<group>"; };
+		7F2E1F46DA2BDC2528DC283F /* moc_rc_about.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_about.cpp; sourceTree = "<group>"; };
+		800DC475143991A536F3D0CB /* rc_playbacksettingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_playbacksettingwidget.h; path = ../include/visUI/rc_playbacksettingwidget.h; sourceTree = "<group>"; };
+		806B8CD4753BCE02D8AF95AC /* rc_xmlparser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_xmlparser.h; path = ../include/visUI/rc_xmlparser.h; sourceTree = "<group>"; };
+		8292F4694E49666C1B847727 /* rc_trackrender.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_trackrender.cpp; path = ../src/visible/qt/rc_trackrender.cpp; sourceTree = "<group>"; };
+		832ECBEE43241F4529528CE8 /* rc_settingpanel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_settingpanel.h; path = ../include/visUI/rc_settingpanel.h; sourceTree = "<group>"; };
+		84DF408596C3355FD60CB8A9 /* moc_rc_trackmanager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_trackmanager.cpp; sourceTree = "<group>"; };
+		8648284FC4BB73CD05D09999 /* rc_textareasettingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_textareasettingwidget.h; path = ../include/visUI/rc_textareasettingwidget.h; sourceTree = "<group>"; };
+		87D14F14816855898424BE60 /* rc_trackpanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_trackpanel.cpp; path = ../src/visible/qt/rc_trackpanel.cpp; sourceTree = "<group>"; };
+		8804314A6DFD7C5B43B0E840 /* moc_rc_rectsettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_rectsettingwidget.cpp; sourceTree = "<group>"; };
+		8E3E92C9FBB124D4EE027F77 /* rc_textchoicesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_textchoicesettingwidget.cpp; path = ../src/visible/qt/rc_textchoicesettingwidget.cpp; sourceTree = "<group>"; };
+		8EE92F8FA333C9E415C5B34E /* QtXml.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtXml.framework; path = /Library/Frameworks/QtXml.framework; sourceTree = "<absolute>"; };
+		94097E9DF3851A4001D7C096 /* rc_menuchoicesettingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_menuchoicesettingwidget.h; path = ../include/visUI/rc_menuchoicesettingwidget.h; sourceTree = "<group>"; };
+		958D156F44586DCB350F0FAB /* moc_rc_menuchoicesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_menuchoicesettingwidget.cpp; sourceTree = "<group>"; };
+		98B73215A70C6C32407186C7 /* rc_checkboxsettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_checkboxsettingwidget.cpp; path = ../src/visible/qt/rc_checkboxsettingwidget.cpp; sourceTree = "<group>"; };
+		98EE742517ED706C338F2042 /* rc_radiochoicesettingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_radiochoicesettingwidget.h; path = ../include/visUI/rc_radiochoicesettingwidget.h; sourceTree = "<group>"; };
+		9A4962E09EE7E2D7C62B75A2 /* rc_choiceradiobutton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_choiceradiobutton.h; path = ../include/visUI/rc_choiceradiobutton.h; sourceTree = "<group>"; };
+		9B36DA7E32F0304E780E7972 /* QtGui.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtGui.framework; path = /Library/Frameworks/QtGui.framework; sourceTree = "<absolute>"; };
+		A278A5D9BBEE4E3A7DD5C23E /* rc_trackmanager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_trackmanager.h; path = ../include/visUI/rc_trackmanager.h; sourceTree = "<group>"; };
+		A317E8F17E8C358AF5B21B63 /* moc_rc_settingpage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_settingpage.cpp; sourceTree = "<group>"; };
+		A40C0B939C413FCA90288BC8 /* moc_rc_filesavesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_filesavesettingwidget.cpp; sourceTree = "<group>"; };
+		A7958F1443235E170A4574A5 /* rc_filechoicesettingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_filechoicesettingwidget.h; path = ../include/visUI/rc_filechoicesettingwidget.h; sourceTree = "<group>"; };
+		A83336865662024239F448C9 /* moc_rc_numericchoicesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_numericchoicesettingwidget.cpp; sourceTree = "<group>"; };
+		A989E23704F90CB69C92461D /* rc_textedit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_textedit.h; path = ../include/visUI/rc_textedit.h; sourceTree = "<group>"; };
+		AAAB85F8E287E76691A5ABFB /* rc_frameratechoicesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_frameratechoicesettingwidget.cpp; path = ../src/visible/qt/rc_frameratechoicesettingwidget.cpp; sourceTree = "<group>"; };
+		AB52C34CB4C351ACB3D05237 /* Qt3Support.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Qt3Support.framework; path = /Library/Frameworks/Qt3Support.framework; sourceTree = "<absolute>"; };
+		B09232AE5D0FA20CA7BC3BAA /* rc_filesavesettingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_filesavesettingwidget.h; path = ../include/visUI/rc_filesavesettingwidget.h; sourceTree = "<group>"; };
+		B10FA6BCE461EBFA9F2B250E /* rc_about.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_about.h; path = ../include/visUI/rc_about.h; sourceTree = "<group>"; };
+		B1F15352A55EC00623478D2A /* moc_rc_filechoicesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_filechoicesettingwidget.cpp; sourceTree = "<group>"; };
+		B32EE345D39C2737E5584A2A /* rc_spinboxsettingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_spinboxsettingwidget.h; path = ../include/visUI/rc_spinboxsettingwidget.h; sourceTree = "<group>"; };
+		B524998080459A8535EF173A /* rc_playbacksettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_playbacksettingwidget.cpp; path = ../src/visible/qt/rc_playbacksettingwidget.cpp; sourceTree = "<group>"; };
+		B6B9970B86A6C219B0869FE9 /* QtNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtNetwork.framework; path = /Library/Frameworks/QtNetwork.framework; sourceTree = "<absolute>"; };
+		BA514D758C62D07B5BD45483 /* rc_rectsettingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_rectsettingwidget.h; path = ../include/visUI/rc_rectsettingwidget.h; sourceTree = "<group>"; };
+		BD5A7525643E0D515246DC68 /* moc_rc_radiochoicesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_radiochoicesettingwidget.cpp; sourceTree = "<group>"; };
+		BEC1BE27941D86F83238FFC3 /* rc_customeventmanager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_customeventmanager.h; path = ../include/visUI/rc_customeventmanager.h; sourceTree = "<group>"; };
+		C26A610D18EB66D2009E96C5 /* rc_main_window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = rc_main_window.cpp; path = ../src/visible/qt/rc_main_window.cpp; sourceTree = "<group>"; };
+		C26A610E18EB66D2009E96C5 /* lpwidget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lpwidget.cpp; path = ../src/visible/qt/lpwidget.cpp; sourceTree = "<group>"; };
+		C26A611118EB670E009E96C5 /* rc_main_window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rc_main_window.h; path = ../include/visUI/rc_main_window.h; sourceTree = "<group>"; };
+		C26A611318EB670E009E96C5 /* lpwidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lpwidget.h; path = ../include/visUI/lpwidget.h; sourceTree = "<group>"; };
+		C2924EC518EB630300623875 /* visible_qt_moc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = visible_qt_moc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2B02E55BC6EA9CC9E63AB3F /* rc_scalartrackwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_scalartrackwidget.cpp; path = ../src/visible/qt/rc_scalartrackwidget.cpp; sourceTree = "<group>"; };
+		C2FD2DA60A1B8CF9D188B1A2 /* rc_settingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_settingwidget.cpp; path = ../src/visible/qt/rc_settingwidget.cpp; sourceTree = "<group>"; };
+		C46E03290354345AACF102CC /* rc_about.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_about.cpp; path = ../src/visible/qt/rc_about.cpp; sourceTree = "<group>"; };
+		C8DFC2FDED823F1A2389BA90 /* rc_settingwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_settingwidget.h; path = ../include/visUI/rc_settingwidget.h; sourceTree = "<group>"; };
+		CC2ADE3C3109619744154C0B /* rc_spinboxsettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_spinboxsettingwidget.cpp; path = ../src/visible/qt/rc_spinboxsettingwidget.cpp; sourceTree = "<group>"; };
+		CC89039B9D7DAEEC8D7154E3 /* moc_rc_textedit.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_textedit.cpp; sourceTree = "<group>"; };
+		CC8A36F892034F52B2AA2688 /* moc_rc_checkboxsettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_checkboxsettingwidget.cpp; sourceTree = "<group>"; };
+		CEAD789589407FE0A70AD565 /* moc_rc_settingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_settingwidget.cpp; sourceTree = "<group>"; };
+		D636F94A99526702C06F2867 /* rc_customeventmanager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_customeventmanager.cpp; path = ../src/visible/qt/rc_customeventmanager.cpp; sourceTree = "<group>"; };
+		D7F191C6DF638183459D5489 /* moc_rc_spinboxsettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_spinboxsettingwidget.cpp; sourceTree = "<group>"; };
+		DCD1237C57E984CDE52CCD67 /* moc_rc_playbacksettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_playbacksettingwidget.cpp; sourceTree = "<group>"; };
+		DCF32E2779900B02C01BB426 /* visible_qt_moc.pro */ = {isa = PBXFileReference; lastKnownFileType = text; path = visible_qt_moc.pro; sourceTree = "<group>"; };
+		E0814A49DDD73EF0F620E7DB /* QtSql.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtSql.framework; path = /Library/Frameworks/QtSql.framework; sourceTree = "<absolute>"; };
+		E22AB11A9C2B19D3FAE04AB9 /* rc_xmlparser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_xmlparser.cpp; path = ../src/visible/qt/rc_xmlparser.cpp; sourceTree = "<group>"; };
+		EF1436A32DB15C649E88DEC2 /* rc_imagecanvasgl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_imagecanvasgl.h; path = ../include/visUI/rc_imagecanvasgl.h; sourceTree = "<group>"; };
+		EF1EAF7E04F2B5CFC2395EB5 /* moc_rc_textlinesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_textlinesettingwidget.cpp; sourceTree = "<group>"; };
+		F1160CBC4080BD1854BC2450 /* rc_modeldomain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_modeldomain.h; path = ../include/visUI/rc_modeldomain.h; sourceTree = "<group>"; };
+		F12D715DE12BBD6A2051ABE9 /* rc_trackmanager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_trackmanager.cpp; path = ../src/visible/qt/rc_trackmanager.cpp; sourceTree = "<group>"; };
+		F8E97B778DAD4A34684F94CA /* rc_imagecanvasgl.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_imagecanvasgl.cpp; path = ../src/visible/qt/rc_imagecanvasgl.cpp; sourceTree = "<group>"; };
+		F9246E885A3E86AF6327974C /* rc_trackrender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = rc_trackrender.h; path = ../include/visUI/rc_trackrender.h; sourceTree = "<group>"; };
+		FAC1C6FC153038B34DA3BE89 /* moc_rc_textchoicesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_rc_textchoicesettingwidget.cpp; sourceTree = "<group>"; };
+		FD04F2C851908222BE4408EF /* rc_filesavesettingwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_filesavesettingwidget.cpp; path = ../src/visible/qt/rc_filesavesettingwidget.cpp; sourceTree = "<group>"; };
+		FD3A2BB79B757287ED925E7F /* rc_settingpage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = rc_settingpage.cpp; path = ../src/visible/qt/rc_settingpage.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2A1043669E6E5A7426EA502A /* Frameworks & Libraries */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				031AE02E6E5EF32803F3428D /* Qt3Support.framework in Frameworks & Libraries */,
+				C78BFE0DD4D0FC1F4B157F30 /* QtSql.framework in Frameworks & Libraries */,
+				C2643FEB592DBFD1429BE4E1 /* QtXml.framework in Frameworks & Libraries */,
+				3826A0833FCB54E86728C6EF /* QtNetwork.framework in Frameworks & Libraries */,
+				501667F26B3C1FF6767A7C12 /* QtGui.framework in Frameworks & Libraries */,
+				069D05B0128AE5DC7EE31738 /* QtCore.framework in Frameworks & Libraries */,
+			);
+			name = "Frameworks & Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05596AB53D8D521C69802C27 /* visible_qt_moc */ = {
+			isa = PBXGroup;
+			children = (
+				FB61758D0F0FDA4BA867C3D5 /* Sources */,
+				46E892BBB6BB6952967E0561 /* Temporary Sources */,
+				883D7615C4D2DE3FA1218F12 /* Headers */,
+				7CABE3C80E79AD2B307756D2 /* Sources [qmake] */,
+				ED1E82605DD74B483AF3C982 /* External Frameworks and Libraries */,
+				C2924EC618EB630300623875 /* Products */,
+			);
+			name = visible_qt_moc;
+			sourceTree = "<group>";
+		};
+		0F73C394E9210BDF371C4C2A /* qt */ = {
+			isa = PBXGroup;
+			children = (
+				C26A610D18EB66D2009E96C5 /* rc_main_window.cpp */,
+				C26A610E18EB66D2009E96C5 /* lpwidget.cpp */,
+				C46E03290354345AACF102CC /* rc_about.cpp */,
+				C2FD2DA60A1B8CF9D188B1A2 /* rc_settingwidget.cpp */,
+				98B73215A70C6C32407186C7 /* rc_checkboxsettingwidget.cpp */,
+				3596124F79C14785C1FB01EC /* rc_controlpanel.cpp */,
+				65203BB9200EEE862DBFF68A /* rc_filechoicesettingwidget.cpp */,
+				FD04F2C851908222BE4408EF /* rc_filesavesettingwidget.cpp */,
+				54B8C5EBC7A3958B70C265A2 /* rc_menuchoicesettingwidget.cpp */,
+				0C8B74071344577372F7E58E /* rc_modeldomain.cpp */,
+				6315DC79E03823085876C601 /* rc_modifierkeys.cpp */,
+				7B9E4C6DED975D4AD48F625D /* rc_monitor.cpp */,
+				02740E953853AE60778D30CE /* rc_radiochoicesettingwidget.cpp */,
+				FD3A2BB79B757287ED925E7F /* rc_settingpage.cpp */,
+				39BC96FC525D3B4476DD44CD /* rc_settingpanel.cpp */,
+				25B4FD6F9E1EACD73006BF6C /* rc_textareasettingwidget.cpp */,
+				0259307562B78323403AB8D0 /* rc_textlinesettingwidget.cpp */,
+				0E8CB4076C8C181CA483870E /* rc_rectsettingwidget.cpp */,
+				C2B02E55BC6EA9CC9E63AB3F /* rc_scalartrackwidget.cpp */,
+				87D14F14816855898424BE60 /* rc_trackpanel.cpp */,
+				F12D715DE12BBD6A2051ABE9 /* rc_trackmanager.cpp */,
+				3C7C4B869E7C1AA105386B08 /* rc_timeline.cpp */,
+				278B56A400663C3ABDC4AFA4 /* rc_statusbar.cpp */,
+				CC2ADE3C3109619744154C0B /* rc_spinboxsettingwidget.cpp */,
+				AAAB85F8E287E76691A5ABFB /* rc_frameratechoicesettingwidget.cpp */,
+				1510EF3F52FDF7518F691E7E /* rc_trackgroupwidget.cpp */,
+				E22AB11A9C2B19D3FAE04AB9 /* rc_xmlparser.cpp */,
+				B524998080459A8535EF173A /* rc_playbacksettingwidget.cpp */,
+				D636F94A99526702C06F2867 /* rc_customeventmanager.cpp */,
+				F8E97B778DAD4A34684F94CA /* rc_imagecanvasgl.cpp */,
+				6D3C24F12A90BC53C660B906 /* rc_thumbwheelsettingwidget.cpp */,
+				8E3E92C9FBB124D4EE027F77 /* rc_textchoicesettingwidget.cpp */,
+				7CE74C21FB6BDB2EE7042A0C /* rc_numericchoicesettingwidget.cpp */,
+				8292F4694E49666C1B847727 /* rc_trackrender.cpp */,
+			);
+			name = qt;
+			sourceTree = "<group>";
+		};
+		2C625DD7F0D3FBBDD1702AA4 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				4F12CEF779CB343A056BD971 /* visUI */,
+			);
+			name = include;
+			sourceTree = "<group>";
+		};
+		4458B98565818D7E2682FA2D /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				2C625DD7F0D3FBBDD1702AA4 /* include */,
+			);
+			name = ..;
+			sourceTree = "<group>";
+		};
+		46E892BBB6BB6952967E0561 /* Temporary Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7F2E1F46DA2BDC2528DC283F /* moc_rc_about.cpp */,
+				CEAD789589407FE0A70AD565 /* moc_rc_settingwidget.cpp */,
+				CC8A36F892034F52B2AA2688 /* moc_rc_checkboxsettingwidget.cpp */,
+				40C871226D88058C627313D9 /* moc_rc_choiceradiobutton.cpp */,
+				4F32ACD5A77049E4FEB8EC70 /* moc_rc_controlpanel.cpp */,
+				B1F15352A55EC00623478D2A /* moc_rc_filechoicesettingwidget.cpp */,
+				A40C0B939C413FCA90288BC8 /* moc_rc_filesavesettingwidget.cpp */,
+				014B5A2F44E677F4706987B4 /* moc_rc_lineedit.cpp */,
+				03E97F30A6CC9E59DAD66A48 /* moc_rc_mainwindow.cpp */,
+				958D156F44586DCB350F0FAB /* moc_rc_menuchoicesettingwidget.cpp */,
+				2C58B5847B60E68CA34F8B73 /* moc_rc_modeldomain.cpp */,
+				4421BA64B2C91645F97FADC5 /* moc_rc_monitor.cpp */,
+				BD5A7525643E0D515246DC68 /* moc_rc_radiochoicesettingwidget.cpp */,
+				A317E8F17E8C358AF5B21B63 /* moc_rc_settingpage.cpp */,
+				5C1D1EB97114AE09D1949A1A /* moc_rc_settingpanel.cpp */,
+				4C8D20EF0A9A30E75CA6BCAC /* moc_rc_textareasettingwidget.cpp */,
+				CC89039B9D7DAEEC8D7154E3 /* moc_rc_textedit.cpp */,
+				EF1EAF7E04F2B5CFC2395EB5 /* moc_rc_textlinesettingwidget.cpp */,
+				2B14A62CF91AFFEE258A5451 /* moc_rc_timedisplay.cpp */,
+				8804314A6DFD7C5B43B0E840 /* moc_rc_rectsettingwidget.cpp */,
+				477FCD223B4C666B6B8B21F1 /* moc_rc_scalartrackwidget.cpp */,
+				472618268CD8766B04298B83 /* moc_rc_trackpanel.cpp */,
+				84DF408596C3355FD60CB8A9 /* moc_rc_trackmanager.cpp */,
+				411C1AB248F68175665A1444 /* moc_rc_timeline.cpp */,
+				781E6DE95CCF2B45407A1280 /* moc_rc_statusbar.cpp */,
+				D7F191C6DF638183459D5489 /* moc_rc_spinboxsettingwidget.cpp */,
+				1DCA921CA8CB003C37244FED /* moc_rc_frameratechoicesettingwidget.cpp */,
+				15E2C36093691F59E074F69D /* moc_rc_trackgroupwidget.cpp */,
+				DCD1237C57E984CDE52CCD67 /* moc_rc_playbacksettingwidget.cpp */,
+				193BFAE451E8AF73D9FAB225 /* moc_rc_imagecanvasgl.cpp */,
+				18876D690A6ADA535F391A1F /* moc_rc_cellinfowidget.cpp */,
+				2B134C17D17E10D8BCE2D2D3 /* moc_rc_thumbwheelsettingwidget.cpp */,
+				FAC1C6FC153038B34DA3BE89 /* moc_rc_textchoicesettingwidget.cpp */,
+				A83336865662024239F448C9 /* moc_rc_numericchoicesettingwidget.cpp */,
+			);
+			name = "Temporary Sources";
+			sourceTree = "<group>";
+		};
+		4F12CEF779CB343A056BD971 /* visUI */ = {
+			isa = PBXGroup;
+			children = (
+				C26A611118EB670E009E96C5 /* rc_main_window.h */,
+				C26A611318EB670E009E96C5 /* lpwidget.h */,
+				B10FA6BCE461EBFA9F2B250E /* rc_about.h */,
+				7D8EB18C5C85E905D49469CF /* rc_appconstants.h */,
+				C8DFC2FDED823F1A2389BA90 /* rc_settingwidget.h */,
+				68BC763C5971A1A6B5C3CE42 /* rc_checkboxsettingwidget.h */,
+				9A4962E09EE7E2D7C62B75A2 /* rc_choiceradiobutton.h */,
+				720964A450FE1D05936D38CF /* rc_controlpanel.h */,
+				A7958F1443235E170A4574A5 /* rc_filechoicesettingwidget.h */,
+				B09232AE5D0FA20CA7BC3BAA /* rc_filesavesettingwidget.h */,
+				0787F4A2A0916E026E3D3CB7 /* rc_lineedit.h */,
+				94097E9DF3851A4001D7C096 /* rc_menuchoicesettingwidget.h */,
+				F1160CBC4080BD1854BC2450 /* rc_modeldomain.h */,
+				2BFC86AEE2E8499367822C3B /* rc_modifierkeys.h */,
+				062D0D9CC80EE541623F054A /* rc_monitor.h */,
+				98EE742517ED706C338F2042 /* rc_radiochoicesettingwidget.h */,
+				1DDAEAA257438C21E613AF67 /* rc_settingpage.h */,
+				832ECBEE43241F4529528CE8 /* rc_settingpanel.h */,
+				8648284FC4BB73CD05D09999 /* rc_textareasettingwidget.h */,
+				A989E23704F90CB69C92461D /* rc_textedit.h */,
+				60B72249F361373E1A489C12 /* rc_textlinesettingwidget.h */,
+				2273399F6B2E9BC3808657AE /* rc_timedisplay.h */,
+				BA514D758C62D07B5BD45483 /* rc_rectsettingwidget.h */,
+				707F926DC33FE0FF87C24FD4 /* rc_scalartrackwidget.h */,
+				21D488C33414EB8E9DC5BF4F /* rc_trackpanel.h */,
+				A278A5D9BBEE4E3A7DD5C23E /* rc_trackmanager.h */,
+				0204E87A82E0778323FD1B3E /* rc_timeline.h */,
+				34DD72965BE0E6DAC303C703 /* rc_statusbar.h */,
+				B32EE345D39C2737E5584A2A /* rc_spinboxsettingwidget.h */,
+				6C41DBC1CB98A0C6E8F8D0F9 /* rc_frameratechoicesettingwidget.h */,
+				321D6B413AC9095471D5D1F8 /* rc_trackgroupwidget.h */,
+				806B8CD4753BCE02D8AF95AC /* rc_xmlparser.h */,
+				800DC475143991A536F3D0CB /* rc_playbacksettingwidget.h */,
+				BEC1BE27941D86F83238FFC3 /* rc_customeventmanager.h */,
+				EF1436A32DB15C649E88DEC2 /* rc_imagecanvasgl.h */,
+				184ECAA4E291ADB3FEEFB83D /* rc_cellinfowidget.h */,
+				21FB0F425676711D587152C5 /* rc_thumbwheelsettingwidget.h */,
+				01628C3E01A0CC15A1DD1033 /* rc_textchoicesettingwidget.h */,
+				674EA924905BD171FA636C52 /* rc_numericchoicesettingwidget.h */,
+				F9246E885A3E86AF6327974C /* rc_trackrender.h */,
+			);
+			name = visUI;
+			sourceTree = "<group>";
+		};
+		58044B046310C858CE5E1612 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				E630EE85CA93FEFF2E6E8618 /* visible */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		7CABE3C80E79AD2B307756D2 /* Sources [qmake] */ = {
+			isa = PBXGroup;
+			children = (
+				DCF32E2779900B02C01BB426 /* visible_qt_moc.pro */,
+			);
+			name = "Sources [qmake]";
+			sourceTree = "<group>";
+		};
+		883D7615C4D2DE3FA1218F12 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				4458B98565818D7E2682FA2D /* .. */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		BFA3A29D17FD123C907B6E35 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				58044B046310C858CE5E1612 /* src */,
+			);
+			name = ..;
+			sourceTree = "<group>";
+		};
+		C2924EC618EB630300623875 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C2924EC518EB630300623875 /* visible_qt_moc.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E630EE85CA93FEFF2E6E8618 /* visible */ = {
+			isa = PBXGroup;
+			children = (
+				0F73C394E9210BDF371C4C2A /* qt */,
+			);
+			name = visible;
+			sourceTree = "<group>";
+		};
+		ED1E82605DD74B483AF3C982 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				AB52C34CB4C351ACB3D05237 /* Qt3Support.framework */,
+				E0814A49DDD73EF0F620E7DB /* QtSql.framework */,
+				8EE92F8FA333C9E415C5B34E /* QtXml.framework */,
+				B6B9970B86A6C219B0869FE9 /* QtNetwork.framework */,
+				9B36DA7E32F0304E780E7972 /* QtGui.framework */,
+				7BC2E65A5E699A5E5D834CA2 /* QtCore.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		FB61758D0F0FDA4BA867C3D5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				BFA3A29D17FD123C907B6E35 /* .. */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D0C5BCAED3DA24ECEB8EFD0C /* visible_qt_moc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2924EDC18EB633800623875 /* Build configuration list for PBXNativeTarget "visible_qt_moc" */;
+			buildPhases = (
+				D7BA7D76DAB5DD13389D6332 /* Qt Qmake */,
+				A0A52A2ADF7A1E2A99738674 /* Qt Preprocessors */,
+				F6069D5A5DA8AA28EDB8B3C6 /* Project Copy */,
+				C29B8785722055ED95EF7B57 /* Build Sources */,
+				2A1043669E6E5A7426EA502A /* Frameworks & Libraries */,
+				3787F99312C85FF0073FD7BA /* Bundle Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = visible_qt_moc;
+			productName = visible_qt_moc;
+			productReference = C2924EC518EB630300623875 /* visible_qt_moc.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		91B15E841AA80083484172DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = 2A951308CDB28F104D0A4BD2 /* Build configuration list for PBXProject "visible_qt_moc" */;
+			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 05596AB53D8D521C69802C27 /* visible_qt_moc */;
+			productRefGroup = C2924EC618EB630300623875 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D0C5BCAED3DA24ECEB8EFD0C /* visible_qt_moc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3787F99312C85FF0073FD7BA /* Bundle Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "Bundle Resources";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A0A52A2ADF7A1E2A99738674 /* Qt Preprocessors */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "Qt Preprocessors";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C $(BUILD_ROOT) -f visible_qt_moc.xcodeproj/qt_preprocess.mak";
+		};
+		D7BA7D76DAB5DD13389D6332 /* Qt Qmake */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "Qt Qmake";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C $(BUILD_ROOT) -f visible_qt_moc.xcodeproj/qt_makeqmake.mak";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C29B8785722055ED95EF7B57 /* Build Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				822E948E21EEAF532B830A40 /* rc_about.cpp in Build Sources */,
+				9FD222D3627B9EA3832068D8 /* rc_settingwidget.cpp in Build Sources */,
+				33A2D84DFB462A4CB33368EA /* rc_checkboxsettingwidget.cpp in Build Sources */,
+				2FC92ED40E58EC5896E8E74F /* rc_controlpanel.cpp in Build Sources */,
+				CA8E3E546BDDA2B9F0D743AE /* rc_filechoicesettingwidget.cpp in Build Sources */,
+				8B5EAFBD96F5AAEA326D12DC /* rc_filesavesettingwidget.cpp in Build Sources */,
+				53F1EA62335B296329866CF9 /* rc_menuchoicesettingwidget.cpp in Build Sources */,
+				99E4BE0259C88257927AB1CE /* rc_modeldomain.cpp in Build Sources */,
+				0C92E8BCF7BBC76981966186 /* rc_modifierkeys.cpp in Build Sources */,
+				3FFE8ADE0A43C87C6E357FEE /* rc_monitor.cpp in Build Sources */,
+				5F17CA243762AF9DCEC28CF0 /* rc_radiochoicesettingwidget.cpp in Build Sources */,
+				0F910BF76C72C72264692B83 /* rc_settingpage.cpp in Build Sources */,
+				8EC68C0A0C89E7DA866B7F0A /* rc_settingpanel.cpp in Build Sources */,
+				4ACD9DDCB030AD397050BBC5 /* rc_textareasettingwidget.cpp in Build Sources */,
+				59DCB1550CA3B34C3D322F40 /* rc_textlinesettingwidget.cpp in Build Sources */,
+				68B3B5C3ED4533540725A47E /* rc_rectsettingwidget.cpp in Build Sources */,
+				FD12462A9D404815E4231934 /* rc_scalartrackwidget.cpp in Build Sources */,
+				7133B43E2B1F083E8CBA4049 /* rc_trackpanel.cpp in Build Sources */,
+				59F5EB6CBEC1B88ACCECE78F /* rc_trackmanager.cpp in Build Sources */,
+				03EA959255464FA43B98EF29 /* rc_timeline.cpp in Build Sources */,
+				B73C805166868AD13E6D0C66 /* rc_statusbar.cpp in Build Sources */,
+				80D0A49F5C163ADBC201199B /* rc_spinboxsettingwidget.cpp in Build Sources */,
+				EBF4EE9E7EAD354EA1B88567 /* rc_frameratechoicesettingwidget.cpp in Build Sources */,
+				3816570EE45884F89E3C7046 /* rc_trackgroupwidget.cpp in Build Sources */,
+				7E82CBED6AB622361DB7763E /* rc_xmlparser.cpp in Build Sources */,
+				BD433D6B888C602644487BE7 /* rc_playbacksettingwidget.cpp in Build Sources */,
+				3CFFA41B3587A79880E576D9 /* rc_customeventmanager.cpp in Build Sources */,
+				67A26EB2292632BE65925502 /* rc_imagecanvasgl.cpp in Build Sources */,
+				959A7BE7D7DBDC3591484FC1 /* rc_thumbwheelsettingwidget.cpp in Build Sources */,
+				555679880AE1FC46D3A4627C /* rc_textchoicesettingwidget.cpp in Build Sources */,
+				9D105D3F16866270E6ECFEDF /* rc_numericchoicesettingwidget.cpp in Build Sources */,
+				ACEC82FC64890969CF6AF591 /* rc_trackrender.cpp in Build Sources */,
+				C26A610F18EB66D2009E96C5 /* rc_main_window.cpp in Build Sources */,
+				C26A611018EB66D2009E96C5 /* lpwidget.cpp in Build Sources */,
+			);
+			name = "Build Sources";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8DB1DD96F65B1BF1FFC506E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+			};
+			name = Debug;
+		};
+		95E1EB2E5DDD587BE5B3E548 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+			};
+			name = Release;
+		};
+		C2924ED818EB630600623875 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = i386;
+				BUILD_ROOT = /Users/arman/gwc/vqt105/visibleqt105/build_scripts;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1.0;
+				DYLIB_CURRENT_VERSION = 1.0.0;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					../include/util,
+					../include/visual,
+					../include/analysis,
+					../include/stlplus,
+					../include/test,
+					../include/baseUI,
+					../include/visUI,
+					/usr/local/include,
+					/System/Library/Frameworks/CarbonCore.framework/Headers,
+					../include/visiCore,
+					../usr/local/Qt/4.8.3/include,
+					../usr/local/boost/include,
+					../usr/local/OpenCv_2.4.8/include,
+					../usr/local/Cinder/include,
+					../usr/local/lightplot_i386/include,
+				);
+				INFOPLIST_FILE = Info.plist;
+				LEXFLAGS = "";
+				LIBRARY_SEARCH_PATHS = /Library/Frameworks;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				OBJROOT = "$(BUILD_ROOT)/../build/qt_moc/$(CONFIGURATION)";
+				OTHER_CFLAGS = (
+					"-pipe",
+					"-g",
+					"-Wall",
+					"-W",
+					"-Drc_build_option_capture",
+					"-Drc_build_option_aci",
+					"-Drc_build_option_morphometry",
+					"-Drc_build_option_paced_myocyte",
+					"-Drc_build_option_selected_myocyte",
+					"-Drc_build_option_general_cell",
+					"-Drc_build_option_general_fluorescence",
+					"-Drc_build_option_cell_lineage",
+					"-DQT_QT3SUPPORT_LIB",
+					"-DQT3_SUPPORT",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+					"-DQT_SHARED",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-pipe",
+					"-g",
+					"-Wall",
+					"-W",
+					"-Drc_build_option_capture",
+					"-Drc_build_option_aci",
+					"-Drc_build_option_morphometry",
+					"-Drc_build_option_paced_myocyte",
+					"-Drc_build_option_selected_myocyte",
+					"-Drc_build_option_general_cell",
+					"-Drc_build_option_general_fluorescence",
+					"-Drc_build_option_cell_lineage",
+					"-DQT_QT3SUPPORT_LIB",
+					"-DQT3_SUPPORT",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+					"-DQT_SHARED",
+				);
+				OTHER_LDFLAGS = (
+					"-headerpad_max_install_names",
+					"-L/Library/Frameworks",
+					"-F/Library/Frameworks",
+				);
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = visible_qt_moc;
+				SDKROOT = macosx10.8;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "";
+				YACCFLAGS = "-d";
+			};
+			name = Debug;
+		};
+		C2924ED918EB630600623875 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = i386;
+				BUILD_ROOT = /Users/arman/gwc/vqt105/visibleqt105/build_scripts;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				COPY_PHASE_STRIP = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1.0;
+				DYLIB_CURRENT_VERSION = 1.0.0;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				HEADER_SEARCH_PATHS = (
+					../include/util,
+					../include/visual,
+					../include/analysis,
+					../include/stlplus,
+					../include/test,
+					../include/baseUI,
+					../include/visUI,
+					/usr/local/include,
+					/System/Library/Frameworks/CarbonCore.framework/Headers,
+					../include/visiCore,
+					../usr/local/Qt/4.8.3/include,
+					../usr/local/boost/include,
+					../usr/local/OpenCv_2.4.8/include,
+					../usr/local/Cinder/include,
+					../usr/local/lightplot_i386/include,
+				);
+				INFOPLIST_FILE = Info.plist;
+				LEXFLAGS = "";
+				LIBRARY_SEARCH_PATHS = /Library/Frameworks;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				OBJROOT = "$(BUILD_ROOT)/../build/qt_moc/$(CONFIGURATION)";
+				OTHER_CFLAGS = (
+					"-pipe",
+					"-g",
+					"-Wall",
+					"-W",
+					"-Drc_build_option_capture",
+					"-Drc_build_option_aci",
+					"-Drc_build_option_morphometry",
+					"-Drc_build_option_paced_myocyte",
+					"-Drc_build_option_selected_myocyte",
+					"-Drc_build_option_general_cell",
+					"-Drc_build_option_general_fluorescence",
+					"-Drc_build_option_cell_lineage",
+					"-DQT_QT3SUPPORT_LIB",
+					"-DQT3_SUPPORT",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+					"-DQT_SHARED",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-pipe",
+					"-g",
+					"-Wall",
+					"-W",
+					"-Drc_build_option_capture",
+					"-Drc_build_option_aci",
+					"-Drc_build_option_morphometry",
+					"-Drc_build_option_paced_myocyte",
+					"-Drc_build_option_selected_myocyte",
+					"-Drc_build_option_general_cell",
+					"-Drc_build_option_general_fluorescence",
+					"-Drc_build_option_cell_lineage",
+					"-DQT_QT3SUPPORT_LIB",
+					"-DQT3_SUPPORT",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+					"-DQT_SHARED",
+				);
+				OTHER_LDFLAGS = (
+					"-headerpad_max_install_names",
+					"-L/Library/Frameworks",
+					"-F/Library/Frameworks",
+				);
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = visible_qt_moc;
+				SDKROOT = macosx10.8;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "";
+				YACCFLAGS = "-d";
+			};
+			name = Release;
+		};
+		C2924EDA18EB630600623875 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = i386;
+				BUILD_ROOT = /Users/arman/gwc/vqt105/visibleqt105/build_scripts;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				DYLIB_COMPATIBILITY_VERSION = 1.0;
+				DYLIB_CURRENT_VERSION = 1.0.0;
+				HEADER_SEARCH_PATHS = (
+					../include/util,
+					../include/visual,
+					../include/analysis,
+					../include/stlplus,
+					../include/test,
+					../include/baseUI,
+					../include/visUI,
+					/usr/local/include,
+					/System/Library/Frameworks/CarbonCore.framework/Headers,
+					../include/visiCore,
+					../usr/local/Qt/4.8.3/include,
+					../usr/local/boost/include,
+					../usr/local/OpenCv_2.4.8/include,
+					../usr/local/Cinder/include,
+					../usr/local/lightplot_i386/include,
+				);
+				INFOPLIST_FILE = Info.plist;
+				LEXFLAGS = "";
+				LIBRARY_SEARCH_PATHS = /Library/Frameworks;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				OBJROOT = "$(BUILD_ROOT)/../build/qt_moc/$(CONFIGURATION)";
+				OTHER_CFLAGS = (
+					"-pipe",
+					"-g",
+					"-Wall",
+					"-W",
+					"-Drc_build_option_capture",
+					"-Drc_build_option_aci",
+					"-Drc_build_option_morphometry",
+					"-Drc_build_option_paced_myocyte",
+					"-Drc_build_option_selected_myocyte",
+					"-Drc_build_option_general_cell",
+					"-Drc_build_option_general_fluorescence",
+					"-Drc_build_option_cell_lineage",
+					"-DQT_QT3SUPPORT_LIB",
+					"-DQT3_SUPPORT",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+					"-DQT_SHARED",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-pipe",
+					"-g",
+					"-Wall",
+					"-W",
+					"-Drc_build_option_capture",
+					"-Drc_build_option_aci",
+					"-Drc_build_option_morphometry",
+					"-Drc_build_option_paced_myocyte",
+					"-Drc_build_option_selected_myocyte",
+					"-Drc_build_option_general_cell",
+					"-Drc_build_option_general_fluorescence",
+					"-Drc_build_option_cell_lineage",
+					"-DQT_QT3SUPPORT_LIB",
+					"-DQT3_SUPPORT",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+					"-DQT_SHARED",
+				);
+				OTHER_LDFLAGS = (
+					"-headerpad_max_install_names",
+					"-L/Library/Frameworks",
+					"-F/Library/Frameworks",
+				);
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = visible_qt_moc;
+				SDKROOT = macosx10.8;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "";
+				YACCFLAGS = "-d";
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2A951308CDB28F104D0A4BD2 /* Build configuration list for PBXProject "visible_qt_moc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DB1DD96F65B1BF1FFC506E0 /* Debug */,
+				95E1EB2E5DDD587BE5B3E548 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2924EDC18EB633800623875 /* Build configuration list for PBXNativeTarget "visible_qt_moc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2924ED818EB630600623875 /* Debug */,
+				C2924ED918EB630600623875 /* Release */,
+				C2924EDA18EB630600623875 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 91B15E841AA80083484172DE /* Project object */;
+}
