@@ -1,13 +1,14 @@
 #! /bin/bash
 
-usage="-d Directory -p XcodeProject -t Target -a Action -l Logfile"
+usage="-d Directory -p XcodeProject -t Target -a Action -c conf -l Logfile"
 
-while getopts ":d:p:t:a:l" options; do
+while getopts ":d:p:t:a:c:l" options; do
   case $options in
     d ) dirname=$OPTARG;;
     p ) project=$OPTARG;;
     t ) target=$OPTARG;;
     a ) action=$OPTARG;;
+    c ) conf=$OPTARG;;
     l ) _logfile=$OPTARG;;    
     h ) echo $usage;;
     \? ) echo $usage
@@ -21,18 +22,17 @@ done
 echo '===== BUILDING FILIE FOR DEPLOYMENT ====='
 echo 'Script:'$0
 if [ ! -d $dirname ]; then dirname = $pwd; fi
-    cd $dirname
-    project=$project".xcodeproj"
+    project=$dirname/xcode/$project".xcodeproj"
     echo 'Project Name: '$project
     if [ ! -d $project ]; then exit 0; fi
 
     echo "    xcodebuild -project $project -target $target $action  2>&1 & "
-    xcodebuild -project $project -target $target $action  2>&1 &
+    xcodebuild -project $project -target $target $action  -configuration $conf 2>&1 &
 
     
 ##    if [! -d "$project/build" ]; then exist 0; fi
 
-            cd build
+            cd $dirname/build
             echo '===== CREATING ARCHIVE ====='
 ## tar -czf Filie.tgz Filie.app
 

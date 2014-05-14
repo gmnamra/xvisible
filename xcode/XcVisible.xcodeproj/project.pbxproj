@@ -387,41 +387,9 @@
 			baseConfigurationReference = C2FB26FB1921C943003A48B7 /* cv_debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = CVisible_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = "";
-				HEADER_SEARCH_PATHS = (
-					"$(CINDER_PATH)/include",
-					"$(CINDER_PATH)/ciUI",
-					"$(BOOST_PATH)/include",
-					"$(OPENCV_PATH)/include",
-					"$(SRCROOT)/include",
-					"$(SRCROOT)/resources",
-				);
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib/Debug,
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = (
-					"\"$(CINDER_PATH)/lib/Debug/libcinder_d.a\"",
-					"\"$(CINDER_PATH)/lib/Debug/libaudio2_d.a\"",
-				);
 				PRODUCT_NAME = XcVisible;
-				SEPARATE_STRIP = NO;
 				SYMROOT = ./build;
 				WARNING_CFLAGS = "";
 				WRAPPER_EXTENSION = app;
@@ -433,39 +401,10 @@
 			baseConfigurationReference = C2765232191568C400EA3B55 /* cv_release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_FAST_MATH = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
-				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = CVisible_Prefix.pch;
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = "";
-				HEADER_SEARCH_PATHS = (
-					"$(CINDER_PATH)/include",
-					"$(CINDER_PATH)/ciUI",
-					"$(BOOST_PATH)/include",
-					"$(OPENCV_PATH)/include",
-					"$(SRCROOT)/include",
-					"$(SRCROOT)/resources",
-				);
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib/Release,
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = (
-					"\"$(CINDER_PATH)/lib/Release/libcinder.a\"",
-					"\"$(CINDER_PATH)/lib/Release/libaudio2.a\"",
-				);
 				PRODUCT_NAME = XcVisible;
-				SEPARATE_STRIP = NO;
-				STRIP_INSTALLED_PRODUCT = YES;
 				SYMROOT = ./build;
 				WARNING_CFLAGS = "";
 				WRAPPER_EXTENSION = app;
