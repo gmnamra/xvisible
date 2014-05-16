@@ -84,7 +84,8 @@ public:
         _has_content = fr == eFrameErrorOK;
         return has_content ();
     }
-    
+
+    int loadFrames( rcFrameGrabber& grabber, rcFrameGrabberError& error );
     bool has_content () const { return _has_content; }
     bool generate_ssm (int start_frame, int frames);
     int first_process_index () { return _analysisFirstFrame; } 
@@ -95,7 +96,7 @@ public:
     
 private:    
     int loadMovie( const std::string& movieFile, rcFrameGrabberError& error );
-    int loadFrames( rcFrameGrabber& grabber, rcFrameGrabberError& error );
+
     int loadImages();
     int loadMovie ();
 
@@ -225,6 +226,10 @@ int SimilarityProducer::spImpl::loadMovie( const std::string& movieFile, rcFrame
     return count;
 }
 
+int SimilarityProducer::load_content_grabber (rcFrameGrabber& grabber, rcFrameGrabberError& error)
+{
+    return _impl->loadFrames(grabber, error);
+}
 
 // Generic method to load frames from a rcFrameGrabber
 int SimilarityProducer::spImpl::loadFrames( rcFrameGrabber& grabber, rcFrameGrabberError& error )

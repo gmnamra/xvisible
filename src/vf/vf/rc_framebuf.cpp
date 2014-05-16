@@ -40,8 +40,7 @@ rcFrame::rcFrame() :
     mIsGray( 0 ),
     mOwnPixels (false),
     mCacheCtrl( 0 ),
-    mFrameIndex( 0 ),
-    mD32IsFloat (false)
+    mFrameIndex( 0 )
 {
 }
 
@@ -56,9 +55,7 @@ rcFrame::rcFrame( int32 width, int32 height, rcPixel depth, int32 alignMod) :
     mIsGray( false ),
     mOwnPixels (true),
     mCacheCtrl( 0 ),
-    mFrameIndex( 0 ),
-    mD32IsFloat (false)
-
+    mFrameIndex( 0 )
 {
     uint8 * startPtr;
     int32 n;
@@ -141,8 +138,7 @@ rcFrame::rcFrame (char* rawPixels,
                   int32 width, int32 height,
                   rcPixel pixelDepth, bool isGray)
         : refcount_(0), mWidth( width ), mHeight( height ), mAlignMod (ROW_ALIGNMENT_MODULUS), 
-          mPixelDepth( pixelDepth ), mIsGray( isGray ), mOwnPixels (true), mCacheCtrl( 0 ), mFrameIndex( 0 ),
-    mD32IsFloat (false)
+          mPixelDepth( pixelDepth ), mIsGray( isGray ), mOwnPixels (true), mCacheCtrl( 0 ), mFrameIndex( 0 )
 {
     uint8 * startPtr;
     int32 n;

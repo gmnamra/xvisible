@@ -3,13 +3,20 @@
 
 #include <cinder/Channel.h>
 #include <cinder/Area.h>
-
+#include <limits>
 #include "cinder/ImageIo.h"
 #include "cinder/Utilities.h"
-#include <vfi386_d/rc_window.h>
+#include "cinder/Surface.h"
+#include "cinder/qtime/QuickTime.h"
+#include "rc_window.h"
 #include <boost/algorithm/string.hpp>
 #include <boost/thread/mutex.hpp>
-#include <vfi386_d/rc_fileutils.h>
+#include <boost/thread/scoped_thread.hpp>
+#include <boost/math/special_functions.hpp>
+#include "rc_fileutils.h"
+#include <stlplus_lite.hpp>
+#include "rc_filegrabber.h"
+
 #include "sshist.hpp"
 
 #include <fstream>
@@ -24,9 +31,9 @@ namespace vf_utils
     
     static rcSharedFrameBufPtr newFromChannel8u ( ci::Channel8u& onec )
     {
-        return rcSharedFrameBufPtr (new rcFrame (reinterpret_cast<char*>(onec.getData()), 
+        return rcSharedFrameBufPtr (new rcFrame (reinterpret_cast<char*>(onec.getData()),
                                                  (int32) onec.getRowBytes (),
-                                                 (int32) onec.getWidth (), 
+                                                 (int32) onec.getWidth (),
                                                  (int32) onec.getHeight (), rcPixel8, true));
         
     }
@@ -47,7 +54,7 @@ namespace vf_utils
             {
                 *dstPtr++ = *srcPtr++;
             }
-        }	
+        }
         
         return ch8;
     }
@@ -96,10 +103,10 @@ namespace vf_utils
         typedef std::vector<std::string> row_type;
         typedef std::vector<row_type> rows_type;
         
-        // c++11 
+        // c++11
         static bool is_number(const std::string& s)
         {
-            return !s.empty() && std::find_if(s.begin(), 
+            return !s.empty() && std::find_if(s.begin(),
                                               s.end(), [](char c) { return !std::isdigit(c); }) == s.end();
         }
         
@@ -115,8 +122,8 @@ namespace vf_utils
             //for each line in the input stream
             while (std::getline(input, line))
             {
-                boost::trim_if(line, boost::is_any_of("\t\r ")); 
-                csv::row_type row;                
+                boost::trim_if(line, boost::is_any_of("\t\r "));
+                csv::row_type row;
                 boost::split(row, line, boost::is_any_of("\t\r ,"));
                 
                 rows.push_back(row);
@@ -132,7 +139,7 @@ namespace vf_utils
                 assert (rows.size () == 1);
                 rows_type crows;
                 const row_type& col = rows[0];
-                for (int i = 0; i < columns; i++) 
+                for (int i = 0; i < columns; i++)
                 {
                     row_type row (1, col[i]);
                     crows.push_back (row);
@@ -144,7 +151,7 @@ namespace vf_utils
             return rows;
         }
         
-        // Returns starting row of numeric data as a positive number if it is a legacy visible file or 
+        // Returns starting row of numeric data as a positive number if it is a legacy visible file or
         // -1 * number of rows if it is not
         static int is_legacy_visible_output (csv::rows_type& rows)
         {
@@ -163,16 +170,16 @@ namespace vf_utils
                 for (int i = 0; i < row.size(); i++)
                 {
                     if (row[i].find ("seconds") != string::npos )
-                    { 
+                    {
                         last_row = rr + ( rr < (rows.size() - 1) ? 1 : 0) ; break;
                     }
                 }
                 if (last_row > 0) break;
             }
-            return last_row; 
+            return last_row;
         }
         
-        // Returns starting row of numeric data as a positive number if it is a legacy visible file or 
+        // Returns starting row of numeric data as a positive number if it is a legacy visible file or
         // -1 * number of rows if it is not
         static int file_is_legacy_visible_output (std::string& fqfn)
         {
@@ -180,16 +187,16 @@ namespace vf_utils
             csv::rows_type rows = csv::to_rows (istream);
             return is_legacy_visible_output ( rows);
             
-        }    
+        }
         
-        static bool validate_matf (matf_t tm) 
+        static bool validate_matf (matf_t tm)
         {
             if (tm.empty()) return false;
             size_t d = tm.size();
             if (d <= 0 || d > 10000 ) return false; // arbitrary upper limit. I know !!
-            for (int rr=0; rr < d; rr++) 
+            for (int rr=0; rr < d; rr++)
                 if (tm[rr].size() != d) return false;
-            return true;            
+            return true;
             
         }
         
@@ -214,12 +221,12 @@ namespace vf_utils
                 
                 sshist  column_width (16);
                 
-                // Get All rows 
+                // Get All rows
                 for (int rr = start_row; rr < rows.size(); rr++)
                 {
                     const csv::row_type& row = rows[rr];
                     vector<float> data;
-                    for (int t = 0; t < row.size(); t++) 
+                    for (int t = 0; t < row.size(); t++)
                     {
                         char *end_ptr;
                         float f = strtof(row[t].c_str(), &end_ptr);
@@ -227,7 +234,7 @@ namespace vf_utils
                         data.push_back (f);
                     }
                     datas.push_back(data);
-                    column_width.add (data.size());  
+                    column_width.add (data.size());
                 }
                 
                 sshist::sorted_container_t shist;
@@ -267,7 +274,223 @@ namespace vf_utils
         }
     }
     
-};
+    namespace qtime_support
+    {
+        
+        
+        //
+        // Base class for file-based frame grabbing
+        //
+        
+        class SafeGrabber : public rcFrameGrabber
+        {
+        public:
+            // ctor
+            SafeGrabber() : mLastError( eFrameErrorOK ) {}
+            
+            // virtual dtor
+            virtual ~SafeGrabber() {}
+            
+            
+            // Get last error
+            virtual rcFrameGrabberError getLastError() const { return mLastError; }
+            
+            // Returns instance validity
+            virtual bool isValid() const;
+            
+            // Start grabbing
+            virtual bool start() = 0;
+            
+            // Stop grabbing
+            virtual bool stop() = 0;
+            
+            // Returns the number of frames available
+            virtual int32 frameCount() = 0;
+            
+            // Get next frame, assign the frame to ptr
+            virtual rcFrameGrabberStatus getNextFrame( rcSharedFrameBufPtr& , bool isBlocking ) = 0;
+            
+        protected:
+            // Set last error
+            void setLastError( rcFrameGrabberError error )  { mLastError = error; }
+            
+            void lock()  { this->mMuLock.lock (); }
+            void unlock()  { this->mMuLock.unlock (); }
+            boost::mutex    mMuLock;    // explicit mutex for locking QuickTime
+            rcFrameGrabberError     mLastError;     // Last encountered error
+
+        };
+
+        
+        class CinderQtimeGrabber : public rcFrameGrabber
+        {
+        public:
+            // ctor
+            CinderQtimeGrabber( const std::string fileName,   // Input file
+                               double frameInterval = -1.0, // Forced frame interval
+                               int32  startAfterFrame = -1,
+                               int32  frames = -1 ) :
+            mFileName( fileName ), mFrameInterval( frameInterval ),mFrameCount(-1),
+            mCurrentTimeStamp( rcTimestamp::from_seconds(frameInterval) ), mCurrentIndex( 0  )
+            {
+                boost::lock_guard<boost::mutex> (this->mMuLock);
+                mValid = file_exists ( fileName ) && file_readable ( fileName );
+                if (isValid () )
+                {
+                    mMovie = ci::qtime::MovieSurface( fileName );
+                    m_width = mMovie.getWidth ();
+                    m_height = mMovie.getHeight ();
+                    mFrameCount = mMovie.getNumFrames();
+                    mMovieFrameInterval = 1.0 / (mMovie.getFramerate() + std::numeric_limits<double>::epsilon() );
+                    mFrameInterval = boost::math::signbit (frameInterval) == 1 ? mMovieFrameInterval : mFrameInterval;
+                    mMovie.setLoop( true, true );
+                    
+                    std::cerr << "Dimensions:" << mMovie.getWidth() << " x " << mMovie.getHeight() << std::endl;
+                    std::cerr << "Duration:  " << mMovie.getDuration() << " seconds" << std::endl;
+                    std::cerr << "Frames:    " << mMovie.getNumFrames() << std::endl;
+                    std::cerr << "Framerate: " << mMovie.getFramerate() << std::endl;
+                    std::cerr << "Alpha channel: " << mMovie.hasAlpha() << std::endl;
+                    std::cerr << "Has audio: " << mMovie.hasAudio() << " Has visuals: " << mMovie.hasVisuals() << std::endl;
+                }
+                else
+                {
+                    setLastError( eFrameErrorFileInit );
+                }
+                
+            }
+            
+            // virtual dtor
+            virtual ~CinderQtimeGrabber() {}
+            
+            virtual bool isValid () const
+            {
+                return mValid && ( getLastError() == eFrameErrorOK );
+            }
+
+            //
+            // rcFrameGrabber API
+            //
+            
+            // Start grabbing
+            virtual bool start()
+            {
+                boost::lock_guard<boost::mutex> (this->mMuLock);
+                
+                mCurrentIndex = 0;
+                if (isValid () && mMovie.checkPlayable ())
+                {
+                    mMovie.seekToStart ();
+                    mMovie.play ();
+                    
+                }
+                else
+                    setLastError( eFrameErrorUnsupportedFormat );
+                
+                return isValid () && mMovie.checkPlayable ();
+            }
+            
+            
+            // Stop grabbing
+            virtual bool stop()
+            {
+                   boost::lock_guard<boost::mutex> (this->mMuLock);
+                
+                bool what = mMovie.isDone ();
+                if (what) return what;
+                what = mMovie.isPlaying ();
+                if (! what ) return true;
+                // It is not done and is playing
+                mMovie.stop ();
+                return ! mMovie.isPlaying ();
+                
+            }
+            
+            // Returns the number of frames available
+            virtual int32 frameCount() { return mFrameCount; }
+            
+            // Movie grabbers don't have a cache.
+            virtual int32 cacheSize() { return 0; }
+            
+            // Get next frame, assign the frame to ptr
+            virtual rcFrameGrabberStatus getNextFrame( rcSharedFrameBufPtr& ptr, bool isBlocking )
+            {
+                 boost::lock_guard<boost::mutex> (this->mMuLock);
+                rcFrameGrabberStatus ret =  eFrameStatusOK;
+                setLastError( eFrameErrorUnknown );
+                
+                if (mCurrentIndex >= 0 && mCurrentIndex < mFrameCount)
+                {
+                    if ( mMovie.checkNewFrame () )
+                    {
+                        double tp = mMovie.getCurrentTime ();
+                        ptr = vf_utils::newFromChannel8u ( mMovie.getSurface ().getChannelGreen () );
+                        ptr->setTimestamp(rcTimestamp::from_seconds(tp));
+                        ret = eFrameStatusOK;
+                        setLastError( eFrameErrorOK );
+                        mMovie.stepForward ();
+                        mCurrentIndex++;
+                    }
+                    else
+                    {
+                        setLastError( eFrameErrorFileRead );
+                        ret = eFrameStatusError;
+                    }
+                    
+                }
+                else
+                {
+                    ret = eFrameStatusEOF;
+                }
+                
+                return ret;
+            }
+            
+            // Get name of input source, ie. file name, camera name etc.
+            virtual const std::string getInputSourceName() {  return mFileName; }
+            
+            
+            // Get last error value.
+            virtual rcFrameGrabberError getLastError() const
+            {
+                return mLastError;
+            }
+            
+
+            // Set last error value
+            void setLastError( rcFrameGrabberError error )
+            {
+                mLastError = error;
+            }
+            
+            double frame_duration  () const { return mFrameInterval; }
+            
+        private:
+            
+            ci::qtime::MovieSurface	    mMovie;
+            Surface				mSurface;
+            bool                mValid;
+            const std::string          mFileName;
+            double mFrameInterval;
+            double mMovieFrameInterval;
+            int32                 mFrameCount;       // Number of frames in a movie
+            rcTimestamp             mCurrentTimeStamp; // Current frame timestamp
+            int32                 mCurrentIndex;     // Current index within movie
+            
+
+            int16 m_width, m_height;
+            rcFrameGrabberError  mLastError;
+
+            void lock()  { this->mMuLock.lock (); }
+            void unlock()  { this->mMuLock.unlock (); }
+            boost::mutex    mMuLock;    // explicit mutex for locking QuickTime
+
+        };
+        
+        
+    }
+    
+}
+
 
 
 #endif
