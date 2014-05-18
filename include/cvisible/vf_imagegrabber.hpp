@@ -4,7 +4,7 @@
 #define _rcIMAGEGRABBER_H_
 
 #include <vector>
-
+#include
 #include "vf_window.hpp"
 
 #include <vfi386_d/rc_framegrabber.h>

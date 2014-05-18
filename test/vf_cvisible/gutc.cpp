@@ -70,60 +70,6 @@ private:
 
 static ::testing::Environment* envp = 0;
 
-struct grabber_result
-{
-    grabber_result (boost::shared_ptr<rcFrameGrabber>& grabber_ptr) : grabber ( grabber_ptr  ) {}
-    int frameCount = 56;
-    int width = 16;
-    int height = 16;
-    rcFrameGrabberError error = rcFrameGrabberError::eFrameErrorOK;
-    boost::shared_ptr<rcFrameGrabber> grabber;
-    std::vector<rcFrameGrabberStatus> statuses;
-    std::vector<rcTimestamp> tss;
-    std::vector<Size2i> sizes;
-    
-    
-    int test ()
-    {
-        if (grabber == 0) return 1;
-        
-        statuses.resize (0);
-        rcFrameGrabberError error = grabber->getLastError();
-        int i = 0;
-        
-
-        // Grab everything
-        if ( grabber->isValid() && grabber->start())
-        {
-            if (grabber->frameCount() != frameCount) return 1;
-            
-            // Note: infinite loop
-            for( i = 0; ; ++i )
-            {
-                rcTimestamp curTimeStamp;
-                rcRect videoFrame;
-                rcWindow image, tmp;
-                rcVideoCacheError error;
-                rcSharedFrameBufPtr framePtr;
-                rcFrameGrabberStatus status = grabber->getNextFrame( framePtr, true );
-                if (! framePtr ) continue;
-                sizes.push_back (Size2i (framePtr->width(), framePtr->height()));
-                statuses.push_back(status);
-                tss.push_back ( framePtr->timestamp());
-            }// End of For i++
-            
-            if ( ! grabber->stop() )
-                error = grabber->getLastError();
-        }
-        else   // isValid() failed
-            return 1;
-        
-        return 0;
-
-    }
-    
-};
-
 
 TEST (UT_fileutils, run)
 {
@@ -166,19 +112,21 @@ TEST( UT_FrameBuf, run )
 
 struct cb_similarity_producer
 {
-    cb_similarity_producer (rcFrameGrabber* grabber) : mGrabber (grabber) {}
+    cb_similarity_producer (rcFrameGrabber* grabber)
+    {
+        sp =  boost::shared_ptr<SimilarityProducer> ( new SimilarityProducer () );
+        boost::function<void (int&,double&)> frame_loaded_cb = boost::bind (&cb_similarity_producer::signal_frame_loaded, this, _1, _2);
+        boost::signals2::connection fl_connection = sp->registerCallback(frame_loaded_cb);
+        
+        rcFrameGrabberError error;
+        sp->load_content_grabber(*grabber, error);
+        
+    }
     
     int run ()
     {
-        boost::shared_ptr<SimilarityProducer> sp ( new SimilarityProducer () );
-        
         try
         {
-            boost::function<void (int&,double&)> frame_loaded_cb = boost::bind (&cb_similarity_producer::signal_frame_loaded, this, _1, _2);
-            boost::signals2::connection fl_connection = sp->registerCallback(frame_loaded_cb);
-            
-            rcFrameGrabberError error;
-            sp->load_content_grabber(*mGrabber, error);
             
             sp->operator()(0, 0);
             
@@ -198,10 +146,11 @@ struct cb_similarity_producer
         if (! (equal (timestamp, exected_movie_times[findex], 0.0001 )) ) mlies.push_back (false);
     }
     
+    boost::shared_ptr<SimilarityProducer> sp;
+    
     std::vector<int> frame_indices;
     std::vector<double> frame_times;
     std::vector<bool> mlies;
-    rcFrameGrabber* mGrabber;
     
     bool movie_loaded;
     void clear_movie_loaded () { movie_loaded = false; }
@@ -226,6 +175,44 @@ TEST(UT_similarity_producer, run)
     EXPECT_EQ(0, test.run());
 }
 
+TEST(cinder_qtime_grabber, run)
+{
+    // vf does not support QuickTime natively. The ut expectes and checks for failure
+    genv* gvp = reinterpret_cast<genv*>(envp);
+    EXPECT_TRUE (gvp != 0 );
+    static std::string qmov_name ("box-move.mov");
+    std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
+    boost::shared_ptr<rcFrameGrabber> grabber (reinterpret_cast<rcFrameGrabber*> (new vf_utils::qtime_support::CinderQtimeGrabber( qmov )) );
+    
+    EXPECT_TRUE (grabber.get() != NULL);
+    
+    rcFrameGrabberError error = grabber->getLastError();
+    int i = 0;
+    
+    // Grab everything
+    EXPECT_TRUE (grabber->start());
+    EXPECT_TRUE (grabber->frameCount() == 56);
+    std::vector<rcSharedFrameBufPtr> images;
+    // Note: infinite loop
+    for( i = 0; ; ++i )
+    {
+        rcTimestamp curTimeStamp;
+        rcRect videoFrame;
+        rcWindow image, tmp;
+        rcSharedFrameBufPtr framePtr;
+        rcFrameGrabberStatus status = grabber->getNextFrame( framePtr, true );
+        EXPECT_TRUE((status == rcFrameGrabberStatus::eFrameStatusEOF || status == rcFrameGrabberStatus::eFrameStatusOK ) );
+        if (status == rcFrameGrabberStatus::eFrameStatusEOF) break;
+        images.push_back (framePtr);
+    }// End of For i++
+
+    EXPECT_TRUE(images.size() == 56);
+    
+    if ( ! grabber->stop() )
+        error = grabber->getLastError();
+    
+}
+
 TEST(cb_similarity_producer, run)
 {
     // vf does not support QuickTime natively. The ut expectes and checks for failure
@@ -233,13 +220,10 @@ TEST(cb_similarity_producer, run)
     EXPECT_TRUE (gvp != 0 );
     static std::string qmov_name ("box-move.mov");
     std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
-    boost::shared_ptr<rcFrameGrabber> grabber_ref (reinterpret_cast<rcFrameGrabber*> (new vf_utils::qtime_support::CinderQtimeGrabber( qmov, 0)) );
-    grabber_result gr (grabber_ref);
-    EXPECT_EQ(0, gr.test () );
-    
-//    cb_similarity_producer test (grabber);
-//    EXPECT_EQ(0, test.run () );
-//    EXPECT_EQ(true, test.mlies.empty());
+    boost::shared_ptr<rcFrameGrabber> grabber_ref (reinterpret_cast<rcFrameGrabber*> (new vf_utils::qtime_support::CinderQtimeGrabber( qmov)) );
+    cb_similarity_producer test (grabber_ref.get());
+    EXPECT_EQ(0, test.run () );
+    EXPECT_EQ(true, test.mlies.empty());
     
 }
 

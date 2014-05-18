@@ -1,16 +1,19 @@
 
 
 #include "vf_cinder_qtime_grabber.h"
+#include "cinder/qtime/QuickTime.h"
 
-#include <vfi386_d/stlplus_lite.hpp>
+#include "stlplus_lite.hpp"
 
 
 using namespace ci;
 using namespace ci::qtime;
+using namespace vf_cinder;
 
 
-#include <vfi386_d/rc_ip.h>
-#include "vf_window.hpp"
+#include "vf_utils.hpp"
+//#include <rc_ip.h>
+//#include "rc_window.h"
 
 #define kBogusStartingTime  -1      // an invalid starting time
 #define Debug_Log
@@ -24,7 +27,7 @@ rcCinderGrabber::rcCinderGrabber( const std::string fileName, rcCarbonLock* cLoc
 rcFileGrabber( cLock ),
 mFileName( fileName ),
 mFrameCount(-1),mTimeScale( 0 ), mCurrentTime( kBogusStartingTime ), mCurrentIndex( 0 ), mGotFirstFrame( false ),
-mFrameInterval( frameInterval ), mCurrentTimeStamp( frameInterval )
+mFrameInterval( frameInterval ), mCurrentTimeStamp( rcTimestamp::from_seconds(frameInterval) )
 {
     mValid = file_exists ( fileName ) && file_readable ( fileName );
     if (isValid () )
@@ -100,7 +103,7 @@ rcCinderGrabber::getNextFrame( rcSharedFrameBufPtr& fptr, bool isBlocking )
         {
             double tp = mMovie.getCurrentTime ();
             fptr = vf_utils::newFromChannel8u ( mMovie.getSurface ().getChannelGreen () );
-            fptr->setTimestamp(tp);
+            fptr->setTimestamp(rcTimestamp::from_seconds(tp));
             ret = eFrameStatusOK;
             setLastError( eFrameErrorOK );
             mMovie.stepForward ();

@@ -102,8 +102,6 @@ private:
 
     
     int saveFrames(std::string imageExportDir) const;
-    void lock () { if (mCarbonLock) { mCarbonLock->lock (); }  }
-    void unlock () { if (mCarbonLock) { mCarbonLock->unlock (); }  }
 
     void ipp (const rcWindow& tmp, rcWindow& image, rcTimestamp& current);
    
@@ -130,7 +128,6 @@ private:
     deque<deque<double> >        m_SMatrix;   // Used in eExhaustive and
     deque<double>                m_entropies; // Final entropy signal
     deque<double>                m_means; // Final entropy signal   
-    rcCarbonLock*                mCarbonLock;
     rcPixel                      m_depth;
     std::string                  m_name;    
 };
@@ -148,12 +145,15 @@ SimilarityProducer::SimilarityProducer ()
 
 bool SimilarityProducer::load_content_file (const std::string& movie_fqfn) 
 {
+      boost::lock_guard<boost::mutex> guard ( s_mutex );
+    
     if (_impl) return _impl->load_content_file(movie_fqfn);
     return false;
 }
 
 void SimilarityProducer::operator() (int start_frame, int frames ) const
 {
+      boost::lock_guard<boost::mutex> guard ( s_mutex );
     if (_impl) _impl->generate_ssm (start_frame, frames);
 }
 
@@ -241,6 +241,8 @@ int SimilarityProducer::spImpl::loadFrames( rcFrameGrabber& grabber, rcFrameGrab
 	_fileImages.resize (0);
     
 	rcTimestamp duration = rcTimestamp::now();
+    _currentTime = cZeroTime;
+    rcTimestamp prevTimeStamp = cZeroTime;
     
 	// Grab everything
 	if ( grabber.isValid() && grabber.start())
@@ -249,14 +251,13 @@ int SimilarityProducer::spImpl::loadFrames( rcFrameGrabber& grabber, rcFrameGrab
 		const rcTimestamp updateStatusInterval = rcTimestamp::from_seconds (1.5); // Status display update interval in seconds
 		const rcTimestamp updateMovieInterval = rcTimestamp::from_seconds(3.0);  // Movie display update interval in seconds
         
-		_currentTime = cZeroTime;
+
 		++_processCount;
         
 		rcTimestamp lastStatusUpdateTime = rcTimestamp::now()  - updateStatusInterval;
 		rcTimestamp lastMovieUpdateTime = lastStatusUpdateTime - updateMovieInterval;
         
         // Time stamp of previous frame
-		rcTimestamp prevTimeStamp = cZeroTime;
 		bool firstFrame = true;
         
         // Note: infinite loop
@@ -268,6 +269,7 @@ int SimilarityProducer::spImpl::loadFrames( rcFrameGrabber& grabber, rcFrameGrab
 			rcVideoCacheError error;
 			rcSharedFrameBufPtr framePtr;
 			rcFrameGrabberStatus status = grabber.getNextFrame( framePtr, true );
+            std::cout << i << std::endl;
             
 			if ( status != eFrameStatusOK )
 			{
@@ -307,7 +309,6 @@ int SimilarityProducer::spImpl::loadFrames( rcFrameGrabber& grabber, rcFrameGrab
 			{
                 // Use true frame interval
 				_currentTime += frameInt;
-				rmAssert(frameInt > cZeroTime );// Zero time between frames is not allowed
 			}
             
 			prevTimeStamp = curTimeStamp;

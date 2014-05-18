@@ -68,8 +68,12 @@ class rcFrame
   // Constructors
   rcFrame();
   rcFrame( int32 width, int32 height, rcPixel depth, int32 alignMod = ROW_ALIGNMENT_MODULUS );
-  /* Row update for SRC pixels, not DEST frame */    
-  rcFrame (char* rawPixels, int32 rawPixelsRowUpdate, int32 width, int32 height, rcPixel pixelDepth, bool isGray);
+  /* 
+   * In call cases pixels are copied from client storage to newly created memory. 
+   * Row update for SRC pixels, not DEST frame
+   */
+    
+  rcFrame (const char* rawPixels, int32 rawPixelsRowUpdate, int32 width, int32 height, rcPixel pixelDepth, bool isGray);
   rcFrame ( const cv::Mat& );  
     
 #ifdef CINDER_BUILTIN
@@ -218,7 +222,6 @@ protected:
   bool          mOwnPixels; // Do we own these pixels
   uint32        mCacheCtrl;
   uint32        mFrameIndex;
-  bool          mD32IsFloat; // mark depth32 as float
   double          mZvalue; // Z label for this frame coming from a z stack
 
   // Setters intended to only be called by rcVideoCache class code

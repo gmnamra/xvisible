@@ -29,15 +29,16 @@ using namespace std;
 namespace vf_utils
 {
     
-    static rcSharedFrameBufPtr newFromChannel8u ( ci::Channel8u& onec )
+    static rcSharedFrameBufPtr NewFromChannel8u ( const ci::Channel& onec)
     {
-        return rcSharedFrameBufPtr (new rcFrame (reinterpret_cast<char*>(onec.getData()),
-                                                 (int32) onec.getRowBytes (),
-                                                 (int32) onec.getWidth (),
-                                                 (int32) onec.getHeight (), rcPixel8, true));
-        
+        const uint8_t* pixels = reinterpret_cast<const uint8_t*> (onec.getData());
+        rcSharedFrameBufPtr fb (new rcFrame (reinterpret_cast<const char*>(pixels),
+                                             (int32) onec.getRowBytes (),
+                                             (int32) onec.getWidth (),
+                                             (int32) onec.getHeight (), rcPixel8, true));
+        return fb;
     }
-    
+   
     
     static ci::Channel8u*  newCiChannel (const rcSharedFrameBufPtr& sf)
     {
@@ -318,9 +319,9 @@ namespace vf_utils
             void unlock()  { this->mMuLock.unlock (); }
             boost::mutex    mMuLock;    // explicit mutex for locking QuickTime
             rcFrameGrabberError     mLastError;     // Last encountered error
-
+            
         };
-
+        
         
         class CinderQtimeGrabber : public rcFrameGrabber
         {
@@ -335,7 +336,7 @@ namespace vf_utils
             {
                 boost::lock_guard<boost::mutex> (this->mMuLock);
                 mValid = file_exists ( fileName ) && file_readable ( fileName );
-                if (isValid () )
+                if ( mValid )
                 {
                     mMovie = ci::qtime::MovieSurface( fileName );
                     m_width = mMovie.getWidth ();
@@ -366,7 +367,7 @@ namespace vf_utils
             {
                 return mValid && ( getLastError() == eFrameErrorOK );
             }
-
+            
             //
             // rcFrameGrabber API
             //
@@ -377,23 +378,20 @@ namespace vf_utils
                 boost::lock_guard<boost::mutex> (this->mMuLock);
                 
                 mCurrentIndex = 0;
-                if (isValid () && mMovie.checkPlayable ())
-                {
-                    mMovie.seekToStart ();
-                    mMovie.play ();
-                    
-                }
+                mMovie.seekToStart ();
+                mMovie.play ();
+                if (mMovie.isPlaying () )
+                    return true;
                 else
                     setLastError( eFrameErrorUnsupportedFormat );
-                
-                return isValid () && mMovie.checkPlayable ();
+                return false;
             }
             
             
             // Stop grabbing
             virtual bool stop()
             {
-                   boost::lock_guard<boost::mutex> (this->mMuLock);
+                boost::lock_guard<boost::mutex> (this->mMuLock);
                 
                 bool what = mMovie.isDone ();
                 if (what) return what;
@@ -414,7 +412,7 @@ namespace vf_utils
             // Get next frame, assign the frame to ptr
             virtual rcFrameGrabberStatus getNextFrame( rcSharedFrameBufPtr& ptr, bool isBlocking )
             {
-                 boost::lock_guard<boost::mutex> (this->mMuLock);
+                boost::lock_guard<boost::mutex> (this->mMuLock);
                 rcFrameGrabberStatus ret =  eFrameStatusOK;
                 setLastError( eFrameErrorUnknown );
                 
@@ -423,12 +421,15 @@ namespace vf_utils
                     if ( mMovie.checkNewFrame () )
                     {
                         double tp = mMovie.getCurrentTime ();
-                        ptr = vf_utils::newFromChannel8u ( mMovie.getSurface ().getChannelGreen () );
-                        ptr->setTimestamp(rcTimestamp::from_seconds(tp));
-                        ret = eFrameStatusOK;
-                        setLastError( eFrameErrorOK );
-                        mMovie.stepForward ();
-                        mCurrentIndex++;
+                        mSurface = mMovie.getSurface ();
+                        if (mSurface )
+                        {
+                            ptr = NewFromChannel8u (mSurface.getChannelRed ());
+                            ret = eFrameStatusOK;
+                            setLastError( eFrameErrorOK );
+                            mMovie.stepForward ();
+                            mCurrentIndex++;
+                        }
                     }
                     else
                     {
@@ -455,7 +456,7 @@ namespace vf_utils
                 return mLastError;
             }
             
-
+            
             // Set last error value
             void setLastError( rcFrameGrabberError error )
             {
@@ -476,14 +477,14 @@ namespace vf_utils
             rcTimestamp             mCurrentTimeStamp; // Current frame timestamp
             int32                 mCurrentIndex;     // Current index within movie
             
-
-            int16 m_width, m_height;
+            
+            int32 m_width, m_height;
             rcFrameGrabberError  mLastError;
-
+            
             void lock()  { this->mMuLock.lock (); }
             void unlock()  { this->mMuLock.unlock (); }
             boost::mutex    mMuLock;    // explicit mutex for locking QuickTime
-
+            
         };
         
         

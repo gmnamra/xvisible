@@ -133,12 +133,13 @@ const ci::Channel8u*  rcFrame::newCiChannel ()  // copies only one channel
 #endif
 
 
-rcFrame::rcFrame (char* rawPixels,
+rcFrame::rcFrame (const char* rawPixels,
                   int32 rawPixelsRowUpdate, /* Row update for SRC pixels, not DEST frame */
                   int32 width, int32 height,
                   rcPixel pixelDepth, bool isGray)
         : refcount_(0), mWidth( width ), mHeight( height ), mAlignMod (ROW_ALIGNMENT_MODULUS), 
-          mPixelDepth( pixelDepth ), mIsGray( isGray ), mOwnPixels (true), mCacheCtrl( 0 ), mFrameIndex( 0 )
+            mPixelDepth( pixelDepth ), mIsGray( isGray ), mOwnPixels (true), mCacheCtrl( 0 ), mFrameIndex( 0 ),   mColorMap( 0 ), mColorMapSize( 0 )
+
 {
     uint8 * startPtr;
     int32 n;
@@ -211,7 +212,7 @@ rcFrame::~rcFrame()
 {
   if (mOwnPixels == true)
     delete [] mRawData;
-  delete [] mColorMap;
+  if (mColorMap != 0 ) delete [] mColorMap;
   mColorMap = 0;
 }
 
