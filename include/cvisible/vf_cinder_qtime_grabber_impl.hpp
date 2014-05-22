@@ -1,5 +1,5 @@
-#ifndef __VF_UTILS__QTIME_
-#define __VF_UTILS__QTIME_
+#ifndef __VF_UTILS__QTIME_IMPL__
+#define __VF_UTILS__QTIME_IMPL__
 
 #include <cinder/Channel.h>
 #include <cinder/Area.h>
@@ -16,7 +16,8 @@
 #include "rc_fileutils.h"
 #include <stlplus_lite.hpp>
 #include "rc_filegrabber.h"
-#include <random>
+#include "vf_image_conversions.hpp"
+#include "vf_cinder_qtime_grabber.h"
 
 #include "sshist.hpp"
 
@@ -34,14 +35,16 @@ namespace vf_utils
     {
         
         
-        class CinderQtimeGrabber : public rcFrameGrabber
+        class CinderQtimeGrabber::qtfgImpl : public rcFrameGrabber
         {
         public:
+            friend class vf_cinder_qtime_grabber;
+            
             // ctor
-            CinderQtimeGrabber( const std::string fileName,   // Input file
-                               double frameInterval = -1.0, // Forced frame interval
-                               int32  startAfterFrame = -1,
-                               int32  frames = -1 ) :
+            qtfgImpl( const std::string fileName,   // Input file
+                     double frameInterval = -1.0, // Forced frame interval
+                     int32  startAfterFrame = -1,
+                     int32  frames = -1 ) :
             mFileName( fileName ), mFrameInterval( frameInterval ),mFrameCount(-1),
             mCurrentTimeStamp( rcTimestamp::from_seconds(frameInterval) ), mCurrentIndex( 0  )
             {
@@ -56,13 +59,7 @@ namespace vf_utils
                     mMovieFrameInterval = 1.0 / (mMovie.getFramerate() + std::numeric_limits<double>::epsilon() );
                     mFrameInterval = boost::math::signbit (frameInterval) == 1 ? mMovieFrameInterval : mFrameInterval;
                     mMovie.setLoop( true, true );
-                    
-                    std::cerr << "Dimensions:" << mMovie.getWidth() << " x " << mMovie.getHeight() << std::endl;
-                    std::cerr << "Duration:  " << mMovie.getDuration() << " seconds" << std::endl;
-                    std::cerr << "Frames:    " << mMovie.getNumFrames() << std::endl;
-                    std::cerr << "Framerate: " << mMovie.getFramerate() << std::endl;
-                    std::cerr << "Alpha channel: " << mMovie.hasAlpha() << std::endl;
-                    std::cerr << "Has audio: " << mMovie.hasAudio() << " Has visuals: " << mMovie.hasVisuals() << std::endl;
+                    setLastError( eFrameErrorOK );
                 }
                 else
                 {
@@ -72,13 +69,17 @@ namespace vf_utils
             }
             
             // virtual dtor
-            virtual ~CinderQtimeGrabber() {}
+            virtual ~qtfgImpl() {}
             
             virtual bool isValid () const
             {
                 return mValid && ( getLastError() == eFrameErrorOK );
             }
             
+            bool contentValid () const
+            {
+                return mValid;
+            }
             //
             // rcFrameGrabber API
             //
@@ -132,10 +133,12 @@ namespace vf_utils
                     if ( mMovie.checkNewFrame () )
                     {
                         double tp = mMovie.getCurrentTime ();
+                        std::cout << tp << std::endl;
                         mSurface = mMovie.getSurface ();
                         if (mSurface )
                         {
                             ptr = vf_utils::ci2rc2ci::NewFromChannel8u (mSurface.getChannelRed ());
+                            ptr->setTimestamp (rcTimestamp::from_seconds (tp ) );
                             ret = eFrameStatusOK;
                             setLastError( eFrameErrorOK );
                             mMovie.stepForward ();
@@ -176,6 +179,21 @@ namespace vf_utils
             
             double frame_duration  () const { return mFrameInterval; }
             
+            const std::ostream& print_to_ (std::ostream& std_stream)
+            {
+                std_stream << " -- Extracted Info -- " << std::endl;
+                std_stream << "Dimensions:" << m_width << " x " << m_height << std::endl;
+                std_stream << "Frames:    " << mFrameCount << std::endl;
+
+                std_stream << " -- Embedded Movie Info -- " << std::endl;
+                std_stream << "Dimensions:" << mMovie.getWidth() << " x " << mMovie.getHeight() << std::endl;
+                std_stream << "Duration:  " << mMovie.getDuration() << " seconds" << std::endl;
+                std_stream << "Frames:    " << mMovie.getNumFrames() << std::endl;
+                std_stream << "Framerate: " << mMovie.getFramerate() << std::endl;
+                std_stream << "Alpha channel: " << mMovie.hasAlpha() << std::endl;
+                std_stream << "Has audio: " << mMovie.hasAudio() << " Has visuals: " << mMovie.hasVisuals() << std::endl;
+                return std_stream;
+            }
         private:
             
             ci::qtime::MovieSurface	    mMovie;
@@ -201,4 +219,4 @@ namespace vf_utils
     }
 }
 
-#endif // __VF_UTILS__QTIME_
+#endif // __VF_UTILS__QTIME__IMPL__

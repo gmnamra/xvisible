@@ -1,177 +1,334 @@
-/*
- Copyright (c) 2014, The Cinder Project
 
- This code is intended to be used with the Cinder C++ library, http://libcinder.org
 
- Redistribution and use in source and binary forms, with or without modification, are permitted provided that
- the following conditions are met:
+#include "vf_sm_producer.h"
+#include "vf_sm_producer_impl.h"
+#include "rc_similarity.h"
+#include "rc_videocache.h"
+#include "rc_reifymoviegrabber.h"
+#include "rc_tiff.h"
+#include "rc_fileutils.h"
+#include <iostream>
+#include <algorithm>
+#include <cctype>
+#include <string>
+#include <signaler.h>
+#include <static.hpp>
+#include <boost/thread/shared_mutex.hpp>
+#include <boost/thread/locks.hpp>
+#include <boost/ref.hpp>
+#include <boost/bind.hpp>
+#include <thread>
+#include "vf_cinder_qtime_grabber.h"
+#include "vf_image_conversions.hpp"
+#include "vf_utils.hpp"
 
-    * Redistributions of source code must retain the above copyright notice, this list of conditions and
-	the following disclaimer.
-    * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and
-	the following disclaimer in the documentation and/or other materials provided with the distribution.
 
- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
- WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
- PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
- ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
- TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- POSSIBILITY OF SUCH DAMAGE.
-*/
+using namespace boost;
+using namespace vf_utils;
+using namespace vf_utils::gen_filename;
 
-#include "cinder/audio2/Source.h"
-#include "cinder/audio2/dsp/Converter.h"
-#include "cinder/audio2/FileOggVorbis.h"
-#include "cinder/audio2/Debug.h"
+static boost::mutex         s_mutex;
 
-#include "cinder/Utilities.h"
 
-#if defined( CINDER_COCOA )
-	#include "cinder/audio2/cocoa/FileCoreAudio.h"
-#elif defined( CINDER_MSW )
-	#include "cinder/audio2/msw/FileMediaFoundation.h"
-#endif
-
-using namespace std;
-
-using namespace cinder;
-using namespace audio2;
-using namespace vf_cinder;
-
-Source::Source()
-	: mNativeSampleRate( 0 ), mNativeNumChannels( 0 ), mSampleRate( 0 ), mNumChannels( 0 ), mMaxFramesPerRead( 4096 )
+sm_producer::sm_producer ()
 {
+    
+    boost::lock_guard<boost::mutex> guard ( s_mutex );
+    _impl = boost::shared_ptr<spImpl> (new spImpl);
+    
 }
 
-Source::~Source()
+
+bool sm_producer::load_content_file (const std::string& movie_fqfn)
 {
+    boost::lock_guard<boost::mutex> guard ( s_mutex );
+    
+    if (_impl) return _impl->load_content_file(movie_fqfn);
+    return false;
 }
 
-SourceVFFile::SourceVFFile() : Source(), mNumFrames( 0 ), mFileNumFrames( 0 ), mReadPos( 0 )
+void sm_producer::operator() (int start_frame, int frames ) const
 {
+    boost::lock_guard<boost::mutex> guard ( s_mutex );
+    if (_impl) _impl->generate_ssm (start_frame, frames);
 }
 
-void SourceVFFile::setOutputFormat( size_t outputSampleRate, size_t outputNumChannels )
+void sm_producer::load_images(const images_vector &images)
 {
-	bool updated = false;
-	if( mSampleRate != outputSampleRate ) {
-		updated = true;
-		mSampleRate = outputSampleRate;
-	}
-	if( outputNumChannels && mNumChannels != outputNumChannels ) {
-		updated = true;
-		mNumChannels = outputNumChannels;
-	}
+    boost::lock_guard<boost::mutex> guard ( s_mutex );
+    if (_impl) _impl->loadImages (images);
+}
 
-	if( updated ) {
-		if( mSampleRate != mNativeSampleRate || mNumChannels != mNativeNumChannels ) {
-			if( ! supportsConversion() ) {
-				mConverter = audio2::dsp::Converter::create( mNativeSampleRate, mSampleRate, mNativeNumChannels, mNumChannels, mMaxFramesPerRead );
-				mConverterReadBuffer.setSize( mMaxFramesPerRead, mNativeNumChannels );
-				CI_LOG_V( "created Converter for samplerate: " << mNativeSampleRate << " -> " << mSampleRate << ", channels: " << mNativeNumChannels << " -> " << mNumChannels << ", output num frames: " << mNumFrames );
+template<typename T> boost::signals2::connection
+sm_producer::registerCallback (const boost::function<T> & callback)
+{
+    return _impl->registerCallback  (callback);
+}
+
+template<typename T> bool
+sm_producer::providesCallback () const
+{
+    return _impl->providesCallback<T> ();
+}
+
+
+int sm_producer::process_start_frame() const { return (_impl) ? _impl->first_process_index() : -1; }
+int sm_producer::process_last_frame() const { return (_impl) ? _impl->last_process_index() : -1; }
+int sm_producer::frames_in_content() const { return (_impl) ? _impl->frame_count(): -1; }
+bool sm_producer::has_content () const { if (_impl) return _impl->has_content (); return false; }
+rcFrameGrabberError sm_producer::last_error () const { if (_impl) return _impl->last_error(); return rcFrameGrabberError::eFrameErrorUnknown; }
+
+const sm_producer::sMatrixType& sm_producer::similarityMatrix () const { return _impl->m_SMatrix; }
+
+//const sMatrixProjectionType& sm_producer::meanProjection () const;
+
+const sm_producer::sMatrixProjectionType& sm_producer::shannonProjection () const { return _impl->m_entropies; }
+
+
+// Get appropriate Grabber for Content
+// @todo if is directory: check and process as directory of images
+int sm_producer::spImpl::loadMovie( const std::string& movieFile, rcFrameGrabberError& error )
+{
+	images_vector zstk;
+    boost::shared_ptr<rcFrameGrabber> grabber_ref;
+    
+	if ( !movieFile.empty() )
+    {
+		if ( rf_ext_is_rfymov (movieFile ) )
+		{
+			rmAssert(_videoCacheP == 0);
+			double physMem = 1000000000.0;
+            
+			_videoCacheP =
+            rcVideoCache::rcVideoCacheCtor(movieFile, 0, true, false, true, physMem, 0); // _videoCacheProgress );
+			cerr << "Video cache size " << physMem/(1024*1024) << " MB" << endl;
+			grabber_ref = boost::shared_ptr<rcFrameGrabber> (new rcReifyMovieGrabber(*_videoCacheP) );
+		}
+		else if ( rf_ext_is_stk (movieFile) )
+		{
+            // Get a TIFF Importer
+			TIFFImageIO t_importer;
+			if (! t_importer.CanReadFile (movieFile.c_str () ) ) return 0;
+			t_importer.SetFileName (movieFile.c_str ());
+			t_importer.ReadImageInformation ();
+			zstk = t_importer.ReadPages ();
+			grabber_ref = boost::shared_ptr<rcFrameGrabber> (new rcVectorGrabber (zstk) );
+		}
+		else if ( rf_ext_is_mov(movieFile) )
+		{
+            grabber_ref =  boost::shared_ptr<rcFrameGrabber> ((reinterpret_cast<rcFrameGrabber*>(new vf_utils::qtime_support::CinderQtimeGrabber( movieFile ) ) ) );
+             ((vf_utils::qtime_support::CinderQtimeGrabber*)grabber_ref.get())->print_to_ (std::cout);
+		}
+        
+		_frameCount = loadFrames( grabber_ref);
+        error = m_last_error;
+        
+		if ( error != eFrameErrorOK ) {
+			if (_videoCacheP) {
+				rcVideoCache::rcVideoCacheDtor(_videoCacheP);
+				_videoCacheP = 0;
 			}
-
-			mNumFrames = (size_t)std::ceil( (float)mFileNumFrames * (float)mSampleRate / (float)mNativeSampleRate );
 		}
-		else {
-			mNumFrames = mFileNumFrames;
-			mConverter.reset();
-		}
-
-		outputFormatUpdated();
-	}
+        if (signal_content_loaded && signal_content_loaded->num_slots() > 0 ) signal_content_loaded->operator()();
+    }
+    return _frameCount;
 }
 
-size_t SourceVFFile::read( Buffer *buffer )
+void sm_producer::spImpl::loadImages (const images_vector& images)
 {
-	CI_ASSERT( buffer->getNumChannels() == mNumChannels );
-	CI_ASSERT( mReadPos < mNumFrames );
-
-	size_t numRead;
-
-	if( mConverter ) {
-		size_t sourceBufFrames = size_t( buffer->getNumFrames() * (float)mNativeSampleRate / (float)mSampleRate );
-		size_t numFramesNeeded = std::min( mFileNumFrames - mReadPos, std::min( mMaxFramesPerRead, sourceBufFrames ) );
-
-		mConverterReadBuffer.setNumFrames( numFramesNeeded );
-		performRead( &mConverterReadBuffer, 0, numFramesNeeded );
-		pair<size_t, size_t> count = mConverter->convert( &mConverterReadBuffer, buffer );
-		numRead = count.second;
-	}
-	else {
-		size_t numFramesNeeded = std::min( mNumFrames - mReadPos, std::min( mMaxFramesPerRead, buffer->getNumFrames() ) );
-		numRead = performRead( buffer, 0, numFramesNeeded );
-	}
-
-	mReadPos += numRead;
-	return numRead;
+    m_loaded_ref->resize (0);
+    vector<rcWindow>::const_iterator vitr = images.begin();
+    do { m_loaded_ref->push_back (*vitr++); } while (vitr != images.end());
+    _frameCount = m_loaded_ref->size ();
 }
 
-BufferRef SourceVFFile::loadBuffer()
+// Generic method to load frames from a rcFrameGrabber
+int32 sm_producer::spImpl::loadFrames( const fGrabberRef& grabber ) //rcFrameGrabber& grabber, rcFrameGrabberError& error )
 {
-	seek( 0 );
+    _has_content.store (false);
+    
+    // unique lock. forces new shared locks to wait untill this lock is release
+    boost::unique_lock <mutex_t> lock(m_mutex);
+    
+	m_last_error = grabber->getLastError();
+	int count = 0;
+    
+	rcTimestamp duration = rcTimestamp::now();
+    _currentTime = cZeroTime;
+    rcTimestamp prevTimeStamp = cZeroTime;
+   
+	// Grab everything
+	if ( grabber->isValid() && grabber->start())
+	{
+        int fc = grabber->frameCount ();
+        int fc_1 = fc - 1;
+        
+        // Note: infinite loop
+		for( count = 0; ; ++count )
+		{
+			rcTimestamp curTimeStamp;
+			rcRect videoFrame;
+			rcWindow image, tmp;
+			rcSharedFrameBufPtr framePtr;
+			rcFrameGrabberStatus status = grabber->getNextFrame( framePtr, true );
+            
+			if ( status != eFrameStatusOK ) break;
 
-	BufferRef result = make_shared<Buffer>( mNumFrames, mNumChannels );
+            // Note curTimeStamp fetching under VideoCache and normal fetch
+            // Any access to the pixel data or time stamp of the frames cached will force a frame load.
+			if (_videoCacheP)
+			{
+                rcVideoCacheError error;
+				if (_videoCacheP->frameIndexToTimestamp(count,curTimeStamp,&error) != eVideoCacheStatusOK)
+				{
+					cerr << "vfload: " << count << ": " << rcVideoCache::getErrorString(error) << endl;
+					rmAssert(0);
+				}
+                
+				videoFrame = rcRect( 0, 0, _videoCacheP->frameWidth(), _videoCacheP->frameHeight() );
+				tmp = rcWindow( *_videoCacheP, count );
+			}
+			else
+			{
+				videoFrame = rcRect( 0, 0, framePtr->width(), framePtr->height() );
+				tmp = rcWindow( framePtr );
+				curTimeStamp = tmp.frameBuf()->timestamp();
+			}
+            
+            ipp (tmp, image, curTimeStamp);
+            m_loaded_ref->push_back (image);
 
-	if( mConverter ) {
-		// TODO: need BufferView's in order to reduce number of copies
-		Buffer converterDestBuffer( mConverter->getDestMaxFramesPerBlock(), mNumChannels );
-		size_t readCount = 0;
-		while( true ) {
-			size_t framesNeeded = min( mMaxFramesPerRead, mFileNumFrames - readCount );
-			if( framesNeeded == 0 )
-				break;
+            // Post index and time if we have requesters
+            double timestamp = curTimeStamp.secs ();
+            if (signal_frame_loaded && signal_frame_loaded->num_slots() > 0 ) signal_frame_loaded->operator()(boost::ref (count), boost::ref (timestamp));
+            
+            _has_content.fetch_add (1);
+            if (_has_content.compare_exchange_strong (fc_1, fc) ) break;
 
-			// make sourceBuffer num frames match outNumFrames so that Converter doesn't think it has more
-			if( framesNeeded < mConverterReadBuffer.getNumFrames() )
-				mConverterReadBuffer.setNumFrames( framesNeeded );
-
-			size_t outNumFrames = performRead( &mConverterReadBuffer, 0, framesNeeded );
-			CI_ASSERT( outNumFrames == framesNeeded );
-
-			pair<size_t, size_t> count = mConverter->convert( &mConverterReadBuffer, &converterDestBuffer );
-			result->copyOffset( converterDestBuffer, count.second, mReadPos, 0 );
-
-			readCount += outNumFrames;
-			mReadPos += count.second;
-		}
-	}
-	else {
-		size_t readCount = performRead( result.get(), 0, mNumFrames );
-		mReadPos = readCount;
-	}
-
-	return result;
-}
-
-void SourceVFFile::seek( size_t readPositionFrames )
-{
-	if( readPositionFrames >= mNumFrames )
-		return;
-
-	// adjust read pos for samplerate conversion so that it is relative to file num frames
-	size_t fileReadPos = readPositionFrames;
-	if( mSampleRate != mNativeSampleRate )
-		fileReadPos *= size_t( (float)mFileNumFrames / (float)mNumFrames );
-
-	performSeek( fileReadPos );
-	mReadPos = readPositionFrames;
-}
-
-// TODO: these should be replaced with a generic registrar derived from the ImageIo stuff.
-
-unique_ptr<SourceVFFile> SourceVFFile::create( const DataSourceRef &dataSource )
-{
-	if( getPathExtension( dataSource->getFilePathHint() ) == "ogg" )
-		return unique_ptr<SourceVFFile>( new SourceVFFileOggVorbis( dataSource ) );
-
-#if defined( CINDER_COCOA )
-	return unique_ptr<SourceVFFile>( new cocoa::SourceVFFileCoreAudio( dataSource ) );
-#elif defined( CINDER_MSW )
-	return unique_ptr<SourceVFFile>( new msw::SourceVFFileMediaFoundation( dataSource ) );
+#if COMPARE_AND_CLAMP_TS
+			rcTimestamp frameInt = curTimeStamp  - prevTimeStamp;
+			if ( firstFrame ) {firstFrame = false;_startTime = curTimeStamp;_currentTime = _startTime;}
+			else _currentTime += frameInt;
+			prevTimeStamp = curTimeStamp;
 #endif
+            // @todo if (videoWriter != 0) 	videoWriter->writeValue( curTimeStamp, rcRect(), &image );  Compare and clamp image update interval
+		}// End of For i++
+        
+        // Update elapsed time _observer->notifyTime( getElapsedTime() ); _observer->notifyTimelineRange( 0.0, getElapsedTime() ); 	flushSharedWriters ();
+		if ( ! grabber->stop() ) std::cout << " Grabber failed to stop" << std::endl;
+		
+	}
+	m_last_error = grabber->getLastError();
+    
+	// Done. Report
+	duration = rcTimestamp::now() - duration;
+    
+    _frameCount = m_loaded_ref->size();
+    
+	// Set analysis range
+	_analysisFirstFrame = 0;
+	_analysisLastFrame =  _frameCount - 1;
+    
+    
+    //	updateHeaderLogs();
+     if (signal_content_loaded && signal_content_loaded->num_slots() > 0 ) signal_content_loaded->operator()();
+    
+    return _frameCount;
+
 }
 
-} } // namespace cinder::audio2
+
+
+// @todo add sampling and offset
+bool sm_producer::spImpl::generate_ssm (int start_frames, int frames)
+{
+static    double tiny = 1e-10;
+    
+    rcSimilarator simi(rcSimilarator::eExhaustive,
+                     rcPixel8,
+                     _frameCount,
+                     0, rcSimilarator::eNorm,
+                     false,
+                     0,
+                     tiny);
+    
+//    for (int ii=0; ii < _frameCount; ii++) m_loaded_ref->at(ii).print(dummy, std::cout);
+    
+    simi.fill(*m_loaded_ref);
+    m_entropies.resize (0);
+    bool ok = simi.entropies (m_entropies, rcSimilarator::eVisualEntropy);
+    m_SMatrix.resize (0);
+    simi.selfSimilarityMatrix(m_SMatrix);
+    return ok;
+}
+
+
+//
+//// Generic method to load frames from a rcFrameGrabber
+//int sm_producer::spImpl::saveFrames(std::string imageExportDir) const
+//{
+//    if (imageExportDir.empty()) return 0;
+//
+//    images_vector::const_iterator imgItr = _fileImages.begin ();
+//
+//    rcTimestamp duration = rcTimestamp::now();
+//
+//    int32 i = 0;
+//    for (; imgItr != _fileImages.end(); imgItr++, i++)
+//    {
+//        std::ostringstream oss;
+//        oss << imageExportDir << "/" << "image" << setfill ('0') << setw(4) << i << ".jpg";
+//        std::string fn (oss.str ());
+//        vf_utils::ci2rc2ci::ImageExport2JPG ( *imgItr, fn);
+//        fn = std::string ("chmod 644 ") + fn;
+//        ::system( fn.c_str() );
+//
+//    }
+//
+//    // Done. Report
+//    duration = rcTimestamp::now() - duration;
+//    cout <<  endl << i << " Images Exported in " << duration.secs() << "Seconds" << endl;
+//
+//    return i;
+//}
+
+void sm_producer::spImpl::ipp (const rcWindow& tmp, rcWindow& image, rcTimestamp& current)
+{
+    rmUnused (current);
+    
+    // VideoCache case: Do not access frameData. Access for invalidate cache
+    if (_videoCacheP)
+    {
+        image = tmp;
+        image.frameBuf()->setTimestamp (current);
+        return;
+    }
+    
+    if (tmp.depth() == rcPixel8 || !tmp.isGray ())
+    {
+        image = tmp;
+        image.frameBuf()->setTimestamp (current);
+        return;
+    }
+    
+    if (tmp.depth() == rcPixel16)
+    {
+        image = tmp;
+        image.frameBuf()->setTimestamp (current);
+        return;
+    }
+    
+    if (tmp.depth() == rcPixel32S)
+    {
+        
+        //        image = rfImageConvert32to8 (tmp, _channelConversion);
+        //        image.frameBuf()->setTimestamp (current);
+        return;
+    }
+}
+
+
+template boost::signals2::connection sm_producer::registerCallback(const boost::function<sm_producer::sig_cb_content_loaded>&);
+template boost::signals2::connection sm_producer::registerCallback(const boost::function<sm_producer::sig_cb_frame_loaded>&);
+
+

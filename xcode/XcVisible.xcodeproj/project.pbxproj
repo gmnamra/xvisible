@@ -19,8 +19,12 @@
 		C20BB34F1910599400884EB2 /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20BB34E1910599400884EB2 /* vfi386_d.framework */; };
 		C20BB351191059BC00884EB2 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20BB350191059BC00884EB2 /* gtest.framework */; };
 		C2173401190B175500A01365 /* AudioDrawUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21733FC190B175500A01365 /* AudioDrawUtils.cpp */; };
+		C236E0A419290BCF0035C2F5 /* vf_source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C236E0A319290BCF0035C2F5 /* vf_source.cpp */; };
+		C236E0A7192914490035C2F5 /* vf_source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C236E0A319290BCF0035C2F5 /* vf_source.cpp */; };
+		C236E0AD19291C2A0035C2F5 /* vf_qtime_grabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C236E0AC19291C2A0035C2F5 /* vf_qtime_grabber.cpp */; };
 		C23E89AD1912869C00AE27A3 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C23E89AC1912869C00AE27A3 /* libboost_system.a */; };
 		C23E89B01912E98D00AE27A3 /* libopencv_core.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C23E89AF1912E98C00AE27A3 /* libopencv_core.dylib */; };
+		C242F57D19292656000FEAAB /* vf_qtime_grabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C236E0AC19291C2A0035C2F5 /* vf_qtime_grabber.cpp */; };
 		C27652451915E3B200EA3B55 /* gutc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20BB349191058FA00884EB2 /* gutc.cpp */; };
 		C276524D1915E90A00EA3B55 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB225E190B298700BBC93C /* QuickTime.framework */; };
 		C276524F1915E93300EA3B55 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C276524E1915E93300EA3B55 /* CoreFoundation.framework */; };
@@ -33,6 +37,7 @@
 		C27652591915E9AB00EA3B55 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27652581915E9AB00EA3B55 /* OpenGL.framework */; };
 		C276525B1915E9CB00EA3B55 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C276525A1915E9CB00EA3B55 /* CoreVideo.framework */; };
 		C276525E1915EA1400EA3B55 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
+		C2D6FA81192D27820099EEED /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D6FA80192D27820099EEED /* libboost_thread.a */; };
 		C2D713EB19171AFC009C503B /* assets in Resources */ = {isa = PBXBuildFile; fileRef = C2D713EA19171AFC009C503B /* assets */; };
 		C2D713EE19171B49009C503B /* Resources.h in Resources */ = {isa = PBXBuildFile; fileRef = C2D713EC19171B49009C503B /* Resources.h */; };
 		C2D713EF19171B49009C503B /* data.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2D713ED19171B49009C503B /* data.txt */; };
@@ -68,10 +73,17 @@
 		C21733FC190B175500A01365 /* AudioDrawUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioDrawUtils.cpp; sourceTree = "<group>"; };
 		C21733FD190B175500A01365 /* cVisibleApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cVisibleApp.cpp; sourceTree = "<group>"; };
 		C2173400190B175500A01365 /* VisibleApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VisibleApp.cpp; sourceTree = "<group>"; };
+		C236E0A319290BCF0035C2F5 /* vf_source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vf_source.cpp; sourceTree = "<group>"; };
+		C236E0A519290E260035C2F5 /* vf_sm_producer_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vf_sm_producer_impl.h; path = ../../include/cvisible/vf_sm_producer_impl.h; sourceTree = "<group>"; };
+		C236E0A619290E260035C2F5 /* vf_sm_producer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vf_sm_producer.h; path = ../../include/cvisible/vf_sm_producer.h; sourceTree = "<group>"; };
+		C236E0AA19291A2D0035C2F5 /* vf_cinder_qtime_grabber_impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_cinder_qtime_grabber_impl.hpp; path = ../../include/cvisible/vf_cinder_qtime_grabber_impl.hpp; sourceTree = "<group>"; };
+		C236E0AB19291A2D0035C2F5 /* vf_cinder_qtime_grabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vf_cinder_qtime_grabber.h; path = ../../include/cvisible/vf_cinder_qtime_grabber.h; sourceTree = "<group>"; };
+		C236E0AC19291C2A0035C2F5 /* vf_qtime_grabber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vf_qtime_grabber.cpp; sourceTree = "<group>"; };
 		C2371C2A192424F8005114B1 /* vf_imagegrabber.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_imagegrabber.hpp; path = ../../include/cvisible/vf_imagegrabber.hpp; sourceTree = "<group>"; };
-		C2371C2D1924429B005114B1 /* vf_cinder_qtime_grabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vf_cinder_qtime_grabber.h; path = ../../include/cvisible/vf_cinder_qtime_grabber.h; sourceTree = "<group>"; };
 		C23E89AC1912869C00AE27A3 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../usr/local/boost/lib/libboost_system.a; sourceTree = "<group>"; };
 		C23E89AF1912E98C00AE27A3 /* libopencv_core.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.dylib; path = ../usr/local/OpenCv_2.4_i386/lib/libopencv_core.dylib; sourceTree = "<group>"; };
+		C242F57E192927F9000FEAAB /* vf_image_conversions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_image_conversions.hpp; path = ../../include/cvisible/vf_image_conversions.hpp; sourceTree = "<group>"; };
+		C2663DC1192AB062004986A4 /* ut_sm.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ut_sm.hpp; path = ../test/vf_cvisible/ut_sm.hpp; sourceTree = "<group>"; };
 		C2765232191568C400EA3B55 /* cv_release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = cv_release.xcconfig; path = configs/cv_release.xcconfig; sourceTree = "<group>"; };
 		C27652411915E1EB00EA3B55 /* libaudio2_d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libaudio2_d.a; path = ../usr/local/Cinder/lib/Debug/libaudio2_d.a; sourceTree = "<group>"; };
 		C27652431915E25700EA3B55 /* libcinder_d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcinder_d.a; path = ../usr/local/Cinder/lib/Debug/libcinder_d.a; sourceTree = "<group>"; };
@@ -81,6 +93,7 @@
 		C27652561915E99200EA3B55 /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
 		C27652581915E9AB00EA3B55 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		C276525A1915E9CB00EA3B55 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		C2D6FA80192D27820099EEED /* libboost_thread.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_thread.a; path = ../usr/local/boost/lib/libboost_thread.a; sourceTree = "<group>"; };
 		C2D713EA19171AFC009C503B /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		C2D713EC19171B49009C503B /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Resources.h; sourceTree = "<group>"; };
 		C2D713ED19171B49009C503B /* data.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
@@ -117,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2D6FA81192D27820099EEED /* libboost_thread.a in Frameworks */,
 				C276525E1915EA1400EA3B55 /* Accelerate.framework in Frameworks */,
 				C276525B1915E9CB00EA3B55 /* CoreVideo.framework in Frameworks */,
 				C27652591915E9AB00EA3B55 /* OpenGL.framework in Frameworks */,
@@ -174,6 +188,7 @@
 		29B97314FDCFA39411CA2CEA /* SamplePlayerTest */ = {
 			isa = PBXGroup;
 			children = (
+				C2663DC1192AB062004986A4 /* ut_sm.hpp */,
 				C2FB27011921D31F003A48B7 /* ut_similarity.cpp */,
 				C2FB26FF1921D30C003A48B7 /* ut_videocache.cpp */,
 				C2FB26FD1921D2F6003A48B7 /* ut_framebuf.cpp */,
@@ -204,6 +219,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2D6FA80192D27820099EEED /* libboost_thread.a */,
 				C276525A1915E9CB00EA3B55 /* CoreVideo.framework */,
 				C27652581915E9AB00EA3B55 /* OpenGL.framework */,
 				C27652561915E99200EA3B55 /* CoreAudioKit.framework */,
@@ -237,7 +253,13 @@
 		C21733FB190B175500A01365 /* cvisible */ = {
 			isa = PBXGroup;
 			children = (
-				C2371C2D1924429B005114B1 /* vf_cinder_qtime_grabber.h */,
+				C242F57E192927F9000FEAAB /* vf_image_conversions.hpp */,
+				C236E0AC19291C2A0035C2F5 /* vf_qtime_grabber.cpp */,
+				C236E0AA19291A2D0035C2F5 /* vf_cinder_qtime_grabber_impl.hpp */,
+				C236E0AB19291A2D0035C2F5 /* vf_cinder_qtime_grabber.h */,
+				C236E0A519290E260035C2F5 /* vf_sm_producer_impl.h */,
+				C236E0A619290E260035C2F5 /* vf_sm_producer.h */,
+				C236E0A319290BCF0035C2F5 /* vf_source.cpp */,
 				C2371C2A192424F8005114B1 /* vf_imagegrabber.hpp */,
 				C2D713FB191C47A1009C503B /* visible_app.h */,
 				C2D713F1191978D0009C503B /* AudioDrawUtils.h */,
@@ -360,7 +382,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C236E0AD19291C2A0035C2F5 /* vf_qtime_grabber.cpp in Sources */,
 				C2DB2261190B2CCB00BBC93C /* VisibleApp.cpp in Sources */,
+				C236E0A419290BCF0035C2F5 /* vf_source.cpp in Sources */,
 				C2173401190B175500A01365 /* AudioDrawUtils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,6 +397,8 @@
 				C2FB27001921D30C003A48B7 /* ut_videocache.cpp in Sources */,
 				C2FB26FE1921D2F6003A48B7 /* ut_framebuf.cpp in Sources */,
 				C27652451915E3B200EA3B55 /* gutc.cpp in Sources */,
+				C242F57D19292656000FEAAB /* vf_qtime_grabber.cpp in Sources */,
+				C236E0A7192914490035C2F5 /* vf_source.cpp in Sources */,
 				C20BB3481910577D00884EB2 /* ut_file.hpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +478,10 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/arman/gwc/vqt105/visibleqt105/usr/local/boost/lib,
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.8;
@@ -480,6 +510,10 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/arman/gwc/vqt105/visibleqt105/usr/local/boost/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.8;
 			};
