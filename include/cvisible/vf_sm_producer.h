@@ -35,7 +35,10 @@ public:
     bool load_content_file (const string& fq_path);
     void load_images (const images_vector&);
     
-    void operator () (int start_frame, int frames) const;
+    bool operator () (int start_frame, int frames) const;
+    
+    bool set_auto_run_on () const;
+    bool set_auto_run_off () const;
     
     bool has_content () const;
     int bytes_per_pixel () const;

@@ -34,7 +34,7 @@ public:
     
     typedef boost::mutex mutex_t;
     
-    spImpl () : _has_content(-1)
+    spImpl () : _has_content(-1), m_auto_run (false)
     {
         m_name = get_name_generator().get_anew();
         signal_content_loaded = createSignal<sm_producer::sig_cb_content_loaded>();
@@ -51,10 +51,15 @@ public:
         rcFrameGrabberError fr;
         _frameCount = loadMovie (movie_fqfn, fr);
         _has_content.store (fr == eFrameErrorOK);
+        if (m_auto_run) generate_ssm (0,0);
         return has_content ();
     }
     
-    int32 loadFrames( const fGrabberRef& );
+    
+    bool set_auto_run_on () { bool tmp = m_auto_run; m_auto_run = true; return tmp; }
+    bool set_auto_run_off () { bool tmp = m_auto_run; m_auto_run = false; return tmp; }
+
+    int32 loadFrames( );
     void loadImages ( const images_vector& );
 
     bool has_content () const { return _has_content > 0 ; }
@@ -81,6 +86,8 @@ protected:
     
 private:
     boost::atomic<int> _has_content;
+    mutable bool m_auto_run;
+    
     mutable mutex_t   m_mutex;
     double            _physcial_memory_hint;
     int32             _analysisFirstFrame;
@@ -92,6 +99,7 @@ private:
     int                          _frameRate;
     int                          _frameCount;
     rcVideoCache*                _videoCacheP;
+    fGrabberRef                  m_grabber_ref;
     deque<deque<double> >        m_SMatrix;   // Used in eExhaustive and
     deque<double>                m_entropies; // Final entropy signal
     deque<double>                m_means; // Final entropy signal

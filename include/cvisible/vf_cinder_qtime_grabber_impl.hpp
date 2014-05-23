@@ -8,6 +8,7 @@
 #include "cinder/Utilities.h"
 #include "cinder/Surface.h"
 #include "cinder/qtime/QuickTime.h"
+#include "cinder/Thread.h"
 #include "rc_window.h"
 #include <boost/algorithm/string.hpp>
 #include <boost/thread/mutex.hpp>
@@ -48,6 +49,8 @@ namespace vf_utils
             mFileName( fileName ), mFrameInterval( frameInterval ),mFrameCount(-1),
             mCurrentTimeStamp( rcTimestamp::from_seconds(frameInterval) ), mCurrentIndex( 0  )
             {
+                
+                
                 boost::lock_guard<boost::mutex> (this->mMuLock);
                 mValid = file_exists ( fileName ) && file_readable ( fileName );
                 if ( mValid )
@@ -58,7 +61,7 @@ namespace vf_utils
                     mFrameCount = mMovie.getNumFrames();
                     mMovieFrameInterval = 1.0 / (mMovie.getFramerate() + std::numeric_limits<double>::epsilon() );
                     mFrameInterval = boost::math::signbit (frameInterval) == 1 ? mMovieFrameInterval : mFrameInterval;
-                    mMovie.setLoop( true, true );
+                    mMovie.setLoop( true, false);
                     setLastError( eFrameErrorOK );
                 }
                 else
@@ -124,6 +127,8 @@ namespace vf_utils
             // Get next frame, assign the frame to ptr
             virtual rcFrameGrabberStatus getNextFrame( rcSharedFrameBufPtr& ptr, bool isBlocking )
             {
+                ci::ThreadSetup threadSetup;
+                
                 boost::lock_guard<boost::mutex> (this->mMuLock);
                 rcFrameGrabberStatus ret =  eFrameStatusOK;
                 setLastError( eFrameErrorUnknown );
@@ -133,11 +138,19 @@ namespace vf_utils
                     if ( mMovie.checkNewFrame () )
                     {
                         double tp = mMovie.getCurrentTime ();
-                        std::cout << tp << std::endl;
                         mSurface = mMovie.getSurface ();
                         if (mSurface )
                         {
-                            ptr = vf_utils::ci2rc2ci::NewFromChannel8u (mSurface.getChannelRed ());
+                            ptr = new rcFrame (m_width, m_height, rcPixel8);
+                            ptr->setIsGray (true);
+                            Surface::Iter iter = mSurface.getIter ( mSurface.getBounds() );
+                            int rows = 0;
+                            while (iter.line () )
+                            {
+                                uint8_t* pels = ptr->rowPointer (rows++);
+                                while ( iter.pixel () ) *pels++ = iter.g ();
+                            }
+                            
                             ptr->setTimestamp (rcTimestamp::from_seconds (tp ) );
                             ret = eFrameStatusOK;
                             setLastError( eFrameErrorOK );
@@ -184,7 +197,7 @@ namespace vf_utils
                 std_stream << " -- Extracted Info -- " << std::endl;
                 std_stream << "Dimensions:" << m_width << " x " << m_height << std::endl;
                 std_stream << "Frames:    " << mFrameCount << std::endl;
-
+                
                 std_stream << " -- Embedded Movie Info -- " << std::endl;
                 std_stream << "Dimensions:" << mMovie.getWidth() << " x " << mMovie.getHeight() << std::endl;
                 std_stream << "Duration:  " << mMovie.getDuration() << " seconds" << std::endl;

@@ -21,6 +21,7 @@
 #include "vf_cinder_qtime_grabber.h"
 #include "vf_image_conversions.hpp"
 #include "vf_utils.hpp"
+#include <future>
 
 
 using namespace boost;
@@ -47,10 +48,15 @@ bool sm_producer::load_content_file (const std::string& movie_fqfn)
     return false;
 }
 
-void sm_producer::operator() (int start_frame, int frames ) const
+bool sm_producer::operator() (int start_frame, int frames ) const
 {
     boost::lock_guard<boost::mutex> guard ( s_mutex );
-    if (_impl) _impl->generate_ssm (start_frame, frames);
+    if (_impl)
+    {
+        std::future<bool> bright = std::async(std::launch::deferred, &sm_producer::spImpl::generate_ssm, _impl, start_frame, frames);
+        return bright.get();
+    }
+    return false;
 }
 
 void sm_producer::load_images(const images_vector &images)
@@ -71,7 +77,8 @@ sm_producer::providesCallback () const
     return _impl->providesCallback<T> ();
 }
 
-
+bool sm_producer::set_auto_run_on() const { return (_impl) ? _impl->set_auto_run_on() : false; }
+bool sm_producer::set_auto_run_off() const { return (_impl) ? _impl->set_auto_run_off() : false; }
 int sm_producer::process_start_frame() const { return (_impl) ? _impl->first_process_index() : -1; }
 int sm_producer::process_last_frame() const { return (_impl) ? _impl->last_process_index() : -1; }
 int sm_producer::frames_in_content() const { return (_impl) ? _impl->frame_count(): -1; }
@@ -90,7 +97,7 @@ const sm_producer::sMatrixProjectionType& sm_producer::shannonProjection () cons
 int sm_producer::spImpl::loadMovie( const std::string& movieFile, rcFrameGrabberError& error )
 {
 	images_vector zstk;
-    boost::shared_ptr<rcFrameGrabber> grabber_ref;
+    m_grabber_ref.reset();
     
 	if ( !movieFile.empty() )
     {
@@ -101,8 +108,7 @@ int sm_producer::spImpl::loadMovie( const std::string& movieFile, rcFrameGrabber
             
 			_videoCacheP =
             rcVideoCache::rcVideoCacheCtor(movieFile, 0, true, false, true, physMem, 0); // _videoCacheProgress );
-			cerr << "Video cache size " << physMem/(1024*1024) << " MB" << endl;
-			grabber_ref = boost::shared_ptr<rcFrameGrabber> (new rcReifyMovieGrabber(*_videoCacheP) );
+			m_grabber_ref = boost::shared_ptr<rcFrameGrabber> (new rcReifyMovieGrabber(*_videoCacheP) );
 		}
 		else if ( rf_ext_is_stk (movieFile) )
 		{
@@ -112,15 +118,15 @@ int sm_producer::spImpl::loadMovie( const std::string& movieFile, rcFrameGrabber
 			t_importer.SetFileName (movieFile.c_str ());
 			t_importer.ReadImageInformation ();
 			zstk = t_importer.ReadPages ();
-			grabber_ref = boost::shared_ptr<rcFrameGrabber> (new rcVectorGrabber (zstk) );
+			m_grabber_ref = boost::shared_ptr<rcFrameGrabber> (new rcVectorGrabber (zstk) );
 		}
 		else if ( rf_ext_is_mov(movieFile) )
 		{
-            grabber_ref =  boost::shared_ptr<rcFrameGrabber> ((reinterpret_cast<rcFrameGrabber*>(new vf_utils::qtime_support::CinderQtimeGrabber( movieFile ) ) ) );
-             ((vf_utils::qtime_support::CinderQtimeGrabber*)grabber_ref.get())->print_to_ (std::cout);
+            m_grabber_ref =  boost::shared_ptr<rcFrameGrabber> ((reinterpret_cast<rcFrameGrabber*>(new vf_utils::qtime_support::CinderQtimeGrabber( movieFile ) ) ) );
+             ((vf_utils::qtime_support::CinderQtimeGrabber*)m_grabber_ref.get())->print_to_ (std::cout);
 		}
         
-		_frameCount = loadFrames( grabber_ref);
+		_frameCount = loadFrames();
         error = m_last_error;
         
 		if ( error != eFrameErrorOK ) {
@@ -129,28 +135,34 @@ int sm_producer::spImpl::loadMovie( const std::string& movieFile, rcFrameGrabber
 				_videoCacheP = 0;
 			}
 		}
-        if (signal_content_loaded && signal_content_loaded->num_slots() > 0 ) signal_content_loaded->operator()();
     }
     return _frameCount;
 }
 
 void sm_producer::spImpl::loadImages (const images_vector& images)
 {
-    m_loaded_ref->resize (0);
+    m_loaded_ref.reset (new images_vector );
     vector<rcWindow>::const_iterator vitr = images.begin();
-    do { m_loaded_ref->push_back (*vitr++); } while (vitr != images.end());
+    do
+    {
+        m_loaded_ref->push_back (*vitr++);
+    }
+    while (vitr != images.end());
     _frameCount = m_loaded_ref->size ();
+    if (m_auto_run) generate_ssm (0,0);
+        
 }
 
 // Generic method to load frames from a rcFrameGrabber
-int32 sm_producer::spImpl::loadFrames( const fGrabberRef& grabber ) //rcFrameGrabber& grabber, rcFrameGrabberError& error )
+int32 sm_producer::spImpl::loadFrames(  )
 {
     _has_content.store (false);
+  
     
     // unique lock. forces new shared locks to wait untill this lock is release
     boost::unique_lock <mutex_t> lock(m_mutex);
     
-	m_last_error = grabber->getLastError();
+	m_last_error = m_grabber_ref->getLastError();
 	int count = 0;
     
 	rcTimestamp duration = rcTimestamp::now();
@@ -158,9 +170,9 @@ int32 sm_producer::spImpl::loadFrames( const fGrabberRef& grabber ) //rcFrameGra
     rcTimestamp prevTimeStamp = cZeroTime;
    
 	// Grab everything
-	if ( grabber->isValid() && grabber->start())
+	if ( m_grabber_ref->isValid() && m_grabber_ref->start())
 	{
-        int fc = grabber->frameCount ();
+        int fc = m_grabber_ref->frameCount ();
         int fc_1 = fc - 1;
         
         // Note: infinite loop
@@ -170,7 +182,7 @@ int32 sm_producer::spImpl::loadFrames( const fGrabberRef& grabber ) //rcFrameGra
 			rcRect videoFrame;
 			rcWindow image, tmp;
 			rcSharedFrameBufPtr framePtr;
-			rcFrameGrabberStatus status = grabber->getNextFrame( framePtr, true );
+			rcFrameGrabberStatus status = m_grabber_ref->getNextFrame( framePtr, true );
             
 			if ( status != eFrameStatusOK ) break;
 
@@ -215,10 +227,10 @@ int32 sm_producer::spImpl::loadFrames( const fGrabberRef& grabber ) //rcFrameGra
 		}// End of For i++
         
         // Update elapsed time _observer->notifyTime( getElapsedTime() ); _observer->notifyTimelineRange( 0.0, getElapsedTime() ); 	flushSharedWriters ();
-		if ( ! grabber->stop() ) std::cout << " Grabber failed to stop" << std::endl;
+		if ( ! m_grabber_ref->stop() ) std::cout << " Grabber failed to stop" << std::endl;
 		
 	}
-	m_last_error = grabber->getLastError();
+	m_last_error = m_grabber_ref->getLastError();
     
 	// Done. Report
 	duration = rcTimestamp::now() - duration;

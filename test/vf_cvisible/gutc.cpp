@@ -170,8 +170,7 @@ TEST(cinder_qtime_grabber, run)
     
     EXPECT_TRUE(images.size() == 56);
     
-    if ( ! grabber->stop() )
-        error = grabber->getLastError();
+    EXPECT_TRUE(grabber->stop());
     
 }
 
@@ -214,16 +213,35 @@ TEST(cinder_qtime_grabber_and_similarity, run)
     
     EXPECT_TRUE(images.size() == 56);
     
-    if ( ! grabber->stop() )
-        error = grabber->getLastError();
+    std::vector<rcWindow> rand_images;
+
+    for (uint32 i = 0; i < images.size(); i++)
+    {
+        EXPECT_EQ(true, images[i].isGray());
+    }
     
+    
+    for (uint32 i = 0; i < images.size(); i++)
+    {
+        rcWindow tmp(16,16);
+        tmp.copyPixelsFromWindow(images[i]);
+        rand_images.push_back(tmp);
+    }
+    
+
     boost::shared_ptr<sm_producer> sp;
     sp =  boost::shared_ptr<sm_producer> ( new sm_producer () );
-    sp->load_images (images);
+    sp->load_images (rand_images);
     EXPECT_EQ(56, sp->frames_in_content ());
     sp->operator()(0, 0);
+    EXPECT_EQ(56, sp->frames_in_content());
+    EXPECT_EQ(56, sp->shannonProjection().size () );
+    EXPECT_EQ(false, vf_utils::math::contains_nan(sp->shannonProjection().begin(), sp->shannonProjection().end()));
+
     
+    EXPECT_TRUE(grabber->stop());
     
+
 }
 
 

@@ -10,9 +10,10 @@ using namespace std;
 
 struct cb_similarity_producer
 {
-    cb_similarity_producer (const std::string& filename)
+    cb_similarity_producer (const std::string& filename, bool auto_run = false)
     {
         m_filename = filename;
+        m_auto = auto_run;
     }
     
     int run ()
@@ -26,8 +27,10 @@ struct cb_similarity_producer
             boost::signals2::connection ml_connection = sp->registerCallback(content_loaded_cb);
             
             rcFrameGrabberError error;
+            if (m_auto) sp->set_auto_run_on ();
+            
             sp->load_content_file (m_filename);
-            sp->operator()(0, 0);
+            if (! m_auto) sp->operator()(0, 0);
             
         }
         catch (...)
@@ -45,7 +48,7 @@ struct cb_similarity_producer
     void signal_frame_loaded (int& findex, double& timestamp)
     {
         static int times = 0;
-        std::cout << ++times << " : " << findex << " @ " << timestamp << std::endl;
+    //    std::cout << ++times << " : " << findex << " @ " << timestamp << std::endl;
         frame_indices.push_back (findex);
         frame_times.push_back (timestamp);
         if (! (equal (timestamp, exected_movie_times[findex], 0.0001 )) )
@@ -55,7 +58,7 @@ struct cb_similarity_producer
     }
     
     boost::shared_ptr<sm_producer> sp;
-    
+    bool m_auto;
     std::vector<int> frame_indices;
     std::vector<double> frame_times;
     std::vector<bool> mlies;
