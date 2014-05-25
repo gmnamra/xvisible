@@ -26,7 +26,7 @@
 #include "cinder/gl/Vbo.h"
 #include "cinder/MayaCamUI.h"
 #include "cinder/ImageIo.h"
-
+#include "cinder/Easing.h"
 #include "assets/Resources.h"
 
 #include "cvisible/AudioTestGui.h"
@@ -105,6 +105,48 @@ public:
 };
 
 
+struct OneDbox {
+public:
+	OneDbox( std::function<float (float)> fn, string name )
+    : mFn( fn )
+	{
+		// create label
+		TextLayout text; text.clear( Color::white() ); text.setColor( Color(0.5f, 0.5f, 0.5f) );
+		try { text.setFont( Font( "Futura-CondensedMedium", 18 ) ); } catch( ... ) { text.setFont( Font( "Arial", 18 ) ); }
+		text.addLine( name );
+		mLabelTex = gl::Texture( text.render( true ) );
+	}
+	
+	void draw( float t ) const
+	{
+		// draw box and frame
+		gl::color( Color( 1.0f, 1.0f, 1.0f ) );
+		gl::drawSolidRect( mDrawRect );
+		gl::color( Color( 0.4f, 0.4f, 0.4f ) );
+		gl::drawStrokedRect( mDrawRect );
+		gl::color( Color::white() );
+		gl::draw( mLabelTex, mDrawRect.getCenter() - mLabelTex.getSize() / 2 );
+        
+		// draw graph
+		gl::color( ColorA( 0.25f, 0.5f, 1.0f, 0.5f ) );
+		glBegin( GL_LINE_STRIP );
+		for( float x = 0; x < mDrawRect.getWidth(); x += 0.25f ) {
+			float y = 1.0f - mFn( x / mDrawRect.getWidth() );
+			gl::vertex( Vec2f( x, y * mDrawRect.getHeight() ) + mDrawRect.getUpperLeft() );
+		}
+		glEnd();
+		
+		// draw animating circle
+		gl::color( Color( 1, 0.5f, 0.25f ) );
+		gl::drawSolidCircle( mDrawRect.getUpperLeft() + mFn( t ) * mDrawRect.getSize(), 5.0f );
+	}
+	
+	std::function<float (float)>	mFn;
+	Rectf							mDrawRect;
+	gl::Texture						mLabelTex;
+};
+
+
 class CVisibleApp : public AppNative {
 public:
 
@@ -122,6 +164,7 @@ public:
     void movie_update ();
 	void draw();
     void draw_mat ();
+    void draw_oned ();
     
 	void setupBufferPlayer();
 	void setupFilePlayer();
@@ -174,6 +217,7 @@ public:
 
     gl::VboMesh mPointCloud;
     MayaCamUI mCam;
+    vector<OneDbox> mGraphs;
     
 
 };

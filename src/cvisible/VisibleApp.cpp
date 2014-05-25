@@ -24,9 +24,10 @@ void CVisibleApp::resize_areas ()
     const Vec2i& c_ul = getWindowBounds().getUL();
     const Vec2i& c_lr = getWindowBounds().getLR();
     Vec2i c_mr (c_lr.x, (c_lr.y - c_ul.y) / 2);
-    Vec2i c_ml (c_ul.x, (c_lr.y - c_ul.y) / 2);    
+    Vec2i c_ml (c_ul.x, (c_lr.y - c_ul.y) / 2);
     mGraphDisplayRect = Area (c_ul, c_mr);
     mMovieDisplayRect = Area (c_ml, c_lr);
+    if(!mGraphs.empty()) mGraphs[0].mDrawRect = mGraphDisplayRect;
 }
 
 void CVisibleApp::setup()
@@ -48,18 +49,21 @@ void CVisibleApp::setup()
     
     mTopParams = params::InterfaceGl (" CVisible ", Vec2i( 200, 400) );
     mTopParams.addButton("Select Movie ", std::bind(&CVisibleApp::setupFilePlayer, this ) );
+    mTopParams.addParam("valid movie", &m_movie_valid);
     mTopParams.addButton("Select Signature ", std::bind(&CVisibleApp::setupBufferPlayer, this ) );
-    mTopParams.addButton("Select Matrix ", std::bind(&CVisibleApp::setupMatrixPlayer, this ) );    
+    mTopParams.addButton("Select Matrix ", std::bind(&CVisibleApp::setupMatrixPlayer, this ) );
     
 	ctx->enable();
 	CI_LOG_V( "context samplerate: " << ctx->getSampleRate() );
+    
+   // mGraphs.push_back (OneDbox(EaseInAtan (), "Ease In Atan "));
     
 }
 
 void CVisibleApp::setupMatrixPlayer ()
 {
     // Browse for a matrix file
-    fs::path matPath = getOpenFilePath();   
+    fs::path matPath = getOpenFilePath();
     if(! matPath.empty() ) internal_setupmat_from_file(matPath);
     createNewWindow ();
 }
@@ -111,7 +115,7 @@ void CVisibleApp::internal_setupmat_from_mat (const vf_utils::csv::matf_t & mat)
             ++vertexIt;
             mx++;
         }
-        my++;        
+        my++;
     }
     
     Vec3f center( (float)dL/2.0f, (float)dL/2.0f, 50.0f );
@@ -125,7 +129,7 @@ void CVisibleApp::internal_setupmat_from_mat (const vf_utils::csv::matf_t & mat)
 void CVisibleApp::draw_mat()
 {
     
-	gl::clear( Color( 0, 0, 0 ) ); 
+	gl::clear( Color( 0, 0, 0 ) );
     gl::setMatrices( mCam.getCamera() );
     gl::enableDepthRead();
     gl::enableDepthWrite();
@@ -192,7 +196,7 @@ void CVisibleApp::setupBufferPlayer()
     //			} );
     //		} );
     //	}
-    //	else 
+    //	else
     
     {
 		loadFn();
@@ -290,7 +294,7 @@ marker_t CVisibleApp::marker_at( MouseEvent& me )
     //    size_t xScaled = (me.getX() * waves[0].sections()) / mGraphDisplayRect.getWidth();
     //    xScaled *= waves[0].section_size ();
     //    xScaled = math<size_t>::clamp( xScaled, 0, waves[0].samples () );
-    current.display_pixel_pos = me.getPos ();    
+    current.display_pixel_pos = me.getPos ();
     current.buffer_index = xScaled;
     current.readout = buffer->getChannel( 0 )[xScaled];
     return current;
@@ -336,7 +340,7 @@ void CVisibleApp::keyDown( KeyEvent event )
 		mSamplePlayer->seekToTime( 1.0 );
 }
 
-//@todo Update 
+//@todo Update
 void CVisibleApp::fileDrop( FileDropEvent event )
 {
 	const fs::path &filePath = event.getFile( 0 );
@@ -377,12 +381,12 @@ void CVisibleApp::update()
             break;
         default:
         case 1:
-        if (mSettings.isResizable() || mSettings.isFullScreen())
-        {
-            resize_areas ();
-        }
-        movie_update ();    
-        break;
+            if (mSettings.isResizable() || mSettings.isFullScreen())
+            {
+                resize_areas ();
+            }
+            movie_update ();
+            break;
     }
     
 }
@@ -426,6 +430,15 @@ void CVisibleApp::movie_update ()
     
 }
 
+void CVisibleApp::draw_oned ()
+{
+    // time cycles every 1 / TWEEN_SPEED seconds, with a 50% pause at the end
+    float time = math<float>::clamp( fmod( getElapsedSeconds() * 0.5, 1 ) * 1.5f, 0, 1 );
+    for( vector<OneDbox>::iterator easeIt = mGraphs.begin(); easeIt != mGraphs.end(); ++easeIt )
+        easeIt->draw( time );
+    
+}
+
 void CVisibleApp::draw()
 {
     switch (getWindow()->getUserData<WindowData>()->mId )
@@ -446,13 +459,16 @@ void CVisibleApp::draw()
             mTopParams.draw ();
             mMovieParams.draw();
             
+            mSigv.draw (mGraphDisplayRect);
+            
             
             auto bufferPlayer = dynamic_pointer_cast<audio2::BufferPlayer>( mSamplePlayer );
             if( bufferPlayer )
             {
+                mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
                 if (mSettings.isResizable() || mSettings.isFullScreen())
                 {
-                    mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
+                   // mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
                 }
                 mWaveformPlot.draw();
             }
@@ -464,9 +480,11 @@ void CVisibleApp::draw()
             {
                 gl::draw (mImage, mMovieDisplayRect);
                 mImage.disable ();
-            }        
+            }
             
-            mSigv.draw (mGraphDisplayRect);
+            draw_oned();
+            
+          
             break;
     }
 }
