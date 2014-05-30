@@ -21,6 +21,9 @@
 #include "cinder/audio2/NodeEffect.h"
 #include "cinder/audio2/Scope.h"
 #include "cinder/audio2/Debug.h"
+
+#include "cinder/audio2/Buffer.h"
+
 #include "cinder/qtime/Quicktime.h"
 #include "cinder/params/Params.h"
 #include "cinder/gl/Vbo.h"
@@ -45,49 +48,42 @@ using namespace boost;
 #define Vec2f ci::Vec2f
 #define Vec3f ci::Vec3f
 
-struct marker_t
-{
-    Vec2i display_pixel_pos;
-    size_t buffer_index;
-    float readout; 
-    
-    const marker_t		operator+( const marker_t &o ) const
-    { 
-        marker_t cp = *this; 
-        cp.readout += o.readout; 
-        cp.display_pixel_pos = o.display_pixel_pos;
-        cp.buffer_index = o.buffer_index; 
-        return cp;
-    }
-    const marker_t		operator*( const float &o ) const 
-    { 
-        marker_t cp = *this; 
-        cp.readout *= o; 
-        return cp;
-    }
-};
-
 class CVisibleApp;
 
+// Animating signal marker
 struct Signal_value
 {
-    void post_update ()
+    Signal_value (std::function<float (size_t)> fn, const Rectf& box, const Vec2i& location, const size_t& pos, const Waveform& wave)
+       : mFn( fn )
     {
-        label = toString(mark_val().readout);
+        size_t xScaled = (pos * wave.sections()) / box.getWidth();
+        xScaled *= wave.section_size ();
+        mSignalIndex = math<size_t>::clamp( xScaled, 0, wave.samples () );
+        mDisplayPos = location;
+    }
+    
+    Signal_value (std::function<float (float)> fn,const Rectf& box, const Vec2i& location, const size_t& pos, const size_t& wave)
+       : mFn( fn )
+    {
+        size_t xScaled = (pos * wave) / box.getWidth();
+        mSignalIndex = math<size_t>::clamp( xScaled, 0, wave );
+        mDisplayPos = location;
     }
     
     void draw(const Rectf& display)
     {
-        const Vec2i& readPos = mark_val().display_pixel_pos;
+        const Vec2i& readPos = mDisplayPos;
 		gl::color( ColorA( 0, 1, 0, 0.7f ) );
 		gl::drawSolidRoundedRect( Rectf( readPos.x - 2, 0, readPos.x + 2, (float)display.getHeight() ), 2 );
 		gl::color( Color( 1.0f, 0.5f, 0.25f ) );
-		gl::drawStringCentered(label, readPos );
+		gl::drawStringCentered(toString (mFn (mSignalIndex)), readPos);
     }
     
-    Anim<marker_t> mark_val;
-    std::string label;
+    Anim<Vec2i> mDisplayPos;
+    Anim<size_t> mSignalIndex;
+    std::function<float (size_t)> mFn;
 };
+
 
 // The window-specific data for each window
 class WindowData
@@ -107,8 +103,7 @@ public:
 
 struct OneDbox {
 public:
-	OneDbox( std::function<float (float)> fn, string name )
-    : mFn( fn )
+	OneDbox( string name )
 	{
 		// create label
 		TextLayout text; text.clear( Color::white() ); text.setColor( Color(0.5f, 0.5f, 0.5f) );
@@ -116,7 +111,33 @@ public:
 		text.addLine( name );
 		mLabelTex = gl::Texture( text.render( true ) );
 	}
-	
+
+	void load_vector (const vector<float>& buffer)
+    {
+         mBuffer.clear ();
+        vector<float>::const_iterator reader = buffer.begin ();
+        while (reader != buffer.end())
+        {
+            mBuffer.push_back (*reader++);
+        }
+    }
+
+
+    void load (const ci::audio2::BufferRef &buffer)
+    {
+        mBuffer.clear ();
+        const float *reader = buffer->getChannel( 0 );
+        for( size_t i = 0; i < buffer->getNumFrames(); i++ )
+            mBuffer.push_back (*reader++);
+
+    }
+    
+    float get (float tnormed) const
+    {
+        // NN
+        int32 x = floor (tnormed * (mBuffer.size()-1));
+        return mBuffer[x];
+    }
 	void draw( float t ) const
 	{
 		// draw box and frame
@@ -131,18 +152,18 @@ public:
 		gl::color( ColorA( 0.25f, 0.5f, 1.0f, 0.5f ) );
 		glBegin( GL_LINE_STRIP );
 		for( float x = 0; x < mDrawRect.getWidth(); x += 0.25f ) {
-			float y = 1.0f - mFn( x / mDrawRect.getWidth() );
+			float y = 1.0f - get( x / mDrawRect.getWidth() );
 			gl::vertex( Vec2f( x, y * mDrawRect.getHeight() ) + mDrawRect.getUpperLeft() );
 		}
 		glEnd();
 		
 		// draw animating circle
 		gl::color( Color( 1, 0.5f, 0.25f ) );
-		gl::drawSolidCircle( mDrawRect.getUpperLeft() + mFn( t ) * mDrawRect.getSize(), 5.0f );
-	}
+		gl::drawSolidCircle( mDrawRect.getUpperLeft() + get( t ) * mDrawRect.getSize(), 5.0f );
+   }
 	
-	std::function<float (float)>	mFn;
-	Rectf							mDrawRect;
+    std::vector<float>                   mBuffer;
+	Rectf                           mDrawRect;
 	gl::Texture						mLabelTex;
 };
 
@@ -179,7 +200,6 @@ public:
     bool have_sampler () { return mSamplePlayer != 0; }
     bool have_movie () { return m_movie_valid; }
 	void seek( size_t xPos );
-	marker_t marker_at ( MouseEvent& );    
     void clear_movie_params ();
 
     
@@ -192,8 +212,6 @@ public:
     
 	bool						mSamplePlayerEnabledState;
 	std::future<void>			mAsyncLoadFuture;
-    marker_t                    mCurrent;
-    
     params::InterfaceGl         mTopParams;
     
     Rectf                       mGraphDisplayRect;    
@@ -205,7 +223,7 @@ public:
     gl::Texture mImage;
     ci::qtime::MovieGl m_movie;    
     bool m_movie_valid, m_result_valid;
-    int m_fc;
+    size_t m_fc;
     Signal_value                mSigv;
 
     params::InterfaceGl         mMovieParams;

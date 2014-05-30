@@ -4,11 +4,19 @@
 using namespace vf_utils::csv;
 
 
-size_t xposInRect2Index (size_t pixel_pos, size_t pixel_range, size_t index_range)
+size_t Wave2Index (const Rectf& box, const size_t& pos, const Waveform& wave)
 {
-    assert (pixel_range != 0);
-    return math<size_t>::clamp(pixel_pos * index_range / pixel_range, 0, index_range);
+    size_t xScaled = (pos * wave.sections()) / box.getWidth();
+    xScaled *= wave.section_size ();
+    xScaled = math<size_t>::clamp( xScaled, 0, wave.samples () );
 }
+
+size_t Normal2Index (const Rectf& box, const size_t& pos, const size_t& wave)
+{
+    size_t xScaled = (pos * wave) / box.getWidth();
+    xScaled = math<size_t>::clamp( xScaled, 0, wave );
+}
+
 
 CVisibleApp* CVisibleApp::master () { return (CVisibleApp*) AppNative::get(); }
 
@@ -56,7 +64,7 @@ void CVisibleApp::setup()
 	ctx->enable();
 	CI_LOG_V( "context samplerate: " << ctx->getSampleRate() );
     
-   // mGraphs.push_back (OneDbox(EaseInAtan (), "Ease In Atan "));
+    // mGraphs.push_back (OneDbox(EaseInAtan (), "Ease In Atan "));
     
 }
 
@@ -202,6 +210,9 @@ void CVisibleApp::setupBufferPlayer()
 		loadFn();
 		connectFn();
 	};
+    
+    OneDbox graph ("signature");
+    graph.load (bufferPlayer->getBuffer());
 }
 
 void CVisibleApp::setupFilePlayer()
@@ -278,59 +289,55 @@ void CVisibleApp::seek( size_t xPos )
 {
     auto waves = mWaveformPlot.getWaveforms ();
 	if (have_sampler () ) mSamplePlayer->seek( waves[0].sections() * xPos / mGraphDisplayRect.getWidth() );
-    if (have_movie ()) mMovieIndexPosition = xposInRect2Index (xPos, mMovieDisplayRect.getWidth(), m_fc);
+    
+    if (have_movie ()) mMovieIndexPosition = Normal2Index ( mGraphDisplayRect, xPos, m_fc);
 }
 
-
-marker_t CVisibleApp::marker_at( MouseEvent& me )
-{
-	auto bufferPlayer = dynamic_pointer_cast<audio2::BufferPlayer>( mSamplePlayer );
-	if( ! bufferPlayer )
-		return;
-	auto buffer = bufferPlayer->getBuffer();
-    auto waves = mWaveformPlot.getWaveforms ();
-    marker_t current;
-    size_t xScaled = xposInRect2Index (me.getX(), mGraphDisplayRect.getWidth(), waves[0].samples () );
-    //    size_t xScaled = (me.getX() * waves[0].sections()) / mGraphDisplayRect.getWidth();
-    //    xScaled *= waves[0].section_size ();
-    //    xScaled = math<size_t>::clamp( xScaled, 0, waves[0].samples () );
-    current.display_pixel_pos = me.getPos ();
-    current.buffer_index = xScaled;
-    current.readout = buffer->getChannel( 0 )[xScaled];
-    return current;
-}
 
 // a free function which sets gBackgroundColor to blue
 Color	gBackgroundColor;
 
 void setBackgroundToBlue()
 {
-	gBackgroundColor = ColorA( 0.4f, 0.4f, 0.9f, 0.8f );
+	//gBackgroundColor = ColorA( 0.4f, 0.4f, 0.9f, 0.8f );
 }
 
 void CVisibleApp::mouseMove( MouseEvent event )
 {
     if (getWindow()->getUserData<WindowData>()->mId != 1) return;
-    
-    timeline().apply( &mSigv.mark_val, marker_at (event), 1.0f)
-    .startFn( setBackgroundToBlue )
-    .updateFn( std::bind( &Signal_value::post_update, &mSigv ))
-    .finishFn( setBackgroundToBlue );
-    
 }
 
 
 void CVisibleApp::mouseDrag( MouseEvent event )
 {
-    if (getWindow()->getUserData<WindowData>()->mId != 2) return;
-    mCam.mouseDrag( event.getPos(), event.isLeft(), event.isMiddle(), event.isRight() );
+    switch (getWindow()->getUserData<WindowData>()->mId )
+    {
+        case 2:
+            mCam.mouseDrag( event.getPos(), event.isLeft(), event.isMiddle(), event.isRight() );
+            break;
+        default:
+            break;
+    }
 }
 
 
 void CVisibleApp::mouseDown( MouseEvent event )
 {
-    if (getWindow()->getUserData<WindowData>()->mId != 2) return;
-    mCam.mouseDown( event.getPos() );
+    switch (getWindow()->getUserData<WindowData>()->mId )
+    {
+        case 2:
+            mCam.mouseDown( event.getPos() );
+            break;
+        case 1:
+            timeline().apply
+            .startFn( setBackgroundToBlue )
+            .updateFn( std::bind( &Signal_value::post_update, &mSigv ))
+            .finishFn( setBackgroundToBlue );
+            
+            break;
+    }
+    
+    
     
 }
 
@@ -468,7 +475,7 @@ void CVisibleApp::draw()
                 mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
                 if (mSettings.isResizable() || mSettings.isFullScreen())
                 {
-                   // mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
+                    // mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
                 }
                 mWaveformPlot.draw();
             }
@@ -484,7 +491,7 @@ void CVisibleApp::draw()
             
             draw_oned();
             
-          
+            
             break;
     }
 }
