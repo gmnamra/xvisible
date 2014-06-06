@@ -63,7 +63,7 @@ void CVisibleApp::setup()
 	ctx->enable();
 	CI_LOG_V( "context samplerate: " << ctx->getSampleRate() );
     
-    // mGraphs.push_back (OneDbox(EaseInAtan (), "Ease In Atan "));
+    // mGraphs.push_back (graph1D(EaseInAtan (), "Ease In Atan "));
     
 }
 
@@ -199,9 +199,12 @@ void CVisibleApp::setupBufferPlayer()
 		connectFn();
 	};
     
-    OneDbox graph ("signature", mMovieDisplayRect);
-    graph.load (bufferPlayer->getBuffer());
-    mGraphs.push_back (graph);
+    mGraph1D = Graph1DRef (new graph1D ("signature", mMovieDisplayRect) );
+    mGraph1D->addListener( this, &CVisibleApp::receivedEvent );
+
+    vector<float> abuf;
+    CVisibleApp::copy_to_vector ( bufferPlayer->getBuffer(), abuf );
+    mGraph1D->load_vector(abuf);
 }
 
 void CVisibleApp::setupFilePlayer()
@@ -287,11 +290,17 @@ void setBackgroundToBlue()
 
 void CVisibleApp::mouseMove( MouseEvent event )
 {
-  
-    if (getWindow()->getUserData<WindowData>()->mId != 1) return;
-    if (! mWaveformPlot.getWaveforms().empty())
-        mSigv.at_event (mGraphDisplayRect, event.getPos(), event.getX(),mWaveformPlot.getWaveforms()[0]);
-        
+    switch (getWindow()->getUserData<WindowData>()->mId )
+    {
+      case 1:
+            if (mGraph1D) mGraph1D->mouseMove( event );
+//            if (! mWaveformPlot.getWaveforms().empty())
+   //              mSigv.at_event (mGraphDisplayRect, event.getPos(), event.getX(),mWaveformPlot.getWaveforms()[0]);
+            break;
+        default:
+            break;
+    }
+    
 }
 
 
@@ -302,6 +311,8 @@ void CVisibleApp::mouseDrag( MouseEvent event )
         case 2:
             mCam.mouseDrag( event.getPos(), event.isLeft(), event.isMiddle(), event.isRight() );
             break;
+        case 1:
+            if (mGraph1D) mGraph1D->mouseDrag( event );
         default:
             break;
     }
@@ -316,11 +327,25 @@ void CVisibleApp::mouseDown( MouseEvent event )
             mCam.mouseDown( event.getPos() );
             break;
         case 1:
+            if (mGraph1D) mGraph1D->mouseDown( event );
             break;
     }
     
     
     
+}
+
+
+void CVisibleApp::mouseUp( MouseEvent event )
+{
+    switch (getWindow()->getUserData<WindowData>()->mId )
+    {
+        case 2:
+            break;
+        case 1:
+            if (mGraph1D) mGraph1D->mouseUp( event );
+            break;
+    }
 }
 
 void CVisibleApp::keyDown( KeyEvent event )
@@ -423,8 +448,7 @@ void CVisibleApp::draw_oned ()
 {
     // time cycles every 1 / TWEEN_SPEED seconds, with a 50% pause at the end
     float time = math<float>::clamp( fmod( getElapsedSeconds() * 0.5, 1 ) * 1.5f, 0, 1 );
-    for( vector<OneDbox>::iterator easeIt = mGraphs.begin(); easeIt != mGraphs.end(); ++easeIt )
-        easeIt->draw( time );
+    if (mGraph1D) mGraph1D->draw ( time );
     
 }
 
@@ -478,6 +502,36 @@ void CVisibleApp::draw()
     }
 }
 
+
+void CVisibleApp::receivedEvent( InteractiveObjectEvent event ){
+    string text;
+    switch( event.type ){
+        case InteractiveObjectEvent::Pressed:
+            text = "Pressed event";
+            break;
+        case InteractiveObjectEvent::PressedOutside:
+            text = "Pressed outside event";
+            break;
+        case InteractiveObjectEvent::Released:
+            text = "Released event";
+            break;
+        case InteractiveObjectEvent::ReleasedOutside:
+            text = "Released outside event";
+            break;
+        case InteractiveObjectEvent::RolledOver:
+            text = "RolledOver event";
+            break;
+        case InteractiveObjectEvent::RolledOut:
+            text = "RolledOut event";
+            break;
+        case InteractiveObjectEvent::Dragged:
+            text = "Dragged event";
+            break;
+        default:
+            text = "Unknown event";
+    }
+    console() << "Received " + text << endl;
+}
 
 
 

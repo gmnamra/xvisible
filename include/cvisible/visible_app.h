@@ -33,21 +33,23 @@
 #include "cvisible/AudioDrawUtils.h"
 #include "cvisible/vf_cinder.hpp"
 #include "cvisible/vf_utils.hpp"
-#include <condition_variable>
-#include <mutex>
-#include <thread>
+#include "vf_types.h"
 
+#include "InteractiveObject.h"
 using namespace ci;
 using namespace ci::app;
 using namespace std;
 using namespace boost;
 
+//class CVisibleApp;
+
+// Namespace collision with OpenCv
 
 #define Vec2i ci::Vec2i
 #define Vec2f ci::Vec2f
 #define Vec3f ci::Vec3f
 
-//class CVisibleApp;
+
 
 // Animating signal marker
 struct Signal_value
@@ -106,114 +108,6 @@ public:
     size_t          mId;
 };
 
-#if 1
-class OneDbox
-{
-private:
-    
-public:
-
-    OneDbox& operator=(const OneDbox& );
-    OneDbox(const OneDbox& other)
-    {
-        mBuffer = other.mBuffer;
-        mLabelTex = other.mLabelTex;
-        mFn = other.mFn;
-        mDrawRect = other.mDrawRect;
-    }
-    
-	OneDbox( string name, const Rectf& display_box) : mDrawRect ( display_box)
-	{
-		// create label
-		TextLayout text; text.clear( Color::white() ); text.setColor( Color(0.5f, 0.5f, 0.5f) );
-		try { text.setFont( Font( "Futura-CondensedMedium", 18 ) ); } catch( ... ) { text.setFont( Font( "Arial", 18 ) ); }
-		text.addLine( name );
-		mLabelTex = gl::Texture( text.render( true ) );
-	}
-
-	void load_vector (const vector<float>& buffer)
-    {
-        std::unique_lock<std::mutex> lock (mutex_);
-         mBuffer.clear ();
-        vector<float>::const_iterator reader = buffer.begin ();
-        while (reader != buffer.end())
-        {
-            mBuffer.push_back (*reader++);
-        }
-            
-        mFn = boost::bind (&OneDbox::get, _1, _2);
-        lock.unlock();
-        cond_.notify_one ();
-    }
-
-
-    void load (const ci::audio2::BufferRef &buffer)
-    {
-        std::unique_lock<std::mutex> lock (mutex_);
-        mBuffer.clear ();
-        const float *reader = buffer->getChannel( 0 );
-        for( size_t i = 0; i < buffer->getNumFrames(); i++ )
-            mBuffer.push_back (*reader++);
-
-        mFn = boost::bind (&OneDbox::get, _1, _2);
-        lock.unlock();
-        cond_.notify_one ();
-    }
-    
-  //  bool is_valid () const { return (mFn != std::function<float (float)> () ); }
-    
-    float get (float tnormed) const
-    {
-        const std::vector<float>& buf = buffer();
-        if (empty()) return -1.0;
-        
-        // NN
-        int32 x = floor (tnormed * (buf.size()-1));
-        if (x >= 0 && x < buf.size())
-            return buf[x];
-        else
-            return -1.0f;
-    }
-	void draw( float t ) const
-	{
-		// draw box and frame
-		gl::color( Color( 1.0f, 1.0f, 1.0f ) );
-		gl::drawSolidRect( mDrawRect );
-		gl::color( Color( 0.4f, 0.4f, 0.4f ) );
-		gl::drawStrokedRect( mDrawRect );
-		gl::color( Color::white() );
-		gl::draw( mLabelTex, mDrawRect.getCenter() - mLabelTex.getSize() / 2 );
-        
-		// draw graph
-		gl::color( ColorA( 0.25f, 0.5f, 1.0f, 0.5f ) );
-		glBegin( GL_LINE_STRIP );
-		for( float x = 0; x < mDrawRect.getWidth(); x += 0.25f ) {
-			float y = 1.0f - mFn ( this, x / mDrawRect.getWidth() );
-			gl::vertex( Vec2f( x, y * mDrawRect.getHeight() ) + mDrawRect.getUpperLeft() );
-		}
-		glEnd();
-		
-		// draw animating circle
-		gl::color( Color( 1, 0.5f, 0.25f ) );
-		gl::drawSolidCircle( mDrawRect.getUpperLeft() + mFn ( this, t ) * mDrawRect.getSize(), 5.0f );
-   }
-    
-    const std::vector<float>&       buffer () const { return mBuffer; }
-    bool empty () const { return mBuffer.empty (); }
-    
-	
-    std::vector<float>                   mBuffer;
-	Rectf                           mDrawRect;
-	gl::Texture						mLabelTex;
-    std::function<float (const OneDbox*, float)> mFn;
-    std::condition_variable cond_;
-    mutable std::mutex mutex_;
-    
-    
-};
-
-#endif
-
 
 class CVisibleApp : public AppBasic
 {
@@ -224,7 +118,8 @@ public:
 	void prepareSettings( Settings *settings );
 	void setup();
 	void mouseDown( MouseEvent event );
-  	void mouseMove( MouseEvent event );
+    void mouseMove( MouseEvent event );
+  	void mouseUp( MouseEvent event );
     void mouseDrag( MouseEvent event );    
     
 	void keyDown( KeyEvent event );
@@ -249,6 +144,17 @@ public:
     bool have_movie () { return m_movie_valid; }
 	void seek( size_t xPos );
     void clear_movie_params ();
+    
+    void receivedEvent ( InteractiveObjectEvent event );
+    
+    static void copy_to_vector (const ci::audio2::BufferRef &buffer, std::vector<float>& mBuffer)
+    {
+        mBuffer.clear ();
+        const float *reader = buffer->getChannel( 0 );
+        for( size_t i = 0; i < buffer->getNumFrames(); i++ )
+            mBuffer.push_back (*reader++);
+    }
+    
 
     
 	audio2::BufferPlayerRef		mSamplePlayer;
@@ -283,7 +189,7 @@ public:
 
     gl::VboMesh mPointCloud;
     MayaCamUI mCam;
-    vector<OneDbox> mGraphs;
+    Graph1DRef mGraph1D;
     
  
 };
