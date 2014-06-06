@@ -58,8 +58,16 @@ void InteractiveObject::dragged(){
     console() << "dragged" << endl;
 }
 
-void InteractiveObject::mouseDown( MouseEvent& event ){
-    if( rect.contains( event.getPos() ) ){
+bool InteractiveObject::update_norm_position ( ci::app::MouseEvent& event )
+{
+    const Vec2i mousePos = event.getPos();
+    mNormPos.set(mousePos.x / rect.getWidth (), mousePos.y / rect.getHeight () );
+    return rect.contains( mousePos );
+}
+
+void InteractiveObject::mouseDown( MouseEvent& event )
+{
+    if( update_norm_position ( event ) ){
         mPressed = true;
         mOver = false;
         pressed();
@@ -70,8 +78,9 @@ void InteractiveObject::mouseDown( MouseEvent& event ){
     }
 }
 
-void InteractiveObject::mouseUp( MouseEvent& event ){
-    if( rect.contains( event.getPos() ) ){
+void InteractiveObject::mouseUp( MouseEvent& event )
+{
+    if( update_norm_position ( event ) ){
         if( mPressed ){
             mPressed = false;
             mOver = true;
@@ -86,7 +95,7 @@ void InteractiveObject::mouseUp( MouseEvent& event ){
 }
 
 void InteractiveObject::mouseDrag( MouseEvent& event ){
-    if( mPressed && rect.contains( event.getPos() ) ){
+    if( mPressed && update_norm_position ( event ) ){
         mPressed = true;
         mOver = false;
         dragged();
@@ -95,7 +104,7 @@ void InteractiveObject::mouseDrag( MouseEvent& event ){
 }
 
 void InteractiveObject::mouseMove( MouseEvent& event ){
-    if( rect.contains( event.getPos() ) ){
+    if( update_norm_position ( event ) ){
         if( mOver == false ){
             mPressed = false;
             mOver = true;

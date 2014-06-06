@@ -9,10 +9,19 @@
 #include "cinder/Function.h"
 #include "cinder/gl/Texture.h"
 #include "cinder/gl/TextureFont.h"
+#include "cinder/app/App.h"
 #include <vector>
 #include <condition_variable>
 #include <mutex>
 #include <thread>
+#include "cinder/gl/Texture.h"
+
+
+// Namespace collision with OpenCv
+
+#define Vec2i ci::Vec2i
+#define Vec2f ci::Vec2f
+#define Vec3f ci::Vec3f
 
 using namespace ci;
 using namespace ci::app;
@@ -63,6 +72,9 @@ public:
     }
     
     void removeListener( ci::CallbackId callId );
+
+    const Vec2f& norm_pos () const { return mNormPos; }
+    
     
     ci::Rectf rect;
     ci::Color pressedColor, idleColor, overColor, strokeColor;
@@ -70,16 +82,11 @@ public:
 protected:
     bool mPressed, mOver;
     ci::CallbackMgr< void(InteractiveObjectEvent) > mEvents;
+    Vec2f mNormPos;
+    bool update_norm_position ( ci::app::MouseEvent& event  );
 };
 
-#include "cinder/gl/Texture.h"
 
-
-// Namespace collision with OpenCv
-
-#define Vec2i ci::Vec2i
-#define Vec2f ci::Vec2f
-#define Vec3f ci::Vec3f
 
 class graph1D;
 
@@ -149,7 +156,11 @@ class graph1D:  public InteractiveObject
 		
 		// draw animating circle
 		gl::color( Color( 1, 0.5f, 0.25f ) );
-		gl::drawSolidCircle( rect.getUpperLeft() + mFn ( this, t ) * rect.getSize(), 5.0f );
+		//gl::drawSolidCircle( rect.getUpperLeft() + mFn ( this, t ) * rect.getSize(), 5.0f );
+        glLineWidth(2.f);
+        float px = norm_pos().x * rect.getWidth();
+        ci::gl::drawLine (Vec2f(px, 0.f), Vec2f(px, rect.getHeight()));
+        
     }
     
     const std::vector<float>&       buffer () const { return mBuffer; }
@@ -161,7 +172,6 @@ class graph1D:  public InteractiveObject
     std::function<float (const graph1D*, float)> mFn;
     std::condition_variable cond_;
     mutable std::mutex mutex_;
-    
     
 };
 
