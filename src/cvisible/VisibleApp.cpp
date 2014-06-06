@@ -18,7 +18,7 @@ size_t Normal2Index (const Rectf& box, const size_t& pos, const size_t& wave)
 }
 
 
-CVisibleApp* CVisibleApp::master () { return (CVisibleApp*) AppNative::get(); }
+CVisibleApp* CVisibleApp::master () { return (CVisibleApp*) AppBasic::get(); }
 
 
 void CVisibleApp::prepareSettings( Settings *settings )
@@ -35,7 +35,6 @@ void CVisibleApp::resize_areas ()
     Vec2i c_ml (c_ul.x, (c_lr.y - c_ul.y) / 2);
     mGraphDisplayRect = Area (c_ul, c_mr);
     mMovieDisplayRect = Area (c_ml, c_lr);
-    if(!mGraphs.empty()) mGraphs[0].mDrawRect = mGraphDisplayRect;
 }
 
 void CVisibleApp::setup()
@@ -194,25 +193,15 @@ void CVisibleApp::setupBufferPlayer()
         //	mSamplePlayer->setLoopEndTime( mLoopEndSlider.mValueScaled != 0 ? mLoopEndSlider.mValueScaled : mSamplePlayer->getNumSeconds() );
 	};
     
-    //	CI_LOG_V( "async load: " << boolalpha << asyncLoad << dec );
-    //	if( asyncLoad ) {
-    //		mWaveformPlot.clear();
-    //		mAsyncLoadFuture = std::async( [=] {
-    //			loadFn();
-    //			dispatchAsync( [=] {
-    //				connectFn();
-    //			} );
-    //		} );
-    //	}
-    //	else
     
     {
 		loadFn();
 		connectFn();
 	};
     
-    OneDbox graph ("signature");
+    OneDbox graph ("signature", mMovieDisplayRect);
     graph.load (bufferPlayer->getBuffer());
+    mGraphs.push_back (graph);
 }
 
 void CVisibleApp::setupFilePlayer()
@@ -235,16 +224,10 @@ void CVisibleApp::setupFilePlayer()
     {
         string max = ci::toString( m_movie.getDuration() );
         mMovieParams.addParam( "Position", &mMoviePosition, "min=0.0 max=" + max + " step=0.5" );
-        
         mMovieParams.addParam( "Rate", &mMovieRate, "step=0.01" );
-        
         mMovieParams.addParam( "Play/Pause", &mMoviePlay );
-        
         mMovieParams.addParam( "Loop", &mMovieLoop );
-        
     }
-    
-    
 }
 
 void CVisibleApp::clear_movie_params ()
@@ -304,7 +287,11 @@ void setBackgroundToBlue()
 
 void CVisibleApp::mouseMove( MouseEvent event )
 {
+  
     if (getWindow()->getUserData<WindowData>()->mId != 1) return;
+    if (! mWaveformPlot.getWaveforms().empty())
+        mSigv.at_event (mGraphDisplayRect, event.getPos(), event.getX(),mWaveformPlot.getWaveforms()[0]);
+        
 }
 
 
@@ -329,11 +316,6 @@ void CVisibleApp::mouseDown( MouseEvent event )
             mCam.mouseDown( event.getPos() );
             break;
         case 1:
-            timeline().apply
-            .startFn( setBackgroundToBlue )
-            .updateFn( std::bind( &Signal_value::post_update, &mSigv ))
-            .finishFn( setBackgroundToBlue );
-            
             break;
     }
     
@@ -499,4 +481,4 @@ void CVisibleApp::draw()
 
 
 
-CINDER_APP_NATIVE( CVisibleApp, RendererGl )
+

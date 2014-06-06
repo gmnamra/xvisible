@@ -9,7 +9,7 @@
 #ifndef XcVisible_visible_app_h
 #define XcVisible_visible_app_h
 
-#include "cinder/app/AppNative.h"
+#include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"
 #include "cinder/Timeline.h"
 #include "cinder/Timer.h"
@@ -21,22 +21,21 @@
 #include "cinder/audio2/NodeEffect.h"
 #include "cinder/audio2/Scope.h"
 #include "cinder/audio2/Debug.h"
-
-#include "cinder/audio2/Buffer.h"
-
 #include "cinder/qtime/Quicktime.h"
 #include "cinder/params/Params.h"
 #include "cinder/gl/Vbo.h"
 #include "cinder/MayaCamUI.h"
 #include "cinder/ImageIo.h"
-#include "cinder/Easing.h"
+#include "cinder/audio2/Buffer.h"
 #include "assets/Resources.h"
 
 #include "cvisible/AudioTestGui.h"
 #include "cvisible/AudioDrawUtils.h"
 #include "cvisible/vf_cinder.hpp"
 #include "cvisible/vf_utils.hpp"
-
+#include <condition_variable>
+#include <mutex>
+#include <thread>
 
 using namespace ci;
 using namespace ci::app;
@@ -48,22 +47,26 @@ using namespace boost;
 #define Vec2f ci::Vec2f
 #define Vec3f ci::Vec3f
 
-class CVisibleApp;
+//class CVisibleApp;
 
 // Animating signal marker
 struct Signal_value
 {
-    Signal_value (std::function<float (size_t)> fn, const Rectf& box, const Vec2i& location, const size_t& pos, const Waveform& wave)
-       : mFn( fn )
+    Signal_value () : mValid (false) {}
+
+    Signal_value (std::function<float (size_t)> fn)
+    : mFn( fn ), mValid (true) {}
+    
+    void at_event (const Rectf& box, const Vec2i& location, const size_t& pos,  const Waveform& wave)
     {
         size_t xScaled = (pos * wave.sections()) / box.getWidth();
         xScaled *= wave.section_size ();
         mSignalIndex = math<size_t>::clamp( xScaled, 0, wave.samples () );
         mDisplayPos = location;
     }
+
     
-    Signal_value (std::function<float (float)> fn,const Rectf& box, const Vec2i& location, const size_t& pos, const size_t& wave)
-       : mFn( fn )
+    void at_event_value (const Rectf& box, const Vec2i& location, const size_t& pos, const size_t& wave)
     {
         size_t xScaled = (pos * wave) / box.getWidth();
         mSignalIndex = math<size_t>::clamp( xScaled, 0, wave );
@@ -72,6 +75,8 @@ struct Signal_value
     
     void draw(const Rectf& display)
     {
+        if ( ! mValid ) return;
+        
         const Vec2i& readPos = mDisplayPos;
 		gl::color( ColorA( 0, 1, 0, 0.7f ) );
 		gl::drawSolidRoundedRect( Rectf( readPos.x - 2, 0, readPos.x + 2, (float)display.getHeight() ), 2 );
@@ -79,9 +84,10 @@ struct Signal_value
 		gl::drawStringCentered(toString (mFn (mSignalIndex)), readPos);
     }
     
-    Anim<Vec2i> mDisplayPos;
-    Anim<size_t> mSignalIndex;
+    Vec2i mDisplayPos;
+    size_t mSignalIndex;
     std::function<float (size_t)> mFn;
+    bool mValid;
 };
 
 
@@ -92,7 +98,7 @@ public:
 	WindowData()
     : mColor( Color( CM_RGB, 0.1f, 0.8f, 0.8f ) ) 
 	{
-        mId = AppNative::get()->getNumWindows ();
+        mId = AppBasic::get()->getNumWindows ();
     }
     
 	Color			mColor;
@@ -100,10 +106,23 @@ public:
     size_t          mId;
 };
 
-
-struct OneDbox {
+#if 1
+class OneDbox
+{
+private:
+    
 public:
-	OneDbox( string name )
+
+    OneDbox& operator=(const OneDbox& );
+    OneDbox(const OneDbox& other)
+    {
+        mBuffer = other.mBuffer;
+        mLabelTex = other.mLabelTex;
+        mFn = other.mFn;
+        mDrawRect = other.mDrawRect;
+    }
+    
+	OneDbox( string name, const Rectf& display_box) : mDrawRect ( display_box)
 	{
 		// create label
 		TextLayout text; text.clear( Color::white() ); text.setColor( Color(0.5f, 0.5f, 0.5f) );
@@ -114,29 +133,46 @@ public:
 
 	void load_vector (const vector<float>& buffer)
     {
+        std::unique_lock<std::mutex> lock (mutex_);
          mBuffer.clear ();
         vector<float>::const_iterator reader = buffer.begin ();
         while (reader != buffer.end())
         {
             mBuffer.push_back (*reader++);
         }
+            
+        mFn = boost::bind (&OneDbox::get, _1, _2);
+        lock.unlock();
+        cond_.notify_one ();
     }
 
 
     void load (const ci::audio2::BufferRef &buffer)
     {
+        std::unique_lock<std::mutex> lock (mutex_);
         mBuffer.clear ();
         const float *reader = buffer->getChannel( 0 );
         for( size_t i = 0; i < buffer->getNumFrames(); i++ )
             mBuffer.push_back (*reader++);
 
+        mFn = boost::bind (&OneDbox::get, _1, _2);
+        lock.unlock();
+        cond_.notify_one ();
     }
+    
+  //  bool is_valid () const { return (mFn != std::function<float (float)> () ); }
     
     float get (float tnormed) const
     {
+        const std::vector<float>& buf = buffer();
+        if (empty()) return -1.0;
+        
         // NN
-        int32 x = floor (tnormed * (mBuffer.size()-1));
-        return mBuffer[x];
+        int32 x = floor (tnormed * (buf.size()-1));
+        if (x >= 0 && x < buf.size())
+            return buf[x];
+        else
+            return -1.0f;
     }
 	void draw( float t ) const
 	{
@@ -152,23 +188,35 @@ public:
 		gl::color( ColorA( 0.25f, 0.5f, 1.0f, 0.5f ) );
 		glBegin( GL_LINE_STRIP );
 		for( float x = 0; x < mDrawRect.getWidth(); x += 0.25f ) {
-			float y = 1.0f - get( x / mDrawRect.getWidth() );
+			float y = 1.0f - mFn ( this, x / mDrawRect.getWidth() );
 			gl::vertex( Vec2f( x, y * mDrawRect.getHeight() ) + mDrawRect.getUpperLeft() );
 		}
 		glEnd();
 		
 		// draw animating circle
 		gl::color( Color( 1, 0.5f, 0.25f ) );
-		gl::drawSolidCircle( mDrawRect.getUpperLeft() + get( t ) * mDrawRect.getSize(), 5.0f );
+		gl::drawSolidCircle( mDrawRect.getUpperLeft() + mFn ( this, t ) * mDrawRect.getSize(), 5.0f );
    }
+    
+    const std::vector<float>&       buffer () const { return mBuffer; }
+    bool empty () const { return mBuffer.empty (); }
+    
 	
     std::vector<float>                   mBuffer;
 	Rectf                           mDrawRect;
 	gl::Texture						mLabelTex;
+    std::function<float (const OneDbox*, float)> mFn;
+    std::condition_variable cond_;
+    mutable std::mutex mutex_;
+    
+    
 };
 
+#endif
 
-class CVisibleApp : public AppNative {
+
+class CVisibleApp : public AppBasic
+{
 public:
 
     static CVisibleApp* master ();
@@ -237,8 +285,10 @@ public:
     MayaCamUI mCam;
     vector<OneDbox> mGraphs;
     
-
+ 
 };
+
+CINDER_APP_BASIC( CVisibleApp, RendererGl )
 
 
 #endif
