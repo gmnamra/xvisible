@@ -1,393 +1,398 @@
 
-#include "cinder/app/AppBasic.h"
-#include "cinder/Rand.h"
-#include "cinder/CinderMath.h"
-#include "cinder/Perlin.h"
-#include "cinder/Timeline.h"
-#include "cinder/ImageIo.h"
-#include "cinder/gl/Texture.h"
-#include "cinder/gl/TextureFont.h"
-#include "cinder/qtime/Quicktime.h"
-#include "cvisible/Resources.h"
-#include "ciUI/ciUI.h"
-#include <vector>
-#include <vfi386_d/rc_fileutils.h>
-#include <vfi386_d/rc_stats.h>
-#include <boost/foreach.hpp>
+#include "ui_contexts.h"
 
-#include "cvisible/AudioDrawUtils.h"
+using namespace vf_utils::csv;
 
-#include <sstream>
-#include <fstream>
-#include <string>
-#include <iostream>
-
-using namespace ci;
-using namespace ci::app;
-using namespace std;
-using namespace ci::audio2;
-
-class CVisibleApp : public AppBasic
-{    
-public:
-    void prepareSettings( Settings *settings ); 
-    Renderer* prepareRenderer(); 
-    void gui_configuration (float);
-    void setup();
-    void update(); 
-    void draw();
-    void shutDown();
-    
-	void keyDown( KeyEvent event );
-	void keyUp( KeyEvent event );
-    
-    void guiEvent(ciUIEvent *event);    
-    
-    void setupGUI1(); 
-    void setupGUI2(); 
-    void setupGUI3(); 
-    
-    void loadMovieFile( const fs::path &moviePath );
-    void loadCSVFile (const fs::path &,  std::vector<vector<float> >& );
-    void fileDrop( FileDropEvent event );
-    
-    //Vars 
-    float vtick_scaled;
-    float bgColorR; 
-    float bgColorG; 
-    float bgColorB;     
-    
-    Perlin myPerlin;
-    gl::Texture mImage;
-    Surface mImageSurface; 
-    ci::qtime::MovieGl m_movie;    
-    bool m_movie_valid, m_result_valid;
-    int m_fc;
-    
-    std::vector<float> buffer;
-    WaveformPlot mWaveformPlot;
-    ciUICanvas *gui;  
-    ciUICanvas *gui1;  
-    ciUICanvas *gui2;  
-    ciUIImage  *m_screen;
-    
-    float menuWidth; 
-    float menuHeight; 
-    float widgetWidth, widgetHeight;
-    float dim; 
-    std::string movieFileName, mLastPath;
-    std::string resultFileName;
-    
-    vector<string> recent_movie_files;
-    std::string recent_movie_directory;
-    std::string recent_result_directory;    
-    vector<string> recent_result_files;
-    vector<Rectf> gui_rects;
-    vector< vector<float> > m_results;
-};
-
-Renderer* CVisibleApp::prepareRenderer()
+matContext::matContext (AppBasic* appLink) : mLink (appLink)
 {
-    return new RendererGl( RendererGl::AA_MSAA_2 ); 
+    mWindow = appLink->createWindow( Window::Format().size( 400, 400 ) );
+    mWindow->setUserData( this );
+    
+    // for demonstration purposes, we'll connect a lambda unique to this window which fires on close
+    int uniqueId = mId;
+    mWindow->getSignalClose().
+    connect([uniqueId,this] { mLink->console() << "You closed window #" << uniqueId << std::endl; });
 }
 
-void CVisibleApp::prepareSettings( Settings *settings )
+
+
+void matContext::mouseDrag( MouseEvent event )
 {
-    settings->setWindowSize( 768, 1024 );
-    settings->setFrameRate( 60.0f );
+    mCam.mouseDrag( event.getPos(), event.isLeft(), event.isMiddle(), event.isRight() );
 }
 
-void CVisibleApp::gui_configuration (float image_aspect_ratio)
+
+void matContext::mouseDown( MouseEvent event )
 {
-    menuWidth = getWindowWidth(); 
-    menuHeight = getWindowHeight();
-    widgetWidth = menuWidth - CI_UI_GLOBAL_WIDGET_SPACING;
-    widgetHeight = widgetWidth / image_aspect_ratio;
-    dim = menuWidth*.0675;
-        
-    gui_rects.resize (3);
-    Rectf g (0, 0, widgetWidth, menuHeight / 4.0f);
-    gui_rects[0] = g;
-    Rectf g2 (0, 0, widgetWidth, menuHeight / 2);    
-    Vec2f t (0, g.getHeight());
-    g2 += t;
-    gui_rects[1] = g2;
-    Vec2f t2 (0, g.getHeight() + g2.getHeight());
-    g += t2;
-    gui_rects[2] = g; 
-    
-    gui = new ciUICanvas (gui_rects[0].getUpperLeft().x, gui_rects[0].getUpperLeft().y, gui_rects[0].getWidth(), gui_rects[0].getHeight());
-    
-    gui1 = new ciUICanvas (gui_rects[1].getUpperLeft().x, gui_rects[1].getUpperLeft().y, gui_rects[1].getWidth(), gui_rects[1].getHeight());
-    gui2 = new ciUICanvas (gui_rects[2].getUpperLeft().x, gui_rects[2].getUpperLeft().y, gui_rects[2].getWidth(), gui_rects[2].getHeight());    
-    
-}
-void CVisibleApp::setup()
-{
-    gl::enableAlphaBlending(); 
-	setFpsSampleInterval(1.0); 
-    
-    mImage = loadImage( loadResource( SAMPLE_IMAGE ) ); 
-    mImageSurface = loadImage ( loadResource( SAMPLE_IMAGE ) );
-    
-    gui_configuration (mImage.getAspectRatio () );
- 
-    buffer.resize (128);
-    bgColorR = 0.67f;     
-    bgColorG = 0.67f;     
-    bgColorB = 0.67f; 
-    vtick_scaled = 0.0;
-    m_fc = -1;
-    movieFileName = std::string ("");
-    m_movie_valid = false;
-    const fs::path& exec_path = getAppPath();
-    std::cout << "Application Executive @ " << exec_path.string () << std::endl;
-
-    ci::audio2::BufferRef buf = make_shared<ci::audio2::Buffer> (100);    
-    
-    float signal = 0.0f;
-    float step = 1.0f / buf->getNumFrames();
-    for (int ff=0;ff<buf->getNumFrames();ff++){ buf->getData()[ff] = signal; signal += step; }
-    mWaveformPlot.load (buf, getWindowBounds());
-
-    
-
-    setupGUI1(); 
-    setupGUI2(); 
-    setupGUI3();
-    
+    mCam.mouseDown( event.getPos() );
 }
 
-void CVisibleApp::update()
+Rectf matContext::render_box ()
 {
-    for(int i = 0; i < buffer.size(); i++)
+    Rectf rb;
+    if (! m_valid ) return rb;
+    rb = Area (mWindow->getPos(), mWindow->getSize());
+    return rb;
+}
+void matContext::setup ()
+{
+    // Browse for a matrix file
+    mPath = getOpenFilePath();
+    if(! mPath.empty() ) internal_setupmat_from_file(mPath);
+}
+
+void matContext::internal_setupmat_from_file (const fs::path & fp)
+{
+    vf_utils::csv::matf_t mat;
+    vf_utils::csv::csv2vectors(fp.string(), mat, false, false, true);
+    if (vf_utils::csv::validate_matf (mat) ) internal_setupmat_from_mat (mat);
+}
+
+void matContext::internal_setupmat_from_mat (const vf_utils::csv::matf_t & mat)
+{
+    m_valid = false;
+    size_t dL = mat.size ();
+    int numPixels = dL * dL;
+    gl::VboMesh::Layout layout;
+    layout.setDynamicColorsRGB();
+    layout.setDynamicPositions();
+    mPointCloud = gl::VboMesh( numPixels, 0, layout, GL_POINTS );
+    
+    
+    gl::VboMesh::VertexIter vertexIt( mPointCloud );
+    size_t my = 0;
+    while (my < dL)
     {
-        buffer[i] = myPerlin.noise((float)i/buffer.size());
+        const rowf_t& rowf = mat[my];
+        const float* elm_ptr = &rowf[0];
+        size_t mx = 0;
+        while (mx < dL)
+        {
+            float val = *elm_ptr++;
+            vertexIt.setPosition(static_cast<float>(mx),static_cast<float>(dL - my), val * 100 );
+            Color color( val, 0, (1 - val) );
+            vertexIt.setColorRGB( color );
+            ++vertexIt;
+            mx++;
+        }
+        my++;
     }
-
-    gui2->update();    
-   
+    
+    Vec3f center( (float)dL/2.0f, (float)dL/2.0f, 50.0f );
+    CameraPersp camera( getWindowWidth(), getWindowHeight(), 60.0f );
+    camera.setEyePoint( Vec3f( center.x, center.y, (float)dL ) );
+    camera.setCenterOfInterestPoint( center );
+    mCam.setCurrentCam( camera );
+    m_valid = true;
 }
 
-void CVisibleApp::draw()
+void matContext::draw()
 {
-    gl::clear ();
-    gl::enableAlphaBlending ();
     
-    mWaveformPlot.draw();
+	gl::clear( Color( 0, 0, 0 ) );
+    gl::setMatrices( mCam.getCamera() );
+    gl::enableDepthRead();
+    gl::enableDepthWrite();
     
-	gl::setMatricesWindow( getWindowSize() );
-	gl::clear( Color( bgColorR, bgColorG, bgColorB ) ); 
-    if (m_movie_valid)
-        mImage = m_movie.getTexture ();
-    if (m_movie_valid && m_fc > 0 )
-    {
-        int frame_index = vtick_scaled * m_fc;
-        m_movie.seekToFrame (frame_index);
-    }
-    //   if (m_result_valid && m_fc > 0 )
-    //   {
-    //       int frame_index = vtick_scaled * mvg->getBuffer().size();
-    //        mvg->seekToIndex(frame_index);
-    //    }    
-    
-    gui->draw();
-    gui1->draw();
-    gui2->draw();    
-}
-
-void CVisibleApp::shutDown()
-{
-    delete gui; 
-    delete gui1; 
-    delete gui2;     
-}
-
-void CVisibleApp::keyDown( KeyEvent event )
-{
-    if(gui2->hasKeyboardFocus())        
-    {
-        return; 
-    }
-    else
-    {    
-        if( event.getChar() == 'f' )
-        {        
-            setFullScreen( ! isFullScreen() );
-        }
-        else if(event.getChar() == 'p')
-        {
-            gui->setDrawWidgetPadding(true);
-            gui1->setDrawWidgetPadding(true);
-            gui2->setDrawWidgetPadding(true);        
-        }
-        else if(event.getChar() == 'P')
-        {
-            gui->setDrawWidgetPadding(false);
-            gui1->setDrawWidgetPadding(false);
-            gui2->setDrawWidgetPadding(false);        
-        }
-        else if(event.getChar() == '1')
-        {
-            gui->toggleVisible();
-        }
-        else if(event.getChar() == '2')
-        {
-            gui1->toggleVisible();        
-        }
-        else if(event.getChar() == '3')
-        {
-            gui2->toggleVisible();        
-        }
-        else if(event.getChar() == 's')
-        {
-            gui->saveSettings("ciUIGUISettings.xml");
-            gui1->saveSettings("ciUIGUI1Settings.xml");
-            gui2->saveSettings("ciUIGUI2Settings.xml");        
-        }
-        else if(event.getChar() == 'l')
-        {
-            gui->loadSettings("ciUIGUISettings.xml");        
-            gui1->loadSettings("ciUIGUI1Settings.xml");        
-            gui2->loadSettings("ciUIGUI2Settings.xml");                
-        }
+    if( mPointCloud ){
+        gl::draw( mPointCloud );
     }
 }
 
-void CVisibleApp::keyUp( KeyEvent event )
+
+void matContext::update()
 {
+    
 }
 
-void CVisibleApp::guiEvent(ciUIEvent *event)
+
+bool matContext::is_valid ()
 {
-    const std::string& name = event->widget->getName();
+    return m_valid;
+}
+
+movContext::movContext (AppBasic* appLink) : mLink (appLink)
+{
+    mWindow = appLink->createWindow( Window::Format().size( 400, 400 ) );
+    mWindow->setUserData( this );
+    int uniqueId = mId;
+    mWindow->getSignalClose().
+    connect([uniqueId,this] { mLink->console() << "You closed window #" << uniqueId << std::endl; });
+}
+
+
+
+void movContext::setup()
+{
+    // Browse for the movie file
+    fs::path moviePath = getOpenFilePath();
+    m_valid = false;
     
-    if(name == "Load Experiment Movie" )
+  	getWindow()->setTitle( moviePath.filename().string() );
+    
+    mMovieParams = params::InterfaceGl( "Movie Controller", Vec2i( 200, 300 ) );
+    
+    if ( ! moviePath.empty () )
     {
-        fs::path moviePath = getOpenFilePath ();
-        m_movie_valid = false;
-        if ( ! moviePath.empty () )
-        {
-            std::cout << moviePath.string ();
-            loadMovieFile (moviePath);
-        }
+        mLink->console () << moviePath.string ();
+        loadMovieFile (moviePath);
     }
     
-    if(name == "Load Experiment Result" )
+    if( m_valid )
     {
-        fs::path resultPath = getOpenFilePath ();
-        m_result_valid = false;
-        if ( ! resultPath.empty () )
-        {
-            std::cout << resultPath.string ();
-            loadCSVFile (resultPath, m_results);
-        }
-    }    
-    
-    if(name == "VTICK")
-    {
-        ciUISlider *slider = (ciUISlider *) event->widget; 
-        vtick_scaled = slider->getScaledValue(); 
+        string max = ci::toString( m_movie.getDuration() );
+        mMovieParams.addParam( "Position", &mMoviePosition, "min=0.0 max=" + max + " step=0.5" );
+        mMovieParams.addParam( "Rate", &mMovieRate, "step=0.01" );
+        mMovieParams.addParam( "Play/Pause", &mMoviePlay );
+        mMovieParams.addParam( "Loop", &mMovieLoop );
     }
 }
 
-void CVisibleApp::setupGUI1()
+void movContext::clear_movie_params ()
 {
-    float w = menuWidth; 
-    float spacerHeight = 2; 
-    //    gui = new ciUICanvas(0,0,menuWidth,menuHeight);
-    
-    
-    gui->addWidgetDown(new ciUILabel("Visible ", CI_UI_FONT_LARGE), CI_UI_ALIGN_RIGHT);
-    gui->addWidgetDown(new ciUILabel("Reify Corporation", CI_UI_FONT_SMALL), CI_UI_ALIGN_RIGHT);
-  
-    gui->addWidgetDown(new ciUISpacer(w, spacerHeight));            
-    gui->addWidgetDown(new ciUILabelToggle(false, "Load Experiment Movie", CI_UI_FONT_SMALL)); 
-    gui->addWidgetDown(new ciUILabelToggle(false, "Load Experiment Result", CI_UI_FONT_SMALL));
-    
-      
-    //  gui->addWidgetDown(new ciUI2DPad(w, w*.5, Vec2f(w*.5,w*.25), "2DPAD"), CI_UI_ALIGN_LEFT);
-    // gui->addWidgetDown(new ciUISpacer(w, spacerHeight));        
-    //gui->addWidgetDown(new ciUIRotarySlider(120, 0, 100.0, 50.0, "ROTARY"));
-    //  gui->addWidgetRight(new ciUISlider(h,120,0.0,100.0,25.0,"1"));
-    // gui->addWidgetRight(new ciUIRangeSlider(h,120,0.0,100.0,50.0,75.0,"5"));    
-    
-    gui->registerUIEvents(this, &CVisibleApp::guiEvent); 
+    mMoviePosition = 0.0f;
+    mPrevMoviePosition = mMoviePosition;
+    mMovieRate = 1.0f;
+    mPrevMovieRate = mMovieRate;
+    mMoviePlay = false;
+    mPrevMoviePlay = mMoviePlay;
+    mMovieLoop = false;
+    mPrevMovieLoop = mMovieLoop;
 }
 
-void CVisibleApp::setupGUI2()
-{
-     float w = widgetWidth; 
-    float h = widgetHeight;
-    float spacerHeight = 2; 
-    vector<float> mbuffer; 
-    for(int i = 0; i < buffer.size(); i++)
-    {
-        buffer[i] = myPerlin.noise((float)i/buffer.size());
-        mbuffer.push_back(0);        
-    }
-
-    //   gui1 = new ciUICanvas(0,menuHeight,menuWidth,menuHeight);
-    gui1->addWidgetDown(m_screen = new ciUIImage(w - CI_UI_GLOBAL_WIDGET_SPACING,h/2 - CI_UI_GLOBAL_WIDGET_SPACING,  &mImage, "IMAGE VIEW"),CI_UI_ALIGN_BOTTOM);
-    gui1->registerUIEvents(this, &CVisibleApp::guiEvent);     
-}
-
-void CVisibleApp::setupGUI3()
-{
-    float w = widgetWidth / 3;
-    gui2->addWidgetDown(new ciUIImageSlider(menuWidth - CI_UI_GLOBAL_WIDGET_SPACING, 24, 0, 1.0, vtick_scaled, "..", "VTICK")); 
-    
-//    gui1->addWidgetDown(new ciUISpacer(w, spacerHeight));   
-//    gui1->addWidgetDown(new ciUILabel("WAVEFORM PLOT", CI_UI_FONT_SMALL),CI_UI_ALIGN_BOTTOM);        
-//    gui1->addWidgetDown(new ciUIWaveform(w, 30, &buffer[0], buffer.size(), -1.0, 1.0, "WAVEFORM"),CI_UI_ALIGN_BOTTOM);  
-//    gui1->addWidgetDown(new ciUISpacer(w, spacerHeight),CI_UI_ALIGN_BOTTOM);   
-             
-    // gui2 = new ciUICanvas(0,menuHeight+menuHeight,menuWidth,menuHeight);
-   
-    gui2->registerUIEvents(this, &CVisibleApp::guiEvent);     
-  }
-
-
-void CVisibleApp::loadMovieFile( const fs::path &moviePath )
+void movContext::loadMovieFile( const fs::path &moviePath )
 {
 	
 	try {
 		m_movie = qtime::MovieGl( moviePath );
-        m_movie_valid = m_movie.checkPlayable ();
+        m_valid = m_movie.checkPlayable ();
         
-        if (m_movie_valid)
+        if (m_valid)
         {
-            console() << "Dimensions:" <<m_movie.getWidth() << " x " <<m_movie.getHeight() << std::endl;
-            console() << "Duration:  " <<m_movie.getDuration() << " seconds" << std::endl;
-            console() << "Frames:    " <<m_movie.getNumFrames() << std::endl;
-            console() << "Framerate: " <<m_movie.getFramerate() << std::endl;
-                        
+            mLink->console() << "Dimensions:" <<m_movie.getWidth() << " x " <<m_movie.getHeight() << std::endl;
+            mLink->console() << "Duration:  " <<m_movie.getDuration() << " seconds" << std::endl;
+            mLink->console() << "Frames:    " <<m_movie.getNumFrames() << std::endl;
+            mLink->console() << "Framerate: " <<m_movie.getFramerate() << std::endl;
+            
             //   m_movie.setLoop( true, false );
             //   m_movie.play();
             m_fc = m_movie.getNumFrames ();
         }
 	}
 	catch( ... ) {
-		console() << "Unable to load the movie." << std::endl;
+		mLink->console() << "Unable to load the movie." << std::endl;
 		return;
 	}
 	
 }
 
 
-void CVisibleApp::loadCSVFile( const fs::path &csv_file, std::vector<vector<float> >& datas)
+Rectf movContext::render_box ()
 {
-     
+    Rectf rb;
+    if (! m_valid ) return rb;
+    rb = Area (mWindow->getPos(), mWindow->getSize());
+    return rb;
+}
+
+void movContext::seek( size_t xPos )
+{
+    //  auto waves = mWaveformPlot.getWaveforms ();
+    //	if (have_sampler () ) mSamplePlayer->seek( waves[0].sections() * xPos / mGraphDisplayRect.getWidth() );
+    
+    if (have_movie ()) mMovieIndexPosition = movContext::Normal2Index ( render_box (), xPos, m_fc);
+}
+
+
+bool movContext::is_valid ()
+{
+    return m_valid;
+}
+
+void movContext::update ()
+{
+    
+    if( m_valid )
+    {
+        if( mMovieIndexPosition != mPrevMovieIndexPosition )
+        {
+            mPrevMovieIndexPosition = mMovieIndexPosition;
+            m_movie.seekToFrame(mMovieIndexPosition);
+        }
+        else
+        {
+            mMoviePosition = m_movie.getCurrentTime();
+            mPrevMoviePosition = mMoviePosition;
+        }
+        if( mMovieRate != mPrevMovieRate )
+        {
+            mPrevMovieRate = mMovieRate;
+            m_movie.setRate( mMovieRate );
+        }
+        if( mMoviePlay != mPrevMoviePlay )
+        {
+            mPrevMoviePlay = mMoviePlay;
+            if( mMoviePlay ) m_movie.play();
+            else m_movie.stop();
+        }
+        if( mMovieLoop != mPrevMovieLoop ){
+            mPrevMovieLoop = mMovieLoop;
+            m_movie.setLoop( mMovieLoop );
+        }
+    }
+    
+    if( m_movie ){
+        mImage = m_movie.getTexture();
+    }
+}
+
+void movContext::draw ()
+{
+    if (m_valid && mImage )
+    {
+        gl::draw (mImage, render_box ());
+        mImage.disable ();
+    }
+    
+}
+
+
+// Main Window Registration
+
+mainContext::mainContext (AppBasic* appLink, app::WindowRef aw) : mLink (appLink), mWindow (aw)
+{
+}
+
+void mainContext::draw () {}
+void mainContext::setup () {}
+void mainContext::update () {}
+bool mainContext::is_valid ()
+{
+    return mLink != 0 && ((!mWindow) != true);
+}
+
+
+// ClipContext
+
+clipContext::clipContext (AppBasic* appLink) : mLink (appLink)
+{
+    mWindow = appLink->createWindow( Window::Format().size( 400, 400 ) );
+    mWindow->setUserData( this );
+    int uniqueId = mId;
+    mWindow->getSignalClose().
+    connect([uniqueId,this] { mLink->console() << "You closed window #" << uniqueId << std::endl; });
 }
 
 
 
-void CVisibleApp::fileDrop( FileDropEvent event )
+Rectf clipContext::render_box ()
 {
-	for( size_t s = 0; s < event.getNumFiles(); ++s )
-		loadMovieFile( event.getFile( s ) );
+    Rectf rb;
+    if (! m_valid ) return rb;
+    rb = Area (mWindow->getPos(), mWindow->getSize());
+    return rb;
 }
 
 
+void clipContext::draw ()
+{
+    // time cycles every 1 / TWEEN_SPEED seconds, with a 50% pause at the end
+    float time = math<float>::clamp( fmod( mLink->getElapsedSeconds() * 0.5, 1 ) * 1.5f, 0, 1 );
+    if (mGraph1D) mGraph1D->draw ( time );
+}
 
-CINDER_APP_BASIC( CVisibleApp, RendererGl )
+void clipContext::update () {}
+
+bool clipContext::is_valid () { return m_valid; }
+
+void clipContext::setup()
+{
+    // Browse for the movie file
+    mPath = getOpenFilePath();
+    m_valid = false;
+  	getWindow()->setTitle( mPath.filename().string() );
+    const std::string& fqfn = mPath.string ();
+    m_columns = m_rows = 0;
+    mdat.resize (0);
+    bool c2v_ok = vf_utils::csv::csv2vectors ( fqfn, mdat, false, true, true);
+    if ( c2v_ok )
+        
+        m_columns = mdat.size ();
+    m_rows = mdat[0].size();
+    // only handle case of long columns of data
+    if (m_columns < m_rows)
+    {
+        m_column_select = (m_column_select >= 0 && m_column_select < m_columns) ? m_column_select : 0;
+        m_frames = m_file_frames = m_rows;
+        m_read_pos = 0;
+        m_valid = true;
+    }
+
+    if (m_valid)
+    {
+        mGraph1D = Graph1DRef (new graph1D ("signature", render_box () ) );
+        mGraph1D->addListener( this, &clipContext::receivedEvent );
+        mGraph1D->load_vector(mdat[m_column_select]);
+
+    }
+    //        string max = ci::toString( m_movie.getDuration() );
+    //        mMovieParams.addParam( "Column", &m_column_select, "min=0 max=" + columns );
+}
+
+
+void clipContext::receivedEvent( InteractiveObjectEvent event )
+{
+    string text;
+    switch( event.type )
+    {
+        case InteractiveObjectEvent::Pressed:
+            text = "Pressed event";
+            break;
+        case InteractiveObjectEvent::PressedOutside:
+            text = "Pressed outside event";
+            break;
+        case InteractiveObjectEvent::Released:
+            text = "Released event";
+            break;
+        case InteractiveObjectEvent::ReleasedOutside:
+            text = "Released outside event";
+            break;
+        case InteractiveObjectEvent::RolledOver:
+            text = "RolledOver event";
+            break;
+        case InteractiveObjectEvent::RolledOut:
+            text = "RolledOut event";
+            break;
+        case InteractiveObjectEvent::Dragged:
+            text = "Dragged event";
+            break;
+        default:
+            text = "Unknown event";
+    }
+    mLink->console() << "Received " + text << endl;
+}
+
+
+void clipContext::mouseMove( MouseEvent event )
+{
+   if (mGraph1D) mGraph1D->mouseMove( event );
+}
+
+
+void clipContext::mouseDrag( MouseEvent event )
+{
+   if (mGraph1D) mGraph1D->mouseDrag( event );
+}
+
+
+void clipContext::mouseDown( MouseEvent event )
+{
+   if (mGraph1D) mGraph1D->mouseDown( event );
+}
+
+
+void clipContext::mouseUp( MouseEvent event )
+{
+   if (mGraph1D) mGraph1D->mouseUp( event );
+}
+

@@ -1,153 +1,99 @@
 
-#ifndef _sshist_H_
-#define _sshist_H_
+#ifndef _iclip_H_
+#define _iclip_H_
 
-#include <map>
+#include "InteractiveObject.h"
 
-/* sshist - Allows users to create a "bounded" sparse
- * histogram. By bounded is meant that the maximum number of bins to
- * be used can be specified in at object construction time. The intent
- * was to provide a reasonably fast, memory efficient, way of
- * generating a sparse histogram. This was done using STL maps and
- * this class is mostly a thin wrapper around map functionality.
- *
- * Note: If a way could be devised to guarantee that all the memory
- * required will be allocated a construction time this would be a
- * plus. This class is being used during real time operations and
- * anything that can prevent the need to allocate heap would be a
- * help. STL maps don't seem to provide a way of directly specifying
- * how many elements you will be using. Maybe elements could be
- * preallocated by creating a map that has the requested number of
- * elements, using keys that are out of range. When a new bin is
- * needed one of these preallocated entries could be taken and its key
- * modified. Whether or not maps would allow this sort of scheme needs
- * to be investigated.
- */
 
-template <typename T1, typename T2>
-struct greater_second {
-    typedef pair<T1, T2> type;
-    bool operator ()(type const& a, type const& b) const {
-        return a.second > b.second;
-    }
-};
+class graph1D;
 
-class sshist
+typedef std::shared_ptr<graph1D> Graph1DRef;
+
+class graph1D:  public InteractiveObject
 {
 public:
-
-    typedef std::pair<uint32,uint32> pair_t;
-    typedef std::map<pair_t::first_type, pair_t::second_type> container_t;
-    typedef std::vector<pair_t> sorted_container_t;
     
-  /* Create a sparse histogram which will use at most maxBins bins. If
-   * maxBins is 0, then there is no limit on the number of bins that
-   * can be used.
-   */
-  sshist(uint32 maxBins = 0)
-    : _maxBins(maxBins), _elementCount(0), _weightedCount(0), _isValid(true)
+	graph1D( std::string name, const ci::Rectf& display_box) : InteractiveObject(display_box)
+	{
+		// create label
+		TextLayout text; text.clear( cinder::Color::white() ); text.setColor( Color(0.5f, 0.5f, 0.5f) );
+		try { text.setFont( Font( "Futura-CondensedMedium", 18 ) ); } catch( ... ) { text.setFont( Font( "Arial", 18 ) ); }
+		text.addLine( name );
+		mLabelTex = cinder::gl::Texture( text.render( true ) );
+	}
+    
+	void load_vector (const std::vector<float>& buffer)
     {
-    }
-
-
-  /* Increments the count in the bin specified by slot and returns
-   * true. If performing this operation would require creating more
-   * than the maximum number of allowed bins, the operation is not
-   * performed and false is returned.
-   */
-  bool add(uint32 slot)
-    {
-        container_t::iterator index = _bins.find(slot);
-        
-        if (index == _bins.end())
+        std::unique_lock<std::mutex> lock (mutex_);
+        mBuffer.clear ();
+        std::vector<float>::const_iterator reader = buffer.begin ();
+        while (reader != buffer.end())
         {
-            if (_maxBins && (_bins.size() == _maxBins))
-            {
-                _isValid = false;
-                return false;
-            }
-            
-            _bins[slot] = 0;
-            index = _bins.find(slot);
-            assert(index != _bins.end());
+            mBuffer.push_back (*reader++);
         }
         
-        (*index).second++;
-        
-        _elementCount += 1;
-        _weightedCount += slot;
-        
-        return true;
-    }
-
-
-  /* Returns true if all increments completed successfully, otherwise
-   * it returns false.
-   */
-  bool isValid() const { return _isValid; }
-
-  /* Returns the average slot value passed to add(). Return value undefined
-   * if add() has never been called.
-   */
-  double average() const
-    {
-        if (_bins.size() == 0)
-            return -1;
-        
-        return _weightedCount/_elementCount;
-    }
-
-
-  /* Returns the number of times add() has been called.
-   */
-  double count() const { return _elementCount; }
-
-  /* Returns the smallest and the largest slot values passed to
-   * add(). Return value undefined if add() has never been called.
-   */
-  void range(uint32& min, uint32& max) const
-    {
-        if (_bins.size() == 0)
-            return;
-        
-        min = (*_bins.begin()).first;
-        max = (*_bins.rbegin()).first;
-    }
-
-
-  /* Returns the number of bins required.
-   */
-  size_t binsUsed() const { return _bins.size(); }
-
-  /* Clears out the histogram and any associated statistics.
-   */
-  void reset()
-    {
-        _elementCount = _weightedCount = 0;
-        _isValid = true;
-        
-        _bins.erase(_bins.begin(), _bins.end());
+        mFn = boost::bind (&graph1D::get, _1, _2);
+        lock.unlock();
+        cond_.notify_one ();
     }
     
-
-
-  const container_t& getArray() const { return _bins; }
+    //  bool is_valid () const { return (mFn != std::function<float (float)> () ); }
     
-  void get_value_sorted (sorted_container_t& sorted)
+    float get (float tnormed) const
     {
-        std::vector<pair_t> binscopy(_bins.begin(), _bins.end());
-        sort(binscopy.begin(), binscopy.end(), greater_second<pair_t::first_type,pair_t::second_type>());
-        sorted = binscopy;        
+        const std::vector<float>& buf = buffer();
+        if (empty()) return -1.0;
+        
+        // NN
+        int32 x = floor (tnormed * (buf.size()-1));
+        if (x >= 0 && x < buf.size())
+            return buf[x];
+        else
+            return -1.0f;
+    }
+	void draw( float t ) const
+	{
+		// draw box and frame
+		cinder::gl::color( ci::Color( 1.0f, 1.0f, 1.0f ) );
+		cinder::gl::drawSolidRect( rect );
+		cinder::gl::color( ci::Color( 0.4f, 0.4f, 0.4f ) );
+        ci::gl::drawStrokedRect( rect );
+        ci::gl::color( ci::Color::white() );
+        ci::gl::draw( mLabelTex, rect.getCenter() - mLabelTex.getSize() / 2 );
+        
+		// draw graph
+		gl::color( ColorA( 0.25f, 0.5f, 1.0f, 0.5f ) );
+		glBegin( GL_LINE_STRIP );
+		for( float x = 0; x < rect.getWidth(); x += 0.25f ) {
+			float y = 1.0f - mFn ( this, x / rect.getWidth() );
+            ci::gl::vertex(Vec2f( x, y * rect.getHeight() ) + rect.getUpperLeft() );
+		}
+		glEnd();
+		
+		// draw animating circle
+		gl::color( Color( 1, 0.5f, 0.25f ) );
+		//gl::drawSolidCircle( rect.getUpperLeft() + mFn ( this, t ) * rect.getSize(), 5.0f );
+        glLineWidth(2.f);
+        float px = norm_pos().x * rect.getWidth();
+        ci::gl::drawLine (Vec2f(px, 0.f), Vec2f(px, rect.getHeight()));
+        
     }
     
-
-private:
-
-  container_t   _bins;
-  uint32      _maxBins;
-  double        _elementCount;
-  double        _weightedCount;
-  bool          _isValid;
+    const std::vector<float>&       buffer () const { return mBuffer; }
+    bool empty () const { return mBuffer.empty (); }
+    
+	
+    std::vector<float>                   mBuffer;
+	cinder::gl::Texture						mLabelTex;
+    std::function<float (const graph1D*, float)> mFn;
+    std::condition_variable cond_;
+    mutable std::mutex mutex_;
+    
 };
 
-#endif // _sshist_H_
+
+
+
+
+
+#endif // _iclip_H_

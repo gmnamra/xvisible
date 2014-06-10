@@ -37,9 +37,10 @@
 		C27652591915E9AB00EA3B55 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27652581915E9AB00EA3B55 /* OpenGL.framework */; };
 		C276525B1915E9CB00EA3B55 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C276525A1915E9CB00EA3B55 /* CoreVideo.framework */; };
 		C276525E1915EA1400EA3B55 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
+		C283D71819460C6B00AC68BE /* visible_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C283D71719460C6B00AC68BE /* visible_impl.cpp */; };
+		C283D7211947C6E500AC68BE /* vfi386.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C283D7201947C6E500AC68BE /* vfi386.framework */; };
 		C2A2BE97193055BF003337D7 /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D6FA80192D27820099EEED /* libboost_thread.a */; };
 		C2A2BE99193055F9003337D7 /* vfi386.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A2BE98193055F9003337D7 /* vfi386.framework */; };
-		C2A2BE9B19305658003337D7 /* vfi386.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2A2BE98193055F9003337D7 /* vfi386.framework */; };
 		C2D6FA81192D27820099EEED /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D6FA80192D27820099EEED /* libboost_thread.a */; };
 		C2D713EB19171AFC009C503B /* assets in Resources */ = {isa = PBXBuildFile; fileRef = C2D713EA19171AFC009C503B /* assets */; };
 		C2D713EE19171B49009C503B /* Resources.h in Resources */ = {isa = PBXBuildFile; fileRef = C2D713EC19171B49009C503B /* Resources.h */; };
@@ -60,7 +61,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C2A2BE9B19305658003337D7 /* vfi386.framework in CopyFiles */,
+				C283D7211947C6E500AC68BE /* vfi386.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +112,11 @@
 		C27652581915E9AB00EA3B55 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		C276525A1915E9CB00EA3B55 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		C283D715194254BD00AC68BE /* vf_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vf_types.h; path = ../../include/cvisible/vf_types.h; sourceTree = "<group>"; };
+		C283D7161943DB3000AC68BE /* iclip.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = iclip.hpp; path = ../../include/cvisible/iclip.hpp; sourceTree = "<group>"; };
+		C283D71719460C6B00AC68BE /* visible_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = visible_impl.cpp; sourceTree = "<group>"; };
+		C283D71919468A1000AC68BE /* ui_contexts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ui_contexts.h; path = ../../include/cvisible/ui_contexts.h; sourceTree = "<group>"; };
+		C283D71A1946A87C00AC68BE /* visible_main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = visible_main.h; path = ../../include/cvisible/visible_main.h; sourceTree = "<group>"; };
+		C283D7201947C6E500AC68BE /* vfi386.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = vfi386.framework; sourceTree = "<group>"; };
 		C2A2BE98193055F9003337D7 /* vfi386.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386.framework; path = ../build/Frameworks/vfi386.framework; sourceTree = "<group>"; };
 		C2D6FA80192D27820099EEED /* libboost_thread.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_thread.a; path = ../usr/local/boost/lib/libboost_thread.a; sourceTree = "<group>"; };
 		C2D713EA19171AFC009C503B /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
@@ -211,6 +217,7 @@
 		29B97314FDCFA39411CA2CEA /* SamplePlayerTest */ = {
 			isa = PBXGroup;
 			children = (
+				C283D7201947C6E500AC68BE /* vfi386.framework */,
 				C2663DC1192AB062004986A4 /* ut_sm.hpp */,
 				C2FB27011921D31F003A48B7 /* ut_similarity.cpp */,
 				C2FB26FF1921D30C003A48B7 /* ut_videocache.cpp */,
@@ -277,6 +284,7 @@
 		C21733FB190B175500A01365 /* cvisible */ = {
 			isa = PBXGroup;
 			children = (
+				C283D7161943DB3000AC68BE /* iclip.hpp */,
 				C283D715194254BD00AC68BE /* vf_types.h */,
 				C2E0EEB3194245F3003394C7 /* InteractiveObject.cpp */,
 				C2E0EEB2194245E4003394C7 /* InteractiveObject.h */,
@@ -289,11 +297,14 @@
 				C236E0A319290BCF0035C2F5 /* vf_source.cpp */,
 				C2371C2A192424F8005114B1 /* vf_imagegrabber.hpp */,
 				C2D713FB191C47A1009C503B /* visible_app.h */,
+				C283D71A1946A87C00AC68BE /* visible_main.h */,
+				C283D71919468A1000AC68BE /* ui_contexts.h */,
 				C2D713F1191978D0009C503B /* AudioDrawUtils.h */,
 				C20BB3391910508E00884EB2 /* vf_utils.hpp */,
 				C20BB33819102F5A00884EB2 /* vf_cinder.hpp */,
 				C21733FC190B175500A01365 /* AudioDrawUtils.cpp */,
 				C21733FD190B175500A01365 /* cVisibleApp.cpp */,
+				C283D71719460C6B00AC68BE /* visible_impl.cpp */,
 				C2173400190B175500A01365 /* VisibleApp.cpp */,
 			);
 			name = cvisible;
@@ -412,6 +423,7 @@
 			files = (
 				C236E0AD19291C2A0035C2F5 /* vf_qtime_grabber.cpp in Sources */,
 				C2DB2261190B2CCB00BBC93C /* VisibleApp.cpp in Sources */,
+				C283D71819460C6B00AC68BE /* visible_impl.cpp in Sources */,
 				C236E0A419290BCF0035C2F5 /* vf_source.cpp in Sources */,
 				C2E0EEB4194245F3003394C7 /* InteractiveObject.cpp in Sources */,
 				C2173401190B175500A01365 /* AudioDrawUtils.cpp in Sources */,
@@ -446,12 +458,24 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"$(CINDER_PATH)/include",
+					"$(BOOST_PATH)/include",
+					"$(OPENCV_PATH)/include",
+					"$(SRCROOT)/include",
+					"$(GTEST_PATH)/include",
+					"$(SRCROOT)/include/vf",
+					"$(SRCROOT)/include/cvisible",
+					"$(TEST_DIR)/include",
+					"$(RESOURCE_DIR)",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/arman/gwc/vqt105/visibleqt105/usr/local/boost/lib,
 				);
+				OBJROOT = "$(BUILD_ROOT)/Intermediates";
 				PRODUCT_NAME = XcVisible;
-				SYMROOT = ./build;
+				SYMROOT = "$(BUILD_ROOT)";
 				WARNING_CFLAGS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -469,12 +493,24 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"$(CINDER_PATH)/include",
+					"$(BOOST_PATH)/include",
+					"$(OPENCV_PATH)/include",
+					"$(SRCROOT)/include",
+					"$(GTEST_PATH)/include",
+					"$(SRCROOT)/include/vf",
+					"$(SRCROOT)/include/cvisible",
+					"$(TEST_DIR)/include",
+					"$(RESOURCE_DIR)",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/arman/gwc/vqt105/visibleqt105/usr/local/boost/lib,
 				);
+				OBJROOT = "$(BUILD_ROOT)/Intermediates";
 				PRODUCT_NAME = XcVisible;
-				SYMROOT = ./build;
+				SYMROOT = "$(BUILD_ROOT)";
 				WARNING_CFLAGS = "";
 				WRAPPER_EXTENSION = app;
 			};

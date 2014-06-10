@@ -143,7 +143,4 @@ public:
  
 };
 
-CINDER_APP_BASIC( CVisibleApp, RendererGl )
-
-
 #endif

@@ -35,7 +35,9 @@
 #include "cvisible/vf_utils.hpp"
 #include "vf_types.h"
 
-#include "InteractiveObject.h"
+#include "iclip.hpp"
+#include "ui_contexts.h"
+
 using namespace ci;
 using namespace ci::app;
 using namespace std;
@@ -50,63 +52,6 @@ using namespace boost;
 #define Vec3f ci::Vec3f
 
 
-
-// Animating signal marker
-struct Signal_value
-{
-    Signal_value () : mValid (false) {}
-
-    Signal_value (std::function<float (size_t)> fn)
-    : mFn( fn ), mValid (true) {}
-    
-    void at_event (const Rectf& box, const Vec2i& location, const size_t& pos,  const Waveform& wave)
-    {
-        size_t xScaled = (pos * wave.sections()) / box.getWidth();
-        xScaled *= wave.section_size ();
-        mSignalIndex = math<size_t>::clamp( xScaled, 0, wave.samples () );
-        mDisplayPos = location;
-    }
-
-    
-    void at_event_value (const Rectf& box, const Vec2i& location, const size_t& pos, const size_t& wave)
-    {
-        size_t xScaled = (pos * wave) / box.getWidth();
-        mSignalIndex = math<size_t>::clamp( xScaled, 0, wave );
-        mDisplayPos = location;
-    }
-    
-    void draw(const Rectf& display)
-    {
-        if ( ! mValid ) return;
-        
-        const Vec2i& readPos = mDisplayPos;
-		gl::color( ColorA( 0, 1, 0, 0.7f ) );
-		gl::drawSolidRoundedRect( Rectf( readPos.x - 2, 0, readPos.x + 2, (float)display.getHeight() ), 2 );
-		gl::color( Color( 1.0f, 0.5f, 0.25f ) );
-		gl::drawStringCentered(toString (mFn (mSignalIndex)), readPos);
-    }
-    
-    Vec2i mDisplayPos;
-    size_t mSignalIndex;
-    std::function<float (size_t)> mFn;
-    bool mValid;
-};
-
-
-// The window-specific data for each window
-class WindowData
-{
-public:
-	WindowData()
-    : mColor( Color( CM_RGB, 0.1f, 0.8f, 0.8f ) ) 
-	{
-        mId = AppBasic::get()->getNumWindows ();
-    }
-    
-	Color			mColor;
-    size_t          mSignalLength;
-    size_t          mId;
-};
 
 
 class CVisibleApp : public AppBasic
@@ -125,18 +70,14 @@ public:
 	void keyDown( KeyEvent event );
 	void fileDrop( FileDropEvent event );
 	void update();
-    void movie_update ();
 	void draw();
+	void draw_main();
     void draw_mat ();
     void draw_oned ();
-    
+    void enable_audio_output ();
 	void setupBufferPlayer();
 	void setupFilePlayer();
-    void setupMatrixPlayer ();
-    void createNewWindow();
-    void internal_setupmat_from_file (const fs::path &);
-    void internal_setupmat_from_mat (const vf_utils::csv::matf_t &);
-    
+ 
 	void setSourceFile( const DataSourceRef &dataSource );
     void resize_areas (); 
     void loadMovieFile( const fs::path &moviePath );
@@ -145,7 +86,8 @@ public:
 	void seek( size_t xPos );
     void clear_movie_params ();
     
-    void receivedEvent ( InteractiveObjectEvent event );
+    const baseContextRef getContextRef ();
+    
     
     static void copy_to_vector (const ci::audio2::BufferRef &buffer, std::vector<float>& mBuffer)
     {
@@ -154,9 +96,7 @@ public:
         for( size_t i = 0; i < buffer->getNumFrames(); i++ )
             mBuffer.push_back (*reader++);
     }
-    
-
-    
+     
 	audio2::BufferPlayerRef		mSamplePlayer;
 	audio2::SourceFileRef		mSourceFile;
 	audio2::ScopeRef			mScope;
@@ -176,7 +116,7 @@ public:
     
     gl::Texture mImage;
     ci::qtime::MovieGl m_movie;    
-    bool m_movie_valid, m_result_valid;
+    bool m_movie_valid;
     size_t m_fc;
     Signal_value                mSigv;
 
@@ -186,10 +126,8 @@ public:
     float mMovieRate, mPrevMovieRate;
     bool mMoviePlay, mPrevMoviePlay;
     bool mMovieLoop, mPrevMovieLoop;
-
-    gl::VboMesh mPointCloud;
-    MayaCamUI mCam;
     Graph1DRef mGraph1D;
+    vf_utils::dict::dict <size_t, baseContextRef > mWindow_dict;
     
  
 };

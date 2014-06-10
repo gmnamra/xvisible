@@ -36,6 +36,8 @@
 		C26F48C818FC75D6006DF78F /* rc_ncs.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F48C718FC75D6006DF78F /* rc_ncs.h */; };
 		C27652261914089400EA3B55 /* rc_level.h in Headers */ = {isa = PBXBuildFile; fileRef = C27652251914089400EA3B55 /* rc_level.h */; };
 		C276522B1915599C00EA3B55 /* rc_seglevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A018F4B9A000BA7E79 /* rc_seglevel.cpp */; };
+		C283D71C1947BC1900AC68BE /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C283D71B1947BC1900AC68BE /* vfi386_d.framework */; };
+		C283D71E1947BC3A00AC68BE /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C283D71D1947BC3A00AC68BE /* gtest.framework */; };
 		C299934418FCAE3D008397D2 /* ut_framebuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA27A0F21357A0046570D /* ut_framebuf.cpp */; };
 		C299934518FDB17F008397D2 /* ut_reifymoviegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA29A0F21357A0046570D /* ut_reifymoviegrabber.cpp */; };
 		C299934718FDBD44008397D2 /* rc_mathmodel.h in Headers */ = {isa = PBXBuildFile; fileRef = C299934618FDBD44008397D2 /* rc_mathmodel.h */; };
@@ -269,8 +271,6 @@
 		C2C292E318F4C6B700BA7E79 /* smart_ptr.tpp in Headers */ = {isa = PBXBuildFile; fileRef = C2C2928418F4C56D00BA7E79 /* smart_ptr.tpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2C292E418F4C6BD00BA7E79 /* string_utilities.tpp in Headers */ = {isa = PBXBuildFile; fileRef = C2C2928518F4C56D00BA7E79 /* string_utilities.tpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2C292E518F4C6C300BA7E79 /* triple.tpp in Headers */ = {isa = PBXBuildFile; fileRef = C2C2928618F4C56D00BA7E79 /* triple.tpp */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2C292E818F4F6DA00BA7E79 /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D07F2C80486CC7A007CD1D0 /* vfi386_d.framework */; };
-		C2C292ED18F4F8EE00BA7E79 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C28F4018F44CE700BA7E79 /* gtest.framework */; };
 		C2C292F318F662D500BA7E79 /* rc_similarity_producer.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C292F218F662D500BA7E79 /* rc_similarity_producer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2C292F818F748EE00BA7E79 /* signaler.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C292F718F748EE00BA7E79 /* signaler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2C292FA18F8570900BA7E79 /* static.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2C292F918F8570900BA7E79 /* static.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -418,6 +418,8 @@
 		C26FA2AB0F21357A0046570D /* ut_window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_window.cpp; path = ../test/src/ut_window.cpp; sourceTree = SOURCE_ROOT; };
 		C26FA2AC0F21357A0046570D /* ut_windowhist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_windowhist.cpp; path = ../test/src/ut_windowhist.cpp; sourceTree = SOURCE_ROOT; };
 		C27652251914089400EA3B55 /* rc_level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_level.h; sourceTree = "<group>"; };
+		C283D71B1947BC1900AC68BE /* vfi386_d.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386_d.framework; path = ../build/Frameworks/vfi386_d.framework; sourceTree = "<group>"; };
+		C283D71D1947BC3A00AC68BE /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../build/Frameworks/gtest.framework; sourceTree = "<group>"; };
 		C297DD3C18A1B5F100F217A5 /* ut_persistence1d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ut_persistence1d.h; path = ../test/include/ut_persistence1d.h; sourceTree = "<group>"; };
 		C299934618FDBD44008397D2 /* rc_mathmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_mathmodel.h; sourceTree = "<group>"; };
 		C2A9A6730F29200900DA781F /* ut_analysis_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_analysis_main.cpp; path = ../test/src/ut_analysis_main.cpp; sourceTree = SOURCE_ROOT; };
@@ -828,9 +830,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C283D71E1947BC3A00AC68BE /* gtest.framework in Frameworks */,
+				C283D71C1947BC1900AC68BE /* vfi386_d.framework in Frameworks */,
 				C2C2931C18F9F5F600BA7E79 /* libboost_system.a in Frameworks */,
-				C2C292E818F4F6DA00BA7E79 /* vfi386_d.framework in Frameworks */,
-				C2C292ED18F4F8EE00BA7E79 /* gtest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,6 +853,8 @@
 		0867D691FE84028FC02AAC07 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C283D71D1947BC3A00AC68BE /* gtest.framework */,
+				C283D71B1947BC1900AC68BE /* vfi386_d.framework */,
 				C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */,
 				C23E89B9191310F800AE27A3 /* vf_release.xcconfig */,
 				C2ADE58A19072CD10083564A /* rc_framegrabber.h */,
@@ -2262,6 +2266,10 @@
 			baseConfigurationReference = C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/arman/gwc/vqt105/visibleqt105/build/Frameworks,
+				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				KEEP_PRIVATE_EXTERNS = YES;
 				LINKER_DISPLAYS_MANGLED_NAMES = YES;
@@ -2278,6 +2286,10 @@
 			baseConfigurationReference = C23E89B9191310F800AE27A3 /* vf_release.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/arman/gwc/vqt105/visibleqt105/build/Frameworks,
+				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				KEEP_PRIVATE_EXTERNS = YES;
 				LINKER_DISPLAYS_MANGLED_NAMES = YES;
