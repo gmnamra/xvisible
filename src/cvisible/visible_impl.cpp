@@ -1,17 +1,25 @@
 
 #include "ui_contexts.h"
+#include "stl_util.hpp"
 
 using namespace vf_utils::csv;
 
 matContext::matContext (AppBasic* appLink) : mLink (appLink)
 {
-    mWindow = appLink->createWindow( Window::Format().size( 400, 400 ) );
+    mWindow = mLink->createWindow( Window::Format().size( 400, 400 ) );
     mWindow->setUserData( this );
     
-    // for demonstration purposes, we'll connect a lambda unique to this window which fires on close
-    int uniqueId = mId;
+    mId = mLink->getNumWindows();
+    size_t idd = Id();
     mWindow->getSignalClose().
-    connect([uniqueId,this] { mLink->console() << "You closed window #" << uniqueId << std::endl; });
+    connect([idd,this] { mLink->console() << "You closed mat window #" << idd << std::endl; });
+
+    mWindow->getSignalDraw().connect (std::bind(&matContext::draw_window, this) );
+    mWindow->connectMouseDown(&matContext::mouseDown, this);
+    mWindow->connectMouseUp(&matContext::mouseUp, this);
+    mWindow->connectMouseDrag(&matContext::mouseDrag, this);
+    mWindow->connectMouseMove(&matContext::mouseMove, this);
+    assert(mLink->getWindowIndex(idd-1)->getUserData<matContext>()->Id() == idd);
 }
 
 
@@ -88,6 +96,22 @@ void matContext::internal_setupmat_from_mat (const vf_utils::csv::matf_t & mat)
 
 void matContext::draw()
 {
+    if (! m_valid ) return;
+    
+	gl::clear( Color( 0, 0, 0 ) );
+    gl::setMatrices( mCam.getCamera() );
+    gl::enableDepthRead();
+    gl::enableDepthWrite();
+    
+    if( mPointCloud ){
+        gl::draw( mPointCloud );
+    }
+}
+
+
+void matContext::draw_window ()
+{
+     if (! mWindow || ! getWindow()->getUserData<matContext>()->is_valid() ) return;
     
 	gl::clear( Color( 0, 0, 0 ) );
     gl::setMatrices( mCam.getCamera() );
@@ -111,13 +135,23 @@ bool matContext::is_valid ()
     return m_valid;
 }
 
+// movContext Implementation
+
 movContext::movContext (AppBasic* appLink) : mLink (appLink)
 {
-    mWindow = appLink->createWindow( Window::Format().size( 400, 400 ) );
+    mWindow = mLink->createWindow( Window::Format().size( 400, 400 ) );
     mWindow->setUserData( this );
-    int uniqueId = mId;
+
+    mId = mLink->getNumWindows();
+    size_t idd = Id();
     mWindow->getSignalClose().
-    connect([uniqueId,this] { mLink->console() << "You closed window #" << uniqueId << std::endl; });
+    connect([idd,this] { mLink->console() << "You closed mov window #" << idd << std::endl; });
+    mWindow->getSignalDraw().connect (std::bind(&movContext::draw_window, this) );
+    mWindow->connectMouseDown(&movContext::mouseDown, this);
+    mWindow->connectMouseUp(&movContext::mouseUp, this);
+    mWindow->connectMouseDrag(&movContext::mouseDrag, this);
+    mWindow->connectMouseMove(&movContext::mouseMove, this);
+    assert(mLink->getWindowIndex(idd-1)->getUserData<movContext>()->Id() == idd);
 }
 
 
@@ -248,6 +282,7 @@ void movContext::update ()
 
 void movContext::draw ()
 {
+    mMovieParams.draw();
     if (m_valid && mImage )
     {
         gl::draw (mImage, render_box ());
@@ -257,30 +292,39 @@ void movContext::draw ()
 }
 
 
-// Main Window Registration
-
-mainContext::mainContext (AppBasic* appLink, app::WindowRef aw) : mLink (appLink), mWindow (aw)
+void movContext::draw_window ()
 {
+    if (! mWindow || ! getWindow()->getUserData<movContext>()->is_valid() ) return;
+    
+    mMovieParams.draw();
+    
+    if (m_valid && mImage )
+    {
+        gl::draw (mImage, render_box ());
+        mImage.disable ();
+    }
+    
 }
 
-void mainContext::draw () {}
-void mainContext::setup () {}
-void mainContext::update () {}
-bool mainContext::is_valid ()
-{
-    return mLink != 0 && ((!mWindow) != true);
-}
 
 
 // ClipContext
 
 clipContext::clipContext (AppBasic* appLink) : mLink (appLink)
 {
-    mWindow = appLink->createWindow( Window::Format().size( 400, 400 ) );
+    mWindow = mLink->createWindow( Window::Format().size( 400, 400 ) );
     mWindow->setUserData( this );
-    int uniqueId = mId;
+    mId = mLink->getNumWindows();
+    size_t idd = Id();
     mWindow->getSignalClose().
-    connect([uniqueId,this] { mLink->console() << "You closed window #" << uniqueId << std::endl; });
+    connect([idd,this] { mLink->console() << "You closed clip window #" << idd << std::endl; });
+    mWindow->getSignalDraw().connect (std::bind(&clipContext::draw_window, this) );
+    mWindow->connectMouseDown(&clipContext::mouseDown, this);
+    mWindow->connectMouseUp(&clipContext::mouseUp, this);
+    mWindow->connectMouseDrag(&clipContext::mouseDrag, this);
+    mWindow->connectMouseMove(&clipContext::mouseMove, this);
+    assert(mLink->getWindowIndex(idd-1)->getUserData<clipContext>()->Id() == idd);
+    
 }
 
 
@@ -300,6 +344,16 @@ void clipContext::draw ()
     float time = math<float>::clamp( fmod( mLink->getElapsedSeconds() * 0.5, 1 ) * 1.5f, 0, 1 );
     if (mGraph1D) mGraph1D->draw ( time );
 }
+
+
+void clipContext::draw_window ()
+{
+     if ( ! mWindow || ! getWindow()->getUserData<clipContext>()->is_valid() ) return;
+    // time cycles every 1 / TWEEN_SPEED seconds, with a 50% pause at the end
+    float time = math<float>::clamp( fmod( mLink->getElapsedSeconds() * 0.5, 1 ) * 1.5f, 0, 1 );
+    if (mGraph1D) mGraph1D->draw ( time );
+}
+
 
 void clipContext::update () {}
 
@@ -335,6 +389,11 @@ void clipContext::setup()
         mGraph1D->load_vector(mdat[m_column_select]);
 
     }
+    
+    
+    mClipParams = params::InterfaceGl (" Clip ", Vec2i( 200, 400) );
+    mClipParams.addParam("Column ", &m_column_select, "min=0 max=" + stl_utils::tostr(m_columns)) ;
+
     //        string max = ci::toString( m_movie.getDuration() );
     //        mMovieParams.addParam( "Column", &m_column_select, "min=0 max=" + columns );
 }

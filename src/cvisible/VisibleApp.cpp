@@ -11,7 +11,71 @@ size_t Wave2Index (const Rectf& box, const size_t& pos, const Waveform& wave)
     xScaled = math<size_t>::clamp( xScaled, 0, wave.samples () );
 }
 
-CVisibleApp* CVisibleApp::master () { return (CVisibleApp*) AppBasic::get(); }
+template<>
+std::map<size_t,matContextRef>& CVisibleApp::repository () { return mMatWindows; }
+
+template<>
+std::map<size_t,movContextRef>& CVisibleApp::repository () { return mMovWindows; }
+
+template<>
+std::map<size_t,clipContextRef>& CVisibleApp::repository () { return mClipWindows; }
+
+
+
+template<>
+void CVisibleApp::add_to (matContextRef m)
+{
+    repository<matContextRef>()[m->Id()] = m;
+}
+
+template<>
+void CVisibleApp::add_to (movContextRef m)
+{
+    repository<movContextRef>()[m->Id()] = m;
+}
+
+template<>
+void CVisibleApp::add_to (clipContextRef m)
+{
+    repository<clipContextRef>()[m->Id()] = m;
+}
+
+
+
+template<>
+bool CVisibleApp::remove_from (matContextRef m)
+{
+    std::map<size_t,matContextRef>::iterator pos = repository<matContextRef>().find(m->Id());
+    if (pos == repository<matContextRef>().end() ) return false;
+    repository<matContextRef>().erase(pos);
+    return true;
+}
+
+template<>
+bool CVisibleApp::remove_from (movContextRef m)
+{
+    std::map<size_t,movContextRef>::iterator pos = repository<movContextRef>().find(m->Id());
+    if (pos == repository<movContextRef>().end() ) return false;
+    repository<movContextRef>().erase(pos);
+    return true;
+}
+
+template<>
+bool CVisibleApp::remove_from (clipContextRef m)
+{
+    std::map<size_t,clipContextRef>::iterator pos = repository<clipContextRef>().find(m->Id());
+    if (pos == repository<clipContextRef>().end() ) return false;
+    repository<clipContextRef>().erase(pos);
+    return true;
+}
+
+
+
+
+CVisibleApp* CVisibleApp::master ()
+{
+    return (CVisibleApp*) AppBasic::get();
+}
 
 
 void CVisibleApp::prepareSettings( Settings *settings )
@@ -42,31 +106,39 @@ void CVisibleApp::enable_audio_output ()
 	CI_LOG_V( "context samplerate: " << ctx->getSampleRate() );
 }
 
+
+void CVisibleApp::create_matrix_viewer ()
+{
+     matContextRef matw ( static_cast<matContext*> (new matContext (this ) ) );
+    add_to (matw);
+}
+void CVisibleApp::create_clip_viewer ()
+{
+    clipContextRef clipw ( static_cast<clipContext*> (new clipContext (this ) ) );
+    add_to(clipw);
+
+}
+void CVisibleApp::create_qmovie_viewer ()
+{
+     movContextRef movw ( static_cast<movContext*> (new movContext (this ) ) );
+    add_to(movw);
+}
+
 void CVisibleApp::setup()
 {
-    m_movie_valid = false;
 	mSamplePlayerEnabledState = false;
-    
-    // Register Main Window
-    baseContextRef mainw ( static_cast<baseContext*> (new mainContext (this, getWindow() ) ) );
-    mWindow_dict[mainw->Id()] = mainw;
-    
-    // Setup a Matrix Viewer
-    baseContextRef matw ( static_cast<baseContext*> (new matContext (this ) ) );
-    mWindow_dict[matw->Id()] = matw;
-    
-    // Setup a Movie Player
-    baseContextRef movw ( static_cast<baseContext*> (new movContext (this ) ) );
-    mWindow_dict[movw->Id()] = movw;
+    size_t nw = getNumWindows ();
+    console () << "Initial # of Windows " << nw << std::endl;
+    // Setup the parameters
+	mTopParams = params::InterfaceGl::create( getWindow(), "Select", toPixels( Vec2i( 200, 400 ) ) );
+    mTopParams->addSeparator();
+	mTopParams->addButton( "Import Quicktime Movie", std::bind( &CVisibleApp::create_qmovie_viewer, this ) );
+    mTopParams->addSeparator();
+   	mTopParams->addButton( "Import SS Matrix", std::bind( &CVisibleApp::create_matrix_viewer, this ) );
+    mTopParams->addSeparator();
+   	mTopParams->addButton( "Import Result ", std::bind( &CVisibleApp::create_clip_viewer, this ) );
+    getWindowIndex(0)->connectDraw ( &CVisibleApp::draw_main, this);
 
-    // Setup a Movie Player
-    baseContextRef clipw ( static_cast<baseContext*> (new clipContext (this ) ) );
-    mWindow_dict[clipw->Id()] = clipw;
-    
-    mTopParams = params::InterfaceGl (" CVisible ", Vec2i( 200, 400) );
-    mTopParams.addButton("Select Movie ", std::bind(&baseContext::setup, movw ) );
-    mTopParams.addButton("Select Signature ", std::bind(&baseContext::setup, clipw ) );
-    mTopParams.addButton("Select Matrix ", std::bind(&baseContext::setup, matw ) );
     
 }
 
@@ -120,7 +192,7 @@ void CVisibleApp::setupBufferPlayer()
 		connectFn();
 	};
     
-  }
+}
 
 // a free function which sets gBackgroundColor to blue
 Color	gBackgroundColor;
@@ -130,19 +202,8 @@ void setBackgroundToBlue()
 	//gBackgroundColor = ColorA( 0.4f, 0.4f, 0.9f, 0.8f );
 }
 
-const baseContextRef CVisibleApp::getContextRef ()
-{
-    size_t wid = getWindow()->getUserData<baseContext>()->Id();
-    bool valid = getWindow()->getUserData<baseContext>()->is_valid();
-    valid &= mWindow_dict.has_key(wid);
-    if (valid) return mWindow_dict[wid];
-    else return boost::shared_ptr<baseContext>();
-}
-
 void CVisibleApp::mouseMove( MouseEvent event )
 {
-    baseContextRef dr = getContextRef();
-    if (dr) dr->mouseMove(event);
     //            if (! mWaveformPlot.getWaveforms().empty())
     //              mSigv.at_event (mGraphDisplayRect, event.getPos(), event.getX(),mWaveformPlot.getWaveforms()[0]);
 }
@@ -150,23 +211,16 @@ void CVisibleApp::mouseMove( MouseEvent event )
 
 void CVisibleApp::mouseDrag( MouseEvent event )
 {
-    baseContextRef dr = getContextRef();
-    if (dr) dr->mouseDrag(event);
- 
 }
 
 
 void CVisibleApp::mouseDown( MouseEvent event )
 {
-    baseContextRef dr = getContextRef();
-    if (dr) dr->mouseDown(event);
 }
 
 
 void CVisibleApp::mouseUp( MouseEvent event )
 {
-    baseContextRef dr = getContextRef();
-    if (dr) dr->mouseUp(event);
 }
 
 void CVisibleApp::keyDown( KeyEvent event )
@@ -209,30 +263,12 @@ void CVisibleApp::fileDrop( FileDropEvent event )
 
 void CVisibleApp::update()
 {
-    baseContextRef dr = getContextRef();
-    if (dr) dr->update();
-    
-    //            if (mSettings.isResizable() || mSettings.isFullScreen())
-    //            {
-    //                resize_areas ();
-    //            }
-    //            movie_update ();
-    
-}
+    if (mSettings.isResizable() || mSettings.isFullScreen())
+    {
+        resize_areas ();
+    }
 
-void CVisibleApp::draw_oned ()
-{
-    // time cycles every 1 / TWEEN_SPEED seconds, with a 50% pause at the end
-    float time = math<float>::clamp( fmod( getElapsedSeconds() * 0.5, 1 ) * 1.5f, 0, 1 );
-    if (mGraph1D) mGraph1D->draw ( time );
     
-}
-
-void CVisibleApp::draw()
-{
-    draw_main ();
-    baseContextRef dr = getContextRef();
-    if (dr) dr->draw();
 }
 
 void CVisibleApp::draw_main ()
@@ -243,9 +279,7 @@ void CVisibleApp::draw_main ()
     
     gl::setMatricesWindowPersp( getWindowSize() );
     
-    mTopParams.draw ();
-    mMovieParams.draw();
-    
+        
     auto bufferPlayer = dynamic_pointer_cast<audio2::BufferPlayer>( mSamplePlayer );
     if( bufferPlayer )
     {
@@ -256,7 +290,9 @@ void CVisibleApp::draw_main ()
         }
         mWaveformPlot.draw();
     }
-
+    
+    mTopParams->draw ();
+    
 }
 
 

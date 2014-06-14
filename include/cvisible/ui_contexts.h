@@ -33,6 +33,9 @@
 #include "cvisible/vf_utils.hpp"
 #include "vf_types.h"
 #include "iclip.hpp"
+#include <boost/integer_traits.hpp>
+// use int64_t instead of long long for better portability
+#include <boost/cstdint.hpp>
 
 using namespace ci;
 using namespace ci::app;
@@ -92,14 +95,14 @@ struct Signal_value
 
 class baseContext
 {
+private:
+    
 public:
-    baseContext ()
-    {
-        mId = AppBasic::get()->getNumWindows ();
-    }
-    size_t Id () { return mId; }
-
-
+    baseContext () : mId (baseContext::invalid_id()), m_valid (false) {}
+    size_t Id () const { return mId; }
+    bool equal_to (const baseContext& other) const { return mId == other.Id (); }
+    
+    
     virtual void draw () = 0;
     virtual void update () = 0;
 //    virtual void resize () = 0;
@@ -114,26 +117,15 @@ public:
     
 	virtual void keyDown( KeyEvent event ) {}
 
+    typedef size_t result_type;
+    BOOST_STATIC_CONSTANT(size_t, max_value = boost::integer_traits<size_t>::const_max);
+    static size_t invalid_id () { return max_value; }
     
 protected:
     size_t mId;
+    bool m_valid;
   };
 
-
-class mainContext : public baseContext
-{
-public:
-    mainContext(AppBasic* appLink, app::WindowRef mWindow);
-    virtual void draw ();
-    virtual void setup ();
-    virtual bool is_valid ();
-    virtual void update ();
-
-private:
-    bool m_valid;
-    AppBasic* mLink;
-    app::WindowRef mWindow;
-};
 
 
 class matContext : public baseContext
@@ -146,17 +138,19 @@ public:
     virtual void update ();
     virtual void mouseDrag( MouseEvent event );
     virtual void mouseDown( MouseEvent event );
+      void draw_window ();
+    bool operator==(const baseContext& other) const { return baseContext::equal_to (other); }
     
 private:
     
     void internal_setupmat_from_file (const fs::path &);
     void internal_setupmat_from_mat (const vf_utils::csv::matf_t &);
     Rectf render_box ();
-
+    params::InterfaceGl         mMatParams;
+    
     gl::VboMesh mPointCloud;
     MayaCamUI mCam;
     fs::path mPath;
-    bool m_valid;
     AppBasic* mLink;
     app::WindowRef mWindow;
 };
@@ -170,6 +164,8 @@ public:
     virtual void setup ();
     virtual bool is_valid ();
     virtual void update ();
+    void draw_window ();
+     bool operator==(const baseContext& other) const { return baseContext::equal_to (other); }
     
     const params::InterfaceGl& ui_params ()
     {
@@ -195,7 +191,6 @@ private:
     bool mMovieLoop, mPrevMovieLoop;
 
     fs::path mPath;
-    bool m_valid;
     AppBasic* mLink;
     app::WindowRef mWindow;
     
@@ -220,8 +215,10 @@ public:
     virtual void mouseMove( MouseEvent event );
     virtual void mouseDown( MouseEvent event );
   	virtual void mouseUp( MouseEvent event );
-    
+      void draw_window ();
     void receivedEvent ( InteractiveObjectEvent event );
+    bool operator==(const baseContext& other) const { return baseContext::equal_to (other); }
+    
     
 private:
     static DataSourcePathRef create (const std::string& fqfn)
@@ -229,10 +226,12 @@ private:
         return  DataSourcePath::create (fs::path  (fqfn));
     }
 
+    void select_column (size_t col) { m_column_select = col; }
+    
     Rectf render_box ();
+    params::InterfaceGl         mClipParams;
     Graph1DRef mGraph1D;
     fs::path mPath;
-    bool m_valid;
     std::vector<vector<float> > mdat;
     int m_column_select;
     size_t m_frames, m_file_frames, m_read_pos;
@@ -241,7 +240,10 @@ private:
     app::WindowRef mWindow;
 };
 
-typedef boost::shared_ptr<baseContext> baseContextRef;
+typedef boost::shared_ptr<matContext> matContextRef;
+typedef boost::shared_ptr<movContext> movContextRef;
+typedef boost::shared_ptr<clipContext> clipContextRef;
+
 
 
 #endif

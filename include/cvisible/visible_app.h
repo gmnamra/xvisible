@@ -37,6 +37,7 @@
 
 #include "iclip.hpp"
 #include "ui_contexts.h"
+#include <map>
 
 using namespace ci;
 using namespace ci::app;
@@ -54,14 +55,23 @@ using namespace boost;
 
 
 
+
 class CVisibleApp : public AppBasic
 {
 public:
+    
+    typedef std::map<size_t,matContextRef> mat_map_t;
+    typedef std::map<size_t,movContextRef> mov_map_t;
+    typedef std::map<size_t,clipContextRef> clip_map_t;
 
     static CVisibleApp* master ();
     
 	void prepareSettings( Settings *settings );
 	void setup();
+    void create_matrix_viewer ();
+    void create_clip_viewer ();
+    void create_qmovie_viewer ();
+    
 	void mouseDown( MouseEvent event );
     void mouseMove( MouseEvent event );
   	void mouseUp( MouseEvent event );
@@ -70,23 +80,24 @@ public:
 	void keyDown( KeyEvent event );
 	void fileDrop( FileDropEvent event );
 	void update();
-	void draw();
 	void draw_main();
-    void draw_mat ();
-    void draw_oned ();
     void enable_audio_output ();
 	void setupBufferPlayer();
 	void setupFilePlayer();
  
 	void setSourceFile( const DataSourceRef &dataSource );
     void resize_areas (); 
-    void loadMovieFile( const fs::path &moviePath );
     bool have_sampler () { return mSamplePlayer != 0; }
-    bool have_movie () { return m_movie_valid; }
-	void seek( size_t xPos );
-    void clear_movie_params ();
     
-    const baseContextRef getContextRef ();
+    template<typename T>
+    std::map<size_t, T>& repository ();
+    
+    template<typename T>
+    void add_to (T);
+    
+    template<typename T>
+    bool remove_from (T);
+
     
     
     static void copy_to_vector (const ci::audio2::BufferRef &buffer, std::vector<float>& mBuffer)
@@ -96,7 +107,8 @@ public:
         for( size_t i = 0; i < buffer->getNumFrames(); i++ )
             mBuffer.push_back (*reader++);
     }
-     
+    
+    params::InterfaceGlRef         mTopParams;
 	audio2::BufferPlayerRef		mSamplePlayer;
 	audio2::SourceFileRef		mSourceFile;
 	audio2::ScopeRef			mScope;
@@ -106,29 +118,19 @@ public:
     
 	bool						mSamplePlayerEnabledState;
 	std::future<void>			mAsyncLoadFuture;
-    params::InterfaceGl         mTopParams;
+
     
     Rectf                       mGraphDisplayRect;    
     Rectf                       mMovieDisplayRect;
     Rectf                       mMenuDisplayRect;
     Rectf                       mLogDisplayRect;
     
-    
-    gl::Texture mImage;
-    ci::qtime::MovieGl m_movie;    
-    bool m_movie_valid;
-    size_t m_fc;
     Signal_value                mSigv;
 
-    params::InterfaceGl         mMovieParams;
-    float mMoviePosition, mPrevMoviePosition;
-    size_t mMovieIndexPosition, mPrevMovieIndexPosition;    
-    float mMovieRate, mPrevMovieRate;
-    bool mMoviePlay, mPrevMoviePlay;
-    bool mMovieLoop, mPrevMovieLoop;
-    Graph1DRef mGraph1D;
-    vf_utils::dict::dict <size_t, baseContextRef > mWindow_dict;
-    
+    std::map<size_t,matContextRef> mMatWindows;
+    std::map<size_t,movContextRef> mMovWindows;
+    std::map<size_t,clipContextRef> mClipWindows;
+
  
 };
 
