@@ -24,6 +24,13 @@ using namespace std;
 
 namespace vf_utils
 {
+    
+    // Need this useless class for explicitly instatiating template constructor
+    template <typename T>
+    struct id {
+        typedef T type;
+    };
+
     namespace math
     {
         template<typename Iter>

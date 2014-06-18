@@ -18,7 +18,6 @@
 		C20BB3481910577D00884EB2 /* ut_file.hpp in Sources */ = {isa = PBXBuildFile; fileRef = C20BB3471910577D00884EB2 /* ut_file.hpp */; };
 		C20BB34F1910599400884EB2 /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20BB34E1910599400884EB2 /* vfi386_d.framework */; };
 		C20BB351191059BC00884EB2 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20BB350191059BC00884EB2 /* gtest.framework */; };
-		C2173401190B175500A01365 /* AudioDrawUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C21733FC190B175500A01365 /* AudioDrawUtils.cpp */; };
 		C236E0A419290BCF0035C2F5 /* vf_source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C236E0A319290BCF0035C2F5 /* vf_source.cpp */; };
 		C236E0A7192914490035C2F5 /* vf_source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C236E0A319290BCF0035C2F5 /* vf_source.cpp */; };
 		C236E0AD19291C2A0035C2F5 /* vf_qtime_grabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C236E0AC19291C2A0035C2F5 /* vf_qtime_grabber.cpp */; };
@@ -426,7 +425,6 @@
 				C283D71819460C6B00AC68BE /* visible_impl.cpp in Sources */,
 				C236E0A419290BCF0035C2F5 /* vf_source.cpp in Sources */,
 				C2E0EEB4194245F3003394C7 /* InteractiveObject.cpp in Sources */,
-				C2173401190B175500A01365 /* AudioDrawUtils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

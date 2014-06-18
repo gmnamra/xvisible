@@ -14,28 +14,34 @@
 #include "cinder/Timeline.h"
 #include "cinder/Timer.h"
 #include "cinder/Camera.h"
-#include "cinder/audio2/Source.h"
-#include "cinder/audio2/Target.h"
-#include "cinder/audio2/dsp/Converter.h"
-#include "cinder/audio2/SamplePlayer.h"
-#include "cinder/audio2/NodeEffect.h"
-#include "cinder/audio2/Scope.h"
-#include "cinder/audio2/Debug.h"
 #include "cinder/qtime/Quicktime.h"
 #include "cinder/params/Params.h"
 #include "cinder/gl/Vbo.h"
 #include "cinder/MayaCamUI.h"
 #include "cinder/ImageIo.h"
-#include "cinder/audio2/Buffer.h"
 #include "assets/Resources.h"
+#include <string>
+#include <map>
+#include <memory>
+#include <utility>
 
+#include <boost/function.hpp>
+#include <boost/bind.hpp>
+#if 0
+#include "cinder/audio2/Buffer.h"
 #include "cvisible/AudioDrawUtils.h"
+#endif
+
+
 #include "cvisible/vf_utils.hpp"
 #include "vf_types.h"
 #include "iclip.hpp"
 #include <boost/integer_traits.hpp>
 // use int64_t instead of long long for better portability
 #include <boost/cstdint.hpp>
+#include <boost/noncopyable.hpp>
+
+#include <map>
 
 using namespace ci;
 using namespace ci::app;
@@ -55,10 +61,11 @@ using namespace boost;
 struct Signal_value
 {
     Signal_value () : mValid (false) {}
-
+    
     Signal_value (std::function<float (size_t)> fn)
     : mFn( fn ), mValid (true) {}
     
+#if 0
     void at_event (const Rectf& box, const Vec2i& location, const size_t& pos,  const Waveform& wave)
     {
         size_t xScaled = (pos * wave.sections()) / box.getWidth();
@@ -66,8 +73,8 @@ struct Signal_value
         mSignalIndex = math<size_t>::clamp( xScaled, 0, wave.samples () );
         mDisplayPos = location;
     }
-
     
+#endif
     void at_event_value (const Rectf& box, const Vec2i& location, const size_t& pos, const size_t& wave)
     {
         size_t xScaled = (pos * wave) / box.getWidth();
@@ -93,53 +100,64 @@ struct Signal_value
 };
 
 
-class baseContext
+class uContext  : private boost::noncopyable
 {
 private:
     
 public:
-    baseContext () : mId (baseContext::invalid_id()), m_valid (false) {}
-    size_t Id () const { return mId; }
-    bool equal_to (const baseContext& other) const { return mId == other.Id (); }
+    uContext () : mId (uContext::invalid_id()), m_valid (false) {}
+    virtual ~uContext () {}
     
+    size_t Id () const { return mId; }
     
     virtual void draw () = 0;
     virtual void update () = 0;
-//    virtual void resize () = 0;
+    //    virtual void resize () = 0;
     virtual void setup () = 0;
     virtual bool is_valid () = 0;
     
-    // base implementation does nothing
+    // u implementation does nothing
     virtual void mouseDown( MouseEvent event ) {}
     virtual void mouseMove( MouseEvent event ) {}
   	virtual void mouseUp( MouseEvent event ) {}
     virtual void mouseDrag( MouseEvent event ) {}
     
 	virtual void keyDown( KeyEvent event ) {}
-
+    
     typedef size_t result_type;
     BOOST_STATIC_CONSTANT(size_t, max_value = boost::integer_traits<size_t>::const_max);
     static size_t invalid_id () { return max_value; }
     
+    bool friend operator < (const uContext& lh, const uContext& rh) { return lh.Id() < rh.Id() ; }
+    
+    enum Type {
+        matrix_viewer = 0,
+        qtime_viewer = matrix_viewer+1,
+        clip_viewer = qtime_viewer+1,
+        viewer_types = clip_viewer+1
+    };
 protected:
     size_t mId;
     bool m_valid;
-  };
+};
 
 
 
-class matContext : public baseContext
+class matContext : public uContext
 {
 public:
-    matContext(AppBasic* appLink);
+    matContext();
+    ~matContext ();
+    
     virtual void draw ();
     virtual void setup ();
     virtual bool is_valid ();
     virtual void update ();
     virtual void mouseDrag( MouseEvent event );
     virtual void mouseDown( MouseEvent event );
-      void draw_window ();
-    bool operator==(const baseContext& other) const { return baseContext::equal_to (other); }
+    void draw_window ();
+    void remove_from ();
+    bool friend operator < (const matContext& lh, const matContext& rh) { return lh.Id() < rh.Id() ; }
     
 private:
     
@@ -151,21 +169,22 @@ private:
     gl::VboMesh mPointCloud;
     MayaCamUI mCam;
     fs::path mPath;
-    AppBasic* mLink;
-    app::WindowRef mWindow;
+    std::weak_ptr<app::Window>	mWindow;
 };
 
 
-class movContext : public baseContext
+class movContext : public uContext
 {
 public:
-    movContext(AppBasic* appLink);
+    movContext();
+    ~movContext ();
     virtual void draw ();
     virtual void setup ();
     virtual bool is_valid ();
     virtual void update ();
     void draw_window ();
-     bool operator==(const baseContext& other) const { return baseContext::equal_to (other); }
+    void remove_from ();
+    bool friend operator < (const movContext& lh, const movContext& rh)  { return lh.Id() < rh.Id() ; }
     
     const params::InterfaceGl& ui_params ()
     {
@@ -189,24 +208,24 @@ private:
     float mMovieRate, mPrevMovieRate;
     bool mMoviePlay, mPrevMoviePlay;
     bool mMovieLoop, mPrevMovieLoop;
-
+    
     fs::path mPath;
-    AppBasic* mLink;
-    app::WindowRef mWindow;
+    std::weak_ptr<app::Window>	 mWindow;
     
     static size_t Normal2Index (const Rectf& box, const size_t& pos, const size_t& wave)
     {
         size_t xScaled = (pos * wave) / box.getWidth();
         xScaled = math<size_t>::clamp( xScaled, 0, wave );
     }
-
+    
 };
 
 
-class clipContext : public baseContext
+class clipContext : public uContext
 {
 public:
-    clipContext(AppBasic* appLink);
+    clipContext();
+    ~clipContext ();
     virtual void draw ();
     virtual void setup ();
     virtual bool is_valid ();
@@ -215,9 +234,10 @@ public:
     virtual void mouseMove( MouseEvent event );
     virtual void mouseDown( MouseEvent event );
   	virtual void mouseUp( MouseEvent event );
-      void draw_window ();
+    void draw_window ();
+    void remove_from ();
     void receivedEvent ( InteractiveObjectEvent event );
-    bool operator==(const baseContext& other) const { return baseContext::equal_to (other); }
+    bool friend operator < (const clipContext& lh, const clipContext& rh)  { return lh.Id() < rh.Id() ; }
     
     
 private:
@@ -225,7 +245,7 @@ private:
     {
         return  DataSourcePath::create (fs::path  (fqfn));
     }
-
+    
     void select_column (size_t col) { m_column_select = col; }
     
     Rectf render_box ();
@@ -236,9 +256,71 @@ private:
     int m_column_select;
     size_t m_frames, m_file_frames, m_read_pos;
     size_t m_rows, m_columns;
-    AppBasic* mLink;
-    app::WindowRef mWindow;
+    std::weak_ptr<app::Window>	 mWindow;
 };
+
+
+class uContextHolder {
+public:
+    template <class P>
+    uContextHolder(vf_utils::id<P>);
+    ~uContextHolder() {} // Needed for std::unique_ptr
+    uContext * create();
+    
+private:
+    uContextHolder(const uContextHolder &);
+    uContextHolder & operator=(const uContextHolder &);
+    
+    template <class P>
+    class uContextFactory {
+    public:
+        uContext * operator()() const { return new P(); }
+    };
+    
+    typedef boost::function<uContext * ()> uContextFactoryFunction;
+    typedef std::unique_ptr<uContext> uContextPtr;
+    
+    uContextFactoryFunction m_factoryFunction;
+    uContextPtr m_uContext;
+};
+
+class uContextsRegistry {
+public:
+    template <class P>
+    static void registeruContext(const std::string & name);
+    static uContext * uContext(const std::string & name);
+    
+private:
+    typedef std::unique_ptr<uContextHolder> uContextHolderPtr;
+    typedef std::map<std::string, uContextHolderPtr> Registry;
+    static Registry & m_registry();
+};
+
+template<class P>
+inline
+uContextHolder::uContextHolder (vf_utils::id<P> )
+: m_factoryFunction(uContextFactory<P>()), m_uContext ()
+{
+    
+}
+
+
+inline
+uContext * uContextHolder::create()
+{
+    m_uContext.reset(m_factoryFunction());
+    return m_uContext.get();
+}
+
+
+template <class P>
+inline
+void uContextsRegistry::registeruContext(const std::string & name)
+{
+    m_registry().insert(std::move(std::make_pair(name, uContextHolderPtr(new uContextHolder(vf_utils::id<P> () ) ) ) ) );
+    //m_registry().emplace(name, uContextHolderPtr(new uContextHolder(id<P>())));
+}
+
 
 typedef boost::shared_ptr<matContext> matContextRef;
 typedef boost::shared_ptr<movContext> movContextRef;
@@ -246,4 +328,5 @@ typedef boost::shared_ptr<clipContext> clipContextRef;
 
 
 
+    
 #endif

@@ -1,15 +1,21 @@
 
 #include "visible_app.h"
 
+
+
+CINDER_APP_BASIC( CVisibleApp, RendererGl )
+
+
 using namespace vf_utils::csv;
 
-
+#if 0
 size_t Wave2Index (const Rectf& box, const size_t& pos, const Waveform& wave)
 {
     size_t xScaled = (pos * wave.sections()) / box.getWidth();
     xScaled *= wave.section_size ();
     xScaled = math<size_t>::clamp( xScaled, 0, wave.samples () );
 }
+#endif
 
 template<>
 std::map<size_t,matContextRef>& CVisibleApp::repository () { return mMatWindows; }
@@ -23,53 +29,47 @@ std::map<size_t,clipContextRef>& CVisibleApp::repository () { return mClipWindow
 
 
 template<>
-void CVisibleApp::add_to (matContextRef m)
+void CVisibleApp::add_to (const matContextRef& m)
 {
-    repository<matContextRef>()[m->Id()] = m;
+    repository<matContextRef>().insert (std::move(std::make_pair(m->Id(), m)));
 }
 
 template<>
-void CVisibleApp::add_to (movContextRef m)
+void CVisibleApp::add_to (const movContextRef& m)
 {
-    repository<movContextRef>()[m->Id()] = m;
+    repository<movContextRef>().insert (std::pair<size_t,movContextRef>(m->Id(), m));
 }
 
 template<>
-void CVisibleApp::add_to (clipContextRef m)
+void CVisibleApp::add_to (const clipContextRef& m)
 {
-    repository<clipContextRef>()[m->Id()] = m;
+    repository<clipContextRef>().insert (std::pair<size_t,clipContextRef>(m->Id(), m));
 }
 
 
 
-template<>
-bool CVisibleApp::remove_from (matContextRef m)
+bool CVisibleApp::remove_from (size_t m)
 {
-    std::map<size_t,matContextRef>::iterator pos = repository<matContextRef>().find(m->Id());
-    if (pos == repository<matContextRef>().end() ) return false;
-    repository<matContextRef>().erase(pos);
-    return true;
+    const std::map<size_t,matContextRef>::const_iterator matpos = mMatWindows.find(m);
+    if (matpos != mMatWindows.end() )
+    {
+        mMatWindows.erase(matpos);
+        return true;
+    }
+    const std::map<size_t,movContextRef>::const_iterator movpos = mMovWindows.find(m);
+    if (movpos != mMovWindows.end() )
+    {
+        mMovWindows.erase(movpos);
+        return true;
+    }
+    const std::map<size_t,clipContextRef>::const_iterator clippos = mClipWindows.find(m);
+    if (clippos != mClipWindows.end() )
+    {
+        mClipWindows.erase(clippos);
+        return true;
+    }
+    return false;
 }
-
-template<>
-bool CVisibleApp::remove_from (movContextRef m)
-{
-    std::map<size_t,movContextRef>::iterator pos = repository<movContextRef>().find(m->Id());
-    if (pos == repository<movContextRef>().end() ) return false;
-    repository<movContextRef>().erase(pos);
-    return true;
-}
-
-template<>
-bool CVisibleApp::remove_from (clipContextRef m)
-{
-    std::map<size_t,clipContextRef>::iterator pos = repository<clipContextRef>().find(m->Id());
-    if (pos == repository<clipContextRef>().end() ) return false;
-    repository<clipContextRef>().erase(pos);
-    return true;
-}
-
-
 
 
 CVisibleApp* CVisibleApp::master ()
@@ -94,33 +94,20 @@ void CVisibleApp::resize_areas ()
     mMovieDisplayRect = Area (c_ml, c_lr);
 }
 
-void CVisibleApp::enable_audio_output ()
-{
-	auto ctx = audio2::master();
-	mPan = ctx->makeNode( new audio2::Pan2d() );
-    //	mPan->enableMonoInputMode( false );
-	mGain = ctx->makeNode( new audio2::Gain() );
-	mGain->setValue( 0.6f );
-	mGain >> mPan >> ctx->getOutput();
-	ctx->enable();
-	CI_LOG_V( "context samplerate: " << ctx->getSampleRate() );
-}
-
-
 void CVisibleApp::create_matrix_viewer ()
 {
-     matContextRef matw ( static_cast<matContext*> (new matContext (this ) ) );
+     matContextRef matw (new matContext () );
     add_to (matw);
 }
 void CVisibleApp::create_clip_viewer ()
 {
-    clipContextRef clipw ( static_cast<clipContext*> (new clipContext (this ) ) );
+    clipContextRef clipw (new clipContext () );
     add_to(clipw);
 
 }
 void CVisibleApp::create_qmovie_viewer ()
 {
-     movContextRef movw ( static_cast<movContext*> (new movContext (this ) ) );
+     movContextRef movw ( new movContext () );
     add_to(movw);
 }
 
@@ -142,6 +129,78 @@ void CVisibleApp::setup()
     
 }
 
+
+// a free function which sets gBackgroundColor to blue
+Color	gBackgroundColor;
+
+void setBackgroundToBlue()
+{
+	//gBackgroundColor = ColorA( 0.4f, 0.4f, 0.9f, 0.8f );
+}
+
+void CVisibleApp::mouseMove( MouseEvent event )
+{
+    //            if (! mWaveformPlot.getWaveforms().empty())
+    //              mSigv.at_event (mGraphDisplayRect, event.getPos(), event.getX(),mWaveformPlot.getWaveforms()[0]);
+}
+
+
+void CVisibleApp::mouseDrag( MouseEvent event )
+{
+}
+
+
+void CVisibleApp::mouseDown( MouseEvent event )
+{
+}
+
+
+void CVisibleApp::mouseUp( MouseEvent event )
+{
+}
+
+void CVisibleApp::keyDown( KeyEvent event )
+{
+//	if( event.getCode() == KeyEvent::KEY_s ) mSamplePlayer->seekToTime( 1.0 );
+}
+
+
+void CVisibleApp::update()
+{
+    if (mSettings.isResizable() || mSettings.isFullScreen())
+    {
+        resize_areas ();
+    }
+
+    
+}
+
+void CVisibleApp::draw_main ()
+{
+    gl::enableAlphaBlending();
+    
+    gl::clear();
+    
+    gl::setMatricesWindowPersp( getWindowSize() );
+    
+#if 0
+    auto bufferPlayer = dynamic_pointer_cast<audio2::BufferPlayer>( mSamplePlayer );
+    if( bufferPlayer )
+    {
+        mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
+        if (mSettings.isResizable() || mSettings.isFullScreen())
+        {
+            // mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
+        }
+        mWaveformPlot.draw();
+    }
+#endif
+    
+    mTopParams->draw ();
+    
+}
+
+#if 0
 
 void CVisibleApp::setSourceFile( const DataSourceRef &dataSource )
 {
@@ -194,40 +253,6 @@ void CVisibleApp::setupBufferPlayer()
     
 }
 
-// a free function which sets gBackgroundColor to blue
-Color	gBackgroundColor;
-
-void setBackgroundToBlue()
-{
-	//gBackgroundColor = ColorA( 0.4f, 0.4f, 0.9f, 0.8f );
-}
-
-void CVisibleApp::mouseMove( MouseEvent event )
-{
-    //            if (! mWaveformPlot.getWaveforms().empty())
-    //              mSigv.at_event (mGraphDisplayRect, event.getPos(), event.getX(),mWaveformPlot.getWaveforms()[0]);
-}
-
-
-void CVisibleApp::mouseDrag( MouseEvent event )
-{
-}
-
-
-void CVisibleApp::mouseDown( MouseEvent event )
-{
-}
-
-
-void CVisibleApp::mouseUp( MouseEvent event )
-{
-}
-
-void CVisibleApp::keyDown( KeyEvent event )
-{
-	if( event.getCode() == KeyEvent::KEY_s )
-		mSamplePlayer->seekToTime( 1.0 );
-}
 
 //@todo Update
 void CVisibleApp::fileDrop( FileDropEvent event )
@@ -261,41 +286,17 @@ void CVisibleApp::fileDrop( FileDropEvent event )
 }
 
 
-void CVisibleApp::update()
+void CVisibleApp::enable_audio_output ()
 {
-    if (mSettings.isResizable() || mSettings.isFullScreen())
-    {
-        resize_areas ();
-    }
-
-    
-}
-
-void CVisibleApp::draw_main ()
-{
-    gl::enableAlphaBlending();
-    
-    gl::clear();
-    
-    gl::setMatricesWindowPersp( getWindowSize() );
-    
-        
-    auto bufferPlayer = dynamic_pointer_cast<audio2::BufferPlayer>( mSamplePlayer );
-    if( bufferPlayer )
-    {
-        mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
-        if (mSettings.isResizable() || mSettings.isFullScreen())
-        {
-            // mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
-        }
-        mWaveformPlot.draw();
-    }
-    
-    mTopParams->draw ();
-    
+	auto ctx = audio2::master();
+	mPan = ctx->makeNode( new audio2::Pan2d() );
+    //	mPan->enableMonoInputMode( false );
+	mGain = ctx->makeNode( new audio2::Gain() );
+	mGain->setValue( 0.6f );
+	mGain >> mPan >> ctx->getOutput();
+	ctx->enable();
+	CI_LOG_V( "context samplerate: " << ctx->getSampleRate() );
 }
 
 
-
-
-
+#endif

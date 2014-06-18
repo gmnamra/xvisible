@@ -11,9 +11,11 @@
 
 #include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"
-#include "cinder/Timeline.h"
-#include "cinder/Timer.h"
-#include "cinder/Camera.h"
+#include "cinder/Rect.h"
+#include "cinder/qtime/Quicktime.h"
+#include "cinder/params/Params.h"
+
+#if 0
 #include "cinder/audio2/Source.h"
 #include "cinder/audio2/Target.h"
 #include "cinder/audio2/dsp/Converter.h"
@@ -21,17 +23,14 @@
 #include "cinder/audio2/NodeEffect.h"
 #include "cinder/audio2/Scope.h"
 #include "cinder/audio2/Debug.h"
-#include "cinder/qtime/Quicktime.h"
-#include "cinder/params/Params.h"
-#include "cinder/gl/Vbo.h"
-#include "cinder/MayaCamUI.h"
-#include "cinder/ImageIo.h"
-#include "cinder/audio2/Buffer.h"
-#include "assets/Resources.h"
-
 #include "cvisible/AudioTestGui.h"
 #include "cvisible/AudioDrawUtils.h"
 #include "cvisible/vf_cinder.hpp"
+#endif
+
+#include "assets/Resources.h"
+
+
 #include "cvisible/vf_utils.hpp"
 #include "vf_types.h"
 
@@ -78,28 +77,29 @@ public:
     void mouseDrag( MouseEvent event );    
     
 	void keyDown( KeyEvent event );
-	void fileDrop( FileDropEvent event );
+	//void fileDrop( FileDropEvent event );
 	void update();
 	void draw_main();
+    
+#if 0
     void enable_audio_output ();
 	void setupBufferPlayer();
 	void setupFilePlayer();
- 
-	void setSourceFile( const DataSourceRef &dataSource );
-    void resize_areas (); 
     bool have_sampler () { return mSamplePlayer != 0; }
+	void setSourceFile( const DataSourceRef &dataSource );
+#endif
+    void resize_areas (); 
     
     template<typename T>
     std::map<size_t, T>& repository ();
     
     template<typename T>
-    void add_to (T);
+    void add_to (const T&);
     
-    template<typename T>
-    bool remove_from (T);
+    bool remove_from (size_t);
 
     
-    
+#if 0
     static void copy_to_vector (const ci::audio2::BufferRef &buffer, std::vector<float>& mBuffer)
     {
         mBuffer.clear ();
@@ -107,15 +107,17 @@ public:
         for( size_t i = 0; i < buffer->getNumFrames(); i++ )
             mBuffer.push_back (*reader++);
     }
+#endif
     
     params::InterfaceGlRef         mTopParams;
+#if 0
 	audio2::BufferPlayerRef		mSamplePlayer;
 	audio2::SourceFileRef		mSourceFile;
 	audio2::ScopeRef			mScope;
 	audio2::GainRef				mGain;
 	audio2::Pan2dRef			mPan;
 	WaveformPlot				mWaveformPlot;
-    
+#endif
 	bool						mSamplePlayerEnabledState;
 	std::future<void>			mAsyncLoadFuture;
 
@@ -127,14 +129,12 @@ public:
     
     Signal_value                mSigv;
 
-    std::map<size_t,matContextRef> mMatWindows;
-    std::map<size_t,movContextRef> mMovWindows;
-    std::map<size_t,clipContextRef> mClipWindows;
-
+    mat_map_t mMatWindows;
+    mov_map_t mMovWindows;
+    clip_map_t mClipWindows;
  
 };
 
-CINDER_APP_BASIC( CVisibleApp, RendererGl )
 
 
 #endif
