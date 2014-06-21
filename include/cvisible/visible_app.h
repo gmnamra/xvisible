@@ -7,7 +7,6 @@
 //
 
 #ifndef XcVisible_visible_app_h
-#define XcVisible_visible_app_h
 
 #include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"
@@ -32,10 +31,11 @@
 
 
 #include "cvisible/vf_utils.hpp"
+#include "stl_util.hpp"
 #include "vf_types.h"
 
 #include "iclip.hpp"
-#include "ui_contexts.h"
+
 #include <map>
 
 using namespace ci;
@@ -58,13 +58,7 @@ using namespace boost;
 class CVisibleApp : public AppBasic
 {
 public:
-    
-    typedef std::map<size_t,matContextRef> mat_map_t;
-    typedef std::map<size_t,movContextRef> mov_map_t;
-    typedef std::map<size_t,clipContextRef> clip_map_t;
 
-    static CVisibleApp* master ();
-    
 	void prepareSettings( Settings *settings );
 	void setup();
     void create_matrix_viewer ();
@@ -80,6 +74,22 @@ public:
 	//void fileDrop( FileDropEvent event );
 	void update();
 	void draw_main();
+    void close_main();
+    void resize_areas ();
+    
+    template<class V>
+    void create_viewer (vf_utils::id<V>);
+    
+    bool remove_from (const std::string& );
+    
+    params::InterfaceGlRef         mTopParams;
+    
+    Rectf                       mGraphDisplayRect;
+    Rectf                       mMovieDisplayRect;
+    Rectf                       mMenuDisplayRect;
+    Rectf                       mLogDisplayRect;
+    
+ //   Signal_value                mSigv;
     
 #if 0
     void enable_audio_output ();
@@ -87,54 +97,21 @@ public:
 	void setupFilePlayer();
     bool have_sampler () { return mSamplePlayer != 0; }
 	void setSourceFile( const DataSourceRef &dataSource );
-#endif
-    void resize_areas (); 
-    
-    template<typename T>
-    std::map<size_t, T>& repository ();
-    
-    template<typename T>
-    void add_to (const T&);
-    
-    bool remove_from (size_t);
-
-    
-#if 0
-    static void copy_to_vector (const ci::audio2::BufferRef &buffer, std::vector<float>& mBuffer)
-    {
-        mBuffer.clear ();
-        const float *reader = buffer->getChannel( 0 );
-        for( size_t i = 0; i < buffer->getNumFrames(); i++ )
-            mBuffer.push_back (*reader++);
-    }
-#endif
-    
-    params::InterfaceGlRef         mTopParams;
-#if 0
 	audio2::BufferPlayerRef		mSamplePlayer;
 	audio2::SourceFileRef		mSourceFile;
 	audio2::ScopeRef			mScope;
 	audio2::GainRef				mGain;
 	audio2::Pan2dRef			mPan;
 	WaveformPlot				mWaveformPlot;
-#endif
 	bool						mSamplePlayerEnabledState;
 	std::future<void>			mAsyncLoadFuture;
-
     
-    Rectf                       mGraphDisplayRect;    
-    Rectf                       mMovieDisplayRect;
-    Rectf                       mMenuDisplayRect;
-    Rectf                       mLogDisplayRect;
-    
-    Signal_value                mSigv;
+#endif
 
-    mat_map_t mMatWindows;
-    mov_map_t mMovWindows;
-    clip_map_t mClipWindows;
- 
+  
+    
 };
 
-
+  #define XcVisible_visible_app_h
 
 #endif

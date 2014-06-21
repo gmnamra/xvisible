@@ -115,8 +115,9 @@
 		C283D71719460C6B00AC68BE /* visible_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = visible_impl.cpp; sourceTree = "<group>"; };
 		C283D71919468A1000AC68BE /* ui_contexts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ui_contexts.h; path = ../../include/cvisible/ui_contexts.h; sourceTree = "<group>"; };
 		C283D7201947C6E500AC68BE /* vfi386.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = vfi386.framework; sourceTree = "<group>"; };
-		C283D722194A9AE100AC68BE /* stl_util.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = stl_util.hpp; sourceTree = "<group>"; };
 		C2A2BE98193055F9003337D7 /* vfi386.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386.framework; path = ../build/Frameworks/vfi386.framework; sourceTree = "<group>"; };
+		C2A3267F1952582D007A35E6 /* visible_main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = visible_main.h; path = ../../include/cvisible/visible_main.h; sourceTree = "<group>"; };
+		C2A3268019550CDA007A35E6 /* stl_util.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = stl_util.hpp; sourceTree = "<group>"; };
 		C2D6FA80192D27820099EEED /* libboost_thread.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_thread.a; path = ../usr/local/boost/lib/libboost_thread.a; sourceTree = "<group>"; };
 		C2D713EA19171AFC009C503B /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		C2D713EC19171B49009C503B /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Resources.h; sourceTree = "<group>"; };
@@ -283,7 +284,7 @@
 		C21733FB190B175500A01365 /* cvisible */ = {
 			isa = PBXGroup;
 			children = (
-				C283D722194A9AE100AC68BE /* stl_util.hpp */,
+				C2A3268019550CDA007A35E6 /* stl_util.hpp */,
 				C283D7161943DB3000AC68BE /* iclip.hpp */,
 				C283D715194254BD00AC68BE /* vf_types.h */,
 				C2E0EEB3194245F3003394C7 /* InteractiveObject.cpp */,
@@ -297,6 +298,7 @@
 				C236E0A319290BCF0035C2F5 /* vf_source.cpp */,
 				C2371C2A192424F8005114B1 /* vf_imagegrabber.hpp */,
 				C2D713FB191C47A1009C503B /* visible_app.h */,
+				C2A3267F1952582D007A35E6 /* visible_main.h */,
 				C283D71919468A1000AC68BE /* ui_contexts.h */,
 				C2D713F1191978D0009C503B /* AudioDrawUtils.h */,
 				C20BB3391910508E00884EB2 /* vf_utils.hpp */,

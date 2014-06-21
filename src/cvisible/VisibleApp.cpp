@@ -1,81 +1,69 @@
 
-#include "visible_app.h"
-
-
-
-CINDER_APP_BASIC( CVisibleApp, RendererGl )
-
+#include "visible_main.h"
+#include "stl_util.hpp"
+#include "ui_contexts.h"
+#include <boost/unused_variable.hpp>
 
 using namespace vf_utils::csv;
 
-#if 0
-size_t Wave2Index (const Rectf& box, const size_t& pos, const Waveform& wave)
+
+namespace
 {
-    size_t xScaled = (pos * wave.sections()) / box.getWidth();
-    xScaled *= wave.section_size ();
-    xScaled = math<size_t>::clamp( xScaled, 0, wave.samples () );
-}
-#endif
-
-template<>
-std::map<size_t,matContextRef>& CVisibleApp::repository () { return mMatWindows; }
-
-template<>
-std::map<size_t,movContextRef>& CVisibleApp::repository () { return mMovWindows; }
-
-template<>
-std::map<size_t,clipContextRef>& CVisibleApp::repository () { return mClipWindows; }
-
-
-
-template<>
-void CVisibleApp::add_to (const matContextRef& m)
-{
-    repository<matContextRef>().insert (std::move(std::make_pair(m->Id(), m)));
-}
-
-template<>
-void CVisibleApp::add_to (const movContextRef& m)
-{
-    repository<movContextRef>().insert (std::pair<size_t,movContextRef>(m->Id(), m));
-}
-
-template<>
-void CVisibleApp::add_to (const clipContextRef& m)
-{
-    repository<clipContextRef>().insert (std::pair<size_t,clipContextRef>(m->Id(), m));
-}
-
-
-
-bool CVisibleApp::remove_from (size_t m)
-{
-    const std::map<size_t,matContextRef>::const_iterator matpos = mMatWindows.find(m);
-    if (matpos != mMatWindows.end() )
+    Rectf render_window_box ()
     {
-        mMatWindows.erase(matpos);
-        return true;
+        auto pos = AppBasic::get()->getWindow()->getPos ();
+        auto size = AppBasic::get()->getWindow()->getSize ();
+        return Area (pos, size);
     }
-    const std::map<size_t,movContextRef>::const_iterator movpos = mMovWindows.find(m);
-    if (movpos != mMovWindows.end() )
+    
+    std::ostream& ci_console ()
     {
-        mMovWindows.erase(movpos);
-        return true;
+        return AppBasic::get()->console();
     }
-    const std::map<size_t,clipContextRef>::const_iterator clippos = mClipWindows.find(m);
-    if (clippos != mClipWindows.end() )
+    
+    double				ci_getElapsedSeconds()
     {
-        mClipWindows.erase(clippos);
-        return true;
+        return AppBasic::get()->getElapsedSeconds();
     }
-    return false;
+    
+    uint32 ci_getNumWindows ()
+    {
+        return AppBasic::get()->getNumWindows();
+    }
+
+    template<class V>
+    class uContextViewer
+    {
+    public:
+        void operator()()
+        {
+            const std::string nam = stl_utils::tostr (getNumWindows());
+            uContextsRegistry::registeruContext<V>(nam);
+            if (! uContextsRegistry::instantiate(nam) )
+            {
+                std::cout << "instantiate" << uContextsRegistry::size() << std::endl;
+                std::cout << "Instantiating matrix viewer failed " << std::endl;
+            }
+            
+        }
+    };
+    
+    
 }
 
 
-CVisibleApp* CVisibleApp::master ()
+
+bool CVisibleApp::remove_from (const std::string& name)
 {
-    return (CVisibleApp*) AppBasic::get();
+    ci_console () << "remove" << uContextsRegistry::size();
+    bool ok = uContextsRegistry::unregister(name);
+    ci_console () << "remove" << uContextsRegistry::size() << std::endl;
+    auto wr = getWindow();
+    wr->setUserData(static_cast<uContext*>(NULL));
+    return ok;
 }
+
+
 
 
 void CVisibleApp::prepareSettings( Settings *settings )
@@ -96,26 +84,21 @@ void CVisibleApp::resize_areas ()
 
 void CVisibleApp::create_matrix_viewer ()
 {
-     matContextRef matw (new matContext () );
-    add_to (matw);
+    __attribute__((unused)) uContextViewer<matContext> dummy;
 }
 void CVisibleApp::create_clip_viewer ()
 {
-    clipContextRef clipw (new clipContext () );
-    add_to(clipw);
-
+    __attribute__((unused)) uContextViewer<clipContext> dummy;
 }
 void CVisibleApp::create_qmovie_viewer ()
 {
-     movContextRef movw ( new movContext () );
-    add_to(movw);
+    __attribute__((unused)) uContextViewer<movContext> dummy;
 }
 
 void CVisibleApp::setup()
 {
-	mSamplePlayerEnabledState = false;
     size_t nw = getNumWindows ();
-    console () << "Initial # of Windows " << nw << std::endl;
+    ci_console () << "Initial # of Windows " << nw << std::endl;
     // Setup the parameters
 	mTopParams = params::InterfaceGl::create( getWindow(), "Select", toPixels( Vec2i( 200, 400 ) ) );
     mTopParams->addSeparator();
@@ -125,18 +108,11 @@ void CVisibleApp::setup()
     mTopParams->addSeparator();
    	mTopParams->addButton( "Import Result ", std::bind( &CVisibleApp::create_clip_viewer, this ) );
     getWindowIndex(0)->connectDraw ( &CVisibleApp::draw_main, this);
+  //  getWindowIndex(0)->connectClose( &CVisibleApp::close_main, this);
 
-    
 }
 
 
-// a free function which sets gBackgroundColor to blue
-Color	gBackgroundColor;
-
-void setBackgroundToBlue()
-{
-	//gBackgroundColor = ColorA( 0.4f, 0.4f, 0.9f, 0.8f );
-}
 
 void CVisibleApp::mouseMove( MouseEvent event )
 {
@@ -182,25 +158,37 @@ void CVisibleApp::draw_main ()
     gl::clear();
     
     gl::setMatricesWindowPersp( getWindowSize() );
-    
-#if 0
-    auto bufferPlayer = dynamic_pointer_cast<audio2::BufferPlayer>( mSamplePlayer );
-    if( bufferPlayer )
-    {
-        mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
-        if (mSettings.isResizable() || mSettings.isFullScreen())
-        {
-            // mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
-        }
-        mWaveformPlot.draw();
-    }
-#endif
+
     
     mTopParams->draw ();
     
 }
 
+
+
 #if 0
+
+
+// a free function which sets gBackgroundColor to blue
+Color	gBackgroundColor;
+
+void setBackgroundToBlue()
+{
+	//gBackgroundColor = ColorA( 0.4f, 0.4f, 0.9f, 0.8f );
+}
+
+
+auto bufferPlayer = dynamic_pointer_cast<audio2::BufferPlayer>( mSamplePlayer );
+if( bufferPlayer )
+{
+    mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
+    if (mSettings.isResizable() || mSettings.isFullScreen())
+    {
+        // mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
+    }
+    mWaveformPlot.draw();
+}
+
 
 void CVisibleApp::setSourceFile( const DataSourceRef &dataSource )
 {

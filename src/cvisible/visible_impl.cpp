@@ -1,32 +1,95 @@
 
 #include "ui_contexts.h"
 #include "stl_util.hpp"
-#include "visible_app.h"
+
 
 using namespace vf_utils::csv;
 
-matContext::matContext () 
+namespace
 {
-    ci::app::WindowRef wref = CVisibleApp::master()->createWindow( Window::Format().size( 400, 400 ) );
-    mWindow = wref;
-    wref->setUserData( this );
-    mId = CVisibleApp::master()->getNumWindows();
-    size_t idd = Id();
-    wref->getSignalClose().
-    connect([idd,this] { (static_cast<CVisibleApp*>(CVisibleApp::master()))->remove_from (idd); } );
-    wref->getSignalDraw().connect (std::bind(&matContext::draw_window, this) );
-    wref->connectMouseDown(&matContext::mouseDown, this);
-    wref->connectMouseUp(&matContext::mouseUp, this);
-    wref->connectMouseDrag(&matContext::mouseDrag, this);
-    wref->connectMouseMove(&matContext::mouseMove, this);
-    assert(CVisibleApp::master()->getWindowIndex(idd-1)->getUserData<matContext>()->Id() == idd);
-    static std::string caption = "Smm Viewer # ";
-    wref->setTitle (caption + stl_utils::tostr(mId));
+    Rectf render_window_box ()
+    {
+        auto pos = AppBasic::get()->getWindow()->getPos ();
+        auto size = AppBasic::get()->getWindow()->getSize ();
+        return Area (pos, size);
+    }
+    
+    std::ostream& ci_console ()
+    {
+        return AppBasic::get()->console();
+    }
+    
+    double				ci_getElapsedSeconds()
+    {
+        return AppBasic::get()->getElapsedSeconds();
+    }
+    
+#if 0
+    void copy_to_vector (const ci::audio2::BufferRef &buffer, std::vector<float>& mBuffer)
+    {
+        mBuffer.clear ();
+        const float *reader = buffer->getChannel( 0 );
+        for( size_t i = 0; i < buffer->getNumFrames(); i++ )
+            mBuffer.push_back (*reader++);
+    }
+    size_t Wave2Index (const Rectf& box, const size_t& pos, const Waveform& wave)
+    {
+        size_t xScaled = (pos * wave.sections()) / box.getWidth();
+        xScaled *= wave.section_size ();
+        xScaled = math<size_t>::clamp( xScaled, 0, wave.samples () );
+    }
+    
+#endif
+
+  }
+
+uContext * uContextsRegistry::uContext(const std::string & name)
+{
+    const Registry::const_iterator it(m_registry().find(name));
+    if (it == m_registry().end())
+        return NULL;
+    return it->second->u_Context();
 }
 
-matContext::~matContext ()
+uContextsRegistry::Registry & uContextsRegistry::m_registry()
 {
-    std::cout << "mat context dtor callled " << std::endl;
+    static uContextsRegistry::Registry registry;
+    return registry;
+}
+
+bool uContextsRegistry::instantiate (const std::string & name_str)
+{
+    const Registry::iterator it(m_registry().find(name_str));
+    if (it == m_registry().end())
+        return false;
+  //  if (it->second->create(name_str) == NULL)
+   //     return false;
+    return true;
+}
+
+
+bool uContextsRegistry::unregister (const std::string & name)
+{
+    const Registry::iterator it(m_registry().find(name));
+    if (it == m_registry().end())
+        return false;
+    if (it->second == NULL)
+        return false;
+    m_registry().erase(name);
+    const Registry::iterator fit(m_registry().find(name));
+    return fit == m_registry().end();
+}
+
+
+int uContextsRegistry::size ()
+{
+    return m_registry().size();
+}
+
+
+matContext::matContext (const std::string& name_str) : mName (name_str)
+{
+
 }
 
 
@@ -43,12 +106,7 @@ void matContext::mouseDown( MouseEvent event )
 
 Rectf matContext::render_box ()
 {
-    Rectf rb;
-    if (! m_valid ) return rb;
-    ci::app::WindowRef wref = mWindow.lock ();
-    if (wref)
-        rb = Area (wref->getPos(), wref->getSize());
-    return rb;
+    return render_window_box ();
 }
 void matContext::setup ()
 {
@@ -117,22 +175,6 @@ void matContext::draw()
 }
 
 
-void matContext::draw_window ()
-{
-    ci::app::WindowRef wref = mWindow.lock ();
-    if (! wref || ! getWindow()->getUserData<matContext>()->is_valid() ) return;
-    
-	gl::clear( Color( 0, 0, 0 ) );
-    gl::setMatrices( mCam.getCamera() );
-    gl::enableDepthRead();
-    gl::enableDepthWrite();
-    
-    if( mPointCloud ){
-        gl::draw( mPointCloud );
-    }
-}
-
-
 void matContext::update()
 {
     
@@ -146,30 +188,8 @@ bool matContext::is_valid ()
 
 // movContext Implementation
 
-movContext::movContext ()
+movContext::movContext (const std::string& name_str) : mName (name_str)
 {
-    ci::app::WindowRef wref = CVisibleApp::master()->createWindow( Window::Format().size( 400, 400 ) );
-    mWindow = wref;
-    wref->setUserData( this );
-
-    mId = CVisibleApp::master()->getNumWindows();
-    size_t idd = Id();
-    wref->getSignalClose().
-    connect([idd,this] { (static_cast<CVisibleApp*>(CVisibleApp::master()))->remove_from (idd); } );
-    wref->getSignalDraw().connect (std::bind(&movContext::draw_window, this) );
-    wref->connectMouseDown(&movContext::mouseDown, this);
-    wref->connectMouseUp(&movContext::mouseUp, this);
-    wref->connectMouseDrag(&movContext::mouseDrag, this);
-    wref->connectMouseMove(&movContext::mouseMove, this);
-    assert(CVisibleApp::master()->getWindowIndex(idd-1)->getUserData<movContext>()->Id() == idd);
-    static std::string caption = "mov Viewer # ";
-    wref->setTitle (caption + stl_utils::tostr(mId));
-    
-}
-
-movContext::~movContext ()
-{
-
 }
 
 void movContext::setup()
@@ -184,7 +204,7 @@ void movContext::setup()
     
     if ( ! moviePath.empty () )
     {
-        CVisibleApp::master()->console () << moviePath.string ();
+        ci_console () << moviePath.string ();
         loadMovieFile (moviePath);
     }
     
@@ -219,10 +239,10 @@ void movContext::loadMovieFile( const fs::path &moviePath )
         
         if (m_valid)
         {
-            CVisibleApp::master()->console() << "Dimensions:" <<m_movie.getWidth() << " x " <<m_movie.getHeight() << std::endl;
-            CVisibleApp::master()->console() << "Duration:  " <<m_movie.getDuration() << " seconds" << std::endl;
-            CVisibleApp::master()->console() << "Frames:    " <<m_movie.getNumFrames() << std::endl;
-            CVisibleApp::master()->console() << "Framerate: " <<m_movie.getFramerate() << std::endl;
+            ci_console() << "Dimensions:" <<m_movie.getWidth() << " x " <<m_movie.getHeight() << std::endl;
+            ci_console() << "Duration:  " <<m_movie.getDuration() << " seconds" << std::endl;
+            ci_console() << "Frames:    " <<m_movie.getNumFrames() << std::endl;
+            ci_console() << "Framerate: " <<m_movie.getFramerate() << std::endl;
             
             //   m_movie.setLoop( true, false );
             //   m_movie.play();
@@ -230,7 +250,7 @@ void movContext::loadMovieFile( const fs::path &moviePath )
         }
 	}
 	catch( ... ) {
-		CVisibleApp::master()->console() << "Unable to load the movie." << std::endl;
+		ci_console() << "Unable to load the movie." << std::endl;
 		return;
 	}
 	
@@ -239,12 +259,7 @@ void movContext::loadMovieFile( const fs::path &moviePath )
 
 Rectf movContext::render_box ()
 {
-    Rectf rb;
-    if (! m_valid ) return rb;
-    ci::app::WindowRef wref = mWindow.lock ();
-    if (wref)
-        rb = Area (wref->getPos(), wref->getSize());
-    return rb;
+    return render_window_box ();
 }
 
 void movContext::seek( size_t xPos )
@@ -310,79 +325,27 @@ void movContext::draw ()
 }
 
 
-void movContext::draw_window ()
-{
-    ci::app::WindowRef wref = mWindow.lock ();
-    if (! wref || ! getWindow()->getUserData<movContext>()->is_valid() ) return;
-    
-    mMovieParams.draw();
-    
-    if (m_valid && mImage )
-    {
-        gl::draw (mImage, render_box ());
-        mImage.disable ();
-    }
-    
-}
-
 
 
 // ClipContext
 
-clipContext::clipContext ()
+clipContext::clipContext (const std::string& name_str) : mName (name_str)
 {
-    ci::app::WindowRef wref = CVisibleApp::master()->createWindow( Window::Format().size( 400, 400 ) );
-    mWindow = wref;
-    wref->setUserData( this );
-    mId = CVisibleApp::master()->getNumWindows();
-    size_t idd = Id();
-    wref->getSignalClose().
-    connect([idd,this] { (static_cast<CVisibleApp*>(CVisibleApp::master()))->remove_from (idd); } );
-    wref->getSignalDraw().connect (std::bind(&clipContext::draw_window, this) );
-    wref->connectMouseDown(&clipContext::mouseDown, this);
-    wref->connectMouseUp(&clipContext::mouseUp, this);
-    wref->connectMouseDrag(&clipContext::mouseDrag, this);
-    wref->connectMouseMove(&clipContext::mouseMove, this);
-    assert(CVisibleApp::master()->getWindowIndex(idd-1)->getUserData<clipContext>()->Id() == idd);
-    static std::string caption = "Result Time Series Viewer # ";
-    wref->setTitle (caption + stl_utils::tostr(mId));
-    
-    
-}
-
-clipContext::~clipContext()
-{
-
-}
+ }
 
 Rectf clipContext::render_box ()
 {
-    Rectf rb;
-    if (! m_valid ) return rb;
-    ci::app::WindowRef wref = mWindow.lock ();
-    if (wref)
-    
-    rb = Area (wref->getPos(), wref->getSize());
-    return rb;
+    return render_window_box ();
 }
 
 
 void clipContext::draw ()
 {
     // time cycles every 1 / TWEEN_SPEED seconds, with a 50% pause at the end
-    float time = math<float>::clamp( fmod( CVisibleApp::master()->getElapsedSeconds() * 0.5, 1 ) * 1.5f, 0, 1 );
+    float time = math<float>::clamp( fmod( ci_getElapsedSeconds() * 0.5, 1 ) * 1.5f, 0, 1 );
     if (mGraph1D) mGraph1D->draw ( time );
 }
 
-
-void clipContext::draw_window ()
-{
-    ci::app::WindowRef wref = mWindow.lock ();
-     if ( ! wref || ! getWindow()->getUserData<clipContext>()->is_valid() ) return;
-    // time cycles every 1 / TWEEN_SPEED seconds, with a 50% pause at the end
-    float time = math<float>::clamp( fmod( CVisibleApp::master()->getElapsedSeconds() * 0.5, 1 ) * 1.5f, 0, 1 );
-    if (mGraph1D) mGraph1D->draw ( time );
-}
 
 
 void clipContext::update () {}
@@ -458,7 +421,7 @@ void clipContext::receivedEvent( InteractiveObjectEvent event )
         default:
             text = "Unknown event";
     }
-    CVisibleApp::master()->console() << "Received " + text << endl;
+    ci_console() << "Received " + text << endl;
 }
 
 

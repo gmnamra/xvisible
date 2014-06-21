@@ -40,8 +40,8 @@
 // use int64_t instead of long long for better portability
 #include <boost/cstdint.hpp>
 #include <boost/noncopyable.hpp>
-
 #include <map>
+#include "visible_app.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -105,10 +105,9 @@ class uContext  : private boost::noncopyable
 private:
     
 public:
-    uContext () : mId (uContext::invalid_id()), m_valid (false) {}
-    virtual ~uContext () {}
-    
-    size_t Id () const { return mId; }
+  //  virtual ~uContext () {}
+    virtual const std::string & name() const = 0;
+    virtual void name (const std::string& ) = 0;
     
     virtual void draw () = 0;
     virtual void update () = 0;
@@ -124,20 +123,31 @@ public:
     
 	virtual void keyDown( KeyEvent event ) {}
     
-    typedef size_t result_type;
-    BOOST_STATIC_CONSTANT(size_t, max_value = boost::integer_traits<size_t>::const_max);
-    static size_t invalid_id () { return max_value; }
-    
-    bool friend operator < (const uContext& lh, const uContext& rh) { return lh.Id() < rh.Id() ; }
-    
     enum Type {
         matrix_viewer = 0,
         qtime_viewer = matrix_viewer+1,
         clip_viewer = qtime_viewer+1,
         viewer_types = clip_viewer+1
     };
-protected:
-    size_t mId;
+    
+    template<class T>
+    static T* create_context (const std::string& name_str)
+    {
+        T* nm = new T(name_str);
+        ci::app::WindowRef wref = AppBasic::get()->createWindow( Window::Format().size( 400, 400 ) );
+        wref->setUserData( nm );
+        wref->getSignalClose().
+        connect([name_str,nm] { (dynamic_cast<CVisibleApp*>(AppBasic::get()))->remove_from (name_str); } );
+        wref->getSignalDraw().connect (std::bind(&T::draw, nm) );
+        wref->connectMouseDown(&T::mouseDown, nm);
+        wref->connectMouseUp(&T::mouseUp, nm);
+        wref->connectMouseDrag(&T::mouseDrag, nm);
+        wref->connectMouseMove(&T::mouseMove, nm);
+        wref->setTitle (nm->caption () + nm->name ());
+        return nm;
+    }
+    
+ protected:
     bool m_valid;
 };
 
@@ -146,9 +156,11 @@ protected:
 class matContext : public uContext
 {
 public:
-    matContext();
-    ~matContext ();
-    
+    matContext(const std::string& name);
+    static const std::string& caption () { static std::string cp ("Smm Viewer # "); return cp; }
+
+    virtual const std::string & name() const { return mName; }
+    virtual void name (const std::string& name) { mName = name; }
     virtual void draw ();
     virtual void setup ();
     virtual bool is_valid ();
@@ -157,10 +169,9 @@ public:
     virtual void mouseDown( MouseEvent event );
     void draw_window ();
     void remove_from ();
-    bool friend operator < (const matContext& lh, const matContext& rh) { return lh.Id() < rh.Id() ; }
     
 private:
-    
+
     void internal_setupmat_from_file (const fs::path &);
     void internal_setupmat_from_mat (const vf_utils::csv::matf_t &);
     Rectf render_box ();
@@ -169,22 +180,23 @@ private:
     gl::VboMesh mPointCloud;
     MayaCamUI mCam;
     fs::path mPath;
-    std::weak_ptr<app::Window>	mWindow;
+    std::string mName;
 };
 
 
 class movContext : public uContext
 {
 public:
-    movContext();
-    ~movContext ();
+    movContext(const std::string& name);
+    static const std::string& caption () { static std::string cp ("Qtime Viewer # "); return cp; }
+    virtual const std::string & name() const { return mName; }
+    virtual void name (const std::string& name) { mName = name; }
     virtual void draw ();
     virtual void setup ();
     virtual bool is_valid ();
     virtual void update ();
     void draw_window ();
     void remove_from ();
-    bool friend operator < (const movContext& lh, const movContext& rh)  { return lh.Id() < rh.Id() ; }
     
     const params::InterfaceGl& ui_params ()
     {
@@ -192,16 +204,17 @@ public:
     }
     
 private:
+   
     void loadMovieFile( const fs::path &moviePath );
     bool have_movie () { return m_movie_valid; }
-	void seek( size_t xPos );
+    void seek( size_t xPos );
     void clear_movie_params ();
     Rectf render_box ();
     gl::Texture mImage;
     ci::qtime::MovieGl m_movie;
     bool m_movie_valid;
     size_t m_fc;
-    
+    std::string mName;
     params::InterfaceGl         mMovieParams;
     float mMoviePosition, mPrevMoviePosition;
     size_t mMovieIndexPosition, mPrevMovieIndexPosition;
@@ -210,7 +223,6 @@ private:
     bool mMovieLoop, mPrevMovieLoop;
     
     fs::path mPath;
-    std::weak_ptr<app::Window>	 mWindow;
     
     static size_t Normal2Index (const Rectf& box, const size_t& pos, const size_t& wave)
     {
@@ -224,8 +236,10 @@ private:
 class clipContext : public uContext
 {
 public:
-    clipContext();
-    ~clipContext ();
+    clipContext(const std::string& name);
+    static const std::string& caption () { static std::string cp ("Result Clip Viewer # "); return cp; }    
+    virtual const std::string & name() const { return mName; }
+    virtual void name (const std::string& name) { mName = name; }
     virtual void draw ();
     virtual void setup ();
     virtual bool is_valid ();
@@ -233,14 +247,13 @@ public:
     virtual void mouseDrag( MouseEvent event );
     virtual void mouseMove( MouseEvent event );
     virtual void mouseDown( MouseEvent event );
-  	virtual void mouseUp( MouseEvent event );
+    virtual void mouseUp( MouseEvent event );
     void draw_window ();
     void remove_from ();
     void receivedEvent ( InteractiveObjectEvent event );
-    bool friend operator < (const clipContext& lh, const clipContext& rh)  { return lh.Id() < rh.Id() ; }
-    
     
 private:
+  
     static DataSourcePathRef create (const std::string& fqfn)
     {
         return  DataSourcePath::create (fs::path  (fqfn));
@@ -252,20 +265,22 @@ private:
     params::InterfaceGl         mClipParams;
     Graph1DRef mGraph1D;
     fs::path mPath;
+    std::string mName;
     std::vector<vector<float> > mdat;
     int m_column_select;
     size_t m_frames, m_file_frames, m_read_pos;
     size_t m_rows, m_columns;
-    std::weak_ptr<app::Window>	 mWindow;
 };
 
 
-class uContextHolder {
+class uContextHolder
+{
 public:
     template <class P>
-    uContextHolder(vf_utils::id<P>);
+    uContextHolder(vf_utils::id<P>, const std::string&);
     ~uContextHolder() {} // Needed for std::unique_ptr
-    uContext * create();
+    uContext * u_Context () const;
+    uContext * create(const std::string& );
     
 private:
     uContextHolder(const uContextHolder &);
@@ -274,21 +289,28 @@ private:
     template <class P>
     class uContextFactory {
     public:
-        uContext * operator()() const { return new P(); }
+        uContext * operator()(const std::string& name) const //{ return new P(name); }
+        {
+            return uContext::create_context<P>(name);
+        }
     };
     
-    typedef boost::function<uContext * ()> uContextFactoryFunction;
+    typedef boost::function<uContext * (const std::string& )> uContextFactoryFunction;
     typedef std::unique_ptr<uContext> uContextPtr;
     
     uContextFactoryFunction m_factoryFunction;
     uContextPtr m_uContext;
 };
 
-class uContextsRegistry {
+class uContextsRegistry
+{
 public:
     template <class P>
     static void registeruContext(const std::string & name);
+    static bool unregister (const std::string & name);
+    static bool instantiate (const std::string & name);
     static uContext * uContext(const std::string & name);
+    static int size ();
     
 private:
     typedef std::unique_ptr<uContextHolder> uContextHolderPtr;
@@ -298,35 +320,47 @@ private:
 
 template<class P>
 inline
-uContextHolder::uContextHolder (vf_utils::id<P> )
-: m_factoryFunction(uContextFactory<P>()), m_uContext ()
+uContextHolder::uContextHolder (vf_utils::id<P>, const std::string& name_str)
 {
-    
+    m_factoryFunction = uContextFactory<P> ();
+    m_uContext.reset(m_factoryFunction(name_str));
 }
 
 
 inline
-uContext * uContextHolder::create()
+uContext * uContextHolder::create(const std::string& name)
 {
-    m_uContext.reset(m_factoryFunction());
+    m_uContext.reset(m_factoryFunction(name));
+    return m_uContext.get();
+}
+
+
+inline
+uContext * uContextHolder::u_Context() const
+{
+    if (!m_uContext)
+        return NULL;
     return m_uContext.get();
 }
 
 
 template <class P>
 inline
-void uContextsRegistry::registeruContext(const std::string & name)
+void uContextsRegistry::registeruContext(const std::string & name_str)
 {
-    m_registry().insert(std::move(std::make_pair(name, uContextHolderPtr(new uContextHolder(vf_utils::id<P> () ) ) ) ) );
+    std::cout << "Registry Count: " << m_registry().size() << " .... ";
+    m_registry().insert(std::move(std::make_pair(name_str, uContextHolderPtr(new uContextHolder(vf_utils::id<P> () , name_str)))));
+    std::cout << m_registry().size() << std::endl;
+    
+//    uContextsRegistry::uContext(name_str)->name (name_str);
     //m_registry().emplace(name, uContextHolderPtr(new uContextHolder(id<P>())));
 }
 
-
-typedef boost::shared_ptr<matContext> matContextRef;
-typedef boost::shared_ptr<movContext> movContextRef;
-typedef boost::shared_ptr<clipContext> clipContextRef;
-
+template<> matContext* uContext::create_context (const std::string&);
+template<> movContext* uContext::create_context (const std::string&);
+template<> clipContext* uContext::create_context (const std::string&);
 
 
-    
+
+
 #endif
