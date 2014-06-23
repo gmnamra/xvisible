@@ -99,10 +99,11 @@ int uContextRegistry::size ()
     return m_registry().size();
 }
 
+///////////////  Matrix Viewer ////////////////////
 
 matContext::matContext (const std::string& name_str) : mName (name_str)
 {
-
+    setup ();
 }
 
 
@@ -199,10 +200,11 @@ bool matContext::is_valid ()
     return m_valid;
 }
 
-// movContext Implementation
+/////////////  movContext Implementation  ////////////////
 
 movContext::movContext (const std::string& name_str) : mName (name_str)
 {
+    setup();
 }
 
 void movContext::setup()
@@ -340,11 +342,12 @@ void movContext::draw ()
 
 
 
-// ClipContext
+////////////////// ClipContext  ///////////////////
 
 clipContext::clipContext (const std::string& name_str) : mName (name_str)
 {
- }
+    setup ();
+}
 
 Rectf clipContext::render_box ()
 {
