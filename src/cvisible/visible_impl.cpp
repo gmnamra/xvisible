@@ -5,6 +5,11 @@
 
 using namespace vf_utils::csv;
 
+
+template<> matContext* uContext::create_context (const std::string&);
+template<> movContext* uContext::create_context (const std::string&);
+template<> clipContext* uContext::create_context (const std::string&);
+
 namespace
 {
     Rectf render_window_box ()
@@ -43,7 +48,15 @@ namespace
 
   }
 
-uContext * uContextsRegistry::uContext(const std::string & name)
+void uContextRegistry::print_out ()
+{
+    for (auto t = m_registry().begin(); t != m_registry().end(); t++)
+    {
+      //  std::cout << t->first << "        " << ((uContextHolderPtr)t->second)->u_Context() << std::endl;
+    }
+}
+
+uContext * uContextRegistry::uContext(const std::string & name)
 {
     const Registry::const_iterator it(m_registry().find(name));
     if (it == m_registry().end())
@@ -51,13 +64,13 @@ uContext * uContextsRegistry::uContext(const std::string & name)
     return it->second->u_Context();
 }
 
-uContextsRegistry::Registry & uContextsRegistry::m_registry()
+uContextRegistry::Registry & uContextRegistry::m_registry()
 {
-    static uContextsRegistry::Registry registry;
+    static uContextRegistry::Registry registry;
     return registry;
 }
 
-bool uContextsRegistry::instantiate (const std::string & name_str)
+bool uContextRegistry::instantiate (const std::string & name_str)
 {
     const Registry::iterator it(m_registry().find(name_str));
     if (it == m_registry().end())
@@ -68,20 +81,20 @@ bool uContextsRegistry::instantiate (const std::string & name_str)
 }
 
 
-bool uContextsRegistry::unregister (const std::string & name)
+bool uContextRegistry::unregister (const std::string & name)
 {
     const Registry::iterator it(m_registry().find(name));
     if (it == m_registry().end())
         return false;
     if (it->second == NULL)
         return false;
-    m_registry().erase(name);
+    m_registry().erase (name);
     const Registry::iterator fit(m_registry().find(name));
     return fit == m_registry().end();
 }
 
 
-int uContextsRegistry::size ()
+int uContextRegistry::size ()
 {
     return m_registry().size();
 }

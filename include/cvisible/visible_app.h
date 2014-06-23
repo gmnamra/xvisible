@@ -76,6 +76,7 @@ public:
 	void draw_main();
     void close_main();
     void resize_areas ();
+    void window_close ();
     
     template<class V>
     void create_viewer (vf_utils::id<V>);

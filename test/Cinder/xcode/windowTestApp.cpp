@@ -10,7 +10,10 @@ using namespace std;
 
 class WindowData {
   public:
-  	~WindowData() { std::cout << "Destroying Window Data" << std::endl; };
+  	~WindowData()
+    {
+        std::cout << "Destroying Window Data" << std::endl;
+    };
 	vector<Vec2f> 	mPoints;
 };
 
@@ -70,15 +73,15 @@ void BasicApp::setup()
 	getWindow()->setUserData( new WindowData );
 
 getWindow()->connectMouseDown( &BasicApp::anotherTest, this );
-	getWindow()->getSignalMouseDown().connect( std::bind( &BasicApp::mouseDown1, this, std::_1 ) );
-	getWindow()->getSignalMouseDown().connect( std::bind( &BasicApp::mouseDown2, this, std::_1 ) );
-	getWindow()->getSignalMouseDown().connect( std::bind( &BasicApp::mouseDown3, this, std::_1 ) );
-	getSignalShouldQuit().connect( std::bind( &BasicApp::shouldQuit, this ) );
+	getWindow()->getSignalMouseDown().connect( boost::bind( &BasicApp::mouseDown1, this, _1 ) );
+	getWindow()->getSignalMouseDown().connect( boost::bind( &BasicApp::mouseDown2, this, _1 ) );
+	getWindow()->getSignalMouseDown().connect( boost::bind( &BasicApp::mouseDown3, this, _1 ) );
+	getSignalShouldQuit().connect( boost::bind( &BasicApp::shouldQuit, this ) );
 	
-	getWindow()->getSignalMove().connect( std::bind( &BasicApp::windowMove, this ) );
-	getWindow()->getSignalDraw().connect( std::bind( &BasicApp::windowDraw, this ) );
-	getWindow()->getSignalDisplayChange().connect( std::bind( &BasicApp::displayChange, this ) );
-	getWindow()->getSignalClose().connect( std::bind( &BasicApp::windowClose, this ) );
+	getWindow()->getSignalMove().connect( boost::bind( &BasicApp::windowMove, this ) );
+	getWindow()->getSignalDraw().connect( boost::bind( &BasicApp::windowDraw, this ) );
+	getWindow()->getSignalDisplayChange().connect( boost::bind( &BasicApp::displayChange, this ) );
+	getWindow()->getSignalClose().connect( boost::bind( &BasicApp::windowClose, this ) );
 }
 
 bool BasicApp::shouldQuit()
@@ -181,11 +184,11 @@ void BasicApp::keyDown( KeyEvent event )
 		getWindow()->setSize( getWindow()->getSize().x + 1, getWindow()->getSize().y + 1 );
 	else if( event.getChar() == 'w' ) {
 		Window::Format format( RendererGl::create() );
-		format.setFullScreen( true );
+		//format.setFullScreen( true );
 		mSecondWindow = createWindow( format );
-		mSecondWindow->getSignalClose().connect( std::bind( &BasicApp::windowClose, this ) );
-		mSecondWindow->getSignalMouseDown().connect( std::bind( &BasicApp::windowMouseDown, this, std::_1 ) );
-		mSecondWindow->getSignalDraw().connect( std::bind( &BasicApp::windowDraw, this ) );
+		mSecondWindow->getSignalClose().connect( boost::bind( &BasicApp::windowClose, this ) );
+		mSecondWindow->getSignalMouseDown().connect( boost::bind( &BasicApp::windowMouseDown, this, _1 ) );
+		mSecondWindow->getSignalDraw().connect( boost::bind( &BasicApp::windowDraw, this ) );
 		mSecondWindow->setUserData( new WindowData );
 	}
 	else if( event.getChar() == 'c' ) {

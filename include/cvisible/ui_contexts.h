@@ -105,7 +105,10 @@ class uContext  : private boost::noncopyable
 private:
     
 public:
-  //  virtual ~uContext () {}
+    //virtual ~uContext ()
+   // {
+   //     std::cout << "uContext Base Dtor is called " << std::endl;
+   // }
     virtual const std::string & name() const = 0;
     virtual void name (const std::string& ) = 0;
     
@@ -133,12 +136,11 @@ public:
     template<class T>
     static T* create_context (const std::string& name_str)
     {
-        T* nm = new T(name_str);
         ci::app::WindowRef wref = AppBasic::get()->createWindow( Window::Format().size( 400, 400 ) );
-        wref->setUserData( nm );
-        wref->getSignalClose().
-        connect([name_str,nm] { (dynamic_cast<CVisibleApp*>(AppBasic::get()))->remove_from (name_str); } );
-        wref->getSignalDraw().connect (std::bind(&T::draw, nm) );
+        wref->setUserData(new T(name_str));
+        T* nm = wref->getUserData<T> ();
+        wref->connectClose( &CVisibleApp::window_close, dynamic_cast<CVisibleApp*>(AppBasic::get()));
+        wref->connectDraw(&T::draw, nm);
         wref->connectMouseDown(&T::mouseDown, nm);
         wref->connectMouseUp(&T::mouseUp, nm);
         wref->connectMouseDrag(&T::mouseDrag, nm);
@@ -147,7 +149,7 @@ public:
         return nm;
     }
     
- protected:
+  protected:
     bool m_valid;
 };
 
@@ -168,7 +170,6 @@ public:
     virtual void mouseDrag( MouseEvent event );
     virtual void mouseDown( MouseEvent event );
     void draw_window ();
-    void remove_from ();
     
 private:
 
@@ -196,7 +197,6 @@ public:
     virtual bool is_valid ();
     virtual void update ();
     void draw_window ();
-    void remove_from ();
     
     const params::InterfaceGl& ui_params ()
     {
@@ -249,7 +249,6 @@ public:
     virtual void mouseDown( MouseEvent event );
     virtual void mouseUp( MouseEvent event );
     void draw_window ();
-    void remove_from ();
     void receivedEvent ( InteractiveObjectEvent event );
     
 private:
@@ -273,12 +272,40 @@ private:
 };
 
 
+/*
+ 
+ uContextRegistry is a mapping between window names and pointer to the associated data.
+ Cinder Window owns the user data ( set via setUserDate<T>(T*) memeber. Window will own this
+ allocation and will delete it when the data is closed. For this reason, our pointer is one that
+ is returned via T* getUserData<T>. This pointer can not be deleted by the user. Registry uses
+ a unique pointer to wrap this pointer in which uses a custom deleter that does not delete. 
+ 
+ Why: Different UI systems will deal with this differently. Supporting one that leaves the user 
+ in charge will be as simple as using the default deleter.
+ 
+ */
+
+
+
+struct do_not_delete_context
+{
+    void operator ()(uContext* u)
+    {
+        std::cout << "do not delete called" << std::endl;
+    }
+};
+
+
+
 class uContextHolder
 {
 public:
     template <class P>
     uContextHolder(vf_utils::id<P>, const std::string&);
-    ~uContextHolder() {} // Needed for std::unique_ptr
+    ~uContextHolder()
+    {
+        std::cout << "uContextHolder called " << std::endl;
+    } // Needed for std::unique_ptr
     uContext * u_Context () const;
     uContext * create(const std::string& );
     
@@ -296,13 +323,13 @@ private:
     };
     
     typedef boost::function<uContext * (const std::string& )> uContextFactoryFunction;
-    typedef std::unique_ptr<uContext> uContextPtr;
+    typedef std::unique_ptr<uContext, do_not_delete_context> uContextPtr;
     
     uContextFactoryFunction m_factoryFunction;
     uContextPtr m_uContext;
 };
 
-class uContextsRegistry
+class uContextRegistry
 {
 public:
     template <class P>
@@ -311,6 +338,7 @@ public:
     static bool instantiate (const std::string & name);
     static uContext * uContext(const std::string & name);
     static int size ();
+    static void print_out ();
     
 private:
     typedef std::unique_ptr<uContextHolder> uContextHolderPtr;
@@ -328,9 +356,9 @@ uContextHolder::uContextHolder (vf_utils::id<P>, const std::string& name_str)
 
 
 inline
-uContext * uContextHolder::create(const std::string& name)
+uContext * uContextHolder::create(const std::string& name_str)
 {
-    m_uContext.reset(m_factoryFunction(name));
+    m_uContext.reset(m_factoryFunction(name_str));
     return m_uContext.get();
 }
 
@@ -346,19 +374,15 @@ uContext * uContextHolder::u_Context() const
 
 template <class P>
 inline
-void uContextsRegistry::registeruContext(const std::string & name_str)
+void uContextRegistry::registeruContext(const std::string & name_str)
 {
     std::cout << "Registry Count: " << m_registry().size() << " .... ";
     m_registry().insert(std::move(std::make_pair(name_str, uContextHolderPtr(new uContextHolder(vf_utils::id<P> () , name_str)))));
     std::cout << m_registry().size() << std::endl;
     
-//    uContextsRegistry::uContext(name_str)->name (name_str);
+//    uContextRegistry::uContext(name_str)->name (name_str);
     //m_registry().emplace(name, uContextHolderPtr(new uContextHolder(id<P>())));
 }
-
-template<> matContext* uContext::create_context (const std::string&);
-template<> movContext* uContext::create_context (const std::string&);
-template<> clipContext* uContext::create_context (const std::string&);
 
 
 

@@ -2,7 +2,9 @@
 #include "visible_main.h"
 #include "stl_util.hpp"
 #include "ui_contexts.h"
-#include <boost/unused_variable.hpp>
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/random_generator.hpp>
+#include <boost/uuid/uuid_io.hpp>
 
 using namespace vf_utils::csv;
 
@@ -37,11 +39,15 @@ namespace
     public:
         void operator()()
         {
-            const std::string nam = stl_utils::tostr (getNumWindows());
-            uContextsRegistry::registeruContext<V>(nam);
-            if (! uContextsRegistry::instantiate(nam) )
+            //is equivalent to boost::uuids::basic_random_generator<boost::mt19937>
+            boost::uuids::random_generator gen;
+            boost::uuids::uuid u = gen();
+            
+            const std::string nam = boost::uuids::to_string (u);
+            uContextRegistry::registeruContext<V>(nam);
+            if (! uContextRegistry::instantiate(nam) )
             {
-                std::cout << "instantiate" << uContextsRegistry::size() << std::endl;
+                std::cout << "instantiate" << uContextRegistry::size() << std::endl;
                 std::cout << "Instantiating matrix viewer failed " << std::endl;
             }
             
@@ -55,14 +61,19 @@ namespace
 
 bool CVisibleApp::remove_from (const std::string& name)
 {
-    ci_console () << "remove" << uContextsRegistry::size();
-    bool ok = uContextsRegistry::unregister(name);
-    ci_console () << "remove" << uContextsRegistry::size() << std::endl;
-    auto wr = getWindow();
-    wr->setUserData(static_cast<uContext*>(NULL));
+    bool ok = uContextRegistry::unregister(name);
+
     return ok;
 }
 
+
+void CVisibleApp::window_close()
+{
+    uContextRegistry::print_out ();
+    uContext* ud = getWindow()->getUserData<uContext>();
+    remove_from (ud->name());
+    console() << "Closing " << getWindow() << std::endl;
+}
 
 
 
@@ -84,15 +95,15 @@ void CVisibleApp::resize_areas ()
 
 void CVisibleApp::create_matrix_viewer ()
 {
-    __attribute__((unused)) uContextViewer<matContext> dummy;
+    uContextViewer<matContext> () ();
 }
 void CVisibleApp::create_clip_viewer ()
 {
-    __attribute__((unused)) uContextViewer<clipContext> dummy;
+    uContextViewer<clipContext> () ();
 }
 void CVisibleApp::create_qmovie_viewer ()
 {
-    __attribute__((unused)) uContextViewer<movContext> dummy;
+    uContextViewer<movContext> () ();
 }
 
 void CVisibleApp::setup()
@@ -108,7 +119,7 @@ void CVisibleApp::setup()
     mTopParams->addSeparator();
    	mTopParams->addButton( "Import Result ", std::bind( &CVisibleApp::create_clip_viewer, this ) );
     getWindowIndex(0)->connectDraw ( &CVisibleApp::draw_main, this);
-  //  getWindowIndex(0)->connectClose( &CVisibleApp::close_main, this);
+    getWindowIndex(0)->connectClose( &CVisibleApp::window_close, this);
 
 }
 
