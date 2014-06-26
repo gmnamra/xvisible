@@ -42,7 +42,7 @@
 #include <boost/noncopyable.hpp>
 #include <map>
 #include "visible_app.h"
-
+#include "InteractiveObject.h"
 using namespace ci;
 using namespace ci::app;
 using namespace std;
@@ -197,7 +197,14 @@ public:
     virtual bool is_valid ();
     virtual void update ();
     void draw_window ();
+
+    virtual void mouseDown( MouseEvent event );
+    virtual void mouseMove( MouseEvent event );
+  	virtual void mouseUp( MouseEvent event );
+    virtual void mouseDrag( MouseEvent event );
     
+	//virtual void keyDown( KeyEvent event );
+
     const params::InterfaceGl& ui_params ()
     {
         return mMovieParams;
@@ -210,6 +217,8 @@ private:
     void seek( size_t xPos );
     void clear_movie_params ();
     Rectf render_box ();
+    Vec2f texture_to_display_zoom ();
+    
     gl::Texture mImage;
     ci::qtime::MovieGl m_movie;
     bool m_movie_valid;
@@ -221,8 +230,16 @@ private:
     float mMovieRate, mPrevMovieRate;
     bool mMoviePlay, mPrevMoviePlay;
     bool mMovieLoop, mPrevMovieLoop;
-    
+    Vec2f m_zoom;
+    Rectf m_display_rect;
+    float mMovieCZoom;
     fs::path mPath;
+	Vec2i		mMousePos;
+
+    bool mMouseIsDown;
+    bool mMouseIsMoving;
+    bool mMouseIsDragging;
+    
     
     static size_t Normal2Index (const Rectf& box, const size_t& pos, const size_t& wave)
     {

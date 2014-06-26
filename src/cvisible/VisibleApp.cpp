@@ -71,7 +71,7 @@ void CVisibleApp::window_close()
 {
     uContextRegistry::print_out ();
     uContext* ud = getWindow()->getUserData<uContext>();
-    remove_from (ud->name());
+    if (ud) remove_from (ud->name());
     console() << "Closing " << getWindow() << std::endl;
 }
 
@@ -158,7 +158,11 @@ void CVisibleApp::update()
     {
         resize_areas ();
     }
-
+    
+    WindowRef cw = getWindow();
+    
+    if (cw != getWindowIndex(0) && cw->getUserData<uContext>())
+        cw->getUserData<uContext>()->update ();
     
 }
 

@@ -29,6 +29,7 @@ namespace
         return AppBasic::get()->getElapsedSeconds();
     }
     
+    
 #if 0
     void copy_to_vector (const ci::audio2::BufferRef &buffer, std::vector<float>& mBuffer)
     {
@@ -215,7 +216,7 @@ void movContext::setup()
     
   	getWindow()->setTitle( moviePath.filename().string() );
     
-    mMovieParams = params::InterfaceGl( "Movie Controller", Vec2i( 200, 300 ) );
+    mMovieParams = params::InterfaceGl( "Movie Controller", Vec2i( 90, 160 ) );
     
     if ( ! moviePath.empty () )
     {
@@ -223,13 +224,16 @@ void movContext::setup()
         loadMovieFile (moviePath);
     }
     
-    if( m_valid )
-    {
+    if( ! m_valid ) return;
+   {
         string max = ci::toString( m_movie.getDuration() );
-        mMovieParams.addParam( "Position", &mMoviePosition, "min=0.0 max=" + max + " step=0.5" );
+       mMovieParams.addParam( "Position", &mMoviePosition, "min=0.0 max=" + max + " step=0.5" );
         mMovieParams.addParam( "Rate", &mMovieRate, "step=0.01" );
         mMovieParams.addParam( "Play/Pause", &mMoviePlay );
         mMovieParams.addParam( "Loop", &mMovieLoop );
+       mMovieParams.addSeparator();
+       mMovieParams.addParam( "Zoom", &mMovieCZoom, "min=0.1 max=+10 step=0.1" );
+       
     }
 }
 
@@ -243,6 +247,7 @@ void movContext::clear_movie_params ()
     mPrevMoviePlay = mMoviePlay;
     mMovieLoop = false;
     mPrevMovieLoop = mMovieLoop;
+    mMovieCZoom=1.0f;
 }
 
 void movContext::loadMovieFile( const fs::path &moviePath )
@@ -262,6 +267,9 @@ void movContext::loadMovieFile( const fs::path &moviePath )
             //   m_movie.setLoop( true, false );
             //   m_movie.play();
             m_fc = m_movie.getNumFrames ();
+            // assert aspacts are the same
+
+            
         }
 	}
 	catch( ... ) {
@@ -272,17 +280,53 @@ void movContext::loadMovieFile( const fs::path &moviePath )
 }
 
 
+
+void movContext::mouseMove( MouseEvent event )
+{
+    auto dis = mMousePos.distanceSquared(event.getPos());
+    mMouseIsMoving = dis > 0;
+    mMousePos = event.getPos();
+}
+
+
+
+void movContext::mouseDrag( MouseEvent event )
+{
+    mMouseIsDragging = true;
+}
+
+
+void movContext::mouseDown( MouseEvent event )
+{
+    mMouseIsDown = true;
+}
+
+
+void movContext::mouseUp( MouseEvent event )
+{
+    mMouseIsDown = false;
+    mMouseIsDragging = false;
+}
+
+
+Vec2f movContext::texture_to_display_zoom()
+{
+    Rectf textureBounds = mImage.getBounds();
+    return Vec2f(m_display_rect.getWidth() / textureBounds.getWidth(),m_display_rect.getHeight() / textureBounds.getHeight());
+}
+
 Rectf movContext::render_box ()
 {
-    return render_window_box ();
+    Rectf textureBounds = mImage.getBounds();
+    return textureBounds.getCenteredFit( getWindowBounds(), true );
 }
 
 void movContext::seek( size_t xPos )
 {
     //  auto waves = mWaveformPlot.getWaveforms ();
-    //	if (have_sampler () ) mSamplePlayer->seek( waves[0].sections() * xPos / mGraphDisplayRect.getWidth() );
+    //	if (have_sampler () ) mSamplePlayer->seek( waves[0].sections() * xPos / mGraphDisplayRect.getWidth()() );
     
-    if (have_movie ()) mMovieIndexPosition = movContext::Normal2Index ( render_box (), xPos, m_fc);
+    if (is_valid()) mMovieIndexPosition = movContext::Normal2Index ( render_box (), xPos, m_fc);
 }
 
 
@@ -293,6 +337,7 @@ bool movContext::is_valid ()
 
 void movContext::update ()
 {
+    ci_console() << ((mMouseIsDown) ? "V" : "A" ) << ((mMouseIsDragging) ? "G" : "-") << std::endl;
     
     if( m_valid )
     {
@@ -323,19 +368,27 @@ void movContext::update ()
         }
     }
     
-    if( m_movie ){
+    if( m_movie )
+    {
         mImage = m_movie.getTexture();
+        mImage.setMagFilter(GL_NEAREST_MIPMAP_NEAREST);
+        m_display_rect = render_box();
+        m_zoom = texture_to_display_zoom();
+        m_display_rect.scaleCentered(mMovieCZoom);
     }
 }
 
 void movContext::draw ()
 {
-    mMovieParams.draw();
+  	gl::clear( Color( 0.1f, 0.1f, 0.1f ) );
+    
     if (m_valid && mImage )
     {
-        gl::draw (mImage, render_box ());
+        gl::draw (mImage, m_display_rect);
         mImage.disable ();
     }
+
+    mMovieParams.draw();
     
 }
 
