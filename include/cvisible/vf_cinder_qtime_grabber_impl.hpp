@@ -207,6 +207,43 @@ namespace vf_utils
                 std_stream << "Has audio: " << mMovie.hasAudio() << " Has visuals: " << mMovie.hasVisuals() << std::endl;
                 return std_stream;
             }
+            
+            
+            rcFrameGrabberStatus  getTOC (std::vector<rcTimestamp>& tocItoT, std::map<rcTimestamp,uint32>& tocTtoI)
+            {
+                if (! isValid () ) return eFrameStatusError;
+                if ( ! stop () ) return eFrameStatusError;
+                setLastError( eFrameErrorUnknown );
+                boost::lock_guard<boost::mutex> (this->mMuLock);
+                rcFrameGrabberStatus ret =  eFrameStatusOK;
+                mMovie.seekToStart ();
+
+                tocItoT.resize (0);
+                tocTtoI.clear ();
+                long        frameCount = 0;
+                TimeValue   curMovieTime = 0;
+                auto movObj = mMovie.getMovieHandle();
+                
+                // MediaSampleFlags is defined in ImageCompression.h:
+                OSType types[] = { VisualMediaCharacteristic };
+                    
+                    while( curMovieTime >= 0 )
+                    {
+                        ::GetMovieNextInterestingTime( movObj, nextTimeStep, 1, types, curMovieTime, fixed1, &curMovieTime, NULL );
+                        double timeSecs (curMovieTime / ::GetMovieTimeScale( movObj ) );
+                        rcTimestamp timestamp = rcTimestamp::from_seconds (timeSecs);
+                        
+                        tocItoT[frameCount] = timestamp;
+                        tocTtoI[timestamp] = frameCount;
+
+                        
+                        frameCount++;
+                    }
+                     setLastError( eFrameErrorOK );
+                  return eFrameStatusEOF;
+            }
+            
+            
         private:
             
             ci::qtime::MovieSurface	    mMovie;
