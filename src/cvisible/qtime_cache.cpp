@@ -1,8 +1,10 @@
 // Copyright 2003 Reify, Inc.
 
-#include "rc_systeminfo.h"
-#include "vf_videocache.h"
+#include "vf_cinder.hpp"
 #include <stdio.h>
+#include "rc_systeminfo.h"
+
+
 
 #define VID_TRACE
 
@@ -209,6 +211,9 @@ _progressIndicator(pIndicator)
 #ifdef VID_TRACE
     _debuggingToken = 0;
 #endif
+    
+     _impl = boost::shared_ptr<qtImpl> ( new qtImpl (fileName) );
+    
     _frameWidth = _frameHeight = _frameCount = 0;
     _frameDepth = rcPixel8;
     _averageFrameRate = 0.0;
@@ -1886,3 +1891,6 @@ void vfVideoCache::vfVideoCachePrefetchUnit::prefetch(uint32 frameIndex)
     if (empty)
         _wait.incrementVariable(1, 0);
 }
+    
+
+

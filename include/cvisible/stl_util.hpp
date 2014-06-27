@@ -10,9 +10,8 @@
 #include <sstream>
 #include <iostream>
 #include <iomanip>
+#include <boost/foreach.hpp>
 
-#define foreach BOOST_FOREACH
-#define rev_foreach BOOST_REVERSE_FOREACH
 
 namespace stl_utils {
 
@@ -149,7 +148,7 @@ namespace stl_utils {
         const std::map<OldKey, NewKey>& key_map) {
     std::map<NewKey, T> output;
     typedef std::pair<OldKey, T> pair_type;
-    foreach(const pair_type& pair, map) {
+    BOOST_FOREACH(const pair_type& pair, map) {
       output[safe_get(key_map, pair.first)] = pair.second;
     }
     return output;
@@ -166,7 +165,7 @@ namespace stl_utils {
         const std::map<OldT, NewT>& val_map) {
     std::map<Key, NewT> output;
     typedef std::pair<Key, OldT> pair_type;
-    foreach(const pair_type& pair, map) {
+    BOOST_FOREACH(const pair_type& pair, map) {
       output[pair.first] = safe_get(val_map, pair.second);
     }
     return output;
@@ -179,7 +178,7 @@ namespace stl_utils {
   void remap(std::map<Key, T>& map,
              const std::map<T, T>& val_map) {
     typedef std::pair<Key, T> pair_type;
-    foreach(pair_type& pair, map) {
+    BOOST_FOREACH(pair_type& pair, map) {
       pair.second = safe_get(val_map, pair.second);
     }
   }
@@ -225,7 +224,7 @@ namespace stl_utils {
   map_intersect(const std::map<Key, T>& m,
                 const std::set<Key>& keys) {
     std::map<Key, T> output;
-    foreach(const Key& key, keys) {
+    BOOST_FOREACH(const Key& key, keys) {
       typename std::map<Key,T>::const_iterator it = m.find(key);
       if (it != m.end())
         output[key] = it->second;
@@ -258,7 +257,7 @@ namespace stl_utils {
   std::set<Key> keys(const std::map<Key, T>& map) {
     std::set<Key> output;
     typedef std::pair<Key, T> pair_type;
-    foreach(const pair_type& pair, map) {
+    BOOST_FOREACH(const pair_type& pair, map) {
       output.insert(pair.first);
     }
     return output;
@@ -272,7 +271,7 @@ namespace stl_utils {
     std::vector<Key> output(map.size());   
     typedef std::pair<Key, T> pair_type;
     size_t i = 0;
-    foreach(const pair_type& pair, map) {
+    BOOST_FOREACH(const pair_type& pair, map) {
       output[i++] = pair.first;
     }
     return output;
@@ -286,7 +285,7 @@ namespace stl_utils {
   std::set<T> values(const std::map<Key, T>& map) {
     std::set<T> output;
     typedef std::pair<Key, T> pair_type;
-    foreach(const pair_type& pair, map) {
+    BOOST_FOREACH(const pair_type& pair, map) {
       output.insert(pair.second);
     }
     return output;
@@ -297,7 +296,7 @@ namespace stl_utils {
                         const std::set<Key>& keys) {
     std::vector<T> output;
 
-    foreach(const Key &i, keys) {
+    BOOST_FOREACH(const Key &i, keys) {
       output.push_back(safe_get(m, i));
     }
     return output;
@@ -307,7 +306,7 @@ namespace stl_utils {
   std::vector<T> values(const std::map<Key, T>& m, 
                         const std::vector<Key>& keys) {
     std::vector<T> output;
-    foreach(const Key &i, keys) {
+    BOOST_FOREACH(const Key &i, keys) {
       output.push_back(safe_get(m, i));
     }
     return output;
@@ -317,7 +316,7 @@ namespace stl_utils {
   template <typename Key>
   std::map<Key, Key> make_identity_map(const std::set<Key>& keys) {
     std::map<Key, Key> m;
-    foreach(const Key& key, keys) 
+    BOOST_FOREACH(const Key& key, keys) 
       m[key] = key;
     return m;
   }
@@ -424,8 +423,6 @@ namespace stl_utils {
   }
 }; // end of namespace stl_util
 
-#undef foreach
-#undef rev_foreach
 
 
 

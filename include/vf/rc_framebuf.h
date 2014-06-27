@@ -205,7 +205,10 @@ public:
     const ci::Channel8u*  newCiChannel ();  // copies only one channel
 #endif
     
-    
+    // Setters intended to only be called by rcVideoCache class code
+    void  cacheCtrl(uint32 cacheCtrl) { mCacheCtrl = cacheCtrl; }
+    void  frameIndex(uint32 frameIndex) { mFrameIndex=frameIndex; }
+
 protected:
     uint8*         mRawData;   // Raw pixel data
     uint8*         mStartPtr;  // Alignment Adjusted Raw data pointer
@@ -224,9 +227,6 @@ protected:
     uint32        mFrameIndex;
     double          mZvalue; // Z label for this frame coming from a z stack
     
-    // Setters intended to only be called by rcVideoCache class code
-    void  cacheCtrl(uint32 cacheCtrl) { mCacheCtrl = cacheCtrl; }
-    void  frameIndex(uint32 frameIndex) { mFrameIndex=frameIndex; }
     
 private:
 	mutable boost::atomic<int> refcount_;
@@ -454,7 +454,7 @@ public:
     void printState() const {
         cerr << "fb c, i, b [" << mCacheCtrl << ", " << mFrameIndex << ", " << mFrameBuf << "]" << endl;
     }
-private:
+
     
     /* Helper fct intended for use by rcVideoCache class only. It allows
      * a shared frame buffer pointer to be initialized pointing to a
@@ -485,14 +485,16 @@ private:
         mCacheCtrl = cacheID;
         mFrameIndex = frameIndex;
     }
-    
-    void internalLock();
-    void internalUnlock( bool force );
-    
+
     uint32      mCacheCtrl;
     uint32      mFrameIndex;
-    
     rcFrame* mFrameBuf;
+
+private:
+    void internalLock();
+    void internalUnlock( bool force );
+
+    
     static rcMutex& getMutex();
     static rcMutex* frameMutexP;
 };

@@ -1,6 +1,6 @@
 
-#ifndef __VF_CINDER_UTILS_
-#define __VF_CINDER_UTILS_
+#ifndef __VF_CINDER_AUDIO2_
+#define __VF_CINDER_AUDIO2_
 
 
 #include "vf_utils.hpp"
