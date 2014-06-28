@@ -2,11 +2,11 @@
 
 #include "vf_cinder.hpp"
 #include <stdio.h>
-#include "rc_systeminfo.h"
+#include "rc_types.h"
 
 
 
-#define VID_TRACE
+//#define VID_TRACE
 
 // Only use this for doubles and floats for now
 #define ByteSwapN(x) ByteSwap((unsigned char *) &x,sizeof(x))
@@ -22,13 +22,6 @@ static void ByteSwap(unsigned char * b, int n)
     }
 }
 
-// Perform endian reversal if necessary
-static void fixEndian( int64& time )
-{
-    if ( rfPlatformByteOrder() !=  eByteOrderBigEndian) {
-	    ByteSwapN (time);
-    }
-}
 
 #ifdef VID_TRACE
 
@@ -51,10 +44,10 @@ typedef struct traceInfo {
 
 static const uint32 traceSz = 1000;
 static traceInfo traceBuf[traceSz];
-static uint32 traceIndex = 0;
-static uint32 traceCount = 0;
-static rcMutex  traceMutex;
-static uint32 tracePrint = 0;
+static const uint32 traceIndex = 0;
+static const uint32 traceCount = 0;
+static const rcMutex  traceMutex;
+static const uint32 tracePrint = 0;
 
 void vcAddTrace(fctName name, bool enter, uint32 frameIndex,
                 rcFrame* fp, uint32 dToken)
@@ -214,9 +207,19 @@ _progressIndicator(pIndicator)
     
      _impl = boost::shared_ptr<qtImpl> ( new qtImpl (fileName) );
     
-    _frameWidth = _frameHeight = _frameCount = 0;
+    if (! _impl->isValid())
+    {
+        if (_verbose) perror("fopen failed");
+        setError(eVideoCacheErrorFileInit);
+        return;
+    }
+
+    _frameWidth = _impl->frame_width();
+    _frameHeight = _impl->frame_height ();
     _frameDepth = rcPixel8;
-    _averageFrameRate = 0.0;
+    _averageFrameRate = _impl->frame_rate ();
+    _frameCount = _impl->embeddedCount ();
+    
     _baseTime = 0;
     
     _byteOrder = eByteOrderUnknown;
@@ -225,66 +228,7 @@ _progressIndicator(pIndicator)
         return;
     }
     
-    if ((_movieFile = fopen(_fileName.data(), "r")) == NULL)
-    {
-        if (_verbose) perror("fopen failed");
-        setError(eVideoCacheErrorFileInit);
-        return;
-    }
-    
-    /* Read movie identifier and check that we support this type of file.
-     */
-    rcMovieFileIdentifier id;
-    
-    if (fread(&id, sizeof(rcMovieFileIdentifier), 1, _movieFile) != 1) {
-        if (_verbose) perror("Read of identifier failed");
-        setError(eVideoCacheErrorFileRead);
-        return;
-    }
-    id.fixEndian();
-    
-    if (fseek( _movieFile, 0, SEEK_SET)) {
-        if (_verbose) perror("fseek to start failed");
-        setError(eVideoCacheErrorFileRead);
-        return;
-    }
-    
-    // Check identifier validity
-    if ( !id.isValid() ) {
-        if (_verbose) perror("Invalid file identifier");
-        setError(eVideoCacheErrorFileFormat);
-        return;
-    } else if ((id.rev() > movieFormatRevLatest)) {
-        if (_verbose) perror("Unsupported file revision");
-        setError(eVideoCacheErrorFileRevUnsupported);
-        return;
-    }
-    
-    _rev = id.rev();
-    vfVideoCacheError error = eVideoCacheErrorOK;
-    
-    // Load headers
-    switch ( _rev ) {
-        case movieFormatRev0:
-            error = headerLoadRev0();
-            createDefaultOriginHeader( _rev );
-            break;
-        case movieFormatRev1:
-            // We may read TOC from frames so progress indication is
-            // needed for long movies
-            error = headerLoadRev1( getTOC );
-            createDefaultOriginHeader( _rev );
-            break;
-        case movieFormatRev2:
-            error = headerLoadRev2( getTOC );
-            break;
-        case movieFormatInvalid:
-            error = eVideoCacheErrorFileFormat;
-            break;
-    }
-    
-    if ( error != eVideoCacheErrorOK )
-        return;
+    int32 fc = _impl->getTOC (_tocItoT, _tocTtoI);
     
     /* First, calculate the cache overflow number based on both the
      * number of frames in the movie and the maximum amount of memory
@@ -327,6 +271,22 @@ _progressIndicator(pIndicator)
         rmAssert(_prefetchThread);
         _prefetchThread->start();
     }
+}
+
+
+vfVideoCacheError vfVideoCache::tocLoad()
+{
+    rcLock lock(_diskMutex);
+    
+    if (!_tocItoT.empty())
+        return eVideoCacheErrorOK;
+    
+    _tocItoT.resize(_frameCount);
+    rmAssert(_tocTtoI.empty());
+    rmAssert(_impl);
+    if (_frameCount == _impl->getTOC (_tocItoT, _tocTtoI)) return eVideoCacheErrorOK;
+    return eVideoCacheErrorFileRead;
+    
 }
 
 vfVideoCache::vfVideoCache(const vector<rcTimestamp>& frameTimes)
@@ -897,21 +857,19 @@ vfVideoCache::internalGetFrame(uint32 frameIndex,
     rmAssert(cacheFrameBufPtr->refCount() == 1);
     
     rcTimestamp timestamp;
-    int64 timeInfo;
+    double timeInfo;
     
     {
         rcLock lock(_diskMutex);
-        rmAssert(_movieFile);
+        rmAssert(_impl);
         
         /* Read in the frame from disk.
          */
-        off_t offset = frameDataOffset( frameIndex );
-        if (fseeko(_movieFile, offset, SEEK_SET)) {
-            if (_verbose) perror("fseek during cache fill failed");
+        _impl->seekToFrame(frameIndex);
+        if (! _impl->checkPlayable())
+        {
             setError(eVideoCacheErrorFileSeek);
             if (error) *error = eVideoCacheErrorFileSeek;
-            ADD_VID_TRACE(fnInternalGetFrame, false, frameIndex,
-                          frameBufPtr.mFrameBuf, dToken);
             /* Restore cache ID and frame index which were cleared by
              * calling function.
              */
@@ -919,30 +877,20 @@ vfVideoCache::internalGetFrame(uint32 frameIndex,
             frameBufPtr.mFrameIndex = frameIndex;
             return eVideoCacheStatusError;
         }
+        timeInfo = _impl->getCurrentTime ();
+           timestamp = rcTimestamp::from_seconds(timeInfo);
         
-        if (fread(&timeInfo, sizeof(int64), 1, _movieFile) != 1) {
-            if (_verbose) perror("fread of timestamp during cache fill failed");
-            setError(eVideoCacheErrorFileRead);
-            if (error) *error = eVideoCacheErrorFileRead;
-            ADD_VID_TRACE(fnInternalGetFrame, false, frameIndex,
-                          frameBufPtr.mFrameBuf, dToken);
-            /* Restore cache ID and frame index which were cleared by
-             * calling function.
-             */
-            frameBufPtr.mCacheCtrl = _cacheID;
-            frameBufPtr.mFrameIndex = frameIndex;
-            return eVideoCacheStatusError;
+      //  if (fread((*cacheFrameBufPtr)->alignedRawData(), _bytesInFrame, 1,
+      //            _movieFile) != 1) {
+        if (_impl->checkNewFrame ())
+        {
+            _impl->getSurfaceAndCopy (*cacheFrameBufPtr);
         }
-        fixEndian(timeInfo);
-        timestamp = rcTimestamp::from_tick_type(timeInfo);
-        
-        if (fread((*cacheFrameBufPtr)->alignedRawData(), _bytesInFrame, 1,
-                  _movieFile) != 1) {
+        else
+        {
             if (_verbose) perror("fread of frame data during cache fill failed");
             setError(eVideoCacheErrorFileRead);
             if (error) *error = eVideoCacheErrorFileRead;
-            ADD_VID_TRACE(fnInternalGetFrame, false, frameIndex,
-                          frameBufPtr.mFrameBuf, dToken);
             /* Restore cache ID and frame index which were cleared by
              * calling function.
              */
@@ -1221,441 +1169,6 @@ void vfVideoCache::createDefaultOriginHeader( movieFormatRev rev )
     _orgHdrs.push_back( orgHdr );
 }
 
-vfVideoCacheError vfVideoCache::headerLoadRev0()
-{
-    rcMovieFileFormat movieHdr;
-    
-    // Legacy format is always big-endian
-    _byteOrder = eByteOrderBigEndian;
-    
-    /* Read movie header and check that we support this type of file.
-     */
-    if (fread(&movieHdr, sizeof(movieHdr), 1, _movieFile) != 1) {
-        if (_verbose) perror("fread of header failed");
-        setError(eVideoCacheErrorFileRead);
-        return _fatalError;
-    }
-    movieHdr.fixEndian();
-    
-    if ((movieHdr.rowUpdate() & 0xF) != 0) {
-        if (_verbose) {
-            char buf[256];
-            snprintf( buf, rmDim(buf), "Invalid header row update %i",
-                     movieHdr.rowUpdate() );
-            perror(buf);
-        }
-        setError(eVideoCacheErrorFileUnsupported);
-        return _fatalError;
-    }
-    
-    _bytesInFrame = movieHdr.bytesInFrame();
-    _frameCount = movieHdr.frameCount();
-    _frameWidth = movieHdr.width();
-    _frameHeight = movieHdr.height();
-    _averageFrameRate = movieHdr.averageFrameRate();
-    _baseTime = movieHdr.baseTime();
-    
-    if (_verbose)
-        cerr << movieHdr << endl;
-    
-    return eVideoCacheErrorOK;
-}
-
-vfVideoCacheError vfVideoCache::headerLoadRev1( bool getTOC )
-{
-    vfVideoCacheError error = headerLoadRev0();
-    
-    if ( error == eVideoCacheErrorOK ) {
-        /* Find the location of supported extensions, ignoring all others.
-         */
-        off_t offset = frameDataOffset( _frameCount );
-        rcMovieFileExt ext;
-        
-        do {
-            if (fseeko(_movieFile, offset, SEEK_SET)) {
-                if (_verbose) perror("Seek to header extension failed");
-                setError(eVideoCacheErrorFileSeek);
-                return _fatalError;
-            }
-            
-            if (fread(&ext, sizeof(ext), 1, _movieFile) != 1) {
-                if (_verbose) perror("Read of header extension failed");
-                setError(eVideoCacheErrorFileRead);
-                return _fatalError;
-            }
-            ext.fixEndian(_byteOrder);
-            
-            switch ( ext.type() ) {
-                case movieExtensionTOC:
-                    _tocExtHdrOffset = offset;
-                    break;
-                case movieExtensionEOF:
-                    break;
-                default:
-                    cerr << "Warning: unsupported extension " << ext.type() << " found in rev" << rev()
-                    << " file " << _fileName << endl;
-                    break;
-            }
-            offset += ext.offset();
-        } while (ext.type() != movieExtensionEOF);
-    }
-    
-    if ( getTOC ) {
-        error = tocLoad();
-        if ( error != eVideoCacheErrorOK)
-            return error;
-    }
-    
-    return error;
-}
-
-vfVideoCacheError vfVideoCache::headerLoadRev2( bool getTOC )
-{
-    vfVideoCacheError error = eVideoCacheErrorOK;
-    rcMovieFileFormat2 movieHdr;
-    
-    /* Read movie header and check that we support this type of file.
-     */
-    if (fread(&movieHdr, sizeof(movieHdr), 1, _movieFile) != 1) {
-        if (_verbose) perror("Read of header2 failed");
-        setError(eVideoCacheErrorFileRead);
-        return _fatalError;
-    }
-    
-    // check the bom (note: before endian fix)
-    if ( rfPlatformByteOrder( movieHdr.bom() ) == eByteOrderUnknown ) {
-        if (_verbose) perror("Unsupported BOM");
-        setError(eVideoCacheErrorBomUnsupported);
-        return _fatalError;
-    }
-    
-    movieHdr.fixEndian();
-    
-    if ( ! rc_pixel().validate (movieHdr.depth()) ) // < rcPixel8 || movieHdr.depth() > rcPixel32S ) 
-    {
-        if (_verbose) {
-            char buf[256];
-            snprintf( buf, rmDim(buf), "Unsupported pixel depth %i",
-                     movieHdr.depth()*8 );
-            perror(buf);
-        }
-        setError(eVideoCacheErrorDepthUnsupported);
-        return _fatalError;
-    }
-    if ( movieHdr.extensionOffset() == 0 ) {
-        if (_verbose) perror("Invalid extension offset");
-        setError(eVideoCacheErrorFileFormat);
-        return _fatalError;
-    }
-    
-    _bytesInFrame = movieHdr.bytesInFrame();
-    _frameCount = movieHdr.frameCount();
-    _frameWidth = movieHdr.width();
-    _frameHeight = movieHdr.height();
-    _frameDepth = get_new_version().update (movieHdr.depth());
-    _averageFrameRate = movieHdr.averageFrameRate();
-    // Legacy format is always big-endian
-    _byteOrder = rfPlatformByteOrder (movieHdr.bom() );
-    _bytesInFrame = movieHdr.height() * movieHdr.rowUpdate();
-    
-    /* Find the location of supported extensions, ignoring all others.
-     */
-    off_t offset = frameDataOffset( _frameCount );
-    rcMovieFileExt ext;
-    
-    do {
-        if (fseeko(_movieFile, offset, SEEK_SET)) {
-            if (_verbose) perror("Seek to header extension failed");
-            setError(eVideoCacheErrorFileSeek);
-            return _fatalError;
-        }
-        
-        if (fread(&ext, sizeof(ext), 1, _movieFile) != 1) {
-            if (_verbose) perror("Read of header extension failed");
-            setError(eVideoCacheErrorFileRead);
-            return _fatalError;
-        }
-        ext.fixEndian(_byteOrder);
-        
-        switch ( ext.type() ) {
-            case movieExtensionTOC:
-                _tocExtHdrOffset = offset;
-                break;
-            case movieExtensionORG:
-                _orgExtHdrOffsets.push_back(offset);
-                break;
-            case movieExtensionCNV:
-                _cnvExtHdrOffsets.push_back(offset);
-                break;
-            case movieExtensionCAM:
-                _camExtHdrOffsets.push_back(offset);
-                break;
-            case movieExtensionEXP:
-                _expExtHdrOffsets.push_back(offset);
-                break;
-            case movieExtensionEOF:
-                break;
-            default:
-                cerr << "Warning: unsupported extension " << ext.type() << " found in rev" << rev()
-                << " file " << _fileName << endl;
-                break;
-        }
-        
-        offset += ext.offset();
-    } while (ext.type() != movieExtensionEOF);
-    
-    if (_verbose)
-        cerr << movieHdr << endl;
-    
-    if ( getTOC ) {
-        error = tocLoad();
-        if ( error != eVideoCacheErrorOK)
-            return error;
-    }
-    if ( !_orgExtHdrOffsets.empty() ) {
-        error =  orgLoad();
-        if ( error != eVideoCacheErrorOK )
-            return error;
-    }
-    
-    if ( !_cnvExtHdrOffsets.empty() ) {
-        error = cnvLoad() ;
-        if ( error != eVideoCacheErrorOK )
-            return error;
-    }
-    
-    if ( !_camExtHdrOffsets.empty() ) {
-        error = camLoad() ;
-        if ( error != eVideoCacheErrorOK )
-            return error;
-    }
-    
-    if ( !_expExtHdrOffsets.empty() ) {
-        error = expLoad() ;
-        if ( error != eVideoCacheErrorOK )
-            return error;
-    }
-    
-    return error;
-}
-
-vfVideoCacheError vfVideoCache::tocLoad()
-{
-    rcLock lock(_diskMutex);
-    
-    if (!_tocItoT.empty())
-        return eVideoCacheErrorOK;
-    
-    _tocItoT.resize(_frameCount);
-    rmAssert(_tocTtoI.empty());
-    rmAssert(_movieFile);
-    
-    if (_tocExtHdrOffset != -1)
-        return tocLoadFromTOC();
-    
-    return tocLoadFromFrames();
-}
-
-vfVideoCacheError vfVideoCache::tocLoadFromFrames()
-{
-    if (fseek(_movieFile, sizeof(rcMovieFileFormat), SEEK_SET)) {
-        if (_verbose) perror("fseek during toc build failed");
-        setError(eVideoCacheErrorFileSeek);
-        return eVideoCacheErrorFileSeek;
-    }
-    
-    for (uint32 frameIndex = 0; frameIndex < _frameCount; frameIndex++) {
-        int64 timeInfo = 0;
-        
-        /* Skip seek for first frame because it was done before entering
-         * loop.
-         */
-        if (frameIndex && fseek(_movieFile, _bytesInFrame, SEEK_CUR)) {
-            if (_verbose) perror("fseek during toc build failed");
-            setError(eVideoCacheErrorFileSeek);
-            return eVideoCacheErrorFileSeek;
-        }
-        
-        if (fread(&timeInfo, sizeof(int64), 1, _movieFile) != 1) {
-            if (_verbose) perror("fread during toc build failed");
-            setError(eVideoCacheErrorFileRead);
-            return eVideoCacheErrorFileRead;
-        }
-        fixEndian(timeInfo);
-        
-        rcTimestamp timestamp = rcTimestamp::from_tick_type(timeInfo);
-        
-        _tocItoT[frameIndex] = timestamp;
-        _tocTtoI[timestamp] = frameIndex;
-        if ( _progressIndicator )
-            _progressIndicator->progress( 100.0 * frameIndex/_frameCount );
-    }
-    
-    return eVideoCacheErrorOK;
-}
-
-vfVideoCacheError vfVideoCache::tocLoadFromTOC()
-{
-    rmAssert(_tocExtHdrOffset != -1);
-    
-    if (fseeko(_movieFile, _tocExtHdrOffset, SEEK_SET)) {
-        if (_verbose) perror("fseeko during toc build failed");
-        setError(eVideoCacheErrorFileSeek);
-        return eVideoCacheErrorFileSeek;
-    }
-    
-    rcMovieFileTocExt tocHdr;
-    if (fread(&tocHdr, sizeof(tocHdr), 1, _movieFile) != 1) {
-        if (_verbose) perror("fread during toc build failed");
-        setError(eVideoCacheErrorFileRead);
-        return eVideoCacheErrorFileRead;
-    }
-    tocHdr.fixEndian(_byteOrder);
-    
-    if (_verbose)
-        cerr << tocHdr << endl;
-    rmAssert(tocHdr.type() == movieExtensionTOC);
-    if (tocHdr.count() != _frameCount) {
-        if (_verbose) cerr << "toc header count " << tocHdr.count()
-            << " != frame count " << _frameCount << endl;
-        setError(eVideoCacheErrorFileFormat);
-        return eVideoCacheErrorFileFormat;
-    }
-    
-    for (uint32 frameIndex = 0; frameIndex < _frameCount; frameIndex++) {
-        int64 timeInfo = 0;
-        
-        if (fread(&timeInfo, sizeof(int64), 1, _movieFile) != 1) {
-            if (_verbose) perror("fread during toc build failed");
-            setError(eVideoCacheErrorFileRead);
-            return eVideoCacheErrorFileRead;
-        }
-        fixEndian(timeInfo);
-        rcTimestamp timestamp = rcTimestamp::from_tick_type(timeInfo);        
-        
-        _tocItoT[frameIndex] = timestamp;
-        _tocTtoI[timestamp] = frameIndex;
-    }
-    
-    return eVideoCacheErrorOK;
-}
-
-// Load origin extension
-vfVideoCacheError vfVideoCache::orgLoad()
-{
-    for ( uint32 i = 0; i < _orgExtHdrOffsets.size(); ++i ) {
-        rmAssert( _orgExtHdrOffsets[i] != -1);
-        
-        if (fseeko(_movieFile, _orgExtHdrOffsets[i], SEEK_SET)) {
-            if (_verbose) perror("fseeko during org build failed");
-            setError(eVideoCacheErrorFileSeek);
-            return eVideoCacheErrorFileSeek;
-        }
-        
-        rcMovieFileOrgExt orgHdr;
-        if (fread(&orgHdr, sizeof(orgHdr), 1, _movieFile) != 1) {
-            if (_verbose) perror("fread during org build failed");
-            setError(eVideoCacheErrorFileRead);
-            return eVideoCacheErrorFileRead;
-        }
-        orgHdr.fixEndian(_byteOrder);
-        
-        rmAssert(orgHdr.type() == movieExtensionORG);
-        _orgHdrs.push_back(orgHdr);
-        
-        if (_verbose)
-            cerr << orgHdr << endl;
-    }
-    
-    return eVideoCacheErrorOK;
-}
-
-// Load conversion extensions
-vfVideoCacheError vfVideoCache::cnvLoad()
-{
-    for ( uint32 i = 0; i < _cnvExtHdrOffsets.size(); ++i ) {
-        rmAssert(_cnvExtHdrOffsets[i] != -1);
-        
-        if (fseeko(_movieFile, _cnvExtHdrOffsets[i] , SEEK_SET)) {
-            if (_verbose) perror("fseeko during cnv build failed");
-            setError(eVideoCacheErrorFileSeek);
-            return eVideoCacheErrorFileSeek;
-        }
-        
-        rcMovieFileConvExt cnvHdr;
-        if (fread(&cnvHdr, sizeof(cnvHdr), 1, _movieFile) != 1) {
-            if (_verbose) perror("fread during cnv build failed");
-            setError(eVideoCacheErrorFileRead);
-            return eVideoCacheErrorFileRead;
-        }
-        cnvHdr.fixEndian(_byteOrder);
-        rmAssert(cnvHdr.type() == movieExtensionCNV);
-        _cnvExtHdrs.push_back( cnvHdr );
-        
-        if (_verbose)
-            cerr << cnvHdr << endl;
-    }
-    
-    return eVideoCacheErrorOK;
-}
-
-// Load camera extensions
-vfVideoCacheError vfVideoCache::camLoad()
-{
-    for ( uint32 i = 0; i < _camExtHdrOffsets.size(); ++i ) {
-        rmAssert(_camExtHdrOffsets[i] != -1);
-        
-        if (fseeko(_movieFile, _camExtHdrOffsets[i] , SEEK_SET)) {
-            if (_verbose) perror("fseeko during cam build failed");
-            setError(eVideoCacheErrorFileSeek);
-            return eVideoCacheErrorFileSeek;
-        }
-        
-        rcMovieFileCamExt camHdr;
-        if (fread(&camHdr, sizeof(camHdr), 1, _movieFile) != 1) {
-            if (_verbose) perror("fread during cam build failed");
-            setError(eVideoCacheErrorFileRead);
-            return eVideoCacheErrorFileRead;
-        }
-        camHdr.fixEndian(_byteOrder);
-        rmAssert(camHdr.type() == movieExtensionCAM);
-        _camExtHdrs.push_back( camHdr );
-        
-        if (_verbose)
-            cerr << camHdr << endl;
-    }
-    
-    return eVideoCacheErrorOK;
-}
-
-// Load experiment extensions
-vfVideoCacheError vfVideoCache::expLoad()
-{
-    for ( uint32 i = 0; i < _expExtHdrOffsets.size(); ++i ) {
-        rmAssert(_expExtHdrOffsets[i] != -1);
-        
-        if (fseeko(_movieFile, _expExtHdrOffsets[i] , SEEK_SET)) {
-            if (_verbose) perror("fseeko during exp build failed");
-            setError(eVideoCacheErrorFileSeek);
-            return eVideoCacheErrorFileSeek;
-        }
-        
-        rcMovieFileExpExt expHdr;
-        if (fread(&expHdr, sizeof(expHdr), 1, _movieFile) != 1) {
-            if (_verbose) perror("fread during exp build failed");
-            setError(eVideoCacheErrorFileRead);
-            return eVideoCacheErrorFileRead;
-        }
-        expHdr.fixEndian(_byteOrder);
-        rmAssert(expHdr.type() == movieExtensionEXP);
-        _expExtHdrs.push_back( expHdr );
-        
-        if (_verbose)
-            cerr << expHdr << endl;
-    }
-    
-    return eVideoCacheErrorOK;
-}
 
 void vfVideoCache::unlockFrame(uint32 frameIndex)
 {

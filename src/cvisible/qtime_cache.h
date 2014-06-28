@@ -283,18 +283,9 @@ using namespace std;
             
             // Header reading methods
             void createDefaultOriginHeader( movieFormatRev rev );
-            vfVideoCacheError headerLoadRev0();
-            vfVideoCacheError headerLoadRev1( bool getTOC );
-            vfVideoCacheError headerLoadRev2( bool getTOC );
-            
+                    
             vfVideoCacheError tocLoad();
-            vfVideoCacheError tocLoadFromFrames();
-            vfVideoCacheError tocLoadFromTOC();
-            
-            vfVideoCacheError orgLoad();
-            vfVideoCacheError cnvLoad();
-            vfVideoCacheError camLoad();
-            vfVideoCacheError expLoad();
+                      
             
             void setCacheID(uint32 cacheID) { _cacheID = cacheID; }
             
