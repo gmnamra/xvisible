@@ -13,13 +13,16 @@
 #include "ut_videocache.h"
 #include "ut_sm.hpp"
 #include "cinder/audio2/Source.h"
-#include "cvisible/vf_cinder.hpp"
+#include "cvisible/qtime_cache.h"
 #include "cvisible/vf_utils.hpp"
 #include "cvisible/vf_cinder_qtime_grabber.h"
+#include "vf_cinder_audio2.hpp"
 #include "vf_sm_producer.h"
+#include "qtime_cache.h"
+
 using namespace ci;
 using namespace std;
-using namespace vf_cinder;
+
 
 
 class genv: public testing::Environment
@@ -104,7 +107,19 @@ TEST (UT_fileutils, run)
     
 }
 
+TEST(QtimeCache, run)
+{
+    // vf does not support QuickTime natively. The ut expectes and checks for failure
+    genv* gvp = reinterpret_cast<genv*>(envp);
+    EXPECT_TRUE (gvp != 0 );
+    static std::string qmov_name ("box-move.mov");
+    std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
+    
+    QtimeCache* qc = QtimeCache::QtimeCacheCtor (qmov, 0);
+    EXPECT_EQ(true, qc != 0);
+    
 
+}
 
 TEST( ut_similarity, run )
 {

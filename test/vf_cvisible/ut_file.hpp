@@ -36,7 +36,7 @@ struct UT_fileutils
         std::string Filename ("test_O_0.rfymov");        
         std::string fileext ("rfymov");
         std::string dotfileext (".rfymov");        
-        std::string dormovfileext (".mov");   
+        std::string dotmovfileext (".mov");
         std::string csvfile ("test.csv");
 
         std::string sanspath = rfStripPath (pathy);

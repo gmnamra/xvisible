@@ -26,7 +26,7 @@ using namespace std;
 
 
 
-class vfVideoCache::qtImpl
+class QtimeCache::qtImpl
 {
 public:
     // ctor
@@ -76,7 +76,7 @@ public:
             boost::lock_guard<boost::mutex> (this->mMuLock);
             mMovie.seekToStart ();
             
-            tocItoT.resize (0);
+            tocItoT.resize (embeddedCount());
             tocTtoI.clear ();
             long        frameCount = 0;
             TimeValue   curMovieTime = 0;
