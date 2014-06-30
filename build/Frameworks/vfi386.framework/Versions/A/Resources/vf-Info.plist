@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>com.reifycorp.vf</string>
+	<key>CFBundleExecutable</key>
+	<string>vf</string>
+	<key>CFBundleIdentifier</key>
+	<string>FMWK</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>APPL</string>
+	<key>CFBundleSignature</key>
+	<string>rfym</string>
+	<key>CFBundleVersion</key>
+	<string>7148c53</string>
+</dict>
+</plist>

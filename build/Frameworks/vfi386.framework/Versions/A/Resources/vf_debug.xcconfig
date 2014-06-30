@@ -1,0 +1,69 @@
+//
+//  vf_config.xcconfig
+//  vf
+//
+//  Created by Arman Garakani on 4/27/14.
+//  Copyright (c) 2014 Reify Corporation. All rights reserved.
+//
+
+
+SRCROOT = $(PROJECT_DIR)/..
+SOURCE_ROOT = SRCROOT
+USR_LOCAL = $(SRCROOT)/usr/local
+BUILD_DIR = $(SRCROOT)/build
+BUILD_ROOT = BUILD_DIR
+BUILT_PRODUCTS_DIR = $(BUILD_DIR)/$(CONFIGURATION)
+
+
+// Intel, 32- and 64-bit
+ARCHS = i386 x86_64
+
+// Zerolink prevents link warnings so turn it off
+ZERO_LINK = NO
+
+// Prebinding considered unhelpful in 10.3 and later
+PREBINDING = NO
+
+// Strictest warning policy
+WARNING_CFLAGS =  -Wendif-labels -Wnewline-eof 
+
+// Work around Xcode bugs by using external strip. See:
+// http://lists.apple.com/archives/Xcode-users/2006/Feb/msg00050.html
+SEPARATE_STRIP = YES
+
+
+// C++ Compiler
+GCC_VERSION = com.apple.compilers.llvm.clang.1_0
+
+
+// C++ Language (C++11)
+CLANG_CXX_LANGUAGE_STANDARD = c++0x
+
+// C++ Standard Library
+CLANG_CXX_LIBRARY = libc++
+
+
+
+// not sure why apple defaults this on, but it's pretty risky
+ALWAYS_SEARCH_USER_PATHS = NO
+
+// Turn on position dependent code for most cases (overridden where appropriate)
+GCC_DYNAMIC_NO_PIC = NO
+
+// Minimum OS version is 10.7
+MACOSX_DEPLOYMENT_TARGET = 10.8
+
+CINDER_PATH = $(USR_LOCAL)/Cinder
+BOOST_PATH = $(USR_LOCAL)/boost
+OPENCV_PATH = $(USR_LOCAL)/OpenCv_2.4_i386
+GTEST_PATH = $(USR_LOCAL)/gtest
+
+BOOST_INCLUDE = $(BOOST_PATH)/include
+
+LIBRARY_SEARCH_PATHS = $(BOOST_PATH)/lib $(GTEST_PATH)/build/Release $(OPENCV_PATH)/lib
+FRAMEWORK_SEARCH_PATHS = $(GTEST_PATH)/build/Release $(BUILD_DIR)/Frameworks 
+HEADER_SEARCH_PATHS = $(GTEST_PATH)/include $(CINDER_PATH)/ciUI $(BOOST_INCLUDE) $(OPENCV_PATH)/include $(SRCROOT)/include $(SRCROOT)/test/include
+
+GCC_PREPROCESSOR_DEFINITIONS=DEBUG=1 _USE_NATIVE_ATOMIC_ RFY_DLL RFY_DLL_EXPORTS __ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0 
+
+VF_NAME=vfi386_d
