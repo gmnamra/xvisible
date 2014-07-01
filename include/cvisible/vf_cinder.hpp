@@ -72,8 +72,9 @@ public:
         
         uint32  getTOC (std::vector<rcTimestamp>& tocItoT, std::map<rcTimestamp,uint32>& tocTtoI)
         {
-            if (! isValid () ) return false;
             boost::lock_guard<boost::mutex> (this->mMuLock);
+
+            if (! isValid () ) return false;
             mMovie.seekToStart ();
             
             tocItoT.resize (embeddedCount());
@@ -102,6 +103,8 @@ public:
     
     void getSurfaceAndCopy (rcSharedFrameBufPtr& ptr)
     {
+        boost::lock_guard<boost::mutex> (this->mMuLock);
+        
         mSurface = mMovie.getSurface ();
         ptr->setIsGray (true);
         Surface::Iter iter = mSurface.getIter ( mSurface.getBounds() );

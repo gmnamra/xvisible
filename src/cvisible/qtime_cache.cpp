@@ -5,6 +5,20 @@
 #include "rc_types.h"
 
 
+namespace anonymous
+{
+    template<typename P, int row_alignment = 16>
+    int32 row_bytes (int width)
+    {
+        int32 rowBytes = width * sizeof(P);
+        int32 pad = rowBytes % row_alignment;
+        
+        if (pad) pad = row_alignment - pad;
+        
+        // Total storage need
+        return rowBytes + pad;
+    }
+}
 
 //#define VID_TRACE
 
@@ -120,23 +134,23 @@ map < QtimeCache*, uint32>  QtimeCache::_activeCachesPtoI;
 uint32                       QtimeCache::_nextCacheID = 0;
 rcMutex                        QtimeCache::_cacheMgmtMutex;
 
- QtimeCache*  QtimeCache:: QtimeCacheCtor(const std::string fileName,
-                                             uint32 cacheSize,
-                                             bool verbose,
-                                             bool prefetch,
-                                             uint32 maxMemory,
-                                             rcProgressIndicator* pIndicator)
+QtimeCache*  QtimeCache:: QtimeCacheCtor(const std::string fileName,
+                                         uint32 cacheSize,
+                                         bool verbose,
+                                         bool prefetch,
+                                         uint32 maxMemory,
+                                         rcProgressIndicator* pIndicator)
 {
     return finishSetup(new  QtimeCache(fileName, cacheSize, verbose, prefetch, maxMemory, pIndicator));
 }
 
- QtimeCache*
- QtimeCache:: QtimeCacheUTCtor(const vector<rcTimestamp>& frameTimes)
+QtimeCache*
+QtimeCache:: QtimeCacheUTCtor(const vector<rcTimestamp>& frameTimes)
 {
     return finishSetup(new  QtimeCache(frameTimes));
 }
 
- QtimeCache*  QtimeCache::finishSetup( QtimeCache* cacheP)
+QtimeCache*  QtimeCache::finishSetup( QtimeCache* cacheP)
 {
     rmAssert(cacheP);
     
@@ -177,9 +191,9 @@ void  QtimeCache:: QtimeCacheDtor( QtimeCache* cacheP)
     delete cacheP;
 }
 
- QtimeCache:: QtimeCache(std::string fileName, uint32 cacheSize,
-                           bool verbose, bool prefetch,
-                           uint32 maxMemory, rcProgressIndicator* pIndicator)
+QtimeCache:: QtimeCache(std::string fileName, uint32 cacheSize,
+                        bool verbose, bool prefetch,
+                        uint32 maxMemory, rcProgressIndicator* pIndicator)
 : _lastTouchIndex(0), _verbose(verbose),
 _isValid(true), _fatalError( eQtimeCacheErrorOK), _fileName(fileName),  _tocExtHdrOffset(-1), _pendingCtrl(_cacheMutex),
 _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0),
@@ -197,7 +211,7 @@ _progressIndicator(pIndicator)
         setError( eQtimeCacheErrorFileInit);
         return;
     }
-
+    
     _frameWidth = _impl->frame_width();
     _frameHeight = _impl->frame_height ();
     _frameDepth = rcPixel8;
@@ -206,7 +220,7 @@ _progressIndicator(pIndicator)
     
     _baseTime = 0;
     
-    _byteOrder = eByteOrderUnknown;
+
     if (_fileName.empty()) {
         setError( eQtimeCacheErrorFileInit);
         return;
@@ -219,6 +233,8 @@ _progressIndicator(pIndicator)
      * the caller wants to use for this purpose.
      */
     _cacheSize = _frameCount;
+    _bytesInFrame = anonymous::row_bytes<uint8>(_frameWidth) * _frameHeight;
+    
     if (maxMemory != 0) {
         if (_cacheSize > (maxMemory / _bytesInFrame)) {
             _cacheSize = maxMemory / _bytesInFrame;
@@ -258,7 +274,7 @@ _progressIndicator(pIndicator)
 }
 
 
- eQtimeCacheError  QtimeCache::tocLoad()
+eQtimeCacheError  QtimeCache::tocLoad()
 {
     rcLock lock(_diskMutex);
     
@@ -273,7 +289,7 @@ _progressIndicator(pIndicator)
     
 }
 
- QtimeCache:: QtimeCache(const vector<rcTimestamp>& frameTimes)
+QtimeCache:: QtimeCache(const vector<rcTimestamp>& frameTimes)
 : _lastTouchIndex(0), _verbose(false),
 _isValid(true), _fatalError( eQtimeCacheErrorOK), _fileName(""),  _tocExtHdrOffset(-1), _pendingCtrl(_cacheMutex),
 _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0)
@@ -282,9 +298,6 @@ _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0)
     _debuggingToken = 0;
 #endif
     rmAssert(frameTimes.size());
-    _byteOrder = eByteOrderUnknown;
-    
-    createDefaultOriginHeader( movieFormatRev1 );
     
     _frameWidth = _frameHeight = 0;
     _frameDepth = rcPixel8;
@@ -316,7 +329,7 @@ _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0)
     _cacheOverflowLimit = _unusedCacheFrames.size() - _cacheSize;
 }
 
- QtimeCache::~ QtimeCache()
+QtimeCache::~ QtimeCache()
 {
     rcLock lock(_diskMutex);
     
@@ -344,10 +357,10 @@ _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0)
     _progressIndicator = 0;
 }
 
- eQtimeCacheStatus  QtimeCache::getFrame(uint32 frameIndex,
-                                          rcSharedFrameBufPtr& frameBuf,
-                                           eQtimeCacheError* error,
-                                          bool locked)
+eQtimeCacheStatus  QtimeCache::getFrame(uint32 frameIndex,
+                                        rcSharedFrameBufPtr& frameBuf,
+                                        eQtimeCacheError* error,
+                                        bool locked)
 {
     /* Before stuffing a new frame reference into here, invalidate any
      * existing reference.
@@ -369,7 +382,7 @@ _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0)
         return  eQtimeCacheStatusError;
     }
     
-     eQtimeCacheStatus status =  eQtimeCacheStatusOK;
+    eQtimeCacheStatus status =  eQtimeCacheStatusOK;
     if (locked)
         status = internalGetFrame(frameIndex, frameBuf, error, dToken);
     else
@@ -380,10 +393,10 @@ _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0)
     return status;
 }
 
- eQtimeCacheStatus  QtimeCache::getFrame(const rcTimestamp& time,
-                                          rcSharedFrameBufPtr& frameBuf,
-                                           eQtimeCacheError* error,
-                                          bool locked)
+eQtimeCacheStatus  QtimeCache::getFrame(const rcTimestamp& time,
+                                        rcSharedFrameBufPtr& frameBuf,
+                                        eQtimeCacheError* error,
+                                        bool locked)
 {
     /* Before stuffing a new frame reference into here, invalidate any
      * existing reference.
@@ -399,7 +412,7 @@ _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0)
         return  eQtimeCacheStatusError;
     }
     
-     eQtimeCacheError status = tocLoad();
+    eQtimeCacheError status = tocLoad();
     if (status !=  eQtimeCacheErrorOK) {
         if (error) *error = status;
         ADD_VID_TRACE(fnGetFrameT, false, 0xFFFFFFFF, frameBuf.mFrameBuf, dToken);
@@ -418,7 +431,7 @@ _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0)
         return  eQtimeCacheStatusError;
     }
     
-     eQtimeCacheStatus status2 =  eQtimeCacheStatusOK;
+    eQtimeCacheStatus status2 =  eQtimeCacheStatusOK;
     if (locked)
         status2 = internalGetFrame(frameIndexPtr->second, frameBuf, error, dToken);
     else
@@ -467,7 +480,7 @@ std::string  QtimeCache::getErrorString( eQtimeCacheError error)
     return std::string(" Video cache: undefined error" );
 }
 
- eQtimeCacheError  QtimeCache::getFatalError() const
+eQtimeCacheError  QtimeCache::getFatalError() const
 {
     rcLock lock(const_cast< QtimeCache*>(this)->_cacheMutex);
     
@@ -475,17 +488,17 @@ std::string  QtimeCache::getErrorString( eQtimeCacheError error)
 }
 
 // Returns the timestamp in the movie closest to the goal time.
- eQtimeCacheStatus
- QtimeCache::closestTimestamp(const rcTimestamp& goalTime,
-                               rcTimestamp& match,
-                                eQtimeCacheError* error)
+eQtimeCacheStatus
+QtimeCache::closestTimestamp(const rcTimestamp& goalTime,
+                             rcTimestamp& match,
+                             eQtimeCacheError* error)
 {
     if (!isValid()) {
         if (error) *error =  eQtimeCacheErrorCacheInvalid;
         return  eQtimeCacheStatusError;
     }
     
-     eQtimeCacheError status = tocLoad();
+    eQtimeCacheError status = tocLoad();
     if (status !=  eQtimeCacheErrorOK) {
         if (error) *error = status;
         return  eQtimeCacheStatusError;
@@ -524,17 +537,17 @@ std::string  QtimeCache::getErrorString( eQtimeCacheError error)
 }
 
 // Returns first timestamp > goalTime.
- eQtimeCacheStatus
- QtimeCache::nextTimestamp(const rcTimestamp& goalTime,
-                            rcTimestamp& match,
-                             eQtimeCacheError* error)
+eQtimeCacheStatus
+QtimeCache::nextTimestamp(const rcTimestamp& goalTime,
+                          rcTimestamp& match,
+                          eQtimeCacheError* error)
 {
     if (!isValid()) {
         if (error) *error =  eQtimeCacheErrorCacheInvalid;
         return  eQtimeCacheStatusError;
     }
     
-     eQtimeCacheError status = tocLoad();
+    eQtimeCacheError status = tocLoad();
     if (status !=  eQtimeCacheErrorOK) {
         if (error) *error = status;
         return  eQtimeCacheStatusError;
@@ -560,17 +573,17 @@ std::string  QtimeCache::getErrorString( eQtimeCacheError error)
 }
 
 // Returns timestamp closest to goalTime that is < goalTime
- eQtimeCacheStatus
- QtimeCache::prevTimestamp(const rcTimestamp& goalTime,
-                            rcTimestamp& match,
-                             eQtimeCacheError* error)
+eQtimeCacheStatus
+QtimeCache::prevTimestamp(const rcTimestamp& goalTime,
+                          rcTimestamp& match,
+                          eQtimeCacheError* error)
 {
     if (!isValid()) {
         if (error) *error =  eQtimeCacheErrorCacheInvalid;
         return  eQtimeCacheStatusError;
     }
     
-     eQtimeCacheError status = tocLoad();
+    eQtimeCacheError status = tocLoad();
     if (status !=  eQtimeCacheErrorOK) {
         if (error) *error = status;
         return  eQtimeCacheStatusError;
@@ -597,16 +610,16 @@ std::string  QtimeCache::getErrorString( eQtimeCacheError error)
 }
 
 // Returns the timestamp of the first frame in the movie.
- eQtimeCacheStatus
- QtimeCache::firstTimestamp(rcTimestamp& match,
-                              eQtimeCacheError* error)
+eQtimeCacheStatus
+QtimeCache::firstTimestamp(rcTimestamp& match,
+                           eQtimeCacheError* error)
 {
     if (!isValid()) {
         if (error) *error =  eQtimeCacheErrorCacheInvalid;
         return  eQtimeCacheStatusError;
     }
     
-     eQtimeCacheError status = tocLoad();
+    eQtimeCacheError status = tocLoad();
     if (status !=  eQtimeCacheErrorOK) {
         if (error) *error = status;
         return  eQtimeCacheStatusError;
@@ -620,16 +633,16 @@ std::string  QtimeCache::getErrorString( eQtimeCacheError error)
 }
 
 // Returns the timestamp of the last frame in the movie.
- eQtimeCacheStatus
- QtimeCache::lastTimestamp(rcTimestamp& match,
-                             eQtimeCacheError* error)
+eQtimeCacheStatus
+QtimeCache::lastTimestamp(rcTimestamp& match,
+                          eQtimeCacheError* error)
 {
     if (!isValid()) {
         if (error) *error =  eQtimeCacheErrorCacheInvalid;
         return  eQtimeCacheStatusError;
     }
     
-     eQtimeCacheError status = tocLoad();
+    eQtimeCacheError status = tocLoad();
     if (status !=  eQtimeCacheErrorOK) {
         if (error) *error = status;
         return  eQtimeCacheStatusError;
@@ -647,17 +660,17 @@ std::string  QtimeCache::getErrorString( eQtimeCacheError error)
 }
 
 // Returns the timestamp for the frame at frameIndex.
- eQtimeCacheStatus
- QtimeCache::frameIndexToTimestamp(uint32 frameIndex,
-                                    rcTimestamp& match,
-                                     eQtimeCacheError* error)
+eQtimeCacheStatus
+QtimeCache::frameIndexToTimestamp(uint32 frameIndex,
+                                  rcTimestamp& match,
+                                  eQtimeCacheError* error)
 {
     if (!isValid()) {
         if (error) *error =  eQtimeCacheErrorCacheInvalid;
         return  eQtimeCacheStatusError;
     }
     
-     eQtimeCacheError status = tocLoad();
+    eQtimeCacheError status = tocLoad();
     if (status !=  eQtimeCacheErrorOK) {
         if (error) *error = status;
         return  eQtimeCacheStatusError;
@@ -677,17 +690,17 @@ std::string  QtimeCache::getErrorString( eQtimeCacheError error)
 
 // Returns the frame index for the frame at time timestamp (must be
 // exact match).
- eQtimeCacheStatus
- QtimeCache::timestampToFrameIndex(const rcTimestamp& timestamp,
-                                    uint32& match,
-                                     eQtimeCacheError* error)
+eQtimeCacheStatus
+QtimeCache::timestampToFrameIndex(const rcTimestamp& timestamp,
+                                  uint32& match,
+                                  eQtimeCacheError* error)
 {
     if (!isValid()) {
         if (error) *error =  eQtimeCacheErrorCacheInvalid;
         return  eQtimeCacheStatusError;
     }
     
-     eQtimeCacheError status = tocLoad();
+    eQtimeCacheError status = tocLoad();
     if (status !=  eQtimeCacheErrorOK) {
         if (error) *error = status;
         return  eQtimeCacheStatusError;
@@ -767,11 +780,11 @@ void  QtimeCache::setError ( eQtimeCacheError error)
     }
 }
 
- eQtimeCacheStatus
- QtimeCache::internalGetFrame(uint32 frameIndex,
-                               rcSharedFrameBufPtr& frameBufPtr,
-                                eQtimeCacheError* error,
-                               const uint32 dToken)
+eQtimeCacheStatus
+QtimeCache::internalGetFrame(uint32 frameIndex,
+                             rcSharedFrameBufPtr& frameBufPtr,
+                             eQtimeCacheError* error,
+                             const uint32 dToken)
 {
     ADD_VID_TRACE(fnInternalGetFrame, true, frameIndex,
                   frameBufPtr.mFrameBuf, dToken);
@@ -799,7 +812,7 @@ void  QtimeCache::setError ( eQtimeCacheError error)
     rcSharedFrameBufPtr* cacheFrameBufPtr;
     
     if (cacheAlloc(frameIndex, frameBufPtr, cacheFrameBufPtr, dToken) ==
-         eQtimeCacheStatusOK) {
+        eQtimeCacheStatusOK) {
         ADD_VID_TRACE(fnInternalGetFrame, false, frameIndex,
                       frameBufPtr.mFrameBuf, dToken);
         return  eQtimeCacheStatusOK;
@@ -841,10 +854,10 @@ void  QtimeCache::setError ( eQtimeCacheError error)
             return  eQtimeCacheStatusError;
         }
         timeInfo = _impl->getCurrentTime ();
-           timestamp = rcTimestamp::from_seconds(timeInfo);
+        timestamp = rcTimestamp::from_seconds(timeInfo);
         
-      //  if (fread((*cacheFrameBufPtr)->alignedRawData(), _bytesInFrame, 1,
-      //            _movieFile) != 1) {
+        //  if (fread((*cacheFrameBufPtr)->alignedRawData(), _bytesInFrame, 1,
+        //            _movieFile) != 1) {
         if (_impl->checkNewFrame ())
         {
             _impl->getSurfaceAndCopy (*cacheFrameBufPtr);
@@ -867,8 +880,8 @@ void  QtimeCache::setError ( eQtimeCacheError error)
     
     rmAssert(cacheFrameBufPtr->refCount() == 1);
     
-     eQtimeCacheStatus status = cacheInsert(frameIndex, *cacheFrameBufPtr,
-                                            dToken);
+    eQtimeCacheStatus status = cacheInsert(frameIndex, *cacheFrameBufPtr,
+                                           dToken);
     
     rmAssert(frameBufPtr->frameIndex() == frameIndex);
     
@@ -878,11 +891,11 @@ void  QtimeCache::setError ( eQtimeCacheError error)
     return status;
 }
 
- eQtimeCacheStatus
- QtimeCache::cacheAlloc(uint32 frameIndex,
-                         rcSharedFrameBufPtr& userFrameBuf,
-                         rcSharedFrameBufPtr*& cacheFrameBufPtr,
-                         const uint32 dToken)
+eQtimeCacheStatus
+QtimeCache::cacheAlloc(uint32 frameIndex,
+                       rcSharedFrameBufPtr& userFrameBuf,
+                       rcSharedFrameBufPtr*& cacheFrameBufPtr,
+                       const uint32 dToken)
 {
 #ifndef VID_TRACE
     rcUNUSED(dToken);
@@ -1061,10 +1074,10 @@ void  QtimeCache::setError ( eQtimeCacheError error)
     return  eQtimeCacheStatusError;
 }
 
- eQtimeCacheStatus
- QtimeCache::cacheInsert(uint32 frameIndex,
-                          rcSharedFrameBufPtr& cacheFrameBuf,
-                          const uint32 dToken)
+eQtimeCacheStatus
+QtimeCache::cacheInsert(uint32 frameIndex,
+                        rcSharedFrameBufPtr& cacheFrameBuf,
+                        const uint32 dToken)
 {
 #ifndef VID_TRACE
     rcUNUSED(dToken);
@@ -1116,21 +1129,6 @@ void  QtimeCache::setError ( eQtimeCacheError error)
     return  eQtimeCacheStatusOK;
 }
 
-// Create default origin header
-void  QtimeCache::createDefaultOriginHeader( movieFormatRev rev )
-{
-    rmAssert( rev < movieFormatRev2 );
-    
-    std::string creator;
-    if ( rev == movieFormatRev0 )
-        creator = "Visible/Batchconvert";
-    else
-        creator = "Batchconvert";
-    rcMovieFileOrgExt orgHdr( movieOriginCaptureUncertified, baseTime(),
-                             frameCount(), frameWidth(), frameHeight(), frameDepth(),
-                             rev, creator.c_str() );
-    _orgHdrs.push_back( orgHdr );
-}
 
 
 void  QtimeCache::unlockFrame(uint32 frameIndex)
@@ -1252,7 +1250,7 @@ void  QtimeCache::cachePrefetch(uint32 cacheID, uint32 frameIndex)
     if (loc == _activeCachesItoP.end())
         return;
     
-     QtimeCache* cacheP = loc->second;
+    QtimeCache* cacheP = loc->second;
     cacheP->prefetchFrame(frameIndex);
 }
 
@@ -1264,19 +1262,19 @@ void  QtimeCache::cacheUnlock(uint32 cacheID, uint32 frameIndex)
     if (loc == _activeCachesItoP.end())
         return;
     
-     QtimeCache* cacheP = loc->second;
+    QtimeCache* cacheP = loc->second;
     cacheP->unlockFrame(frameIndex);
 }
 
- eQtimeCacheStatus  QtimeCache::cacheLock(uint32 cacheID, uint32 frameIndex,
-                                           rcSharedFrameBufPtr& frameBuf,
-                                            eQtimeCacheError* error)
+eQtimeCacheStatus  QtimeCache::cacheLock(uint32 cacheID, uint32 frameIndex,
+                                         rcSharedFrameBufPtr& frameBuf,
+                                         eQtimeCacheError* error)
 {
     rcLock lock(_cacheMgmtMutex);
     
     map<uint32,  QtimeCache*>::iterator loc = _activeCachesItoP.find(cacheID);
     if (loc != _activeCachesItoP.end()) {
-         QtimeCache* cacheP = loc->second;
+        QtimeCache* cacheP = loc->second;
         return cacheP->getFrame(frameIndex, frameBuf, error);
     }
     
@@ -1294,13 +1292,13 @@ void  QtimeCache::cacheUnlock(uint32 cacheID, uint32 frameIndex)
 /************************************************************************/
 /************************************************************************/
 
- QtimeCache:: QtimeCachePrefetchUnit:: QtimeCachePrefetchUnit( QtimeCache& cacheCtrl)
+QtimeCache:: QtimeCachePrefetchUnit:: QtimeCachePrefetchUnit( QtimeCache& cacheCtrl)
 : _cacheCtrl(cacheCtrl), _wait(0)
 {
     rmAssert(cacheCtrl.isValid());
 }
 
- QtimeCache:: QtimeCachePrefetchUnit::~ QtimeCachePrefetchUnit()
+QtimeCache:: QtimeCachePrefetchUnit::~ QtimeCachePrefetchUnit()
 {
 }
 
@@ -1340,10 +1338,10 @@ void  QtimeCache:: QtimeCachePrefetchUnit::run()
              * into memory, merely load it into cache, the frame is set up
              * in a temporary frame buffer.
              */
-             eQtimeCacheError error;
+            eQtimeCacheError error;
             rcSharedFrameBufPtr frameBuf;
-             eQtimeCacheStatus status = _cacheCtrl.getFrame(frameIndex, frameBuf,
-                                                            &error);
+            eQtimeCacheStatus status = _cacheCtrl.getFrame(frameIndex, frameBuf,
+                                                           &error);
             /* Stop processing if something bad happens */
             if ((status ==  eQtimeCacheStatusError) &&
                 (error !=  eQtimeCacheErrorNoSuchFrame)) {
@@ -1367,6 +1365,6 @@ void  QtimeCache:: QtimeCachePrefetchUnit::prefetch(uint32 frameIndex)
     if (empty)
         _wait.incrementVariable(1, 0);
 }
-    
+
 
 

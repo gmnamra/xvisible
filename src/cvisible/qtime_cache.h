@@ -344,7 +344,6 @@ using namespace std;
             rcPixel                         _frameDepth;
             double                               _averageFrameRate;
             int64                              _baseTime;
-            reByteOrder                          _byteOrder; // Byte order of file
             int64                              _tocExtHdrOffset;
             vector<int64>                      _orgExtHdrOffsets;
             vector<rcMovieFileOrgExt>            _orgHdrs;
