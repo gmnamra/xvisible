@@ -28,7 +28,6 @@
 		C242F57D19292656000FEAAB /* vf_qtime_grabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C236E0AC19291C2A0035C2F5 /* vf_qtime_grabber.cpp */; };
 		C2631599195CC0A800CF71B1 /* qtime_cache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2631598195CC0A800CF71B1 /* qtime_cache.cpp */; };
 		C263159A195CC0A800CF71B1 /* qtime_cache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2631598195CC0A800CF71B1 /* qtime_cache.cpp */; };
-		C27652451915E3B200EA3B55 /* gutc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20BB349191058FA00884EB2 /* gutc.cpp */; };
 		C276524D1915E90A00EA3B55 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB225E190B298700BBC93C /* QuickTime.framework */; };
 		C276524F1915E93300EA3B55 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C276524E1915E93300EA3B55 /* CoreFoundation.framework */; };
 		C27652501915E94200EA3B55 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27652461915E85400EA3B55 /* Cocoa.framework */; };
@@ -90,7 +89,6 @@
 		C20BB3391910508E00884EB2 /* vf_utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_utils.hpp; path = ../../include/cvisible/vf_utils.hpp; sourceTree = "<group>"; };
 		C20BB33E1910569C00884EB2 /* gutc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gutc; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20BB3471910577D00884EB2 /* ut_file.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ut_file.hpp; path = ../test/vf_cvisible/ut_file.hpp; sourceTree = "<group>"; };
-		C20BB349191058FA00884EB2 /* gutc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gutc.cpp; path = ../../../../Users/arman/gwc/vqt105/visibleqt105/test/vf_cvisible/gutc.cpp; sourceTree = DEVELOPER_DIR; };
 		C20BB34A1910593A00884EB2 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../usr/local/gtest/build/Release/gtest.framework; sourceTree = "<group>"; };
 		C20BB34E1910599400884EB2 /* vfi386_d.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386_d.framework; path = ../build/Frameworks/vfi386_d.framework; sourceTree = "<group>"; };
 		C20BB350191059BC00884EB2 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../build/Frameworks/gtest.framework; sourceTree = "<group>"; };
@@ -283,7 +281,6 @@
 		C20BB33F1910569C00884EB2 /* gutc */ = {
 			isa = PBXGroup;
 			children = (
-				C20BB349191058FA00884EB2 /* gutc.cpp */,
 				C20BB3471910577D00884EB2 /* ut_file.hpp */,
 			);
 			path = gutc;
@@ -453,7 +450,6 @@
 				C2FB27021921D31F003A48B7 /* ut_similarity.cpp in Sources */,
 				C2FB27001921D30C003A48B7 /* ut_videocache.cpp in Sources */,
 				C2FB26FE1921D2F6003A48B7 /* ut_framebuf.cpp in Sources */,
-				C27652451915E3B200EA3B55 /* gutc.cpp in Sources */,
 				C242F57D19292656000FEAAB /* vf_qtime_grabber.cpp in Sources */,
 				C236E0A7192914490035C2F5 /* vf_source.cpp in Sources */,
 				C20BB3481910577D00884EB2 /* ut_file.hpp in Sources */,
