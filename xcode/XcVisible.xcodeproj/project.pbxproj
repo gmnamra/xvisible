@@ -577,7 +577,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/boost/lib,
+					"$(BOOST_PATH)/lib",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -609,7 +609,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/boost/lib,
+					"$(BOOST_PATH)/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.8;
