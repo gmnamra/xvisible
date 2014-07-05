@@ -428,9 +428,9 @@
 		C2B8E993187DDC2B0060D961 /* gut */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gut; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2C28F3C18F44C0700BA7E79 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C2C28F3D18F44C0700BA7E79 /* vf-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "vf-Info.plist"; sourceTree = "<group>"; };
-		C2C28F4018F44CE700BA7E79 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = "../usr/local/googletest-read-only/xcode/lib/i386/Release/gtest.framework"; sourceTree = "<group>"; };
-		C2C28F4118F44CE700BA7E79 /* libgtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest_main.a; path = "../usr/local/googletest-read-only/xcode/lib/i386/Release/libgtest_main.a"; sourceTree = "<group>"; };
-		C2C28F4218F44CE800BA7E79 /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest.a; path = "../usr/local/googletest-read-only/xcode/lib/i386/Release/libgtest.a"; sourceTree = "<group>"; };
+		C2C28F4018F44CE700BA7E79 /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../usr/local/gtest/build/Release/gtest.framework; sourceTree = "<group>"; };
+		C2C28F4118F44CE700BA7E79 /* libgtest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest_main.a; path = ../usr/local/gtest/build/Release/libgtest_main.a; sourceTree = "<group>"; };
+		C2C28F4218F44CE800BA7E79 /* libgtest.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgtest.a; path = ../usr/local/gtest/build/Release/libgtest.a; sourceTree = "<group>"; };
 		C2C28F4718F44D2600BA7E79 /* libopencv_imgproc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.dylib; path = ../usr/local/OpenCv_2.4_i386/lib/libopencv_imgproc.dylib; sourceTree = "<group>"; };
 		C2C28F4818F44D2600BA7E79 /* libopencv_objdetect.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_objdetect.dylib; path = ../usr/local/OpenCv_2.4_i386/lib/libopencv_objdetect.dylib; sourceTree = "<group>"; };
 		C2C28F4918F44D2600BA7E79 /* libopencv_photo.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_photo.dylib; path = ../usr/local/OpenCv_2.4_i386/lib/libopencv_photo.dylib; sourceTree = "<group>"; };
@@ -2266,10 +2266,6 @@
 			baseConfigurationReference = C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/arman/gwc/vqt105/visibleqt105/build/Frameworks,
-				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				KEEP_PRIVATE_EXTERNS = YES;
 				LINKER_DISPLAYS_MANGLED_NAMES = YES;
@@ -2286,10 +2282,6 @@
 			baseConfigurationReference = C23E89B9191310F800AE27A3 /* vf_release.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/arman/gwc/vqt105/visibleqt105/build/Frameworks,
-				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				KEEP_PRIVATE_EXTERNS = YES;
 				LINKER_DISPLAYS_MANGLED_NAMES = YES;

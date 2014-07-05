@@ -85,8 +85,8 @@
 		8D1107320486CEB800E47090 /* XcVisible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XcVisible.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C209869D195CF8C8005325A2 /* dict.ipp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict.ipp; sourceTree = "<group>"; };
 		C20986A0195D159E005325A2 /* vf_cinder_audio2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_cinder_audio2.hpp; path = ../../include/cvisible/vf_cinder_audio2.hpp; sourceTree = "<group>"; };
-		C20986A2195F28E2005325A2 /* qtime_cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qtime_cache.h; sourceTree = "<group>"; };
 		C20986A9196357CB005325A2 /* gutc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gutc.cpp; path = ../../test/vf_cvisible/gutc.cpp; sourceTree = "<group>"; };
+		C20986AB19686F82005325A2 /* qtime_cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qtime_cache.h; sourceTree = "<group>"; };
 		C20BB33819102F5A00884EB2 /* vf_cinder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_cinder.hpp; path = ../../include/cvisible/vf_cinder.hpp; sourceTree = "<group>"; };
 		C20BB3391910508E00884EB2 /* vf_utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_utils.hpp; path = ../../include/cvisible/vf_utils.hpp; sourceTree = "<group>"; };
 		C20BB33E1910569C00884EB2 /* gutc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gutc; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -292,8 +292,8 @@
 		C21733FB190B175500A01365 /* cvisible */ = {
 			isa = PBXGroup;
 			children = (
+				C20986AB19686F82005325A2 /* qtime_cache.h */,
 				C20986A9196357CB005325A2 /* gutc.cpp */,
-				C20986A2195F28E2005325A2 /* qtime_cache.h */,
 				C209869D195CF8C8005325A2 /* dict.ipp */,
 				C2631598195CC0A800CF71B1 /* qtime_cache.cpp */,
 				C2A3268019550CDA007A35E6 /* stl_util.hpp */,
@@ -471,7 +471,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/arman/gwc/vqt105/visibleqt105/build/Frameworks,
+					"$(BUILD_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_VERSION = "";
@@ -487,12 +487,19 @@
 					"$(RESOURCE_DIR)",
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/boost/lib,
+					"$(BOOST_PATH)/lib",
+					"$(CINDER_PATH)/lib/$(CONFIGURATION)",
+					"$(GTEST_PATH)/build/Release",
+					"$(OPENCV_PATH)/lib",
+					"$(CINDER_PATH)/lib/macosx",
 				);
-				OBJROOT = "$(BUILD_ROOT)/Intermediates";
+				OTHER_LDFLAGS = (
+					"-lcinder_d",
+					"-laudio2_d",
+					"-framework",
+					"$(VF_NAME)",
+				);
 				PRODUCT_NAME = XcVisible;
-				SYMROOT = "$(BUILD_ROOT)";
 				WARNING_CFLAGS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -506,7 +513,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/arman/gwc/vqt105/visibleqt105/build/Frameworks,
+					"$(BUILD_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_VERSION = "";
@@ -522,12 +529,19 @@
 					"$(RESOURCE_DIR)",
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/boost/lib,
+					"$(BOOST_PATH)/lib",
+					"$(CINDER_PATH)/lib/$(CONFIGURATION)",
+					"$(GTEST_PATH)/build/Release",
+					"$(OPENCV_PATH)/lib",
+					"$(CINDER_PATH)/lib/macosx",
 				);
-				OBJROOT = "$(BUILD_ROOT)/Intermediates";
+				OTHER_LDFLAGS = (
+					"-lcinder",
+					"-laudio2",
+					"-framework",
+					"$(VF_NAME)",
+				);
 				PRODUCT_NAME = XcVisible;
-				SYMROOT = "$(BUILD_ROOT)";
 				WARNING_CFLAGS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -538,6 +552,7 @@
 			buildSettings = {
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACH_O_TYPE = mh_execute;
+				OBJROOT = "$(SYMROOT)/Intermediates";
 				SDKROOT = macosx10.8;
 				VF_NAME = vfi386_d;
 			};
@@ -548,6 +563,7 @@
 			buildSettings = {
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACH_O_TYPE = mh_execute;
+				OBJROOT = "$(SYMROOT)/Intermediates";
 				SDKROOT = macosx10.8;
 				VF_NAME = vfi386;
 			};
@@ -577,10 +593,20 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
 					"$(BOOST_PATH)/lib",
+					"$(CINDER_PATH)/lib/$(CONFIGURATION)",
+					"$(GTEST_PATH)/build/Release",
+					"$(OPENCV_PATH)/lib",
+					"$(CINDER_PATH)/lib/macosx",
 				);
+				OBJROOT = "$(BUILD_ROOT)/Intermediates";
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-lcinder_d",
+					"-laudio2_d",
+					"-framework",
+					"$(VF_NAME)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.8;
 			};
@@ -609,8 +635,18 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
 					"$(BOOST_PATH)/lib",
+					"$(CINDER_PATH)/lib/$(CONFIGURATION)",
+					"$(GTEST_PATH)/build/Release",
+					"$(OPENCV_PATH)/lib",
+					"$(CINDER_PATH)/lib/macosx",
+				);
+				OBJROOT = "$(BUILD_ROOT)/Intermediates";
+				OTHER_LDFLAGS = (
+					"-lcinder",
+					"-laudio2",
+					"-framework",
+					"$(VF_NAME)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.8;

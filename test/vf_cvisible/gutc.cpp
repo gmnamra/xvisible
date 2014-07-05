@@ -115,7 +115,7 @@ TEST(QtimeCache, run)
     static std::string qmov_name ("box-move.mov");
     std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
     
-    QtimeCache* qc = QtimeCache::QtimeCacheCtor (qmov, 0);
+    QtimeCache* qc = QtimeCache::QtimeCacheCtor (qmov, 1);
     EXPECT_EQ(true, qc != 0);
     
 

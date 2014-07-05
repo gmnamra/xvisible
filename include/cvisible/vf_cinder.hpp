@@ -1,5 +1,5 @@
-#ifndef __VF_UTILS__QTIME_VC_IMPL__
-#define __VF_UTILS__QTIME_VC_IMPL__
+#ifndef __QTIME_VC_IMPL__
+#define __QTIME_VC_IMPL__
 
 #include <cinder/Channel.h>
 #include <cinder/Area.h>

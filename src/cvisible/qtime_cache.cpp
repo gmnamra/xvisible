@@ -195,7 +195,7 @@ QtimeCache:: QtimeCache(std::string fileName, uint32 cacheSize,
                         bool verbose, bool prefetch,
                         uint32 maxMemory, rcProgressIndicator* pIndicator)
 : _lastTouchIndex(0), _verbose(verbose),
-_isValid(true), _fatalError( eQtimeCacheErrorOK), _fileName(fileName),  _tocExtHdrOffset(-1), _pendingCtrl(_cacheMutex),
+_isValid(true), _fatalError( eQtimeCacheErrorOK), _fileName(fileName),  _pendingCtrl(_cacheMutex),
 _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0),
 _progressIndicator(pIndicator)
 {
@@ -291,7 +291,7 @@ eQtimeCacheError  QtimeCache::tocLoad()
 
 QtimeCache:: QtimeCache(const vector<rcTimestamp>& frameTimes)
 : _lastTouchIndex(0), _verbose(false),
-_isValid(true), _fatalError( eQtimeCacheErrorOK), _fileName(""),  _tocExtHdrOffset(-1), _pendingCtrl(_cacheMutex),
+_isValid(true), _fatalError( eQtimeCacheErrorOK), _fileName(""),  _pendingCtrl(_cacheMutex),
 _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0)
 {
 #ifdef VID_TRACE
