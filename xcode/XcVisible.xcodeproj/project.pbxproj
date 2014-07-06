@@ -27,7 +27,6 @@
 		C23E89AD1912869C00AE27A3 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C23E89AC1912869C00AE27A3 /* libboost_system.a */; };
 		C23E89B01912E98D00AE27A3 /* libopencv_core.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C23E89AF1912E98C00AE27A3 /* libopencv_core.dylib */; };
 		C242F57D19292656000FEAAB /* vf_qtime_grabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C236E0AC19291C2A0035C2F5 /* vf_qtime_grabber.cpp */; };
-		C2631599195CC0A800CF71B1 /* qtime_cache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2631598195CC0A800CF71B1 /* qtime_cache.cpp */; };
 		C263159A195CC0A800CF71B1 /* qtime_cache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2631598195CC0A800CF71B1 /* qtime_cache.cpp */; };
 		C276524D1915E90A00EA3B55 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB225E190B298700BBC93C /* QuickTime.framework */; };
 		C276524F1915E93300EA3B55 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C276524E1915E93300EA3B55 /* CoreFoundation.framework */; };
@@ -86,7 +85,6 @@
 		C209869D195CF8C8005325A2 /* dict.ipp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict.ipp; sourceTree = "<group>"; };
 		C20986A0195D159E005325A2 /* vf_cinder_audio2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_cinder_audio2.hpp; path = ../../include/cvisible/vf_cinder_audio2.hpp; sourceTree = "<group>"; };
 		C20986A9196357CB005325A2 /* gutc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gutc.cpp; path = ../../test/vf_cvisible/gutc.cpp; sourceTree = "<group>"; };
-		C20986AB19686F82005325A2 /* qtime_cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qtime_cache.h; sourceTree = "<group>"; };
 		C20BB33819102F5A00884EB2 /* vf_cinder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_cinder.hpp; path = ../../include/cvisible/vf_cinder.hpp; sourceTree = "<group>"; };
 		C20BB3391910508E00884EB2 /* vf_utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_utils.hpp; path = ../../include/cvisible/vf_utils.hpp; sourceTree = "<group>"; };
 		C20BB33E1910569C00884EB2 /* gutc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gutc; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -292,7 +290,6 @@
 		C21733FB190B175500A01365 /* cvisible */ = {
 			isa = PBXGroup;
 			children = (
-				C20986AB19686F82005325A2 /* qtime_cache.h */,
 				C20986A9196357CB005325A2 /* gutc.cpp */,
 				C209869D195CF8C8005325A2 /* dict.ipp */,
 				C2631598195CC0A800CF71B1 /* qtime_cache.cpp */,
@@ -441,7 +438,6 @@
 				C2DB2261190B2CCB00BBC93C /* VisibleApp.cpp in Sources */,
 				C283D71819460C6B00AC68BE /* visible_impl.cpp in Sources */,
 				C236E0A419290BCF0035C2F5 /* vf_source.cpp in Sources */,
-				C2631599195CC0A800CF71B1 /* qtime_cache.cpp in Sources */,
 				C2E0EEB4194245F3003394C7 /* InteractiveObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -109,14 +109,21 @@ TEST (UT_fileutils, run)
 
 TEST(QtimeCache, run)
 {
+    
     // vf does not support QuickTime natively. The ut expectes and checks for failure
     genv* gvp = reinterpret_cast<genv*>(envp);
     EXPECT_TRUE (gvp != 0 );
     static std::string qmov_name ("box-move.mov");
     std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
     
-    QtimeCache* qc = QtimeCache::QtimeCacheCtor (qmov, 1);
-    EXPECT_EQ(true, qc != 0);
+    QtimeCache* cacheP = QtimeCache::QtimeCacheCtor (qmov, 1);
+    int frameCount = 29;
+    
+   EXPECT_TRUE(cacheP != 0);
+   EXPECT_TRUE(cacheP->isValid());
+//   EXPECT_TRUE(cacheP->getFatalError() == eVideoCacheErrorOK);
+   EXPECT_TRUE(cacheP->frameCount() == frameCount);
+    
     
 
 }
@@ -130,6 +137,11 @@ TEST( ut_similarity, run )
 
 TEST( UT_FrameBuf, run )
 {
+    std::vector<rcSharedFrameBufPtr> bufs;
+    bufs.resize (29);
+    for (int i = 0; i < 29; i++)
+        std::cout << (uint64)(&bufs[i]) << std::endl;
+
 	UT_FrameBuf test;
 	EXPECT_EQ(0, test.run());
 }

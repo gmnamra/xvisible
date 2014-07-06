@@ -79,13 +79,13 @@ public:
             
             tocItoT.resize (embeddedCount());
             tocTtoI.clear ();
-            long        frameCount = 0;
+            boost::atomic<int> frameCount;
             TimeValue   curMovieTime = 0;
             auto movObj = mMovie.getMovieHandle();
             
             // MediaSampleFlags is defined in ImageCompression.h:
             OSType types[] = { VisualMediaCharacteristic };
-            
+            frameCount.store (0);
             while( curMovieTime >= 0 )
             {
                 ::GetMovieNextInterestingTime( movObj, nextTimeStep, 1, types, curMovieTime, fixed1, &curMovieTime, NULL );

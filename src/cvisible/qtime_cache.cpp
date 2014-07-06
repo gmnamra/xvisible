@@ -3,6 +3,9 @@
 #include "vf_cinder.hpp"
 #include <stdio.h>
 #include "rc_types.h"
+#include <Singleton.hpp>
+
+using namespace std;
 
 
 namespace anonymous
@@ -129,10 +132,6 @@ uint32  QtimeCache::getNextToken()
 
 #endif
 
-map <uint32,  QtimeCache*>  QtimeCache::_activeCachesItoP;
-map < QtimeCache*, uint32>  QtimeCache::_activeCachesPtoI;
-uint32                       QtimeCache::_nextCacheID = 0;
-rcMutex                        QtimeCache::_cacheMgmtMutex;
 
 QtimeCache*  QtimeCache:: QtimeCacheCtor(const std::string fileName,
                                          uint32 cacheSize,
@@ -152,43 +151,12 @@ QtimeCache:: QtimeCacheUTCtor(const vector<rcTimestamp>& frameTimes)
 
 QtimeCache*  QtimeCache::finishSetup( QtimeCache* cacheP)
 {
-    rmAssert(cacheP);
-    
-    rcLock lock(_cacheMgmtMutex);
-    
-    ++_nextCacheID;
-    rmAssert(_nextCacheID != 0);
-    rmAssert(_activeCachesPtoI.find(cacheP) == _activeCachesPtoI.end());
-    
-    _activeCachesItoP[_nextCacheID] = cacheP;
-    _activeCachesPtoI[cacheP] = _nextCacheID;
-    
-    cacheP->setCacheID(_nextCacheID);
-    return cacheP;
+    return SingletonLite<QtimeCache::CacheManager>::instance().register_cache (cacheP);
 }
 
 void  QtimeCache:: QtimeCacheDtor( QtimeCache* cacheP)
 {
-    {
-        rcLock lock(_cacheMgmtMutex);
-        
-        map< QtimeCache*, uint32>::iterator locI = _activeCachesPtoI.find(cacheP);
-        if (locI == _activeCachesPtoI.end())
-            return;
-        
-        uint32 cacheID = locI->second;
-        
-        map<uint32,  QtimeCache*>::iterator locP = _activeCachesItoP.find(cacheID);
-        
-        rmAssert(locP != _activeCachesItoP.end());
-        rmAssert(locI->first == locP->second);
-        rmAssert(locP->first == locI->second);
-        
-        _activeCachesItoP.erase(locP);
-        _activeCachesPtoI.erase(locI);
-    }
-    
-    delete cacheP;
+     return SingletonLite<QtimeCache::CacheManager>::instance().remove (cacheP);
 }
 
 QtimeCache:: QtimeCache(std::string fileName, uint32 cacheSize,
@@ -203,6 +171,11 @@ _progressIndicator(pIndicator)
     _debuggingToken = 0;
 #endif
     
+    if (_fileName.empty()) {
+        setError( eQtimeCacheErrorFileInit);
+        return;
+    }
+
     _impl = boost::shared_ptr<QtimeCache::qtImpl> ( new QtimeCache::qtImpl (fileName) );
     
     if (! _impl->isValid())
@@ -220,13 +193,7 @@ _progressIndicator(pIndicator)
     
     _baseTime = 0;
     
-
-    if (_fileName.empty()) {
-        setError( eQtimeCacheErrorFileInit);
-        return;
-    }
-    
-    int32 fc = _impl->getTOC (_tocItoT, _tocTtoI);
+    tocLoad ();
     
     /* First, calculate the cache overflow number based on both the
      * number of frames in the movie and the maximum amount of memory
@@ -251,8 +218,9 @@ _progressIndicator(pIndicator)
      */
     if (cacheSize && (cacheSize < _cacheSize))
         _cacheSize = cacheSize;
-    
-    _frameCache.resize(_frameCount);
+
+    _frameCache = std::vector<rcSharedFrameBufPtr>(_frameCount);
+
     
     /* Make all the cache entries available for use by pushing them all
      * onto the unused list.
@@ -276,8 +244,6 @@ _progressIndicator(pIndicator)
 
 eQtimeCacheError  QtimeCache::tocLoad()
 {
-    rcLock lock(_diskMutex);
-    
     if (!_tocItoT.empty())
         return  eQtimeCacheErrorOK;
     
@@ -1244,42 +1210,23 @@ void  QtimeCache::prefetchFrame(uint32 frameIndex)
 
 void  QtimeCache::cachePrefetch(uint32 cacheID, uint32 frameIndex)
 {
-    rcLock lock(_cacheMgmtMutex);
-    
-    map<uint32,  QtimeCache*>::iterator loc = _activeCachesItoP.find(cacheID);
-    if (loc == _activeCachesItoP.end())
-        return;
-    
-    QtimeCache* cacheP = loc->second;
-    cacheP->prefetchFrame(frameIndex);
+    QtimeCache* cacheP =   SingletonLite<QtimeCache::CacheManager>::instance().cacheById(cacheID);
+    if (cacheP) cacheP->prefetchFrame(frameIndex);
 }
 
 void  QtimeCache::cacheUnlock(uint32 cacheID, uint32 frameIndex)
 {
-    rcLock lock(_cacheMgmtMutex);
-    
-    map<uint32,  QtimeCache*>::iterator loc = _activeCachesItoP.find(cacheID);
-    if (loc == _activeCachesItoP.end())
-        return;
-    
-    QtimeCache* cacheP = loc->second;
-    cacheP->unlockFrame(frameIndex);
+    QtimeCache* cacheP =   SingletonLite<QtimeCache::CacheManager>::instance().cacheById(cacheID);
+    if (cacheP)cacheP->unlockFrame(frameIndex);
 }
 
 eQtimeCacheStatus  QtimeCache::cacheLock(uint32 cacheID, uint32 frameIndex,
                                          rcSharedFrameBufPtr& frameBuf,
                                          eQtimeCacheError* error)
 {
-    rcLock lock(_cacheMgmtMutex);
-    
-    map<uint32,  QtimeCache*>::iterator loc = _activeCachesItoP.find(cacheID);
-    if (loc != _activeCachesItoP.end()) {
-        QtimeCache* cacheP = loc->second;
-        return cacheP->getFrame(frameIndex, frameBuf, error);
-    }
-    
-    if (error)
-        *error =  eQtimeCacheErrorCacheInvalid;
+    QtimeCache* cacheP =   SingletonLite<QtimeCache::CacheManager>::instance().cacheById(cacheID);
+    if (cacheP) return cacheP->getFrame(frameIndex, frameBuf, error);
+    if (error) *error =  eQtimeCacheErrorCacheInvalid;
     
     return  eQtimeCacheStatusError;
 }
