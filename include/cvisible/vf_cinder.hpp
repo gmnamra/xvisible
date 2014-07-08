@@ -20,6 +20,7 @@
 #include "sshist.hpp"
 
 #include <fstream>
+#include <mutex>
 
 using namespace ci;
 using namespace std;
@@ -28,20 +29,46 @@ using namespace std;
 
 class QtimeCache::qtImpl
 {
+    struct info
+    {
+        uint32 mEmbeddedCount;
+        uint32 mWidth;
+        uint32 mHeight;
+        double mFps;
+        double mTscale;
+    };
 public:
     // ctor
-    qtImpl( const std::string fqfn) : mWidth(0), mHeight(0), mFps (-1.0)
+    qtImpl( const std::string fqfn) : mFqfn (fqfn), mValid (false)
     {
-        
-        boost::lock_guard<boost::mutex> lock (mMuLock);
-        mValid = file_exists ( fqfn ) && file_readable ( fqfn );
-        if ( mValid )
+      std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+    }
+    
+    void load_movie ()
+    {
+        if ( file_exists ( mFqfn ) && file_readable ( mFqfn ) )
         {
-            mMovie = qtime::MovieSurface (fqfn);
-            mWidth = mMovie.getWidth();
-            mHeight = mMovie.getHeight();
-            mFps = mMovie.getFramerate();
-            mEmbeddedCount = mMovie.getFramerate();
+            mMovie = cinder::qtime::MovieSurface::create (mFqfn);
+            mValid = mMovie != 0;
+            if (mValid)
+            {
+                mInfo.mWidth = mMovie->getWidth();
+                mInfo.mHeight = mMovie->getHeight();
+                mInfo.mFps = mMovie->getFramerate();
+                mInfo.mEmbeddedCount = mMovie->getFramerate();
+                auto movObj = mMovie->getMovieHandle();
+                mInfo.mTscale = ::GetMovieTimeScale( movObj );
+                mMovie->checkPlayable();
+                mMovie->seekToStart ();
+                mMovie->setLoop (false, false);
+                for (int fn=0; fn<mInfo.mEmbeddedCount; fn++)
+                {
+                    m_raw.push_back(static_cast<int32>(mMovie->getCurrentTime() * mInfo.mTscale));
+                    mMovie->stepForward ();
+                }
+                assert(m_raw.size() == mInfo.mEmbeddedCount);
+                
+            }
         }
         
     }
@@ -51,61 +78,41 @@ public:
         return mValid;
     }
     
-    uint32 frame_width () { return mWidth; }
-    uint32 frame_height () { return mHeight; }
-    uint32 embeddedCount () { return mEmbeddedCount; }
+    info movie_info ()
+    {
+        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        return mInfo;
+    }
     
-    double frame_rate () { return mFps; }
     
-        const std::ostream& print_to_ (std::ostream& std_stream)
-        {
-            std_stream << " -- Embedded Movie Info -- " << std::endl;
-            std_stream << "Dimensions:" << mMovie.getWidth() << " x " << mMovie.getHeight() << std::endl;
-            std_stream << "Duration:  " << mMovie.getDuration() << " seconds" << std::endl;
-            std_stream << "Frames:    " << mMovie.getNumFrames() << std::endl;
-            std_stream << "Framerate: " << mMovie.getFramerate() << std::endl;
-            std_stream << "Alpha channel: " << mMovie.hasAlpha() << std::endl;
-            std_stream << "Has audio: " << mMovie.hasAudio() << " Has visuals: " << mMovie.hasVisuals() << std::endl;
-            return std_stream;
-        }
+    const std::ostream& print_to_ (std::ostream& std_stream)
+    {
+        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
         
-        
-        uint32  getTOC (std::vector<rcTimestamp>& tocItoT, std::map<rcTimestamp,uint32>& tocTtoI)
-        {
-            boost::lock_guard<boost::mutex> (this->mMuLock);
-
-            if (! isValid () ) return false;
-            mMovie.seekToStart ();
-            
-            tocItoT.resize (embeddedCount());
-            tocTtoI.clear ();
-            boost::atomic<int> frameCount;
-            TimeValue   curMovieTime = 0;
-            auto movObj = mMovie.getMovieHandle();
-            
-            // MediaSampleFlags is defined in ImageCompression.h:
-            OSType types[] = { VisualMediaCharacteristic };
-            frameCount.store (0);
-            while( curMovieTime >= 0 )
-            {
-                ::GetMovieNextInterestingTime( movObj, nextTimeStep, 1, types, curMovieTime, fixed1, &curMovieTime, NULL );
-                double timeSecs (curMovieTime / ::GetMovieTimeScale( movObj ) );
-                rcTimestamp timestamp = rcTimestamp::from_seconds (timeSecs);
-                
-                tocItoT[frameCount] = timestamp;
-                tocTtoI[timestamp] = frameCount;
-                
-                
-                frameCount++;
-            }
-            return frameCount - 1;
-        }
+        std_stream << " -- Embedded Movie Info -- " << std::endl;
+        std_stream << "Dimensions:" << mMovie->getWidth() << " x " << mMovie->getHeight() << std::endl;
+        std_stream << "Duration:  " << mMovie->getDuration() << " seconds" << std::endl;
+        std_stream << "Frames:    " << mMovie->getNumFrames() << std::endl;
+        std_stream << "Framerate: " << mMovie->getFramerate() << std::endl;
+        std_stream << "Alpha channel: " << mMovie->hasAlpha() << std::endl;
+        std_stream << "Has audio: " << mMovie->hasAudio() << " Has visuals: " << mMovie->hasVisuals() << std::endl;
+        return std_stream;
+    }
+    
+    
+    double get_time_index_map (std::shared_ptr<std::vector<int32> >& ti_map)
+    {
+        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        std::shared_ptr<std::vector<int32> >  res(new std::vector<int32> (m_raw));
+        ti_map.swap(res);
+        return mInfo.mTscale;
+    }
     
     void getSurfaceAndCopy (rcSharedFrameBufPtr& ptr)
     {
-        boost::lock_guard<boost::mutex> (this->mMuLock);
+        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
         
-        mSurface = mMovie.getSurface ();
+        mSurface = mMovie->getSurface ();
         ptr->setIsGray (true);
         Surface::Iter iter = mSurface.getIter ( mSurface.getBounds() );
         int rows = 0;
@@ -118,46 +125,50 @@ public:
     
     void seekToFrame( int frame )
     {
-        mMovie.seekToFrame (frame);
+        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        mMovie->seekToFrame (frame);
     }
     
     void seekToStart()
     {
-        mMovie.seekToStart ();
+        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        mMovie->seekToStart ();
     }
     
     void seekToEnd()
     {
-        mMovie.seekToStart ();
+        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        mMovie->seekToStart ();
     }
     
     bool checkPlayable ()
     {
-        return mMovie.checkPlayable ();
+        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        return mMovie->checkPlayable ();
     }
     
-    float getCurrentTime() const
+    float getCurrentTime()
     {
-        return mMovie.getCurrentTime ();
+        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        return mMovie->getCurrentTime ();
     }
     bool checkNewFrame ()
     {
-        return mMovie.checkNewFrame ();
+        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        return mMovie->checkNewFrame ();
     }
+    
+private:
+    qtImpl::info mInfo;
+    mutable std::once_flag mMovie_loaded_flag;
+    std::string mFqfn;
+    ci::qtime::MovieSurfaceRef    mMovie;
+    ci::Surface				mSurface;
+    mutable bool                mValid;
+    
+    
+    std::vector<int32> m_raw;
+};
 
-    private:
-        ci::qtime::MovieSurface	    mMovie;
-        ci::Surface				mSurface;
-        bool                mValid;
-        uint32 mEmbeddedCount;
-        uint32 mWidth;
-        uint32 mHeight;
-        double mFps;
-        void lock()  { this->mMuLock.lock (); }
-        void unlock()  { this->mMuLock.unlock (); }
-        boost::mutex    mMuLock;    // explicit mutex for locking QuickTime
-        
-    };
-    
-    
+
 #endif // __VF_UTILS__QTIME__IMPL__

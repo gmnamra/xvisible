@@ -442,12 +442,7 @@ private:
                                     eQtimeCacheError* error = 0);
         
 //    protected:
-        
-        CacheManager ()
-        {
-            _nextCacheID = 0;
-        }
-        
+           
         
     };
     

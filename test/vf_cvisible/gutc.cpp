@@ -18,7 +18,7 @@
 #include "cvisible/vf_cinder_qtime_grabber.h"
 #include "vf_cinder_audio2.hpp"
 #include "vf_sm_producer.h"
-#include "qtime_cache.h"
+#include "ut_qtime.h"
 
 using namespace ci;
 using namespace std;
@@ -107,7 +107,9 @@ TEST (UT_fileutils, run)
     
 }
 
-TEST(QtimeCache, run)
+
+
+TEST (UT_QtimeCache, run)
 {
     
     // vf does not support QuickTime natively. The ut expectes and checks for failure
@@ -116,16 +118,8 @@ TEST(QtimeCache, run)
     static std::string qmov_name ("box-move.mov");
     std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
     
-    QtimeCache* cacheP = QtimeCache::QtimeCacheCtor (qmov, 1);
-    int frameCount = 29;
-    
-   EXPECT_TRUE(cacheP != 0);
-   EXPECT_TRUE(cacheP->isValid());
-//   EXPECT_TRUE(cacheP->getFatalError() == eVideoCacheErrorOK);
-   EXPECT_TRUE(cacheP->frameCount() == frameCount);
-    
-    
-
+    UT_QtimeCache test (qmov);
+    EXPECT_EQ(0, test.run () );
 }
 
 TEST( ut_similarity, run )
