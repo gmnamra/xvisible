@@ -55,7 +55,7 @@ public:
                 mInfo.mWidth = mMovie->getWidth();
                 mInfo.mHeight = mMovie->getHeight();
                 mInfo.mFps = mMovie->getFramerate();
-                mInfo.mEmbeddedCount = mMovie->getFramerate();
+                mInfo.mEmbeddedCount = mMovie->getNumFrames ();
                 auto movObj = mMovie->getMovieHandle();
                 mInfo.mTscale = ::GetMovieTimeScale( movObj );
                 mMovie->checkPlayable();

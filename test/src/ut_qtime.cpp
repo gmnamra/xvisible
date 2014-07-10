@@ -168,7 +168,7 @@ uint32 UT_QtimeCache::run()
 
 void UT_QtimeCache::ctorTest()
 {
-  const uint32 frameCount = 29;
+  const uint32 frameCount = 56;
 
   QtimeCache* cacheP = QtimeCache::QtimeCacheCtor(fileName, 5);
 
@@ -219,21 +219,23 @@ void UT_QtimeCache::ctorTest()
    * maximum memory and cache size parameters. These numbers assume
    * the test movie contains 10 1K images.
    */
+#define PIXELCNT 256
+#define FRAMECNT 56
   vector<uint32> maxMemTests;
-  maxMemTests.push_back(512);
-  maxMemTests.push_back(5*1024);
-  maxMemTests.push_back(9*1024);
-  maxMemTests.push_back(10*1024);
-  maxMemTests.push_back(11*1024);
+  maxMemTests.push_back(PIXELCNT/2);
+  maxMemTests.push_back((FRAMECNT/2)*PIXELCNT);
+  maxMemTests.push_back((FRAMECNT-1)*PIXELCNT);
+  maxMemTests.push_back(FRAMECNT*PIXELCNT);
+  maxMemTests.push_back((FRAMECNT+1)*PIXELCNT);
 
   vector<uint32> frameCntTests;
   frameCntTests.push_back(0);
-  frameCntTests.push_back(2);
-  frameCntTests.push_back(5);
-  frameCntTests.push_back(7);
-  frameCntTests.push_back(9);
-  frameCntTests.push_back(10);
-  frameCntTests.push_back(12);
+  frameCntTests.push_back((FRAMECNT-8));
+  frameCntTests.push_back((FRAMECNT/2));
+  frameCntTests.push_back((FRAMECNT-3));
+  frameCntTests.push_back((FRAMECNT-1));
+  frameCntTests.push_back(FRAMECNT);
+  frameCntTests.push_back((FRAMECNT+2));
 
   vector<vector<uint32> >expResults(5);
   expResults[0].push_back(0);
@@ -244,37 +246,37 @@ void UT_QtimeCache::ctorTest()
   expResults[0].push_back(0);
   expResults[0].push_back(0);
 
-  expResults[1].push_back(5);
-  expResults[1].push_back(2);
-  expResults[1].push_back(5);
-  expResults[1].push_back(5);
-  expResults[1].push_back(5);
-  expResults[1].push_back(5);
-  expResults[1].push_back(5);
+  expResults[1].push_back((FRAMECNT/2));
+  expResults[1].push_back((FRAMECNT/2));
+  expResults[1].push_back((FRAMECNT/2));
+  expResults[1].push_back((FRAMECNT/2));
+  expResults[1].push_back((FRAMECNT/2));
+  expResults[1].push_back((FRAMECNT/2));
+  expResults[1].push_back((FRAMECNT/2));
 
-  expResults[2].push_back(9);
-  expResults[2].push_back(2);
-  expResults[2].push_back(5);
-  expResults[2].push_back(7);
-  expResults[2].push_back(9);
-  expResults[2].push_back(9);
-  expResults[2].push_back(9);
+  expResults[2].push_back((FRAMECNT-1));
+  expResults[2].push_back((FRAMECNT-8));
+  expResults[2].push_back((FRAMECNT/2));
+  expResults[2].push_back((FRAMECNT-3));
+  expResults[2].push_back((FRAMECNT-1));
+  expResults[2].push_back((FRAMECNT-1));
+  expResults[2].push_back((FRAMECNT-1));
 
-  expResults[3].push_back(10);
-  expResults[3].push_back(2);
-  expResults[3].push_back(5);
-  expResults[3].push_back(7);
-  expResults[3].push_back(9);
-  expResults[3].push_back(10);
-  expResults[3].push_back(10);
+  expResults[3].push_back(FRAMECNT);
+  expResults[3].push_back((FRAMECNT-8));
+  expResults[3].push_back((FRAMECNT/2));
+  expResults[3].push_back((FRAMECNT-3));
+  expResults[3].push_back((FRAMECNT-1));
+  expResults[3].push_back(FRAMECNT);
+  expResults[3].push_back(FRAMECNT);
 
-  expResults[4].push_back(10);
-  expResults[4].push_back(2);
-  expResults[4].push_back(5);
-  expResults[4].push_back(7);
-  expResults[4].push_back(9);
-  expResults[4].push_back(10);
-  expResults[4].push_back(10);
+  expResults[4].push_back(FRAMECNT);
+  expResults[4].push_back((FRAMECNT-8));
+  expResults[4].push_back((FRAMECNT/2));
+  expResults[4].push_back((FRAMECNT-3));
+  expResults[4].push_back((FRAMECNT-1));
+  expResults[4].push_back(FRAMECNT);
+  expResults[4].push_back(FRAMECNT);
 
 
   for (uint32 memIndex = 0; memIndex < maxMemTests.size(); memIndex++)
@@ -290,8 +292,8 @@ void UT_QtimeCache::ctorTest()
       }
       else {
 	rcUNITTEST_ASSERT(tcP->isValid() == true);
-	rcUNITTEST_ASSERT(tcP->cacheSize() ==
-			   expResults[memIndex][fcIndex]);
+	rcUNITTEST_ASSERT(tcP->cacheSize() == expResults[memIndex][fcIndex]);
+   //       std::cout << memIndex << " -- " << fcIndex << "  " << tcP->cacheSize() << " ? " << expResults[memIndex][fcIndex] << std::endl;
       }
 
       QtimeCache::QtimeCacheDtor(tcP);
@@ -302,18 +304,70 @@ void UT_QtimeCache::ctorTest()
 
 void UT_QtimeCache::mappingTest()
 {
-  const uint32 frameCount = 10;
+  const uint32 frameCount = 56;
   const uint32 extraCasesCount = 5;
   const uint32 totalCases = frameCount + extraCasesCount;
   
   double times[totalCases] = {
-    2., 3., 4., 10., 100.,
-    1000000000., 4294967296., 8589934592., 8589934593., 8589934594.,
-    0., 6., 8., 2000000000., 9000000000.
-  };
+      0.033333
+      ,0.066666
+      ,0.098333
+      ,0.13
+      ,0.165
+      ,0.198333
+      ,0.231666
+      ,0.261666
+      ,0.295
+      ,0.33
+      ,0.363333
+      ,0.396666
+      ,0.428333
+      ,0.461666
+      ,0.495
+      ,0.526666
+      ,0.561666
+      ,0.591666
+      ,0.625
+      ,0.66
+      ,0.691666
+      ,0.726666
+      ,0.756666
+      ,0.791666
+      ,0.823333
+      ,0.858333
+      ,0.89
+      ,0.923333
+      ,0.955
+      ,0.99
+      ,1.02167
+      ,1.055
+      ,1.08833
+      ,1.12167
+      ,1.15333
+      ,1.18833
+      ,1.22167
+      ,1.25167
+      ,1.285
+      ,1.32
+      ,1.35333
+      ,1.385
+      ,1.41667
+      ,1.45167
+      ,1.485
+      ,1.51667
+      ,1.55
+      ,1.58333
+      ,1.61667
+      ,1.64833
+      ,1.68167
+      ,1.71667
+      ,1.74833
+      ,1.78
+      ,1.815,
+    0., 6., 8., 2000000000., 9000000000. };
 
   QtimeCache* cacheP = QtimeCache::QtimeCacheCtor(fileName, 5, true,
-							false, false);
+							false);
   rmAssert(frameCount == cacheP->frameCount());
 
   rcTimestamp actual;
@@ -325,6 +379,7 @@ void UT_QtimeCache::mappingTest()
    */
   for (uint32 i = 0; i < frameCount; i++) {
     status = cacheP->frameIndexToTimestamp(i, actual, &error);
+      std::cout << actual.secs() << " [" << i << "]" << times[i] << std::endl;
     rcUNITTEST_ASSERT(status == eQtimeCacheStatusOK);
     if (status == eQtimeCacheStatusOK)
       rcUNITTEST_ASSERT(actual.secs() == times[i]);
@@ -352,21 +407,61 @@ void UT_QtimeCache::mappingTest()
    */
   {
     double expected[totalCases] = {
-      /* 00 */ 2.,
-      /* 01 */ 3.,
-      /* 02 */ 4.,
-      /* 03 */ 10.,
-      /* 04 */ 100.,
-      /* 05 */ 1000000000.,
-      /* 06 */ 4294967296., 
-      /* 07 */ 8589934592.,
-      /* 08 */ 8589934593.,
-      /* 09 */ 8589934594.,
-      /* 10 */ 2.,
-      /* 11 */ 4.,
-      /* 12 */ 10.,
-      /* 13 */ 1000000000.,
-      /* 14 */ 8589934594.
+        0.033333
+        ,0.066666
+        ,0.098333
+        ,0.13
+        ,0.165
+        ,0.198333
+        ,0.231666
+        ,0.261666
+        ,0.295
+        ,0.33
+        ,0.363333
+        ,0.396666
+        ,0.428333
+        ,0.461666
+        ,0.495
+        ,0.526666
+        ,0.561666
+        ,0.591666
+        ,0.625
+        ,0.66
+        ,0.691666
+        ,0.726666
+        ,0.756666
+        ,0.791666
+        ,0.823333
+        ,0.858333
+        ,0.89
+        ,0.923333
+        ,0.955
+        ,0.99
+        ,1.02167
+        ,1.055
+        ,1.08833
+        ,1.12167
+        ,1.15333
+        ,1.18833
+        ,1.22167
+        ,1.25167
+        ,1.285
+        ,1.32
+        ,1.35333
+        ,1.385
+        ,1.41667
+        ,1.45167
+        ,1.485
+        ,1.51667
+        ,1.55
+        ,1.58333
+        ,1.61667
+        ,1.64833
+        ,1.68167
+        ,1.71667
+        ,1.74833
+        ,1.78
+        ,1.815
     };
 
     for (uint32 i = 0; i < totalCases; i++) {
@@ -401,6 +496,7 @@ void UT_QtimeCache::mappingTest()
       /* 12 */ { eQtimeCacheErrorOK, eQtimeCacheStatusOK, 4. },
       /* 13 */ { eQtimeCacheErrorOK, eQtimeCacheStatusOK, 1000000000. },
       /* 14 */ { eQtimeCacheErrorOK, eQtimeCacheStatusOK, 8589934594. }
+        
     };
 
     for (uint32 i = 0; i < totalCases; i++) {
