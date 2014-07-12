@@ -179,7 +179,7 @@ _progressIndicator(pIndicator)
     _impl = boost::shared_ptr<QtimeCache::qtImpl> ( new QtimeCache::qtImpl (fileName) );
 
     // calling this will actually load the movie
-    auto minfo = _impl->movie_info();
+    m_ginfo = _impl->movie_info();
     
     if (! _impl->isValid())
     {
@@ -189,11 +189,11 @@ _progressIndicator(pIndicator)
     }
   
     
-    _frameWidth = minfo.mWidth;
-    _frameHeight = minfo.mHeight;
+    _frameWidth = m_ginfo.mWidth;
+    _frameHeight = m_ginfo.mHeight;
     _frameDepth = rcPixel8;
-    _averageFrameRate = minfo.mFps;
-    _frameCount = minfo.mEmbeddedCount;
+    _averageFrameRate = m_ginfo.mFps;
+    _frameCount = m_ginfo.mEmbeddedCount;
     
     _baseTime = 0;
     
@@ -261,13 +261,17 @@ eQtimeCacheError  QtimeCache::tocLoad()
     {
         frametimes[fn] = rcTimestamp::from_seconds(raws->at(fn)/dscale);
     }
-    for (uint32 frameIndex = 0; frameIndex < _frameCount; frameIndex++) {
-        if (frameIndex != 0)
-            rmAssert(frametimes[frameIndex] > frametimes[frameIndex-1]);
-        
+    for (uint32 frameIndex = 0; frameIndex < _frameCount; frameIndex++)
+    {
+        if (frameIndex != 0) rmAssert(frametimes[frameIndex] > frametimes[frameIndex-1]);
         _tocItoT[frameIndex] = frametimes[frameIndex];
         _tocTtoI[frametimes[frameIndex]] = frameIndex;
     }
+    for (int fn=0; fn<_frameCount; fn++)
+    {
+        rmAssert (_tocTtoI[frametimes[fn]] == fn);
+    }
+    
 
     return  eQtimeCacheErrorFileRead;
 }

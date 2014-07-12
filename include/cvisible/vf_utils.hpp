@@ -46,6 +46,19 @@ namespace vf_utils
         }
     }
     
+    namespace general_movie
+    {
+        struct info
+        {
+            uint32 mEmbeddedCount;
+            uint32 mWidth;
+            uint32 mHeight;
+            double mFps;
+            double mTscale;
+        };
+
+    }
+    
     namespace csv
     {
         typedef std::vector<float> rowf_t;

@@ -338,7 +338,7 @@ private:
     bool                                 _isValid;
     eQtimeCacheError                    _fatalError;
     const std::string                       _fileName;
-    
+    vf_utils::general_movie::info      m_ginfo;
     uint32                             _bytesInFrame;
     uint32                             _frameCount;
     uint32                             _frameWidth;

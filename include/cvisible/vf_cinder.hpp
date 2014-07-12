@@ -16,7 +16,7 @@
 #include "rc_fileutils.h"
 #include <stlplus_lite.hpp>
 #include "qtime_cache.h"
-
+#include "vf_utils.hpp"
 #include "sshist.hpp"
 
 #include <fstream>
@@ -29,15 +29,7 @@ using namespace std;
 
 class QtimeCache::qtImpl
 {
-    struct info
-    {
-        uint32 mEmbeddedCount;
-        uint32 mWidth;
-        uint32 mHeight;
-        double mFps;
-        double mTscale;
-    };
-public:
+ public:
     // ctor
     qtImpl( const std::string fqfn) : mFqfn (fqfn), mValid (false)
     {
@@ -78,7 +70,7 @@ public:
         return mValid;
     }
     
-    info movie_info ()
+    vf_utils::general_movie::info movie_info ()
     {
         std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
         return mInfo;
@@ -159,7 +151,7 @@ public:
     }
     
 private:
-    qtImpl::info mInfo;
+    vf_utils::general_movie::info mInfo;
     mutable std::once_flag mMovie_loaded_flag;
     std::string mFqfn;
     ci::qtime::MovieSurfaceRef    mMovie;
