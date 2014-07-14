@@ -138,6 +138,7 @@
 		C2E0EEB2194245E4003394C7 /* InteractiveObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InteractiveObject.h; path = ../../include/cvisible/InteractiveObject.h; sourceTree = "<group>"; };
 		C2E0EEB3194245F3003394C7 /* InteractiveObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InteractiveObject.cpp; sourceTree = "<group>"; };
 		C2E78DF6190B32C000F586E2 /* cash_satisfied_mind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = cash_satisfied_mind.mp3; path = ../resources/assets/cash_satisfied_mind.mp3; sourceTree = "<group>"; };
+		C2F1009D19744C500070BB7B /* video_cache_manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = video_cache_manager.h; path = ../../include/vf/video_cache_manager.h; sourceTree = "<group>"; };
 		C2FB26FB1921C943003A48B7 /* cv_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = cv_debug.xcconfig; path = configs/cv_debug.xcconfig; sourceTree = "<group>"; };
 		C2FB26FD1921D2F6003A48B7 /* ut_framebuf.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ut_framebuf.cpp; path = ../test/src/ut_framebuf.cpp; sourceTree = "<group>"; };
 		C2FB26FF1921D30C003A48B7 /* ut_videocache.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ut_videocache.cpp; path = ../test/src/ut_videocache.cpp; sourceTree = "<group>"; };
@@ -293,6 +294,7 @@
 		C21733FB190B175500A01365 /* cvisible */ = {
 			isa = PBXGroup;
 			children = (
+				C2F1009D19744C500070BB7B /* video_cache_manager.h */,
 				C20986A9196357CB005325A2 /* gutc.cpp */,
 				C209869D195CF8C8005325A2 /* dict.ipp */,
 				C2631598195CC0A800CF71B1 /* qtime_cache.cpp */,

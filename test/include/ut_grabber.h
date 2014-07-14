@@ -14,7 +14,7 @@
 class utGrabber : public rcFrameGrabber {
   public:
     // ctor
-    utGrabber(vector<rcSharedFrameBufPtr>& buffers)
+    utGrabber(vector<rcFrameRef>& buffers)
       : _buffers(buffers), _isValid (buffers.size()), _currentIndex(0),
         _lastError(eFrameErrorOK)
     { }
@@ -48,7 +48,7 @@ class utGrabber : public rcFrameGrabber {
     virtual int32 cacheSize() { return 0; }
 
     // Get next frame, assign the frame to ptr
-    virtual rcFrameGrabberStatus getNextFrame(rcSharedFrameBufPtr& ptr, bool)
+    virtual rcFrameGrabberStatus getNextFrame(rcFrameRef& ptr, bool)
     {
       if (_currentIndex < _buffers.size()) {
 	ptr = _buffers[_currentIndex++];
@@ -64,7 +64,7 @@ class utGrabber : public rcFrameGrabber {
     virtual const std::string getInputSourceName() { return "Unit Test Grabber"; }
     
   private:
-    vector<rcSharedFrameBufPtr>& _buffers;
+    vector<rcFrameRef>& _buffers;
     bool                           _isValid;
     uint32                       _currentIndex; // Index to next image
     rcFrameGrabberError            _lastError;

@@ -28,7 +28,7 @@ UT_Window::run() {
 
     // rcWindow basic tests
     {
-        rcSharedFrameBufPtr ptr = new rcFrame( 640, 480, rcPixel8 );
+        rcFrameRef ptr = new rcFrame( 640, 480, rcPixel8 );
         rcUNITTEST_ASSERT( ptr->refCount() == 1 );
         rcWindow window1( ptr, 0, 0, 100, 120 );
         rcUNITTEST_ASSERT( ptr->refCount() == 2 );
@@ -42,7 +42,7 @@ UT_Window::run() {
 
     // Large & Small windows
     {
-        rcSharedFrameBufPtr ptr = new rcFrame( 64, 48, rcPixel8 );
+        rcFrameRef ptr = new rcFrame( 64, 48, rcPixel8 );
 
         for ( int32 x = 0; x < ptr->width(); x++ ) {
             for ( int32 y = 0; y < ptr->height(); y++ ) {
@@ -54,7 +54,7 @@ UT_Window::run() {
 
     // rowPointer Test
     {
-        rcSharedFrameBufPtr ptr = new rcFrame( 23, 37, rcPixel8 );
+        rcFrameRef ptr = new rcFrame( 23, 37, rcPixel8 );
 
         for ( int32 x = 0; x < ptr->width(); x++ ) {
             for ( int32 y = 0; y < ptr->height(); y++ ) {
@@ -130,7 +130,7 @@ UT_Window::run() {
     return 0;
 }
 
-void UT_Window::testWindow( int32 x, int32 y, int32 width, int32 height, rcSharedFrameBufPtr& buf )
+void UT_Window::testWindow( int32 x, int32 y, int32 width, int32 height, rcFrameRef& buf )
 {
  
     int32 oldRefCount = buf.refCount();
@@ -180,7 +180,7 @@ void UT_Window::testWindow( int32 x, int32 y, int32 width, int32 height, rcShare
 
 }
 
-void UT_Window::testSubWindows( int32 x, int32 y, int32 width, int32 height, rcSharedFrameBufPtr& buf )
+void UT_Window::testSubWindows( int32 x, int32 y, int32 width, int32 height, rcFrameRef& buf )
 {
  
     int32 oldRefCount = buf.refCount();
@@ -236,7 +236,7 @@ void UT_Window::testSubWindows( int32 x, int32 y, int32 width, int32 height, rcS
     // Test windowRelativeTo(). Note that this can trigger changes in parent
     // frame reference counting, so create an extra frame to test this feature.
     //
-    rcSharedFrameBufPtr buf2 = new rcFrame( 640, 480, rcPixel8 );
+    rcFrameRef buf2 = new rcFrame( 640, 480, rcPixel8 );
 
     int32 oldRefCount2 = buf2.refCount();
 
@@ -285,7 +285,7 @@ void UT_Window::testSubWindows( int32 x, int32 y, int32 width, int32 height, rcS
     // Test Copy and Assignment. Note that this can trigger changes in parent
     // frame reference counting, so create an extra frame to test this feature.
     //
-    rcSharedFrameBufPtr buf3 = new rcFrame( 640, 480, rcPixel8 );
+    rcFrameRef buf3 = new rcFrame( 640, 480, rcPixel8 );
 
     int32 oldRefCount3 = buf3.refCount();
 
@@ -305,19 +305,19 @@ void UT_Window::testSubWindows( int32 x, int32 y, int32 width, int32 height, rcS
 
     rcReturn (rw4);
 
-    rcSharedFrameBufPtr fb = rw4.frameBuf ();
+    rcFrameRef fb = rw4.frameBuf ();
 
     rcUNITTEST_ASSERT( fb->refCount() == 2);
 
     rcWindow rw5 = rcReturn2 ();
 
-    rcSharedFrameBufPtr fb2 = rw5.frameBuf ();
+    rcFrameRef fb2 = rw5.frameBuf ();
 
     rcUNITTEST_ASSERT( fb2->refCount() == 2);
    
 }
 
-void UT_Window::testRowPointers(int32 x, int32 y, int32 width, int32 height,  rcSharedFrameBufPtr& buf)
+void UT_Window::testRowPointers(int32 x, int32 y, int32 width, int32 height,  rcFrameRef& buf)
 {
     rcWindow win( buf, x, y, width, height);
   
@@ -390,7 +390,7 @@ void UT_WindowMutator::setTest ()
     {
         // Setup base frame
         rcPixel depth = depths[d];
-        rcSharedFrameBufPtr buf = new rcFrame( 640, 480, depth );
+        rcFrameRef buf = new rcFrame( 640, 480, depth );
         uint32 pixelMask = pixelMasks[d];
         
         for (int32 w = 0; w < widthCount; w++)
@@ -453,8 +453,8 @@ void UT_WindowMutator::copyTest ()
     {
         // Setup base frame
         rcPixel depth = depths[d];
-        rcSharedFrameBufPtr buf = new rcFrame( 640, 480, depth );
-        rcSharedFrameBufPtr srcbuf = new rcFrame( 640, 480, depth );
+        rcFrameRef buf = new rcFrame( 640, 480, depth );
+        rcFrameRef srcbuf = new rcFrame( 640, 480, depth );
 
         // Set up a source buffer with all unique pixel values (well, in 8 bit case it won't
         // be unique, but hopefully close enough -- maybe this can get revisited).
@@ -522,10 +522,10 @@ void UT_WindowMutator::randomTest ()
 
     for ( int32 width = 32; width < maxWidth; width*=2 ) {
         for ( int32 height = 32; height < maxHeight; height*=2 ) {
-            rcSharedFrameBufPtr buf1 = new rcFrame( width, height, rcPixel32S );
-            rcSharedFrameBufPtr buf2 = new rcFrame( width, height, rcPixel32S );
-            rcSharedFrameBufPtr buf3 = new rcFrame( width, height, rcPixel8 );
-            rcSharedFrameBufPtr buf4 = new rcFrame( width, height, rcPixel8 );
+            rcFrameRef buf1 = new rcFrame( width, height, rcPixel32S );
+            rcFrameRef buf2 = new rcFrame( width, height, rcPixel32S );
+            rcFrameRef buf3 = new rcFrame( width, height, rcPixel8 );
+            rcFrameRef buf4 = new rcFrame( width, height, rcPixel8 );
             
             rcWindow w1( buf1 );
             rcWindow w2( buf2 );
@@ -624,7 +624,7 @@ void UT_WindowMutator::mirrorTest()
     for ( int32 incr = 0; incr < 3; ++incr ) {
         for ( int32 width = 1; width < maxWidth; width = width*2 + incr ) {
             for ( int32 height = 1; height < maxHeight; height = height*2 + incr ) {
-                rcSharedFrameBufPtr buf8 = new rcFrame( width, height, rcPixel8 );
+                rcFrameRef buf8 = new rcFrame( width, height, rcPixel8 );
                 rcWindow w8( buf8 );
                 testMirror( w8 );
             }
@@ -637,8 +637,8 @@ void UT_WindowMutator::mirrorTest()
     for ( int32 incr = 0; incr < 3; ++incr ) {
         for ( int32 width = 1; width < maxWidth; width = width*3 + incr ) {
             for ( int32 height = 1; height < maxHeight; height = height*4 + incr ) {
-                rcSharedFrameBufPtr buf32 = new rcFrame( width, height, rcPixel32S );
-                rcSharedFrameBufPtr buf16 = new rcFrame( width, height, rcPixel16 );
+                rcFrameRef buf32 = new rcFrame( width, height, rcPixel32S );
+                rcFrameRef buf16 = new rcFrame( width, height, rcPixel16 );
                 rcWindow w32( buf32 );
                 rcWindow w16( buf16 );
                 testMirror( w32 );

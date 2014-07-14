@@ -133,7 +133,7 @@ class rcMovieConverter {
     // Accessors
     //
     bool verbose() const { return mVerbose; }
-    rcSharedFrameBufPtr clippedFrame( rcSharedFrameBufPtr orig,
+    rcFrameRef clippedFrame( rcFrameRef orig,
                                        rcMovieConverterOptions opt );
     //
     // Mutators

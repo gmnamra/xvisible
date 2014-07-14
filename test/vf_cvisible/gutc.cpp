@@ -131,7 +131,7 @@ TEST( ut_similarity, run )
 
 TEST( UT_FrameBuf, run )
 {
-    std::vector<rcSharedFrameBufPtr> bufs;
+    std::vector<rcFrameRef> bufs;
     bufs.resize (29);
     for (int i = 0; i < 29; i++)
         std::cout << (uint64)(&bufs[i]) << std::endl;
@@ -173,14 +173,14 @@ TEST(cinder_qtime_grabber, run)
     // Grab everything
     EXPECT_TRUE (grabber->start());
     EXPECT_TRUE (grabber->frameCount() == 56);
-    std::vector<rcSharedFrameBufPtr> images;
+    std::vector<rcFrameRef> images;
     // Note: infinite loop
     for( i = 0; ; ++i )
     {
         rcTimestamp curTimeStamp;
         rcRect videoFrame;
         rcWindow image, tmp;
-        rcSharedFrameBufPtr framePtr;
+        rcFrameRef framePtr;
         rcFrameGrabberStatus status = grabber->getNextFrame( framePtr, true );
         EXPECT_TRUE((status == rcFrameGrabberStatus::eFrameStatusEOF || status == rcFrameGrabberStatus::eFrameStatusOK ) );
         if (status != rcFrameGrabberStatus::eFrameStatusOK) break;
@@ -214,7 +214,7 @@ TEST(cinder_qtime_grabber_and_similarity, run)
     // Grab everything
     EXPECT_TRUE (grabber->start());
     EXPECT_TRUE (grabber->frameCount() == 56);
-    //    std::vector<rcSharedFrameBufPtr> images;
+    //    std::vector<rcFrameRef> images;
     std::vector<rcWindow> images;
     // Note: infinite loop
     for( i = 0; ; ++i )
@@ -222,7 +222,7 @@ TEST(cinder_qtime_grabber_and_similarity, run)
         rcTimestamp curTimeStamp;
         rcRect videoFrame;
         rcWindow image, tmp;
-        rcSharedFrameBufPtr framePtr;
+        rcFrameRef framePtr;
         rcFrameGrabberStatus status = grabber->getNextFrame( framePtr, true );
         EXPECT_TRUE((status == rcFrameGrabberStatus::eFrameStatusEOF || status == rcFrameGrabberStatus::eFrameStatusOK ) );
         if (status == rcFrameGrabberStatus::eFrameStatusEOF) break;

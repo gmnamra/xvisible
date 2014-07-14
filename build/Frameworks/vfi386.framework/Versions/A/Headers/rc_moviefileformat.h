@@ -107,7 +107,7 @@ class rcMovieFileFormat
     // ctors
     rcMovieFileFormat();
     rcMovieFileFormat( movieFormatRev rev );
-    rcMovieFileFormat( const rcSharedFrameBufPtr& frame,
+    rcMovieFileFormat( const rcFrameRef& frame,
                        movieFormatRev rev = movieFormatInvalid );
 
     // Write header to stream in binary format
@@ -167,7 +167,7 @@ class rcMovieFileFormat2
     // ctors
     rcMovieFileFormat2();
     rcMovieFileFormat2( movieFormatRev rev );
-    rcMovieFileFormat2( const rcSharedFrameBufPtr& frame,
+    rcMovieFileFormat2( const rcFrameRef& frame,
                         movieFormatRev rev = movieFormatInvalid );
     
     // Write header to stream in binary format

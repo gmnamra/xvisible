@@ -100,7 +100,7 @@ class QtimeCache::qtImpl
         return mInfo.mTscale;
     }
     
-    void getSurfaceAndCopy (rcSharedFrameBufPtr& ptr)
+    void getSurfaceAndCopy (rcFrameRef& ptr)
     {
         std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
         

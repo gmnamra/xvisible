@@ -17,7 +17,7 @@
 #include "rc_videocache.h"
 
 typedef struct rsPlayElement {
-  rcSharedFrameBufPtr buf;
+  rcFrameRef buf;
   uint32 duration;
 };
 

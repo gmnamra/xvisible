@@ -267,7 +267,7 @@ int SimilarityProducer::spImpl::loadFrames( rcFrameGrabber& grabber, rcFrameGrab
 			rcRect videoFrame;
 			rcWindow image, tmp;
 			rcVideoCacheError error;
-			rcSharedFrameBufPtr framePtr;
+			rcFrameRef framePtr;
 			rcFrameGrabberStatus status = grabber.getNextFrame( framePtr, true );
             std::cout << i << std::endl;
             

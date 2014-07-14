@@ -115,6 +115,19 @@ static ostream& operator << ( ostream& os, const rcPixel& rpe )
 }
 
 
+//
+// RGB component handling functions
+//
+// Color component (r,g,b) value range is 0-255
+
+#define rfAlpha(rgb) 	(((rgb) >> 24) & 0xff)
+#define rfRed(rgb) 	(((rgb) >> 16) & 0xff)
+#define rfGreen(rgb) 	(((rgb) >> 8) & 0xff)
+#define rfBlue(rgb) 	((rgb) & 0xff)
+#define rfRgb(r,g,b)  ((0xff << 24) | (((r) & 0xff) << 16) | (((g) & 0xff) << 8) | ((b) & 0xff))
+
+inline uint32 rfGray( uint32 r, uint32 g, uint32 b ) { return (r+g+b+2)/3; }
+
 
 
 

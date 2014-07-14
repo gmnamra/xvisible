@@ -93,30 +93,30 @@ UT_FrameBuf::run()
 
     }
 
-    // rcSharedFrameBufPtr basic tests   
+    // rcFrameRef basic tests   
     {
-        // Constructor rcSharedFrameBufPtr( rcFrame* p )
-        rcSharedFrameBufPtr buf( new rcFrame( 640, 480, rcPixel8 ) );
+        // Constructor rcFrameRef( rcFrame* p )
+        rcFrameRef buf( new rcFrame( 640, 480, rcPixel8 ) );
 
         rcUNITTEST_ASSERT( buf->refCount() == 1 );
 
-        // Constructor rcSharedFrameBufPtr( const rcSharedFrameBufPtr& p )
-        rcSharedFrameBufPtr share1( buf );
+        // Constructor rcFrameRef( const rcFrameRef& p )
+        rcFrameRef share1( buf );
 
         rcUNITTEST_ASSERT( share1.refCount() == 2 );
         {
-            rcSharedFrameBufPtr share2( buf );
+            rcFrameRef share2( buf );
             rcUNITTEST_ASSERT( share2.refCount() == 3 );
         }
         rcUNITTEST_ASSERT( share1.refCount() == 2 );
     }
 
-    // rcSharedFrameBufPtr operators
+    // rcFrameRef operators
     {
         rcFrame* buf = new rcFrame( 640, 480, rcPixel8 ); 
-        rcSharedFrameBufPtr p3 = buf;
+        rcFrameRef p3 = buf;
         rcUNITTEST_ASSERT( p3.refCount() == 1 );
-        rcSharedFrameBufPtr p4 = buf;
+        rcFrameRef p4 = buf;
         rcUNITTEST_ASSERT( p3.refCount() == 2 );
 
         // Comparison operators
@@ -129,8 +129,8 @@ UT_FrameBuf::run()
 
         // Assignment operators
         {
-            rcSharedFrameBufPtr p  = new rcFrame( 640, 480, rcPixel8 ); // sample #1
-            rcSharedFrameBufPtr p2 = new rcFrame( 640, 480, rcPixel8 ); // sample #2
+            rcFrameRef p  = new rcFrame( 640, 480, rcPixel8 ); // sample #1
+            rcFrameRef p2 = new rcFrame( 640, 480, rcPixel8 ); // sample #2
             p = p2; 
             rcUNITTEST_ASSERT( p.refCount() == 2 );
         }
@@ -246,7 +246,7 @@ void UT_FrameBuf::testFrameBuffer( int32 width, int32 height, rcPixel depth )
 
 void UT_FrameBuf::testRowPointers( int32 width, int32 height, rcPixel depth )
 {
-    rcSharedFrameBufPtr buf (new rcFrame( width, height, depth ) );
+    rcFrameRef buf (new rcFrame( width, height, depth ) );
 
    // Accessor tests
    rcUNITTEST_ASSERT( buf->refCount() == 1 );

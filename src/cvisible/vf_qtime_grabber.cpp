@@ -13,7 +13,7 @@ bool vf_utils::qtime_support::CinderQtimeGrabber::start() { return _impl->start 
 bool vf_utils::qtime_support::CinderQtimeGrabber::stop() { return _impl->stop (); }
 int32 vf_utils::qtime_support::CinderQtimeGrabber::frameCount() { return _impl->frameCount (); }
 int32 vf_utils::qtime_support::CinderQtimeGrabber::cacheSize() { return _impl->cacheSize (); }
-rcFrameGrabberStatus vf_utils::qtime_support::CinderQtimeGrabber::getNextFrame( rcSharedFrameBufPtr& ptr, bool isBlocking )
+rcFrameGrabberStatus vf_utils::qtime_support::CinderQtimeGrabber::getNextFrame( rcFrameRef& ptr, bool isBlocking )
 {
    return _impl->getNextFrame (ptr, isBlocking );
 }

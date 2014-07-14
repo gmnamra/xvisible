@@ -370,7 +370,7 @@ void rfRcWindow8to32(const rcWindow& rgbInput, rcWindow& rgbOutput)
     
     const uint32 width = rgbInput.width();
     const uint32 height = rgbInput.height();
-    const rcSharedFrameBufPtr& iFrame = rgbInput.frameBuf();
+    const rcFrameRef& iFrame = rgbInput.frameBuf();
  
     // TODO: use AltiVec for this
     for (uint32 j = 0; j < height; j++)
@@ -448,7 +448,7 @@ void rfReversePixels16(rcWindow& image)
 bool rfIsWhiteReversed(const rcWindow& image)
 {
     bool isWhiteReversed = false;
-    const rcSharedFrameBufPtr& frame = image.frameBuf();
+    const rcFrameRef& frame = image.frameBuf();
     
     if ( frame->colorMap() != 0 && frame->colorMapSize() > 0 &&
          frame->isGray() ) {

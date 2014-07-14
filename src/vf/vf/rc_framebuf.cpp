@@ -15,9 +15,9 @@
 
 using namespace cv;
 
-rcMutex* rcSharedFrameBufPtr::frameMutexP = 0;
+rcMutex* rcFrameRef::frameMutexP = 0;
 
-rcMutex& rcSharedFrameBufPtr::getMutex()
+rcMutex& rcFrameRef::getMutex()
 {
   if (!frameMutexP)
     frameMutexP = new rcMutex();
@@ -367,24 +367,36 @@ double rcFrame::operator() (double xDb, double yDb) const
   rmAssert (0);
 }
 
-void rcSharedFrameBufPtr::prefetch() const
+void rcFrameRef::lock() const
 {
-  if ((mFrameBuf == 0) && mCacheCtrl)
-    rcVideoCache::cachePrefetch(mCacheCtrl, mFrameIndex);
+    const_cast<rcFrameRef*>(this)->internalLock();
 }
 
-void rcSharedFrameBufPtr::internalLock()
+
+void rcFrameRef::unlock() const
+{
+    const_cast<rcFrameRef*>(this)->internalUnlock(false);
+}
+
+void rcFrameRef::prefetch() const
+{
+  if ((mFrameBuf == 0) && mCacheCtrl)
+  {
+     rcVideoCache::cachePrefetch(mCacheCtrl, mFrameIndex);
+  }
+}
+
+void rcFrameRef::internalLock()
 {
 #ifdef DEBUG_MEM        
-    cerr << "rcSharedFrameBufPtr lock: " << mFrameBuf << endl;
+    cerr << "rcFrameRef lock: " << mFrameBuf << endl;
 #endif
     if ( !mFrameBuf && mCacheCtrl ) {
         rcVideoCacheStatus status;
 	rcVideoCacheError error;
-	status = rcVideoCache::cacheLock(mCacheCtrl, mFrameIndex, *this,
-					 &error);
+	status = rcVideoCache::cacheLock(mCacheCtrl, mFrameIndex, *this, &error);
 #ifdef DEBUG_MEM        
-	cerr << "   Cached rcSharedFrameBufPtr " << mFrameBuf
+	cerr << "   Cached rcFrameRef " << mFrameBuf
 	     << " Status " << status << " refCount ";
 	rcLock frmLock(getMutex());
 	if ( mFrameBuf )
@@ -395,10 +407,10 @@ void rcSharedFrameBufPtr::internalLock()
     }
 }
 
-void rcSharedFrameBufPtr::internalUnlock(bool force)
+void rcFrameRef::internalUnlock(bool force)
 {
 #ifdef DEBUG_MEM        
-    cerr << "rcSharedFrameBufPtr unlock: " << mFrameBuf << endl;
+    cerr << "rcFrameRef unlock: " << mFrameBuf << endl;
 #endif
     if ( mFrameBuf && (mCacheCtrl || force)) {
         bool cacheUnlock = false;

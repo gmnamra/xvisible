@@ -67,7 +67,7 @@ int32 rcImageGrabber::frameCount()
 }
 
 // Get next frame, assign the frame to ptr
-rcFrameGrabberStatus rcImageGrabber::getNextFrame( rcSharedFrameBufPtr& ptr, bool isBlocking )
+rcFrameGrabberStatus rcImageGrabber::getNextFrame( rcFrameRef& ptr, bool isBlocking )
 {
     lock();
     rcFrameGrabberStatus ret = eFrameStatusError;    

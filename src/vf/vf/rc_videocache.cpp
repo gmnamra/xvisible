@@ -401,7 +401,7 @@ rcVideoCache::~rcVideoCache()
 }
 
 rcVideoCacheStatus rcVideoCache::getFrame(uint32 frameIndex,
-                                          rcSharedFrameBufPtr& frameBuf,
+                                          rcFrameRef& frameBuf,
                                           rcVideoCacheError* error,
                                           bool locked)
 {
@@ -437,7 +437,7 @@ rcVideoCacheStatus rcVideoCache::getFrame(uint32 frameIndex,
 }
 
 rcVideoCacheStatus rcVideoCache::getFrame(const rcTimestamp& time,
-                                          rcSharedFrameBufPtr& frameBuf,
+                                          rcFrameRef& frameBuf,
                                           rcVideoCacheError* error,
                                           bool locked)
 {
@@ -841,7 +841,7 @@ void rcVideoCache::setError (rcVideoCacheError error)
 
 rcVideoCacheStatus
 rcVideoCache::internalGetFrame(uint32 frameIndex,
-                               rcSharedFrameBufPtr& frameBufPtr,
+                               rcFrameRef& frameBufPtr,
                                rcVideoCacheError* error,
                                const uint32 dToken)
 {
@@ -868,7 +868,7 @@ rcVideoCache::internalGetFrame(uint32 frameIndex,
      * with the idea of allowing other threads concurrent access to the
      * cache.
      */
-    rcSharedFrameBufPtr* cacheFrameBufPtr;
+    rcFrameRef* cacheFrameBufPtr;
     
     if (cacheAlloc(frameIndex, frameBufPtr, cacheFrameBufPtr, dToken) ==
         eVideoCacheStatusOK) {
@@ -964,8 +964,8 @@ rcVideoCache::internalGetFrame(uint32 frameIndex,
 
 rcVideoCacheStatus
 rcVideoCache::cacheAlloc(uint32 frameIndex,
-                         rcSharedFrameBufPtr& userFrameBuf,
-                         rcSharedFrameBufPtr*& cacheFrameBufPtr,
+                         rcFrameRef& userFrameBuf,
+                         rcFrameRef*& cacheFrameBufPtr,
                          const uint32 dToken)
 {
 #ifndef VID_TRACE
@@ -978,11 +978,11 @@ rcVideoCache::cacheAlloc(uint32 frameIndex,
     /* First, look to see if the frame has been cached. If so, return
      * it to the caller.
      */
-    map<uint32, rcSharedFrameBufPtr*>::iterator cachedEntryPtr;
+    map<uint32, rcFrameRef*>::iterator cachedEntryPtr;
     cachedEntryPtr = _cachedFramesItoB.find(frameIndex);
     
     if (cachedEntryPtr != _cachedFramesItoB.end()) {
-        rcSharedFrameBufPtr* bufPtr = cachedEntryPtr->second;
+        rcFrameRef* bufPtr = cachedEntryPtr->second;
         rmAssert((*bufPtr)->frameIndex() == frameIndex);
         
         /* If frame is in the unlocked map, remove it so no one else
@@ -1028,10 +1028,10 @@ rcVideoCache::cacheAlloc(uint32 frameIndex,
      * buffer to the pending list and return to caller to allow
      * him to wait for load to complete.
      */
-    map<uint32, vector<rcSharedFrameBufPtr*> >::iterator pendingEntry;
+    map<uint32, vector<rcFrameRef*> >::iterator pendingEntry;
     pendingEntry = _pending.find(frameIndex);
     if (pendingEntry != _pending.end()) {
-        vector<rcSharedFrameBufPtr*>& pendingBuffers = pendingEntry->second;
+        vector<rcFrameRef*>& pendingBuffers = pendingEntry->second;
         pendingBuffers.push_back(&userFrameBuf);
         return eVideoCacheStatusError;
     }
@@ -1054,7 +1054,7 @@ rcVideoCache::cacheAlloc(uint32 frameIndex,
         _unusedCacheFrames.pop_front();
         if (*cacheFrameBufPtr == 0) {
             *cacheFrameBufPtr =
-            rcSharedFrameBufPtr(new rcFrame(frameWidth(),
+            rcFrameRef(new rcFrame(frameWidth(),
                                             frameHeight(),
                                             frameDepth()));
             rmAssert(*cacheFrameBufPtr != 0);
@@ -1147,7 +1147,7 @@ rcVideoCache::cacheAlloc(uint32 frameIndex,
 
 rcVideoCacheStatus
 rcVideoCache::cacheInsert(uint32 frameIndex,
-                          rcSharedFrameBufPtr& cacheFrameBuf,
+                          rcFrameRef& cacheFrameBuf,
                           const uint32 dToken)
 {
 #ifndef VID_TRACE
@@ -1661,7 +1661,7 @@ void rcVideoCache::unlockFrame(uint32 frameIndex)
     rcLock lock(_cacheMutex);
     ADD_VID_TRACE(fnUnlockFrame, true, frameIndex, 0, dToken);
     
-    map<uint32, rcSharedFrameBufPtr*>::iterator cachedEntryPtr;
+    map<uint32, rcFrameRef*>::iterator cachedEntryPtr;
     cachedEntryPtr = _cachedFramesItoB.find(frameIndex);
     
     /* If someone else has already removed this frame from the
@@ -1676,7 +1676,7 @@ void rcVideoCache::unlockFrame(uint32 frameIndex)
      * between the time the calling frame buffer decremented the
      * count and this function call locked the cache mutex.
      */
-    rcSharedFrameBufPtr* bufPtr = cachedEntryPtr->second;
+    rcFrameRef* bufPtr = cachedEntryPtr->second;
     const uint32 refCount = (*bufPtr).refCount();
     if (refCount > 1) {
         ADD_VID_TRACE(fnUnlockFrame, false, frameIndex + 10,
@@ -1788,7 +1788,7 @@ void rcVideoCache::cacheUnlock(uint32 cacheID, uint32 frameIndex)
 }
 
 rcVideoCacheStatus rcVideoCache::cacheLock(uint32 cacheID, uint32 frameIndex,
-                                           rcSharedFrameBufPtr& frameBuf,
+                                           rcFrameRef& frameBuf,
                                            rcVideoCacheError* error)
 {
     rcLock lock(_cacheMgmtMutex);
@@ -1860,7 +1860,7 @@ void rcVideoCache::rcVideoCachePrefetchUnit::run()
              * in a temporary frame buffer.
              */
             rcVideoCacheError error;
-            rcSharedFrameBufPtr frameBuf;
+            rcFrameRef frameBuf;
             rcVideoCacheStatus status = _cacheCtrl.getFrame(frameIndex, frameBuf,
                                                             &error);
             /* Stop processing if something bad happens */

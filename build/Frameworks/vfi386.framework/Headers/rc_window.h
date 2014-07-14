@@ -69,10 +69,10 @@ public:
       \param icenter is a pair of integers indicating center position in the frame buffer
       \param span is the span on each side. width & height are 2*span + 1
     */
-  rcWindow( rcSharedFrameBufPtr ptr, int32 x, int32 y, int32 width, int32 height );
-  rcWindow( rcSharedFrameBufPtr ptr, const rcIPair& icenter, const rcIPair& span, bool& withIn);
-  rcWindow( rcSharedFrameBufPtr ptr, const rcRect& cropRect );
-  rcWindow( rcSharedFrameBufPtr ptr);
+  rcWindow( rcFrameRef ptr, int32 x, int32 y, int32 width, int32 height );
+  rcWindow( rcFrameRef ptr, const rcIPair& icenter, const rcIPair& span, bool& withIn);
+  rcWindow( rcFrameRef ptr, const rcRect& cropRect );
+  rcWindow( rcFrameRef ptr);
 
  //! Attach to an existing window
  //! takes up to four arguments
@@ -100,8 +100,8 @@ public:
   virtual ~rcWindow() {  }
 
    // Accessors
-  const rcSharedFrameBufPtr& frameBuf() const { return mFrameBuf; }
-  rcSharedFrameBufPtr& frameBuf() { return mFrameBuf; }
+  const rcFrameRef& frameBuf() const { return mFrameBuf; }
+  rcFrameRef& frameBuf() { return mFrameBuf; }
 
   rcPixel depth() const { return mFrameBuf->depth(); }
   uint32 pixelCount() const { return mGeometry.width () * mGeometry.height (); }
@@ -318,7 +318,7 @@ public:
   //@param clip bool
   //@return bool 
   bool window (const rcWindow& parentWindow, int32 x, int32 y, int32 width, int32 height, bool clip);
-  rcSharedFrameBufPtr mFrameBuf;  // Ref-counted pointer to frame buffer
+  rcFrameRef mFrameBuf;  // Ref-counted pointer to frame buffer
   rcRect				 mGeometry;	 // Window geometry info
 };
 

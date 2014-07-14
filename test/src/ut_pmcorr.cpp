@@ -304,8 +304,8 @@ void UT_Correlation::testMaskedCorrelation()
 // Simple smoke test
 void UT_Correlation::testOptoKinetic (uint32 width, uint32 height, rcPixel d )
 {
-    rcSharedFrameBufPtr ptr (new rcFrame( width, height, d ));
-    rcSharedFrameBufPtr ptr2 (new rcFrame( width, height, d ));
+    rcFrameRef ptr (new rcFrame( width, height, d ));
+    rcFrameRef ptr2 (new rcFrame( width, height, d ));
 
     rcWindow imgA (ptr, 0, 0, width, height);
     rcWindow imgB (ptr2, 0, 0, width, height);
@@ -333,8 +333,8 @@ void UT_Correlation::testCorrelation (uint32 width, uint32 height, rcPixel d, bo
 
    rfForceSIMD ( useAltivec );
 
-   rcSharedFrameBufPtr ptr (new rcFrame( width, height, d ));
-   rcSharedFrameBufPtr ptr2 (new rcFrame( width, height, d ));
+   rcFrameRef ptr (new rcFrame( width, height, d ));
+   rcFrameRef ptr2 (new rcFrame( width, height, d ));
 
    rcWindow imgA (ptr, 0, 0, width, height);
    rcWindow imgB (ptr2, 0, 0, width, height);
@@ -441,8 +441,8 @@ void UT_Correlation::testTimes ( bool useAltivec, int32 width, int32 height, rcP
         repeats = 10000;
 
    // Now setup a case that utilizes AltiVec
-   rcSharedFrameBufPtr ptr (new rcFrame( width, height, depth ));
-   rcSharedFrameBufPtr ptr2 (new rcFrame( width, height, depth ));
+   rcFrameRef ptr (new rcFrame( width, height, depth ));
+   rcFrameRef ptr2 (new rcFrame( width, height, depth ));
 
    rcWindow imgA (ptr);imgA.setAllPixels (255);
    rcWindow imgB (ptr2);imgA.setAllPixels (255);

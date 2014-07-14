@@ -16,9 +16,9 @@ public:
     virtual uint32 run();
 
 private:
-    void testWindow ( int32 x, int32 y, int32 width, int32 height, rcSharedFrameBufPtr& buf );
-    void testSubWindows ( int32 x, int32 y, int32 width, int32 height, rcSharedFrameBufPtr& buf );
-    void testRowPointers ( int32 x, int32 y, int32 width, int32 height, rcSharedFrameBufPtr& buf );
+    void testWindow ( int32 x, int32 y, int32 width, int32 height, rcFrameRef& buf );
+    void testSubWindows ( int32 x, int32 y, int32 width, int32 height, rcFrameRef& buf );
+    void testRowPointers ( int32 x, int32 y, int32 width, int32 height, rcFrameRef& buf );
     // Compare two windows, return true if identical
     bool compare( const rcWindow& w1, const rcWindow& w2 );
 };

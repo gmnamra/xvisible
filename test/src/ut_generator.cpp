@@ -577,7 +577,7 @@ void UT_generator::rotate()
     rcLinGeneratePixel lpGen;
     rcDefGenerateImage ciGen(cpGen), biGen(lpGen);
     rcAffineWindow win(model, ar);
-    rcSharedFrameBufPtr fbufp = 0;
+    rcFrameRef fbufp = 0;
     rcWindow actWin(bnd.size());
     win.genImage(actWin, bnd);
     rcVideoCacheStatus s1 = nearMovie.getFrame(degIndex, fbufp);

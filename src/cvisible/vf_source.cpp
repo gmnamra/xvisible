@@ -181,7 +181,7 @@ int32 sm_producer::spImpl::loadFrames(  )
 			rcTimestamp curTimeStamp;
 			rcRect videoFrame;
 			rcWindow image, tmp;
-			rcSharedFrameBufPtr framePtr;
+			rcFrameRef framePtr;
 			rcFrameGrabberStatus status = m_grabber_ref->getNextFrame( framePtr, true );
             
 			if ( status != eFrameStatusOK ) break;

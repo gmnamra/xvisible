@@ -44,7 +44,7 @@ bool rcReifyMovieGrabber::stop()
   return true;
 }
     
-rcFrameGrabberStatus rcReifyMovieGrabber::getNextFrame(rcSharedFrameBufPtr& ptr,
+rcFrameGrabberStatus rcReifyMovieGrabber::getNextFrame(rcFrameRef& ptr,
 						       bool isBlocking)
 {
   if (!isValid())

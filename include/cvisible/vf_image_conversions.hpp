@@ -22,10 +22,10 @@ namespace vf_utils
 {
     namespace ci2rc2ci
     {
-        static rcSharedFrameBufPtr NewFromChannel8u ( const ci::Channel& onec)
+        static rcFrameRef NewFromChannel8u ( const ci::Channel& onec)
         {
             const uint8_t* pixels = reinterpret_cast<const uint8_t*> (onec.getData());
-            rcSharedFrameBufPtr fb (new rcFrame (reinterpret_cast<const char*>(pixels),
+            rcFrameRef fb (new rcFrame (reinterpret_cast<const char*>(pixels),
                                                  (int32) onec.getRowBytes (),
                                                  (int32) onec.getWidth (),
                                                  (int32) onec.getHeight (), rcPixel8, true));
@@ -33,7 +33,7 @@ namespace vf_utils
         }
         
         
-        static ci::Channel8u*  newCiChannel (const rcSharedFrameBufPtr& sf)
+        static ci::Channel8u*  newCiChannel (const rcFrameRef& sf)
         {
             ci::Channel8u* ch8 = new ci::Channel8u ( sf->width(), sf->height () );
             

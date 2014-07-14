@@ -61,8 +61,8 @@ class rcCorrelationWindow
     inline const T* rowPelPointer (uint32 y) const          { return (const T*)(mWindow.rowPointer( y )); }
     inline const T* pelPointer (uint32 x, uint32 y) const { return (const T*)(mWindow.pelPointer( x, y )); };
     
-    inline const rcSharedFrameBufPtr& frameBuf() const { return mWindow.frameBuf(); }
-    inline rcSharedFrameBufPtr& frameBuf()             { return mWindow.frameBuf(); }
+    inline const rcFrameRef& frameBuf() const { return mWindow.frameBuf(); }
+    inline rcFrameRef& frameBuf()             { return mWindow.frameBuf(); }
     
     //
     // Mutators

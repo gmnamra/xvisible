@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>13D65</string>
+	<string>13E28</string>
 	<key>CFBundleDisplayName</key>
 	<string>com.reifycorp.vf</string>
 	<key>CFBundleExecutable</key>
@@ -15,7 +15,7 @@
 	<key>CFBundleSignature</key>
 	<string>rfym</string>
 	<key>CFBundleVersion</key>
-	<string>7148c53</string>
+	<string>2274a0e</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>

@@ -30,7 +30,7 @@ UT_Moviegrabber::run() {
         rcUNITTEST_ASSERT( i1.frameCount() == -1 );
         rcUNITTEST_ASSERT( i1.stop() == true ); // Since nothing was done stop() succeeds
         
-        rcSharedFrameBufPtr ptr = 0;
+        rcFrameRef ptr = 0;
         // Blocking mode should fail
         rcUNITTEST_ASSERT( i1.getNextFrame( ptr, true ) != eFrameStatusOK );
         // Non-blocking mode should fail, too

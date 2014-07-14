@@ -16,7 +16,7 @@
 #include "rc_types.h"
 #include "rc_window.h"
 
-class rcSharedFrameBufPtr;
+class rcFrameRef;
 
 // Error type
 enum rcFrameGrabberError {
@@ -94,7 +94,7 @@ class RFY_API rcFrameGrabber {
 
     // Get next frame, assign the frame to ptr. If the return value eFrameError
     // call getLastError() for details.
-    virtual rcFrameGrabberStatus getNextFrame( rcSharedFrameBufPtr& , bool isBlocking ) = 0;
+    virtual rcFrameGrabberStatus getNextFrame( rcFrameRef& , bool isBlocking ) = 0;
 
     // Get name of input source, ie. file name, camera name etc.
     virtual const std::string getInputSourceName() = 0;
@@ -158,7 +158,7 @@ class rcVectorGrabber : public rcFrameGrabber {
     virtual int32 cacheSize() { return mCacheSz; }
 
     // Get next frame, assign the frame to ptr
-    virtual rcFrameGrabberStatus getNextFrame( rcSharedFrameBufPtr& fptr, bool isBlocking ) {
+    virtual rcFrameGrabberStatus getNextFrame( rcFrameRef& fptr, bool isBlocking ) {
         rmUnused( isBlocking );
         
         if ( mCurrentIndex < mImages.size() ) {

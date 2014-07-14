@@ -426,7 +426,7 @@ UT_ImageProcessing::resetRfRcWindow8to32( rcWindow& img32, rcWindow& img8 )
 uint32
 UT_ImageProcessing::verifyRfRcWindow8to32( rcWindow& img32, rcWindow& img8 )
 {
-    const rcSharedFrameBufPtr& frame = img8.frameBuf();
+    const rcFrameRef& frame = img8.frameBuf();
      
     for ( int32 row = 0; row < img8.height(); row++ ) {
         for ( int32 column = 0; column < img8.width(); column++ ) {

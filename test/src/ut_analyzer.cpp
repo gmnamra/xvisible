@@ -17,7 +17,7 @@ static vector<rcWindow> createRandomVector( uint32 size, uint32 width, uint32 he
 
     // Create dummy images
     for ( uint32 i = 0; i < size; ++i ) {
-        rcSharedFrameBufPtr frameBufPtr = new rcFrame( width, height, rcPixel8 );
+        rcFrameRef frameBufPtr = new rcFrame( width, height, rcPixel8 );
         // Create a gray scale color map
         rfFillColorMap( 0, frameBufPtr );
         // Create image

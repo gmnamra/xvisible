@@ -95,7 +95,7 @@ uint32 UT_tiff::run()
 
     for( int32 i = 0; ; ++i )
       {
-	rcSharedFrameBufPtr framePtr;
+	rcFrameRef framePtr;
 	rcFrameGrabberStatus status = grabber.getNextFrame( framePtr, true );
 	if ( status != eFrameStatusOK )
 	  {

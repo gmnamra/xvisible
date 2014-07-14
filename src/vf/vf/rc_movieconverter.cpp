@@ -204,7 +204,7 @@ bool rcMovieConverter::isImageCollection( const std::string& name )
     return false;
 }
 
-rcSharedFrameBufPtr rcMovieConverter::clippedFrame( rcSharedFrameBufPtr orig,
+rcFrameRef rcMovieConverter::clippedFrame( rcFrameRef orig,
                                                    rcMovieConverterOptions opt )
 {
     const rcRect& clipRect = opt.clipRect();
@@ -213,7 +213,7 @@ rcSharedFrameBufPtr rcMovieConverter::clippedFrame( rcSharedFrameBufPtr orig,
         // Clip
         rcWindow w( orig, clipRect );
         // Make a copy so input pixels are not mutated
-        rcSharedFrameBufPtr newBuf = new rcFrame( clipRect.width(), clipRect.height(), orig->depth() );
+        rcFrameRef newBuf = new rcFrame( clipRect.width(), clipRect.height(), orig->depth() );
         newBuf->setTimestamp( orig->timestamp() );
         rcWindow newW( newBuf );
         newW.copyPixelsFromWindow( w );
@@ -355,7 +355,7 @@ rcMovieConverterError rcMovieConverterToRfy::createRfyMovie( rcVideoCache* input
         generator.addHeader( exp );
     }
     
-    rcSharedFrameBufPtr frameBuf;
+    rcFrameRef frameBuf;
     rcVideoCacheError verror;
     rcVideoCacheStatus status = cache.getFrame(mOptions.frameOffset(), frameBuf, &verror);
     if (status != eVideoCacheStatusOK) {
@@ -484,7 +484,7 @@ rcMovieConverterError rcMovieConverterToRfy::createRfyMovie( rcFrameGrabber& inp
             
             // Note: infinite loop
             for( int32 i = 0; ; ++i ) {
-                rcSharedFrameBufPtr framePtr;
+                rcFrameRef framePtr;
                 rcFrameGrabberStatus status = inputGrabber.getNextFrame( framePtr, true );
                 
                 if ( status == eFrameStatusOK ) {
@@ -687,7 +687,7 @@ rcMovieConverterError rcMovieConverterToQT::createQTMovie( rcVideoCache* inputCa
                 continue;
         }
         
-        rcSharedFrameBufPtr frameBuf;
+        rcFrameRef frameBuf;
         rcVideoCacheError error;
         rcVideoCacheStatus status = inputCache->getFrame(i, frameBuf, &error);
         if (status != eVideoCacheStatusOK) {

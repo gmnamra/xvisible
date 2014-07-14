@@ -892,7 +892,7 @@ rcWindow TIFFImageIO::Read()
 							SwabLongTriple ((uint32 *) tempImage.rowPointer (j), tempImage.width () );
 					}
 
-//				rcSharedFrameBufPtr buf(new rcFrame ((char *) (tempImage.rowPointer (0)), tempImage.rowUpdate (), 
+//				rcFrameRef buf(new rcFrame ((char *) (tempImage.rowPointer (0)), tempImage.rowUpdate (), 
 //					width (), height (), rcPixel32S, false));
 //				return rcWindow (buf); 
 				return tempImage;

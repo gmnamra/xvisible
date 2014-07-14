@@ -87,7 +87,7 @@ class rcImageGrabber : public rcFileGrabber
     virtual int32 cacheSize() { return 0; }
 
     // Get next frame, assign the frame to ptr
-    virtual rcFrameGrabberStatus getNextFrame( rcSharedFrameBufPtr& ptr, bool isBlocking )
+    virtual rcFrameGrabberStatus getNextFrame( rcFrameRef& ptr, bool isBlocking )
 {
     lock();
     rcFrameGrabberStatus ret = eFrameStatusError;    

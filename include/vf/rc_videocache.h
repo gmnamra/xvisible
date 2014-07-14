@@ -66,7 +66,7 @@ enum rcVideoCacheStatus {
  */
 class RFY_API rcVideoCache
 {
-  friend class rcSharedFrameBufPtr;
+  friend class rcFrameRef;
   friend class UT_PlaybackUtils;
 
  public:
@@ -109,7 +109,7 @@ class RFY_API rcVideoCache
   /* rcVideoCacheDtor - Removes pointer to this cache from the map of
    * active caches, closes the associated file and deletes the cache.
    *
-   * Calls by rcSharedFrameBufPtr code to cacheLock() and
+   * Calls by rcFrameRef code to cacheLock() and
    * cacheUnlock() for caches that have already been deleted are
    * treated as noops.
    */
@@ -119,14 +119,14 @@ class RFY_API rcVideoCache
    * base).
    */
   rcVideoCacheStatus getFrame(uint32 frameIndex,
-			      rcSharedFrameBufPtr& frameBuf,
+			      rcFrameRef& frameBuf,
 			      rcVideoCacheError* error = 0,
 			      bool locked = true);
 
   /* Returns the frame at timestamp time. must be exact match.
    */
   rcVideoCacheStatus getFrame(const rcTimestamp& time,
-			      rcSharedFrameBufPtr& frameBuf,
+			      rcFrameRef& frameBuf,
 			      rcVideoCacheError* error = 0,
 			      bool locked = true);
 
@@ -264,17 +264,17 @@ class RFY_API rcVideoCache
   void setError(rcVideoCacheError error);
 
   rcVideoCacheStatus internalGetFrame(uint32 frameIndex,
-				      rcSharedFrameBufPtr& frameBuf,
+				      rcFrameRef& frameBuf,
 				      rcVideoCacheError* error,
 				      const uint32 dToken);
 
   rcVideoCacheStatus cacheAlloc(uint32 frameIndex,
-				rcSharedFrameBufPtr& userFrameBuf,
-				rcSharedFrameBufPtr*& cacheFrameBufPtr,
+				rcFrameRef& userFrameBuf,
+				rcFrameRef*& cacheFrameBufPtr,
 				const uint32 dToken);
 
   rcVideoCacheStatus cacheInsert(uint32 frameIndex,
-				 rcSharedFrameBufPtr& cacheFrameBuf,
+				 rcFrameRef& cacheFrameBuf,
 				 const uint32 dToken);
 
   // Header reading methods
@@ -314,12 +314,12 @@ class RFY_API rcVideoCache
 
   /* Maps a frame index to its cached location.
    */
-  map<uint32, rcSharedFrameBufPtr*> _cachedFramesItoB;
+  map<uint32, rcFrameRef*> _cachedFramesItoB;
 
   /* List of available cache frames entries that don't point to a
    * valid frame.
    */
-  deque<rcSharedFrameBufPtr*>         _unusedCacheFrames;
+  deque<rcFrameRef*>         _unusedCacheFrames;
 
   /* Support for bidirectional frame index <==> timestamp
    * mapping. (Table of contents).
@@ -329,9 +329,9 @@ class RFY_API rcVideoCache
 
   /* List of cached frames.
    */
-  vector<rcSharedFrameBufPtr>         _frameCache;
+  vector<rcFrameRef>         _frameCache;
 
-  typedef vector<rcSharedFrameBufPtr*> vcPendingFills;
+  typedef vector<rcFrameRef*> vcPendingFills;
 
   /* List of pending cache fills
    */
@@ -382,7 +382,7 @@ class RFY_API rcVideoCache
   static rcMutex                       _cacheMgmtMutex;
 
   /* General cache management related static functions. These are
-   * helper fcts intended to be used only by rcSharedFrameBufPtr
+   * helper fcts intended to be used only by rcFrameRef
    * class lock() and unlock() fcts. cacheUnlock() is a wrapper around
    * unlockFrame() and cacheLock() is a wrapper around getFrame(). The
    * main intention behind this is to allow for a well-defined action
@@ -394,7 +394,7 @@ class RFY_API rcVideoCache
   static void cacheUnlock(uint32 cacheIndex, uint32 frameIndex);
   static rcVideoCacheStatus cacheLock(uint32 cacheIndex,
 				      uint32 frameIndex,
-				      rcSharedFrameBufPtr& frameBuf,
+				      rcFrameRef& frameBuf,
 				      rcVideoCacheError* error = 0);
 
 //#ifdef VID_TRACE

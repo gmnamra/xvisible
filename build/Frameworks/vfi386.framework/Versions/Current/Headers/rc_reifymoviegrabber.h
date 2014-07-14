@@ -41,7 +41,7 @@ class rcReifyMovieGrabber : public rcFileGrabber {
   virtual int32 cacheSize() { return _cache.cacheSize(); }
 
   // Get next frame, assign the frame to ptr
-  virtual rcFrameGrabberStatus getNextFrame(rcSharedFrameBufPtr& ptr,
+  virtual rcFrameGrabberStatus getNextFrame(rcFrameRef& ptr,
 					    bool isBlocking);
 
   // Get name of input source, ie. file name, camera name etc.

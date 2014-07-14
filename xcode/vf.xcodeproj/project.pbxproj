@@ -1817,7 +1817,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "\n# Parse arguments\nPN=\"${PRODUCT_NAME}\"\nDYLIB=\"${PN}.framework/Versions/A/${PN}\"\napplicationExecutable=\"${CONFIGURATION_BUILD_DIR}/${DYLIB}\"\necho \"${applicationExecutable}\"\nnewInstallName=\"@executable_path/../Frameworks/${DYLIB}\"\necho \"install_name_tool -id ${newInstallName} ${applicationExecutable}\"\ninstall_name_tool -id \"${newInstallName}\" \"${applicationExecutable}\"\n";
+			shellScript = "\n# Parse arguments\nPN=\"${PRODUCT_NAME}\"\nDYLIB=\"${PN}.framework/Versions/A/${PN}\"\napplicationExecutable=\"${CONFIGURATION_BUILD_DIR}/${DYLIB}\"\necho \"${applicationExecutable}\"\nnewInstallName=\"@executable_path/../Frameworks/${DYLIB}\"\necho \"install_name_tool -id ${newInstallName} ${applicationExecutable}\"\ninstall_name_tool -id \"${newInstallName}\" \"${applicationExecutable}\"\nproduct=\"${CONFIGURATION_BUILD_DIR}/${FULL_PRODUCT_NAME}\"\ncp -pr ${product} ${FRAMEWORKS_DIR}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

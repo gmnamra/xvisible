@@ -108,7 +108,7 @@ rcMovieFileFormat::rcMovieFileFormat( movieFormatRev r ) :
 {
 }
 
-rcMovieFileFormat::rcMovieFileFormat( const rcSharedFrameBufPtr& frame,
+rcMovieFileFormat::rcMovieFileFormat( const rcFrameRef& frame,
                                       movieFormatRev r ) :
         mId(r), mWidth(frame->width()), mHeight(frame->height()),
         mRowUpdate(frame->rowUpdate()),
@@ -171,7 +171,7 @@ rcMovieFileFormat2::rcMovieFileFormat2( movieFormatRev r ) :
 {
 }
 
-rcMovieFileFormat2::rcMovieFileFormat2( const rcSharedFrameBufPtr& frame,
+rcMovieFileFormat2::rcMovieFileFormat2( const rcFrameRef& frame,
                                         movieFormatRev r ) :
         mId(r), mBom(rfPlatformByteOrderMark()), mWidth(frame->width()), mHeight(frame->height()),
         mDepth(frame->depth()), mRowUpdate(frame->rowUpdate()),

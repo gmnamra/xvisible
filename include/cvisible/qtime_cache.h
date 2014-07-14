@@ -64,7 +64,7 @@ enum  eQtimeCacheStatus {
  */
 class   QtimeCache
 {
-    friend class rcSharedFrameBufPtr;
+    friend class rcFrameRef;
     friend class UT_PlaybackUtils;
     
 public:
@@ -107,7 +107,7 @@ public:
     /*   QtimeCacheDtor - Removes pointer to this cache from the map of
      * active caches, closes the associated file and deletes the cache.
      *
-     * Calls by rcSharedFrameBufPtr code to cacheLock() and
+     * Calls by rcFrameRef code to cacheLock() and
      * cacheUnlock() for caches that have already been deleted are
      * treated as noops.
      */
@@ -117,14 +117,14 @@ public:
      * base).
      */
     eQtimeCacheStatus getFrame(uint32 frameIndex,
-                               rcSharedFrameBufPtr& frameBuf,
+                               rcFrameRef& frameBuf,
                                eQtimeCacheError* error = 0,
                                bool locked = true);
     
     /* Returns the frame at timestamp time. must be exact match.
      */
     eQtimeCacheStatus getFrame(const rcTimestamp& time,
-                               rcSharedFrameBufPtr& frameBuf,
+                               rcFrameRef& frameBuf,
                                eQtimeCacheError* error = 0,
                                bool locked = true);
     
@@ -261,17 +261,17 @@ private:
     void setError( eQtimeCacheError error);
     
     eQtimeCacheStatus internalGetFrame(uint32 frameIndex,
-                                       rcSharedFrameBufPtr& frameBuf,
+                                       rcFrameRef& frameBuf,
                                        eQtimeCacheError* error,
                                        const uint32 dToken);
     
     eQtimeCacheStatus cacheAlloc(uint32 frameIndex,
-                                 rcSharedFrameBufPtr& userFrameBuf,
-                                 rcSharedFrameBufPtr*& cacheFrameBufPtr,
+                                 rcFrameRef& userFrameBuf,
+                                 rcFrameRef*& cacheFrameBufPtr,
                                  const uint32 dToken);
     
     eQtimeCacheStatus cacheInsert(uint32 frameIndex,
-                                  rcSharedFrameBufPtr& cacheFrameBuf,
+                                  rcFrameRef& cacheFrameBuf,
                                   const uint32 dToken);
     
     // Header reading methods
@@ -299,7 +299,7 @@ private:
     void  cacheUnlock(uint32 cacheID, uint32 frameIndex);
     
     eQtimeCacheStatus  cacheLock(uint32 cacheID, uint32 frameIndex,
-                                             rcSharedFrameBufPtr& frameBuf,
+                                             rcFrameRef& frameBuf,
                                  eQtimeCacheError* error);
     
     /* Support for bidirectional frame index <==> last use
@@ -311,12 +311,12 @@ private:
     
     /* Maps a frame index to its cached location.
      */
-    map<uint32, rcSharedFrameBufPtr*> _cachedFramesItoB;
+    map<uint32, rcFrameRef*> _cachedFramesItoB;
     
     /* List of available cache frames entries that don't point to a
      * valid frame.
      */
-    deque<rcSharedFrameBufPtr*>         _unusedCacheFrames;
+    deque<rcFrameRef*>         _unusedCacheFrames;
     
     /* Support for bidirectional frame index <==> timestamp
      * mapping. (Table of contents).
@@ -326,9 +326,9 @@ private:
     
     /* List of cached frames.
      */
-    vector<rcSharedFrameBufPtr>         _frameCache;
+    vector<rcFrameRef>         _frameCache;
     
-    typedef vector<rcSharedFrameBufPtr*> vcPendingFills;
+    typedef vector<rcFrameRef*> vcPendingFills;
     
     /* List of pending cache fills
      */
@@ -426,7 +426,7 @@ private:
         boost::mutex                _cacheMgmtMutex;
         
         /* General cache management related static functions. These are
-         * helper fcts intended to be used only by rcSharedFrameBufPtr
+         * helper fcts intended to be used only by rcFrameRef
          * class lock() and unlock() fcts. cacheUnlock() is a wrapper around
          * unlockFrame() and cacheLock() is a wrapper around getFrame(). The
          * main intention behind this is to allow for a well-defined action
@@ -438,7 +438,7 @@ private:
         void cacheUnlock(uint32 cacheIndex, uint32 frameIndex);
         eQtimeCacheStatus cacheLock(uint32 cacheIndex,
                                     uint32 frameIndex,
-                                    rcSharedFrameBufPtr& frameBuf,
+                                    rcFrameRef& frameBuf,
                                     eQtimeCacheError* error = 0);
         
 //    protected:

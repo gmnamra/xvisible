@@ -48,7 +48,7 @@ void utVideoCacheThread::run()
 
     if (preAllocSleep)
       usleep(preAllocSleep); // Time without a buffer lock attempt
-    rcSharedFrameBufPtr bp;
+    rcFrameRef bp;
     rcVideoCacheError error;
     rcVideoCacheStatus status;
     bool prefetch = ((r & 1) == 1); r >>= 1;
@@ -471,7 +471,7 @@ void UT_VideoCache::simpleAllocTest()
   for (uint32 i = 0; i < cacheP->frameCount(); i++) {
     rcVideoCacheError error;
     rcVideoCacheStatus status;
-    rcSharedFrameBufPtr buf;
+    rcFrameRef buf;
     rmAssert(buf.refCount() == 0);
     
     status = cacheP->getFrame(i, buf, &error);
@@ -504,7 +504,7 @@ void UT_VideoCache::simpleAllocTest()
   for (uint32 i = 0; i < cacheP->frameCount(); i++) {
     rcVideoCacheError error;
     rcVideoCacheStatus status;
-    rcSharedFrameBufPtr buf;
+    rcFrameRef buf;
     rmAssert(buf.refCount() == 0);
 
     rcTimestamp time;
@@ -563,7 +563,7 @@ void UT_VideoCache::prefetchTest()
   rcVideoCache* cacheP =
     rcVideoCache::rcVideoCacheCtor(fileName, 0, true, false, true);
   
-  rcSharedFrameBufPtr frameBuf[frameCount];
+  rcFrameRef frameBuf[frameCount];
   rcVideoCacheError error;
   rcVideoCacheStatus status;
 
@@ -641,7 +641,7 @@ void UT_VideoCache::cacheFullTest()
     rcVideoCache::rcVideoCacheCtor(fileName, cacheSize, true, false,
 				   false);
   rc256BinHist hist(256);
-  rcSharedFrameBufPtr bp[totalCases];
+  rcFrameRef bp[totalCases];
   rcVideoCacheError error;
   rcVideoCacheStatus status;
 
@@ -726,7 +726,7 @@ void UT_VideoCache::cacheFullTest()
 
 void UT_VideoCache::frameBufTest()
 {
-  /* Test manipulating rcSharedFrameBufPtrs using both cached and
+  /* Test manipulating rcFrameRefs using both cached and
    * uncached frames.
    */
   const uint32 uncachedPixelValue = 0xA;
@@ -735,7 +735,7 @@ void UT_VideoCache::frameBufTest()
   rcVideoCache* cacheP =
     rcVideoCache::rcVideoCacheCtor(fileName, cacheSize, true, false,
 				   false);
-  rcSharedFrameBufPtr cachedBp, uncachedBp, changingBp;
+  rcFrameRef cachedBp, uncachedBp, changingBp;
   rcVideoCacheError error;
   rcVideoCacheStatus status;
 
@@ -837,7 +837,7 @@ void UT_VideoCache::frameBufTest()
    *             back up.
    *
    *             Also, check that assigning/constructing a
-   *             rcSharedFrameBufPtr using a cached rcFrame* works
+   *             rcFrameRef using a cached rcFrame* works
    *             (though anyone actually doing this should burn in
    *             hell).
    */
@@ -860,7 +860,7 @@ void UT_VideoCache::frameBufTest()
     rcUNITTEST_ASSERT(changingBp->getPixel(0, 0) == cachedPixelValue);
     rcUNITTEST_ASSERT(cachedBp.refCount() == 3);
 
-    rcSharedFrameBufPtr cachedToo(frame1);
+    rcFrameRef cachedToo(frame1);
     rcUNITTEST_ASSERT(cachedToo->getPixel(0, 0) == cachedPixelValue);
     rcUNITTEST_ASSERT(cachedBp.refCount() == 4);
   }
@@ -870,62 +870,62 @@ void UT_VideoCache::frameBufTest()
    *  - Null rcFrame*
    *  - non-null rcFrame*
    *  - non-null rcFrame* cached
-   *  - Null rcSharedFrameBufPtr
-   *  - Non-null uncached rcSharedFrameBufPtr
-   *  - Non-null cached, locked rcSharedFrameBufPtr
-   *  - Non-null cached, unlocked rcSharedFrameBufPtr
+   *  - Null rcFrameRef
+   *  - Non-null uncached rcFrameRef
+   *  - Non-null cached, locked rcFrameRef
+   *  - Non-null cached, unlocked rcFrameRef
    */
   {
-    rcSharedFrameBufPtr null;
+    rcFrameRef null;
     rcUNITTEST_ASSERT(null == 0);
     rcUNITTEST_ASSERT(null.refCount() == 0);
 
-    rcSharedFrameBufPtr null2(null);
+    rcFrameRef null2(null);
     rcUNITTEST_ASSERT(null2 == 0);
     rcUNITTEST_ASSERT(null2.refCount() == 0);
   }
   {
     rcFrame* nullFrame = 0;
-    rcSharedFrameBufPtr null(nullFrame);
+    rcFrameRef null(nullFrame);
     rcUNITTEST_ASSERT(null == 0);
     rcUNITTEST_ASSERT(null.refCount() == 0);
   }
   {
     rcFrame* nonnullFrame = new rcFrame(32, 32, rcPixel8);
-    rcSharedFrameBufPtr nonnull(nonnullFrame);
+    rcFrameRef nonnull(nonnullFrame);
     rcUNITTEST_ASSERT(nonnullFrame == nonnull);
     rcUNITTEST_ASSERT(nonnull.refCount() == 1);
   }
   {
-    rcSharedFrameBufPtr nonnull;
+    rcFrameRef nonnull;
     status = cacheP->getFrame(1, nonnull, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
     rcFrame* cachedFrame = nonnull;
-    rcSharedFrameBufPtr nonnull2(cachedFrame);
+    rcFrameRef nonnull2(cachedFrame);
     rcUNITTEST_ASSERT(nonnull2 == nonnull);
     rcUNITTEST_ASSERT(nonnull2.refCount() == 3);
   }
   {
-    rcSharedFrameBufPtr nonnull(new rcFrame(32, 32, rcPixel8));
-    rcSharedFrameBufPtr nonnull2(nonnull);
+    rcFrameRef nonnull(new rcFrame(32, 32, rcPixel8));
+    rcFrameRef nonnull2(nonnull);
     rcUNITTEST_ASSERT(nonnull2 == nonnull);
     rcUNITTEST_ASSERT(nonnull2.refCount() == 2);
   }
   {
-    rcSharedFrameBufPtr nonnull;
+    rcFrameRef nonnull;
     status = cacheP->getFrame(1, nonnull, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
-    rcSharedFrameBufPtr nonnull2(nonnull);
+    rcFrameRef nonnull2(nonnull);
     rcUNITTEST_ASSERT(nonnull2 == nonnull);
     rcUNITTEST_ASSERT(nonnull2.refCount() == 3);
   }
   {
-    rcSharedFrameBufPtr nonnull;
+    rcFrameRef nonnull;
     status = cacheP->getFrame(1, nonnull, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
-    rcSharedFrameBufPtr nonnullcopy(nonnull);
+    rcFrameRef nonnullcopy(nonnull);
     nonnull.unlock();
-    rcSharedFrameBufPtr nonnull2(nonnull);
+    rcFrameRef nonnull2(nonnull);
     rcUNITTEST_ASSERT(nonnullcopy.refCount() == 2);
     rcUNITTEST_ASSERT(nonnull2 == nonnull);
     rcUNITTEST_ASSERT(nonnull2.refCount() == 3);
@@ -935,28 +935,28 @@ void UT_VideoCache::frameBufTest()
    *  - Null rcFrame*
    *  - Non-null rcFrame*
    *  - Non-null rcFrame* cached
-   *  - Null rcSharedFrameBufPtr
-   *  - Non-null uncached rcSharedFrameBufPtr
-   *  - Non-null cached, locked rcSharedFrameBufPtr
-   *  - Non-null cached, unlocked rcSharedFrameBufPtr
+   *  - Null rcFrameRef
+   *  - Non-null uncached rcFrameRef
+   *  - Non-null cached, locked rcFrameRef
+   *  - Non-null cached, unlocked rcFrameRef
    *
    * All of the above cases must be tested as source in permutation
-   * with all rcSharedFrameBufPtr cases above tested as destination.
+   * with all rcFrameRef cases above tested as destination.
    */
   {
-    rcSharedFrameBufPtr destNull;
+    rcFrameRef destNull;
 
     rcFrame* nullFrame = 0;
     rcFrame* nonnullFrame = new rcFrame(32, 32, rcPixel8);
-    rcSharedFrameBufPtr forFramePtr;
+    rcFrameRef forFramePtr;
     status = cacheP->getFrame(3, forFramePtr, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
     rcFrame* nonnullFrameC = forFramePtr;
-    rcSharedFrameBufPtr srcNull;
-    rcSharedFrameBufPtr nonnullC;
+    rcFrameRef srcNull;
+    rcFrameRef nonnullC;
     status = cacheP->getFrame(1, nonnullC, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
-    rcSharedFrameBufPtr nonnullUnc(new rcFrame(32, 32, rcPixel8));
+    rcFrameRef nonnullUnc(new rcFrame(32, 32, rcPixel8));
 
     destNull = nonnullFrame;
     rcUNITTEST_ASSERT(nonnullFrame == destNull);
@@ -1003,20 +1003,20 @@ void UT_VideoCache::frameBufTest()
 
   {
     rcFrame* frame1 = new rcFrame(32, 32, rcPixel8);
-    rcSharedFrameBufPtr destNonnullUnc(frame1);
+    rcFrameRef destNonnullUnc(frame1);
     rcUNITTEST_ASSERT(frame1 == destNonnullUnc);
     
     rcFrame* nullFrame = 0;
     rcFrame* nonnullFrame = new rcFrame(32, 32, rcPixel8);
-    rcSharedFrameBufPtr forFramePtr;
+    rcFrameRef forFramePtr;
     status = cacheP->getFrame(3, forFramePtr, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
     rcFrame* nonnullFrameC = forFramePtr;
-    rcSharedFrameBufPtr srcNull;
-    rcSharedFrameBufPtr nonnullC;
+    rcFrameRef srcNull;
+    rcFrameRef nonnullC;
     status = cacheP->getFrame(1, nonnullC, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
-    rcSharedFrameBufPtr nonnullUnc(new rcFrame(32, 32, rcPixel8));
+    rcFrameRef nonnullUnc(new rcFrame(32, 32, rcPixel8));
 
     destNonnullUnc = nonnullFrame;
     rcUNITTEST_ASSERT(destNonnullUnc.refCount() == 1);
@@ -1061,24 +1061,24 @@ void UT_VideoCache::frameBufTest()
   }
 
   {
-    rcSharedFrameBufPtr destNonnullC;
+    rcFrameRef destNonnullC;
     status = cacheP->getFrame(2, destNonnullC, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
     
-    rcSharedFrameBufPtr frame2Copy(destNonnullC);
+    rcFrameRef frame2Copy(destNonnullC);
     rcUNITTEST_ASSERT(destNonnullC.refCount() == 3);
 
     rcFrame* nullFrame = 0;
     rcFrame* nonnullFrame = new rcFrame(32, 32, rcPixel8);
-    rcSharedFrameBufPtr forFramePtr;
+    rcFrameRef forFramePtr;
     status = cacheP->getFrame(3, forFramePtr, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
     rcFrame* nonnullFrameC = forFramePtr;
-    rcSharedFrameBufPtr srcNull;
-    rcSharedFrameBufPtr nonnullC;
+    rcFrameRef srcNull;
+    rcFrameRef nonnullC;
     status = cacheP->getFrame(1, nonnullC, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
-    rcSharedFrameBufPtr nonnullUnc(new rcFrame(32, 32, rcPixel8));
+    rcFrameRef nonnullUnc(new rcFrame(32, 32, rcPixel8));
 
     destNonnullC = nullFrame;
     rcUNITTEST_ASSERT(destNonnullC == 0);
@@ -1130,24 +1130,24 @@ void UT_VideoCache::frameBufTest()
   }
 
   {
-    rcSharedFrameBufPtr destNonnullCunlocked;
+    rcFrameRef destNonnullCunlocked;
     status = cacheP->getFrame(2, destNonnullCunlocked, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
     
-    rcSharedFrameBufPtr frame2Copy(destNonnullCunlocked);
+    rcFrameRef frame2Copy(destNonnullCunlocked);
     rcUNITTEST_ASSERT(destNonnullCunlocked.refCount() == 3);
 
     rcFrame* nullFrame = 0;
     rcFrame* nonnullFrame = new rcFrame(32, 32, rcPixel8);
-    rcSharedFrameBufPtr forFramePtr;
+    rcFrameRef forFramePtr;
     status = cacheP->getFrame(3, forFramePtr, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
     rcFrame* nonnullFrameC = forFramePtr;
-    rcSharedFrameBufPtr srcNull;
-    rcSharedFrameBufPtr nonnullC;
+    rcFrameRef srcNull;
+    rcFrameRef nonnullC;
     status = cacheP->getFrame(1, nonnullC, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
-    rcSharedFrameBufPtr nonnullUnc(new rcFrame(32, 32, rcPixel8));
+    rcFrameRef nonnullUnc(new rcFrame(32, 32, rcPixel8));
 
     destNonnullCunlocked.unlock();
     destNonnullCunlocked = nullFrame;
@@ -1209,10 +1209,10 @@ void UT_VideoCache::frameBufTest()
    *  - Null rcFrame*
    *  - Non-null rcFrame*
    *  - Non-null rcFrame* cached
-   *  - Null rcSharedFrameBufPtr
-   *  - Non-null uncached rcSharedFrameBufPtr
-   *  - Non-null cached, locked rcSharedFrameBufPtr
-   *  - Non-null cached, unlocked rcSharedFrameBufPtr
+   *  - Null rcFrameRef
+   *  - Non-null uncached rcFrameRef
+   *  - Non-null cached, locked rcFrameRef
+   *  - Non-null cached, unlocked rcFrameRef
    *
    * All permutations of above cases must be tested for both left-hand
    * and right-hand sides of comparison.
@@ -1221,13 +1221,13 @@ void UT_VideoCache::frameBufTest()
     rcFrame* nullFrame = 0;
 
     rcFrame* nonnullFrame = new rcFrame(32, 32, rcPixel8);
-    rcSharedFrameBufPtr forFramePtr;
+    rcFrameRef forFramePtr;
     status = cacheP->getFrame(3, forFramePtr, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
     rcFrame* nonnullFrameC = forFramePtr;
-    rcSharedFrameBufPtr rightNull;
-    rcSharedFrameBufPtr nonnullUnc(new rcFrame(32, 32, rcPixel8));
-    rcSharedFrameBufPtr nonnullC;
+    rcFrameRef rightNull;
+    rcFrameRef nonnullUnc(new rcFrame(32, 32, rcPixel8));
+    rcFrameRef nonnullC;
     status = cacheP->getFrame(1, nonnullC, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
 
@@ -1260,13 +1260,13 @@ void UT_VideoCache::frameBufTest()
     rcFrame* nonnullFrame = new rcFrame(32, 32, rcPixel8);
 
     rcFrame* nullFrame = 0;
-    rcSharedFrameBufPtr forFramePtr;
+    rcFrameRef forFramePtr;
     status = cacheP->getFrame(3, forFramePtr, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
     rcFrame* nonnullFrameC = forFramePtr;
-    rcSharedFrameBufPtr rightNull;
-    rcSharedFrameBufPtr nonnullUnc(new rcFrame(32, 32, rcPixel8));
-    rcSharedFrameBufPtr nonnullC;
+    rcFrameRef rightNull;
+    rcFrameRef nonnullUnc(new rcFrame(32, 32, rcPixel8));
+    rcFrameRef nonnullC;
     status = cacheP->getFrame(1, nonnullC, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
 
@@ -1296,16 +1296,16 @@ void UT_VideoCache::frameBufTest()
   }
 
   {
-    rcSharedFrameBufPtr forFramePtr;
+    rcFrameRef forFramePtr;
     status = cacheP->getFrame(3, forFramePtr, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
     rcFrame* nonnullFrameC = forFramePtr;
 
     rcFrame* nullFrame = 0;
     rcFrame* nonnullFrame = new rcFrame(32, 32, rcPixel8);
-    rcSharedFrameBufPtr rightNull;
-    rcSharedFrameBufPtr nonnullUnc(new rcFrame(32, 32, rcPixel8));
-    rcSharedFrameBufPtr nonnullC;
+    rcFrameRef rightNull;
+    rcFrameRef nonnullUnc(new rcFrame(32, 32, rcPixel8));
+    rcFrameRef nonnullC;
     status = cacheP->getFrame(1, nonnullC, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
 
@@ -1335,17 +1335,17 @@ void UT_VideoCache::frameBufTest()
   }
 
   {
-    rcSharedFrameBufPtr leftNull;
+    rcFrameRef leftNull;
 
     rcFrame* nullFrame = 0;
     rcFrame* nonnullFrame = new rcFrame(32, 32, rcPixel8);
-    rcSharedFrameBufPtr forFramePtr;
+    rcFrameRef forFramePtr;
     status = cacheP->getFrame(3, forFramePtr, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
     rcFrame* nonnullFrameC = forFramePtr;
-    rcSharedFrameBufPtr rightNull;
-    rcSharedFrameBufPtr nonnullUnc(new rcFrame(32, 32, rcPixel8));
-    rcSharedFrameBufPtr nonnullC;
+    rcFrameRef rightNull;
+    rcFrameRef nonnullUnc(new rcFrame(32, 32, rcPixel8));
+    rcFrameRef nonnullC;
     status = cacheP->getFrame(1, nonnullC, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
 
@@ -1375,17 +1375,17 @@ void UT_VideoCache::frameBufTest()
   }
 
   {
-    rcSharedFrameBufPtr nonnullUnc(new rcFrame(32, 32, rcPixel8));
+    rcFrameRef nonnullUnc(new rcFrame(32, 32, rcPixel8));
 
     rcFrame* nullFrame = 0;
     rcFrame* nonnullFrame = new rcFrame(32, 32, rcPixel8);
-    rcSharedFrameBufPtr forFramePtr;
+    rcFrameRef forFramePtr;
     status = cacheP->getFrame(3, forFramePtr, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
     rcFrame* nonnullFrameC = forFramePtr;
-    rcSharedFrameBufPtr rightNull;
-    rcSharedFrameBufPtr nonnullUncRight(new rcFrame(32, 32, rcPixel8));
-    rcSharedFrameBufPtr nonnullC;
+    rcFrameRef rightNull;
+    rcFrameRef nonnullUncRight(new rcFrame(32, 32, rcPixel8));
+    rcFrameRef nonnullC;
     status = cacheP->getFrame(1, nonnullC, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
 
@@ -1418,19 +1418,19 @@ void UT_VideoCache::frameBufTest()
   }
 
   {
-    rcSharedFrameBufPtr nonnullC;
+    rcFrameRef nonnullC;
     status = cacheP->getFrame(1, nonnullC, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
 
     rcFrame* nullFrame = 0;
     rcFrame* nonnullFrame = new rcFrame(32, 32, rcPixel8);
-    rcSharedFrameBufPtr forFramePtr;
+    rcFrameRef forFramePtr;
     status = cacheP->getFrame(3, forFramePtr, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
     rcFrame* nonnullFrameC = forFramePtr;
-    rcSharedFrameBufPtr rightNull;
-    rcSharedFrameBufPtr nonnullUnc(new rcFrame(32, 32, rcPixel8));
-    rcSharedFrameBufPtr nonnullCright;
+    rcFrameRef rightNull;
+    rcFrameRef nonnullUnc(new rcFrame(32, 32, rcPixel8));
+    rcFrameRef nonnullCright;
     status = cacheP->getFrame(2, nonnullCright, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
 
@@ -1463,20 +1463,20 @@ void UT_VideoCache::frameBufTest()
   }
 
   {
-    rcSharedFrameBufPtr nonnullC;
+    rcFrameRef nonnullC;
     status = cacheP->getFrame(1, nonnullC, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
     nonnullC.unlock();
 
     rcFrame* nullFrame = 0;
     rcFrame* nonnullFrame = new rcFrame(32, 32, rcPixel8);
-    rcSharedFrameBufPtr forFramePtr;
+    rcFrameRef forFramePtr;
     status = cacheP->getFrame(3, forFramePtr, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
     rcFrame* nonnullFrameC = forFramePtr;
-    rcSharedFrameBufPtr rightNull;
-    rcSharedFrameBufPtr nonnullUnc(new rcFrame(32, 32, rcPixel8));
-    rcSharedFrameBufPtr nonnullCright;
+    rcFrameRef rightNull;
+    rcFrameRef nonnullUnc(new rcFrame(32, 32, rcPixel8));
+    rcFrameRef nonnullCright;
     status = cacheP->getFrame(2, nonnullCright, &error);
     rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);
 
@@ -1512,9 +1512,9 @@ void UT_VideoCache::frameBufTest()
    * as noops.
    */
   {
-    rcSharedFrameBufPtr nullUnc;
+    rcFrameRef nullUnc;
     rcFrame* frame1 = new rcFrame(32, 32, rcPixel8);
-    rcSharedFrameBufPtr nonnullUnc(frame1);
+    rcFrameRef nonnullUnc(frame1);
 
     nullUnc.lock();
     rcUNITTEST_ASSERT(nullUnc == 0);
@@ -1547,9 +1547,9 @@ void UT_VideoCache::frameBufTest()
    * noops.
    */
   {
-    rcSharedFrameBufPtr nullUnc;
+    rcFrameRef nullUnc;
     rcFrame* frame1 = new rcFrame(32, 32, rcPixel8);
-    rcSharedFrameBufPtr nonnullUnc(frame1);
+    rcFrameRef nonnullUnc(frame1);
 
     nullUnc.prefetch();
     rcUNITTEST_ASSERT(nullUnc == 0);
@@ -1573,7 +1573,7 @@ void UT_VideoCache::dtorTest()
 
   rcUNITTEST_ASSERT(cacheP != 0);
 
-  rcSharedFrameBufPtr bp;
+  rcFrameRef bp;
   rcVideoCacheError error;
   rcVideoCacheStatus status = cacheP->getFrame(0, bp, &error);
   rcUNITTEST_ASSERT(status == eVideoCacheStatusOK);

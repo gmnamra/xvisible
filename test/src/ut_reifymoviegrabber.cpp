@@ -55,7 +55,7 @@ void UT_ReifyMovieGrabber::simpleTest()
   rcUNITTEST_ASSERT(startOK);
 
   uint32 frameIndex = 0;
-  rcSharedFrameBufPtr ptr;
+  rcFrameRef ptr;
   rcFrameGrabberStatus status;
   rc256BinHist hist(256);
 

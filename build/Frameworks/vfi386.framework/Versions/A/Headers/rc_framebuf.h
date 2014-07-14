@@ -16,6 +16,9 @@
 #include <opencv2/core/core.hpp>
 #include "rc_pixel.hpp"
 #include <opencv2/highgui/highgui.hpp>
+#include <boost/function.hpp>
+#include <boost/bind.hpp>
+#include "singleton.hpp"
 
 #ifdef CINDER_BUILTIN
 #include <cinder/Channel.h>
@@ -24,42 +27,14 @@
 
 using namespace cv;
 
-//
-// RGB component handling functions
-//
-// Color component (r,g,b) value range is 0-255
-
-#define rfAlpha(rgb) 	(((rgb) >> 24) & 0xff)
-#define rfRed(rgb) 	(((rgb) >> 16) & 0xff)
-#define rfGreen(rgb) 	(((rgb) >> 8) & 0xff)
-#define rfBlue(rgb) 	((rgb) & 0xff)
-#define rfRgb(r,g,b)  ((0xff << 24) | (((r) & 0xff) << 16) | (((g) & 0xff) << 8) | ((b) & 0xff))
-
-// // get red component of RGB
-// inline uint32 rfRed( uint32 rgb )	  { return (uint32)((rgb >> 16) & 0xff); }
-// // get green component of RGB
-// inline uint32 rfGreen( uint32 rgb ) { return (uint32)((rgb >> 8) & 0xff); }
-// // get blue component of RGB
-// inline uint32 rfBlue( uint32 rgb )  { return (uint32)(rgb & 0xff); }
-// // get alpha component of RGBA
-// inline uint32 rfAlpha( uint32 rgb ) { return (uint32)((rgb >> 24) & 0xff); }
-// // construct RGB value from color components
-// inline uint32 rfRgb( uint32 r, uint32 g, uint32 b )
-// { return (0xff << 24) | ((r & 0xff) << 16) | ((g & 0xff) << 8) | (b & 0xff); }
-// convert RGB to gray 0..255. Compute a simple average.
-
-inline uint32 rfGray( uint32 r, uint32 g, uint32 b ) { return (r+g+b+2)/3; }
-
-// Utility function to transform between color spaces
-uint32 rfHSI2RGB (float H, float S, float I);
-
 // Frame buffer.base class
 // Clients may NOT use this class directly, reference-counted
-// rcSharedFrameBufPtr must be used instead.
+// rcFrameRef must be used instead.
+
 
 class rcFrame
 {
-    friend class rcVideoCache;
+   // friend class rcVideoCache;
     
 public:
     enum { ROW_ALIGNMENT_MODULUS = 16 }; // Mod for row alignment. Default for AltiVec
@@ -254,15 +229,16 @@ class rcVideoCache;
 // Reference counted frame buffer. Frame buffer memory will be deallocated when reference count goes to zero.
 // Windows and regions must use this class.
 
-class  rcSharedFrameBufPtr
+class  rcFrameRef
 {
-    friend class rcVideoCache;
     
 public:
+    
+    
     // Constructors
-    rcSharedFrameBufPtr()
+    rcFrameRef()
     : mCacheCtrl ( 0 ), mFrameIndex ( 0 ), mFrameBuf( 0 ) { }
-    rcSharedFrameBufPtr( rcFrame* p )
+    rcFrameRef( rcFrame* p )
     : mCacheCtrl ( 0 ), mFrameIndex ( 0 ), mFrameBuf( p ) {
         if (p) {
             mCacheCtrl = p->cacheCtrl();
@@ -271,19 +247,19 @@ public:
         if ( mFrameBuf ) {
             rcLock frmLock(getMutex());
 #ifdef DEBUG_MEM
-            cerr << "rcSharedFrameBufPtr ctor " << mFrameBuf
+            cerr << "rcFrameRef ctor " << mFrameBuf
             << " refCount " << mFrameBuf->refCount() << endl;
 #endif
             mFrameBuf->addRef();
         }
     }
-    rcSharedFrameBufPtr( const rcSharedFrameBufPtr& p )
+    rcFrameRef( const rcFrameRef& p )
     : mCacheCtrl ( p.mCacheCtrl ), mFrameIndex ( p.mFrameIndex ),
     mFrameBuf( p.mFrameBuf ) {
         if ( mFrameBuf ) {
             rcLock frmLock(getMutex());
 #ifdef DEBUG_MEM
-            cerr << "rcSharedFrameBufPtr ctor " << mFrameBuf
+            cerr << "rcFrameRef ctor " << mFrameBuf
             << " refCount " << mFrameBuf->refCount() << endl;
 #endif
             mFrameBuf->addRef();
@@ -291,22 +267,22 @@ public:
     };
     
     // Destructor
-    ~rcSharedFrameBufPtr() {
+    ~rcFrameRef() {
 #ifdef DEBUG_MEM
-        cerr << "rcSharedFrameBufPtr dtor " << endl;
+        cerr << "rcFrameRef dtor " << endl;
 #endif
         internalUnlock(true);
     };
     
     // Assignment operators
-    rcSharedFrameBufPtr& operator= ( const rcSharedFrameBufPtr& p ) {
+    rcFrameRef& operator= ( const rcFrameRef& p ) {
         if ( (mFrameBuf == p.mFrameBuf) && (mCacheCtrl == p.mCacheCtrl) &&
             (mFrameIndex == p.mFrameIndex) )
             return *this;
 #ifdef DEBUG_MEM
         {
             rcLock frmLock(getMutex());
-            cerr << "rcSharedFrameBufPtr asss " << mFrameBuf;
+            cerr << "rcFrameRef asss " << mFrameBuf;
             if ( mFrameBuf )
                 cerr << " refCount " << mFrameBuf->refCount();
             cerr << " = " << p.mFrameBuf;
@@ -326,13 +302,13 @@ public:
         return *this;
     }
     
-    rcSharedFrameBufPtr& operator= ( rcFrame* p ) {
+    rcFrameRef& operator= ( rcFrame* p ) {
         if ( (mFrameBuf == p) && (mFrameBuf || !mCacheCtrl) )
             return *this;
 #ifdef DEBUG_MEM
         {
             rcLock frmLock(getMutex());
-            cerr << "rcSharedFrameBufPtr assp " << mFrameBuf;
+            cerr << "rcFrameRef assp " << mFrameBuf;
             if ( mFrameBuf )
                 cerr << " refCount " << mFrameBuf->refCount();
             cerr << " = " << p;
@@ -363,9 +339,7 @@ public:
      *
      * Note: This is a NOOP for uncached frames.
      */
-    void lock() const {
-        const_cast<rcSharedFrameBufPtr*>(this)->internalLock();
-    }
+    virtual void lock() const;
     
     /* For cached frames, the cache controller is called to mark this
      * frame as available for reuse. The frame's data is retained in
@@ -381,27 +355,25 @@ public:
      *
      * Note: This is a NOOP for uncached frames.
      */
-    void unlock() const {
-        const_cast<rcSharedFrameBufPtr*>(this)->internalUnlock(false);
-    }
+    virtual void unlock() const;
     
     /* Ask cache controller to try and read in this frame now without
      * actually locking it to this object.
      */
-    void prefetch() const;
+    virtual void prefetch() const;
     
     uint32 frameIndex() const {
         return mFrameIndex;
     }
     
     // Comparison operators
-    bool operator== ( const rcSharedFrameBufPtr& p ) const {
+    bool operator== ( const rcFrameRef& p ) const {
         if ( mCacheCtrl || p.mCacheCtrl )
             return ((mCacheCtrl == p.mCacheCtrl) &&
                     (mFrameIndex == p.mFrameIndex));
         return ( mFrameBuf == p.mFrameBuf );
     }
-    bool operator!= ( const rcSharedFrameBufPtr& p ) const {
+    bool operator!= ( const rcFrameRef& p ) const {
         return !(this->operator==( p ));
     }
     bool operator== ( const rcFrame* p ) const {
@@ -460,7 +432,7 @@ public:
      * a shared frame buffer pointer to be initialized pointing to a
      * cached frame.
      */
-    void setCachedFrame(rcSharedFrameBufPtr& p, uint32 cacheID,
+    void setCachedFrame(rcFrameRef& p, uint32 cacheID,
                         uint32 frameIndex)
     {
         rmAssert(p.mFrameBuf);
@@ -486,20 +458,30 @@ public:
         mFrameIndex = frameIndex;
     }
 
+    /*
+     * public but only to avoid excessive friendship
+     */
     uint32      mCacheCtrl;
     uint32      mFrameIndex;
-    rcFrame* mFrameBuf;
+    rcFrame*    mFrameBuf;
 
 private:
     void internalLock();
     void internalUnlock( bool force );
 
-    
+
     static rcMutex& getMutex();
     static rcMutex* frameMutexP;
 };
 
-#define rcFrameBufPtr rcSharedFrameBufPtr
+
+
+// Utility function to transform between color spaces
+uint32 rfHSI2RGB (float H, float S, float I);
+
+
+
+#define rcFrameBufPtr rcFrameRef
 
 
 #endif

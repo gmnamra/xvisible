@@ -360,7 +360,7 @@ void rfImageConvert8to32(const rcWindow& rgbInput, rcWindow& rgbOutput)
 	return;
       }
 
-    const rcSharedFrameBufPtr& iFrame = rgbInput.frameBuf();
+    const rcFrameRef& iFrame = rgbInput.frameBuf();
  
     // TODO: use AltiVec for this
     for (uint32 j = 0; j < height; j++)

@@ -44,7 +44,7 @@ class rcFileGrabber : public rcFrameGrabber {
     virtual int32 frameCount() = 0;
 
     // Get next frame, assign the frame to ptr
-    virtual rcFrameGrabberStatus getNextFrame( rcSharedFrameBufPtr& , bool isBlocking ) = 0;
+    virtual rcFrameGrabberStatus getNextFrame( rcFrameRef& , bool isBlocking ) = 0;
 
   protected:
     // Set last error

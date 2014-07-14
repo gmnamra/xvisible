@@ -44,7 +44,7 @@ void UT_WindowHistogram::hist8Test ()
     const uint32 heightCount = 5;
     uint32 heights[heightCount] = { 1, 2, 3, 10, 32 };
     
-    rcSharedFrameBufPtr buf = new rcFrame( 640, 480, rcPixel8 );
+    rcFrameRef buf = new rcFrame( 640, 480, rcPixel8 );
     rcWindow mainWindow(buf, 0, 0, 640, 480);
     rcWindow subWindow(mainWindow, 0, 0, 1, 1);
     rcWindow guardWindow(mainWindow, 0, 0, 1, 1);

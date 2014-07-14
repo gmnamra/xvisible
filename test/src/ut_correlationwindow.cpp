@@ -18,7 +18,7 @@ static vector<rcWindow> createRandomVector( uint32 size, int32 width, int32 heig
 
     // Create dummy images
     for ( uint32 i = 0; i < size; ++i ) {
-        rcSharedFrameBufPtr frameBufPtr = new rcFrame( width, height, rcPixel8 );
+        rcFrameRef frameBufPtr = new rcFrame( width, height, rcPixel8 );
         // Create image
         rcWindow dummyImage( frameBufPtr );
         // Fill with random data
@@ -36,7 +36,7 @@ static vector<rcWindow> createConstVector( uint32 size, int32 width, int32 heigh
 
     // Create dummy images
     for ( uint32 i = 0; i < size; ++i ) {
-        rcSharedFrameBufPtr frameBufPtr = new rcFrame( width, height, rcPixel8 );
+        rcFrameRef frameBufPtr = new rcFrame( width, height, rcPixel8 );
         // Create image
         rcWindow dummyImage( frameBufPtr );
         // Fill with const data

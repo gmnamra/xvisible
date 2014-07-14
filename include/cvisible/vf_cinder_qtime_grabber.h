@@ -47,7 +47,7 @@ namespace vf_utils
             virtual int32 cacheSize();
             
             // Get next frame, assign the frame to ptr
-            virtual rcFrameGrabberStatus getNextFrame( rcSharedFrameBufPtr& ptr, bool isBlocking );
+            virtual rcFrameGrabberStatus getNextFrame( rcFrameRef& ptr, bool isBlocking );
             
             // Get name of input source, ie. file name, camera name etc.
             virtual const std::string getInputSourceName();
