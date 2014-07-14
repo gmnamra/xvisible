@@ -223,7 +223,7 @@ _progressIndicator(pIndicator)
     if (cacheSize && (cacheSize < _cacheSize))
         _cacheSize = cacheSize;
 
-    _frameCache = std::vector<rcFrameRef>(_frameCount);
+    _frameCache = std::vector<frame_ref_t>(_frameCount);
 
     
     /* Make all the cache entries available for use by pushing them all
@@ -345,7 +345,7 @@ QtimeCache::~ QtimeCache()
 }
 
 eQtimeCacheStatus  QtimeCache::getFrame(uint32 frameIndex,
-                                        rcFrameRef& frameBuf,
+                                        frame_ref_t& frameBuf,
                                         eQtimeCacheError* error,
                                         bool locked)
 {
@@ -381,7 +381,7 @@ eQtimeCacheStatus  QtimeCache::getFrame(uint32 frameIndex,
 }
 
 eQtimeCacheStatus  QtimeCache::getFrame(const rcTimestamp& time,
-                                        rcFrameRef& frameBuf,
+                                        frame_ref_t& frameBuf,
                                         eQtimeCacheError* error,
                                         bool locked)
 {
@@ -769,7 +769,7 @@ void  QtimeCache::setError ( eQtimeCacheError error)
 
 eQtimeCacheStatus
 QtimeCache::internalGetFrame(uint32 frameIndex,
-                             rcFrameRef& frameBufPtr,
+                             frame_ref_t& frameBufPtr,
                              eQtimeCacheError* error,
                              const uint32 dToken)
 {
@@ -796,7 +796,7 @@ QtimeCache::internalGetFrame(uint32 frameIndex,
      * with the idea of allowing other threads concurrent access to the
      * cache.
      */
-    rcFrameRef* cacheFrameBufPtr;
+    frame_ref_t* cacheFrameBufPtr;
     
     if (cacheAlloc(frameIndex, frameBufPtr, cacheFrameBufPtr, dToken) ==
         eQtimeCacheStatusOK) {
@@ -880,8 +880,8 @@ QtimeCache::internalGetFrame(uint32 frameIndex,
 
 eQtimeCacheStatus
 QtimeCache::cacheAlloc(uint32 frameIndex,
-                       rcFrameRef& userFrameBuf,
-                       rcFrameRef*& cacheFrameBufPtr,
+                       frame_ref_t& userFrameBuf,
+                       frame_ref_t*& cacheFrameBufPtr,
                        const uint32 dToken)
 {
 #ifndef VID_TRACE
@@ -894,11 +894,11 @@ QtimeCache::cacheAlloc(uint32 frameIndex,
     /* First, look to see if the frame has been cached. If so, return
      * it to the caller.
      */
-    map<uint32, rcFrameRef*>::iterator cachedEntryPtr;
+    map<uint32, frame_ref_t*>::iterator cachedEntryPtr;
     cachedEntryPtr = _cachedFramesItoB.find(frameIndex);
     
     if (cachedEntryPtr != _cachedFramesItoB.end()) {
-        rcFrameRef* bufPtr = cachedEntryPtr->second;
+        frame_ref_t* bufPtr = cachedEntryPtr->second;
         rmAssert((*bufPtr)->frameIndex() == frameIndex);
         
         /* If frame is in the unlocked map, remove it so no one else
@@ -944,10 +944,10 @@ QtimeCache::cacheAlloc(uint32 frameIndex,
      * buffer to the pending list and return to caller to allow
      * him to wait for load to complete.
      */
-    map<uint32, vector<rcFrameRef*> >::iterator pendingEntry;
+    map<uint32, vector<frame_ref_t*> >::iterator pendingEntry;
     pendingEntry = _pending.find(frameIndex);
     if (pendingEntry != _pending.end()) {
-        vector<rcFrameRef*>& pendingBuffers = pendingEntry->second;
+        vector<frame_ref_t*>& pendingBuffers = pendingEntry->second;
         pendingBuffers.push_back(&userFrameBuf);
         return  eQtimeCacheStatusError;
     }
@@ -970,7 +970,7 @@ QtimeCache::cacheAlloc(uint32 frameIndex,
         _unusedCacheFrames.pop_front();
         if (*cacheFrameBufPtr == 0) {
             *cacheFrameBufPtr =
-            rcFrameRef(new rcFrame(frameWidth(),
+            frame_ref_t(new rcFrame(frameWidth(),
                                             frameHeight(),
                                             frameDepth()));
             rmAssert(*cacheFrameBufPtr != 0);
@@ -1063,7 +1063,7 @@ QtimeCache::cacheAlloc(uint32 frameIndex,
 
 eQtimeCacheStatus
 QtimeCache::cacheInsert(uint32 frameIndex,
-                        rcFrameRef& cacheFrameBuf,
+                        frame_ref_t& cacheFrameBuf,
                         const uint32 dToken)
 {
 #ifndef VID_TRACE
@@ -1127,7 +1127,7 @@ void  QtimeCache::unlockFrame(uint32 frameIndex)
     rcLock lock(_cacheMutex);
     ADD_VID_TRACE(fnUnlockFrame, true, frameIndex, 0, dToken);
     
-    map<uint32, rcFrameRef*>::iterator cachedEntryPtr;
+    map<uint32, frame_ref_t*>::iterator cachedEntryPtr;
     cachedEntryPtr = _cachedFramesItoB.find(frameIndex);
     
     /* If someone else has already removed this frame from the
@@ -1142,7 +1142,7 @@ void  QtimeCache::unlockFrame(uint32 frameIndex)
      * between the time the calling frame buffer decremented the
      * count and this function call locked the cache mutex.
      */
-    rcFrameRef* bufPtr = cachedEntryPtr->second;
+    frame_ref_t* bufPtr = cachedEntryPtr->second;
     const uint32 refCount = (*bufPtr).refCount();
     if (refCount > 1) {
         ADD_VID_TRACE(fnUnlockFrame, false, frameIndex + 10,
@@ -1242,7 +1242,7 @@ void  QtimeCache::cacheUnlock(uint32 cacheID, uint32 frameIndex)
 }
 
 eQtimeCacheStatus  QtimeCache::cacheLock(uint32 cacheID, uint32 frameIndex,
-                                         rcFrameRef& frameBuf,
+                                         frame_ref_t& frameBuf,
                                          eQtimeCacheError* error)
 {
     QtimeCache* cacheP =   SingletonLite<QtimeCache::CacheManager>::instance().cacheById(cacheID);
@@ -1307,7 +1307,7 @@ void  QtimeCache:: QtimeCachePrefetchUnit::run()
              * in a temporary frame buffer.
              */
             eQtimeCacheError error;
-            rcFrameRef frameBuf;
+            frame_ref_t frameBuf;
             eQtimeCacheStatus status = _cacheCtrl.getFrame(frameIndex, frameBuf,
                                                            &error);
             /* Stop processing if something bad happens */

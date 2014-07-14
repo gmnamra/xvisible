@@ -51,6 +51,9 @@
 		C2DB225F190B298700BBC93C /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB225E190B298700BBC93C /* QuickTime.framework */; };
 		C2DB2261190B2CCB00BBC93C /* VisibleApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2173400190B175500A01365 /* VisibleApp.cpp */; };
 		C2E0EEB4194245F3003394C7 /* InteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2E0EEB3194245F3003394C7 /* InteractiveObject.cpp */; };
+		C2F100A019745B860070BB7B /* cached_frame_buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F1009F19745B860070BB7B /* cached_frame_buffer.cpp */; };
+		C2F100A2197471A90070BB7B /* cached_frame_buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F1009F19745B860070BB7B /* cached_frame_buffer.cpp */; };
+		C2F100A3197473D10070BB7B /* qtime_cache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2631598195CC0A800CF71B1 /* qtime_cache.cpp */; };
 		C2FB26FC1921C943003A48B7 /* cv_debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C2FB26FB1921C943003A48B7 /* cv_debug.xcconfig */; };
 		C2FB26FE1921D2F6003A48B7 /* ut_framebuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2FB26FD1921D2F6003A48B7 /* ut_framebuf.cpp */; };
 		C2FB27001921D30C003A48B7 /* ut_videocache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2FB26FF1921D30C003A48B7 /* ut_videocache.cpp */; };
@@ -138,7 +141,9 @@
 		C2E0EEB2194245E4003394C7 /* InteractiveObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InteractiveObject.h; path = ../../include/cvisible/InteractiveObject.h; sourceTree = "<group>"; };
 		C2E0EEB3194245F3003394C7 /* InteractiveObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InteractiveObject.cpp; sourceTree = "<group>"; };
 		C2E78DF6190B32C000F586E2 /* cash_satisfied_mind.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = cash_satisfied_mind.mp3; path = ../resources/assets/cash_satisfied_mind.mp3; sourceTree = "<group>"; };
-		C2F1009D19744C500070BB7B /* video_cache_manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = video_cache_manager.h; path = ../../include/vf/video_cache_manager.h; sourceTree = "<group>"; };
+		C2F1009E1974595A0070BB7B /* qtime_cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = qtime_cache.h; path = ../../include/cvisible/qtime_cache.h; sourceTree = "<group>"; };
+		C2F1009F19745B860070BB7B /* cached_frame_buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cached_frame_buffer.cpp; sourceTree = "<group>"; };
+		C2F100A119745B960070BB7B /* cached_frame_buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cached_frame_buffer.h; path = ../../include/cvisible/cached_frame_buffer.h; sourceTree = "<group>"; };
 		C2FB26FB1921C943003A48B7 /* cv_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = cv_debug.xcconfig; path = configs/cv_debug.xcconfig; sourceTree = "<group>"; };
 		C2FB26FD1921D2F6003A48B7 /* ut_framebuf.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ut_framebuf.cpp; path = ../test/src/ut_framebuf.cpp; sourceTree = "<group>"; };
 		C2FB26FF1921D30C003A48B7 /* ut_videocache.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ut_videocache.cpp; path = ../test/src/ut_videocache.cpp; sourceTree = "<group>"; };
@@ -294,7 +299,9 @@
 		C21733FB190B175500A01365 /* cvisible */ = {
 			isa = PBXGroup;
 			children = (
-				C2F1009D19744C500070BB7B /* video_cache_manager.h */,
+				C2F100A119745B960070BB7B /* cached_frame_buffer.h */,
+				C2F1009F19745B860070BB7B /* cached_frame_buffer.cpp */,
+				C2F1009E1974595A0070BB7B /* qtime_cache.h */,
 				C20986A9196357CB005325A2 /* gutc.cpp */,
 				C209869D195CF8C8005325A2 /* dict.ipp */,
 				C2631598195CC0A800CF71B1 /* qtime_cache.cpp */,
@@ -441,7 +448,9 @@
 			files = (
 				C236E0AD19291C2A0035C2F5 /* vf_qtime_grabber.cpp in Sources */,
 				C2DB2261190B2CCB00BBC93C /* VisibleApp.cpp in Sources */,
+				C2F100A3197473D10070BB7B /* qtime_cache.cpp in Sources */,
 				C283D71819460C6B00AC68BE /* visible_impl.cpp in Sources */,
+				C2F100A019745B860070BB7B /* cached_frame_buffer.cpp in Sources */,
 				C236E0A419290BCF0035C2F5 /* vf_source.cpp in Sources */,
 				C2E0EEB4194245F3003394C7 /* InteractiveObject.cpp in Sources */,
 			);
@@ -454,6 +463,7 @@
 				C263159A195CC0A800CF71B1 /* qtime_cache.cpp in Sources */,
 				C2FB27021921D31F003A48B7 /* ut_similarity.cpp in Sources */,
 				C209870F196A0C1A005325A2 /* ut_qtime.cpp in Sources */,
+				C2F100A2197471A90070BB7B /* cached_frame_buffer.cpp in Sources */,
 				C2FB27001921D30C003A48B7 /* ut_videocache.cpp in Sources */,
 				C2FB26FE1921D2F6003A48B7 /* ut_framebuf.cpp in Sources */,
 				C20986AA196357CB005325A2 /* gutc.cpp in Sources */,

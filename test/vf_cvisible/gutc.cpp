@@ -108,6 +108,13 @@ TEST (UT_fileutils, run)
 }
 
 
+TEST( UT_FrameBuf, run )
+{
+
+	UT_FrameBuf test;
+	EXPECT_EQ(0, test.run());
+}
+
 
 TEST (UT_QtimeCache, run)
 {
@@ -128,17 +135,6 @@ TEST( ut_similarity, run )
 	EXPECT_EQ(0, test.run());
 }
 
-
-TEST( UT_FrameBuf, run )
-{
-    std::vector<rcFrameRef> bufs;
-    bufs.resize (29);
-    for (int i = 0; i < 29; i++)
-        std::cout << (uint64)(&bufs[i]) << std::endl;
-
-	UT_FrameBuf test;
-	EXPECT_EQ(0, test.run());
-}
 
 
 

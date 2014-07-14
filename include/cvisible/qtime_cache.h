@@ -24,7 +24,7 @@ using namespace std;
 
 #include "rc_types.h"
 #include "rc_thread.h"
-#include "rc_framebuf.h"
+#include "cached_frame_buffer.h"
 #include "rc_timestamp.h"
 
 #include "vf_utils.hpp"
@@ -64,10 +64,13 @@ enum  eQtimeCacheStatus {
  */
 class   QtimeCache
 {
-    friend class rcFrameRef;
-    friend class UT_PlaybackUtils;
+   
+//    friend class frame_ref_t;
+//    friend class UT_PlaybackUtils;
     
 public:
+    typedef cached_frame_ref frame_ref_t;
+    
     /*   QtimeCacheCtor - Opens file and initializes data structures. If
      * getTOC is set to true, then the table of contents (a map of
      * timestamps to images) is read in.
@@ -107,7 +110,7 @@ public:
     /*   QtimeCacheDtor - Removes pointer to this cache from the map of
      * active caches, closes the associated file and deletes the cache.
      *
-     * Calls by rcFrameRef code to cacheLock() and
+     * Calls by frame_ref_t code to cacheLock() and
      * cacheUnlock() for caches that have already been deleted are
      * treated as noops.
      */
@@ -117,14 +120,14 @@ public:
      * base).
      */
     eQtimeCacheStatus getFrame(uint32 frameIndex,
-                               rcFrameRef& frameBuf,
+                               frame_ref_t& frameBuf,
                                eQtimeCacheError* error = 0,
                                bool locked = true);
     
     /* Returns the frame at timestamp time. must be exact match.
      */
     eQtimeCacheStatus getFrame(const rcTimestamp& time,
-                               rcFrameRef& frameBuf,
+                               frame_ref_t& frameBuf,
                                eQtimeCacheError* error = 0,
                                bool locked = true);
     
@@ -199,6 +202,34 @@ public:
      */
     static std::string getErrorString( eQtimeCacheError error);
     
+    /* General cache management related static functions. These are
+     * helper fcts intended to be used only by frame_ref_t
+     * class lock() and unlock() fcts. cacheUnlock() is a wrapper around
+     * unlockFrame() and cacheLock() is a wrapper around getFrame(). The
+     * main intention behind this is to allow for a well-defined action
+     * to occur if rcFrameBufPtr's persist past this life of the cache
+     * that owns the underlying rcFrame. See the description of
+     *   QtimeCacheDtor() for more details.
+     */
+    static void cachePrefetch(uint32 cacheIndex, uint32 frameIndex);
+    static void cacheUnlock(uint32 cacheIndex, uint32 frameIndex);
+    static eQtimeCacheStatus cacheLock(uint32 cacheIndex,
+                                       uint32 frameIndex,
+                                       frame_ref_t& frameBuf,
+                                       eQtimeCacheError* error = 0);
+    
+    
+    
+    rcWindow get_window (uint32 frameIndex)
+    {
+        frame_ref_t frameb ( new rcFrame (frameWidth(), frameHeight(), frameDepth()) );
+        eQtimeCacheStatus status = getFrame(frameIndex, frameb, 0, false);
+        if(status == eQtimeCacheStatusOK)
+            return rcWindow (static_cast<rcFrameRef>(frameb));
+        else return rcWindow ();
+    }
+    
+
 private:
     /*
      * Pimpl quicktime support
@@ -261,17 +292,17 @@ private:
     void setError( eQtimeCacheError error);
     
     eQtimeCacheStatus internalGetFrame(uint32 frameIndex,
-                                       rcFrameRef& frameBuf,
+                                       frame_ref_t& frameBuf,
                                        eQtimeCacheError* error,
                                        const uint32 dToken);
     
     eQtimeCacheStatus cacheAlloc(uint32 frameIndex,
-                                 rcFrameRef& userFrameBuf,
-                                 rcFrameRef*& cacheFrameBufPtr,
+                                 frame_ref_t& userFrameBuf,
+                                 frame_ref_t*& cacheFrameBufPtr,
                                  const uint32 dToken);
     
     eQtimeCacheStatus cacheInsert(uint32 frameIndex,
-                                  rcFrameRef& cacheFrameBuf,
+                                  frame_ref_t& cacheFrameBuf,
                                   const uint32 dToken);
     
     // Header reading methods
@@ -293,15 +324,7 @@ private:
      */
     void prefetchFrame(uint32 frameIndex);
     
-    void cachePrefetch(uint32 cacheID, uint32 frameIndex);
-    
-    
-    void  cacheUnlock(uint32 cacheID, uint32 frameIndex);
-    
-    eQtimeCacheStatus  cacheLock(uint32 cacheID, uint32 frameIndex,
-                                             rcFrameRef& frameBuf,
-                                 eQtimeCacheError* error);
-    
+      
     /* Support for bidirectional frame index <==> last use
      * mapping. (Unlocked, cached frames)
      */
@@ -311,12 +334,12 @@ private:
     
     /* Maps a frame index to its cached location.
      */
-    map<uint32, rcFrameRef*> _cachedFramesItoB;
+    map<uint32, frame_ref_t*> _cachedFramesItoB;
     
     /* List of available cache frames entries that don't point to a
      * valid frame.
      */
-    deque<rcFrameRef*>         _unusedCacheFrames;
+    deque<frame_ref_t*>         _unusedCacheFrames;
     
     /* Support for bidirectional frame index <==> timestamp
      * mapping. (Table of contents).
@@ -326,9 +349,9 @@ private:
     
     /* List of cached frames.
      */
-    vector<rcFrameRef>         _frameCache;
+    vector<frame_ref_t>         _frameCache;
     
-    typedef vector<rcFrameRef*> vcPendingFills;
+    typedef vector<frame_ref_t*> vcPendingFills;
     
     /* List of pending cache fills
      */
@@ -363,6 +386,8 @@ private:
     
     /* General cache management related data and their mutex.
      */
+    
+public:
     
     class CacheManager
     {
@@ -425,23 +450,9 @@ private:
         uint32                      _nextCacheID;
         boost::mutex                _cacheMgmtMutex;
         
-        /* General cache management related static functions. These are
-         * helper fcts intended to be used only by rcFrameRef
-         * class lock() and unlock() fcts. cacheUnlock() is a wrapper around
-         * unlockFrame() and cacheLock() is a wrapper around getFrame(). The
-         * main intention behind this is to allow for a well-defined action
-         * to occur if rcFrameBufPtr's persist past this life of the cache
-         * that owns the underlying rcFrame. See the description of
-         *   QtimeCacheDtor() for more details.
-         */
-        void cachePrefetch(uint32 cacheIndex, uint32 frameIndex);
-        void cacheUnlock(uint32 cacheIndex, uint32 frameIndex);
-        eQtimeCacheStatus cacheLock(uint32 cacheIndex,
-                                    uint32 frameIndex,
-                                    rcFrameRef& frameBuf,
-                                    eQtimeCacheError* error = 0);
+   
         
-//    protected:
+    private:
            
         
     };

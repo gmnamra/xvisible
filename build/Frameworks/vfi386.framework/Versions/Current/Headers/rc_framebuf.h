@@ -264,7 +264,7 @@ public:
 #endif
             mFrameBuf->addRef();
         }
-    };
+    }
     
     // Destructor
     ~rcFrameRef() {
@@ -272,7 +272,7 @@ public:
         cerr << "rcFrameRef dtor " << endl;
 #endif
         internalUnlock(true);
-    };
+    }
     
     // Assignment operators
     rcFrameRef& operator= ( const rcFrameRef& p ) {
@@ -463,15 +463,16 @@ public:
      */
     uint32      mCacheCtrl;
     uint32      mFrameIndex;
-    rcFrame*    mFrameBuf;
+    mutable rcFrame*    mFrameBuf;
 
+protected:
+    static rcMutex& getMutex();
+    static rcMutex* frameMutexP;
+    
 private:
     void internalLock();
     void internalUnlock( bool force );
 
-
-    static rcMutex& getMutex();
-    static rcMutex* frameMutexP;
 };
 
 
