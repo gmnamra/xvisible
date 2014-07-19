@@ -81,6 +81,7 @@ rcGaussKernel2D<T,ksize>::rcGaussKernel2D ()
 
 }
 
+#if 0
 template class rcGaussKernel2D<float,7>;
 template class rcGaussKernel2D<float,9>;
 template class rcGaussKernel2D<float,11>;
@@ -94,6 +95,9 @@ rcGaussKernel2D<float,11> sGaussFloatKernel11;
 rcGaussKernel2D<float,13> sGaussFloatKernel13;
 rcGaussKernel2D<float,15> sGaussFloatKernel15;
 rcGaussKernel2D<float,17> sGaussFloatKernel17;
+#endif
+
+
 #define LOOP4KERNEL(a)\
 case (a):\
 if (rfHasSIMD () && kernelSize == (a) && src.depth() == rcPixel16)\

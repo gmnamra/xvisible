@@ -1,11 +1,12 @@
 
-#ifndef INTRUSIVE_PTR_BASE
-#define INTRUSIVE_PTR_BASE
+#ifndef __INTRUSIVE_PTR__
+#define __INTRUSIVE_PTR__
 
 #include <boost/detail/atomic_count.hpp>
 #include <boost/checked_delete.hpp>
 #include <boost/intrusive_ptr.hpp>
 #include <boost/assert.hpp>
+
 
 template<class T>
 struct intrusive_ptr_base
@@ -44,6 +45,8 @@ private:
     // reference counter for intrusive_ptr
     mutable boost::detail::atomic_count m_refs;
 };
+
+
 
 
 #endif

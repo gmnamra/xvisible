@@ -19,6 +19,8 @@
 #include <gtest/gtest.h>
 #include "rc_framework_core.hpp"
 #include "rc_pixel.hpp"
+#include "ut_intrusive_ptr.hpp"
+
 //#include "Timer.h"
 
 class genv: public testing::Environment
@@ -68,6 +70,9 @@ TEST ( UT_Systeminfo, run )
 {
     UT_Systeminfo test;
     EXPECT_EQ(0,  test.run());
+    
+  //  ut_intrusive_test testi;
+  //  EXPECT_EQ(0, testi.run());
 }
 
 
@@ -140,8 +145,8 @@ TEST (UT_movieconverter, run)
     
     EXPECT_EQ (0, test.run());
 }
-#endif
 
+#endif
 
 TEST ( UT_ReifyMovieGrabber, run )
 {

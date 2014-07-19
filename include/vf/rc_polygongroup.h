@@ -62,7 +62,7 @@ public:
   //! copy / assignment  takes one arguments 
     /*!
       \param other
-      \desc  Copy and assignment constructors increment the refcount
+      \desc  Copy and assignment constructors increment the ref_count
     */
   rcPolygonGroupRef ( const rcPolygonGroupRef& other) :
     mGroup( other.group () ) {}
@@ -70,7 +70,7 @@ public:
 //! copy / assignment  takes one arguments 
     /*!
       \param rhs
-      \desc  Copy and assignment constructors increment the refcount
+      \desc  Copy and assignment constructors increment the ref_count
     */
   const rcPolygonGroupRef& operator= (const rcPolygonGroupRef& rhs)
   {

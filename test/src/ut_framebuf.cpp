@@ -35,25 +35,7 @@ UT_FrameBuf::run()
 
     }
     
-    
-    // rcFrameRef basic tests
-    {
-        // Constructor rcFrameRef( rcFrame* p )
-        cached_frame_ref buf( new rcFrame( 640, 480, rcPixel8 ) );
-        
-        rcUNITTEST_ASSERT( buf->refCount() == 1 );
-        
-        // Constructor rcFrameRef( const rcFrameRef& p )
-        cached_frame_ref share1( buf );
-        
-        rcUNITTEST_ASSERT( share1.refCount() == 2 );
-        {
-            cached_frame_ref share2( buf );
-            rcUNITTEST_ASSERT( share2.refCount() == 3 );
-        }
-        rcUNITTEST_ASSERT( share1.refCount() == 2 );
-    }
-
+  
     
      // Dummy object, everything should be undefined
     {        

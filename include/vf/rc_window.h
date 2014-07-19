@@ -39,7 +39,7 @@ public:
   //! copy / assignment  takes one arguments 
     /*!
       \param other
-      \desc  Copy and assignment constructors increment the refcount
+      \desc  Copy and assignment constructors increment the ref_count
     */
   rcWindow( const rcWindow& other) :
     mFrameBuf( other.frameBuf() ),
@@ -48,7 +48,7 @@ public:
 //! copy / assignment  takes one arguments 
     /*!
       \param rhs
-      \desc  Copy and assignment constructors increment the refcount
+      \desc  Copy and assignment constructors increment the ref_count
     */
   const rcWindow& operator= (const rcWindow& rhs)
   {

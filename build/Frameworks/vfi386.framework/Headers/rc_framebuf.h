@@ -9,7 +9,6 @@
 #define _rcFRAMEBUF_H_
 
 #include "rc_timestamp.h"
-#include "rc_thread.h"
 #include "rc_pixel.hpp"
 #include <boost/intrusive_ptr.hpp>
 #include <boost/atomic.hpp>
@@ -19,7 +18,7 @@
 #include <boost/function.hpp>
 #include <boost/bind.hpp>
 #include "singleton.hpp"
-
+#include "intrusive_ptr_base.hpp"
 #ifdef CINDER_BUILTIN
 #include <cinder/Channel.h>
 #endif
@@ -32,7 +31,7 @@ using namespace cv;
 // rcFrameRef must be used instead.
 
 
-class rcFrame
+class rcFrame : public intrusive_ptr_base<rcFrame>
 {
    // friend class rcVideoCache;
     
@@ -160,22 +159,7 @@ public:
     inline uint32  cacheCtrl() const { return mCacheCtrl; }
     inline uint32  frameIndex() const {return mFrameIndex; }
 	
-	
-    // Increase the reference count by one
-	void addRef() const
-	{
-		intrusive_ptr_add_ref (this);
-	}
-	
-    // Remove a reference (decreases the reference count by one). If
-    // the count goes to 0, this object will delete itself
-    void remRef() const
-    {
-		intrusive_ptr_release (this);
-    }
-	
-	int refCount () const { return refcount_.load (); }
-	
+    
 #ifdef CINDER_BUILTIN
     const ci::Channel8u*  newCiChannel ();  // copies only one channel
 #endif
@@ -204,6 +188,8 @@ protected:
     
     
 private:
+    
+#if 0
 	mutable boost::atomic<int> refcount_;
 	friend void intrusive_ptr_add_ref(const rcFrame * x)
 	{
@@ -217,12 +203,13 @@ private:
 			delete x;
 		}
 	}
+#endif
+    
     // Prohibit direct copying and assignment
     rcFrame( const rcFrame& );
     rcFrame& operator=( const rcFrame& );
 };
 
-#undef DEBUG_MEM // ctor/ftor/asignment and refCount debugging
 
 class rcVideoCache;
 
@@ -244,30 +231,23 @@ public:
             mCacheCtrl = p->cacheCtrl();
             mFrameIndex = p->frameIndex();
         }
-        if ( mFrameBuf ) {
-            rcLock frmLock(getMutex());
-#ifdef DEBUG_MEM
-            cerr << "rcFrameRef ctor " << mFrameBuf
-            << " refCount " << mFrameBuf->refCount() << endl;
-#endif
+        if ( mFrameBuf )
+        {
             mFrameBuf->addRef();
         }
     }
     rcFrameRef( const rcFrameRef& p )
     : mCacheCtrl ( p.mCacheCtrl ), mFrameIndex ( p.mFrameIndex ),
     mFrameBuf( p.mFrameBuf ) {
-        if ( mFrameBuf ) {
-            rcLock frmLock(getMutex());
-#ifdef DEBUG_MEM
-            cerr << "rcFrameRef ctor " << mFrameBuf
-            << " refCount " << mFrameBuf->refCount() << endl;
-#endif
+        if ( mFrameBuf )
+        {
             mFrameBuf->addRef();
         }
     }
     
     // Destructor
-    ~rcFrameRef() {
+    ~rcFrameRef()
+    {
 #ifdef DEBUG_MEM
         cerr << "rcFrameRef dtor " << endl;
 #endif
@@ -279,53 +259,33 @@ public:
         if ( (mFrameBuf == p.mFrameBuf) && (mCacheCtrl == p.mCacheCtrl) &&
             (mFrameIndex == p.mFrameIndex) )
             return *this;
-#ifdef DEBUG_MEM
-        {
-            rcLock frmLock(getMutex());
-            cerr << "rcFrameRef asss " << mFrameBuf;
-            if ( mFrameBuf )
-                cerr << " refCount " << mFrameBuf->refCount();
-            cerr << " = " << p.mFrameBuf;
-            if ( p.mFrameBuf )
-                cerr << " refCount " << p.mFrameBuf->refCount();
-            cerr << endl;
-        }
-#endif
+
         internalUnlock(true);
         mCacheCtrl = p.mCacheCtrl;
         mFrameIndex = p.mFrameIndex;
         mFrameBuf = p.mFrameBuf;
-        if ( mFrameBuf ) {
-            rcLock frmLock(getMutex());
+        if ( mFrameBuf )
+        {
             mFrameBuf->addRef();
         }
         return *this;
     }
     
-    rcFrameRef& operator= ( rcFrame* p ) {
+    rcFrameRef& operator= ( rcFrame* p )
+    {
         if ( (mFrameBuf == p) && (mFrameBuf || !mCacheCtrl) )
             return *this;
-#ifdef DEBUG_MEM
-        {
-            rcLock frmLock(getMutex());
-            cerr << "rcFrameRef assp " << mFrameBuf;
-            if ( mFrameBuf )
-                cerr << " refCount " << mFrameBuf->refCount();
-            cerr << " = " << p;
-            if ( p )
-                cerr << " refCount " << p->refCount();
-            cerr << endl;
-        }
-#endif
+
         internalUnlock(true);
         mFrameBuf = p;
-        if ( mFrameBuf ) {
+        if ( mFrameBuf )
+        {
             mCacheCtrl = p->cacheCtrl();
             mFrameIndex = p->frameIndex();
-            rcLock frmLock(getMutex());
             mFrameBuf->addRef();
         }
-        else {
+        else
+        {
             mCacheCtrl = 0;
             mFrameIndex = 0;
         }
@@ -416,8 +376,8 @@ public:
     int refCount() const {
         int retVal = 0;
         if ( !mFrameBuf && mCacheCtrl ) lock();
-        if ( mFrameBuf ) {
-            rcLock frmLock(getMutex());
+        if ( mFrameBuf )
+        {
             retVal = mFrameBuf->refCount();
         }
         return retVal;
@@ -441,8 +401,6 @@ public:
         mFrameBuf = p.mFrameBuf;
         mCacheCtrl = cacheID;
         mFrameIndex = frameIndex;
-        
-        rcLock frmLock(getMutex());
         mFrameBuf->addRef();
     }
     
@@ -465,13 +423,9 @@ public:
     uint32      mFrameIndex;
     mutable rcFrame*    mFrameBuf;
 
-protected:
-    static rcMutex& getMutex();
-    static rcMutex* frameMutexP;
-    
 private:
-    void internalLock();
-    void internalUnlock( bool force );
+    virtual void internalLock();
+    virtual void internalUnlock( bool force );
 
 };
 

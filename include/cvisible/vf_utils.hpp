@@ -1,13 +1,13 @@
 #ifndef __VF_UTILS__
 #define __VF_UTILS__
 
-#include "cinder/Utilities.h"
+
 #include <boost/algorithm/string.hpp>
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/scoped_thread.hpp>
 #include <boost/math/special_functions.hpp>
 #include "rc_fileutils.h"
-#include <stlplus_lite.hpp>
+#include "stlplus_lite.hpp"
 #include "rc_filegrabber.h"
 #include <random>
 #include <iterator>
@@ -17,7 +17,7 @@
 
 #include <fstream>
 
-using namespace ci;
+//using namespace ci;
 using namespace std;
 
 

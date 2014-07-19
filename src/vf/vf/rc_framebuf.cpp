@@ -15,18 +15,7 @@
 
 using namespace cv;
 
-rcMutex* rcFrameRef::frameMutexP = 0;
-
-rcMutex& rcFrameRef::getMutex()
-{
-  if (!frameMutexP)
-    frameMutexP = new rcMutex();
-  
-  return *frameMutexP;
-}
-
 rcFrame::rcFrame() :
-    refcount_(0),
     mRawData( 0 ),
     mStartPtr( 0 ),
     mWidth( 0 ),
@@ -45,7 +34,6 @@ rcFrame::rcFrame() :
 }
 
 rcFrame::rcFrame( int32 width, int32 height, rcPixel depth, int32 alignMod) :
-    refcount_(0),
     mWidth( width ),
     mHeight( height ),
     mAlignMod ( alignMod),
@@ -137,7 +125,7 @@ rcFrame::rcFrame (const char* rawPixels,
                   int32 rawPixelsRowUpdate, /* Row update for SRC pixels, not DEST frame */
                   int32 width, int32 height,
                   rcPixel pixelDepth, bool isGray)
-        : refcount_(0), mWidth( width ), mHeight( height ), mAlignMod (ROW_ALIGNMENT_MODULUS), 
+        : mWidth( width ), mHeight( height ), mAlignMod (ROW_ALIGNMENT_MODULUS), 
             mPixelDepth( pixelDepth ), mIsGray( isGray ), mOwnPixels (true), mCacheCtrl( 0 ), mFrameIndex( 0 ),   mColorMap( 0 ), mColorMapSize( 0 )
 
 {
@@ -388,43 +376,23 @@ void rcFrameRef::prefetch() const
 
 void rcFrameRef::internalLock()
 {
-#ifdef DEBUG_MEM        
-    cerr << "rcFrameRef lock: " << mFrameBuf << endl;
-#endif
-    if ( !mFrameBuf && mCacheCtrl ) {
+    if ( !mFrameBuf && mCacheCtrl )
+    {
         rcVideoCacheStatus status;
-	rcVideoCacheError error;
-	status = rcVideoCache::cacheLock(mCacheCtrl, mFrameIndex, *this, &error);
-#ifdef DEBUG_MEM        
-	cerr << "   Cached rcFrameRef " << mFrameBuf
-	     << " Status " << status << " refCount ";
-	rcLock frmLock(getMutex());
-	if ( mFrameBuf )
-	    cerr << mFrameBuf->refCount() << endl;
-	else
-	    cerr << "UNDEFINED" << endl;
-#endif
+        rcVideoCacheError error;
+        status = rcVideoCache::cacheLock(mCacheCtrl, mFrameIndex, *this, &error);
     }
 }
 
 void rcFrameRef::internalUnlock(bool force)
 {
-#ifdef DEBUG_MEM        
-    cerr << "rcFrameRef unlock: " << mFrameBuf << endl;
-#endif
     if ( mFrameBuf && (mCacheCtrl || force)) {
         bool cacheUnlock = false;
         {
-            rcLock frmLock(getMutex());
-
             mFrameBuf->remRef();
             if ((mFrameBuf->refCount() == 1) && mCacheCtrl)
                 cacheUnlock = true;
 
-#ifdef DEBUG_MEM
-            cerr << "   refCount " << mFrameBuf->refCount()
-                 << " cache unlock " << cacheUnlock << endl;
-#endif
             mFrameBuf = 0;
         }
         if (cacheUnlock)

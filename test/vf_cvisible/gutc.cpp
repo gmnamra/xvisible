@@ -72,20 +72,17 @@ private:
     std::string m_exec_path;
 };
 
-
-static ::testing::Environment* envp = 0;
+genv* s_gvp = 0;
 
 
 TEST (UT_fileutils, run)
 {
-    genv* gvp = reinterpret_cast<genv*>(envp);
-    EXPECT_TRUE (gvp != 0 );
-    
-    //UT_fileutils test (gvp->test_data_folder ());
+    {
+    //UT_fileutils test (s_s_gvp->test_data_folder ());
     //EXPECT_EQ(0, test.run () );
     
     std::string txtfile ("onecolumn.txt");
-    std::string csv_filename = create_filespec (gvp->test_data_folder(), txtfile);
+    std::string csv_filename = create_filespec (s_gvp->test_data_folder(), txtfile);
     
     fs::path fpath ( csv_filename );
     
@@ -94,13 +91,14 @@ TEST (UT_fileutils, run)
     EXPECT_TRUE (sfr->getNumFrames () == 3296);
     
     std::string matfile ("matrix.txt");
-    std::string mat_filename = create_filespec (gvp->test_data_folder(), matfile);
+    std::string mat_filename = create_filespec (s_gvp->test_data_folder(), matfile);
     vector<vector<float> > matrix;
     vf_utils::csv::csv2vectors(mat_filename, matrix, false, false, true);
     EXPECT_TRUE(matrix.size() == 300);
     for (int rr=0; rr < matrix.size(); rr++)
         EXPECT_TRUE(matrix[rr].size() == 300);
     
+    }
     
     //    fs::path fpath ( csv_filename );
     
@@ -111,8 +109,29 @@ TEST (UT_fileutils, run)
 TEST( UT_FrameBuf, run )
 {
 
-	UT_FrameBuf test;
-	EXPECT_EQ(0, test.run());
+//	UT_FrameBuf test;
+//	EXPECT_EQ(0, test.run());
+    
+    
+    // cached_frame_ref
+    {
+        // Constructor rcFrameRef( rcFrame* p )
+        cached_frame_ref buf( new rcFrame( 640, 480, rcPixel8 ) );
+        
+       EXPECT_TRUE( buf.ref_count() == 1 );
+        
+        // Constructor rcFrameRef( const rcFrameRef& p )
+        cached_frame_ref share1( buf );
+        
+        EXPECT_TRUE( share1.ref_count() == 2 );
+        {
+            cached_frame_ref share2( buf );
+            EXPECT_TRUE( share2.ref_count() == 3 );
+        }
+        EXPECT_TRUE( share1.ref_count() == 2 );
+    }
+    
+    
 }
 
 
@@ -120,10 +139,8 @@ TEST (UT_QtimeCache, run)
 {
     
     // vf does not support QuickTime natively. The ut expectes and checks for failure
-    genv* gvp = reinterpret_cast<genv*>(envp);
-    EXPECT_TRUE (gvp != 0 );
     static std::string qmov_name ("box-move.mov");
-    std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
+    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
     
     UT_QtimeCache test (qmov);
     EXPECT_EQ(0, test.run () );
@@ -141,12 +158,10 @@ TEST( ut_similarity, run )
 TEST(UT_similarity_producer, run)
 {
     // vf does not support QuickTime natively. The ut expectes and checks for failure
-    genv* gvp = reinterpret_cast<genv*>(envp);
-    EXPECT_TRUE (gvp != 0 );
     static std::string qmov_name ("box-move.mov");
     static std::string rfymov_name ("box-move.rfymov");
-    std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
-    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);
+    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
+    std::string rfymov = create_filespec (s_gvp->test_data_folder (), rfymov_name);
     
 	UT_similarity_producer test (rfymov, qmov);
     EXPECT_EQ(0, test.run());
@@ -155,10 +170,8 @@ TEST(UT_similarity_producer, run)
 TEST(cinder_qtime_grabber, run)
 {
     // vf does not support QuickTime natively. The ut expectes and checks for failure
-    genv* gvp = reinterpret_cast<genv*>(envp);
-    EXPECT_TRUE (gvp != 0 );
     static std::string qmov_name ("box-move.mov");
-    std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
+    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
     boost::shared_ptr<rcFrameGrabber> grabber (reinterpret_cast<rcFrameGrabber*> (new vf_utils::qtime_support::CinderQtimeGrabber( qmov )) );
     
     EXPECT_TRUE (grabber.get() != NULL);
@@ -194,11 +207,9 @@ TEST(cinder_qtime_grabber, run)
 
 TEST(cinder_qtime_grabber_and_similarity, run)
 {
-    // vf does not support QuickTime natively. The ut expectes and checks for failure
-    genv* gvp = reinterpret_cast<genv*>(envp);
-    EXPECT_TRUE (gvp != 0 );
+ 
     static std::string qmov_name ("box-move.mov");
-    std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
+    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
     boost::shared_ptr<rcFrameGrabber> grabber (reinterpret_cast<rcFrameGrabber*> (new vf_utils::qtime_support::CinderQtimeGrabber( qmov )) );
     ((vf_utils::qtime_support::CinderQtimeGrabber*)grabber.get())->print_to_ (std::cout);
     
@@ -264,13 +275,10 @@ TEST(cinder_qtime_grabber_and_similarity, run)
 
 TEST(cb_similarity_producer, run)
 {
-    // vf does not support QuickTime natively. The ut expectes and checks for failure
-    genv* gvp = reinterpret_cast<genv*>(envp);
-    EXPECT_TRUE (gvp != 0 );
-    static std::string qmov_name ("box-move.mov");
+     static std::string qmov_name ("box-move.mov");
     static std::string rfymov_name ("box-move.rfymov");
-    std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
-    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);
+    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
+    std::string rfymov = create_filespec (s_gvp->test_data_folder (), rfymov_name);
     
     {
         cb_similarity_producer test (rfymov);
@@ -299,10 +307,9 @@ TEST(cb_similarity_producer, run)
 
 TEST (UT_videocache, run)
 {
-    genv* gvp = reinterpret_cast<genv*>(envp);
-    EXPECT_TRUE (gvp != 0 );
+    
     static std::string rfymov_name ("rev2.rfymov");
-    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);
+    std::string rfymov = create_filespec (s_gvp->test_data_folder (), rfymov_name);
     
     UT_VideoCache test (rfymov);
     EXPECT_EQ(0, test.run () );
@@ -313,12 +320,11 @@ TEST (UT_videocache, run)
 
 TEST (UT_movieconverter, run)
 {
-    genv* gvp = reinterpret_cast<genv*>(envp);
-    EXPECT_TRUE (gvp != 0 );
+    
     static std::string qmov_name ("box-move.mov");
     static std::string rfymov_name ("box-move.rfymov");
-    std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
-    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);
+    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
+    std::string rfymov = create_filespec (s_gvp->test_data_folder (), rfymov_name);
     
     UT_movieconverter test (rfymov.c_str(), qmov.c_str () );
     
@@ -328,10 +334,9 @@ TEST (UT_movieconverter, run)
 
 TEST ( UT_ReifyMovieGrabber, run )
 {
-    genv* gvp = reinterpret_cast<genv*>(envp);
-    EXPECT_TRUE (gvp != 0 );
+    
     static std::string rfymov_name ("rev2.rfymov");
-    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);
+    std::string rfymov = create_filespec (s_gvp->test_data_folder (), rfymov_name);
     
     UT_ReifyMovieGrabber test ( rfymov );
     EXPECT_EQ(0, test.run () );
@@ -340,10 +345,9 @@ TEST ( UT_ReifyMovieGrabber, run )
 
 TEST (UT_videocache, run)
 {
-    genv* gvp = reinterpret_cast<genv*>(envp);
-    EXPECT_TRUE (gvp != 0 );
+    
     static std::string rfymov_name ("rev2.rfymov");
-    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);
+    std::string rfymov = create_filespec (s_gvp->test_data_folder (), rfymov_name);
     
     UT_VideoCache test (rfymov);
     EXPECT_EQ(0, test.run () );
@@ -353,12 +357,11 @@ TEST (UT_videocache, run)
 
 TEST(UT_similarity_producer, run)
 {
-    genv* gvp = reinterpret_cast<genv*>(envp);
-    EXPECT_TRUE (gvp != 0 );
+    
     static std::string qmov_name ("box-move.mov");
     static std::string rfymov_name ("box-move.rfymov");
-    std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
-    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);
+    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
+    std::string rfymov = create_filespec (s_gvp->test_data_folder (), rfymov_name);
     
 	UT_similarity_producer test (rfymov, qmov);
     EXPECT_EQ(0, test.run());
@@ -372,7 +375,7 @@ int main(int argc, char **argv)
 {
     std::string installpath = install_path (std::string (argv[0]));
     ::testing::Environment* const g_env  = ::testing::AddGlobalTestEnvironment(new     genv (installpath) );
-    envp = g_env;
+    s_gvp = reinterpret_cast<genv*>(g_env);
 	testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
     

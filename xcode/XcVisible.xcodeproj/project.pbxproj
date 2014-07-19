@@ -41,7 +41,6 @@
 		C276525B1915E9CB00EA3B55 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C276525A1915E9CB00EA3B55 /* CoreVideo.framework */; };
 		C276525E1915EA1400EA3B55 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
 		C283D71819460C6B00AC68BE /* visible_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C283D71719460C6B00AC68BE /* visible_impl.cpp */; };
-		C283D7211947C6E500AC68BE /* vfi386.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C283D7201947C6E500AC68BE /* vfi386.framework */; };
 		C2A2BE97193055BF003337D7 /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D6FA80192D27820099EEED /* libboost_thread.a */; };
 		C2A2BE99193055F9003337D7 /* vfi386.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A2BE98193055F9003337D7 /* vfi386.framework */; };
 		C2D6FA81192D27820099EEED /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D6FA80192D27820099EEED /* libboost_thread.a */; };
@@ -67,7 +66,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C283D7211947C6E500AC68BE /* vfi386.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +123,6 @@
 		C283D7161943DB3000AC68BE /* iclip.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = iclip.hpp; path = ../../include/cvisible/iclip.hpp; sourceTree = "<group>"; };
 		C283D71719460C6B00AC68BE /* visible_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = visible_impl.cpp; sourceTree = "<group>"; };
 		C283D71919468A1000AC68BE /* ui_contexts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ui_contexts.h; path = ../../include/cvisible/ui_contexts.h; sourceTree = "<group>"; };
-		C283D7201947C6E500AC68BE /* vfi386.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = vfi386.framework; sourceTree = "<group>"; };
 		C2A2BE98193055F9003337D7 /* vfi386.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386.framework; path = ../build/Frameworks/vfi386.framework; sourceTree = "<group>"; };
 		C2A3267F1952582D007A35E6 /* visible_main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = visible_main.h; path = ../../include/cvisible/visible_main.h; sourceTree = "<group>"; };
 		C2A3268019550CDA007A35E6 /* stl_util.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = stl_util.hpp; sourceTree = "<group>"; };
@@ -231,7 +228,6 @@
 		29B97314FDCFA39411CA2CEA /* SamplePlayerTest */ = {
 			isa = PBXGroup;
 			children = (
-				C283D7201947C6E500AC68BE /* vfi386.framework */,
 				C2663DC1192AB062004986A4 /* ut_sm.hpp */,
 				C209870E196A0C1A005325A2 /* ut_qtime.cpp */,
 				C2FB27011921D31F003A48B7 /* ut_similarity.cpp */,

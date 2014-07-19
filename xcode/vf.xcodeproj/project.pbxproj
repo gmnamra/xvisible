@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		C2270A0E19779251007494EC /* intrusive_ptr_base.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2270A0D19779251007494EC /* intrusive_ptr_base.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		C23E89B11912FD4500AE27A3 /* rc_assemblymacros.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C28F8018F4A6B100BA7E79 /* rc_assemblymacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C23E89B7191310DB00AE27A3 /* vf_debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */; };
 		C23E89B8191310DB00AE27A3 /* vf_debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */; };
@@ -301,6 +302,8 @@
 		C21CAED60F421FE2003CC197 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = ../../../../../../System/Library/Frameworks/Carbon.framework; sourceTree = "<group>"; };
 		C21CAEE00F42239D003CC197 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = ../../../../../../System/Library/Frameworks/AppKit.framework; sourceTree = "<group>"; };
 		C21CAEEB0F4223E9003CC197 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../../../../System/Library/Frameworks/GLUT.framework; sourceTree = "<group>"; };
+		C2270A0D19779251007494EC /* intrusive_ptr_base.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = intrusive_ptr_base.hpp; sourceTree = "<group>"; };
+		C2270A0F19788110007494EC /* ut_intrusive_ptr.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ut_intrusive_ptr.hpp; path = ../test/include/ut_intrusive_ptr.hpp; sourceTree = "<group>"; };
 		C22DD24813159A2C00801DE4 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = ../../../../../../System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<group>"; };
 		C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = vf_debug.xcconfig; path = configs/vf_debug.xcconfig; sourceTree = "<group>"; };
 		C23E89B9191310F800AE27A3 /* vf_release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = vf_release.xcconfig; path = configs/vf_release.xcconfig; sourceTree = "<group>"; };
@@ -911,6 +914,7 @@
 		C26FA22C0F2135640046570D /* include */ = {
 			isa = PBXGroup;
 			children = (
+				C2270A0F19788110007494EC /* ut_intrusive_ptr.hpp */,
 				C247023A18E5D7C900D5942E /* ut_file.h */,
 				C297DD3C18A1B5F100F217A5 /* ut_persistence1d.h */,
 				C26FA22D0F2135640046570D /* main.h */,
@@ -1121,6 +1125,7 @@
 		C2C28F7318F4A6B100BA7E79 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C2270A0D19779251007494EC /* intrusive_ptr_base.hpp */,
 				C27652251914089400EA3B55 /* rc_level.h */,
 				C299934618FDBD44008397D2 /* rc_mathmodel.h */,
 				C26F48C718FC75D6006DF78F /* rc_ncs.h */,
@@ -1549,6 +1554,7 @@
 				C2C292D518F4C5D500BA7E79 /* hash.hpp in Headers */,
 				C2C292CD18F4C5D500BA7E79 /* digraph.hpp in Headers */,
 				C2C2908518F4A6B200BA7E79 /* rc_window2jpg.h in Headers */,
+				C2270A0E19779251007494EC /* intrusive_ptr_base.hpp in Headers */,
 				C2C290D418F4A6B200BA7E79 /* tiffiop.h in Headers */,
 				C2C2905A18F4A6B200BA7E79 /* rc_moviefileformat.h in Headers */,
 				C2C2906E18F4A6B200BA7E79 /* rc_security.h in Headers */,
