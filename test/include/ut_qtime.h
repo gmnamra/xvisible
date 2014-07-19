@@ -46,7 +46,7 @@ public:
   
   void run();
 
-  uint32      _refCount[QtimeCache_THREAD_CNT*5];
+  uint32      _ref_count[QtimeCache_THREAD_CNT*5];
   uint32      _frameTouch[FRAME_COUNT];
   uint32      _prefetches;
   uint32      _myErrors;

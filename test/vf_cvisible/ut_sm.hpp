@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include "vf_sm_producer.h"
-using namespace ci;
+//using namespace ci;
 using namespace std;
 
 

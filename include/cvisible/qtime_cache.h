@@ -31,20 +31,20 @@ using namespace std;
 
 enum  eQtimeCacheError {
     eQtimeCacheErrorOK = 0,            // No error
-    eQtimeCacheErrorFileInit,          // File (system) init error
-    eQtimeCacheErrorFileSeek,          // File seek error
-    eQtimeCacheErrorFileRead,          // File read error
-    eQtimeCacheErrorFileClose,         // File close error
-    eQtimeCacheErrorFileFormat,        // File invalid
-    eQtimeCacheErrorFileUnsupported,   // File format unsupported
-    eQtimeCacheErrorFileRevUnsupported,// File revision unsupported
-    eQtimeCacheErrorSystemResources,   // Inadequate system resources
-    eQtimeCacheErrorNoSuchFrame,       // Specified frame does not exist
-    eQtimeCacheErrorCacheInvalid,      // Previously detected error put
+    eQtimeCacheErrorFileInit=1,          // File (system) init error
+    eQtimeCacheErrorFileSeek=2,          // File seek error
+    eQtimeCacheErrorFileRead=3,          // File read error
+    eQtimeCacheErrorFileClose=4,         // File close error
+    eQtimeCacheErrorFileFormat=5,        // File invalid
+    eQtimeCacheErrorFileUnsupported=6,   // File format unsupported
+    eQtimeCacheErrorFileRevUnsupported=7,// File revision unsupported
+    eQtimeCacheErrorSystemResources=8,   // Inadequate system resources
+    eQtimeCacheErrorNoSuchFrame=9,       // Specified frame does not exist
+    eQtimeCacheErrorCacheInvalid=10,      // Previously detected error put
     // cache in invalid state or cache
     // has been deleted
-    eQtimeCacheErrorBomUnsupported,    // Unsupported byte order
-    eQtimeCacheErrorDepthUnsupported,  // Unsupported image depth
+    eQtimeCacheErrorBomUnsupported=11,    // Unsupported byte order
+    eQtimeCacheErrorDepthUnsupported=12,  // Unsupported image depth
 };
 
 // Status type

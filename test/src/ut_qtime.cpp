@@ -66,7 +66,7 @@ void utQtimeCacheThread::run()
         if (status == eQtimeCacheStatusOK) {
             {
                 rcWindow win(bp);
-                uint32 ref_count = bp.ref_count();
+                uint32 ref_count = bp.refCount();
                 if ((ref_count < 3) || (ref_count >= (QtimeCache_THREAD_CNT*5))) {
                     fprintf(stderr, "Error on ref_count check %d\n", ref_count);
                     _myErrors++;
@@ -96,7 +96,7 @@ void utQtimeCacheThread::run()
                     usleep(unlockedSleep); // Unlock time
                 if (bp) {
                     rcWindow win(bp);
-                    uint32 ref_count = bp.ref_count();
+                    uint32 ref_count = bp.refCount();
                     if ((ref_count < 3) || (ref_count >= (QtimeCache_THREAD_CNT*5))) {
                         fprintf(stderr, "Error on ref_count check %d\n", ref_count);
                         _myErrors++;
@@ -543,12 +543,12 @@ void UT_QtimeCache::simpleAllocTest()
         eQtimeCacheError error;
         eQtimeCacheStatus status;
         QtimeCache::frame_ref_t buf;
-        rmAssert(buf.ref_count() == 0);
+        rmAssert(buf.refCount() == 0);
         
         status = cacheP->getFrame(i, buf, &error);
         rcUNITTEST_ASSERT(status == eQtimeCacheStatusOK);
         if (status == eQtimeCacheStatusOK) {
-            rcUNITTEST_ASSERT(buf.ref_count() == 2);
+            rcUNITTEST_ASSERT(buf.refCount() == 2);
             rcUNITTEST_ASSERT(buf->width() == 16);
             rcUNITTEST_ASSERT(buf->height() == 16);
             rcUNITTEST_ASSERT(buf->depth() == rcPixel8);
@@ -565,7 +565,7 @@ void UT_QtimeCache::simpleAllocTest()
 #endif
             
             rcWindow win(buf);
-            rcUNITTEST_ASSERT(buf.ref_count() == 3);
+            rcUNITTEST_ASSERT(buf.refCount() == 3);
             
 #ifdef KNOWN_IMAGE
             rfGenDepth8Histogram(win, hist);
@@ -579,7 +579,7 @@ void UT_QtimeCache::simpleAllocTest()
         eQtimeCacheError error;
         eQtimeCacheStatus status;
         QtimeCache::frame_ref_t buf;
-        rmAssert(buf.ref_count() == 0);
+        rmAssert(buf.refCount() == 0);
         
         rcTimestamp time;
         status = cacheP->frameIndexToTimestamp(i, time, &error);
@@ -587,7 +587,7 @@ void UT_QtimeCache::simpleAllocTest()
         status = cacheP->getFrame(time, buf, &error);
         rcUNITTEST_ASSERT(status == eQtimeCacheStatusOK);
         if (status == eQtimeCacheStatusOK) {
-            rcUNITTEST_ASSERT(buf.ref_count() == 2);
+            rcUNITTEST_ASSERT(buf.refCount() == 2);
             rcUNITTEST_ASSERT(buf->width() == 16);
             rcUNITTEST_ASSERT(buf->height() == 16);
             rcUNITTEST_ASSERT(buf->depth() == rcPixel8);
@@ -603,7 +603,7 @@ void UT_QtimeCache::simpleAllocTest()
 #endif
             
             rcWindow win(buf);
-            rcUNITTEST_ASSERT(buf.ref_count() == 3);
+            rcUNITTEST_ASSERT(buf.refCount() == 3);
 #ifdef KNOWN_IMAGE
             rfGenDepth8Histogram(win, hist);
             rcUNITTEST_ASSERT((hist[0]+hist[138]) == win.pixelCount());
@@ -736,9 +736,9 @@ void UT_QtimeCache::cacheFullTest()
         rcUNITTEST_ASSERT(status == eQtimeCacheStatusOK);
         if (status != eQtimeCacheStatusOK)
             return; // No point continuing if we've already screwed up
-        rcUNITTEST_ASSERT(bp[i].ref_count() == 2);
+        rcUNITTEST_ASSERT(bp[i].refCount() == 2);
         rcWindow win(bp[i]);
-        rcUNITTEST_ASSERT(bp[i].ref_count() == 3);
+        rcUNITTEST_ASSERT(bp[i].refCount() == 3);
         
         rfGenDepth8Histogram(win, hist);
         rcUNITTEST_ASSERT((hist[0]+hist[138]) == win.pixelCount());
@@ -750,9 +750,9 @@ void UT_QtimeCache::cacheFullTest()
         status = cacheP->getFrame(i, bp[i], &error);
         rcUNITTEST_ASSERT(status == eQtimeCacheStatusOK);
         if (status == eQtimeCacheStatusOK) {
-            rcUNITTEST_ASSERT(bp[i].ref_count() == 2);
+            rcUNITTEST_ASSERT(bp[i].refCount() == 2);
             rcWindow win(bp[i]);
-            rcUNITTEST_ASSERT(bp[i].ref_count() == 3);
+            rcUNITTEST_ASSERT(bp[i].refCount() == 3);
             
             rfGenDepth8Histogram(win, hist);
             rcUNITTEST_ASSERT((hist[0]+hist[138]) == win.pixelCount());
@@ -766,9 +766,9 @@ void UT_QtimeCache::cacheFullTest()
         status = cacheP->getFrame(i, bp[i], &error);
         rcUNITTEST_ASSERT(status == eQtimeCacheStatusOK);
         if (status == eQtimeCacheStatusOK) {
-            rcUNITTEST_ASSERT(bp[i].ref_count() == 2);
+            rcUNITTEST_ASSERT(bp[i].refCount() == 2);
             rcWindow win(bp[i]);
-            rcUNITTEST_ASSERT(bp[i].ref_count() == 3);
+            rcUNITTEST_ASSERT(bp[i].refCount() == 3);
             
             rfGenDepth8Histogram(win, hist);
             rcUNITTEST_ASSERT((hist[0]+hist[138]) == win.pixelCount());
@@ -780,10 +780,10 @@ void UT_QtimeCache::cacheFullTest()
      */
     for (uint32 i = 0; i < overflowSize; i++) {
         bp[i].lock();
-        rcUNITTEST_ASSERT(bp[i].ref_count() == 2);
-        if (bp[i].ref_count() == 2) {
+        rcUNITTEST_ASSERT(bp[i].refCount() == 2);
+        if (bp[i].refCount() == 2) {
             rcWindow win(bp[i]);
-            rcUNITTEST_ASSERT(bp[i].ref_count() == 3);
+            rcUNITTEST_ASSERT(bp[i].refCount() == 3);
             
             rfGenDepth8Histogram(win, hist);
             rcUNITTEST_ASSERT((hist[0]+hist[138]) == win.pixelCount());
@@ -795,10 +795,10 @@ void UT_QtimeCache::cacheFullTest()
     for (uint32 i = 0; i < overflowSize; i++) {
         bp[i + cacheSize].unlock();
         bp[i].lock();
-        rcUNITTEST_ASSERT(bp[i].ref_count() == 2);
-        if (bp[i].ref_count() == 2) {
+        rcUNITTEST_ASSERT(bp[i].refCount() == 2);
+        if (bp[i].refCount() == 2) {
             rcWindow win(bp[i]);
-            rcUNITTEST_ASSERT(bp[i].ref_count() == 3);
+            rcUNITTEST_ASSERT(bp[i].refCount() == 3);
             
             rfGenDepth8Histogram(win, hist);
             rcUNITTEST_ASSERT((hist[0]+hist[138]) == win.pixelCount());
@@ -822,9 +822,9 @@ void UT_QtimeCache::frameBufTest()
     eQtimeCacheError error;
     eQtimeCacheStatus status;
     
-    rcUNITTEST_ASSERT(cachedBp.ref_count() == 0);
-    rcUNITTEST_ASSERT(uncachedBp.ref_count() == 0);
-    rcUNITTEST_ASSERT(changingBp.ref_count() == 0);
+    rcUNITTEST_ASSERT(cachedBp.refCount() == 0);
+    rcUNITTEST_ASSERT(uncachedBp.refCount() == 0);
+    rcUNITTEST_ASSERT(changingBp.refCount() == 0);
     
     /* First test: Set up cachedBp and uncachedBp. Set changingBp to
      *             point towards uncached frame.
@@ -835,32 +835,32 @@ void UT_QtimeCache::frameBufTest()
     if (status != eQtimeCacheStatusOK)
         return; // No point in continuing test if this doesn't work.
     
-    rcUNITTEST_ASSERT(cachedBp.ref_count() == 2);
+    rcUNITTEST_ASSERT(cachedBp.refCount() == 2);
     rcUNITTEST_ASSERT(cachedBp->getPixel(0, 0) == cachedPixelValue);
     
     uncachedBp = new rcFrame(16, 16, rcPixel8);
-    rcUNITTEST_ASSERT(uncachedBp.ref_count() == 1);
+    rcUNITTEST_ASSERT(uncachedBp.refCount() == 1);
     rcUNITTEST_ASSERT(uncachedBp != cachedBp);
     
     rcWindow win(uncachedBp);
-    rcUNITTEST_ASSERT(uncachedBp.ref_count() == 2);
+    rcUNITTEST_ASSERT(uncachedBp.refCount() == 2);
     
     win.setAllPixels(uncachedPixelValue);
     rcUNITTEST_ASSERT(uncachedBp->getPixel(0, 0) == uncachedPixelValue);
     
     rcUNITTEST_ASSERT(uncachedBp != changingBp);
     changingBp = uncachedBp;
-    rcUNITTEST_ASSERT(changingBp.ref_count() == 3);
-    rcUNITTEST_ASSERT(uncachedBp.ref_count() == 3);
+    rcUNITTEST_ASSERT(changingBp.refCount() == 3);
+    rcUNITTEST_ASSERT(uncachedBp.refCount() == 3);
     rcUNITTEST_ASSERT(uncachedBp == changingBp);
     rcUNITTEST_ASSERT(changingBp->getPixel(0, 0) == uncachedPixelValue);
     
     /* Second test: Point changingBp towards cached frame.
      */
     changingBp = cachedBp;
-    rcUNITTEST_ASSERT(cachedBp.ref_count() == 3);
-    rcUNITTEST_ASSERT(changingBp.ref_count() == 3);
-    rcUNITTEST_ASSERT(uncachedBp.ref_count() == 2);
+    rcUNITTEST_ASSERT(cachedBp.refCount() == 3);
+    rcUNITTEST_ASSERT(changingBp.refCount() == 3);
+    rcUNITTEST_ASSERT(uncachedBp.refCount() == 2);
     rcUNITTEST_ASSERT(cachedBp->getPixel(0, 0) == cachedPixelValue);
     rcUNITTEST_ASSERT(changingBp->getPixel(0, 0) == cachedPixelValue);
     rcUNITTEST_ASSERT(uncachedBp->getPixel(0, 0) == uncachedPixelValue);
@@ -870,9 +870,9 @@ void UT_QtimeCache::frameBufTest()
     /* Third test: Point changingBp back towards uncached frame.
      */
     changingBp = uncachedBp;
-    rcUNITTEST_ASSERT(cachedBp.ref_count() == 2);
-    rcUNITTEST_ASSERT(changingBp.ref_count() == 3);
-    rcUNITTEST_ASSERT(uncachedBp.ref_count() == 3);
+    rcUNITTEST_ASSERT(cachedBp.refCount() == 2);
+    rcUNITTEST_ASSERT(changingBp.refCount() == 3);
+    rcUNITTEST_ASSERT(uncachedBp.refCount() == 3);
     rcUNITTEST_ASSERT(cachedBp->getPixel(0, 0) == cachedPixelValue);
     rcUNITTEST_ASSERT(changingBp->getPixel(0, 0) == uncachedPixelValue);
     rcUNITTEST_ASSERT(uncachedBp->getPixel(0, 0) == uncachedPixelValue);
@@ -885,9 +885,9 @@ void UT_QtimeCache::frameBufTest()
      */
     changingBp = cachedBp;
     changingBp = 0;
-    rcUNITTEST_ASSERT(cachedBp.ref_count() == 2);
-    rcUNITTEST_ASSERT(changingBp.ref_count() == 0);
-    rcUNITTEST_ASSERT(uncachedBp.ref_count() == 2);
+    rcUNITTEST_ASSERT(cachedBp.refCount() == 2);
+    rcUNITTEST_ASSERT(changingBp.refCount() == 0);
+    rcUNITTEST_ASSERT(uncachedBp.refCount() == 2);
     rcUNITTEST_ASSERT(cachedBp->getPixel(0, 0) == cachedPixelValue);
     rcUNITTEST_ASSERT(uncachedBp->getPixel(0, 0) == uncachedPixelValue);
     rcUNITTEST_ASSERT(changingBp == 0);
@@ -895,9 +895,9 @@ void UT_QtimeCache::frameBufTest()
     rcUNITTEST_ASSERT(uncachedBp != changingBp);
     
     changingBp.lock();
-    rcUNITTEST_ASSERT(cachedBp.ref_count() == 2);
-    rcUNITTEST_ASSERT(changingBp.ref_count() == 0);
-    rcUNITTEST_ASSERT(uncachedBp.ref_count() == 2);
+    rcUNITTEST_ASSERT(cachedBp.refCount() == 2);
+    rcUNITTEST_ASSERT(changingBp.refCount() == 0);
+    rcUNITTEST_ASSERT(uncachedBp.refCount() == 2);
     rcUNITTEST_ASSERT(cachedBp->getPixel(0, 0) == cachedPixelValue);
     rcUNITTEST_ASSERT(uncachedBp->getPixel(0, 0) == uncachedPixelValue);
     rcUNITTEST_ASSERT(changingBp == 0);
@@ -905,9 +905,9 @@ void UT_QtimeCache::frameBufTest()
     rcUNITTEST_ASSERT(uncachedBp != changingBp);
     
     changingBp.unlock();
-    rcUNITTEST_ASSERT(cachedBp.ref_count() == 2);
-    rcUNITTEST_ASSERT(changingBp.ref_count() == 0);
-    rcUNITTEST_ASSERT(uncachedBp.ref_count() == 2);
+    rcUNITTEST_ASSERT(cachedBp.refCount() == 2);
+    rcUNITTEST_ASSERT(changingBp.refCount() == 0);
+    rcUNITTEST_ASSERT(uncachedBp.refCount() == 2);
     rcUNITTEST_ASSERT(cachedBp->getPixel(0, 0) == cachedPixelValue);
     rcUNITTEST_ASSERT(uncachedBp->getPixel(0, 0) == uncachedPixelValue);
     rcUNITTEST_ASSERT(changingBp == 0);
@@ -925,27 +925,27 @@ void UT_QtimeCache::frameBufTest()
      *             hell).
      */
     changingBp = cachedBp;
-    rcUNITTEST_ASSERT(cachedBp.ref_count() == 3);
-    rcUNITTEST_ASSERT(changingBp.ref_count() == 3);
+    rcUNITTEST_ASSERT(cachedBp.refCount() == 3);
+    rcUNITTEST_ASSERT(changingBp.refCount() == 3);
     
     changingBp.unlock();
-    rcUNITTEST_ASSERT(cachedBp.ref_count() == 2);
-    rcUNITTEST_ASSERT(changingBp.ref_count() == 3);
-    rcUNITTEST_ASSERT(cachedBp.ref_count() == 3);
+    rcUNITTEST_ASSERT(cachedBp.refCount() == 2);
+    rcUNITTEST_ASSERT(changingBp.refCount() == 3);
+    rcUNITTEST_ASSERT(cachedBp.refCount() == 3);
     
     {
         changingBp = uncachedBp;
         rcUNITTEST_ASSERT(changingBp->getPixel(0, 0) == uncachedPixelValue);
-        rcUNITTEST_ASSERT(cachedBp.ref_count() == 2);
+        rcUNITTEST_ASSERT(cachedBp.refCount() == 2);
         rcFrame* frame1 = cachedBp;
         rcUNITTEST_ASSERT(frame1->getPixel(0, 0) == cachedPixelValue);
         changingBp = frame1;
         rcUNITTEST_ASSERT(changingBp->getPixel(0, 0) == cachedPixelValue);
-        rcUNITTEST_ASSERT(cachedBp.ref_count() == 3);
+        rcUNITTEST_ASSERT(cachedBp.refCount() == 3);
         
         QtimeCache::frame_ref_t cachedToo(frame1);
         rcUNITTEST_ASSERT(cachedToo->getPixel(0, 0) == cachedPixelValue);
-        rcUNITTEST_ASSERT(cachedBp.ref_count() == 4);
+        rcUNITTEST_ASSERT(cachedBp.refCount() == 4);
     }
     
     /* Sixth test: Check that ctor works correctly in all cases:
@@ -961,23 +961,23 @@ void UT_QtimeCache::frameBufTest()
     {
         QtimeCache::frame_ref_t null;
         rcUNITTEST_ASSERT(null == 0);
-        rcUNITTEST_ASSERT(null.ref_count() == 0);
+        rcUNITTEST_ASSERT(null.refCount() == 0);
         
         QtimeCache::frame_ref_t null2(null);
         rcUNITTEST_ASSERT(null2 == 0);
-        rcUNITTEST_ASSERT(null2.ref_count() == 0);
+        rcUNITTEST_ASSERT(null2.refCount() == 0);
     }
     {
         rcFrame* nullFrame = 0;
         QtimeCache::frame_ref_t null(nullFrame);
         rcUNITTEST_ASSERT(null == 0);
-        rcUNITTEST_ASSERT(null.ref_count() == 0);
+        rcUNITTEST_ASSERT(null.refCount() == 0);
     }
     {
         rcFrame* nonnullFrame = new rcFrame(16, 16, rcPixel8);
         QtimeCache::frame_ref_t nonnull(nonnullFrame);
         rcUNITTEST_ASSERT(nonnullFrame == nonnull);
-        rcUNITTEST_ASSERT(nonnull.ref_count() == 1);
+        rcUNITTEST_ASSERT(nonnull.refCount() == 1);
     }
     {
         QtimeCache::frame_ref_t nonnull;
@@ -986,13 +986,13 @@ void UT_QtimeCache::frameBufTest()
         rcFrame* cachedFrame = nonnull;
         QtimeCache::frame_ref_t nonnull2(cachedFrame);
         rcUNITTEST_ASSERT(nonnull2 == nonnull);
-        rcUNITTEST_ASSERT(nonnull2.ref_count() == 3);
+        rcUNITTEST_ASSERT(nonnull2.refCount() == 3);
     }
     {
         QtimeCache::frame_ref_t nonnull(new rcFrame(16, 16 , rcPixel8));
         QtimeCache::frame_ref_t nonnull2(nonnull);
         rcUNITTEST_ASSERT(nonnull2 == nonnull);
-        rcUNITTEST_ASSERT(nonnull2.ref_count() == 2);
+        rcUNITTEST_ASSERT(nonnull2.refCount() == 2);
     }
     {
         QtimeCache::frame_ref_t nonnull;
@@ -1000,7 +1000,7 @@ void UT_QtimeCache::frameBufTest()
         rcUNITTEST_ASSERT(status == eQtimeCacheStatusOK);
         QtimeCache::frame_ref_t nonnull2(nonnull);
         rcUNITTEST_ASSERT(nonnull2 == nonnull);
-        rcUNITTEST_ASSERT(nonnull2.ref_count() == 3);
+        rcUNITTEST_ASSERT(nonnull2.refCount() == 3);
     }
     {
         QtimeCache::frame_ref_t nonnull;
@@ -1009,9 +1009,9 @@ void UT_QtimeCache::frameBufTest()
         QtimeCache::frame_ref_t nonnullcopy(nonnull);
         nonnull.unlock();
         QtimeCache::frame_ref_t nonnull2(nonnull);
-        rcUNITTEST_ASSERT(nonnullcopy.ref_count() == 2);
+        rcUNITTEST_ASSERT(nonnullcopy.refCount() == 2);
         rcUNITTEST_ASSERT(nonnull2 == nonnull);
-        rcUNITTEST_ASSERT(nonnull2.ref_count() == 3);
+        rcUNITTEST_ASSERT(nonnull2.refCount() == 3);
     }
     
     /* Seventh test - Check that assignment works correctly in all cases:
@@ -1043,45 +1043,45 @@ void UT_QtimeCache::frameBufTest()
         
         destNull = nonnullFrame;
         rcUNITTEST_ASSERT(nonnullFrame == destNull);
-        rcUNITTEST_ASSERT(destNull.ref_count() == 1);
+        rcUNITTEST_ASSERT(destNull.refCount() == 1);
         
         destNull = nullFrame;
         rcUNITTEST_ASSERT(destNull == 0);
-        rcUNITTEST_ASSERT(destNull.ref_count() == 0);
+        rcUNITTEST_ASSERT(destNull.refCount() == 0);
         
         destNull = nonnullFrameC;
         rcUNITTEST_ASSERT(nonnullFrameC == destNull);
-        rcUNITTEST_ASSERT(destNull.ref_count() == 3);
+        rcUNITTEST_ASSERT(destNull.refCount() == 3);
         
         destNull = 0;
         rcUNITTEST_ASSERT(destNull == 0);
-        rcUNITTEST_ASSERT(forFramePtr.ref_count() == 2);
+        rcUNITTEST_ASSERT(forFramePtr.refCount() == 2);
         
         destNull = srcNull;
         rcUNITTEST_ASSERT(destNull == 0);
-        rcUNITTEST_ASSERT(destNull.ref_count() == 0);
+        rcUNITTEST_ASSERT(destNull.refCount() == 0);
         
         destNull = nonnullUnc;
         rcUNITTEST_ASSERT(destNull == nonnullUnc);
-        rcUNITTEST_ASSERT(destNull.ref_count() == 2);
+        rcUNITTEST_ASSERT(destNull.refCount() == 2);
         
         destNull = 0;
         rcUNITTEST_ASSERT(destNull == 0);
-        rcUNITTEST_ASSERT(nonnullUnc.ref_count() == 1);
+        rcUNITTEST_ASSERT(nonnullUnc.refCount() == 1);
         
         destNull = nonnullC;
         rcUNITTEST_ASSERT(destNull == nonnullC);
-        rcUNITTEST_ASSERT(destNull.ref_count() == 3);
+        rcUNITTEST_ASSERT(destNull.refCount() == 3);
         
         destNull = 0;
         rcUNITTEST_ASSERT(destNull == 0);
-        rcUNITTEST_ASSERT(nonnullC.ref_count() == 2);
+        rcUNITTEST_ASSERT(nonnullC.refCount() == 2);
         
         nonnullC.unlock();
         destNull = nonnullC;
-        rcUNITTEST_ASSERT(nonnullC.ref_count() == 2);
+        rcUNITTEST_ASSERT(nonnullC.refCount() == 2);
         rcUNITTEST_ASSERT(destNull == nonnullC);
-        rcUNITTEST_ASSERT(destNull.ref_count() == 3);
+        rcUNITTEST_ASSERT(destNull.refCount() == 3);
     }
     
     {
@@ -1102,45 +1102,45 @@ void UT_QtimeCache::frameBufTest()
         QtimeCache::frame_ref_t nonnullUnc(new rcFrame(16, 16, rcPixel8));
         
         destNonnullUnc = nonnullFrame;
-        rcUNITTEST_ASSERT(destNonnullUnc.ref_count() == 1);
+        rcUNITTEST_ASSERT(destNonnullUnc.refCount() == 1);
         rcUNITTEST_ASSERT(nonnullFrame == destNonnullUnc);
         
         destNonnullUnc = nullFrame;
         rcUNITTEST_ASSERT(destNonnullUnc == 0);
-        rcUNITTEST_ASSERT(destNonnullUnc.ref_count() == 0);
+        rcUNITTEST_ASSERT(destNonnullUnc.refCount() == 0);
         frame1 = new rcFrame(16, 16, rcPixel8);
         destNonnullUnc = frame1;
         rcUNITTEST_ASSERT(frame1 == destNonnullUnc);
         
         destNonnullUnc = nonnullFrameC;
         rcUNITTEST_ASSERT(nonnullFrameC == destNonnullUnc);
-        rcUNITTEST_ASSERT(destNonnullUnc.ref_count() == 3);
+        rcUNITTEST_ASSERT(destNonnullUnc.refCount() == 3);
         
         destNonnullUnc = 0;
         rcUNITTEST_ASSERT(destNonnullUnc == 0);
-        rcUNITTEST_ASSERT(forFramePtr.ref_count() == 2);
+        rcUNITTEST_ASSERT(forFramePtr.refCount() == 2);
         
         destNonnullUnc = nonnullUnc;
         rcUNITTEST_ASSERT(destNonnullUnc == nonnullUnc);
-        rcUNITTEST_ASSERT(destNonnullUnc.ref_count() == 2);
+        rcUNITTEST_ASSERT(destNonnullUnc.refCount() == 2);
         frame1 = new rcFrame(16, 16, rcPixel8);
         destNonnullUnc = frame1;
         rcUNITTEST_ASSERT(frame1 == destNonnullUnc);
-        rcUNITTEST_ASSERT(nonnullUnc.ref_count() == 1);
+        rcUNITTEST_ASSERT(nonnullUnc.refCount() == 1);
         
         destNonnullUnc = nonnullC;
         rcUNITTEST_ASSERT(destNonnullUnc == nonnullC);
-        rcUNITTEST_ASSERT(destNonnullUnc.ref_count() == 3);
+        rcUNITTEST_ASSERT(destNonnullUnc.refCount() == 3);
         frame1 = new rcFrame(16, 16, rcPixel8);
         destNonnullUnc = frame1;
         rcUNITTEST_ASSERT(frame1 == destNonnullUnc);
-        rcUNITTEST_ASSERT(nonnullC.ref_count() == 2);
+        rcUNITTEST_ASSERT(nonnullC.refCount() == 2);
         
         nonnullC.unlock();
         destNonnullUnc = nonnullC;
-        rcUNITTEST_ASSERT(nonnullC.ref_count() == 2);
+        rcUNITTEST_ASSERT(nonnullC.refCount() == 2);
         rcUNITTEST_ASSERT(destNonnullUnc == nonnullC);
-        rcUNITTEST_ASSERT(destNonnullUnc.ref_count() == 3);
+        rcUNITTEST_ASSERT(destNonnullUnc.refCount() == 3);
     }
     
     {
@@ -1149,7 +1149,7 @@ void UT_QtimeCache::frameBufTest()
         rcUNITTEST_ASSERT(status == eQtimeCacheStatusOK);
         
         QtimeCache::frame_ref_t frame2Copy(destNonnullC);
-        rcUNITTEST_ASSERT(destNonnullC.ref_count() == 3);
+        rcUNITTEST_ASSERT(destNonnullC.refCount() == 3);
         
         rcFrame* nullFrame = 0;
         rcFrame* nonnullFrame = new rcFrame(16, 16, rcPixel8);
@@ -1165,51 +1165,51 @@ void UT_QtimeCache::frameBufTest()
         
         destNonnullC = nullFrame;
         rcUNITTEST_ASSERT(destNonnullC == 0);
-        rcUNITTEST_ASSERT(destNonnullC.ref_count() == 0);
-        rcUNITTEST_ASSERT(frame2Copy.ref_count() == 2);
+        rcUNITTEST_ASSERT(destNonnullC.refCount() == 0);
+        rcUNITTEST_ASSERT(frame2Copy.refCount() == 2);
         destNonnullC = frame2Copy;
         rcUNITTEST_ASSERT(destNonnullC == frame2Copy);
         
         destNonnullC = nonnullFrame;
-        rcUNITTEST_ASSERT(destNonnullC.ref_count() == 1);
+        rcUNITTEST_ASSERT(destNonnullC.refCount() == 1);
         rcUNITTEST_ASSERT(nonnullFrame == destNonnullC);
-        rcUNITTEST_ASSERT(frame2Copy.ref_count() == 2);
+        rcUNITTEST_ASSERT(frame2Copy.refCount() == 2);
         destNonnullC = frame2Copy;
         rcUNITTEST_ASSERT(destNonnullC == frame2Copy);
         
         destNonnullC = nonnullFrameC;
         rcUNITTEST_ASSERT(nonnullFrameC == destNonnullC);
-        rcUNITTEST_ASSERT(destNonnullC.ref_count() == 3);
+        rcUNITTEST_ASSERT(destNonnullC.refCount() == 3);
         
         destNonnullC = 0;
         rcUNITTEST_ASSERT(destNonnullC == 0);
-        rcUNITTEST_ASSERT(forFramePtr.ref_count() == 2);
+        rcUNITTEST_ASSERT(forFramePtr.refCount() == 2);
         
         destNonnullC = nonnullUnc;
-        rcUNITTEST_ASSERT(destNonnullC.ref_count() == 2);
+        rcUNITTEST_ASSERT(destNonnullC.refCount() == 2);
         rcUNITTEST_ASSERT(destNonnullC == nonnullUnc);
-        rcUNITTEST_ASSERT(frame2Copy.ref_count() == 2);
+        rcUNITTEST_ASSERT(frame2Copy.refCount() == 2);
         destNonnullC = frame2Copy;
         rcUNITTEST_ASSERT(destNonnullC == frame2Copy);
-        rcUNITTEST_ASSERT(nonnullUnc.ref_count() == 1);
+        rcUNITTEST_ASSERT(nonnullUnc.refCount() == 1);
         
         destNonnullC = nonnullC;
-        rcUNITTEST_ASSERT(destNonnullC.ref_count() == 3);
+        rcUNITTEST_ASSERT(destNonnullC.refCount() == 3);
         rcUNITTEST_ASSERT(destNonnullC == nonnullC);
-        rcUNITTEST_ASSERT(frame2Copy.ref_count() == 2);
+        rcUNITTEST_ASSERT(frame2Copy.refCount() == 2);
         destNonnullC = frame2Copy;
         rcUNITTEST_ASSERT(destNonnullC == frame2Copy);
-        rcUNITTEST_ASSERT(nonnullC.ref_count() == 2);
+        rcUNITTEST_ASSERT(nonnullC.refCount() == 2);
         
         nonnullC.unlock();
         destNonnullC = nonnullC;
-        rcUNITTEST_ASSERT(nonnullC.ref_count() == 2);
+        rcUNITTEST_ASSERT(nonnullC.refCount() == 2);
         rcUNITTEST_ASSERT(destNonnullC == nonnullC);
-        rcUNITTEST_ASSERT(destNonnullC.ref_count() == 3);
-        rcUNITTEST_ASSERT(frame2Copy.ref_count() == 2);
+        rcUNITTEST_ASSERT(destNonnullC.refCount() == 3);
+        rcUNITTEST_ASSERT(frame2Copy.refCount() == 2);
         destNonnullC = frame2Copy;
         rcUNITTEST_ASSERT(destNonnullC == frame2Copy);
-        rcUNITTEST_ASSERT(nonnullC.ref_count() == 2);
+        rcUNITTEST_ASSERT(nonnullC.refCount() == 2);
     }
     
     {
@@ -1218,7 +1218,7 @@ void UT_QtimeCache::frameBufTest()
         rcUNITTEST_ASSERT(status == eQtimeCacheStatusOK);
         
         QtimeCache::frame_ref_t frame2Copy(destNonnullCunlocked);
-        rcUNITTEST_ASSERT(destNonnullCunlocked.ref_count() == 3);
+        rcUNITTEST_ASSERT(destNonnullCunlocked.refCount() == 3);
         
         rcFrame* nullFrame = 0;
         rcFrame* nonnullFrame = new rcFrame(16, 16, rcPixel8);
@@ -1235,57 +1235,57 @@ void UT_QtimeCache::frameBufTest()
         destNonnullCunlocked.unlock();
         destNonnullCunlocked = nullFrame;
         rcUNITTEST_ASSERT(destNonnullCunlocked == 0);
-        rcUNITTEST_ASSERT(destNonnullCunlocked.ref_count() == 0);
-        rcUNITTEST_ASSERT(frame2Copy.ref_count() == 2);
+        rcUNITTEST_ASSERT(destNonnullCunlocked.refCount() == 0);
+        rcUNITTEST_ASSERT(frame2Copy.refCount() == 2);
         destNonnullCunlocked = frame2Copy;
         rcUNITTEST_ASSERT(destNonnullCunlocked == frame2Copy);
         
         destNonnullCunlocked.unlock();
         destNonnullCunlocked = nonnullFrame;
-        rcUNITTEST_ASSERT(destNonnullCunlocked.ref_count() == 1);
+        rcUNITTEST_ASSERT(destNonnullCunlocked.refCount() == 1);
         rcUNITTEST_ASSERT(nonnullFrame == destNonnullCunlocked);
-        rcUNITTEST_ASSERT(frame2Copy.ref_count() == 2);
+        rcUNITTEST_ASSERT(frame2Copy.refCount() == 2);
         destNonnullCunlocked = frame2Copy;
         rcUNITTEST_ASSERT(destNonnullCunlocked == frame2Copy);
         
         destNonnullCunlocked.unlock();
         destNonnullCunlocked = nonnullFrameC;
         rcUNITTEST_ASSERT(nonnullFrameC == destNonnullCunlocked);
-        rcUNITTEST_ASSERT(destNonnullCunlocked.ref_count() == 3);
+        rcUNITTEST_ASSERT(destNonnullCunlocked.refCount() == 3);
         
         destNonnullCunlocked.unlock();
         destNonnullCunlocked = 0;
         rcUNITTEST_ASSERT(destNonnullCunlocked == 0);
-        rcUNITTEST_ASSERT(forFramePtr.ref_count() == 2);
+        rcUNITTEST_ASSERT(forFramePtr.refCount() == 2);
         
         destNonnullCunlocked.unlock();
         destNonnullCunlocked = nonnullUnc;
-        rcUNITTEST_ASSERT(destNonnullCunlocked.ref_count() == 2);
+        rcUNITTEST_ASSERT(destNonnullCunlocked.refCount() == 2);
         rcUNITTEST_ASSERT(destNonnullCunlocked == nonnullUnc);
-        rcUNITTEST_ASSERT(frame2Copy.ref_count() == 2);
+        rcUNITTEST_ASSERT(frame2Copy.refCount() == 2);
         destNonnullCunlocked = frame2Copy;
         rcUNITTEST_ASSERT(destNonnullCunlocked == frame2Copy);
-        rcUNITTEST_ASSERT(nonnullUnc.ref_count() == 1);
+        rcUNITTEST_ASSERT(nonnullUnc.refCount() == 1);
         
         destNonnullCunlocked.unlock();
         destNonnullCunlocked = nonnullC;
-        rcUNITTEST_ASSERT(destNonnullCunlocked.ref_count() == 3);
+        rcUNITTEST_ASSERT(destNonnullCunlocked.refCount() == 3);
         rcUNITTEST_ASSERT(destNonnullCunlocked == nonnullC);
-        rcUNITTEST_ASSERT(frame2Copy.ref_count() == 2);
+        rcUNITTEST_ASSERT(frame2Copy.refCount() == 2);
         destNonnullCunlocked = frame2Copy;
         rcUNITTEST_ASSERT(destNonnullCunlocked == frame2Copy);
-        rcUNITTEST_ASSERT(nonnullC.ref_count() == 2);
+        rcUNITTEST_ASSERT(nonnullC.refCount() == 2);
         
         destNonnullCunlocked.unlock();
         nonnullC.unlock();
         destNonnullCunlocked = nonnullC;
-        rcUNITTEST_ASSERT(nonnullC.ref_count() == 2);
+        rcUNITTEST_ASSERT(nonnullC.refCount() == 2);
         rcUNITTEST_ASSERT(destNonnullCunlocked == nonnullC);
-        rcUNITTEST_ASSERT(destNonnullCunlocked.ref_count() == 3);
-        rcUNITTEST_ASSERT(frame2Copy.ref_count() == 2);
+        rcUNITTEST_ASSERT(destNonnullCunlocked.refCount() == 3);
+        rcUNITTEST_ASSERT(frame2Copy.refCount() == 2);
         destNonnullCunlocked = frame2Copy;
         rcUNITTEST_ASSERT(destNonnullCunlocked == frame2Copy);
-        rcUNITTEST_ASSERT(nonnullC.ref_count() == 2);
+        rcUNITTEST_ASSERT(nonnullC.refCount() == 2);
     }
     
     /* Eighth test - Check that comparison works correctly in all cases:
@@ -1601,28 +1601,28 @@ void UT_QtimeCache::frameBufTest()
         
         nullUnc.lock();
         rcUNITTEST_ASSERT(nullUnc == 0);
-        rcUNITTEST_ASSERT(nullUnc.ref_count() == 0);
+        rcUNITTEST_ASSERT(nullUnc.refCount() == 0);
         
         nullUnc.unlock();
         rcUNITTEST_ASSERT(nullUnc == 0);
-        rcUNITTEST_ASSERT(nullUnc.ref_count() == 0);
+        rcUNITTEST_ASSERT(nullUnc.refCount() == 0);
         
         nullUnc.lock();
         rcUNITTEST_ASSERT(!nullUnc);
-        rcUNITTEST_ASSERT(nullUnc.ref_count() == 0);
+        rcUNITTEST_ASSERT(nullUnc.refCount() == 0);
         
         nonnullUnc.lock();
         rcUNITTEST_ASSERT(frame1 == nonnullUnc);
-        rcUNITTEST_ASSERT(nonnullUnc.ref_count() == 1);
+        rcUNITTEST_ASSERT(nonnullUnc.refCount() == 1);
         
         nonnullUnc.unlock();
         rcUNITTEST_ASSERT(frame1 == nonnullUnc);
-        rcUNITTEST_ASSERT(nonnullUnc.ref_count() == 1);
+        rcUNITTEST_ASSERT(nonnullUnc.refCount() == 1);
         
         nonnullUnc.lock();
         rcUNITTEST_ASSERT(!nonnullUnc == false);
         rcUNITTEST_ASSERT(frame1 == nonnullUnc);
-        rcUNITTEST_ASSERT(nonnullUnc.ref_count() == 1);
+        rcUNITTEST_ASSERT(nonnullUnc.refCount() == 1);
     }
     
     
@@ -1636,11 +1636,11 @@ void UT_QtimeCache::frameBufTest()
         
         nullUnc.prefetch();
         rcUNITTEST_ASSERT(nullUnc == 0);
-        rcUNITTEST_ASSERT(nullUnc.ref_count() == 0);
+        rcUNITTEST_ASSERT(nullUnc.refCount() == 0);
         
         nonnullUnc.prefetch();
         rcUNITTEST_ASSERT(frame1 == nonnullUnc);
-        rcUNITTEST_ASSERT(nonnullUnc.ref_count() == 1);
+        rcUNITTEST_ASSERT(nonnullUnc.refCount() == 1);
     }
     
     QtimeCache::QtimeCacheDtor(cacheP);
@@ -1660,12 +1660,12 @@ void UT_QtimeCache::dtorTest()
     eQtimeCacheError error;
     eQtimeCacheStatus status = cacheP->getFrame(0, bp, &error);
     rcUNITTEST_ASSERT(status == eQtimeCacheStatusOK);
-    rcUNITTEST_ASSERT(bp.ref_count() == 2);
+    rcUNITTEST_ASSERT(bp.refCount() == 2);
     rcUNITTEST_ASSERT(bp->getPixel(0, 0) == expPixelValue);
     
     QtimeCache::QtimeCacheDtor(cacheP);
     
-    rcUNITTEST_ASSERT(bp.ref_count() == 1);
+    rcUNITTEST_ASSERT(bp.refCount() == 1);
     rcUNITTEST_ASSERT(bp->getPixel(0, 0) == expPixelValue);
 }
 

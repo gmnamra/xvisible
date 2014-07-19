@@ -118,17 +118,17 @@ TEST( UT_FrameBuf, run )
         // Constructor rcFrameRef( rcFrame* p )
         cached_frame_ref buf( new rcFrame( 640, 480, rcPixel8 ) );
         
-       EXPECT_TRUE( buf.ref_count() == 1 );
+       EXPECT_TRUE( buf.refCount() == 1 );
         
         // Constructor rcFrameRef( const rcFrameRef& p )
         cached_frame_ref share1( buf );
         
-        EXPECT_TRUE( share1.ref_count() == 2 );
+        EXPECT_TRUE( share1.refCount() == 2 );
         {
             cached_frame_ref share2( buf );
-            EXPECT_TRUE( share2.ref_count() == 3 );
+            EXPECT_TRUE( share2.refCount() == 3 );
         }
-        EXPECT_TRUE( share1.ref_count() == 2 );
+        EXPECT_TRUE( share1.refCount() == 2 );
     }
     
     

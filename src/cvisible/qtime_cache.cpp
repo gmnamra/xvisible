@@ -269,11 +269,10 @@ eQtimeCacheError  QtimeCache::tocLoad()
     }
     for (int fn=0; fn<_frameCount; fn++)
     {
-        rmAssert (_tocTtoI[frametimes[fn]] == fn);
+        if (_tocTtoI[frametimes[fn]] != fn) return eQtimeCacheErrorCacheInvalid;
     }
     
-
-    return  eQtimeCacheErrorFileRead;
+    return  eQtimeCacheErrorOK;
 }
 
 QtimeCache:: QtimeCache(const vector<rcTimestamp>& frameTimes)
@@ -486,10 +485,9 @@ QtimeCache::closestTimestamp(const rcTimestamp& goalTime,
     }
     
     eQtimeCacheError status = tocLoad();
-    if (status !=  eQtimeCacheErrorOK) {
-        if (error) *error = status;
+    if (error) *error = status;
+    if (status !=  eQtimeCacheErrorOK)
         return  eQtimeCacheStatusError;
-    }
     
     rmAssert(!_tocTtoI.empty());
     
@@ -909,7 +907,7 @@ QtimeCache::cacheAlloc(uint32 frameIndex,
         
         if (unlockedPtrItoL != _unlockedFramesItoL.end()) {
 #ifdef VID_TRACE
-            if (bufPtr->refCount() != 1) {
+            if (bufPtr.refCount() != 1) {
                 fprintf(stderr, "C token %d fi %d frame* 0x%X\n", dToken, frameIndex,
                         (intptr_t)bufPtr->mFrameBuf);
                 DUMP_VID_TRACE();
@@ -977,9 +975,9 @@ QtimeCache::cacheAlloc(uint32 frameIndex,
             (*cacheFrameBufPtr)->cacheCtrl(_cacheID);
         }
 #ifdef VID_TRACE
-        if (cacheFrameBufPtr->refCount() != 1) {
-            fprintf(stderr, "A token %d fi %d refCount %d frame* 0x%X\n", dToken,
-                    frameIndex, cacheFrameBufPtr->refCount(),
+        if (cacheFrameBufPtr.refCount() != 1) {
+            fprintf(stderr, "A token %d fi %d ref_count %d frame* 0x%X\n", dToken,
+                    frameIndex, cacheFrameBufPtr.refCount(),
                     (intptr_t)cacheFrameBufPtr->mFrameBuf);
             DUMP_VID_TRACE();
         }
@@ -1021,9 +1019,9 @@ QtimeCache::cacheAlloc(uint32 frameIndex,
         _cachedFramesItoB.erase(cachedEntryPtr);
         
 #ifdef VID_TRACE
-        if (cacheFrameBufPtr->refCount() != 1) {
-            fprintf(stderr, "B token %d fi %d refCount %d  frame* 0x%X\n", dToken,
-                    frameIndex, cacheFrameBufPtr->refCount(),
+        if (cacheFrameBufPtr.refCount() != 1) {
+            fprintf(stderr, "B token %d fi %d ref_count %d  frame* 0x%X\n", dToken,
+                    frameIndex, cacheFrameBufPtr.refCount(),
                     (intptr_t)cacheFrameBufPtr->mFrameBuf);
             DUMP_VID_TRACE();
         }
@@ -1143,8 +1141,8 @@ void  QtimeCache::unlockFrame(uint32 frameIndex)
      * count and this function call locked the cache mutex.
      */
     frame_ref_t* bufPtr = cachedEntryPtr->second;
-    const uint32 refCount = (*bufPtr).refCount();
-    if (refCount > 1) {
+    const uint32 ref_count = (*bufPtr).refCount();
+    if (ref_count > 1) {
         ADD_VID_TRACE(fnUnlockFrame, false, frameIndex + 10,
                       (*bufPtr).mFrameBuf, dToken);
         return;

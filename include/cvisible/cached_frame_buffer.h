@@ -12,25 +12,53 @@
 
 class cached_frame_ref : public rcFrameRef
 {
-//    // Constructors
-//    cached_frame_ref() : rcFrameRef ()  {}
-//    cached_frame_ref( rcFrame* p ) : rcFrameRef (p) {}
-//
-//    cached_frame_ref( const cached_frame_ref& p )
-//    : mCacheCtrl ( p.mCacheCtrl ), mFrameIndex ( p.mFrameIndex ), mFrameBuf( p.mFrameBuf )
-//    {
-//        if ( mFrameBuf ) {
-//            rcLock frmLock(getMutex());
-//            mFrameBuf->addRef();
-//        }
-//    }
     using rcFrameRef::rcFrameRef;
     
 public:
     // Destructor
     ~cached_frame_ref()
     {
-        const_free_unlock(true);
+        internalUnlock (true);
+    }
+
+    // Assignment operators
+    cached_frame_ref& operator= ( const cached_frame_ref& p )
+    {
+        if ( (mFrameBuf == p.mFrameBuf) && (mCacheCtrl == p.mCacheCtrl) &&
+            (mFrameIndex == p.mFrameIndex) )
+            return *this;
+        
+        internalUnlock(true);
+        
+        mCacheCtrl = p.mCacheCtrl;
+        mFrameIndex = p.mFrameIndex;
+        mFrameBuf = p.mFrameBuf;
+        if ( mFrameBuf )
+        {
+            mFrameBuf->addRef();
+        }
+        return *this;
+    }
+    
+    cached_frame_ref& operator= ( rcFrame* p )
+    {
+        if ( (mFrameBuf == p) && (mFrameBuf || !mCacheCtrl) )
+            return *this;
+
+        internalUnlock(true);
+        mFrameBuf = p;
+        if ( mFrameBuf )
+        {
+            mCacheCtrl = p->cacheCtrl();
+            mFrameIndex = p->frameIndex();
+            mFrameBuf->addRef();
+        }
+        else {
+            mCacheCtrl = 0;
+            mFrameIndex = 0;
+        }
+        
+        return *this;
     }
 
     void lock () const;
@@ -39,7 +67,7 @@ public:
     
 private:
     void const_free_lock ();
-    void const_free_unlock (bool);
+    void internalUnlock( bool force );
 };
 
 
