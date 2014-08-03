@@ -123,6 +123,7 @@
 		C283D7161943DB3000AC68BE /* iclip.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = iclip.hpp; path = ../../include/cvisible/iclip.hpp; sourceTree = "<group>"; };
 		C283D71719460C6B00AC68BE /* visible_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = visible_impl.cpp; sourceTree = "<group>"; };
 		C283D71919468A1000AC68BE /* ui_contexts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ui_contexts.h; path = ../../include/cvisible/ui_contexts.h; sourceTree = "<group>"; };
+		C2A1B0E2198B015300FF6022 /* awb.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = awb.hpp; path = ../../applications/opencv_bench/awb.hpp; sourceTree = "<group>"; };
 		C2A2BE98193055F9003337D7 /* vfi386.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386.framework; path = ../build/Frameworks/vfi386.framework; sourceTree = "<group>"; };
 		C2A3267F1952582D007A35E6 /* visible_main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = visible_main.h; path = ../../include/cvisible/visible_main.h; sourceTree = "<group>"; };
 		C2A3268019550CDA007A35E6 /* stl_util.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = stl_util.hpp; sourceTree = "<group>"; };
@@ -295,6 +296,7 @@
 		C21733FB190B175500A01365 /* cvisible */ = {
 			isa = PBXGroup;
 			children = (
+				C2A1B0E2198B015300FF6022 /* awb.hpp */,
 				C2F100A119745B960070BB7B /* cached_frame_buffer.h */,
 				C2F1009F19745B860070BB7B /* cached_frame_buffer.cpp */,
 				C2F1009E1974595A0070BB7B /* qtime_cache.h */,

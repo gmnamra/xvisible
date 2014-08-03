@@ -8,6 +8,14 @@
 #include <boost/assert.hpp>
 
 
+template <typename T>
+inline void intrusive_ptr_release (T* p)
+{
+    boost::checked_delete(static_cast<T const*>(p));
+}
+
+
+
 template<class T>
 struct intrusive_ptr_base
 {
@@ -17,19 +25,20 @@ struct intrusive_ptr_base
     intrusive_ptr_base& operator=(intrusive_ptr_base const& rhs)
     { return *this; }
     
-    friend void intrusive_ptr_add_ref(intrusive_ptr_base<T> const* s)
+    friend uint32 intrusive_ptr_add_ref(intrusive_ptr_base<T> const* s)
     {
-        BOOST_ASSERT(s->m_refs >= 0);
-        BOOST_ASSERT(s != 0);
-        ++s->m_refs;
+        return s ? ++s->m_refs : 0;
     }
     
-    friend void intrusive_ptr_release(intrusive_ptr_base<T> const* s)
+    friend uint32 intrusive_ptr_ref_count(intrusive_ptr_base<T> const* s)
     {
-        BOOST_ASSERT(s->m_refs > 0);
-        BOOST_ASSERT(s != 0);
-        if (--s->m_refs == 0)
-            boost::checked_delete(static_cast<T const*>(s));
+        return s ? s->m_refs : 0;
+    }
+
+    
+    friend uint32 intrusive_ptr_rem_ref (intrusive_ptr_base<T> const* s)
+    {
+         return s ? --s->m_refs : 0;
     }
     
     boost::intrusive_ptr<T> self()

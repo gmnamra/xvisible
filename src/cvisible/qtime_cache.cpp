@@ -3,7 +3,7 @@
 #include "vf_cinder.hpp"
 #include <stdio.h>
 #include "rc_types.h"
-#include <Singleton.hpp>
+
 
 using namespace std;
 
@@ -55,7 +55,7 @@ static const uint32 tracePrint = 0;
 void vcAddTrace(fctName name, bool enter, uint32 frameIndex,
                 rcFrame* fp, uint32 dToken)
 {
-    rcLock lock(traceMutex);
+    boost::lock_guard<boost::mutex>  lock(traceMutex);
     
     if (traceIndex == traceSz)
         traceIndex = 0;
@@ -71,7 +71,7 @@ void vcAddTrace(fctName name, bool enter, uint32 frameIndex,
 
 void vcDumpTrace()
 {
-    rcLock lock(traceMutex);
+    boost::lock_guard<boost::mutex>  lock(traceMutex);
     
     if (tracePrint)
         return;
@@ -127,7 +127,7 @@ void vcDumpTrace()
 
 uint32  QtimeCache::getNextToken()
 {
-    rcLock lock(_cacheMutex); return _debuggingToken++;
+    boost::lock_guard<boost::mutex>  lock(_cacheMutex); return _debuggingToken++;
 }
 
 #endif
@@ -151,12 +151,16 @@ QtimeCache:: QtimeCacheUTCtor(const vector<rcTimestamp>& frameTimes)
 
 QtimeCache*  QtimeCache::finishSetup( QtimeCache* cacheP)
 {
-    return SingletonLite<QtimeCache::CacheManager>::instance().register_cache (cacheP);
+    return cache_manager ().register_cache (cacheP);
 }
 
 void  QtimeCache:: QtimeCacheDtor( QtimeCache* cacheP)
 {
-     return SingletonLite<QtimeCache::CacheManager>::instance().remove (cacheP);
+    if (cacheP)
+    {
+        cache_manager ().remove (cacheP);
+        delete cacheP;
+    }
 }
 
 QtimeCache:: QtimeCache(std::string fileName, uint32 cacheSize,
@@ -310,24 +314,25 @@ _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0)
      */
     for (uint32 i = 0; i < _frameCache.size(); i++)
         _unusedCacheFrames.push_back(&_frameCache[i]);
-    
+  
     rmAssert(_unusedCacheFrames.size() >= _cacheSize);
     _cacheOverflowLimit = _unusedCacheFrames.size() - _cacheSize;
 }
 
 QtimeCache::~ QtimeCache()
 {
-    rcLock lock(_diskMutex);
+    boost::lock_guard<boost::mutex> lk (_diskMutex);
     
-    
-    if (_prefetchThread) {
+    if (_prefetchThread)
+    {
+        
         /* Want prefetch thread to end itself, but it may be asleep
          * waiting on input. deal with this using 3 step algorithm:
          * 1) Ask thread to kill itself.
          * 2) Send a phony prefetch request to jostle it awake.
          * 3) Join the thread.
          */
-        _prefetchThread->requestSeppuku();
+        _prefetchThread->quit();
         _prefetchThread->prefetch(0);
         int status = _prefetchThread->join();
         if (_verbose) {
@@ -468,7 +473,7 @@ std::string  QtimeCache::getErrorString( eQtimeCacheError error)
 
 eQtimeCacheError  QtimeCache::getFatalError() const
 {
-    rcLock lock(const_cast< QtimeCache*>(this)->_cacheMutex);
+    boost::lock_guard<boost::mutex>  lock(const_cast< QtimeCache*>(this)->_cacheMutex);
     
     return _fatalError;
 }
@@ -710,7 +715,7 @@ QtimeCache::timestampToFrameIndex(const rcTimestamp& timestamp,
 
 bool  QtimeCache::isValid() const
 {
-    rcLock lock(const_cast< QtimeCache*>(this)->_cacheMutex);
+    boost::lock_guard<boost::mutex>  lock(const_cast< QtimeCache*>(this)->_cacheMutex);
     
     return _isValid;
 }
@@ -719,21 +724,21 @@ bool  QtimeCache::isValid() const
 
 uint32  QtimeCache::cacheMisses() const
 {
-    rcLock lock(const_cast< QtimeCache*>(this)->_cacheMutex);
+    boost::lock_guard<boost::mutex>  lock(const_cast< QtimeCache*>(this)->_cacheMutex);
     
     return _cacheMisses;
 }
 
 uint32  QtimeCache::cacheHits() const
 {
-    rcLock lock(const_cast< QtimeCache*>(this)->_cacheMutex);
+    boost::lock_guard<boost::mutex>  lock(const_cast< QtimeCache*>(this)->_cacheMutex);
     
     return _cacheHits;
 }
 
 void  QtimeCache::setError ( eQtimeCacheError error)
 {
-    rcLock lock(_cacheMutex);
+    boost::lock_guard<boost::mutex>  lock(_cacheMutex);
     
     /* Don't bother setting this if a fatal error has already occurred.
      */
@@ -821,7 +826,7 @@ QtimeCache::internalGetFrame(uint32 frameIndex,
     double timeInfo;
     
     {
-        rcLock lock(_diskMutex);
+        boost::lock_guard<boost::mutex>  lock(_diskMutex);
         rmAssert(_impl);
         
         /* Read in the frame from disk.
@@ -886,7 +891,7 @@ QtimeCache::cacheAlloc(uint32 frameIndex,
     rcUNUSED(dToken);
 #endif
     
-    rcLock lock(_cacheMutex);
+    boost::lock_guard<boost::mutex>  lock(_cacheMutex);
     ADD_VID_TRACE(fnCacheAlloc, true, frameIndex, userFrameBuf.mFrameBuf, dToken);
     
     /* First, look to see if the frame has been cached. If so, return
@@ -1068,7 +1073,7 @@ QtimeCache::cacheInsert(uint32 frameIndex,
     rcUNUSED(dToken);
 #endif
     
-    rcLock lock(_cacheMutex);
+    boost::lock_guard<boost::mutex>  lock(_cacheMutex);
     ADD_VID_TRACE(fnCacheInsert, true, frameIndex, userFrameBuf.mFrameBuf, dToken);
     
     rmAssert(cacheFrameBuf.mCacheCtrl == 0);
@@ -1122,7 +1127,7 @@ void  QtimeCache::unlockFrame(uint32 frameIndex)
     const uint32 dToken = GET_TOKEN();
 #endif
     
-    rcLock lock(_cacheMutex);
+    boost::lock_guard<boost::mutex>  lock(_cacheMutex);
     ADD_VID_TRACE(fnUnlockFrame, true, frameIndex, 0, dToken);
     
     map<uint32, frame_ref_t*>::iterator cachedEntryPtr;
@@ -1229,13 +1234,13 @@ void  QtimeCache::prefetchFrame(uint32 frameIndex)
 
 void  QtimeCache::cachePrefetch(uint32 cacheID, uint32 frameIndex)
 {
-    QtimeCache* cacheP =   SingletonLite<QtimeCache::CacheManager>::instance().cacheById(cacheID);
+    QtimeCache* cacheP =   cache_manager ().cacheById(cacheID);
     if (cacheP) cacheP->prefetchFrame(frameIndex);
 }
 
 void  QtimeCache::cacheUnlock(uint32 cacheID, uint32 frameIndex)
 {
-    QtimeCache* cacheP =   SingletonLite<QtimeCache::CacheManager>::instance().cacheById(cacheID);
+    QtimeCache* cacheP =   cache_manager ().cacheById(cacheID);
     if (cacheP)cacheP->unlockFrame(frameIndex);
 }
 
@@ -1243,7 +1248,7 @@ eQtimeCacheStatus  QtimeCache::cacheLock(uint32 cacheID, uint32 frameIndex,
                                          frame_ref_t& frameBuf,
                                          eQtimeCacheError* error)
 {
-    QtimeCache* cacheP =   SingletonLite<QtimeCache::CacheManager>::instance().cacheById(cacheID);
+    QtimeCache* cacheP =   cache_manager ().cacheById(cacheID);
     if (cacheP) return cacheP->getFrame(frameIndex, frameBuf, error);
     if (error) *error =  eQtimeCacheErrorCacheInvalid;
     
@@ -1259,7 +1264,7 @@ eQtimeCacheStatus  QtimeCache::cacheLock(uint32 cacheID, uint32 frameIndex,
 /************************************************************************/
 
 QtimeCache:: QtimeCachePrefetchUnit:: QtimeCachePrefetchUnit( QtimeCache& cacheCtrl)
-: _cacheCtrl(cacheCtrl), _wait(0)
+: _cacheCtrl(cacheCtrl), mQuit(false)
 {
     rmAssert(cacheCtrl.isValid());
 }
@@ -1268,24 +1273,24 @@ QtimeCache:: QtimeCachePrefetchUnit::~ QtimeCachePrefetchUnit()
 {
 }
 
-void  QtimeCache:: QtimeCachePrefetchUnit::run()
+
+void QtimeCache:: QtimeCachePrefetchUnit::start ()
 {
-    uint32 frameIndex = 0;
-    bool active = true;
+    std::thread th(&QtimeCache:: QtimeCachePrefetchUnit::run, this);
+    th.detach();
+}
+
+void QtimeCache:: QtimeCachePrefetchUnit::run ()
+{
+    boost::lock_guard <boost::mutex> lk (_prefetchMutex);
     
-    bool killMe = false;
-    while (!killMe) {
-        bool wait = false;
-        {
-            rcLock lock(_prefetchMutex);
-            
-            if (_prefetchRequests.empty())
-                wait = true;
-            else {
-                frameIndex = _prefetchRequests.front();
-                _prefetchRequests.pop_front();
-            }
-        }
+    uint32 frameIndex = 0;
+    
+    mQuit = false;
+    while (!mQuit)
+    {
+        bool dont_wait = _prefetchRequests.try_pop(frameIndex);
+
         
         /* Guard against chance that above check of prefetch queue
          * didn't occur AFTER dtor gets called. (Because dtor
@@ -1293,12 +1298,8 @@ void  QtimeCache:: QtimeCachePrefetchUnit::run()
          * will cause hang when this fuction tries to load frame from
          * disk)
          */
-        killMe = seppukuRequested();
-        if (wait) {
-            int32 curVal = _wait.waitUntilGreaterThan(0);
-            _wait.decrementVariable(curVal, 0);
-        }
-        else if (active && !killMe) {
+        if (dont_wait)
+        {
             /* Have a frame to prefetch. Do this by using getFrame() to load
              * the frame into cache. Since we don't want to lock this frame
              * into memory, merely load it into cache, the frame is set up
@@ -1312,7 +1313,7 @@ void  QtimeCache:: QtimeCachePrefetchUnit::run()
             if ((status ==  eQtimeCacheStatusError) &&
                 (error !=  eQtimeCacheErrorNoSuchFrame)) {
                 cerr << "Prefetch error: " << _cacheCtrl.getErrorString(error) << endl;
-                active = false;
+                quit ();
             }
         }
     }
@@ -1320,16 +1321,9 @@ void  QtimeCache:: QtimeCachePrefetchUnit::run()
 
 void  QtimeCache:: QtimeCachePrefetchUnit::prefetch(uint32 frameIndex)
 {
-    bool empty;
-    {
-        rcLock lock(_prefetchMutex);
-        empty = _prefetchRequests.empty();
-        
-        _prefetchRequests.push_back(frameIndex);
-    }
-    
-    if (empty)
-        _wait.incrementVariable(1, 0);
+        boost::unique_lock<boost::mutex> lk (_prefetchMutex);
+
+        _prefetchRequests.push(frameIndex);
 }
 
 

@@ -6,7 +6,7 @@
 #include <deque>
 #include <map>
 #include <boost/shared_ptr.hpp>
-
+#include <thread>
 
 #undef VID_TRACE
 #ifdef VID_TRACE
@@ -23,10 +23,9 @@ vcAddTrace((NAME), (ENTER), (FRMI), (FRMP), (TOKEN))
 using namespace std;
 
 #include "rc_types.h"
-#include "rc_thread.h"
 #include "cached_frame_buffer.h"
 #include "rc_timestamp.h"
-
+#include <atomic>
 #include "vf_utils.hpp"
 
 enum  eQtimeCacheError {
@@ -54,6 +53,48 @@ enum  eQtimeCacheStatus {
     // more info.
 };
 
+/* Special class intended to support qtimeCache pending load
+ * mechanism.
+ */
+ template <typename Mutex>
+class signal_pending
+{
+public:
+    
+    // Create condition variable to be used
+    //
+    signal_pending(Mutex& mu) : _mutex (mu) {}
+    
+    
+    // Wait for ptr to get set
+    //
+    void wait(rcFrame *& ptr)
+    {
+        boost::unique_lock<Mutex>  lock (_mutex);
+        while (ptr == 0)
+        {
+            _cond.wait(lock);
+        }
+    }
+    
+    // Send signal to all waiting threads. Note that this fct assumes
+    // the mutex is already locked.
+    //
+    void broadcast()
+    {
+        _cond.notify_all ();
+    }
+    
+private:
+    
+    /* Disallow copy ctor and assignment operator
+     */
+    signal_pending(const signal_pending&);
+    signal_pending& operator=(const signal_pending&);
+    
+    Mutex& _mutex;
+    boost::condition_variable _cond;
+};
 
 /*  eQtimeCache - Implements a read-only cache of video frames stored
  * in a reify format movie.
@@ -243,16 +284,20 @@ private:
      * Creator should call requestSeppuku() to gracefully shut down the
      * thread.
      */
-    class   QtimeCachePrefetchUnit : public rcThread
+    class   QtimeCachePrefetchUnit
     {
     public:
         QtimeCachePrefetchUnit(  QtimeCache& cacheCtrl);
         
-        virtual ~  QtimeCachePrefetchUnit();
-        
+        ~QtimeCachePrefetchUnit();
+
+        /* Call run in a new thread
+         */
+        void start();
+
         /* Must be called to have calls to prefetch() be processed.
          */
-        virtual void run();
+        void run();
         
         /* Allow the caller to give the cache a hint as to what frames
          * will be needed next. If the frame index is invalid, the call is
@@ -260,11 +305,15 @@ private:
          */
         void prefetch(uint32 frameIndex);
         
+        void quit () { mQuit = true; }
+
+        int join () { return 0;}
     private:
+        void thread_fn ();
         QtimeCache&        _cacheCtrl;
-        rcMutex              _prefetchMutex;
-        deque<uint32>      _prefetchRequests;
-        rcConditionVariable  _wait;
+        boost::mutex            _prefetchMutex;
+        vf_utils::thread_safe::concurrent_queue<uint32>      _prefetchRequests;
+        std::atomic_bool mQuit;
     };
     
     /* ctor - Opens file and initializes data structures. See
@@ -273,7 +322,7 @@ private:
     QtimeCache(const std::string fileName, uint32 cacheSize, bool verbose, bool prefetch, uint32 maxMemory,
                rcProgressIndicator* pIndicator);
     
-    virtual ~  QtimeCache();
+    virtual ~QtimeCache();
     
     /* finishSetup - Inserts newly created video cache into the global
      * list of active caches and gives it a unique ID.
@@ -370,9 +419,9 @@ private:
     double                               _averageFrameRate;
     int64                              _baseTime;
     
-    rcMutex                              _cacheMutex;
-    rcMutex                              _diskMutex;
-    rcSignalPending                      _pendingCtrl;
+    boost::mutex                              _cacheMutex;
+    boost::mutex                              _diskMutex;
+    signal_pending<boost::mutex>            _pendingCtrl;
     
     uint32                             _cacheOverflowLimit;
     uint32                             _cacheSize;
@@ -427,8 +476,8 @@ public:
             
             _activeCachesItoP.erase(locP);
             _activeCachesPtoI.erase(locI);
+//            delete cacheP;
             
-            delete cacheP;
         }
         
         
@@ -456,8 +505,8 @@ public:
            
         
     };
-    
-    
+
+    static QtimeCache::CacheManager& cache_manager () { static QtimeCache::CacheManager the_inst; return the_inst; }
     
     //#ifdef VID_TRACE
     uint32                             _debuggingToken;

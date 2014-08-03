@@ -14,7 +14,7 @@
 #include "sshist.hpp"
 #include <vector>
 #include <list>
-
+#include <queue>
 #include <fstream>
 
 //using namespace ci;
@@ -384,7 +384,57 @@ namespace vf_utils
 
     }
     
-    
+    namespace thread_safe
+    {
+        template<typename Data>
+        class concurrent_queue
+        {
+        private:
+            std::queue<Data> the_queue;
+            mutable boost::mutex the_mutex;
+            boost::condition_variable the_condition_variable;
+        public:
+            void push(Data const& data)
+            {
+                boost::lock_guard<boost::mutex> lock(the_mutex);
+                the_queue.push(data);
+                the_condition_variable.notify_one();
+                std::cout << "push " << std::endl;
+            }
+            
+            bool empty() const
+            {
+                boost::lock_guard<boost::mutex> lock(the_mutex);
+                return the_queue.empty();
+            }
+            
+            bool try_pop(Data& popped_value)
+            {
+                boost::mutex::scoped_lock lock(the_mutex);
+                if(the_queue.empty())
+                {
+                    std::cout << "poping on empty " << std::endl;
+                    return false;
+                }
+                
+                popped_value=the_queue.front();
+                the_queue.pop();
+                std::cout << "poped " << std::endl;
+                return true;
+            }
+            
+            void wait_and_pop(Data& popped_value)
+            {
+                boost::unique_lock<boost::mutex> lock(the_mutex);
+                the_condition_variable.wait (lock, [this] { return ! empty(); } );
+                popped_value=the_queue.front();
+                the_queue.pop();
+            }
+            
+        };
+        
+     
+    }
 }
 
 // @todo fix this #include "dict.ipp"

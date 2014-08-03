@@ -9,14 +9,14 @@
 #define _rcFRAMEBUF_H_
 
 #include "rc_timestamp.h"
-#include "rc_pixel.hpp"
-#include <boost/intrusive_ptr.hpp>
 #include <boost/atomic.hpp>
 #include <opencv2/core/core.hpp>
 #include "rc_pixel.hpp"
 #include <opencv2/highgui/highgui.hpp>
 #include <boost/function.hpp>
 #include <boost/bind.hpp>
+#include <boost/thread/mutex.hpp>
+#include <boost/thread/lock_guard.hpp>
 #include "singleton.hpp"
 #include "intrusive_ptr_base.hpp"
 #ifdef CINDER_BUILTIN
@@ -160,6 +160,28 @@ public:
     inline uint32  frameIndex() const {return mFrameIndex; }
 	
     
+    // Increase the reference count by one
+	void addRef() const
+	{
+		intrusive_ptr_add_ref (this);
+	}
+	
+    // Remove a reference (decreases the reference count by one). If
+    // the count goes to 0, delete this object
+    uint32 remRef() const
+    {
+        if (uint32 rc = intrusive_ptr_rem_ref (this)) return rc;
+        intrusive_ptr_release (this);
+        return 0;
+    }
+	
+	int refCount () const
+    
+    {
+        return intrusive_ptr_ref_count(this);
+    }
+
+    
 #ifdef CINDER_BUILTIN
     const ci::Channel8u*  newCiChannel ();  // copies only one channel
 #endif
@@ -189,22 +211,6 @@ protected:
     
 private:
     
-#if 0
-	mutable boost::atomic<int> refcount_;
-	friend void intrusive_ptr_add_ref(const rcFrame * x)
-	{
-		x->refcount_.fetch_add(1, boost::memory_order_relaxed);
-	}
-	friend void intrusive_ptr_release(const rcFrame * x)
-	{
-		if (x->refcount_.fetch_sub(1, boost::memory_order_release)==1)
-		{
-			boost::atomic_thread_fence(boost::memory_order_acquire);
-			delete x;
-		}
-	}
-#endif
-    
     // Prohibit direct copying and assignment
     rcFrame( const rcFrame& );
     rcFrame& operator=( const rcFrame& );
@@ -233,6 +239,7 @@ public:
         }
         if ( mFrameBuf )
         {
+         //   boost::lock_guard<boost::mutex> lk (mMutex);
             mFrameBuf->addRef();
         }
     }
@@ -241,21 +248,22 @@ public:
     mFrameBuf( p.mFrameBuf ) {
         if ( mFrameBuf )
         {
+           // boost::lock_guard<boost::mutex> lk (mMutex);
             mFrameBuf->addRef();
         }
     }
     
     // Destructor
-    ~rcFrameRef()
+    virtual ~rcFrameRef()
     {
-#ifdef DEBUG_MEM
+
         cerr << "rcFrameRef dtor " << endl;
-#endif
+
         internalUnlock(true);
     }
     
     // Assignment operators
-    rcFrameRef& operator= ( const rcFrameRef& p ) {
+    virtual rcFrameRef& operator= ( const rcFrameRef& p ) {
         if ( (mFrameBuf == p.mFrameBuf) && (mCacheCtrl == p.mCacheCtrl) &&
             (mFrameIndex == p.mFrameIndex) )
             return *this;
@@ -271,7 +279,7 @@ public:
         return *this;
     }
     
-    rcFrameRef& operator= ( rcFrame* p )
+    virtual rcFrameRef& operator= ( rcFrame* p )
     {
         if ( (mFrameBuf == p) && (mFrameBuf || !mCacheCtrl) )
             return *this;
@@ -422,6 +430,7 @@ public:
     uint32      mCacheCtrl;
     uint32      mFrameIndex;
     mutable rcFrame*    mFrameBuf;
+    mutable boost::mutex mMutex;
 
 private:
     virtual void internalLock();

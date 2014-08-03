@@ -31,13 +31,16 @@ void cached_frame_ref::internalUnlock( bool force )
 {
     if ( mFrameBuf && (mCacheCtrl || force))
     {
-        mFrameBuf->remRef();
-        bool cacheUnlock = mCacheCtrl && (mFrameBuf->refCount() == 1);
-        mFrameBuf = 0;
+        bool cacheUnlock = false;
+        {
+            uint32 rc = mFrameBuf->remRef();
+            if (mCacheCtrl && rc == 1) cacheUnlock = true;
+            mFrameBuf = 0;
+        }
         if (cacheUnlock)
             QtimeCache::cacheUnlock(mCacheCtrl, mFrameIndex);
     }
-
+    
 }
 
 void cached_frame_ref::prefetch() const

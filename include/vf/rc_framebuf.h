@@ -167,13 +167,19 @@ public:
 	}
 	
     // Remove a reference (decreases the reference count by one). If
-    // the count goes to 0, this object will delete itself
-    void remRef() const
+    // the count goes to 0, delete this object
+    uint32 remRef() const
     {
-		intrusive_ptr_release (this);
+        if (uint32 rc = intrusive_ptr_rem_ref (this)) return rc;
+        intrusive_ptr_release (this);
+        return 0;
     }
 	
-	int refCount () const { return refcount (); }
+	int refCount () const
+    
+    {
+        return intrusive_ptr_ref_count(this);
+    }
 
     
 #ifdef CINDER_BUILTIN
@@ -204,22 +210,6 @@ protected:
     
     
 private:
-    
-#if 0
-	mutable boost::atomic<int> refcount_;
-	friend void intrusive_ptr_add_ref(const rcFrame * x)
-	{
-		x->refcount_.fetch_add(1, boost::memory_order_relaxed);
-	}
-	friend void intrusive_ptr_release(const rcFrame * x)
-	{
-		if (x->refcount_.fetch_sub(1, boost::memory_order_release)==1)
-		{
-			boost::atomic_thread_fence(boost::memory_order_acquire);
-			delete x;
-		}
-	}
-#endif
     
     // Prohibit direct copying and assignment
     rcFrame( const rcFrame& );
@@ -264,16 +254,16 @@ public:
     }
     
     // Destructor
-    ~rcFrameRef()
+    virtual ~rcFrameRef()
     {
-#ifdef DEBUG_MEM
+
         cerr << "rcFrameRef dtor " << endl;
-#endif
+
         internalUnlock(true);
     }
     
     // Assignment operators
-    rcFrameRef& operator= ( const rcFrameRef& p ) {
+    virtual rcFrameRef& operator= ( const rcFrameRef& p ) {
         if ( (mFrameBuf == p.mFrameBuf) && (mCacheCtrl == p.mCacheCtrl) &&
             (mFrameIndex == p.mFrameIndex) )
             return *this;
@@ -289,7 +279,7 @@ public:
         return *this;
     }
     
-    rcFrameRef& operator= ( rcFrame* p )
+    virtual rcFrameRef& operator= ( rcFrame* p )
     {
         if ( (mFrameBuf == p) && (mFrameBuf || !mCacheCtrl) )
             return *this;

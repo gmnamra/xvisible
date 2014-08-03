@@ -31,19 +31,25 @@ namespace anonymous
         double mOverP;
         void init_p (uint32 p) { mP = p; mOverP = 1.0f / mP; }
         
-        void run_file (const std::string& fqfn, uint32 p)
+        void run_file (const std::string& src_fqfn, const std::string& dst_fqfn, uint32 p)
         {
-            cv::Mat image = cv::imread (fqfn, 0);
+            // @note: not chacking validity of file paths. Assumed valid. Overwite dst
+            cv::Mat image = cv::imread (src_fqfn, 0);
             if (check (image) )
             {
                 cv::Mat dst = image.clone ();
                 init_p (p);
-                lab_means (image, dst);
+                grey_world_via_lab_means (image, dst);
+                cv::imwrite(dst_fqfn, dst);
+                
+                // for demo purposes
+                cv::imshow ("awb", dst);
+                cv::waitKey (0);
             }
             
         }
         
-        void lab_means (Mat& src, Mat& dst)
+        void grey_world_via_lab_means (Mat& src, Mat& dst)
         {
             assert (src.channels() == 3);
             static float overShoot = 1.1f;
@@ -88,6 +94,7 @@ namespace anonymous
 
             // luminance untouched, a and b adjusted. time to merge
             cv::merge (mChannels, lab);
+            // convert in to dst from lab
             cvtColor(lab,dst,CV_Lab2BGR);
         }
         

@@ -387,16 +387,15 @@ void rcFrameRef::internalLock()
 void rcFrameRef::internalUnlock(bool force)
 {
     if ( mFrameBuf && (mCacheCtrl || force)) {
+        
         bool cacheUnlock = false;
         {
-            mFrameBuf->remRef();
-            if ((mFrameBuf->refCount() == 1) && mCacheCtrl)
-                cacheUnlock = true;
-
+            uint32 rc = mFrameBuf->remRef();
+            if (mCacheCtrl && rc == 1) cacheUnlock = true;
             mFrameBuf = 0;
         }
         if (cacheUnlock)
-            rcVideoCache::cacheUnlock(mCacheCtrl, mFrameIndex);
+          rcVideoCache::cacheUnlock(mCacheCtrl, mFrameIndex);
     }
 }
 

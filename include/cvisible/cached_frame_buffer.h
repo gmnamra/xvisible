@@ -12,12 +12,22 @@
 
 class cached_frame_ref : public rcFrameRef
 {
-    using rcFrameRef::rcFrameRef;
+  //  @note: Not "using rcFrameRef::rcFrameRef; " because the compiler will generate default ctor regardless
     
 public:
+    
+    
+    
+    // Constructors
+    cached_frame_ref() : rcFrameRef () {}
+    cached_frame_ref( rcFrame* p ) : rcFrameRef (p) {}
+    cached_frame_ref( const cached_frame_ref& p ) : rcFrameRef (p) {}
+
+    
     // Destructor
-    ~cached_frame_ref()
+    ~cached_frame_ref() override
     {
+        std::cout << "cache_frame_ref dtor called" << std::endl;
         internalUnlock (true);
     }
 

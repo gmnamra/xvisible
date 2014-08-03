@@ -19,7 +19,7 @@
 #include "vf_cinder_audio2.hpp"
 #include "vf_sm_producer.h"
 #include "ut_qtime.h"
-
+#include "../applications/opencv_bench/awb.hpp"
 using namespace ci;
 using namespace std;
 
