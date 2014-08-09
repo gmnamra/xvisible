@@ -28,28 +28,29 @@ using namespace std;
 #include <atomic>
 #include "vf_utils.hpp"
 
-enum  eQtimeCacheError {
-    eQtimeCacheErrorOK = 0,            // No error
-    eQtimeCacheErrorFileInit=1,          // File (system) init error
-    eQtimeCacheErrorFileSeek=2,          // File seek error
-    eQtimeCacheErrorFileRead=3,          // File read error
-    eQtimeCacheErrorFileClose=4,         // File close error
-    eQtimeCacheErrorFileFormat=5,        // File invalid
-    eQtimeCacheErrorFileUnsupported=6,   // File format unsupported
-    eQtimeCacheErrorFileRevUnsupported=7,// File revision unsupported
-    eQtimeCacheErrorSystemResources=8,   // Inadequate system resources
-    eQtimeCacheErrorNoSuchFrame=9,       // Specified frame does not exist
-    eQtimeCacheErrorCacheInvalid=10,      // Previously detected error put
+enum  class eQtimeCacheError : int32 {
+    UnInitialized = -1,
+    OK = 0,            // No error
+    FileInit=1,          // File (system) init error
+    FileSeek=2,          // File seek error
+    FileRead=3,          // File read error
+    FileClose=4,         // File close error
+    FileFormat=5,        // File invalid
+    FileUnsupported=6,   // File format unsupported
+    FileRevUnsupported=7,// File revision unsupported
+    SystemResources=8,   // Inadequate system resources
+    NoSuchFrame=9,       // Specified frame does not exist
+    CacheInvalid=10,      // Previously detected error put
     // cache in invalid state or cache
     // has been deleted
-    eQtimeCacheErrorBomUnsupported=11,    // Unsupported byte order
-    eQtimeCacheErrorDepthUnsupported=12,  // Unsupported image depth
+    BomUnsupported=11,    // Unsupported byte order
+    DepthUnsupported=12,  // Unsupported image depth
 };
 
 // Status type
-enum  eQtimeCacheStatus {
-    eQtimeCacheStatusOK = 0, // Valid frame
-    eQtimeCacheStatusError   // Error occurred, read returned error state for
+enum  class eQtimeCacheStatus {
+    OK = 0, // Valid frame
+    Error   // Error occurred, read returned error state for
     // more info.
 };
 
@@ -70,7 +71,7 @@ public:
     //
     void wait(rcFrame *& ptr)
     {
-        boost::unique_lock<Mutex>  lock (_mutex);
+        std::unique_lock<Mutex>  lock (_mutex);
         while (ptr == 0)
         {
             _cond.wait(lock);
@@ -93,7 +94,7 @@ private:
     signal_pending& operator=(const signal_pending&);
     
     Mutex& _mutex;
-    boost::condition_variable _cond;
+    std::condition_variable _cond;
 };
 
 /*  eQtimeCache - Implements a read-only cache of video frames stored
@@ -180,14 +181,14 @@ public:
                                        rcTimestamp& match,
                                        eQtimeCacheError* error = 0);
     // Returns first timestamp > goalTime. If no such timestamp can be
-    // found, the return value is  eQtimeCacheStatusError, and
-    //  eQtimeCacheErrorNoSuchFrame is returned in error.
+    // found, the return value is  eQtimeCacheStatus::Error, and
+    //  eQtimeCacheError::NoSuchFrame is returned in error.
     eQtimeCacheStatus nextTimestamp(const rcTimestamp& goalTime,
                                     rcTimestamp& match,
                                     eQtimeCacheError* error = 0);
     // Returns closest timestamp < goalTime. If no such timestamp can be
-    // found, the return value is  eQtimeCacheStatusError, and
-    //  eQtimeCacheErrorNoSuchFrame is returned in error.
+    // found, the return value is  eQtimeCacheStatus::Error, and
+    //  eQtimeCacheError::NoSuchFrame is returned in error.
     eQtimeCacheStatus prevTimestamp(const rcTimestamp& goalTime,
                                     rcTimestamp& match,
                                     eQtimeCacheError* error = 0);
@@ -199,14 +200,14 @@ public:
                                     eQtimeCacheError* error = 0);
     // Returns the timestamp for the frame at frameIndex. If no such
     // frameIndex can be found, the return value is
-    //  eQtimeCacheStatusError, and  eQtimeCacheErrorNoSuchFrame is
+    //  eQtimeCacheStatus::Error, and  eQtimeCacheError::NoSuchFrame is
     // returned in error.
     eQtimeCacheStatus frameIndexToTimestamp(uint32 frameIndex,
                                             rcTimestamp& match,
                                             eQtimeCacheError* error = 0);
     // Returns the frame index for the frame at time timestamp (must be
     // exact match). If no such timestamp can be found, the return value
-    // is  eQtimeCacheStatusError, and  eQtimeCacheErrorNoSuchFrame is
+    // is  eQtimeCacheStatus::Error, and  eQtimeCacheError::NoSuchFrame is
     // returned in error.
     eQtimeCacheStatus timestampToFrameIndex(const rcTimestamp& timestamp,
                                             uint32& match,
@@ -219,6 +220,8 @@ public:
     /* Returns instance validity.
      */
     bool isValid() const;
+    
+    bool prefetch_running () const;
     
     /* Returns total number of frames in movie file.
      */
@@ -265,7 +268,7 @@ public:
     {
         frame_ref_t frameb ( new rcFrame (frameWidth(), frameHeight(), frameDepth()) );
         eQtimeCacheStatus status = getFrame(frameIndex, frameb, 0, false);
-        if(status == eQtimeCacheStatusOK)
+        if(status == eQtimeCacheStatus::OK)
             return rcWindow (static_cast<rcFrameRef>(frameb));
         else return rcWindow ();
     }
@@ -276,7 +279,7 @@ private:
      * Pimpl quicktime support
      */
     class qtImpl;
-    boost::shared_ptr<qtImpl> _impl;
+    std::shared_ptr<qtImpl> _impl;
     
     /* Class to be used by   QtimeCache objects to create a thread that
      * will be used to do prefetches of video frames.
@@ -284,17 +287,43 @@ private:
      * Creator should call requestSeppuku() to gracefully shut down the
      * thread.
      */
+#if NATIVE_IMPL
+    class   QtimeCachePrefetchUnit : public rcThread
+    {
+    public:
+        QtimeCachePrefetchUnit(  QtimeCache& cacheCtrl);
+        
+        virtual ~  QtimeCachePrefetchUnit();
+        
+        /* Must be called to have calls to prefetch() be processed.
+         */
+        virtual void run();
+        
+        /* Allow the caller to give the cache a hint as to what frames
+         * will be needed next. If the frame index is invalid, the call is
+         * ignored.
+         */
+        void prefetch(uint32 frameIndex);
+        
+    private:
+        QtimeCache&        _cacheCtrl;
+        rcMutex              _prefetchMutex;
+        deque<uint32>      _prefetchRequests;
+        rcConditionVariable  _wait;
+    };
+#endif
+    
     class   QtimeCachePrefetchUnit
     {
     public:
         QtimeCachePrefetchUnit(  QtimeCache& cacheCtrl);
         
-        ~QtimeCachePrefetchUnit();
-
+        virtual ~QtimeCachePrefetchUnit();
+        
         /* Call run in a new thread
          */
         void start();
-
+        
         /* Must be called to have calls to prefetch() be processed.
          */
         void run();
@@ -305,17 +334,29 @@ private:
          */
         void prefetch(uint32 frameIndex);
         
-        void quit () { mQuit = true; }
+        // Ask child to kill itself.
+        void requestSeppuku() { seppuku_ = true; }
+        
+        // So  start method can clear this before startup.
+        void clearSeppuku() { seppuku_ = false; }
+        
+        // Child checks this to see if it should kill itself.
+        bool seppukuRequested() { return seppuku_; }
 
-        int join () { return 0;}
+        void join (bool);
+        
     private:
-        void thread_fn ();
         QtimeCache&        _cacheCtrl;
-        boost::mutex            _prefetchMutex;
-        vf_utils::thread_safe::concurrent_queue<uint32>      _prefetchRequests;
-        std::atomic_bool mQuit;
+        std::mutex            _prefetchMutex;
+        deque<uint32>      _prefetchRequests;
+        std::condition_variable cond_;
+        boost::atomic<bool> seppuku_;
+        bool mQuit;
+        std::unique_ptr<std::thread> mThread;
     };
     
+
+      
     /* ctor - Opens file and initializes data structures. See
      * description of   QtimeCacheCtor() for more details.
      */
@@ -407,6 +448,7 @@ private:
     map<uint32, vcPendingFills>        _pending;
     
     bool                                 _verbose;
+    bool                                 _prefetch;
     bool                                 _isValid;
     eQtimeCacheError                    _fatalError;
     const std::string                       _fileName;
@@ -419,9 +461,9 @@ private:
     double                               _averageFrameRate;
     int64                              _baseTime;
     
-    boost::mutex                              _cacheMutex;
-    boost::mutex                              _diskMutex;
-    signal_pending<boost::mutex>            _pendingCtrl;
+    std::mutex                              _cacheMutex;
+    std::mutex                              _diskMutex;
+    signal_pending<std::mutex>            _pendingCtrl;
     
     uint32                             _cacheOverflowLimit;
     uint32                             _cacheSize;
@@ -429,7 +471,7 @@ private:
     uint32                             _cacheMisses;
     uint32                             _cacheHits;
     
-    QtimeCachePrefetchUnit*            _prefetchThread;
+    std::shared_ptr<QtimeCachePrefetchUnit>            _prefetchThread;
     // Progress indicator for sow operations (ie. TOC from frames)
     rcProgressIndicator*                 _progressIndicator;
     
@@ -445,7 +487,7 @@ public:
         QtimeCache* register_cache ( QtimeCache* cacheP)
         {
             rmAssert(cacheP);
-            boost::lock_guard<boost::mutex> locky (_cacheMgmtMutex);
+            std::lock_guard<std::mutex> locky (_cacheMgmtMutex);
             
             ++_nextCacheID;
             rmAssert(_nextCacheID != 0);
@@ -457,10 +499,11 @@ public:
             cacheP->setCacheID(_nextCacheID);
             return cacheP;
         }
-        
+
+        // @note cache is "deleted" by the calling function
         void  remove( QtimeCache* cacheP)
         {
-            boost::lock_guard<boost::mutex> locky (_cacheMgmtMutex);
+            std::lock_guard<std::mutex> locky (_cacheMgmtMutex);
             
             map< QtimeCache*, uint32>::iterator locI = _activeCachesPtoI.find(cacheP);
             if (locI == _activeCachesPtoI.end())
@@ -476,14 +519,13 @@ public:
             
             _activeCachesItoP.erase(locP);
             _activeCachesPtoI.erase(locI);
-//            delete cacheP;
-            
+
         }
         
         
         QtimeCache* cacheById (uint32 cacheID)
         {
-            boost::lock_guard<boost::mutex> locky (_cacheMgmtMutex);
+            std::lock_guard<std::mutex> locky (_cacheMgmtMutex);
             
             map<uint32,  QtimeCache*>::iterator loc = _activeCachesItoP.find(cacheID);
             if (loc == _activeCachesItoP.end())
@@ -497,7 +539,7 @@ public:
         map<uint32,   QtimeCache*>  _activeCachesItoP;
         map<  QtimeCache*, uint32>  _activeCachesPtoI;
         uint32                      _nextCacheID;
-        boost::mutex                _cacheMgmtMutex;
+        std::mutex                _cacheMgmtMutex;
         
    
         

@@ -30,28 +30,28 @@ class UT_QtimeCache : public rcUnitTest {
   void frameBufTest();
   void dtorTest();
   void threadSafeTest();
+    void threadSafe (bool);
 };
 
 // Thread-safe test specific stuff
 
-#define FRAME_COUNT           8
+
 #define QtimeCache_THREAD_CNT 5
 #define QtimeCache_SZ         (QtimeCache_THREAD_CNT - 1)
 
-class utQtimeCacheThread : public rcRunnable
+class utQtimeCacheThread
 {
 public:
-
-  utQtimeCacheThread(QtimeCache& cache);
+    utQtimeCacheThread (QtimeCache& cache);
   
-  void run();
-
+    void run ();
+  
   uint32      _ref_count[QtimeCache_THREAD_CNT*5];
-  uint32      _frameTouch[FRAME_COUNT];
+  std::vector<uint32>    _frameTouch;
   uint32      _prefetches;
   uint32      _myErrors;
-  QtimeCache& _cache;
-
+  uint32 _frame_count;
+  QtimeCache&  _cache;
   static rcAtomicValue<int> startTest;
 };
 

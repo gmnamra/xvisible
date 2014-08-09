@@ -12,8 +12,11 @@
 #include "rc_videocache.h"
 #include "opencv2/highgui/highgui.hpp"
 #include "rc_pixel.hpp"
+#include <functional>
 
 using namespace cv;
+
+#define DEBUG_MEM
 
 rcFrame::rcFrame() :
     mRawData( 0 ),
@@ -196,6 +199,7 @@ void rcFrame::loadImage(const char* rawPixels,
   mIsGray = isGray;
 }
 
+
 rcFrame::~rcFrame()
 {
   if (mOwnPixels == true)
@@ -355,6 +359,63 @@ double rcFrame::operator() (double xDb, double yDb) const
   rmAssert (0);
 }
 
+
+///////////  rcFrameRef //////////////////////
+
+
+void rcFrameRef::interlock_force_unlock ()
+{
+   // cerr << "rcFrameRef" << __FUNCTION__ << endl;
+    internalUnlock(true, &rcVideoCache::cacheUnlock);
+}
+
+// Assignment operators
+rcFrameRef& rcFrameRef::operator= ( const rcFrameRef& p )
+{
+    if ( (mFrameBuf == p.mFrameBuf) && (mCacheCtrl == p.mCacheCtrl) &&
+        (mFrameIndex == p.mFrameIndex) )
+        return *this;
+    
+    internalUnlock(true,&rcVideoCache::cacheUnlock);
+    mCacheCtrl = p.mCacheCtrl;
+    mFrameIndex = p.mFrameIndex;
+    mFrameBuf = p.mFrameBuf;
+    if ( mFrameBuf )
+    {
+        mFrameBuf->addRef();
+    }
+    return *this;
+}
+
+ rcFrameRef& rcFrameRef::operator= ( rcFrame* p )
+{
+    if ( (mFrameBuf == p) && (mFrameBuf || !mCacheCtrl) )
+        return *this;
+    
+    internalUnlock(true,&rcVideoCache::cacheUnlock);
+    mFrameBuf = p;
+    if ( mFrameBuf )
+    {
+        mCacheCtrl = p->cacheCtrl();
+        mFrameIndex = p->frameIndex();
+        mFrameBuf->addRef();
+    }
+    else
+    {
+        mCacheCtrl = 0;
+        mFrameIndex = 0;
+    }
+    
+    return *this;
+}
+
+
+rcFrameRef::~rcFrameRef()
+{
+//    cerr << __FUNCTION__ << endl;
+    interlock_force_unlock ();
+}
+
 void rcFrameRef::lock() const
 {
     const_cast<rcFrameRef*>(this)->internalLock();
@@ -363,7 +424,7 @@ void rcFrameRef::lock() const
 
 void rcFrameRef::unlock() const
 {
-    const_cast<rcFrameRef*>(this)->internalUnlock(false);
+    const_cast<rcFrameRef*>(this)->internalUnlock(false,&rcVideoCache::cacheUnlock);
 }
 
 void rcFrameRef::prefetch() const
@@ -376,26 +437,52 @@ void rcFrameRef::prefetch() const
 
 void rcFrameRef::internalLock()
 {
+#ifdef DEBUG_MEM
+    cerr << "rcSharedFrameBufPtr lock: " << mFrameBuf << endl;
+#endif
     if ( !mFrameBuf && mCacheCtrl )
     {
         rcVideoCacheStatus status;
         rcVideoCacheError error;
         status = rcVideoCache::cacheLock(mCacheCtrl, mFrameIndex, *this, &error);
+
+#ifdef DEBUG_MEM
+        cerr << "   Cached rcSharedFrameBufPtr " << mFrameBuf
+        << " Status " << status << " refCount ";
+        std::lock_guard<std::mutex> lk (mMutex);
+        
+        if ( mFrameBuf )
+            cerr << mFrameBuf->refCount() << endl;
+        else
+            cerr << "UNDEFINED" << endl;
+#endif
+        
     }
 }
 
-void rcFrameRef::internalUnlock(bool force)
+void rcFrameRef::internalUnlock(bool force, locker_fn locker)
 {
+#ifdef DEBUG_MEM
+    cerr << "rcSharedFrameBufPtr unlock: " << mFrameBuf << endl;
+#endif
     if ( mFrameBuf && (mCacheCtrl || force)) {
         
         bool cacheUnlock = false;
         {
+            std::lock_guard<std::mutex> lk (mMutex);
+            
             uint32 rc = mFrameBuf->remRef();
             if (mCacheCtrl && rc == 1) cacheUnlock = true;
+
+#ifdef DEBUG_MEM
+            cerr << "   refCount " << mFrameBuf->refCount()
+            << " cache unlock " << cacheUnlock << endl;
+#endif
+            
             mFrameBuf = 0;
         }
         if (cacheUnlock)
-          rcVideoCache::cacheUnlock(mCacheCtrl, mFrameIndex);
+            locker (mCacheCtrl, mFrameIndex);
     }
 }
 

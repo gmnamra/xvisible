@@ -371,6 +371,12 @@ class RFY_API rcVideoCache
   uint32                             _cacheMisses;
   uint32                             _cacheHits;
 
+    
+    //#ifdef VID_TRACE
+    uint32                             _debuggingToken;
+    uint32                             getNextToken();
+    //#endif
+    
   rcVideoCachePrefetchUnit*            _prefetchThread;
   // Progress indicator for sow operations (ie. TOC from frames)
   rcProgressIndicator*                 _progressIndicator;
@@ -381,6 +387,7 @@ class RFY_API rcVideoCache
   static uint32                      _nextCacheID;
   static rcMutex                       _cacheMgmtMutex;
 
+public:
   /* General cache management related static functions. These are
    * helper fcts intended to be used only by rcFrameRef
    * class lock() and unlock() fcts. cacheUnlock() is a wrapper around
@@ -396,11 +403,6 @@ class RFY_API rcVideoCache
 				      uint32 frameIndex,
 				      rcFrameRef& frameBuf,
 				      rcVideoCacheError* error = 0);
-
-//#ifdef VID_TRACE
-  uint32                             _debuggingToken;
-  uint32                             getNextToken();
-//#endif
 };
 
 class VideoCacheReleaser

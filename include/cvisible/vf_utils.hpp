@@ -16,6 +16,8 @@
 #include <list>
 #include <queue>
 #include <fstream>
+#include <mutex>
+#include <condition_variable>
 
 //using namespace ci;
 using namespace std;
@@ -391,49 +393,78 @@ namespace vf_utils
         {
         private:
             std::queue<Data> the_queue;
-            mutable boost::mutex the_mutex;
-            boost::condition_variable the_condition_variable;
+            mutable std::mutex the_mutex;
+            std::condition_variable the_condition_variable;
         public:
+            
+            concurrent_queue () {}
+            
             void push(Data const& data)
             {
-                boost::lock_guard<boost::mutex> lock(the_mutex);
-                the_queue.push(data);
+                std::lock_guard<std::mutex> lock(the_mutex);
+                the_queue.push(std::move(data));
                 the_condition_variable.notify_one();
-                std::cout << "push " << std::endl;
             }
             
             bool empty() const
             {
-                boost::lock_guard<boost::mutex> lock(the_mutex);
+                std::lock_guard<std::mutex> lock(the_mutex);
                 return the_queue.empty();
             }
             
             bool try_pop(Data& popped_value)
             {
-                boost::mutex::scoped_lock lock(the_mutex);
+                std::lock_guard<std::mutex> lock(the_mutex);
                 if(the_queue.empty())
                 {
-                    std::cout << "poping on empty " << std::endl;
+               //     std::cout << "poping on empty " << std::endl;
                     return false;
                 }
                 
-                popped_value=the_queue.front();
+                popped_value=std::move (the_queue.front());
                 the_queue.pop();
-                std::cout << "poped " << std::endl;
+             //static_cast<int32>(status)    std::cout << "poped " << std::endl;
                 return true;
             }
             
             void wait_and_pop(Data& popped_value)
             {
-                boost::unique_lock<boost::mutex> lock(the_mutex);
+                std::unique_lock<std::mutex> lock(the_mutex);
                 the_condition_variable.wait (lock, [this] { return ! empty(); } );
-                popped_value=the_queue.front();
+                std::cout << "poped " << std::endl;                
+                popped_value=std::move (the_queue.front());
                 the_queue.pop();
             }
             
         };
         
-     
+        struct cancelled_error {};
+        
+        class cancellation_point
+        {
+        public:
+            cancellation_point(): stop_(false) {}
+            
+            void cancel() {
+                std::unique_lock<std::mutex> lock(mutex_);
+                stop_ = true;
+                cond_.notify_all();
+            }
+            
+            template <typename P>
+            void wait(const P& period) {
+                std::unique_lock<std::mutex> lock(mutex_);
+                if (stop_ || cond_.wait_for(lock, period) == std::cv_status::no_timeout) {
+                    stop_ = false;
+                    throw cancelled_error();
+                }
+            }
+        private:
+            bool stop_;
+            std::mutex mutex_;
+            std::condition_variable cond_;
+        };
+
     }
 }
 

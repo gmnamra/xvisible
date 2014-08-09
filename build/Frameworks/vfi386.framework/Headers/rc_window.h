@@ -19,6 +19,8 @@
 #endif
 
 #include <vector>
+
+
 using namespace std;
 using namespace cv;
 
@@ -28,6 +30,9 @@ class RFY_API rcWindow
 {
 public:
 
+  typedef boost::function<int(uint32, rcFrameRef&)> proxy_fetch_frame_fn;
+    typedef boost::function<int(std::pair<uint32,uint32>&)> proxy_fetch_size_fn;
+    
   // Constructors
  //! default constructor takes no arguments
     /*!
@@ -61,6 +66,8 @@ public:
     
   // Become an entire window to a buffer in cache
   rcWindow(rcVideoCache& cache, uint32 frameIndex);
+  rcWindow(proxy_fetch_size_fn cache_get_frame_size, proxy_fetch_frame_fn cache_get_frame_data,  uint32 frameIndex);
+    
 
  //! Attach to an existing buffer
  //! takes up to four arguments

@@ -21,6 +21,8 @@
 
 #include <fstream>
 #include <mutex>
+#include <memory>
+#include <functional>
 
 using namespace ci;
 using namespace std;
@@ -33,11 +35,13 @@ class QtimeCache::qtImpl
     // ctor
     qtImpl( const std::string fqfn) : mFqfn (fqfn), mValid (false)
     {
-      std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
     }
     
     void load_movie ()
     {
+        std::lock_guard<std::mutex> lk(mx);
+        
         if ( file_exists ( mFqfn ) && file_readable ( mFqfn ) )
         {
             mMovie = cinder::qtime::MovieSurface::create (mFqfn);
@@ -62,17 +66,19 @@ class QtimeCache::qtImpl
                 
             }
         }
-        
+
     }
     
     bool isValid () const
     {
+        std::lock_guard<std::mutex> lk(mx);
         return mValid;
     }
     
     vf_utils::general_movie::info movie_info ()
     {
         std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        std::lock_guard<std::mutex> lk(mx);            
         return mInfo;
     }
     
@@ -95,16 +101,20 @@ class QtimeCache::qtImpl
     double get_time_index_map (std::shared_ptr<std::vector<int32> >& ti_map)
     {
         std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        std::lock_guard<std::mutex> lk(mx);
         std::shared_ptr<std::vector<int32> >  res(new std::vector<int32> (m_raw));
         ti_map.swap(res);
         return mInfo.mTscale;
     }
     
-    void getSurfaceAndCopy (rcFrameRef& ptr)
+    bool getSurfaceAndCopy (rcFrameRef& ptr)
     {
-        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
-        
+        std::lock_guard<std::mutex> lk(mx);
+        if (!mMovie) return false;
         mSurface = mMovie->getSurface ();
+        
+        if (!mSurface) return false;
+        
         ptr->setIsGray (true);
         Surface::Iter iter = mSurface.getIter ( mSurface.getBounds() );
         int rows = 0;
@@ -113,41 +123,50 @@ class QtimeCache::qtImpl
             uint8_t* pels = ptr->rowPointer (rows++);
             while ( iter.pixel () ) *pels++ = iter.g ();
         }
+        return true;
     }
     
     void seekToFrame( int frame )
     {
         std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        std::lock_guard<std::mutex> lk(mx);
         mMovie->seekToFrame (frame);
+        
     }
     
     void seekToStart()
     {
-        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+     //   std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        std::lock_guard<std::mutex> lk(mx);
         mMovie->seekToStart ();
     }
     
     void seekToEnd()
     {
         std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        std::lock_guard<std::mutex> lk(mx);
         mMovie->seekToStart ();
     }
     
     bool checkPlayable ()
     {
         std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        std::lock_guard<std::mutex> lk(mx);
         return mMovie->checkPlayable ();
     }
     
     float getCurrentTime()
     {
         std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        std::lock_guard<std::mutex> lk(mx);
         return mMovie->getCurrentTime ();
     }
     bool checkNewFrame ()
     {
         std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        std::lock_guard<std::mutex> lk(mx);
         return mMovie->checkNewFrame ();
+
     }
     
 private:
@@ -157,6 +176,7 @@ private:
     ci::qtime::MovieSurfaceRef    mMovie;
     ci::Surface				mSurface;
     mutable bool                mValid;
+    mutable std::mutex          mx;
     
     
     std::vector<int32> m_raw;

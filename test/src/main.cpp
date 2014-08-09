@@ -65,6 +65,17 @@ private:
 static ::testing::Environment* envp = 0;
 
 
+TEST (UT_videocache, run)
+{
+    genv* gvp = reinterpret_cast<genv*>(envp);
+    EXPECT_TRUE (gvp != 0 );
+    static std::string rfymov_name ("rev2.rfymov");
+    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);
+    
+    UT_VideoCache test (rfymov);
+    EXPECT_EQ(0, test.run () );
+}
+
 // System info tests
 TEST ( UT_Systeminfo, run )
 {
@@ -159,17 +170,6 @@ TEST ( UT_ReifyMovieGrabber, run )
     EXPECT_EQ(0, test.run () );
 }
 
-
-TEST (UT_videocache, run)
-{
-    genv* gvp = reinterpret_cast<genv*>(envp);
-    EXPECT_TRUE (gvp != 0 );
-    static std::string rfymov_name ("rev2.rfymov");
-    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);    
-    
-    UT_VideoCache test (rfymov);
-    EXPECT_EQ(0, test.run () );
-}
 
 
 

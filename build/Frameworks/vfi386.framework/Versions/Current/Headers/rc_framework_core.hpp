@@ -11,7 +11,6 @@
 #include "singleton.hpp"
 #include "rc_exception.h"
 
-
 using namespace boost;
 using namespace boost::date_time;
 using namespace std;
@@ -105,7 +104,9 @@ private:
     std::string _logPath;               //!< Path to the log files folder
     bool                     _dev_run;               //!< True for runs in the build directory (not installed)
     
-    visible_framework_core(const visible_framework_core&); 
+    visible_framework_core(const visible_framework_core&);
+    visible_framework_core& operator=( const visible_framework_core& );
+    
     int                           _debug_level_logfile;      //!< The debug level for the log file (belongs to OutputHandler)
     bool                          _force_simd_if_present;
     

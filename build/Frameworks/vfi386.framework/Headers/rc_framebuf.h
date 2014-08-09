@@ -36,6 +36,8 @@ class rcFrame : public intrusive_ptr_base<rcFrame>
    // friend class rcVideoCache;
     
 public:
+    
+    
     enum { ROW_ALIGNMENT_MODULUS = 16 }; // Mod for row alignment. Default for AltiVec
     
     
@@ -222,11 +224,12 @@ class rcVideoCache;
 // Reference counted frame buffer. Frame buffer memory will be deallocated when reference count goes to zero.
 // Windows and regions must use this class.
 
-class  rcFrameRef
+class  rcFrameRef 
 {
     
 public:
     
+    typedef boost::function<void(uint32, uint32)> locker_fn;
     
     // Constructors
     rcFrameRef()
@@ -239,7 +242,6 @@ public:
         }
         if ( mFrameBuf )
         {
-         //   boost::lock_guard<boost::mutex> lk (mMutex);
             mFrameBuf->addRef();
         }
     }
@@ -248,58 +250,16 @@ public:
     mFrameBuf( p.mFrameBuf ) {
         if ( mFrameBuf )
         {
-           // boost::lock_guard<boost::mutex> lk (mMutex);
             mFrameBuf->addRef();
         }
     }
     
     // Destructor
-    virtual ~rcFrameRef()
-    {
-
-        cerr << "rcFrameRef dtor " << endl;
-
-        internalUnlock(true);
-    }
-    
+    virtual ~rcFrameRef();
+      
     // Assignment operators
-    virtual rcFrameRef& operator= ( const rcFrameRef& p ) {
-        if ( (mFrameBuf == p.mFrameBuf) && (mCacheCtrl == p.mCacheCtrl) &&
-            (mFrameIndex == p.mFrameIndex) )
-            return *this;
-
-        internalUnlock(true);
-        mCacheCtrl = p.mCacheCtrl;
-        mFrameIndex = p.mFrameIndex;
-        mFrameBuf = p.mFrameBuf;
-        if ( mFrameBuf )
-        {
-            mFrameBuf->addRef();
-        }
-        return *this;
-    }
-    
-    virtual rcFrameRef& operator= ( rcFrame* p )
-    {
-        if ( (mFrameBuf == p) && (mFrameBuf || !mCacheCtrl) )
-            return *this;
-
-        internalUnlock(true);
-        mFrameBuf = p;
-        if ( mFrameBuf )
-        {
-            mCacheCtrl = p->cacheCtrl();
-            mFrameIndex = p->frameIndex();
-            mFrameBuf->addRef();
-        }
-        else
-        {
-            mCacheCtrl = 0;
-            mFrameIndex = 0;
-        }
-        
-        return *this;
-    }
+    virtual rcFrameRef& operator= ( const rcFrameRef& p );
+    virtual rcFrameRef& operator= ( rcFrame* p );
     
     /* For cached frames, the cache controller is called to load the
      * underlying frame from either cache or disk and to lock it into
@@ -424,6 +384,7 @@ public:
         mFrameIndex = frameIndex;
     }
 
+    
     /*
      * public but only to avoid excessive friendship
      */
@@ -431,10 +392,13 @@ public:
     uint32      mFrameIndex;
     mutable rcFrame*    mFrameBuf;
     mutable boost::mutex mMutex;
-
-private:
+    
+protected:
     virtual void internalLock();
-    virtual void internalUnlock( bool force );
+    virtual void interlock_force_unlock ();
+    void internalUnlock( bool , locker_fn );
+    
+   
 
 };
 

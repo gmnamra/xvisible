@@ -104,7 +104,17 @@ rcWindow::rcWindow(rcVideoCache& cache, uint32 frameIndex) :
     rmAssert(status == eVideoCacheStatusOK);
 }
 
-
+rcWindow::rcWindow(proxy_fetch_size_fn cache_get_frame_size, proxy_fetch_frame_fn cache_get_frame_data,  uint32 frameIndex)
+: mFrameBuf (0)
+{
+    std::pair<uint32,uint32> size (0,0);
+    rmAssert(cache_get_frame_size (size) == 0);  // error returned must be 0 for success
+    rmAssert( size.first > 0 );
+    rmAssert( size.second > 0 );
+    rcRect r (0, 0, size.first, size.second);
+    mGeometry = r;
+    rmAssert(cache_get_frame_data (frameIndex, mFrameBuf) == 0); // error returned must be 0 for success
+}
 
 /**
  *
