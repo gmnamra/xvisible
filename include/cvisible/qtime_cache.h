@@ -568,7 +568,10 @@ public:
 
 typedef boost::shared_ptr<  QtimeCache> SharedQtimeCache;
 
-#define _shared_qtime_cache_create(name,_1,_2,_3,_4,_5,_6) sharedQtimeCache name (  QtimeCache::  QtimeCacheCtor((_1), (_2), (_3), (_4), (_5), (_6) , (cc)), QtimeCacheReleaser ())
+
+#define _shared_qtime_cache_create_simple(name,_1,_2) SharedQtimeCache name (  QtimeCache::  QtimeCacheCtor((_1), (_2)), QtimeCacheReleaser ())
+
+#define _shared_qtime_cache_create_all_args (name,_1,_2,_3,_4,_5,_6) sharedQtimeCache name (  QtimeCache::  QtimeCacheCtor((_1), (_2), (_3), (_4), (_5), (_6) , (cc)), QtimeCacheReleaser ())
 
 
 

@@ -182,7 +182,7 @@ UT_QtimeCache::~UT_QtimeCache()
 
 uint32 UT_QtimeCache::run()
 {
-#if 0
+#if 1
     ctorTest();
     mappingTest();
     simpleAllocTest();
@@ -331,6 +331,10 @@ void UT_QtimeCache::ctorTest()
             
             QtimeCache::QtimeCacheDtor(tcP);
         }
+    
+    // test the shared ptr interface
+    _shared_qtime_cache_create_simple(sharedi, fileName, 5);
+    rcUNITTEST_ASSERT(sharedi->isValid() == true);
     
     
 }
@@ -653,9 +657,9 @@ void UT_QtimeCache::prefetchThreadTest()
     // Call ctor and dtor rapdily to test prefetch thread race conditions
     for ( uint32 i = 0;  i < 4096; ++i )
     {
-        std::cout << i << std::endl;
+        if (! (i % 256) ) std::cout << i << " out of 4096 " << std::endl;
         QtimeCache* cacheP =
-        QtimeCache::QtimeCacheCtor(fileName, 0, true, true);
+        QtimeCache::QtimeCacheCtor(fileName, 0, false, true);
         // Warning: exeution may deadlock here if prefetch thread
         // hasn't been properly initialized when dtor is called
         QtimeCache::QtimeCacheDtor(cacheP);

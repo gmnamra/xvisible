@@ -1285,7 +1285,7 @@ void QtimeCache:: QtimeCachePrefetchUnit::join(bool seppuku)
 
 void QtimeCache:: QtimeCachePrefetchUnit::run ()
 {
-    std::cout << " prefetch thread started " << std::endl;
+  //  std::cout << " prefetch thread started " << std::endl;
     
     uint32 frameIndex = 0;
     bool active = true;
@@ -1316,7 +1316,7 @@ void QtimeCache:: QtimeCachePrefetchUnit::run ()
             frame_ref_t frameBuf;
             eQtimeCacheStatus status = _cacheCtrl.getFrame(frameIndex, frameBuf,
                                                            &error);
-            std::cerr << "got frame\n" << frameIndex << std::endl;
+     //       std::cerr << "got frame\n" << frameIndex << std::endl;
             /* Stop processing if something bad happens */
             if ((status ==  eQtimeCacheStatus::Error) && (error !=  eQtimeCacheError::NoSuchFrame))
             {
