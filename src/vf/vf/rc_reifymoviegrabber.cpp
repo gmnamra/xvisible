@@ -8,7 +8,43 @@
 #include "rc_types.h"
 #include "rc_reifymoviegrabber.h"
 
-rcReifyMovieGrabber::rcReifyMovieGrabber(rcVideoCache& cache) 
+
+template<> rcFrameGrabberError
+rcReifyMovieGrabberT<rcVideoCache,rcVideoCacheError>::errorNoTranslate(rcVideoCacheError error)
+{
+    switch (error) {
+        case rcVideoCacheError::FileInit:
+            return rcFrameGrabberError::eFrameErrorFileInit;
+        case rcVideoCacheError::FileSeek:
+        case rcVideoCacheError::FileRead:
+            return rcFrameGrabberError::eFrameErrorFileRead;
+        case rcVideoCacheError::FileClose:
+            return rcFrameGrabberError::eFrameErrorFileClose;
+        case rcVideoCacheError::FileFormat:
+            return rcFrameGrabberError::eFrameErrorFileFormat;
+        case rcVideoCacheError::FileUnsupported:
+            return rcFrameGrabberError::eFrameErrorFileUnsupported;
+        case rcVideoCacheError::FileRevUnsupported:
+            return rcFrameGrabberError::eFrameErrorFileRevUnsupported;
+        case rcVideoCacheError::SystemResources:
+            return rcFrameGrabberError::eFrameErrorSystemResources;
+        case rcVideoCacheError::NoSuchFrame:
+        case rcVideoCacheError::CacheInvalid:
+            return rcFrameGrabberError::eFrameErrorInternal;
+        case rcVideoCacheError::OK:
+            return rcFrameGrabberError::eFrameErrorOK;
+        case rcVideoCacheError::BomUnsupported:
+            return rcFrameGrabberError::eFrameErrorFileUnsupported;
+        case rcVideoCacheError::DepthUnsupported:
+            return rcFrameGrabberError::eFrameErrorUnsupportedDepth;
+    }
+    
+    return rcFrameGrabberError::eFrameErrorUnknown;
+}
+
+
+template<>
+rcReifyMovieGrabberT<rcVideoCache,rcVideoCacheError>::rcReifyMovieGrabberT(rcVideoCache& cache)
   : rcFileGrabber(0), _framesLeft(0), _curFrame(0), _started(false),
     _cache(cache)
 {
@@ -16,11 +52,14 @@ rcReifyMovieGrabber::rcReifyMovieGrabber(rcVideoCache& cache)
     setLastError(errorNoTranslate(_cache.getFatalError()));
 }
 
-rcReifyMovieGrabber::~rcReifyMovieGrabber()
+template <>
+rcReifyMovieGrabberT<rcVideoCache,rcVideoCacheError>::~rcReifyMovieGrabberT()
 {
 }
 
-bool rcReifyMovieGrabber::start()
+
+template<>
+bool rcReifyMovieGrabberT<rcVideoCache,rcVideoCacheError>::start()
 {
   if (!isValid())
     return false;
@@ -34,7 +73,8 @@ bool rcReifyMovieGrabber::start()
   return true;
 }
 
-bool rcReifyMovieGrabber::stop()
+template<>
+bool rcReifyMovieGrabberT<rcVideoCache,rcVideoCacheError>::stop()
 {
   if (!isValid())
     return false;
@@ -43,15 +83,17 @@ bool rcReifyMovieGrabber::stop()
 
   return true;
 }
-    
-rcFrameGrabberStatus rcReifyMovieGrabber::getNextFrame(rcFrameRef& ptr,
+
+
+template<>
+rcFrameGrabberStatus rcReifyMovieGrabberT<rcVideoCache,rcVideoCacheError>::getNextFrame(rcFrameRef& ptr,
 						       bool isBlocking)
 {
   if (!isValid())
     return eFrameStatusError;
 
   if (!isBlocking) {
-    setLastError(eFrameErrorNotImplemented);
+    setLastError(rcFrameGrabberError::eFrameErrorNotImplemented);
     return eFrameStatusError;
   }
   
@@ -78,35 +120,3 @@ rcFrameGrabberStatus rcReifyMovieGrabber::getNextFrame(rcFrameRef& ptr,
   return eFrameStatusOK;
 }
 
-rcFrameGrabberError
-rcReifyMovieGrabber::errorNoTranslate(rcVideoCacheError error)
-{
-  switch (error) {
-  case eVideoCacheErrorFileInit:
-    return eFrameErrorFileInit;
-  case eVideoCacheErrorFileSeek:
-  case eVideoCacheErrorFileRead:
-    return eFrameErrorFileRead;
-  case eVideoCacheErrorFileClose:
-    return eFrameErrorFileClose;
-  case eVideoCacheErrorFileFormat:
-    return eFrameErrorFileFormat;
-  case eVideoCacheErrorFileUnsupported:
-    return eFrameErrorFileUnsupported;
-  case eVideoCacheErrorFileRevUnsupported:
-    return eFrameErrorFileRevUnsupported;
-  case eVideoCacheErrorSystemResources:
-    return eFrameErrorSystemResources;
-  case eVideoCacheErrorNoSuchFrame:
-  case eVideoCacheErrorCacheInvalid:
-    return eFrameErrorInternal;
-  case eVideoCacheErrorOK:
-    return eFrameErrorOK;
-  case eVideoCacheErrorBomUnsupported:
-    return eFrameErrorFileUnsupported;
-  case eVideoCacheErrorDepthUnsupported:
-    return eFrameErrorUnsupportedDepth;
-  }
-
-  return eFrameErrorUnknown;
-}

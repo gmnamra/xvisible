@@ -81,7 +81,7 @@ public:
         _movieFile = movie_fqfn;
         rcFrameGrabberError fr;
         _frameCount = loadMovie (movie_fqfn, fr);
-        _has_content = fr == eFrameErrorOK;
+        _has_content = fr == rcFrameGrabberError::eFrameErrorOK;
         return has_content ();
     }
 
@@ -215,7 +215,7 @@ int SimilarityProducer::spImpl::loadMovie( const std::string& movieFile, rcFrame
 		count = loadFrames( *grabber, error );
 		delete grabber;
         
-		if ( error != eFrameErrorOK ) {
+		if ( error != rcFrameGrabberError::eFrameErrorOK ) {
 			if (_videoCacheP) {
 				rcVideoCache::rcVideoCacheDtor(_videoCacheP);
 				_videoCacheP = 0;
@@ -422,10 +422,10 @@ int SimilarityProducer::spImpl::loadImages()
         //        rcImageGrabber grabber( fileNames, this, frameInterval );
         
         // Load frames
-        rcFrameGrabberError error = eFrameErrorUnknown;
+        rcFrameGrabberError error = rcFrameGrabberError::eFrameErrorUnknown;
         //    count = loadFrames( grabber, error );
         
-        if ( error != eFrameErrorOK )
+        if ( error != rcFrameGrabberError::eFrameErrorOK )
         {
             //           strstream s;
             //           s << rcFrameGrabber::getErrorString( error ) << " " << grabber.getInputSourceName() << ends;
@@ -446,12 +446,12 @@ int SimilarityProducer::spImpl::loadMovie()
     
     if ( !_movieFile.empty() )
     {
-        rcFrameGrabberError error = eFrameErrorUnknown;
+        rcFrameGrabberError error = rcFrameGrabberError::eFrameErrorUnknown;
         
         count = loadMovie( _movieFile, error );
         cerr << count << " Frames in the movie " << _movieFile << endl;
         
-        if ( error != eFrameErrorOK )
+        if ( error != rcFrameGrabberError::eFrameErrorOK )
         {
             //                 strstream s;
             //                        s << rcFrameGrabber::getErrorString( error ) << " " << _movieFile << ends;

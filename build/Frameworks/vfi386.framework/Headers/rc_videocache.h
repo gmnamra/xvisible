@@ -31,22 +31,22 @@ using namespace std;
 #include "rc_timestamp.h"
 #include "rc_moviefileformat.h"
 
-enum rcVideoCacheError {
-    eVideoCacheErrorOK = 0,            // No error
-    eVideoCacheErrorFileInit,          // File (system) init error
-    eVideoCacheErrorFileSeek,          // File seek error
-    eVideoCacheErrorFileRead,          // File read error
-    eVideoCacheErrorFileClose,         // File close error
-    eVideoCacheErrorFileFormat,        // File invalid
-    eVideoCacheErrorFileUnsupported,   // File format unsupported
-    eVideoCacheErrorFileRevUnsupported,// File revision unsupported
-    eVideoCacheErrorSystemResources,   // Inadequate system resources
-    eVideoCacheErrorNoSuchFrame,       // Specified frame does not exist
-    eVideoCacheErrorCacheInvalid,      // Previously detected error put
+enum class rcVideoCacheError : int32 {
+    OK = 0,            // No error
+    FileInit,          // File (system) init error
+    FileSeek,          // File seek error
+    FileRead,          // File read error
+    FileClose,         // File close error
+    FileFormat,        // File invalid
+    FileUnsupported,   // File format unsupported
+    FileRevUnsupported,// File revision unsupported
+    SystemResources,   // Inadequate system resources
+    NoSuchFrame,       // Specified frame does not exist
+    CacheInvalid,      // Previously detected error put
                                        // cache in invalid state or cache
                                        // has been deleted
-    eVideoCacheErrorBomUnsupported,    // Unsupported byte order
-    eVideoCacheErrorDepthUnsupported,  // Unsupported image depth
+    BomUnsupported,    // Unsupported byte order
+    DepthUnsupported,  // Unsupported image depth
 };
 
 // Status type
@@ -70,6 +70,9 @@ class RFY_API rcVideoCache
   friend class UT_PlaybackUtils;
 
  public:
+    
+  typedef rcFrameRef frame_ref_t;
+    
   /* rcVideoCacheCtor - Opens file and initializes data structures. If
    * getTOC is set to true, then the table of contents (a map of
    * timestamps to images) is read in.
@@ -139,13 +142,13 @@ class RFY_API rcVideoCache
 				      rcVideoCacheError* error = 0);
   // Returns first timestamp > goalTime. If no such timestamp can be
   // found, the return value is eVideoCacheStatusError, and
-  // eVideoCacheErrorNoSuchFrame is returned in error.
+  // NoSuchFrame is returned in error.
   rcVideoCacheStatus nextTimestamp(const rcTimestamp& goalTime,
 				   rcTimestamp& match,
 				   rcVideoCacheError* error = 0);
   // Returns closest timestamp < goalTime. If no such timestamp can be
   // found, the return value is eVideoCacheStatusError, and
-  // eVideoCacheErrorNoSuchFrame is returned in error.
+  // NoSuchFrame is returned in error.
   rcVideoCacheStatus prevTimestamp(const rcTimestamp& goalTime,
 				   rcTimestamp& match,
 				   rcVideoCacheError* error = 0);
@@ -157,14 +160,14 @@ class RFY_API rcVideoCache
 				   rcVideoCacheError* error = 0);
   // Returns the timestamp for the frame at frameIndex. If no such
   // frameIndex can be found, the return value is
-  // eVideoCacheStatusError, and eVideoCacheErrorNoSuchFrame is
+  // eVideoCacheStatusError, and NoSuchFrame is
   // returned in error.
   rcVideoCacheStatus frameIndexToTimestamp(uint32 frameIndex,
 					   rcTimestamp& match,
 					   rcVideoCacheError* error = 0);
   // Returns the frame index for the frame at time timestamp (must be
   // exact match). If no such timestamp can be found, the return value
-  // is eVideoCacheStatusError, and eVideoCacheErrorNoSuchFrame is
+  // is eVideoCacheStatusError, and NoSuchFrame is
   // returned in error.
   rcVideoCacheStatus timestampToFrameIndex(const rcTimestamp& timestamp,
 					   uint32& match,

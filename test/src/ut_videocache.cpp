@@ -176,7 +176,7 @@ void UT_VideoCache::ctorTest()
 
   rcUNITTEST_ASSERT(cacheP != 0);
   rcUNITTEST_ASSERT(cacheP->isValid());
-  rcUNITTEST_ASSERT(cacheP->getFatalError() == eVideoCacheErrorOK);
+  rcUNITTEST_ASSERT(cacheP->getFatalError() == rcVideoCacheError::OK);
   rcUNITTEST_ASSERT(cacheP->frameCount() == frameCount);
 
   rcVideoCache::rcVideoCacheDtor(cacheP);
@@ -185,7 +185,7 @@ void UT_VideoCache::ctorTest()
 
   rcUNITTEST_ASSERT(cacheP != 0);
   rcUNITTEST_ASSERT(cacheP->isValid());
-  rcUNITTEST_ASSERT(cacheP->getFatalError() == eVideoCacheErrorOK);
+  rcUNITTEST_ASSERT(cacheP->getFatalError() == rcVideoCacheError::OK);
   rcUNITTEST_ASSERT(cacheP->frameCount() == frameCount);
 
   rcVideoCache::rcVideoCacheDtor(cacheP);
@@ -195,7 +195,7 @@ void UT_VideoCache::ctorTest()
 
   rcUNITTEST_ASSERT(cacheP != 0);
   rcUNITTEST_ASSERT(cacheP->isValid());
-  rcUNITTEST_ASSERT(cacheP->getFatalError() == eVideoCacheErrorOK);
+  rcUNITTEST_ASSERT(cacheP->getFatalError() == rcVideoCacheError::OK);
   rcUNITTEST_ASSERT(cacheP->frameCount() == frameCount);
 
   std::string nullFile;
@@ -206,7 +206,7 @@ void UT_VideoCache::ctorTest()
 
   rcUNITTEST_ASSERT(nullCacheP != 0);
   rcUNITTEST_ASSERT(nullCacheP->isValid() == false);
-  rcUNITTEST_ASSERT(nullCacheP->getFatalError()== eVideoCacheErrorFileInit);
+  rcUNITTEST_ASSERT(nullCacheP->getFatalError()== rcVideoCacheError::FileInit);
 
   std::string badFile("xyzzy.dat");
 
@@ -215,7 +215,7 @@ void UT_VideoCache::ctorTest()
 							   false);
 
   rcUNITTEST_ASSERT(badCacheP->isValid() == false);
-  rcUNITTEST_ASSERT(badCacheP->getFatalError() == eVideoCacheErrorFileInit);
+  rcUNITTEST_ASSERT(badCacheP->getFatalError() == rcVideoCacheError::FileInit);
 
   rcVideoCache::rcVideoCacheDtor(cacheP);
   rcVideoCache::rcVideoCacheDtor(nullCacheP);
@@ -293,7 +293,7 @@ void UT_VideoCache::ctorTest()
       if (expResults[memIndex][fcIndex] == 0) {
 	rcUNITTEST_ASSERT(tcP->isValid() == false);
 	rcUNITTEST_ASSERT(tcP->getFatalError() ==
-			   eVideoCacheErrorSystemResources);
+			   rcVideoCacheError::SystemResources);
       }
       else {
 	rcUNITTEST_ASSERT(tcP->isValid() == true);
@@ -391,25 +391,25 @@ void UT_VideoCache::mappingTest()
    */
   {
     utExpMapResult expected[totalCases] = {
-      /* 00 */ { eVideoCacheErrorNoSuchFrame, eVideoCacheStatusError, 0 },
-      /* 01 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 2. },
-      /* 02 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 3. },
-      /* 03 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 4. },
-      /* 04 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 10. },
-      /* 05 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 100. },
-      /* 06 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 1000000000. },
-      /* 07 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 4294967296. },
-      /* 08 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 8589934592. },
-      /* 09 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 8589934593. },
-      /* 10 */ { eVideoCacheErrorNoSuchFrame, eVideoCacheStatusError, 0. },
-      /* 11 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 4. },
-      /* 12 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 4. },
-      /* 13 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 1000000000. },
-      /* 14 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 8589934594. }
+      /* 00 */ { rcVideoCacheError::NoSuchFrame, eVideoCacheStatusError, 0 },
+      /* 01 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 2. },
+      /* 02 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 3. },
+      /* 03 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 4. },
+      /* 04 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 10. },
+      /* 05 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 100. },
+      /* 06 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 1000000000. },
+      /* 07 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 4294967296. },
+      /* 08 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 8589934592. },
+      /* 09 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 8589934593. },
+      /* 10 */ { rcVideoCacheError::NoSuchFrame, eVideoCacheStatusError, 0. },
+      /* 11 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 4. },
+      /* 12 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 4. },
+      /* 13 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 1000000000. },
+      /* 14 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 8589934594. }
     };
 
     for (uint32 i = 0; i < totalCases; i++) {
-      error = eVideoCacheErrorFileInit;
+      error = rcVideoCacheError::FileInit;
       status =
         cacheP->prevTimestamp(rcTimestamp::from_seconds (times[i]), actual, &error);
 
@@ -425,25 +425,25 @@ void UT_VideoCache::mappingTest()
    */
   {
     utExpMapResult expected[totalCases] = {
-      /* 00 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 3. },
-      /* 01 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 4. },
-      /* 02 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 10. },
-      /* 03 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 100. },
-      /* 04 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 1000000000. },
-      /* 05 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 4294967296. },
-      /* 06 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 8589934592. },
-      /* 07 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 8589934593. },
-      /* 08 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 8589934594. },
-      /* 09 */ { eVideoCacheErrorNoSuchFrame, eVideoCacheStatusError, 0. },
-      /* 10 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 2. },
-      /* 11 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 10. },
-      /* 12 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 10. },
-      /* 13 */ { eVideoCacheErrorOK, eVideoCacheStatusOK, 4294967296. },
-      /* 14 */ { eVideoCacheErrorNoSuchFrame, eVideoCacheStatusError, 0. }
+      /* 00 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 3. },
+      /* 01 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 4. },
+      /* 02 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 10. },
+      /* 03 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 100. },
+      /* 04 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 1000000000. },
+      /* 05 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 4294967296. },
+      /* 06 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 8589934592. },
+      /* 07 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 8589934593. },
+      /* 08 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 8589934594. },
+      /* 09 */ { rcVideoCacheError::NoSuchFrame, eVideoCacheStatusError, 0. },
+      /* 10 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 2. },
+      /* 11 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 10. },
+      /* 12 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 10. },
+      /* 13 */ { rcVideoCacheError::OK, eVideoCacheStatusOK, 4294967296. },
+      /* 14 */ { rcVideoCacheError::NoSuchFrame, eVideoCacheStatusError, 0. }
     };
 
     for (uint32 i = 0; i < totalCases; i++) {
-      error = eVideoCacheErrorFileInit;
+      error = rcVideoCacheError::FileInit;
       status =
 	cacheP->nextTimestamp(rcTimestamp::from_seconds (times[i]), actual, &error);
 

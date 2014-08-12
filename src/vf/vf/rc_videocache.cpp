@@ -201,7 +201,7 @@ rcVideoCache::rcVideoCache(std::string fileName, uint32 cacheSize,
                            bool getTOC, bool verbose, bool prefetch,
                            uint32 maxMemory, rcProgressIndicator* pIndicator)
 : _lastTouchIndex(0), _verbose(verbose),
-_isValid(true), _fatalError(eVideoCacheErrorOK), _fileName(fileName),
+_isValid(true), _fatalError(rcVideoCacheError::OK), _fileName(fileName),
 _movieFile(NULL), _rev(movieFormatInvalid), _tocExtHdrOffset(-1), _pendingCtrl(_cacheMutex),
 _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0),
 _progressIndicator(pIndicator)
@@ -216,14 +216,14 @@ _progressIndicator(pIndicator)
     
     _byteOrder = eByteOrderUnknown;
     if (_fileName.empty()) {
-        setError(eVideoCacheErrorFileInit);
+        setError(rcVideoCacheError::FileInit);
         return;
     }
     
     if ((_movieFile = fopen(_fileName.data(), "r")) == NULL)
     {
         if (_verbose) perror("fopen failed");
-        setError(eVideoCacheErrorFileInit);
+        setError(rcVideoCacheError::FileInit);
         return;
     }
     
@@ -233,30 +233,30 @@ _progressIndicator(pIndicator)
     
     if (fread(&id, sizeof(rcMovieFileIdentifier), 1, _movieFile) != 1) {
         if (_verbose) perror("Read of identifier failed");
-        setError(eVideoCacheErrorFileRead);
+        setError(rcVideoCacheError::FileRead);
         return;
     }
     id.fixEndian();
     
     if (fseek( _movieFile, 0, SEEK_SET)) {
         if (_verbose) perror("fseek to start failed");
-        setError(eVideoCacheErrorFileRead);
+        setError(rcVideoCacheError::FileRead);
         return;
     }
     
     // Check identifier validity
     if ( !id.isValid() ) {
         if (_verbose) perror("Invalid file identifier");
-        setError(eVideoCacheErrorFileFormat);
+        setError(rcVideoCacheError::FileFormat);
         return;
     } else if ((id.rev() > movieFormatRevLatest)) {
         if (_verbose) perror("Unsupported file revision");
-        setError(eVideoCacheErrorFileRevUnsupported);
+        setError(rcVideoCacheError::FileRevUnsupported);
         return;
     }
     
     _rev = id.rev();
-    rcVideoCacheError error = eVideoCacheErrorOK;
+    rcVideoCacheError error = rcVideoCacheError::OK;
     
     // Load headers
     switch ( _rev ) {
@@ -274,11 +274,11 @@ _progressIndicator(pIndicator)
             error = headerLoadRev2( getTOC );
             break;
         case movieFormatInvalid:
-            error = eVideoCacheErrorFileFormat;
+            error = rcVideoCacheError::FileFormat;
             break;
     }
     
-    if ( error != eVideoCacheErrorOK )
+    if ( error != rcVideoCacheError::OK )
         return;
     
     /* First, calculate the cache overflow number based on both the
@@ -291,7 +291,7 @@ _progressIndicator(pIndicator)
             _cacheSize = maxMemory / _bytesInFrame;
             
             if (_cacheSize == 0) {
-                setError(eVideoCacheErrorSystemResources);
+                setError(rcVideoCacheError::SystemResources);
                 return;
             }
         }
@@ -326,7 +326,7 @@ _progressIndicator(pIndicator)
 
 rcVideoCache::rcVideoCache(const vector<rcTimestamp>& frameTimes)
 : _lastTouchIndex(0), _verbose(false),
-_isValid(true), _fatalError(eVideoCacheErrorOK), _fileName(""),
+_isValid(true), _fatalError(rcVideoCacheError::OK), _fileName(""),
 _movieFile(NULL), _rev(movieFormatInvalid), _tocExtHdrOffset(-1), _pendingCtrl(_cacheMutex),
 _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0)
 {
@@ -413,14 +413,14 @@ rcVideoCacheStatus rcVideoCache::getFrame(uint32 frameIndex,
     const uint32 dToken = GET_TOKEN();
     ADD_VID_TRACE(fnGetFrameI, true, frameIndex, frameBuf.mFrameBuf, dToken);
     if (!isValid()) {
-        if (error) *error = eVideoCacheErrorCacheInvalid;
+        if (error) *error = rcVideoCacheError::CacheInvalid;
         ADD_VID_TRACE(fnGetFrameI, false, frameIndex, frameBuf.mFrameBuf, dToken);
         return eVideoCacheStatusError;
     }
     
     if (frameIndex >= _frameCount) {
-        setError(eVideoCacheErrorNoSuchFrame);
-        if (error) *error = eVideoCacheErrorNoSuchFrame;
+        setError(rcVideoCacheError::NoSuchFrame);
+        if (error) *error = rcVideoCacheError::NoSuchFrame;
         ADD_VID_TRACE(fnGetFrameI, false, frameIndex, frameBuf.mFrameBuf, dToken);
         return eVideoCacheStatusError;
     }
@@ -450,13 +450,13 @@ rcVideoCacheStatus rcVideoCache::getFrame(const rcTimestamp& time,
     ADD_VID_TRACE(fnGetFrameT, true, 0xFFFFFFFF, frameBuf.mFrameBuf, dToken);
     
     if (!isValid()) {
-        if (error) *error = eVideoCacheErrorCacheInvalid;
+        if (error) *error = rcVideoCacheError::CacheInvalid;
         ADD_VID_TRACE(fnGetFrameT, false, 0xFFFFFFFF, frameBuf.mFrameBuf, dToken);
         return eVideoCacheStatusError;
     }
     
     rcVideoCacheError status = tocLoad();
-    if (status != eVideoCacheErrorOK) {
+    if (status != rcVideoCacheError::OK) {
         if (error) *error = status;
         ADD_VID_TRACE(fnGetFrameT, false, 0xFFFFFFFF, frameBuf.mFrameBuf, dToken);
         return eVideoCacheStatusError;
@@ -468,8 +468,8 @@ rcVideoCacheStatus rcVideoCache::getFrame(const rcTimestamp& time,
     frameIndexPtr = _tocTtoI.find(time);
     
     if (frameIndexPtr == _tocTtoI.end()) {
-        setError(eVideoCacheErrorNoSuchFrame);
-        if (error) *error = eVideoCacheErrorNoSuchFrame;
+        setError(rcVideoCacheError::NoSuchFrame);
+        if (error) *error = rcVideoCacheError::NoSuchFrame;
         ADD_VID_TRACE(fnGetFrameT, false, 0xFFFFFFFF, frameBuf.mFrameBuf, dToken);
         return eVideoCacheStatusError;
     }
@@ -490,31 +490,31 @@ rcVideoCacheStatus rcVideoCache::getFrame(const rcTimestamp& time,
 std::string rcVideoCache::getErrorString(rcVideoCacheError error)
 {
     switch (error) {
-        case eVideoCacheErrorOK:
+        case rcVideoCacheError::OK:
             return std::string("Video cache: OK");
-        case eVideoCacheErrorFileInit:
+        case rcVideoCacheError::FileInit:
             return std::string("Video cache: video file initialization error");
-        case eVideoCacheErrorFileSeek:
+        case rcVideoCacheError::FileSeek:
             return std::string("Video cache: video file seek error");
-        case eVideoCacheErrorFileRead:
+        case rcVideoCacheError::FileRead:
             return std::string("Video cache: video file read error");
-        case eVideoCacheErrorFileClose:
+        case rcVideoCacheError::FileClose:
             return std::string("Video cache: video file close error");
-        case eVideoCacheErrorFileFormat:
+        case rcVideoCacheError::FileFormat:
             return std::string("Video cache: video file invalid/corrupted error");
-        case eVideoCacheErrorFileUnsupported:
+        case rcVideoCacheError::FileUnsupported:
             return std::string("Video cache: video file format unsupported error");
-        case eVideoCacheErrorFileRevUnsupported:
+        case rcVideoCacheError::FileRevUnsupported:
             return std::string("Video cache: video file revision unsupported error");
-        case eVideoCacheErrorSystemResources:
+        case rcVideoCacheError::SystemResources:
             return std::string("Video cache: Inadequate system resources");
-        case eVideoCacheErrorNoSuchFrame:
+        case rcVideoCacheError::NoSuchFrame:
             return std::string("Video cache: no video frame at given timestamp/frame index");
-        case eVideoCacheErrorCacheInvalid:
+        case rcVideoCacheError::CacheInvalid:
             return std::string("Video cache: previous error put cache in invalid state");
-        case eVideoCacheErrorBomUnsupported:
+        case rcVideoCacheError::BomUnsupported:
             return std::string("Video cache: unsupported byte order error");
-        case eVideoCacheErrorDepthUnsupported:
+        case rcVideoCacheError::DepthUnsupported:
             return std::string("Video cache: unsupported image depth error");
             // Note: no default case to force a compiler warning if a new enum
             // value is defined without adding a corresponding string here.
@@ -537,12 +537,12 @@ rcVideoCache::closestTimestamp(const rcTimestamp& goalTime,
                                rcVideoCacheError* error)
 {
     if (!isValid()) {
-        if (error) *error = eVideoCacheErrorCacheInvalid;
+        if (error) *error = rcVideoCacheError::CacheInvalid;
         return eVideoCacheStatusError;
     }
     
     rcVideoCacheError status = tocLoad();
-    if (status != eVideoCacheErrorOK) {
+    if (status != rcVideoCacheError::OK) {
         if (error) *error = status;
         return eVideoCacheStatusError;
     }
@@ -586,12 +586,12 @@ rcVideoCache::nextTimestamp(const rcTimestamp& goalTime,
                             rcVideoCacheError* error)
 {
     if (!isValid()) {
-        if (error) *error = eVideoCacheErrorCacheInvalid;
+        if (error) *error = rcVideoCacheError::CacheInvalid;
         return eVideoCacheStatusError;
     }
     
     rcVideoCacheError status = tocLoad();
-    if (status != eVideoCacheErrorOK) {
+    if (status != rcVideoCacheError::OK) {
         if (error) *error = status;
         return eVideoCacheStatusError;
     }
@@ -606,7 +606,7 @@ rcVideoCache::nextTimestamp(const rcTimestamp& goalTime,
     if (it == _tocTtoI.end()) {
         /* Goal is >= last timestamp. Return error.
          */
-        if (error) *error = eVideoCacheErrorNoSuchFrame;
+        if (error) *error = rcVideoCacheError::NoSuchFrame;
         return eVideoCacheStatusError;
     }
     
@@ -622,12 +622,12 @@ rcVideoCache::prevTimestamp(const rcTimestamp& goalTime,
                             rcVideoCacheError* error)
 {
     if (!isValid()) {
-        if (error) *error = eVideoCacheErrorCacheInvalid;
+        if (error) *error = rcVideoCacheError::CacheInvalid;
         return eVideoCacheStatusError;
     }
     
     rcVideoCacheError status = tocLoad();
-    if (status != eVideoCacheErrorOK) {
+    if (status != rcVideoCacheError::OK) {
         if (error) *error = status;
         return eVideoCacheStatusError;
     }
@@ -642,7 +642,7 @@ rcVideoCache::prevTimestamp(const rcTimestamp& goalTime,
     if (it == _tocTtoI.begin()) {
         /* Goal is <= first timestamp. Return error.
          */
-        if (error) *error = eVideoCacheErrorNoSuchFrame;
+        if (error) *error = rcVideoCacheError::NoSuchFrame;
         return eVideoCacheStatusError;
     }
     
@@ -658,12 +658,12 @@ rcVideoCache::firstTimestamp(rcTimestamp& match,
                              rcVideoCacheError* error)
 {
     if (!isValid()) {
-        if (error) *error = eVideoCacheErrorCacheInvalid;
+        if (error) *error = rcVideoCacheError::CacheInvalid;
         return eVideoCacheStatusError;
     }
     
     rcVideoCacheError status = tocLoad();
-    if (status != eVideoCacheErrorOK) {
+    if (status != rcVideoCacheError::OK) {
         if (error) *error = status;
         return eVideoCacheStatusError;
     }
@@ -681,12 +681,12 @@ rcVideoCache::lastTimestamp(rcTimestamp& match,
                             rcVideoCacheError* error)
 {
     if (!isValid()) {
-        if (error) *error = eVideoCacheErrorCacheInvalid;
+        if (error) *error = rcVideoCacheError::CacheInvalid;
         return eVideoCacheStatusError;
     }
     
     rcVideoCacheError status = tocLoad();
-    if (status != eVideoCacheErrorOK) {
+    if (status != rcVideoCacheError::OK) {
         if (error) *error = status;
         return eVideoCacheStatusError;
     }
@@ -709,12 +709,12 @@ rcVideoCache::frameIndexToTimestamp(uint32 frameIndex,
                                     rcVideoCacheError* error)
 {
     if (!isValid()) {
-        if (error) *error = eVideoCacheErrorCacheInvalid;
+        if (error) *error = rcVideoCacheError::CacheInvalid;
         return eVideoCacheStatusError;
     }
     
     rcVideoCacheError status = tocLoad();
-    if (status != eVideoCacheErrorOK) {
+    if (status != rcVideoCacheError::OK) {
         if (error) *error = status;
         return eVideoCacheStatusError;
     }
@@ -722,7 +722,7 @@ rcVideoCache::frameIndexToTimestamp(uint32 frameIndex,
     if (frameIndex >= _tocItoT.size()) {
         /* No frame for given frame index. Return error.
          */
-        if (error) *error = eVideoCacheErrorNoSuchFrame;
+        if (error) *error = rcVideoCacheError::NoSuchFrame;
         return eVideoCacheStatusError;
     }
     
@@ -739,12 +739,12 @@ rcVideoCache::timestampToFrameIndex(const rcTimestamp& timestamp,
                                     rcVideoCacheError* error)
 {
     if (!isValid()) {
-        if (error) *error = eVideoCacheErrorCacheInvalid;
+        if (error) *error = rcVideoCacheError::CacheInvalid;
         return eVideoCacheStatusError;
     }
     
     rcVideoCacheError status = tocLoad();
-    if (status != eVideoCacheErrorOK) {
+    if (status != rcVideoCacheError::OK) {
         if (error) *error = status;
         return eVideoCacheStatusError;
     }
@@ -757,7 +757,7 @@ rcVideoCache::timestampToFrameIndex(const rcTimestamp& timestamp,
     if (it == _tocTtoI.end()) {
         /* No frame for given timestamp. Return error.
          */
-        if (error) *error = eVideoCacheErrorNoSuchFrame;
+        if (error) *error = rcVideoCacheError::NoSuchFrame;
         return eVideoCacheStatusError;
     }
     
@@ -815,25 +815,25 @@ void rcVideoCache::setError (rcVideoCacheError error)
         return;
     
     switch (error) {
-        case eVideoCacheErrorFileInit:
-        case eVideoCacheErrorFileSeek:
-        case eVideoCacheErrorFileRead:
-        case eVideoCacheErrorFileClose:
-        case eVideoCacheErrorFileFormat:
-        case eVideoCacheErrorFileUnsupported:
-        case eVideoCacheErrorFileRevUnsupported:
-        case eVideoCacheErrorSystemResources:
-        case eVideoCacheErrorBomUnsupported:
-        case eVideoCacheErrorDepthUnsupported:
+        case rcVideoCacheError::FileInit:
+        case rcVideoCacheError::FileSeek:
+        case rcVideoCacheError::FileRead:
+        case rcVideoCacheError::FileClose:
+        case rcVideoCacheError::FileFormat:
+        case rcVideoCacheError::FileUnsupported:
+        case rcVideoCacheError::FileRevUnsupported:
+        case rcVideoCacheError::SystemResources:
+        case rcVideoCacheError::BomUnsupported:
+        case rcVideoCacheError::DepthUnsupported:
             _fatalError = error;
             _isValid = false;
             break;
             
-        case eVideoCacheErrorNoSuchFrame:
-        case eVideoCacheErrorOK:
+        case rcVideoCacheError::NoSuchFrame:
+        case rcVideoCacheError::OK:
             break;
             
-        case eVideoCacheErrorCacheInvalid:
+        case rcVideoCacheError::CacheInvalid:
             rmAssert(0);
             break;
     }
@@ -903,8 +903,8 @@ rcVideoCache::internalGetFrame(uint32 frameIndex,
         off_t offset = frameDataOffset( frameIndex );
         if (fseeko(_movieFile, offset, SEEK_SET)) {
             if (_verbose) perror("fseek during cache fill failed");
-            setError(eVideoCacheErrorFileSeek);
-            if (error) *error = eVideoCacheErrorFileSeek;
+            setError(rcVideoCacheError::FileSeek);
+            if (error) *error = rcVideoCacheError::FileSeek;
             ADD_VID_TRACE(fnInternalGetFrame, false, frameIndex,
                           frameBufPtr.mFrameBuf, dToken);
             /* Restore cache ID and frame index which were cleared by
@@ -917,8 +917,8 @@ rcVideoCache::internalGetFrame(uint32 frameIndex,
         
         if (fread(&timeInfo, sizeof(int64), 1, _movieFile) != 1) {
             if (_verbose) perror("fread of timestamp during cache fill failed");
-            setError(eVideoCacheErrorFileRead);
-            if (error) *error = eVideoCacheErrorFileRead;
+            setError(rcVideoCacheError::FileRead);
+            if (error) *error = rcVideoCacheError::FileRead;
             ADD_VID_TRACE(fnInternalGetFrame, false, frameIndex,
                           frameBufPtr.mFrameBuf, dToken);
             /* Restore cache ID and frame index which were cleared by
@@ -934,8 +934,8 @@ rcVideoCache::internalGetFrame(uint32 frameIndex,
         if (fread((*cacheFrameBufPtr)->alignedRawData(), _bytesInFrame, 1,
                   _movieFile) != 1) {
             if (_verbose) perror("fread of frame data during cache fill failed");
-            setError(eVideoCacheErrorFileRead);
-            if (error) *error = eVideoCacheErrorFileRead;
+            setError(rcVideoCacheError::FileRead);
+            if (error) *error = rcVideoCacheError::FileRead;
             ADD_VID_TRACE(fnInternalGetFrame, false, frameIndex,
                           frameBufPtr.mFrameBuf, dToken);
             /* Restore cache ID and frame index which were cleared by
@@ -1227,7 +1227,7 @@ rcVideoCacheError rcVideoCache::headerLoadRev0()
      */
     if (fread(&movieHdr, sizeof(movieHdr), 1, _movieFile) != 1) {
         if (_verbose) perror("fread of header failed");
-        setError(eVideoCacheErrorFileRead);
+        setError(rcVideoCacheError::FileRead);
         return _fatalError;
     }
     movieHdr.fixEndian();
@@ -1239,7 +1239,7 @@ rcVideoCacheError rcVideoCache::headerLoadRev0()
                      movieHdr.rowUpdate() );
             perror(buf);
         }
-        setError(eVideoCacheErrorFileUnsupported);
+        setError(rcVideoCacheError::FileUnsupported);
         return _fatalError;
     }
     
@@ -1253,14 +1253,14 @@ rcVideoCacheError rcVideoCache::headerLoadRev0()
     if (_verbose)
         cerr << movieHdr << endl;
     
-    return eVideoCacheErrorOK;
+    return rcVideoCacheError::OK;
 }
 
 rcVideoCacheError rcVideoCache::headerLoadRev1( bool getTOC )
 {
     rcVideoCacheError error = headerLoadRev0();
     
-    if ( error == eVideoCacheErrorOK ) {
+    if ( error == rcVideoCacheError::OK ) {
         /* Find the location of supported extensions, ignoring all others.
          */
         off_t offset = frameDataOffset( _frameCount );
@@ -1269,13 +1269,13 @@ rcVideoCacheError rcVideoCache::headerLoadRev1( bool getTOC )
         do {
             if (fseeko(_movieFile, offset, SEEK_SET)) {
                 if (_verbose) perror("Seek to header extension failed");
-                setError(eVideoCacheErrorFileSeek);
+                setError(rcVideoCacheError::FileSeek);
                 return _fatalError;
             }
             
             if (fread(&ext, sizeof(ext), 1, _movieFile) != 1) {
                 if (_verbose) perror("Read of header extension failed");
-                setError(eVideoCacheErrorFileRead);
+                setError(rcVideoCacheError::FileRead);
                 return _fatalError;
             }
             ext.fixEndian(_byteOrder);
@@ -1297,7 +1297,7 @@ rcVideoCacheError rcVideoCache::headerLoadRev1( bool getTOC )
     
     if ( getTOC ) {
         error = tocLoad();
-        if ( error != eVideoCacheErrorOK)
+        if ( error != rcVideoCacheError::OK)
             return error;
     }
     
@@ -1306,21 +1306,21 @@ rcVideoCacheError rcVideoCache::headerLoadRev1( bool getTOC )
 
 rcVideoCacheError rcVideoCache::headerLoadRev2( bool getTOC )
 {
-    rcVideoCacheError error = eVideoCacheErrorOK;
+    rcVideoCacheError error = rcVideoCacheError::OK;
     rcMovieFileFormat2 movieHdr;
     
     /* Read movie header and check that we support this type of file.
      */
     if (fread(&movieHdr, sizeof(movieHdr), 1, _movieFile) != 1) {
         if (_verbose) perror("Read of header2 failed");
-        setError(eVideoCacheErrorFileRead);
+        setError(rcVideoCacheError::FileRead);
         return _fatalError;
     }
     
     // check the bom (note: before endian fix)
     if ( rfPlatformByteOrder( movieHdr.bom() ) == eByteOrderUnknown ) {
         if (_verbose) perror("Unsupported BOM");
-        setError(eVideoCacheErrorBomUnsupported);
+        setError(rcVideoCacheError::BomUnsupported);
         return _fatalError;
     }
     
@@ -1334,12 +1334,12 @@ rcVideoCacheError rcVideoCache::headerLoadRev2( bool getTOC )
                      movieHdr.depth()*8 );
             perror(buf);
         }
-        setError(eVideoCacheErrorDepthUnsupported);
+        setError(rcVideoCacheError::DepthUnsupported);
         return _fatalError;
     }
     if ( movieHdr.extensionOffset() == 0 ) {
         if (_verbose) perror("Invalid extension offset");
-        setError(eVideoCacheErrorFileFormat);
+        setError(rcVideoCacheError::FileFormat);
         return _fatalError;
     }
     
@@ -1361,13 +1361,13 @@ rcVideoCacheError rcVideoCache::headerLoadRev2( bool getTOC )
     do {
         if (fseeko(_movieFile, offset, SEEK_SET)) {
             if (_verbose) perror("Seek to header extension failed");
-            setError(eVideoCacheErrorFileSeek);
+            setError(rcVideoCacheError::FileSeek);
             return _fatalError;
         }
         
         if (fread(&ext, sizeof(ext), 1, _movieFile) != 1) {
             if (_verbose) perror("Read of header extension failed");
-            setError(eVideoCacheErrorFileRead);
+            setError(rcVideoCacheError::FileRead);
             return _fatalError;
         }
         ext.fixEndian(_byteOrder);
@@ -1404,30 +1404,30 @@ rcVideoCacheError rcVideoCache::headerLoadRev2( bool getTOC )
     
     if ( getTOC ) {
         error = tocLoad();
-        if ( error != eVideoCacheErrorOK)
+        if ( error != rcVideoCacheError::OK)
             return error;
     }
     if ( !_orgExtHdrOffsets.empty() ) {
         error =  orgLoad();
-        if ( error != eVideoCacheErrorOK )
+        if ( error != rcVideoCacheError::OK )
             return error;
     }
     
     if ( !_cnvExtHdrOffsets.empty() ) {
         error = cnvLoad() ;
-        if ( error != eVideoCacheErrorOK )
+        if ( error != rcVideoCacheError::OK )
             return error;
     }
     
     if ( !_camExtHdrOffsets.empty() ) {
         error = camLoad() ;
-        if ( error != eVideoCacheErrorOK )
+        if ( error != rcVideoCacheError::OK )
             return error;
     }
     
     if ( !_expExtHdrOffsets.empty() ) {
         error = expLoad() ;
-        if ( error != eVideoCacheErrorOK )
+        if ( error != rcVideoCacheError::OK )
             return error;
     }
     
@@ -1439,7 +1439,7 @@ rcVideoCacheError rcVideoCache::tocLoad()
     rcLock lock(_diskMutex);
     
     if (!_tocItoT.empty())
-        return eVideoCacheErrorOK;
+        return rcVideoCacheError::OK;
     
     _tocItoT.resize(_frameCount);
     rmAssert(_tocTtoI.empty());
@@ -1455,8 +1455,8 @@ rcVideoCacheError rcVideoCache::tocLoadFromFrames()
 {
     if (fseek(_movieFile, sizeof(rcMovieFileFormat), SEEK_SET)) {
         if (_verbose) perror("fseek during toc build failed");
-        setError(eVideoCacheErrorFileSeek);
-        return eVideoCacheErrorFileSeek;
+        setError(rcVideoCacheError::FileSeek);
+        return rcVideoCacheError::FileSeek;
     }
     
     for (uint32 frameIndex = 0; frameIndex < _frameCount; frameIndex++) {
@@ -1467,14 +1467,14 @@ rcVideoCacheError rcVideoCache::tocLoadFromFrames()
          */
         if (frameIndex && fseek(_movieFile, _bytesInFrame, SEEK_CUR)) {
             if (_verbose) perror("fseek during toc build failed");
-            setError(eVideoCacheErrorFileSeek);
-            return eVideoCacheErrorFileSeek;
+            setError(rcVideoCacheError::FileSeek);
+            return rcVideoCacheError::FileSeek;
         }
         
         if (fread(&timeInfo, sizeof(int64), 1, _movieFile) != 1) {
             if (_verbose) perror("fread during toc build failed");
-            setError(eVideoCacheErrorFileRead);
-            return eVideoCacheErrorFileRead;
+            setError(rcVideoCacheError::FileRead);
+            return rcVideoCacheError::FileRead;
         }
         fixEndian(timeInfo);
         
@@ -1486,7 +1486,7 @@ rcVideoCacheError rcVideoCache::tocLoadFromFrames()
             _progressIndicator->progress( 100.0 * frameIndex/_frameCount );
     }
     
-    return eVideoCacheErrorOK;
+    return rcVideoCacheError::OK;
 }
 
 rcVideoCacheError rcVideoCache::tocLoadFromTOC()
@@ -1495,15 +1495,15 @@ rcVideoCacheError rcVideoCache::tocLoadFromTOC()
     
     if (fseeko(_movieFile, _tocExtHdrOffset, SEEK_SET)) {
         if (_verbose) perror("fseeko during toc build failed");
-        setError(eVideoCacheErrorFileSeek);
-        return eVideoCacheErrorFileSeek;
+        setError(rcVideoCacheError::FileSeek);
+        return rcVideoCacheError::FileSeek;
     }
     
     rcMovieFileTocExt tocHdr;
     if (fread(&tocHdr, sizeof(tocHdr), 1, _movieFile) != 1) {
         if (_verbose) perror("fread during toc build failed");
-        setError(eVideoCacheErrorFileRead);
-        return eVideoCacheErrorFileRead;
+        setError(rcVideoCacheError::FileRead);
+        return rcVideoCacheError::FileRead;
     }
     tocHdr.fixEndian(_byteOrder);
     
@@ -1513,8 +1513,8 @@ rcVideoCacheError rcVideoCache::tocLoadFromTOC()
     if (tocHdr.count() != _frameCount) {
         if (_verbose) cerr << "toc header count " << tocHdr.count()
             << " != frame count " << _frameCount << endl;
-        setError(eVideoCacheErrorFileFormat);
-        return eVideoCacheErrorFileFormat;
+        setError(rcVideoCacheError::FileFormat);
+        return rcVideoCacheError::FileFormat;
     }
     
     for (uint32 frameIndex = 0; frameIndex < _frameCount; frameIndex++) {
@@ -1522,8 +1522,8 @@ rcVideoCacheError rcVideoCache::tocLoadFromTOC()
         
         if (fread(&timeInfo, sizeof(int64), 1, _movieFile) != 1) {
             if (_verbose) perror("fread during toc build failed");
-            setError(eVideoCacheErrorFileRead);
-            return eVideoCacheErrorFileRead;
+            setError(rcVideoCacheError::FileRead);
+            return rcVideoCacheError::FileRead;
         }
         fixEndian(timeInfo);
         rcTimestamp timestamp = rcTimestamp::from_tick_type(timeInfo);        
@@ -1532,7 +1532,7 @@ rcVideoCacheError rcVideoCache::tocLoadFromTOC()
         _tocTtoI[timestamp] = frameIndex;
     }
     
-    return eVideoCacheErrorOK;
+    return rcVideoCacheError::OK;
 }
 
 // Load origin extension
@@ -1543,15 +1543,15 @@ rcVideoCacheError rcVideoCache::orgLoad()
         
         if (fseeko(_movieFile, _orgExtHdrOffsets[i], SEEK_SET)) {
             if (_verbose) perror("fseeko during org build failed");
-            setError(eVideoCacheErrorFileSeek);
-            return eVideoCacheErrorFileSeek;
+            setError(rcVideoCacheError::FileSeek);
+            return rcVideoCacheError::FileSeek;
         }
         
         rcMovieFileOrgExt orgHdr;
         if (fread(&orgHdr, sizeof(orgHdr), 1, _movieFile) != 1) {
             if (_verbose) perror("fread during org build failed");
-            setError(eVideoCacheErrorFileRead);
-            return eVideoCacheErrorFileRead;
+            setError(rcVideoCacheError::FileRead);
+            return rcVideoCacheError::FileRead;
         }
         orgHdr.fixEndian(_byteOrder);
         
@@ -1562,7 +1562,7 @@ rcVideoCacheError rcVideoCache::orgLoad()
             cerr << orgHdr << endl;
     }
     
-    return eVideoCacheErrorOK;
+    return rcVideoCacheError::OK;
 }
 
 // Load conversion extensions
@@ -1573,15 +1573,15 @@ rcVideoCacheError rcVideoCache::cnvLoad()
         
         if (fseeko(_movieFile, _cnvExtHdrOffsets[i] , SEEK_SET)) {
             if (_verbose) perror("fseeko during cnv build failed");
-            setError(eVideoCacheErrorFileSeek);
-            return eVideoCacheErrorFileSeek;
+            setError(rcVideoCacheError::FileSeek);
+            return rcVideoCacheError::FileSeek;
         }
         
         rcMovieFileConvExt cnvHdr;
         if (fread(&cnvHdr, sizeof(cnvHdr), 1, _movieFile) != 1) {
             if (_verbose) perror("fread during cnv build failed");
-            setError(eVideoCacheErrorFileRead);
-            return eVideoCacheErrorFileRead;
+            setError(rcVideoCacheError::FileRead);
+            return rcVideoCacheError::FileRead;
         }
         cnvHdr.fixEndian(_byteOrder);
         rmAssert(cnvHdr.type() == movieExtensionCNV);
@@ -1591,7 +1591,7 @@ rcVideoCacheError rcVideoCache::cnvLoad()
             cerr << cnvHdr << endl;
     }
     
-    return eVideoCacheErrorOK;
+    return rcVideoCacheError::OK;
 }
 
 // Load camera extensions
@@ -1602,15 +1602,15 @@ rcVideoCacheError rcVideoCache::camLoad()
         
         if (fseeko(_movieFile, _camExtHdrOffsets[i] , SEEK_SET)) {
             if (_verbose) perror("fseeko during cam build failed");
-            setError(eVideoCacheErrorFileSeek);
-            return eVideoCacheErrorFileSeek;
+            setError(rcVideoCacheError::FileSeek);
+            return rcVideoCacheError::FileSeek;
         }
         
         rcMovieFileCamExt camHdr;
         if (fread(&camHdr, sizeof(camHdr), 1, _movieFile) != 1) {
             if (_verbose) perror("fread during cam build failed");
-            setError(eVideoCacheErrorFileRead);
-            return eVideoCacheErrorFileRead;
+            setError(rcVideoCacheError::FileRead);
+            return rcVideoCacheError::FileRead;
         }
         camHdr.fixEndian(_byteOrder);
         rmAssert(camHdr.type() == movieExtensionCAM);
@@ -1620,7 +1620,7 @@ rcVideoCacheError rcVideoCache::camLoad()
             cerr << camHdr << endl;
     }
     
-    return eVideoCacheErrorOK;
+    return rcVideoCacheError::OK;
 }
 
 // Load experiment extensions
@@ -1631,15 +1631,15 @@ rcVideoCacheError rcVideoCache::expLoad()
         
         if (fseeko(_movieFile, _expExtHdrOffsets[i] , SEEK_SET)) {
             if (_verbose) perror("fseeko during exp build failed");
-            setError(eVideoCacheErrorFileSeek);
-            return eVideoCacheErrorFileSeek;
+            setError(rcVideoCacheError::FileSeek);
+            return rcVideoCacheError::FileSeek;
         }
         
         rcMovieFileExpExt expHdr;
         if (fread(&expHdr, sizeof(expHdr), 1, _movieFile) != 1) {
             if (_verbose) perror("fread during exp build failed");
-            setError(eVideoCacheErrorFileRead);
-            return eVideoCacheErrorFileRead;
+            setError(rcVideoCacheError::FileRead);
+            return rcVideoCacheError::FileRead;
         }
         expHdr.fixEndian(_byteOrder);
         rmAssert(expHdr.type() == movieExtensionEXP);
@@ -1649,7 +1649,7 @@ rcVideoCacheError rcVideoCache::expLoad()
             cerr << expHdr << endl;
     }
     
-    return eVideoCacheErrorOK;
+    return rcVideoCacheError::OK;
 }
 
 void rcVideoCache::unlockFrame(uint32 frameIndex)
@@ -1800,7 +1800,7 @@ rcVideoCacheStatus rcVideoCache::cacheLock(uint32 cacheID, uint32 frameIndex,
     }
     
     if (error)
-        *error = eVideoCacheErrorCacheInvalid;
+        *error = rcVideoCacheError::CacheInvalid;
     
     return eVideoCacheStatusError;
 }
@@ -1865,7 +1865,7 @@ void rcVideoCache::rcVideoCachePrefetchUnit::run()
                                                             &error);
             /* Stop processing if something bad happens */
             if ((status == eVideoCacheStatusError) &&
-                (error != eVideoCacheErrorNoSuchFrame)) {
+                (error != rcVideoCacheError::NoSuchFrame)) {
                 cerr << "Prefetch error: " << _cacheCtrl.getErrorString(error) << endl;
                 active = false;
             }

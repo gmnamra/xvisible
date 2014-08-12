@@ -66,7 +66,7 @@ void cached_frame_ref::const_free_lock()
     if ( !mFrameBuf && mCacheCtrl )
     {
         eQtimeCacheStatus status;
-        eQtimeCacheError error;
+        QtimeCacheError error;
         status = QtimeCache::cacheLock(mCacheCtrl, mFrameIndex, *this, &error);
     }
     

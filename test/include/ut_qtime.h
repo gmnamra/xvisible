@@ -8,7 +8,7 @@
 #include "rc_atomic.h"
 
 typedef struct qutExpMapResult {
-  eQtimeCacheError  expError;
+  QtimeCacheError  expError;
   eQtimeCacheStatus expStatus;
   double             expTime;
 } qutExpMapResult;

@@ -16,7 +16,7 @@
 //
 // Class to grab frames from a movie file
 //
-
+#if 0
 class rcReifyMovieGrabber : public rcFileGrabber {
  public:
   // ctor
@@ -56,6 +56,61 @@ class rcReifyMovieGrabber : public rcFileGrabber {
   bool                _started;
   rcVideoCache&       _cache;
 };
+
+#endif
+
+
+template<typename VC, typename VCE>
+class rcReifyMovieGrabberT : public rcFileGrabber
+{
+public:
+    
+    typedef typename VC::frame_ref_t frame_ref_t;
+    
+    // ctor
+    rcReifyMovieGrabberT(VC& cache);
+
+    // virtual dtor
+    virtual ~rcReifyMovieGrabberT();
+    
+    //
+    // rcFrameGrabber API
+    //
+    
+    // Start grabbing
+    virtual bool start();
+   
+    
+    // Stop grabbing
+    virtual bool stop();
+    
+    // Returns the number of frames available
+    virtual int32 frameCount() { return _cache.frameCount(); }
+    
+    // Returns the size of the cache, in frames.
+    virtual int32 cacheSize() { return _cache.cacheSize(); }
+    
+    // Get next frame, assign the frame to ptr
+    virtual rcFrameGrabberStatus getNextFrame(frame_ref_t& ptr,
+                                              bool isBlocking);
+    
+    // Get name of input source, ie. file name, camera name etc.
+    const std::string getInputSourceName()
+    { return _cache.getInputSourceName(); }
+    
+private:
+    static rcFrameGrabberError errorNoTranslate(VCE error);
+    
+    int32             _framesLeft;
+    int32             _curFrame;
+    bool                _started;
+    VC&       _cache;
+};
+
+
+
+typedef rcReifyMovieGrabberT<rcVideoCache,rcVideoCacheError> rcReifyMovieGrabber ;
+
 
 #endif // _rcREIFYMOVIEGRABBER_H_
 

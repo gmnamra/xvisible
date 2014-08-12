@@ -19,7 +19,7 @@
 class rcFrameRef;
 
 // Error type
-enum rcFrameGrabberError {
+enum class rcFrameGrabberError : int32 {
     eFrameErrorOK = 0,            // No error
     eFrameErrorUnknown,           // Unknown error
     eFrameErrorInternal,          // Internal logic error
@@ -130,7 +130,7 @@ class rcVectorGrabber : public rcFrameGrabber {
   rcVectorGrabber( const vector<rcWindow>& images, int32 cacheSz = 0 ) :
         mImages( images ),
         mCurrentIndex( 0 ),
-	mLastError( eFrameErrorOK ),
+	mLastError( rcFrameGrabberError::eFrameErrorOK ),
 	mCacheSz(cacheSz) {
     };
     // virtual dtor

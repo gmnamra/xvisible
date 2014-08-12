@@ -19,10 +19,12 @@
 #include <boost/thread/lock_guard.hpp>
 #include <boost/ref.hpp>
 #include "vf_utils.hpp"
+#include "qtime_cache.h"
 
 using namespace boost;
 
 
+typedef rcReifyMovieGrabberT<QtimeCache,QtimeCacheError> QtimeMovieGrabber ;
 
 
 SINGLETON_FCN(vf_utils::gen_filename::random_name,get_name_generator);
@@ -50,7 +52,7 @@ public:
         _movieFile = movie_fqfn;
         rcFrameGrabberError fr;
         _frameCount = loadMovie (movie_fqfn, fr);
-        _has_content.store (fr == eFrameErrorOK);
+        _has_content.store (fr == rcFrameGrabberError::eFrameErrorOK);
         if (m_auto_run) generate_ssm (0,0);
         return has_content ();
     }
@@ -106,6 +108,7 @@ private:
     rcPixel                      m_depth;
     std::string                  m_name;
     rcFrameGrabberError          m_last_error;
+    SharedQtimeCache             m_qtime_cache_ref;
 };
 
 

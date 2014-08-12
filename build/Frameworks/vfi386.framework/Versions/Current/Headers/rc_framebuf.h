@@ -391,7 +391,7 @@ public:
     uint32      mCacheCtrl;
     uint32      mFrameIndex;
     mutable rcFrame*    mFrameBuf;
-    mutable boost::mutex mMutex;
+    mutable std::mutex mMutex;
     
 protected:
     virtual void internalLock();

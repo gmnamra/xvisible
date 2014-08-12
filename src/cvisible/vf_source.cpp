@@ -31,6 +31,123 @@ using namespace vf_utils::gen_filename;
 static boost::mutex         s_mutex;
 
 
+#include "rc_types.h"
+#include "rc_reifymoviegrabber.h"
+
+
+template<> rcFrameGrabberError
+rcReifyMovieGrabberT<QtimeCache,QtimeCacheError>::errorNoTranslate(QtimeCacheError error)
+{
+    switch (error) {
+        case QtimeCacheError::FileInit:
+            return rcFrameGrabberError::eFrameErrorFileInit;
+        case QtimeCacheError::FileSeek:
+        case QtimeCacheError::FileRead:
+            return rcFrameGrabberError::eFrameErrorFileRead;
+        case QtimeCacheError::FileClose:
+            return rcFrameGrabberError::eFrameErrorFileClose;
+        case QtimeCacheError::FileFormat:
+            return rcFrameGrabberError::eFrameErrorFileFormat;
+        case QtimeCacheError::FileUnsupported:
+            return rcFrameGrabberError::eFrameErrorFileUnsupported;
+        case QtimeCacheError::FileRevUnsupported:
+            return rcFrameGrabberError::eFrameErrorFileRevUnsupported;
+        case QtimeCacheError::SystemResources:
+            return rcFrameGrabberError::eFrameErrorSystemResources;
+        case QtimeCacheError::NoSuchFrame:
+        case QtimeCacheError::CacheInvalid:
+            return rcFrameGrabberError::eFrameErrorInternal;
+        case QtimeCacheError::OK:
+            return rcFrameGrabberError::eFrameErrorOK;
+        case QtimeCacheError::BomUnsupported:
+            return rcFrameGrabberError::eFrameErrorFileUnsupported;
+        case QtimeCacheError::DepthUnsupported:
+            return rcFrameGrabberError::eFrameErrorUnsupportedDepth;
+    }
+    
+    return rcFrameGrabberError::eFrameErrorUnknown;
+}
+
+
+template<>
+rcReifyMovieGrabberT<QtimeCache,QtimeCacheError>::rcReifyMovieGrabberT(QtimeCache& cache)
+: rcFileGrabber(0), _framesLeft(0), _curFrame(0), _started(false),
+_cache(cache)
+{
+    if (!_cache.isValid())
+        setLastError(errorNoTranslate(_cache.getFatalError()));
+}
+
+template <>
+rcReifyMovieGrabberT<QtimeCache,QtimeCacheError>::~rcReifyMovieGrabberT()
+{
+}
+
+
+template<>
+bool rcReifyMovieGrabberT<QtimeCache,QtimeCacheError>::start()
+{
+    if (!isValid())
+        return false;
+    
+    if (_started == false) {
+        _framesLeft = _cache.frameCount();
+        _curFrame = 0;
+        _started = true;
+    }
+    
+    return true;
+}
+
+template<>
+bool rcReifyMovieGrabberT<QtimeCache,QtimeCacheError>::stop()
+{
+    if (!isValid())
+        return false;
+    
+    _started = false;
+    
+    return true;
+}
+
+
+template<>
+rcFrameGrabberStatus rcReifyMovieGrabberT<QtimeCache,QtimeCacheError>::getNextFrame(QtimeCache::frame_ref_t& ptr,
+                                                                                        bool isBlocking)
+{
+    if (!isValid())
+        return eFrameStatusError;
+    
+    if (!isBlocking) {
+        setLastError(rcFrameGrabberError::eFrameErrorNotImplemented);
+        return eFrameStatusError;
+    }
+    
+    if (!_started && !start())
+        return eFrameStatusError;
+    
+    if (_framesLeft == 0)
+        return eFrameStatusEOF;
+    
+    _framesLeft--;
+    
+    /*
+     * Get reference to frame, but don't lock it so it won't be forced
+     * into memory before it is needed.
+     */
+    QtimeCacheError error;
+    eQtimeCacheStatus status = _cache.getFrame(_curFrame++, ptr, &error, false);
+    
+    if (status != eQtimeCacheStatus::OK){
+        setLastError(errorNoTranslate(error));
+        return eFrameStatusError;
+    }
+    
+    return eFrameStatusOK;
+}
+
+
+
 sm_producer::sm_producer ()
 {
     
@@ -122,14 +239,15 @@ int sm_producer::spImpl::loadMovie( const std::string& movieFile, rcFrameGrabber
 		}
 		else if ( rf_ext_is_mov(movieFile) )
 		{
-            m_grabber_ref =  boost::shared_ptr<rcFrameGrabber> ((reinterpret_cast<rcFrameGrabber*>(new vf_utils::qtime_support::CinderQtimeGrabber( movieFile ) ) ) );
-             ((vf_utils::qtime_support::CinderQtimeGrabber*)m_grabber_ref.get())->print_to_ (std::cout);
+            _shared_qtime_cache_create_simple(tmp, movieFile,0);
+            m_qtime_cache_ref = tmp;
+
 		}
         
 		_frameCount = loadFrames();
         error = m_last_error;
         
-		if ( error != eFrameErrorOK ) {
+		if ( error != rcFrameGrabberError::eFrameErrorOK ) {
 			if (_videoCacheP) {
 				rcVideoCache::rcVideoCacheDtor(_videoCacheP);
 				_videoCacheP = 0;

@@ -28,7 +28,7 @@ using namespace std;
 #include <atomic>
 #include "vf_utils.hpp"
 
-enum  class eQtimeCacheError : int32 {
+enum  class QtimeCacheError : int32 {
     UnInitialized = -1,
     OK = 0,            // No error
     FileInit=1,          // File (system) init error
@@ -163,14 +163,14 @@ public:
      */
     eQtimeCacheStatus getFrame(uint32 frameIndex,
                                frame_ref_t& frameBuf,
-                               eQtimeCacheError* error = 0,
+                               QtimeCacheError* error = 0,
                                bool locked = true);
     
     /* Returns the frame at timestamp time. must be exact match.
      */
     eQtimeCacheStatus getFrame(const rcTimestamp& time,
                                frame_ref_t& frameBuf,
-                               eQtimeCacheError* error = 0,
+                               QtimeCacheError* error = 0,
                                bool locked = true);
     
     /* A set of accessor fcts to allow client to manipulate and convert
@@ -179,43 +179,43 @@ public:
     // Returns the timestamp in the movie closest to the goal time.
     eQtimeCacheStatus closestTimestamp(const rcTimestamp& goalTime,
                                        rcTimestamp& match,
-                                       eQtimeCacheError* error = 0);
+                                       QtimeCacheError* error = 0);
     // Returns first timestamp > goalTime. If no such timestamp can be
     // found, the return value is  eQtimeCacheStatus::Error, and
-    //  eQtimeCacheError::NoSuchFrame is returned in error.
+    //  QtimeCacheError::NoSuchFrame is returned in error.
     eQtimeCacheStatus nextTimestamp(const rcTimestamp& goalTime,
                                     rcTimestamp& match,
-                                    eQtimeCacheError* error = 0);
+                                    QtimeCacheError* error = 0);
     // Returns closest timestamp < goalTime. If no such timestamp can be
     // found, the return value is  eQtimeCacheStatus::Error, and
-    //  eQtimeCacheError::NoSuchFrame is returned in error.
+    //  QtimeCacheError::NoSuchFrame is returned in error.
     eQtimeCacheStatus prevTimestamp(const rcTimestamp& goalTime,
                                     rcTimestamp& match,
-                                    eQtimeCacheError* error = 0);
+                                    QtimeCacheError* error = 0);
     // Returns the timestamp of the first frame in the movie.
     eQtimeCacheStatus firstTimestamp(rcTimestamp& match,
-                                     eQtimeCacheError* error = 0);
+                                     QtimeCacheError* error = 0);
     // Returns the timestamp of the last frame in the movie.
     eQtimeCacheStatus lastTimestamp(rcTimestamp& match,
-                                    eQtimeCacheError* error = 0);
+                                    QtimeCacheError* error = 0);
     // Returns the timestamp for the frame at frameIndex. If no such
     // frameIndex can be found, the return value is
-    //  eQtimeCacheStatus::Error, and  eQtimeCacheError::NoSuchFrame is
+    //  eQtimeCacheStatus::Error, and  QtimeCacheError::NoSuchFrame is
     // returned in error.
     eQtimeCacheStatus frameIndexToTimestamp(uint32 frameIndex,
                                             rcTimestamp& match,
-                                            eQtimeCacheError* error = 0);
+                                            QtimeCacheError* error = 0);
     // Returns the frame index for the frame at time timestamp (must be
     // exact match). If no such timestamp can be found, the return value
-    // is  eQtimeCacheStatus::Error, and  eQtimeCacheError::NoSuchFrame is
+    // is  eQtimeCacheStatus::Error, and  QtimeCacheError::NoSuchFrame is
     // returned in error.
     eQtimeCacheStatus timestampToFrameIndex(const rcTimestamp& timestamp,
                                             uint32& match,
-                                            eQtimeCacheError* error = 0);
+                                            QtimeCacheError* error = 0);
     
     /* Get error that caused video cache to become invalid.
      */
-    eQtimeCacheError getFatalError() const;
+    QtimeCacheError getFatalError() const;
     
     /* Returns instance validity.
      */
@@ -244,7 +244,7 @@ public:
     
     /* Static method for mapping an error value to a string.
      */
-    static std::string getErrorString( eQtimeCacheError error);
+    static std::string getErrorString( QtimeCacheError error);
     
     /* General cache management related static functions. These are
      * helper fcts intended to be used only by frame_ref_t
@@ -260,7 +260,7 @@ public:
     static eQtimeCacheStatus cacheLock(uint32 cacheIndex,
                                        uint32 frameIndex,
                                        frame_ref_t& frameBuf,
-                                       eQtimeCacheError* error = 0);
+                                       QtimeCacheError* error = 0);
     
     
     
@@ -379,11 +379,11 @@ private:
     static   QtimeCache*   QtimeCacheUTCtor(const vector<rcTimestamp>& frameTimes);
     QtimeCache(const vector<rcTimestamp>& frameTimes);
     
-    void setError( eQtimeCacheError error);
+    void setError( QtimeCacheError error);
     
     eQtimeCacheStatus internalGetFrame(uint32 frameIndex,
                                        frame_ref_t& frameBuf,
-                                       eQtimeCacheError* error,
+                                       QtimeCacheError* error,
                                        const uint32 dToken);
     
     eQtimeCacheStatus cacheAlloc(uint32 frameIndex,
@@ -398,7 +398,7 @@ private:
     // Header reading methods
     //        void createDefaultOriginHeader( movieFormatRev rev );
     
-    eQtimeCacheError tocLoad();
+    QtimeCacheError tocLoad();
     
     
     void setCacheID(uint32 cacheID) { _cacheID = cacheID; }
@@ -450,7 +450,7 @@ private:
     bool                                 _verbose;
     bool                                 _prefetch;
     bool                                 _isValid;
-    eQtimeCacheError                    _fatalError;
+    QtimeCacheError                    _fatalError;
     const std::string                       _fileName;
     vf_utils::general_movie::info      m_ginfo;
     uint32                             _bytesInFrame;

@@ -66,7 +66,7 @@ void utQtimeCacheThread::run()
         if (preAllocSleep)
             usleep(preAllocSleep); // Time without a buffer lock attempt
         QtimeCache::frame_ref_t bp;
-        eQtimeCacheError error = eQtimeCacheError::UnInitialized;
+        QtimeCacheError error = QtimeCacheError::UnInitialized;
         eQtimeCacheStatus status = eQtimeCacheStatus::Error;
     
         
@@ -207,7 +207,7 @@ void UT_QtimeCache::ctorTest()
     
     rcUNITTEST_ASSERT(cacheP != 0);
     rcUNITTEST_ASSERT(cacheP->isValid());
-    rcUNITTEST_ASSERT(cacheP->getFatalError() == eQtimeCacheError::OK);
+    rcUNITTEST_ASSERT(cacheP->getFatalError() == QtimeCacheError::OK);
     rcUNITTEST_ASSERT(cacheP->frameCount() == frameCount);
     
     QtimeCache::QtimeCacheDtor(cacheP);
@@ -216,7 +216,7 @@ void UT_QtimeCache::ctorTest()
     
     rcUNITTEST_ASSERT(cacheP != 0);
     rcUNITTEST_ASSERT(cacheP->isValid());
-    rcUNITTEST_ASSERT(cacheP->getFatalError() == eQtimeCacheError::OK);
+    rcUNITTEST_ASSERT(cacheP->getFatalError() == QtimeCacheError::OK);
     rcUNITTEST_ASSERT(cacheP->frameCount() == frameCount);
     
     QtimeCache::QtimeCacheDtor(cacheP);
@@ -225,7 +225,7 @@ void UT_QtimeCache::ctorTest()
     
     rcUNITTEST_ASSERT(cacheP != 0);
     rcUNITTEST_ASSERT(cacheP->isValid());
-    rcUNITTEST_ASSERT(cacheP->getFatalError() == eQtimeCacheError::OK);
+    rcUNITTEST_ASSERT(cacheP->getFatalError() == QtimeCacheError::OK);
     rcUNITTEST_ASSERT(cacheP->frameCount() == frameCount);
     
     std::string nullFile;
@@ -234,14 +234,14 @@ void UT_QtimeCache::ctorTest()
     
     rcUNITTEST_ASSERT(nullCacheP != 0);
     rcUNITTEST_ASSERT(nullCacheP->isValid() == false);
-    rcUNITTEST_ASSERT(nullCacheP->getFatalError()== eQtimeCacheError::FileInit);
+    rcUNITTEST_ASSERT(nullCacheP->getFatalError()== QtimeCacheError::FileInit);
     
     std::string badFile("xyzzy.dat");
     
     QtimeCache* badCacheP = QtimeCache::QtimeCacheCtor(badFile, 10, false, false);
     
     rcUNITTEST_ASSERT(badCacheP->isValid() == false);
-    rcUNITTEST_ASSERT(badCacheP->getFatalError() == eQtimeCacheError::FileInit);
+    rcUNITTEST_ASSERT(badCacheP->getFatalError() == QtimeCacheError::FileInit);
     
     QtimeCache::QtimeCacheDtor(cacheP);
     QtimeCache::QtimeCacheDtor(nullCacheP);
@@ -321,7 +321,7 @@ void UT_QtimeCache::ctorTest()
             if (expResults[memIndex][fcIndex] == 0) {
                 rcUNITTEST_ASSERT(tcP->isValid() == false);
                 rcUNITTEST_ASSERT(tcP->getFatalError() ==
-                                  eQtimeCacheError::SystemResources);
+                                  QtimeCacheError::SystemResources);
             }
             else {
                 rcUNITTEST_ASSERT(tcP->isValid() == true);
@@ -409,7 +409,7 @@ void UT_QtimeCache::mappingTest()
     rmAssert(frameCount == cacheP->frameCount());
     
     rcTimestamp actual;
-    eQtimeCacheError error;
+    QtimeCacheError error;
     eQtimeCacheStatus status;
     
     /* Test for functions frameIndexToTimestamp() and
@@ -523,17 +523,17 @@ void UT_QtimeCache::mappingTest()
     {
         
         for (uint32 i = 0; i < totalCases; i++) {
-            error = eQtimeCacheError::FileInit;
+            error = QtimeCacheError::FileInit;
             status = cacheP->prevTimestamp(rcTimestamp::from_seconds (times[i]), actual, &error);
             if (i == 0 || i == 56)
             {
                 rcUNITTEST_ASSERT(status == eQtimeCacheStatus::Error);
-                rcUNITTEST_ASSERT(error == eQtimeCacheError::NoSuchFrame);
+                rcUNITTEST_ASSERT(error == QtimeCacheError::NoSuchFrame);
             }
             else
             {
                 rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
-                rcUNITTEST_ASSERT(cacheP->getFatalError() == eQtimeCacheError::OK);
+                rcUNITTEST_ASSERT(cacheP->getFatalError() == QtimeCacheError::OK);
             }
         }
     }
@@ -545,12 +545,12 @@ void UT_QtimeCache::mappingTest()
         
         for (uint32 i = 0; i < totalCases; i++)
         {
-            error = eQtimeCacheError::FileInit;
+            error = QtimeCacheError::FileInit;
             status = cacheP->nextTimestamp(rcTimestamp::from_seconds (times[i]), actual, &error);
             std::cout << "[" << i << "]:" << times[i] << "<->" << times[i+1] << " + : " << actual.secs() << " e " << (int) error << " s " << (int) status << std::endl;
             
             //        if (status != eQtimeCacheStatus::OK)
-            //            rcUNITTEST_ASSERT(error == eQtimeCacheError::NoSuchFrame);
+            //            rcUNITTEST_ASSERT(error == QtimeCacheError::NoSuchFrame);
             //      else
             //      {
             //
@@ -576,7 +576,7 @@ void UT_QtimeCache::simpleAllocTest()
     rc256BinHist hist(256);
     
     for (uint32 i = 0; i < cacheP->frameCount(); i++) {
-        eQtimeCacheError error;
+        QtimeCacheError error;
         eQtimeCacheStatus status;
         QtimeCache::frame_ref_t buf;
         rmAssert(buf.refCount() == 0);
@@ -612,7 +612,7 @@ void UT_QtimeCache::simpleAllocTest()
     }
     
     for (uint32 i = 0; i < cacheP->frameCount(); i++) {
-        eQtimeCacheError error;
+        QtimeCacheError error;
         eQtimeCacheStatus status;
         QtimeCache::frame_ref_t buf;
         rmAssert(buf.refCount() == 0);
@@ -677,7 +677,7 @@ void UT_QtimeCache::prefetchTest()
     QtimeCache::QtimeCacheCtor(fileName, 0, true, true);
     
     QtimeCache::frame_ref_t frameBuf[frameCount];
-    eQtimeCacheError error;
+    QtimeCacheError error;
     eQtimeCacheStatus status;
     
     rcUNITTEST_ASSERT(cacheP->frameCount() == frameCount);
@@ -763,7 +763,7 @@ void UT_QtimeCache::cacheFullTest()
     QtimeCache::QtimeCacheCtor(fileName, cacheSize, true, false);
     rc256BinHist hist(256);
     QtimeCache::frame_ref_t bp[totalCases];
-    eQtimeCacheError error;
+    QtimeCacheError error;
     eQtimeCacheStatus status;
     
     /* Fill up cache with locked entries.
@@ -856,7 +856,7 @@ void UT_QtimeCache::frameBufTest()
     QtimeCache* cacheP =
     QtimeCache::QtimeCacheCtor(fileName, cacheSize, true, false);
     QtimeCache::frame_ref_t cachedBp, uncachedBp, changingBp;
-    eQtimeCacheError error;
+    QtimeCacheError error;
     eQtimeCacheStatus status;
     
     rcUNITTEST_ASSERT(cachedBp.refCount() == 0);
@@ -1693,7 +1693,7 @@ void UT_QtimeCache::dtorTest()
     rcUNITTEST_ASSERT(cacheP != 0);
     
     QtimeCache::frame_ref_t bp;
-    eQtimeCacheError error;
+    QtimeCacheError error;
     eQtimeCacheStatus status = cacheP->getFrame(0, bp, &error);
     rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
     rcUNITTEST_ASSERT(bp.refCount() == 2);
