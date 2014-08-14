@@ -40,32 +40,32 @@ rcReifyMovieGrabberT<QtimeCache,QtimeCacheError>::errorNoTranslate(QtimeCacheErr
 {
     switch (error) {
         case QtimeCacheError::FileInit:
-            return rcFrameGrabberError::eFrameErrorFileInit;
+            return rcFrameGrabberError::FileInit;
         case QtimeCacheError::FileSeek:
         case QtimeCacheError::FileRead:
-            return rcFrameGrabberError::eFrameErrorFileRead;
+            return rcFrameGrabberError::FileRead;
         case QtimeCacheError::FileClose:
-            return rcFrameGrabberError::eFrameErrorFileClose;
+            return rcFrameGrabberError::FileClose;
         case QtimeCacheError::FileFormat:
-            return rcFrameGrabberError::eFrameErrorFileFormat;
+            return rcFrameGrabberError::FileFormat;
         case QtimeCacheError::FileUnsupported:
-            return rcFrameGrabberError::eFrameErrorFileUnsupported;
+            return rcFrameGrabberError::FileUnsupported;
         case QtimeCacheError::FileRevUnsupported:
-            return rcFrameGrabberError::eFrameErrorFileRevUnsupported;
+            return rcFrameGrabberError::FileRevUnsupported;
         case QtimeCacheError::SystemResources:
-            return rcFrameGrabberError::eFrameErrorSystemResources;
+            return rcFrameGrabberError::SystemResources;
         case QtimeCacheError::NoSuchFrame:
         case QtimeCacheError::CacheInvalid:
-            return rcFrameGrabberError::eFrameErrorInternal;
+            return rcFrameGrabberError::Internal;
         case QtimeCacheError::OK:
-            return rcFrameGrabberError::eFrameErrorOK;
+            return rcFrameGrabberError::OK;
         case QtimeCacheError::BomUnsupported:
-            return rcFrameGrabberError::eFrameErrorFileUnsupported;
+            return rcFrameGrabberError::FileUnsupported;
         case QtimeCacheError::DepthUnsupported:
-            return rcFrameGrabberError::eFrameErrorUnsupportedDepth;
+            return rcFrameGrabberError::UnsupportedDepth;
     }
     
-    return rcFrameGrabberError::eFrameErrorUnknown;
+    return rcFrameGrabberError::Unknown;
 }
 
 
@@ -119,7 +119,7 @@ rcFrameGrabberStatus rcReifyMovieGrabberT<QtimeCache,QtimeCacheError>::getNextFr
         return eFrameStatusError;
     
     if (!isBlocking) {
-        setLastError(rcFrameGrabberError::eFrameErrorNotImplemented);
+        setLastError(rcFrameGrabberError::NotImplemented);
         return eFrameStatusError;
     }
     
@@ -136,9 +136,9 @@ rcFrameGrabberStatus rcReifyMovieGrabberT<QtimeCache,QtimeCacheError>::getNextFr
      * into memory before it is needed.
      */
     QtimeCacheError error;
-    eQtimeCacheStatus status = _cache.getFrame(_curFrame++, ptr, &error, false);
+    QtimeCacheStatus status = _cache.getFrame(_curFrame++, ptr, &error, false);
     
-    if (status != eQtimeCacheStatus::OK){
+    if (status != QtimeCacheStatus::OK){
         setLastError(errorNoTranslate(error));
         return eFrameStatusError;
     }
@@ -200,7 +200,7 @@ int sm_producer::process_start_frame() const { return (_impl) ? _impl->first_pro
 int sm_producer::process_last_frame() const { return (_impl) ? _impl->last_process_index() : -1; }
 int sm_producer::frames_in_content() const { return (_impl) ? _impl->frame_count(): -1; }
 bool sm_producer::has_content () const { if (_impl) return _impl->has_content (); return false; }
-rcFrameGrabberError sm_producer::last_error () const { if (_impl) return _impl->last_error(); return rcFrameGrabberError::eFrameErrorUnknown; }
+rcFrameGrabberError sm_producer::last_error () const { if (_impl) return _impl->last_error(); return rcFrameGrabberError::Unknown; }
 
 const sm_producer::sMatrixType& sm_producer::similarityMatrix () const { return _impl->m_SMatrix; }
 
@@ -218,41 +218,20 @@ int sm_producer::spImpl::loadMovie( const std::string& movieFile, rcFrameGrabber
     
 	if ( !movieFile.empty() )
     {
-		if ( rf_ext_is_rfymov (movieFile ) )
+        
+		if ( rf_ext_is_rfymov (movieFile ) || rf_ext_is_stk (movieFile))
 		{
-			rmAssert(_videoCacheP == 0);
-			double physMem = 1000000000.0;
-            
-			_videoCacheP =
-            rcVideoCache::rcVideoCacheCtor(movieFile, 0, true, false, true, physMem, 0); // _videoCacheProgress );
-			m_grabber_ref = boost::shared_ptr<rcFrameGrabber> (new rcReifyMovieGrabber(*_videoCacheP) );
-		}
-		else if ( rf_ext_is_stk (movieFile) )
-		{
-            // Get a TIFF Importer
-			TIFFImageIO t_importer;
-			if (! t_importer.CanReadFile (movieFile.c_str () ) ) return 0;
-			t_importer.SetFileName (movieFile.c_str ());
-			t_importer.ReadImageInformation ();
-			zstk = t_importer.ReadPages ();
-			m_grabber_ref = boost::shared_ptr<rcFrameGrabber> (new rcVectorGrabber (zstk) );
-		}
-		else if ( rf_ext_is_mov(movieFile) )
+            return -1; // not implemented
+        }
+			else if ( rf_ext_is_mov(movieFile) )
 		{
             _shared_qtime_cache_create_simple(tmp, movieFile,0);
             m_qtime_cache_ref = tmp;
-
+            m_grabber_ref = boost::shared_ptr<cache_grabber> (new cache_grabber (m_qtime_cache_ref));
 		}
         
 		_frameCount = loadFrames();
         error = m_last_error;
-        
-		if ( error != rcFrameGrabberError::eFrameErrorOK ) {
-			if (_videoCacheP) {
-				rcVideoCache::rcVideoCacheDtor(_videoCacheP);
-				_videoCacheP = 0;
-			}
-		}
     }
     return _frameCount;
 }
@@ -260,7 +239,7 @@ int sm_producer::spImpl::loadMovie( const std::string& movieFile, rcFrameGrabber
 void sm_producer::spImpl::loadImages (const images_vector& images)
 {
     m_loaded_ref.reset (new images_vector );
-    vector<rcWindow>::const_iterator vitr = images.begin();
+    vector<roi_window>::const_iterator vitr = images.begin();
     do
     {
         m_loaded_ref->push_back (*vitr++);
@@ -280,9 +259,7 @@ int32 sm_producer::spImpl::loadFrames(  )
     // unique lock. forces new shared locks to wait untill this lock is release
     boost::unique_lock <mutex_t> lock(m_mutex);
     
-	m_last_error = m_grabber_ref->getLastError();
 	int count = 0;
-    
 	rcTimestamp duration = rcTimestamp::now();
     _currentTime = cZeroTime;
     rcTimestamp prevTimeStamp = cZeroTime;
@@ -298,33 +275,23 @@ int32 sm_producer::spImpl::loadFrames(  )
 		{
 			rcTimestamp curTimeStamp;
 			rcRect videoFrame;
-			rcWindow image, tmp;
-			rcFrameRef framePtr;
-			rcFrameGrabberStatus status = m_grabber_ref->getNextFrame( framePtr, true );
+			roi_window image, tmp;
+            QtimeCache::frame_ref_t framePtr;
+			int status = m_grabber_ref->get_next_frame( framePtr );
             
-			if ( status != eFrameStatusOK ) break;
+			if ( status != 0 ) break;
 
             // Note curTimeStamp fetching under VideoCache and normal fetch
             // Any access to the pixel data or time stamp of the frames cached will force a frame load.
-			if (_videoCacheP)
-			{
-                rcVideoCacheError error;
-				if (_videoCacheP->frameIndexToTimestamp(count,curTimeStamp,&error) != eVideoCacheStatusOK)
+                QtimeCacheError error;
+				if (m_qtime_cache_ref->frameIndexToTimestamp(count,curTimeStamp,&error) != QtimeCacheStatus::OK)
 				{
-					cerr << "vfload: " << count << ": " << rcVideoCache::getErrorString(error) << endl;
+					cerr << "vfload: " << count << ": " << QtimeCache::getErrorString(error) << endl;
 					rmAssert(0);
 				}
                 
-				videoFrame = rcRect( 0, 0, _videoCacheP->frameWidth(), _videoCacheP->frameHeight() );
-				tmp = rcWindow( *_videoCacheP, count );
-			}
-			else
-			{
-				videoFrame = rcRect( 0, 0, framePtr->width(), framePtr->height() );
-				tmp = rcWindow( framePtr );
-				curTimeStamp = tmp.frameBuf()->timestamp();
-			}
-            
+				videoFrame = rcRect( 0, 0, m_qtime_cache_ref->frameWidth(), m_qtime_cache_ref->frameHeight() );
+				tmp = roi_window( m_qtime_cache_ref, count );
             ipp (tmp, image, curTimeStamp);
             m_loaded_ref->push_back (image);
 
@@ -342,13 +309,13 @@ int32 sm_producer::spImpl::loadFrames(  )
 			prevTimeStamp = curTimeStamp;
 #endif
             // @todo if (videoWriter != 0) 	videoWriter->writeValue( curTimeStamp, rcRect(), &image );  Compare and clamp image update interval
-		}// End of For i++
+        }// End of For i++
         
         // Update elapsed time _observer->notifyTime( getElapsedTime() ); _observer->notifyTimelineRange( 0.0, getElapsedTime() ); 	flushSharedWriters ();
 		if ( ! m_grabber_ref->stop() ) std::cout << " Grabber failed to stop" << std::endl;
 		
 	}
-	m_last_error = m_grabber_ref->getLastError();
+
     
 	// Done. Report
 	duration = rcTimestamp::now() - duration;
@@ -422,12 +389,12 @@ static    double tiny = 1e-10;
 //    return i;
 //}
 
-void sm_producer::spImpl::ipp (const rcWindow& tmp, rcWindow& image, rcTimestamp& current)
+void sm_producer::spImpl::ipp (const roi_window& tmp, roi_window& image, rcTimestamp& current)
 {
     rmUnused (current);
     
     // VideoCache case: Do not access frameData. Access for invalidate cache
-    if (_videoCacheP)
+    if (m_qtime_cache_ref)
     {
         image = tmp;
         image.frameBuf()->setTimestamp (current);

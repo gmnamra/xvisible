@@ -48,7 +48,7 @@ enum  class QtimeCacheError : int32 {
 };
 
 // Status type
-enum  class eQtimeCacheStatus {
+enum  class QtimeCacheStatus {
     OK = 0, // Valid frame
     Error   // Error occurred, read returned error state for
     // more info.
@@ -161,14 +161,14 @@ public:
     /* Returns the frame at location index within the movie (zero
      * base).
      */
-    eQtimeCacheStatus getFrame(uint32 frameIndex,
+    QtimeCacheStatus getFrame(uint32 frameIndex,
                                frame_ref_t& frameBuf,
                                QtimeCacheError* error = 0,
                                bool locked = true);
     
     /* Returns the frame at timestamp time. must be exact match.
      */
-    eQtimeCacheStatus getFrame(const rcTimestamp& time,
+    QtimeCacheStatus getFrame(const rcTimestamp& time,
                                frame_ref_t& frameBuf,
                                QtimeCacheError* error = 0,
                                bool locked = true);
@@ -177,39 +177,39 @@ public:
      * frame timestamps and frame indices.
      */
     // Returns the timestamp in the movie closest to the goal time.
-    eQtimeCacheStatus closestTimestamp(const rcTimestamp& goalTime,
+    QtimeCacheStatus closestTimestamp(const rcTimestamp& goalTime,
                                        rcTimestamp& match,
                                        QtimeCacheError* error = 0);
     // Returns first timestamp > goalTime. If no such timestamp can be
-    // found, the return value is  eQtimeCacheStatus::Error, and
+    // found, the return value is  QtimeCacheStatus::Error, and
     //  QtimeCacheError::NoSuchFrame is returned in error.
-    eQtimeCacheStatus nextTimestamp(const rcTimestamp& goalTime,
+    QtimeCacheStatus nextTimestamp(const rcTimestamp& goalTime,
                                     rcTimestamp& match,
                                     QtimeCacheError* error = 0);
     // Returns closest timestamp < goalTime. If no such timestamp can be
-    // found, the return value is  eQtimeCacheStatus::Error, and
+    // found, the return value is  QtimeCacheStatus::Error, and
     //  QtimeCacheError::NoSuchFrame is returned in error.
-    eQtimeCacheStatus prevTimestamp(const rcTimestamp& goalTime,
+    QtimeCacheStatus prevTimestamp(const rcTimestamp& goalTime,
                                     rcTimestamp& match,
                                     QtimeCacheError* error = 0);
     // Returns the timestamp of the first frame in the movie.
-    eQtimeCacheStatus firstTimestamp(rcTimestamp& match,
+    QtimeCacheStatus firstTimestamp(rcTimestamp& match,
                                      QtimeCacheError* error = 0);
     // Returns the timestamp of the last frame in the movie.
-    eQtimeCacheStatus lastTimestamp(rcTimestamp& match,
+    QtimeCacheStatus lastTimestamp(rcTimestamp& match,
                                     QtimeCacheError* error = 0);
     // Returns the timestamp for the frame at frameIndex. If no such
     // frameIndex can be found, the return value is
-    //  eQtimeCacheStatus::Error, and  QtimeCacheError::NoSuchFrame is
+    //  QtimeCacheStatus::Error, and  QtimeCacheError::NoSuchFrame is
     // returned in error.
-    eQtimeCacheStatus frameIndexToTimestamp(uint32 frameIndex,
+    QtimeCacheStatus frameIndexToTimestamp(uint32 frameIndex,
                                             rcTimestamp& match,
                                             QtimeCacheError* error = 0);
     // Returns the frame index for the frame at time timestamp (must be
     // exact match). If no such timestamp can be found, the return value
-    // is  eQtimeCacheStatus::Error, and  QtimeCacheError::NoSuchFrame is
+    // is  QtimeCacheStatus::Error, and  QtimeCacheError::NoSuchFrame is
     // returned in error.
-    eQtimeCacheStatus timestampToFrameIndex(const rcTimestamp& timestamp,
+    QtimeCacheStatus timestampToFrameIndex(const rcTimestamp& timestamp,
                                             uint32& match,
                                             QtimeCacheError* error = 0);
     
@@ -251,13 +251,13 @@ public:
      * class lock() and unlock() fcts. cacheUnlock() is a wrapper around
      * unlockFrame() and cacheLock() is a wrapper around getFrame(). The
      * main intention behind this is to allow for a well-defined action
-     * to occur if rcFrameBufPtr's persist past this life of the cache
+     * to occur if cached_frame_ref's persist past this life of the cache
      * that owns the underlying rcFrame. See the description of
      *   QtimeCacheDtor() for more details.
      */
     static void cachePrefetch(uint32 cacheIndex, uint32 frameIndex);
     static void cacheUnlock(uint32 cacheIndex, uint32 frameIndex);
-    static eQtimeCacheStatus cacheLock(uint32 cacheIndex,
+    static QtimeCacheStatus cacheLock(uint32 cacheIndex,
                                        uint32 frameIndex,
                                        frame_ref_t& frameBuf,
                                        QtimeCacheError* error = 0);
@@ -267,8 +267,8 @@ public:
     rcWindow get_window (uint32 frameIndex)
     {
         frame_ref_t frameb ( new rcFrame (frameWidth(), frameHeight(), frameDepth()) );
-        eQtimeCacheStatus status = getFrame(frameIndex, frameb, 0, false);
-        if(status == eQtimeCacheStatus::OK)
+        QtimeCacheStatus status = getFrame(frameIndex, frameb, 0, false);
+        if(status == QtimeCacheStatus::OK)
             return rcWindow (static_cast<rcFrameRef>(frameb));
         else return rcWindow ();
     }
@@ -381,17 +381,17 @@ private:
     
     void setError( QtimeCacheError error);
     
-    eQtimeCacheStatus internalGetFrame(uint32 frameIndex,
+    QtimeCacheStatus internalGetFrame(uint32 frameIndex,
                                        frame_ref_t& frameBuf,
                                        QtimeCacheError* error,
                                        const uint32 dToken);
     
-    eQtimeCacheStatus cacheAlloc(uint32 frameIndex,
+    QtimeCacheStatus cacheAlloc(uint32 frameIndex,
                                  frame_ref_t& userFrameBuf,
                                  frame_ref_t*& cacheFrameBufPtr,
                                  const uint32 dToken);
     
-    eQtimeCacheStatus cacheInsert(uint32 frameIndex,
+    QtimeCacheStatus cacheInsert(uint32 frameIndex,
                                   frame_ref_t& cacheFrameBuf,
                                   const uint32 dToken);
     

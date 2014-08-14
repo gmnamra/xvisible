@@ -12,49 +12,49 @@
 std::string rcFrameGrabber::getErrorString( rcFrameGrabberError error )
 {
     switch ( error ) {
-        case eFrameErrorOK:
+        case rcFrameGrabberError::OK:
             return std::string( "Frame grabber: OK" );
-        case eFrameErrorUnknown:
+        case rcFrameGrabberError::Unknown:
             return std::string( "Frame grabber: unknown error" );
-        case eFrameErrorInit:
+        case rcFrameGrabberError::Init:
             return std::string( "Frame grabber: unknown initialization error" );
-        case eFrameErrorFileInit:
+        case rcFrameGrabberError::FileInit:
             return std::string( "Frame grabber: file not found" );
-        case eFrameErrorFileClose:
+        case rcFrameGrabberError::FileClose:
             return std::string( "Frame grabber: file close failed" );
-        case eFrameErrorFileFormat:
+        case rcFrameGrabberError::FileFormat:
             return std::string( "Frame grabber: file is corrupted" );
-        case eFrameErrorFileUnsupported:
+        case rcFrameGrabberError::FileUnsupported:
             return std::string( "Frame grabber: unsupported file format" );
-        case eFrameErrorFileRevUnsupported:
+        case rcFrameGrabberError::FileRevUnsupported:
             return std::string( "Frame grabber: unsupported file revision" );
-        case eFrameErrorFileRead:
+        case rcFrameGrabberError::FileRead:
             return std::string( "Frame grabber: file read failed" );
-        case eFrameErrorSystemResources:
+        case rcFrameGrabberError::SystemResources:
             return std::string("Frame grabber: inadequate system resources");
-        case eFrameErrorIPC:
+        case rcFrameGrabberError::IPC:
             return std::string("Frame grabber: error communicating with peer process");
-        case eFrameErrorCameraInit:
+        case rcFrameGrabberError::CameraInit:
             return std::string( "Frame grabber: camera initialization failed" );
-        case eFrameErrorCameraCapture:
+        case rcFrameGrabberError::CameraCapture:
             return std::string( "Frame grabber: camera capture failed" );
-        case eFrameErrorQuicktimeInit:
+        case rcFrameGrabberError::QuicktimeInit:
             return std::string( "Frame grabber: QuickTime initialization failed" );
-        case eFrameErrorQuicktimeRead:
+        case rcFrameGrabberError::QuicktimeRead:
             return std::string( "Frame grabber: QuickTime read failed" );
-        case eFrameErrorUnsupportedDepth:
+        case rcFrameGrabberError::UnsupportedDepth:
             return std::string( "Frame grabber: got an image with unsupported depth" );
-        case eFrameErrorUnsupportedFormat:
+        case rcFrameGrabberError::UnsupportedFormat:
             return std::string( "Frame grabber: got an image with unsupported format" );
-        case eFrameErrorNotImplemented:
+        case rcFrameGrabberError::NotImplemented:
             return std::string( "Frame grabber: feature not implemented yet" );
-        case eFrameErrorFrameNotAvailable:
+        case rcFrameGrabberError::FrameNotAvailable:
             return std::string( "Frame grabber: frame not available" );
-        case eFrameErrorInternal:
+        case rcFrameGrabberError::Internal:
             return std::string( "Frame grabber: internal logic error" );
-        case eFrameErrorOutOfMemory:
+        case rcFrameGrabberError::OutOfMemory:
             return std::string( "Frame grabber: out of memory" );
-        case eFrameErrorInvalidOptions:
+        case rcFrameGrabberError::InvalidOptions:
             return std::string( "Frame grabber: invalid options specified" );
             // Note: no default case to force a compiler warning if a new enum value
             // is defined without adding a corresponding string here.

@@ -1,9 +1,9 @@
 
-#ifndef _rcWINDOW_H_
-#define _rcWINDOW_H_
+#ifndef _roiWINDOW_H_
+#define _roiWINDOW_H_
 
 #include "rc_framebuf.h"
-#include "cached_frame_ref.h"
+#include "cached_frame_buffer.h"
 #include "rc_rect.h"
 #include <iomanip>
 #include <Accelerate/Accelerate.h>
@@ -13,8 +13,9 @@
 #endif
 
 #include <vector>
-
-
+#include <memory>
+#include "cached_frame_buffer.h"
+#include "qtime_cache.h"
 using namespace std;
 using namespace cv;
 
@@ -31,9 +32,8 @@ public:
  //! default constructor takes no arguments
     /*!
     */
-  roi_window() : mFrameBuf(NULL), mGeometry (0,0,0,0) {}
+    roi_window() : mFrameBuf(NULL), mGeometry (0,0,0,0), mSum( 0.0 ), mSumSquares( 0.0 ), mSumValid( false )  {}
 
-  roi_window (std::string absPath2TiffFile);
   
   //! copy / assignment  takes one arguments 
     /*!
@@ -54,12 +54,12 @@ public:
     if (this == &rhs) return *this;
       
     mFrameBuf = rhs.frameBuf();
-    mGeometry = rhs.rcBound ();
+    mGeometry = rhs.bound ();
     return *this;
   }
     
   // Become an entire window to a buffer in cache
-  //  roi_window(rcVideoCache& cache, uint32 frameIndex);
+  roi_window(SharedQtimeCache& cache, uint32 frameIndex);
   roi_window(proxy_fetch_size_fn cache_get_frame_size, proxy_fetch_frame_fn cache_get_frame_data,  uint32 frameIndex);
     
 
@@ -119,7 +119,7 @@ public:
   rcIPair position() { return rcIPair (mGeometry.origin()); }
   rcIPair size () const { return rcIPair (mGeometry.width(), mGeometry.height()); }
 
-  rcRect rcBound () const { return mGeometry; }
+  rcRect bound () const { return mGeometry; }
   rcIRect frame () const { rmAssert (isBound());
     return rcIRect (0, 0, mFrameBuf->width(), mFrameBuf->height()); }
   const rcRect& rectangle () const { return mGeometry; }
@@ -159,25 +159,15 @@ public:
   void maxTrim (rcIPair& tl, rcIPair& br) const;
   int32 maxTrim () const;
 
-  // vImage representative
-  bool vImage (vImage_Buffer&) const;
-    //  CGImageRef CGImage() const;
-// Converts a QPixmap to a CGImage.
-//@returns CGImageRef for the new image. (FrameBuf owns the pixels) 
-	
+ 	
  // Return number of bits and bytes in this pixel
   int32 bits () const;
   int32 bytes () const;
 
-  double operator() (double, double) const;
-
   // Slow Pixel Address
  // Return pixel value for (x,y)
   uint32 getPixel( int32 x, int32 y ) const;
-  double getDoublePixel( int32 x, int32 y ) const;
-
   uint32 getPixel(const rcIPair& where) const;
-  double getDoublePixel(const rcIPair& where) const;
 
   // Pointer Access
   // Raw pixel row pointer
@@ -188,8 +178,6 @@ public:
   uint8* pelPointer (int32 x, int32 y);
   int32 rowUpdate () const { return mFrameBuf->rowUpdate (); }
   int32 rowPixelUpdate () const { return mFrameBuf->rowPixelUpdate (); }
-  // Return z value
-  inline double zVal() const { return mFrameBuf->zVal (); }
 
   inline bool sameTime (const roi_window& other) const
   {
@@ -229,9 +217,7 @@ public:
 
   // Set pixel value for (x,y). Return new value
   uint32 setPixel( int32 x, int32 y, uint32 value );
-  double setDoublePixel( int32 x, int32 y, double value );
   uint32 setPixel(const rcIPair& where, uint32 value );
-  double setDoublePixel(const rcIPair& where, double value);
     
   // Window copy fct. Copy region can be thought of as the intersection of the two windows with their
   // origins aligned. If mirror is true, rows will be vertically mirrored.
@@ -251,8 +237,6 @@ public:
     frameBuf()->setTimestamp(other.frameBuf()->timestamp());
   }
     
-  inline void zVal(double dv) { mFrameBuf->zVal (dv); }
-
   // Fill this window with random pixel values and return the used seed.
   // If the seed is 0, a pseudo-random seed is produced
   // Using the same seed produces identical "random" values.
@@ -289,15 +273,22 @@ public:
 
   */
 
-  bool tiff (std::string& outfile, bool compress = false) const;
-  //@param std::string outfile is filename (absolute path)
-  //@param bool compress indicates compression or not
+    inline bool sumValid() const          { return mSumValid; }
+    inline double sum() const             { rmAssertDebug( mSumValid ); return mSum; }
+    inline double sumSquares() const      { rmAssertDebug( mSumValid ); return mSumSquares; }
+
+    //
+    // Mutators
+    //
+    inline void sum( double s )              { mSum = s; mSumValid = true; };
+    inline void sumSquares( double s )       { mSumSquares = s; rmAssertDebug( mSumValid ); };
+    inline void invalidate()                 { mSumValid = false; };
 
     template <class T>
-  void print (T, ostream& = cerr);
+    void print (T, ostream& = cerr);
 
- template <class T>
-  void print (T);
+    template <class T>
+    void print (T);
 
 #ifdef CINDER_BUILTIN
   ci::Channel8u* new_channel () const;
@@ -321,6 +312,11 @@ public:
   bool window (const roi_window& parentWindow, int32 x, int32 y, int32 width, int32 height, bool clip);
   cached_frame_ref mFrameBuf;  // Ref-counted pointer to frame buffer
   rcRect				 mGeometry;	 // Window geometry info
+ 
+    double   mSum;                // Sum of pixel values
+    double   mSumSquares;         // Sum of pixel value squares
+    bool     mSumValid;           // Is sum valid
+    
 };
 
 
@@ -346,4 +342,31 @@ void roi_window::print (T, ostream& o)
  */
 void rfSetWindowBorder (roi_window& win, double val);
 
-#endif // _rcWINDOW_H_
+
+/*
+ * a very thin layer supporting templated pixel access
+ */
+
+template <class T>
+class roi_window_t : public roi_window
+{
+public:
+    //
+    // ctors
+    //
+    roi_window_t() : roi_window () {}
+    
+    roi_window_t( const roi_window& w ) : roi_window ( w )
+    {
+        // Verify that depths match
+        if ( sizeof(T) != static_cast<int>(w.bytes()) )
+            throw general_exception( "roi_window_t ctor: invalid roi_window depth" );
+    }
+      // Warning: these are dangerous casts
+    inline const T* rowPelPointer (uint32 y) const          { return (const T*)(rowPointer( y )); }
+    inline const T* pelPointer (uint32 x, uint32 y) const { return (const T*)(pelPointer( x, y )); };
+
+};
+
+
+#endif // _roiWINDOW_H_

@@ -6,8 +6,6 @@
 
 #include "vf_sm_producer.h"
 #include "rc_videocache.h"
-#include "rc_reifymoviegrabber.h"
-#include "rc_tiff.h"
 #include "rc_fileutils.h"
 #include <iostream>
 #include <algorithm>
@@ -20,11 +18,11 @@
 #include <boost/ref.hpp>
 #include "vf_utils.hpp"
 #include "qtime_cache.h"
-
+#include "roi_window.h"
+#include "cache_grabber.h"
 using namespace boost;
 
 
-typedef rcReifyMovieGrabberT<QtimeCache,QtimeCacheError> QtimeMovieGrabber ;
 
 
 SINGLETON_FCN(vf_utils::gen_filename::random_name,get_name_generator);
@@ -43,7 +41,6 @@ public:
         signal_frame_loaded = createSignal<sm_producer::sig_cb_frame_loaded>();
         signal_sm1d_available = createSignal<sm_producer::sig_cb_sm1d_available> ();
         signal_sm2d_available = createSignal<sm_producer::sig_cb_sm2d_available> ();
-        _videoCacheP = 0;
         m_loaded_ref =  boost::shared_ptr<images_vector> ( new images_vector );
     }
     
@@ -52,7 +49,7 @@ public:
         _movieFile = movie_fqfn;
         rcFrameGrabberError fr;
         _frameCount = loadMovie (movie_fqfn, fr);
-        _has_content.store (fr == rcFrameGrabberError::eFrameErrorOK);
+        _has_content.store (fr == rcFrameGrabberError::OK);
         if (m_auto_run) generate_ssm (0,0);
         return has_content ();
     }
@@ -78,7 +75,7 @@ private:
     
     int saveFrames(std::string imageExportDir) const;
     
-    void ipp (const rcWindow& tmp, rcWindow& image, rcTimestamp& current);
+    void ipp (const roi_window& tmp, roi_window& image, rcTimestamp& current);
     
 protected:
     boost::signals2::signal<sm_producer::sig_cb_content_loaded>* signal_content_loaded;
@@ -100,8 +97,7 @@ private:
     mutable std::string            _movieFile;  //
     int                          _frameRate;
     int                          _frameCount;
-    rcVideoCache*                _videoCacheP;
-    fGrabberRef                  m_grabber_ref;
+    boost::shared_ptr<cache_grabber>            m_grabber_ref;
     deque<deque<double> >        m_SMatrix;   // Used in eExhaustive and
     deque<double>                m_entropies; // Final entropy signal
     deque<double>                m_means; // Final entropy signal

@@ -1,7 +1,7 @@
 
 
 #include "roi_window.h"
-#include "QtimeCache.h"
+#include "qtime_cache.h"
 #include <sys/param.h>
 #include "rc_systeminfo.h"
 
@@ -59,9 +59,11 @@ uint8*  roi_window::pelPointer (int32 x, int32 y)
   return (mFrameBuf->pelPointer (x + mGeometry.x(), y + mGeometry.y()));
 }
    
-roi_window::roi_window(rcFrameBufPtr ptr, int32 x, int32 y, int32 width, int32 height ) :
+roi_window::roi_window(cached_frame_ref ptr, int32 x, int32 y, int32 width, int32 height ) :
         mFrameBuf( ptr ), 
-        mGeometry( x, y, width, height ) 
+        mGeometry( x, y, width, height ),
+        mSum( 0.0 ), mSumSquares( 0.0 ), mSumValid( false )
+
 {
     rmAssertDebug( x >= 0 && y >= 0 );
     rmAssertDebug( width > 0 && height > 0 );
@@ -71,9 +73,10 @@ roi_window::roi_window(rcFrameBufPtr ptr, int32 x, int32 y, int32 width, int32 h
     rmAssert( (y + height - 1) < mFrameBuf->height() );
 }
 
-roi_window::roi_window(rcFrameBufPtr ptr, const rcRect& cropRect ) :
+roi_window::roi_window(cached_frame_ref ptr, const rcRect& cropRect ) :
         mFrameBuf( ptr ), 
-        mGeometry( cropRect ) 
+        mGeometry( cropRect ),
+        mSum( 0.0 ), mSumSquares( 0.0 ), mSumValid( false )
 {
     rmAssertDebug( cropRect.x() >= 0 && cropRect.y() >= 0 );
     rmAssert( cropRect.x() < mFrameBuf->width() );
@@ -82,28 +85,32 @@ roi_window::roi_window(rcFrameBufPtr ptr, const rcRect& cropRect ) :
     rmAssert( (cropRect.y() + cropRect.height() - 1) < mFrameBuf->height() );
 }
 
-roi_window::roi_window(rcFrameBufPtr ptr) :
+roi_window::roi_window(cached_frame_ref ptr) :
         mFrameBuf( ptr ),
-        mGeometry(0, 0, ptr->width(), ptr->height()) 
+        mGeometry(0, 0, ptr->width(), ptr->height()),
+        mSum( 0.0 ), mSumSquares( 0.0 ), mSumValid( false )
 {
     rmAssert( mGeometry.x() < mFrameBuf->width() );
     rmAssert( mGeometry.y() < mFrameBuf->height() );
 }
 
-roi_window::roi_window(QtimeCache& cache, uint32 frameIndex) :
-        mFrameBuf(0), mGeometry(0, 0, cache.frameWidth(), cache.frameHeight())
+
+roi_window::roi_window(SharedQtimeCache&  cache, uint32 frameIndex) :
+        mFrameBuf(0), mGeometry(0, 0, cache->frameWidth(), cache->frameHeight()),
+        mSum( 0.0 ), mSumSquares( 0.0 ), mSumValid( false )
 {
     rmAssert( mGeometry.width() > 0 );
     rmAssert( mGeometry.height() > 0 );
 
-    rcVideoCacheStatus status =
-        cache.getFrame(frameIndex, mFrameBuf, 0, false);
+    QtimeCacheStatus status =
+        cache->getFrame(frameIndex, mFrameBuf, 0, false);
 
-    rmAssert(status == eVideoCacheStatusOK);
+    rmAssert(status == QtimeCacheStatus::OK);
 }
 
+
 roi_window::roi_window(proxy_fetch_size_fn cache_get_frame_size, proxy_fetch_frame_fn cache_get_frame_data,  uint32 frameIndex)
-: mFrameBuf (0)
+: mFrameBuf (0), mSum( 0.0 ), mSumSquares( 0.0 ), mSumValid( false )
 {
     std::pair<uint32,uint32> size (0,0);
     rmAssert(cache_get_frame_size (size) == 0);  // error returned must be 0 for success
@@ -114,28 +121,10 @@ roi_window::roi_window(proxy_fetch_size_fn cache_get_frame_size, proxy_fetch_fra
     rmAssert(cache_get_frame_data (frameIndex, mFrameBuf) == 0); // error returned must be 0 for success
 }
 
-/**
- *
- *  From a Tiff File
- *
- */
 
-roi_window::roi_window (std::string absPath_filename)
-{
-	// Get a TIFF Importer
-	TIFFImageIO t_importer;
-	if (! t_importer.CanReadFile (absPath_filename.c_str () ) ) 
-		*this = roi_window ();
-	t_importer.SetFileName (absPath_filename.c_str ());
-	t_importer.ReadImageInformation ();
-	*this = t_importer.ReadSinglePage ();
-	
-}
-
-        
-
-roi_window::roi_window(rcFrameBufPtr ptr, const rcIPair& icenter, const rcIPair& span, bool& withIn) :
+roi_window::roi_window(cached_frame_ref ptr, const rcIPair& icenter, const rcIPair& span, bool& withIn) :
         mFrameBuf( ptr ),
+        mSum( 0.0 ), mSumSquares( 0.0 ), mSumValid( false ),
         mGeometry(icenter.x() - span.x(), 
                   icenter.y() - span.y(), 
                   span.x()+span.x()+1, span.y()+span.y()+1)
@@ -164,7 +153,7 @@ void roi_window::init(int32 width, int32 height, rcPixel depth)
 	rmExceptionMacro(<< "IP Window::init");
       }
     
-    rcFrameBufPtr ptr = new rcFrame( width, height, depth );
+    cached_frame_ref ptr = new rcFrame( width, height, depth );
     mFrameBuf = ptr;
     mGeometry = rcRect (0, 0, width, height);
     rmAssert( (width - 1) < mFrameBuf->width() );
@@ -184,22 +173,6 @@ bool roi_window::contains(const uint8* ptr) const
 
     return ((x >= 0) && (x < width()) && (y >= 0) && (y < height()));
 }
-
-bool roi_window::vImage(vImage_Buffer& vi) const
-{
-  if (!isBound()) return false;
-
-  rmAssert(rowUpdate() > 0);
-
-  // Get the top left pixel. vImage data pointer is a void *
-  const uint8 *pels = pelPointer (0,0);
-  vi.data = (void *) pels;
-  vi.width = (uint32) width();
-  vi.height = (uint32) height ();
-  vi.rowBytes = (uint32) rowUpdate ();
-  return true;
-}
-
 
 
 bool roi_window::window( const roi_window& parentWindow, int32 x, int32 y, int32 width, int32 height, bool clip )
@@ -294,6 +267,7 @@ bool roi_window::trim (rcIPair delta)
     {
         mGeometry.origin(rcIPair (x,y));
         mGeometry.size(rcIPair (w,h));
+        invalidate ();
         flag = true;
     }
     return flag;
@@ -455,6 +429,7 @@ roi_window& roi_window::setAllPixels(uint32 pixelValue)
             rmAssert(0);
     }
 
+    invalidate ();
     return *this;
 }
 
@@ -484,7 +459,7 @@ roi_window& roi_window::setAllDoublePixels(double pixelValue)
         for (int32 copyCount = 0; copyCount < unrollRem; copyCount++)
             *pixelPtr++ = pixelValue;
     }
-
+    invalidate ();
     return *this;
 }
 
@@ -517,17 +492,9 @@ uint32 roi_window::randomFill( uint32 seed )
         for (int32 j = 0; j < height(); j++)
             for (int32 i = 0; i < width(); i++)
                 setPixel (i, j, uint32 (random ()));
-    else if (depth() == rcPixelDouble)
-        for (int32 j = 0; j < height(); j++)
-            for (int32 i = 0; i < width(); i++)
-                setDoublePixel (i, j, random ());
+  
       
     return seed;
-}
-
-double roi_window::operator() (double xDb, double yDb) const
-{
-  return mFrameBuf->operator () (xDb + mGeometry.x(), yDb + mGeometry.y());
 }
 
 
@@ -536,20 +503,12 @@ uint32 roi_window::getPixel(const rcIPair& where) const
   return getPixel (where.x(), where.y());
 }
 
-double roi_window::getDoublePixel(const rcIPair& where) const
-{
-  return getDoublePixel (where.x(), where.y());
-}
 
 uint32 roi_window::setPixel(const rcIPair& where, uint32 value )
 {
   return setPixel (where.x(), where.y(), value);
 }
 
-double roi_window::setDoublePixel(const rcIPair& where, double value)
-{
-  return setDoublePixel (where.x(), where.y(), value);
-}
 
 
 ostream& operator<< (ostream& o, const roi_window& w)
@@ -563,7 +522,6 @@ ostream& operator<< (ostream& o, const roi_window& w)
 	{
 	  if (w.depth() != 8)  
 	    o <<  setw(3) << (int32) (w.getPixel (i, j));
-	  else o <<   fixed << setprecision(2) << w.getDoublePixel (i, j);
 	} 
       o << endl;
     }
@@ -605,6 +563,7 @@ void roi_window::entire ()
   mGeometry = rcRect (0, 0, mFrameBuf->width(), mFrameBuf->height());
   rmAssert( mGeometry.x() < mFrameBuf->width() );
   rmAssert( mGeometry.y() < mFrameBuf->height() );
+  invalidate ();
 }
 
 // Translate this window if you can
@@ -616,8 +575,9 @@ bool roi_window::translate (const rcIPair& delta)
     if (x >= 0 && (x+width()-1) < mFrameBuf->width() &&
 	y >= 0 && (y+height()-1) < mFrameBuf->height())
       {
-	mGeometry.origin(rcIPair (x,y));
-	return true;
+          mGeometry.origin(rcIPair (x,y));
+          invalidate();
+          return true;
       } 
 
     return false;
@@ -627,15 +587,10 @@ uint32 roi_window::setPixel( int32 x, int32 y, uint32 value )
  { 
   if (x < 0 || y < 0 || !isBound())
     rmExceptionMacro ("Window Geometry Error");
+     invalidate ();
    return mFrameBuf->setPixel (x + mGeometry.x (), y + mGeometry.y (), value);
  }
 
-double roi_window::setDoublePixel( int32 x, int32 y, double value )
-  { 
-  if (x < 0 || y < 0 || !isBound())
-    rmExceptionMacro ("Window Geometry Error");
-    return mFrameBuf->setDoublePixel (x + mGeometry.x (), y + mGeometry.y (), value);
-  }
 
  // return true if this window contains the other and has the same frame buf
 bool roi_window::contains (const roi_window& other) const
@@ -650,13 +605,6 @@ uint32 roi_window::getPixel( int32 x, int32 y ) const
     return mFrameBuf->getPixel (x + mGeometry.x (), y + mGeometry.y ());
   }
 
-double roi_window::getDoublePixel( int32 x, int32 y ) const
-  { 
-  if (x < 0 || y < 0 || !isBound())
-    rmExceptionMacro ("Window Geometry Error");
-    double r = mFrameBuf->getDoublePixel (x + mGeometry.x (), y + mGeometry.y ());
-    return r;
-  }
 
 
 #define MASKEDPIXELCOMPARE(depth,pixelTypePtr,maskTypePtr)	\
@@ -811,6 +759,7 @@ void rf_SetWindowBorder(roi_window& win, T val)
       *p = val;
       *(p + width - 1) = val;
     }
+   win.invalidate ();
 }
 
 #define SETPIXELBORDER(depth,pixelType) \
@@ -832,6 +781,11 @@ void rfSetWindowBorder (roi_window& win, double val)
       rmExceptionMacro(<< "IP Window::not implemented");      
     }
 }      
+
+template class roi_window_t<uint8>;
+template class roi_window_t<uint16>;
+template class roi_window_t<uint32>;
+
 
 #if 0
 /**

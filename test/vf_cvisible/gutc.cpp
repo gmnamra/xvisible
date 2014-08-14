@@ -135,6 +135,41 @@ TEST( UT_FrameBuf, run )
 }
 
 
+
+TEST(cb_similarity_producer, run)
+{
+    static std::string qmov_name ("box-move.mov");
+    static std::string rfymov_name ("box-move.rfymov");
+    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
+    std::string rfymov = create_filespec (s_gvp->test_data_folder (), rfymov_name);
+
+    if (0)
+    {
+        cb_similarity_producer test (rfymov);
+        EXPECT_EQ(0, test.run () );
+        EXPECT_EQ(true, test.is_movie_loaded () );
+        EXPECT_EQ(57, test.frameCount ());
+        EXPECT_EQ(57, test.sp->shannonProjection().size () );
+        EXPECT_EQ(false, vf_utils::math::contains_nan(test.sp->shannonProjection().begin(), test.sp->shannonProjection().end()));
+        
+        EXPECT_EQ(true, test.mlies.empty());
+    }
+
+    {
+        cb_similarity_producer test (qmov);
+        EXPECT_EQ(0, test.run () );
+        EXPECT_EQ(true, test.is_movie_loaded () );
+        EXPECT_EQ(56, test.frameCount ());
+        EXPECT_EQ(56, test.sp->shannonProjection().size () );
+        EXPECT_EQ(false, vf_utils::math::contains_nan(test.sp->shannonProjection().begin(), test.sp->shannonProjection().end()));
+        
+        EXPECT_EQ(true, test.mlies.empty());
+    }
+    
+}
+
+
+
 TEST (UT_QtimeCache, run)
 {
     
@@ -146,26 +181,6 @@ TEST (UT_QtimeCache, run)
     EXPECT_EQ(0, test.run () );
 }
 
-TEST( ut_similarity, run )
-{
-	UT_similarity test;
-	EXPECT_EQ(0, test.run());
-}
-
-
-
-
-TEST(UT_similarity_producer, run)
-{
-    // vf does not support QuickTime natively. The ut expectes and checks for failure
-    static std::string qmov_name ("box-move.mov");
-    static std::string rfymov_name ("box-move.rfymov");
-    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
-    std::string rfymov = create_filespec (s_gvp->test_data_folder (), rfymov_name);
-    
-	UT_similarity_producer test (rfymov, qmov);
-    EXPECT_EQ(0, test.run());
-}
 
 TEST(cinder_qtime_grabber, run)
 {
@@ -204,6 +219,7 @@ TEST(cinder_qtime_grabber, run)
     
 }
 
+#if 0
 
 TEST(cinder_qtime_grabber_and_similarity, run)
 {
@@ -273,35 +289,16 @@ TEST(cinder_qtime_grabber_and_similarity, run)
 }
 
 
-TEST(cb_similarity_producer, run)
+TEST(UT_similarity_producer, run)
 {
-     static std::string qmov_name ("box-move.mov");
+    // vf does not support QuickTime natively. The ut expectes and checks for failure
+    static std::string qmov_name ("box-move.mov");
     static std::string rfymov_name ("box-move.rfymov");
     std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
     std::string rfymov = create_filespec (s_gvp->test_data_folder (), rfymov_name);
     
-    {
-        cb_similarity_producer test (rfymov);
-        EXPECT_EQ(0, test.run () );
-        EXPECT_EQ(true, test.is_movie_loaded () );
-        EXPECT_EQ(57, test.frameCount ());
-        EXPECT_EQ(57, test.sp->shannonProjection().size () );
-        EXPECT_EQ(false, vf_utils::math::contains_nan(test.sp->shannonProjection().begin(), test.sp->shannonProjection().end()));
-        
-        EXPECT_EQ(true, test.mlies.empty());
-    }
-    if (0)
-    {
-        cb_similarity_producer test (qmov);
-        EXPECT_EQ(0, test.run () );
-        EXPECT_EQ(true, test.is_movie_loaded () );
-        EXPECT_EQ(56, test.frameCount ());
-        EXPECT_EQ(56, test.sp->shannonProjection().size () );
-        EXPECT_EQ(false, vf_utils::math::contains_nan(test.sp->shannonProjection().begin(), test.sp->shannonProjection().end()));
-        
-        EXPECT_EQ(true, test.mlies.empty());
-    }
-    
+	UT_similarity_producer test (rfymov, qmov);
+    EXPECT_EQ(0, test.run());
 }
 
 
@@ -317,7 +314,15 @@ TEST (UT_videocache, run)
 }
 
 
-#if 0
+
+
+
+TEST( ut_similarity, run )
+{
+	UT_similarity test;
+	EXPECT_EQ(0, test.run());
+}
+
 
 TEST (UT_movieconverter, run)
 {

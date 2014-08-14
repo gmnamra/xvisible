@@ -3,11 +3,52 @@
 
 #include "ut_qtime.h"
 #include "qtime_cache.h"
+#include "roi_window.h"
 #include "rc_windowhist.h"
 #include "timing.hpp"
 #include "rc_math.h"
 
+namespace
+{
+    
+    vector<uint32>& utHistogram8(const roi_window& src, vector<uint32>& histogram)
+    {
+        rmAssert(src.depth() == rcPixel8);
+        rmAssert(histogram.size () == 256);
+        
+        
+        uint32 lastRow = src.height() - 1, row = 0;
+        const uint32 opsPerLoop = 8;
+        uint32 unrollCnt = src.width() / opsPerLoop;
+        uint32 unrollRem = src.width() % opsPerLoop;
+        
+        for (uint32 i = 0; i < 256; i++)
+            histogram[i] = 0;
+        
+        for ( ; row <= lastRow; row++)
+        {
+            const uint8* pixelPtr = src.rowPointer(row);
+            
+            for (uint32 touchCount = 0; touchCount < unrollCnt; touchCount++)
+            {
+                histogram[*pixelPtr++]++;
+                histogram[*pixelPtr++]++;
+                histogram[*pixelPtr++]++;
+                histogram[*pixelPtr++]++;
+                histogram[*pixelPtr++]++;
+                histogram[*pixelPtr++]++;
+                histogram[*pixelPtr++]++;
+                histogram[*pixelPtr++]++;
+            }
+            
+            for (uint32 touchCount = 0; touchCount < unrollRem; touchCount++)
+                histogram[*pixelPtr++]++;
+        }
+        
+        return histogram;
+    }
 
+}
 
 static std::string fileName;
 
@@ -67,7 +108,7 @@ void utQtimeCacheThread::run()
             usleep(preAllocSleep); // Time without a buffer lock attempt
         QtimeCache::frame_ref_t bp;
         QtimeCacheError error = QtimeCacheError::UnInitialized;
-        eQtimeCacheStatus status = eQtimeCacheStatus::Error;
+        QtimeCacheStatus status = QtimeCacheStatus::Error;
     
         
         if (prefetch && _cache.prefetch_running()) {
@@ -89,11 +130,11 @@ void utQtimeCacheThread::run()
         
 
         
-        if (status == eQtimeCacheStatus::OK) {
+        if (status == QtimeCacheStatus::OK) {
             {
               //  if (bp) { std::cerr << "bp ok" <<std::endl;}
                 
-                rcWindow win(bp);
+                roi_window win(bp);
                 uint32 ref_count = bp.refCount();
                 if ((ref_count < 3) || (ref_count >= (QtimeCache_THREAD_CNT*5))) {
                     fprintf(stderr, "Error on ref_count check %d\n", ref_count);
@@ -104,7 +145,7 @@ void utQtimeCacheThread::run()
                     _frameTouch[frameToAlloc]++;
                 }
                 
-                rfGenDepth8Histogram(win, hist);
+                utHistogram8(win, hist);
                 if ((hist[0]+hist[138]) != win.pixelCount())
                 {
                     fprintf(stderr, "Error on pixel check \n");
@@ -123,7 +164,7 @@ void utQtimeCacheThread::run()
                 if (unlockedSleep)
                     usleep(unlockedSleep); // Unlock time
                 if (bp) {
-                    rcWindow win(bp);
+                    roi_window win(bp);
                     uint32 ref_count = bp.refCount();
                     if ((ref_count < 3) || (ref_count >= (QtimeCache_THREAD_CNT*5))) {
                         fprintf(stderr, "Error on ref_count check %d\n", ref_count);
@@ -134,7 +175,7 @@ void utQtimeCacheThread::run()
                         _frameTouch[frameToAlloc]++;
                     }
                     
-                    rfGenDepth8Histogram(win, hist);
+                    utHistogram8(win, hist);
                     if ((hist[0]+hist[138]) != win.pixelCount())
                     {
                         fprintf(stderr, "Error on pixel check \n");
@@ -410,7 +451,7 @@ void UT_QtimeCache::mappingTest()
     
     rcTimestamp actual;
     QtimeCacheError error;
-    eQtimeCacheStatus status;
+    QtimeCacheStatus status;
     
     /* Test for functions frameIndexToTimestamp() and
      * timestampToFrameIndex().
@@ -418,27 +459,27 @@ void UT_QtimeCache::mappingTest()
     const double eps = 1e-05;  // Needed !!
     for (uint32 i = 0; i < frameCount; i++) {
         status = cacheP->frameIndexToTimestamp(i, actual, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
-        if (status == eQtimeCacheStatus::OK)
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
+        if (status == QtimeCacheStatus::OK)
             rcUNITTEST_ASSERT(equal(actual.secs(), times[i], eps));
         
         uint32 actualIndex;
         status = cacheP->timestampToFrameIndex(actual, actualIndex, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
-        if (status == eQtimeCacheStatus::OK)
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
+        if (status == QtimeCacheStatus::OK)
             rcUNITTEST_ASSERT(actualIndex == i);
     }
     
     /* Test for functions firstTimestamp() and lastTimestamp().
      */
     status = cacheP->firstTimestamp(actual, &error);
-    rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
-    if (status == eQtimeCacheStatus::OK)
+    rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
+    if (status == QtimeCacheStatus::OK)
         rcUNITTEST_ASSERT(actual.secs() == times[0]);
     
     status = cacheP->lastTimestamp(actual, &error);
-    rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
-    if (status == eQtimeCacheStatus::OK)
+    rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
+    if (status == QtimeCacheStatus::OK)
         rcUNITTEST_ASSERT(actual.secs() == times[frameCount-1]);
     
     /* Test for function closestTimestamp()
@@ -506,8 +547,8 @@ void UT_QtimeCache::mappingTest()
         {
             status = cacheP->closestTimestamp(rcTimestamp::from_seconds(times[i]), actual, &error);
             //    std::cout << "[" << i << "]:" << times[i] << " + : " << actual.secs() << " e " << (int) error << " s " << (int) status << std::endl;
-            rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
-            if (status == eQtimeCacheStatus::OK && i < frameCount)
+            rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
+            if (status == QtimeCacheStatus::OK && i < frameCount)
             {
                 if (! equal(actual.secs(), expected[i], eps))
                     std::cout << "[" << i << "]:" << times[i] << " + : " << actual.secs() << " e " << (int) error << " s " << (int) status << std::endl;
@@ -527,12 +568,12 @@ void UT_QtimeCache::mappingTest()
             status = cacheP->prevTimestamp(rcTimestamp::from_seconds (times[i]), actual, &error);
             if (i == 0 || i == 56)
             {
-                rcUNITTEST_ASSERT(status == eQtimeCacheStatus::Error);
+                rcUNITTEST_ASSERT(status == QtimeCacheStatus::Error);
                 rcUNITTEST_ASSERT(error == QtimeCacheError::NoSuchFrame);
             }
             else
             {
-                rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+                rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
                 rcUNITTEST_ASSERT(cacheP->getFatalError() == QtimeCacheError::OK);
             }
         }
@@ -549,7 +590,7 @@ void UT_QtimeCache::mappingTest()
             status = cacheP->nextTimestamp(rcTimestamp::from_seconds (times[i]), actual, &error);
             std::cout << "[" << i << "]:" << times[i] << "<->" << times[i+1] << " + : " << actual.secs() << " e " << (int) error << " s " << (int) status << std::endl;
             
-            //        if (status != eQtimeCacheStatus::OK)
+            //        if (status != QtimeCacheStatus::OK)
             //            rcUNITTEST_ASSERT(error == QtimeCacheError::NoSuchFrame);
             //      else
             //      {
@@ -577,13 +618,13 @@ void UT_QtimeCache::simpleAllocTest()
     
     for (uint32 i = 0; i < cacheP->frameCount(); i++) {
         QtimeCacheError error;
-        eQtimeCacheStatus status;
+        QtimeCacheStatus status;
         QtimeCache::frame_ref_t buf;
         rmAssert(buf.refCount() == 0);
         
         status = cacheP->getFrame(i, buf, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
-        if (status == eQtimeCacheStatus::OK) {
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
+        if (status == QtimeCacheStatus::OK) {
             rcUNITTEST_ASSERT(buf.refCount() == 2);
             rcUNITTEST_ASSERT(buf->width() == 16);
             rcUNITTEST_ASSERT(buf->height() == 16);
@@ -600,11 +641,11 @@ void UT_QtimeCache::simpleAllocTest()
             }
 #endif
             
-            rcWindow win(buf);
+            roi_window win(buf);
             rcUNITTEST_ASSERT(buf.refCount() == 3);
             
 #ifdef KNOWN_IMAGE
-            rfGenDepth8Histogram(win, hist);
+            utHistogram8(win, hist);
             rcUNITTEST_ASSERT((hist[0]+hist[138]) == win.pixelCount());
 #endif
             
@@ -613,16 +654,16 @@ void UT_QtimeCache::simpleAllocTest()
     
     for (uint32 i = 0; i < cacheP->frameCount(); i++) {
         QtimeCacheError error;
-        eQtimeCacheStatus status;
+        QtimeCacheStatus status;
         QtimeCache::frame_ref_t buf;
         rmAssert(buf.refCount() == 0);
         
         rcTimestamp time;
         status = cacheP->frameIndexToTimestamp(i, time, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         status = cacheP->getFrame(time, buf, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
-        if (status == eQtimeCacheStatus::OK) {
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
+        if (status == QtimeCacheStatus::OK) {
             rcUNITTEST_ASSERT(buf.refCount() == 2);
             rcUNITTEST_ASSERT(buf->width() == 16);
             rcUNITTEST_ASSERT(buf->height() == 16);
@@ -638,10 +679,10 @@ void UT_QtimeCache::simpleAllocTest()
             }
 #endif
             
-            rcWindow win(buf);
+            roi_window win(buf);
             rcUNITTEST_ASSERT(buf.refCount() == 3);
 #ifdef KNOWN_IMAGE
-            rfGenDepth8Histogram(win, hist);
+            utHistogram8(win, hist);
             rcUNITTEST_ASSERT((hist[0]+hist[138]) == win.pixelCount());
 #endif
         }
@@ -678,14 +719,14 @@ void UT_QtimeCache::prefetchTest()
     
     QtimeCache::frame_ref_t frameBuf[frameCount];
     QtimeCacheError error;
-    eQtimeCacheStatus status;
+    QtimeCacheStatus status;
     
     rcUNITTEST_ASSERT(cacheP->frameCount() == frameCount);
     
     for (uint32 i = 0; i < frameCount; i++) {
         status = cacheP->getFrame(i, frameBuf[i], &error, false);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
-        if (status != eQtimeCacheStatus::OK)
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
+        if (status != QtimeCacheStatus::OK)
         {
             std::cout << i << std::endl;
             return; // No point continuing if we've already screwed up
@@ -703,8 +744,8 @@ void UT_QtimeCache::prefetchTest()
     double prefetchTime = timer.getTime ();
     
     for (uint32 i = 0; i < frameCount; i++) {
-        rcWindow win(frameBuf[i]);
-        rfGenDepth8Histogram(win, hist);
+        roi_window win(frameBuf[i]);
+        utHistogram8(win, hist);
         rcUNITTEST_ASSERT((hist[0]+hist[138]) == win.pixelCount());
     }
     
@@ -720,8 +761,8 @@ void UT_QtimeCache::prefetchTest()
         
         for (uint32 i = 0; i < frameCount; i++) {
             status = cacheP->getFrame(i, frameBuf[i], &error, false);
-            rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
-            if (status != eQtimeCacheStatus::OK)
+            rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
+            if (status != QtimeCacheStatus::OK)
                 return; // No point continuing if we've already screwed up
         }
         
@@ -732,8 +773,8 @@ void UT_QtimeCache::prefetchTest()
         noPrefetchTime = timer.getTime ();
         
         for (uint32 i = 0; i < frameCount; i++) {
-            rcWindow win(frameBuf[i]);
-            rfGenDepth8Histogram(win, hist);
+            roi_window win(frameBuf[i]);
+            utHistogram8(win, hist);
             rcUNITTEST_ASSERT((hist[0]+hist[138]) == win.pixelCount());
         }
         
@@ -764,20 +805,20 @@ void UT_QtimeCache::cacheFullTest()
     rc256BinHist hist(256);
     QtimeCache::frame_ref_t bp[totalCases];
     QtimeCacheError error;
-    eQtimeCacheStatus status;
+    QtimeCacheStatus status;
     
     /* Fill up cache with locked entries.
      */
     for (uint32 i = 0; i < cacheSize; i++) {
         status = cacheP->getFrame(i, bp[i], &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
-        if (status != eQtimeCacheStatus::OK)
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
+        if (status != QtimeCacheStatus::OK)
             return; // No point continuing if we've already screwed up
         rcUNITTEST_ASSERT(bp[i].refCount() == 2);
-        rcWindow win(bp[i]);
+        roi_window win(bp[i]);
         rcUNITTEST_ASSERT(bp[i].refCount() == 3);
         
-        rfGenDepth8Histogram(win, hist);
+        utHistogram8(win, hist);
         rcUNITTEST_ASSERT((hist[0]+hist[138]) == win.pixelCount());
     }
     
@@ -785,13 +826,13 @@ void UT_QtimeCache::cacheFullTest()
      */
     for (uint32 i = cacheSize; i < totalCases; i++) {
         status = cacheP->getFrame(i, bp[i], &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
-        if (status == eQtimeCacheStatus::OK) {
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
+        if (status == QtimeCacheStatus::OK) {
             rcUNITTEST_ASSERT(bp[i].refCount() == 2);
-            rcWindow win(bp[i]);
+            roi_window win(bp[i]);
             rcUNITTEST_ASSERT(bp[i].refCount() == 3);
             
-            rfGenDepth8Histogram(win, hist);
+            utHistogram8(win, hist);
             rcUNITTEST_ASSERT((hist[0]+hist[138]) == win.pixelCount());
         }
     }
@@ -801,13 +842,13 @@ void UT_QtimeCache::cacheFullTest()
     for (uint32 i = cacheSize; i < totalCases; i++) {
         bp[i - cacheSize].unlock();
         status = cacheP->getFrame(i, bp[i], &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
-        if (status == eQtimeCacheStatus::OK) {
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
+        if (status == QtimeCacheStatus::OK) {
             rcUNITTEST_ASSERT(bp[i].refCount() == 2);
-            rcWindow win(bp[i]);
+            roi_window win(bp[i]);
             rcUNITTEST_ASSERT(bp[i].refCount() == 3);
             
-            rfGenDepth8Histogram(win, hist);
+            utHistogram8(win, hist);
             rcUNITTEST_ASSERT((hist[0]+hist[138]) == win.pixelCount());
         }
     }
@@ -819,10 +860,10 @@ void UT_QtimeCache::cacheFullTest()
         bp[i].lock();
         rcUNITTEST_ASSERT(bp[i].refCount() == 2);
         if (bp[i].refCount() == 2) {
-            rcWindow win(bp[i]);
+            roi_window win(bp[i]);
             rcUNITTEST_ASSERT(bp[i].refCount() == 3);
             
-            rfGenDepth8Histogram(win, hist);
+            utHistogram8(win, hist);
             rcUNITTEST_ASSERT((hist[0]+hist[138]) == win.pixelCount());
         }
     }
@@ -834,10 +875,10 @@ void UT_QtimeCache::cacheFullTest()
         bp[i].lock();
         rcUNITTEST_ASSERT(bp[i].refCount() == 2);
         if (bp[i].refCount() == 2) {
-            rcWindow win(bp[i]);
+            roi_window win(bp[i]);
             rcUNITTEST_ASSERT(bp[i].refCount() == 3);
             
-            rfGenDepth8Histogram(win, hist);
+            utHistogram8(win, hist);
             rcUNITTEST_ASSERT((hist[0]+hist[138]) == win.pixelCount());
         }
     }
@@ -857,7 +898,7 @@ void UT_QtimeCache::frameBufTest()
     QtimeCache::QtimeCacheCtor(fileName, cacheSize, true, false);
     QtimeCache::frame_ref_t cachedBp, uncachedBp, changingBp;
     QtimeCacheError error;
-    eQtimeCacheStatus status;
+    QtimeCacheStatus status;
     
     rcUNITTEST_ASSERT(cachedBp.refCount() == 0);
     rcUNITTEST_ASSERT(uncachedBp.refCount() == 0);
@@ -868,8 +909,8 @@ void UT_QtimeCache::frameBufTest()
      */
     status = cacheP->getFrame(0, cachedBp, &error);
     
-    rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
-    if (status != eQtimeCacheStatus::OK)
+    rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
+    if (status != QtimeCacheStatus::OK)
         return; // No point in continuing test if this doesn't work.
     
     rcUNITTEST_ASSERT(cachedBp.refCount() == 2);
@@ -879,7 +920,7 @@ void UT_QtimeCache::frameBufTest()
     rcUNITTEST_ASSERT(uncachedBp.refCount() == 1);
     rcUNITTEST_ASSERT(uncachedBp != cachedBp);
     
-    rcWindow win(uncachedBp);
+    roi_window win(uncachedBp);
     rcUNITTEST_ASSERT(uncachedBp.refCount() == 2);
     
     win.setAllPixels(uncachedPixelValue);
@@ -1019,7 +1060,7 @@ void UT_QtimeCache::frameBufTest()
     {
         QtimeCache::frame_ref_t nonnull;
         status = cacheP->getFrame(1, nonnull, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         rcFrame* cachedFrame = nonnull;
         QtimeCache::frame_ref_t nonnull2(cachedFrame);
         rcUNITTEST_ASSERT(nonnull2 == nonnull);
@@ -1034,7 +1075,7 @@ void UT_QtimeCache::frameBufTest()
     {
         QtimeCache::frame_ref_t nonnull;
         status = cacheP->getFrame(1, nonnull, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         QtimeCache::frame_ref_t nonnull2(nonnull);
         rcUNITTEST_ASSERT(nonnull2 == nonnull);
         rcUNITTEST_ASSERT(nonnull2.refCount() == 3);
@@ -1042,7 +1083,7 @@ void UT_QtimeCache::frameBufTest()
     {
         QtimeCache::frame_ref_t nonnull;
         status = cacheP->getFrame(1, nonnull, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         QtimeCache::frame_ref_t nonnullcopy(nonnull);
         nonnull.unlock();
         QtimeCache::frame_ref_t nonnull2(nonnull);
@@ -1070,12 +1111,12 @@ void UT_QtimeCache::frameBufTest()
         rcFrame* nonnullFrame = new rcFrame(16, 16, rcPixel8);
         QtimeCache::frame_ref_t forFramePtr;
         status = cacheP->getFrame(3, forFramePtr, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         rcFrame* nonnullFrameC = forFramePtr;
         QtimeCache::frame_ref_t srcNull;
         QtimeCache::frame_ref_t nonnullC;
         status = cacheP->getFrame(1, nonnullC, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         QtimeCache::frame_ref_t nonnullUnc(new rcFrame(16, 16, rcPixel8));
         
         destNull = nonnullFrame;
@@ -1130,12 +1171,12 @@ void UT_QtimeCache::frameBufTest()
         rcFrame* nonnullFrame = new rcFrame(16, 16, rcPixel8);
         QtimeCache::frame_ref_t forFramePtr;
         status = cacheP->getFrame(3, forFramePtr, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         rcFrame* nonnullFrameC = forFramePtr;
         QtimeCache::frame_ref_t srcNull;
         QtimeCache::frame_ref_t nonnullC;
         status = cacheP->getFrame(1, nonnullC, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         QtimeCache::frame_ref_t nonnullUnc(new rcFrame(16, 16, rcPixel8));
         
         destNonnullUnc = nonnullFrame;
@@ -1183,7 +1224,7 @@ void UT_QtimeCache::frameBufTest()
     {
         QtimeCache::frame_ref_t destNonnullC;
         status = cacheP->getFrame(2, destNonnullC, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         
         QtimeCache::frame_ref_t frame2Copy(destNonnullC);
         rcUNITTEST_ASSERT(destNonnullC.refCount() == 3);
@@ -1192,12 +1233,12 @@ void UT_QtimeCache::frameBufTest()
         rcFrame* nonnullFrame = new rcFrame(16, 16, rcPixel8);
         QtimeCache::frame_ref_t forFramePtr;
         status = cacheP->getFrame(3, forFramePtr, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         rcFrame* nonnullFrameC = forFramePtr;
         QtimeCache::frame_ref_t srcNull;
         QtimeCache::frame_ref_t nonnullC;
         status = cacheP->getFrame(1, nonnullC, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         QtimeCache::frame_ref_t nonnullUnc(new rcFrame(16, 16, rcPixel8));
         
         destNonnullC = nullFrame;
@@ -1252,7 +1293,7 @@ void UT_QtimeCache::frameBufTest()
     {
         QtimeCache::frame_ref_t destNonnullCunlocked;
         status = cacheP->getFrame(2, destNonnullCunlocked, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         
         QtimeCache::frame_ref_t frame2Copy(destNonnullCunlocked);
         rcUNITTEST_ASSERT(destNonnullCunlocked.refCount() == 3);
@@ -1261,12 +1302,12 @@ void UT_QtimeCache::frameBufTest()
         rcFrame* nonnullFrame = new rcFrame(16, 16, rcPixel8);
         QtimeCache::frame_ref_t forFramePtr;
         status = cacheP->getFrame(3, forFramePtr, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         rcFrame* nonnullFrameC = forFramePtr;
         QtimeCache::frame_ref_t srcNull;
         QtimeCache::frame_ref_t nonnullC;
         status = cacheP->getFrame(1, nonnullC, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         QtimeCache::frame_ref_t nonnullUnc(new rcFrame(16, 16, rcPixel8));
         
         destNonnullCunlocked.unlock();
@@ -1343,13 +1384,13 @@ void UT_QtimeCache::frameBufTest()
         rcFrame* nonnullFrame = new rcFrame(16, 16, rcPixel8);
         QtimeCache::frame_ref_t forFramePtr;
         status = cacheP->getFrame(3, forFramePtr, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         rcFrame* nonnullFrameC = forFramePtr;
         QtimeCache::frame_ref_t rightNull;
         QtimeCache::frame_ref_t nonnullUnc(new rcFrame(16, 16, rcPixel8));
         QtimeCache::frame_ref_t nonnullC;
         status = cacheP->getFrame(1, nonnullC, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         
         rcUNITTEST_ASSERT(nullFrame == nullFrame);
         rcUNITTEST_ASSERT((nullFrame != nullFrame) == false);
@@ -1382,13 +1423,13 @@ void UT_QtimeCache::frameBufTest()
         rcFrame* nullFrame = 0;
         QtimeCache::frame_ref_t forFramePtr;
         status = cacheP->getFrame(3, forFramePtr, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         rcFrame* nonnullFrameC = forFramePtr;
         QtimeCache::frame_ref_t rightNull;
         QtimeCache::frame_ref_t nonnullUnc(new rcFrame(16, 16, rcPixel8));
         QtimeCache::frame_ref_t nonnullC;
         status = cacheP->getFrame(1, nonnullC, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         
         rcUNITTEST_ASSERT(nonnullFrame != nullFrame);
         rcUNITTEST_ASSERT((nonnullFrame == nullFrame) == false);
@@ -1418,7 +1459,7 @@ void UT_QtimeCache::frameBufTest()
     {
         QtimeCache::frame_ref_t forFramePtr;
         status = cacheP->getFrame(3, forFramePtr, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         rcFrame* nonnullFrameC = forFramePtr;
         
         rcFrame* nullFrame = 0;
@@ -1427,7 +1468,7 @@ void UT_QtimeCache::frameBufTest()
         QtimeCache::frame_ref_t nonnullUnc(new rcFrame(16, 16, rcPixel8));
         QtimeCache::frame_ref_t nonnullC;
         status = cacheP->getFrame(1, nonnullC, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         
         rcUNITTEST_ASSERT(nonnullFrameC != nullFrame);
         rcUNITTEST_ASSERT((nonnullFrameC == nullFrame) == false);
@@ -1461,13 +1502,13 @@ void UT_QtimeCache::frameBufTest()
         rcFrame* nonnullFrame = new rcFrame(16, 16, rcPixel8);
         QtimeCache::frame_ref_t forFramePtr;
         status = cacheP->getFrame(3, forFramePtr, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         rcFrame* nonnullFrameC = forFramePtr;
         QtimeCache::frame_ref_t rightNull;
         QtimeCache::frame_ref_t nonnullUnc(new rcFrame(16, 16, rcPixel8));
         QtimeCache::frame_ref_t nonnullC;
         status = cacheP->getFrame(1, nonnullC, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         
         rcUNITTEST_ASSERT(leftNull.operator==(nullFrame));
         rcUNITTEST_ASSERT((leftNull.operator!=(nullFrame)) == false);
@@ -1501,13 +1542,13 @@ void UT_QtimeCache::frameBufTest()
         rcFrame* nonnullFrame = new rcFrame(16, 16, rcPixel8);
         QtimeCache::frame_ref_t forFramePtr;
         status = cacheP->getFrame(3, forFramePtr, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         rcFrame* nonnullFrameC = forFramePtr;
         QtimeCache::frame_ref_t rightNull;
         QtimeCache::frame_ref_t nonnullUncRight(new rcFrame(16, 16, rcPixel8));
         QtimeCache::frame_ref_t nonnullC;
         status = cacheP->getFrame(1, nonnullC, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         
         rcUNITTEST_ASSERT(nonnullUnc.operator!=(nullFrame));
         rcUNITTEST_ASSERT((nonnullUnc.operator==(nullFrame)) == false);
@@ -1540,19 +1581,19 @@ void UT_QtimeCache::frameBufTest()
     {
         QtimeCache::frame_ref_t nonnullC;
         status = cacheP->getFrame(1, nonnullC, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         
         rcFrame* nullFrame = 0;
         rcFrame* nonnullFrame = new rcFrame(16, 16, rcPixel8);
         QtimeCache::frame_ref_t forFramePtr;
         status = cacheP->getFrame(3, forFramePtr, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         rcFrame* nonnullFrameC = forFramePtr;
         QtimeCache::frame_ref_t rightNull;
         QtimeCache::frame_ref_t nonnullUnc(new rcFrame(16, 16, rcPixel8));
         QtimeCache::frame_ref_t nonnullCright;
         status = cacheP->getFrame(2, nonnullCright, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         
         rcUNITTEST_ASSERT(nonnullC.operator!=(nullFrame));
         rcUNITTEST_ASSERT((nonnullC.operator==(nullFrame)) == false);
@@ -1585,20 +1626,20 @@ void UT_QtimeCache::frameBufTest()
     {
         QtimeCache::frame_ref_t nonnullC;
         status = cacheP->getFrame(1, nonnullC, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         nonnullC.unlock();
         
         rcFrame* nullFrame = 0;
         rcFrame* nonnullFrame = new rcFrame(16, 16, rcPixel8);
         QtimeCache::frame_ref_t forFramePtr;
         status = cacheP->getFrame(3, forFramePtr, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         rcFrame* nonnullFrameC = forFramePtr;
         QtimeCache::frame_ref_t rightNull;
         QtimeCache::frame_ref_t nonnullUnc(new rcFrame(16, 16, rcPixel8));
         QtimeCache::frame_ref_t nonnullCright;
         status = cacheP->getFrame(2, nonnullCright, &error);
-        rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         
         rcUNITTEST_ASSERT(nonnullC.operator!=(nullFrame));
         rcUNITTEST_ASSERT((nonnullC.operator==(nullFrame)) == false);
@@ -1694,8 +1735,8 @@ void UT_QtimeCache::dtorTest()
     
     QtimeCache::frame_ref_t bp;
     QtimeCacheError error;
-    eQtimeCacheStatus status = cacheP->getFrame(0, bp, &error);
-    rcUNITTEST_ASSERT(status == eQtimeCacheStatus::OK);
+    QtimeCacheStatus status = cacheP->getFrame(0, bp, &error);
+    rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
     rcUNITTEST_ASSERT(bp.refCount() == 2);
     rcUNITTEST_ASSERT(bp->getPixel(0, 0) == expPixelValue);
     

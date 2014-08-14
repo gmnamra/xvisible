@@ -9,7 +9,7 @@
 
 typedef struct qutExpMapResult {
   QtimeCacheError  expError;
-  eQtimeCacheStatus expStatus;
+  QtimeCacheStatus expStatus;
   double             expTime;
 } qutExpMapResult;
 

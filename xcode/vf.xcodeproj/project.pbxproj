@@ -165,7 +165,6 @@
 		C2C291E018F4B9A000BA7E79 /* rc_find.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2917618F4B9A000BA7E79 /* rc_find.cpp */; };
 		C2C291E118F4B9A000BA7E79 /* rc_fixcord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2917718F4B9A000BA7E79 /* rc_fixcord.cpp */; };
 		C2C291E218F4B9A000BA7E79 /* rc_framebuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2917818F4B9A000BA7E79 /* rc_framebuf.cpp */; };
-		C2C291E318F4B9A000BA7E79 /* rc_framegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2917918F4B9A000BA7E79 /* rc_framegrabber.cpp */; };
 		C2C291E718F4B9A000BA7E79 /* rc_histstats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2917D18F4B9A000BA7E79 /* rc_histstats.cpp */; };
 		C2C291EA18F4B9A000BA7E79 /* rc_imageprocessing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2918018F4B9A000BA7E79 /* rc_imageprocessing.cpp */; };
 		C2C291EC18F4B9A000BA7E79 /* rc_ip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C2918218F4B9A000BA7E79 /* rc_ip.cpp */; };
@@ -1855,7 +1854,6 @@
 				C2C291D818F4B9A000BA7E79 /* rc_cubic.cpp in Sources */,
 				C2C2921818F4B9A000BA7E79 /* rc_videocache.cpp in Sources */,
 				C2C291B918F4B9A000BA7E79 /* exceptions.cpp in Sources */,
-				C2C291E318F4B9A000BA7E79 /* rc_framegrabber.cpp in Sources */,
 				C2C2926918F4C1F300BA7E79 /* tif_fax3sm.c in Sources */,
 				C2C291FB18F4B9A000BA7E79 /* rc_numeric.cpp in Sources */,
 				C2C291DF18F4B9A000BA7E79 /* rc_filter1d.cpp in Sources */,

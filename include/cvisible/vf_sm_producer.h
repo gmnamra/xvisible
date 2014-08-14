@@ -5,24 +5,25 @@
 #include <stdio.h>
 #include <deque>
 #include "rc_types.h"
-#include "rc_framegrabber.h"
 #include <boost/shared_ptr.hpp>
 #include <boost/signals2.hpp>
 #include <boost/signals2/slot.hpp>
 #include <typeinfo>
 #include <string>
 #include "signaler.h"
+#include "roi_window.h"
+
 using namespace std;
 using namespace boost;
 
 
 typedef boost::shared_ptr<class sm_producer> smProducerRef;
-typedef boost::shared_ptr<rcFrameGrabber> fGrabberRef;
+
 
 class sm_producer
 {
 public:
-    typedef std::vector<rcWindow> images_vector;
+    typedef std::vector<roi_window> images_vector;
     typedef std::deque<double> sMatrixProjectionType;
     typedef std::deque< std::deque<double> > sMatrixType;
     typedef void (sig_cb_content_loaded) ();

@@ -62,11 +62,11 @@ namespace vf_utils
                     mMovieFrameInterval = 1.0 / (mMovie.getFramerate() + std::numeric_limits<double>::epsilon() );
                     mFrameInterval = boost::math::signbit (frameInterval) == 1 ? mMovieFrameInterval : mFrameInterval;
                     mMovie.setLoop( true, false);
-                    setLastError( rcFrameGrabberError::eFrameErrorOK );
+                    setLastError( rcFrameGrabberError::OK );
                 }
                 else
                 {
-                    setLastError( rcFrameGrabberError::eFrameErrorFileInit );
+                    setLastError( rcFrameGrabberError::FileInit );
                 }
                 
             }
@@ -76,7 +76,7 @@ namespace vf_utils
             
             virtual bool isValid () const
             {
-                return mValid && ( getLastError() == rcFrameGrabberError::eFrameErrorOK );
+                return mValid && ( getLastError() == rcFrameGrabberError::OK );
             }
             
             bool contentValid () const
@@ -98,7 +98,7 @@ namespace vf_utils
                 if (mMovie.isPlaying () )
                     return true;
                 else
-                    setLastError( rcFrameGrabberError::eFrameErrorUnsupportedFormat );
+                    setLastError( rcFrameGrabberError::UnsupportedFormat );
                 return false;
             }
             
@@ -131,7 +131,7 @@ namespace vf_utils
                 
                 boost::lock_guard<boost::mutex> (this->mMuLock);
                 rcFrameGrabberStatus ret =  eFrameStatusOK;
-                setLastError( rcFrameGrabberError::eFrameErrorUnknown );
+                setLastError( rcFrameGrabberError::Unknown );
                 
                 if (mCurrentIndex >= 0 && mCurrentIndex < mFrameCount)
                 {
@@ -153,14 +153,14 @@ namespace vf_utils
                             
                             ptr->setTimestamp (rcTimestamp::from_seconds (tp ) );
                             ret = eFrameStatusOK;
-                            setLastError( rcFrameGrabberError::eFrameErrorOK );
+                            setLastError( rcFrameGrabberError::OK );
                             mMovie.stepForward ();
                             mCurrentIndex++;
                         }
                     }
                     else
                     {
-                        setLastError( rcFrameGrabberError::eFrameErrorFileRead );
+                        setLastError( rcFrameGrabberError::FileRead );
                         ret = eFrameStatusError;
                     }
                     
@@ -213,7 +213,7 @@ namespace vf_utils
             {
                 if (! isValid () ) return eFrameStatusError;
                 if ( ! stop () ) return eFrameStatusError;
-                setLastError( rcFrameGrabberError::eFrameErrorUnknown );
+                setLastError( rcFrameGrabberError::Unknown );
                 boost::lock_guard<boost::mutex> (this->mMuLock);
                 rcFrameGrabberStatus ret =  eFrameStatusOK;
                 mMovie.seekToStart ();
@@ -239,7 +239,7 @@ namespace vf_utils
                         
                         frameCount++;
                     }
-                     setLastError( rcFrameGrabberError::eFrameErrorOK );
+                     setLastError( rcFrameGrabberError::OK );
                   return eFrameStatusEOF;
             }
             

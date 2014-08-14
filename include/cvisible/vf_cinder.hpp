@@ -107,7 +107,7 @@ class QtimeCache::qtImpl
         return mInfo.mTscale;
     }
     
-    bool getSurfaceAndCopy (rcFrameRef& ptr)
+    bool getSurfaceAndCopy (cached_frame_ref& ptr)
     {
         std::lock_guard<std::mutex> lk(mx);
         if (!mMovie) return false;

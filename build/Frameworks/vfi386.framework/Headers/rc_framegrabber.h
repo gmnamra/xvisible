@@ -20,30 +20,30 @@ class rcFrameRef;
 
 // Error type
 enum class rcFrameGrabberError : int32 {
-    eFrameErrorOK = 0,            // No error
-    eFrameErrorUnknown,           // Unknown error
-    eFrameErrorInternal,          // Internal logic error
-    eFrameErrorInit,              // Unspecified init error
-    eFrameErrorFileInit,          // File (system) init error
-    eFrameErrorFileRead,          // File read error
-    eFrameErrorFileClose,         // File close error
-    eFrameErrorFileFormat,        // File invalid
-    eFrameErrorFileUnsupported,   // File format unsupported
-    eFrameErrorFileRevUnsupported,// File revision unsupported
-    eFrameErrorSystemResources,   // Inadequate system resources (shared memory,
+    OK = 0,            // No error
+    Unknown,           // Unknown error
+    Internal,          // Internal logic error
+    Init,              // Unspecified init error
+    FileInit,          // File (system) init error
+    FileRead,          // File read error
+    FileClose,         // File close error
+    FileFormat,        // File invalid
+    FileUnsupported,   // File format unsupported
+    FileRevUnsupported,// File revision unsupported
+    SystemResources,   // Inadequate system resources (shared memory,
                                   // heap)
-    eFrameErrorIPC,               // Error communicating with peer process
-    eFrameErrorQuicktimeInit,     // QuickTime init error
-    eFrameErrorQuicktimeRead,     // QuickTime read error
-    eFrameErrorCameraInit,        // Camera init error
-    eFrameErrorCameraCapture,     // Camera error during capture
-    eFrameErrorUnsupportedFormat, // Unsupported image format
-    eFrameErrorUnsupportedDepth,  // Unsupported image pixel depth
-    eFrameErrorNotImplemented,    // This feature not implemented yet
-    eFrameErrorFrameNotAvailable, // User specified no waiting and frame isn't
+    IPC,               // Error communicating with peer process
+    QuicktimeInit,     // QuickTime init error
+    QuicktimeRead,     // QuickTime read error
+    CameraInit,        // Camera init error
+    CameraCapture,     // Camera error during capture
+    UnsupportedFormat, // Unsupported image format
+    UnsupportedDepth,  // Unsupported image pixel depth
+    NotImplemented,    // This feature not implemented yet
+    FrameNotAvailable, // User specified no waiting and frame isn't
                                   // available
-    eFrameErrorOutOfMemory,       // Ran out of memory
-    eFrameErrorInvalidOptions     // Invalid options specified
+    OutOfMemory,       // Ran out of memory
+    InvalidOptions     // Invalid options specified
 };
 
 // Status type
@@ -57,7 +57,7 @@ enum rcFrameGrabberStatus {
 
 // Abstract interface for getting frames from a device or a file
 // Implementations may use one or more threads internally
-
+#if 0
 class RFY_API rcFrameGrabber {
   public:
 
@@ -92,7 +92,7 @@ class RFY_API rcFrameGrabber {
     // cache.
     virtual int32 cacheSize() = 0;
 
-    // Get next frame, assign the frame to ptr. If the return value eFrameError
+    // Get next frame, assign the frame to ptr. If the return value 
     // call getLastError() for details.
     virtual rcFrameGrabberStatus getNextFrame( rcFrameRef& , bool isBlocking ) = 0;
 
@@ -102,6 +102,109 @@ class RFY_API rcFrameGrabber {
     // Static method for mapping an error value to a string
     static std::string getErrorString( rcFrameGrabberError error );
 };
+#endif
+
+
+template<typename frame_type_t>
+class RFY_API rcFrameGrabberT
+{
+public:
+    
+    // Virtual dtor
+    virtual ~rcFrameGrabberT() {}
+    
+    // Called after construction to verify that the grabber is functional.
+    // If the return value is false, an error occurred and getLastError()
+    // can be called to get the error status.
+    virtual bool isValid() const = 0;
+    
+    // Get last error value.
+    virtual rcFrameGrabberError getLastError() const = 0;
+    
+    // Start grabbing.
+    // If the return value is false, an error occurred and getLastError()
+    // can be called to get the error status.
+    virtual bool start() = 0;
+    
+    // Stop grabbing,
+    // If the return value is false, an error occurred and getLastError()
+    // can be called to get the error status.
+    virtual bool stop() = 0;
+    
+    // Returns an estimate of the number of frames available. There is no guarantee
+    // that this number is accurate, more or less frames may be returned.
+    // Value -1 denotes unknown, potentially an infinite number
+    // if the source is a device like a camera
+    virtual int32 frameCount() = 0;
+    
+    // Returns the size of the cache, in frames, or 0 if there is no
+    // cache.
+    virtual int32 cacheSize() = 0;
+    
+    // Get next frame, assign the frame to ptr. If the return value
+    // call getLastError() for details.
+    virtual rcFrameGrabberStatus getNextFrame( frame_type_t& , bool isBlocking ) = 0;
+    
+    // Get name of input source, ie. file name, camera name etc.
+    virtual const std::string getInputSourceName() = 0;
+    
+    // Static method for mapping an error value to a string
+    static std::string getErrorString( rcFrameGrabberError error )
+    {
+            switch ( error ) {
+                case rcFrameGrabberError::OK:
+                    return std::string( "Frame grabber: OK" );
+                case rcFrameGrabberError::Unknown:
+                    return std::string( "Frame grabber: unknown error" );
+                case rcFrameGrabberError::Init:
+                    return std::string( "Frame grabber: unknown initialization error" );
+                case rcFrameGrabberError::FileInit:
+                    return std::string( "Frame grabber: file not found" );
+                case rcFrameGrabberError::FileClose:
+                    return std::string( "Frame grabber: file close failed" );
+                case rcFrameGrabberError::FileFormat:
+                    return std::string( "Frame grabber: file is corrupted" );
+                case rcFrameGrabberError::FileUnsupported:
+                    return std::string( "Frame grabber: unsupported file format" );
+                case rcFrameGrabberError::FileRevUnsupported:
+                    return std::string( "Frame grabber: unsupported file revision" );
+                case rcFrameGrabberError::FileRead:
+                    return std::string( "Frame grabber: file read failed" );
+                case rcFrameGrabberError::SystemResources:
+                    return std::string("Frame grabber: inadequate system resources");
+                case rcFrameGrabberError::IPC:
+                    return std::string("Frame grabber: error communicating with peer process");
+                case rcFrameGrabberError::CameraInit:
+                    return std::string( "Frame grabber: camera initialization failed" );
+                case rcFrameGrabberError::CameraCapture:
+                    return std::string( "Frame grabber: camera capture failed" );
+                case rcFrameGrabberError::QuicktimeInit:
+                    return std::string( "Frame grabber: QuickTime initialization failed" );
+                case rcFrameGrabberError::QuicktimeRead:
+                    return std::string( "Frame grabber: QuickTime read failed" );
+                case rcFrameGrabberError::UnsupportedDepth:
+                    return std::string( "Frame grabber: got an image with unsupported depth" );
+                case rcFrameGrabberError::UnsupportedFormat:
+                    return std::string( "Frame grabber: got an image with unsupported format" );
+                case rcFrameGrabberError::NotImplemented:
+                    return std::string( "Frame grabber: feature not implemented yet" );
+                case rcFrameGrabberError::FrameNotAvailable:
+                    return std::string( "Frame grabber: frame not available" );
+                case rcFrameGrabberError::Internal:
+                    return std::string( "Frame grabber: internal logic error" );
+                case rcFrameGrabberError::OutOfMemory:
+                    return std::string( "Frame grabber: out of memory" );
+                case rcFrameGrabberError::InvalidOptions:
+                    return std::string( "Frame grabber: invalid options specified" );
+                    // Note: no default case to force a compiler warning if a new enum value
+                    // is defined without adding a corresponding string here.
+            }
+            
+            return std::string(" Frame grabber: undefined error" );
+    }
+};
+
+typedef rcFrameGrabberT<rcFrameRef> rcFrameGrabber;
 
 //
 // Class for global locking during Carbon/QuickTime calls. Classes
@@ -130,7 +233,7 @@ class rcVectorGrabber : public rcFrameGrabber {
   rcVectorGrabber( const vector<rcWindow>& images, int32 cacheSz = 0 ) :
         mImages( images ),
         mCurrentIndex( 0 ),
-	mLastError( rcFrameGrabberError::eFrameErrorOK ),
+	mLastError( rcFrameGrabberError::OK ),
 	mCacheSz(cacheSz) {
     };
     // virtual dtor

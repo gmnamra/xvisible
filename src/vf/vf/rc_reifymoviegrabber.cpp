@@ -14,32 +14,32 @@ rcReifyMovieGrabberT<rcVideoCache,rcVideoCacheError>::errorNoTranslate(rcVideoCa
 {
     switch (error) {
         case rcVideoCacheError::FileInit:
-            return rcFrameGrabberError::eFrameErrorFileInit;
+            return rcFrameGrabberError::FileInit;
         case rcVideoCacheError::FileSeek:
         case rcVideoCacheError::FileRead:
-            return rcFrameGrabberError::eFrameErrorFileRead;
+            return rcFrameGrabberError::FileRead;
         case rcVideoCacheError::FileClose:
-            return rcFrameGrabberError::eFrameErrorFileClose;
+            return rcFrameGrabberError::FileClose;
         case rcVideoCacheError::FileFormat:
-            return rcFrameGrabberError::eFrameErrorFileFormat;
+            return rcFrameGrabberError::FileFormat;
         case rcVideoCacheError::FileUnsupported:
-            return rcFrameGrabberError::eFrameErrorFileUnsupported;
+            return rcFrameGrabberError::FileUnsupported;
         case rcVideoCacheError::FileRevUnsupported:
-            return rcFrameGrabberError::eFrameErrorFileRevUnsupported;
+            return rcFrameGrabberError::FileRevUnsupported;
         case rcVideoCacheError::SystemResources:
-            return rcFrameGrabberError::eFrameErrorSystemResources;
+            return rcFrameGrabberError::SystemResources;
         case rcVideoCacheError::NoSuchFrame:
         case rcVideoCacheError::CacheInvalid:
-            return rcFrameGrabberError::eFrameErrorInternal;
+            return rcFrameGrabberError::Internal;
         case rcVideoCacheError::OK:
-            return rcFrameGrabberError::eFrameErrorOK;
+            return rcFrameGrabberError::OK;
         case rcVideoCacheError::BomUnsupported:
-            return rcFrameGrabberError::eFrameErrorFileUnsupported;
+            return rcFrameGrabberError::FileUnsupported;
         case rcVideoCacheError::DepthUnsupported:
-            return rcFrameGrabberError::eFrameErrorUnsupportedDepth;
+            return rcFrameGrabberError::UnsupportedDepth;
     }
     
-    return rcFrameGrabberError::eFrameErrorUnknown;
+    return rcFrameGrabberError::Unknown;
 }
 
 
@@ -93,7 +93,7 @@ rcFrameGrabberStatus rcReifyMovieGrabberT<rcVideoCache,rcVideoCacheError>::getNe
     return eFrameStatusError;
 
   if (!isBlocking) {
-    setLastError(rcFrameGrabberError::eFrameErrorNotImplemented);
+    setLastError(rcFrameGrabberError::NotImplemented);
     return eFrameStatusError;
   }
   

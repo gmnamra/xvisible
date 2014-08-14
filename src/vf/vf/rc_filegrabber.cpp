@@ -16,7 +16,7 @@
 // public
 
 rcFileGrabber::rcFileGrabber( rcCarbonLock* lock ) :
-        mLastError( eFrameErrorOK ),
+        mLastError( rcFrameGrabberError::OK ),
         mCarbonLock( lock )
 {
 }
@@ -35,7 +35,7 @@ rcFrameGrabberError rcFileGrabber::getLastError() const
 // Returns grabber instance validity
 bool rcFileGrabber::isValid() const
 {
-    if ( getLastError() == eFrameErrorOK )
+    if ( getLastError() == rcFrameGrabberError::OK )
         return true;
     else
         return false;
