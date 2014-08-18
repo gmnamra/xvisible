@@ -351,7 +351,6 @@ private:
         deque<uint32>      _prefetchRequests;
         std::condition_variable cond_;
         boost::atomic<bool> seppuku_;
-        bool mQuit;
         std::unique_ptr<std::thread> mThread;
     };
     

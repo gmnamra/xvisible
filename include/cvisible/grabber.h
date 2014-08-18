@@ -62,11 +62,11 @@ public:
      * \return true if grabber is running / streaming. False otherwise.
      */
     virtual bool
-    isRunning () ;
+    isRunning () {return true;}
     
     /** \brief returns fps. 0 if trigger based. */
     virtual float
-    getFramesPerSecond () const;
+    getFramesPerSecond () const {return -1.0f; }
     
     /** \brief returns frame count  */
     virtual int frameCount () const = 0;

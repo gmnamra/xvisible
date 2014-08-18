@@ -44,6 +44,8 @@
 		C2A1B0E4199BD60500FF6022 /* roi_window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A1B0E3199BD60500FF6022 /* roi_window.cpp */; };
 		C2A1B0E9199C3CE000FF6022 /* exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A1B0E8199C3CE000FF6022 /* exception.cpp */; };
 		C2A1B0EC199C62AF00FF6022 /* self_similarity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A1B0EB199C62AF00FF6022 /* self_similarity.cpp */; };
+		C2A1B0EF199D4DC000FF6022 /* rowfuncs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A1B0EE199D4DC000FF6022 /* rowfuncs.cpp */; };
+		C2A1B0F5199D516700FF6022 /* image_correlation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A1B0F4199D516700FF6022 /* image_correlation.cpp */; };
 		C2A2BE97193055BF003337D7 /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D6FA80192D27820099EEED /* libboost_thread.a */; };
 		C2A2BE99193055F9003337D7 /* vfi386.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A2BE98193055F9003337D7 /* vfi386.framework */; };
 		C2D6FA81192D27820099EEED /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D6FA80192D27820099EEED /* libboost_thread.a */; };
@@ -135,6 +137,12 @@
 		C2A1B0EA199C3CEC00FF6022 /* exception.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = exception.hpp; path = ../../include/cvisible/exception.hpp; sourceTree = "<group>"; };
 		C2A1B0EB199C62AF00FF6022 /* self_similarity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = self_similarity.cpp; sourceTree = "<group>"; };
 		C2A1B0ED199C62BC00FF6022 /* self_similarity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = self_similarity.h; path = ../../include/cvisible/self_similarity.h; sourceTree = "<group>"; };
+		C2A1B0EE199D4DC000FF6022 /* rowfuncs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rowfuncs.cpp; sourceTree = "<group>"; };
+		C2A1B0F0199D4DDD00FF6022 /* image_correlation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = image_correlation.h; path = ../../include/cvisible/image_correlation.h; sourceTree = "<group>"; };
+		C2A1B0F1199D4DDD00FF6022 /* row_func.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = row_func.h; path = ../../include/cvisible/row_func.h; sourceTree = "<group>"; };
+		C2A1B0F2199D4DDD00FF6022 /* simple_pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = simple_pair.h; path = ../../include/cvisible/simple_pair.h; sourceTree = "<group>"; };
+		C2A1B0F3199D4DDD00FF6022 /* sshist.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = sshist.hpp; path = ../../include/cvisible/sshist.hpp; sourceTree = "<group>"; };
+		C2A1B0F4199D516700FF6022 /* image_correlation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = image_correlation.cpp; sourceTree = "<group>"; };
 		C2A2BE98193055F9003337D7 /* vfi386.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386.framework; path = ../build/Frameworks/vfi386.framework; sourceTree = "<group>"; };
 		C2A3267F1952582D007A35E6 /* visible_main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = visible_main.h; path = ../../include/cvisible/visible_main.h; sourceTree = "<group>"; };
 		C2A3268019550CDA007A35E6 /* stl_util.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = stl_util.hpp; sourceTree = "<group>"; };
@@ -307,6 +315,12 @@
 		C21733FB190B175500A01365 /* cvisible */ = {
 			isa = PBXGroup;
 			children = (
+				C2A1B0F4199D516700FF6022 /* image_correlation.cpp */,
+				C2A1B0F0199D4DDD00FF6022 /* image_correlation.h */,
+				C2A1B0F1199D4DDD00FF6022 /* row_func.h */,
+				C2A1B0F2199D4DDD00FF6022 /* simple_pair.h */,
+				C2A1B0F3199D4DDD00FF6022 /* sshist.hpp */,
+				C2A1B0EE199D4DC000FF6022 /* rowfuncs.cpp */,
 				C2A1B0ED199C62BC00FF6022 /* self_similarity.h */,
 				C2A1B0EB199C62AF00FF6022 /* self_similarity.cpp */,
 				C2A1B0EA199C3CEC00FF6022 /* exception.hpp */,
@@ -479,6 +493,7 @@
 			files = (
 				C263159A195CC0A800CF71B1 /* qtime_cache.cpp in Sources */,
 				C2FB27021921D31F003A48B7 /* ut_similarity.cpp in Sources */,
+				C2A1B0EF199D4DC000FF6022 /* rowfuncs.cpp in Sources */,
 				C2A1B0E4199BD60500FF6022 /* roi_window.cpp in Sources */,
 				C209870F196A0C1A005325A2 /* ut_qtime.cpp in Sources */,
 				C2F100A2197471A90070BB7B /* cached_frame_buffer.cpp in Sources */,
@@ -486,6 +501,7 @@
 				C2FB27001921D30C003A48B7 /* ut_videocache.cpp in Sources */,
 				C2FB26FE1921D2F6003A48B7 /* ut_framebuf.cpp in Sources */,
 				C20986AA196357CB005325A2 /* gutc.cpp in Sources */,
+				C2A1B0F5199D516700FF6022 /* image_correlation.cpp in Sources */,
 				C242F57D19292656000FEAAB /* vf_qtime_grabber.cpp in Sources */,
 				C236E0A7192914490035C2F5 /* vf_source.cpp in Sources */,
 				C2A1B0EC199C62AF00FF6022 /* self_similarity.cpp in Sources */,

@@ -24,7 +24,7 @@ class cache_grabber : public simple_grabber
       typedef void (sig_cb_native_acquire_complete) ();
 
       /** \brief Constructor. */
-      cache_grabber (SharedQtimeCache& cache_) : cache_ (cache_), _framesLeft(0), _curFrame(0), _started(false)
+      cache_grabber (SharedQtimeCache& cache_) : cache_ (cache_), _last_frame_count(0), _curFrame(0), _started(false)
       {
           BOOST_ASSERT(cache_->isValid());
           native_image_signal_ = createSignal<sig_cb_native_image_buffer>();
@@ -54,7 +54,7 @@ class cache_grabber : public simple_grabber
               return false;
           
           if (_started == false) {
-              _framesLeft = (int32) cache_->frameCount();
+              _last_frame_count = (int32) cache_->frameCount() - 1;
               _curFrame = 0;
               _started = true;
           }
@@ -81,14 +81,12 @@ class cache_grabber : public simple_grabber
               if (!cache_->isValid())
                   return eFrameStatusError;
               
-              if (!_started) start();
               if (!_started)
                   return eFrameStatusError;
               
-              if (_framesLeft == 0)
+              if (_curFrame  == _last_frame_count)
                   return eFrameStatusEOF;
               
-              _framesLeft--;
               
               /*
                * Get reference to frame, but don't lock it so it won't be forced
@@ -99,10 +97,10 @@ class cache_grabber : public simple_grabber
               
               if (status != QtimeCacheStatus::OK)
               {
-                  return 1;
+                  return eFrameStatusError;
               }
               
-              return 0;
+              return eFrameStatusEOF;
           }
  
       }
@@ -138,7 +136,7 @@ class cache_grabber : public simple_grabber
       
       SharedQtimeCache& cache_;
       
-      int32             _framesLeft;
+      int32             _last_frame_count;
       int32             _curFrame;
       bool                _started;
       

@@ -136,6 +136,19 @@ TEST( UT_FrameBuf, run )
 
 
 
+TEST (UT_QtimeCache, run)
+{
+    
+    // vf does not support QuickTime natively. The ut expectes and checks for failure
+    static std::string qmov_name ("box-move.mov");
+    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
+    
+    UT_QtimeCache test (qmov);
+    test.set_which ();
+    EXPECT_EQ(0, test.run () );
+}
+
+
 TEST(cb_similarity_producer, run)
 {
     static std::string qmov_name ("box-move.mov");
@@ -170,17 +183,7 @@ TEST(cb_similarity_producer, run)
 
 
 
-TEST (UT_QtimeCache, run)
-{
-    
-    // vf does not support QuickTime natively. The ut expectes and checks for failure
-    static std::string qmov_name ("box-move.mov");
-    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
-    
-    UT_QtimeCache test (qmov);
-    EXPECT_EQ(0, test.run () );
-}
-
+#if 0
 
 TEST(cinder_qtime_grabber, run)
 {
@@ -219,7 +222,7 @@ TEST(cinder_qtime_grabber, run)
     
 }
 
-#if 0
+
 
 TEST(cinder_qtime_grabber_and_similarity, run)
 {

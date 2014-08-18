@@ -370,6 +370,13 @@ QtimeCacheStatus  QtimeCache::getFrame(uint32 frameIndex,
         return  QtimeCacheStatus::Error;
     }
     
+    QtimeCacheError toc_error = tocLoad();
+    if (toc_error !=  QtimeCacheError::OK) {
+        if (error) *error = toc_error;
+        ADD_VID_TRACE(fnGetFrameI, false, 0xFFFFFFFF, frameBuf.mFrameBuf, dToken);
+        return  QtimeCacheStatus::Error;
+    }
+    
     QtimeCacheStatus status =  QtimeCacheStatus::OK;
     if (locked)
         status = internalGetFrame(frameIndex, frameBuf, error, dToken);

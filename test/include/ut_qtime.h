@@ -18,7 +18,10 @@ class UT_QtimeCache : public rcUnitTest {
   UT_QtimeCache(std::string movieFileName);
   ~UT_QtimeCache();
 
-  virtual uint32 run();
+    virtual uint32 run();
+    int get_which () { return which; }
+    void set_which (int wh = 0) { which = wh; }
+    
 
  private:
   void ctorTest();
@@ -31,6 +34,7 @@ class UT_QtimeCache : public rcUnitTest {
   void dtorTest();
   void threadSafeTest();
     void threadSafe (bool);
+    int which;
 };
 
 // Thread-safe test specific stuff

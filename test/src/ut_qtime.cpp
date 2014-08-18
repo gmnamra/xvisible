@@ -47,7 +47,7 @@ namespace
         
         return histogram;
     }
-
+    
 }
 
 static std::string fileName;
@@ -64,7 +64,7 @@ utQtimeCacheThread::utQtimeCacheThread(QtimeCache& cache) : _cache(cache) {}
 
 void utQtimeCacheThread::run()
 {
-
+    
     
     _frame_count = _cache.frameCount();
     _frameTouch.resize (_frame_count);
@@ -75,7 +75,7 @@ void utQtimeCacheThread::run()
         _ref_count[i] = 0;
     _myErrors = 0;
     _prefetches = 0;
-
+    
     int temp;
     
     while (startTest.getValue(temp) == 0)
@@ -94,14 +94,14 @@ void utQtimeCacheThread::run()
         
         uint32 frameToAlloc = (uint32)(r & 0x7); r >>= 3;
         rmAssert(frameToAlloc < _frame_count);
-
-     //   std::lock_guard<std::mutex> lk (safe_mutex);
-     //   {
-//            std::cerr << std::this_thread::get_id() << std::endl;
-            
-          //  std::cerr << preAllocSleep << ",\t" << prefetchSleep << ",\t" << unlockedSleep << ",\t" << postAllocSleep << "r:\t" << r << std::endl;
-          //  std::cerr << frameToAlloc << ",\t" << _frame_count << "\t" << (prefetch ? "True" : "False") << std::endl;
-     //   }
+        
+        //   std::lock_guard<std::mutex> lk (safe_mutex);
+        //   {
+        //            std::cerr << std::this_thread::get_id() << std::endl;
+        
+        //  std::cerr << preAllocSleep << ",\t" << prefetchSleep << ",\t" << unlockedSleep << ",\t" << postAllocSleep << "r:\t" << r << std::endl;
+        //  std::cerr << frameToAlloc << ",\t" << _frame_count << "\t" << (prefetch ? "True" : "False") << std::endl;
+        //   }
         
         
         if (preAllocSleep)
@@ -109,7 +109,7 @@ void utQtimeCacheThread::run()
         QtimeCache::frame_ref_t bp;
         QtimeCacheError error = QtimeCacheError::UnInitialized;
         QtimeCacheStatus status = QtimeCacheStatus::Error;
-    
+        
         
         if (prefetch && _cache.prefetch_running()) {
             _prefetches++;
@@ -128,11 +128,11 @@ void utQtimeCacheThread::run()
                 std::cerr << static_cast<int32>(status)  << "," << (int32) error << std::endl;
         }
         
-
+        
         
         if (status == QtimeCacheStatus::OK) {
             {
-              //  if (bp) { std::cerr << "bp ok" <<std::endl;}
+                //  if (bp) { std::cerr << "bp ok" <<std::endl;}
                 
                 roi_window win(bp);
                 uint32 ref_count = bp.refCount();
@@ -223,19 +223,21 @@ UT_QtimeCache::~UT_QtimeCache()
 
 uint32 UT_QtimeCache::run()
 {
-#if 1
+
     ctorTest();
     mappingTest();
     simpleAllocTest();
     prefetchTest();
-    prefetchThreadTest();
     cacheFullTest();
     frameBufTest();
     dtorTest();
-#endif
-    
-    threadSafeTest();
 
+    if (which < 0)
+    {
+        prefetchThreadTest();
+        threadSafeTest();
+    }
+    
     
     return mErrors;
 }
@@ -694,7 +696,7 @@ void UT_QtimeCache::simpleAllocTest()
 // Test for prefetch thread operation
 void UT_QtimeCache::prefetchThreadTest()
 {
-   // fprintf( stderr, "%-38s", "QtimeCache prefetch thread ctor");
+    // fprintf( stderr, "%-38s", "QtimeCache prefetch thread ctor");
     // Call ctor and dtor rapdily to test prefetch thread race conditions
     for ( uint32 i = 0;  i < 4096; ++i )
     {
@@ -754,34 +756,32 @@ void UT_QtimeCache::prefetchTest()
     QtimeCache::QtimeCacheDtor(cacheP);
     double noPrefetchTime;
     
-//    {
-//        QtimeCache::frame_ref_t frameBuf[frameCount];
-        
-        cacheP = QtimeCache::QtimeCacheCtor(fileName, 0, true, false);
-        
-        for (uint32 i = 0; i < frameCount; i++) {
-            status = cacheP->getFrame(i, frameBuf[i], &error, false);
-            rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
-            if (status != QtimeCacheStatus::OK)
-                return; // No point continuing if we've already screwed up
-        }
-        
-        
-        timer.reset ();
-        for (uint32 i = 0; i < frameCount; i++)
-            frameBuf[i].lock();
-        noPrefetchTime = timer.getTime ();
-        
-        for (uint32 i = 0; i < frameCount; i++) {
-            roi_window win(frameBuf[i]);
-            utHistogram8(win, hist);
-            rcUNITTEST_ASSERT((hist[0]+hist[138]) == win.pixelCount());
-        }
-        
-        
-        
-        QtimeCache::QtimeCacheDtor(cacheP);
-//    }
+    
+    cacheP = QtimeCache::QtimeCacheCtor(fileName, 0, true, false);
+    
+    for (uint32 i = 0; i < frameCount; i++) {
+        status = cacheP->getFrame(i, frameBuf[i], &error, false);
+        rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
+        if (status != QtimeCacheStatus::OK)
+            return; // No point continuing if we've already screwed up
+    }
+    
+    
+    timer.reset ();
+    for (uint32 i = 0; i < frameCount; i++)
+        frameBuf[i].lock();
+    noPrefetchTime = timer.getTime ();
+    
+    for (uint32 i = 0; i < frameCount; i++) {
+        roi_window win(frameBuf[i]);
+        utHistogram8(win, hist);
+        rcUNITTEST_ASSERT((hist[0]+hist[138]) == win.pixelCount());
+    }
+    
+    
+    
+    QtimeCache::QtimeCacheDtor(cacheP);
+    
     
     cout << "Performance: Cache Prefetch " << prefetchTime
     << " us, Time Per Frame " << (prefetchTime / frameCount)
@@ -1721,7 +1721,7 @@ void UT_QtimeCache::frameBufTest()
         rcUNITTEST_ASSERT(nonnullUnc.refCount() == 1);
     }
     
-     QtimeCache::QtimeCacheDtor(cacheP);
+    QtimeCache::QtimeCacheDtor(cacheP);
 }
 
 void UT_QtimeCache::dtorTest()
@@ -1751,25 +1751,25 @@ void UT_QtimeCache::threadSafeTest()
     std::cout << std::endl << " Prefetch Unit Off Tests " << std::endl;
     threadSafe(false);
     // we should be done check
-   int temp;
-   utQtimeCacheThread::startTest.getValue(temp);
-   rmAssert(temp == 1);
+    int temp;
+    utQtimeCacheThread::startTest.getValue(temp);
+    rmAssert(temp == 1);
     
     // reset to 0
     utQtimeCacheThread::startTest.setValue(0);
-       std::cout << std::endl << " Prefetch Unit On Tests " << std::endl;
+    std::cout << std::endl << " Prefetch Unit On Tests " << std::endl;
     
     threadSafe(true);
 }
 void UT_QtimeCache::threadSafe(bool prefetch_true)
 {
-  
+    
     
     /* Verify that cache member fcts are all thread safe.
      */
     QtimeCache* cacheP =
     QtimeCache::QtimeCacheCtor(fileName, QtimeCache_SZ, false, prefetch_true);
-  
+    
     
     rcUNITTEST_ASSERT(cacheP->isValid());
     if (!cacheP->isValid())
@@ -1782,7 +1782,7 @@ void UT_QtimeCache::threadSafe(bool prefetch_true)
     utQtimeCacheThread::startTest.getValue(temp);
     rmAssert(temp == 0);
     
- 
+    
     
     /* Create all the worker tasks.
      */

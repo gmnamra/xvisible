@@ -2,7 +2,7 @@
 
 #include "vf_sm_producer.h"
 #include "vf_sm_producer_impl.h"
-#include "rc_similarity.h"
+#include "self_similarity.h"
 #include "rc_videocache.h"
 #include "rc_reifymoviegrabber.h"
 #include "rc_tiff.h"
@@ -271,7 +271,7 @@ int32 sm_producer::spImpl::loadFrames(  )
         int fc_1 = fc - 1;
         
         // Note: infinite loop
-		for( count = 0; ; ++count )
+		for( count = 0; count < fc; count++ )
 		{
 			rcTimestamp curTimeStamp;
 			rcRect videoFrame;
@@ -280,7 +280,7 @@ int32 sm_producer::spImpl::loadFrames(  )
 			int status = m_grabber_ref->get_next_frame( framePtr );
             
 			if ( status != 0 ) break;
-
+            
             // Note curTimeStamp fetching under VideoCache and normal fetch
             // Any access to the pixel data or time stamp of the frames cached will force a frame load.
                 QtimeCacheError error;
@@ -341,10 +341,10 @@ bool sm_producer::spImpl::generate_ssm (int start_frames, int frames)
 {
 static    double tiny = 1e-10;
     
-    rcSimilarator simi(rcSimilarator::eExhaustive,
+    self_similarity_producer simi(self_similarity_producer::eExhaustive,
                      rcPixel8,
                      _frameCount,
-                     0, rcSimilarator::eNorm,
+                     0, self_similarity_producer::eNorm,
                      false,
                      0,
                      tiny);
@@ -353,7 +353,7 @@ static    double tiny = 1e-10;
     
     simi.fill(*m_loaded_ref);
     m_entropies.resize (0);
-    bool ok = simi.entropies (m_entropies, rcSimilarator::eVisualEntropy);
+    bool ok = simi.entropies (m_entropies, self_similarity_producer::eVisualEntropy);
     m_SMatrix.resize (0);
     simi.selfSimilarityMatrix(m_SMatrix);
     return ok;

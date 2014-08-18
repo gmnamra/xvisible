@@ -14,10 +14,10 @@
 #include "rc_types.h"
 
 // visual
-#include "rois_window.h"
+#include "roi_window.h"
 
 // analysis
-#include  "rc_ncs.h"
+#include  "image_correlation.h"
 
 #include <boost/shared_ptr.hpp>
 

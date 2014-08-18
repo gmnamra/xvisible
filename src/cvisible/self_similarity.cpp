@@ -3,13 +3,8 @@
  */
 
 // analysis
-#include "rc_similarity.h"
-#include  "rc_ncs.h"
-#include "rc_filter1d.h"
-#include "rc_histstats.h"
-#include "rc_1dcorr.h"
-#include "rc_ip.h"
-#include "rc_edge.h"
+#include "self_similarity.h"
+#include  "image_correlation.h"
 
 
 
@@ -101,52 +96,6 @@ bool self_similarity_producer::fill(vector<roi_window>& firstImages)
   return false;
 }
 
-bool self_similarity_producer::fill(const roi_window& projective, bool isColumns)
-{
-  rmAssert (_matrixSz);
-
-  vector<roi_window> firstImages (isColumns ? projective.width() : 
-				projective.height());
-  
-  vector<roi_window>::iterator start = firstImages.begin();
-
-  // Call transpose so that the columns are organised in rows 
-
-  if (isColumns)
-    {
-      for (int32 x = 0; start < firstImages.end (); start++, x++)
-	*start = rfImage8Transpose (roi_window (projective.frameBuf (), 
-					      x, 0, 1, projective.height()));
-    }
-  else
-    {
-      rmAssert (start == firstImages.begin());
-      for (int32 y = 0; start < firstImages.end (); start++, y++)
-	*start = roi_window (projective.frameBuf (), 0, y, projective.width(), 1);
-    }
-      
-			   
-
-  start = firstImages.begin();
-  if (firstImages.size() > _matrixSz)
-    start += (firstImages.size() - _matrixSz);
-
-  switch (_depth) {
-  case rcPixel8:
-    _tw8.resize(0);
-    return internalFill(start, firstImages.end(), _tw8);
-  case rcPixel16:
-    _tw16.resize(0);
-    return internalFill(start, firstImages.end(), _tw16);
-  case rcPixel32S:
-    _tw32.resize(0);
-    return internalFill(start, firstImages.end(), _tw32);
-  default:
-    rmAssert(0);
-    break;
-  }
-  return false;
-}
 
 bool self_similarity_producer::fill(vector<double>& firstData)
 {
@@ -765,49 +714,9 @@ double self_similarity_producer::correlate(roi_window_t<T>& i,
 {
   rcCorr res;
 
-  if (corrDefinition () == self_similarity_producer::eHintersect)
-    {
-      rcHistoStats ih (i.window ());
-      rcHistoStats mh (m.window());
-      double ir = rf1dSignalIntersection (ih.histogram().begin(), ih.histogram().end(), 
-					  mh.histogram().begin(), mh.histogram().end());
-      return ir + _tiny;
-    }
-
-  if (corrDefinition () == self_similarity_producer::eLowSpT)
-    {
-      roi_window isampled (i.width(), i.height(), i.depth());
-      roi_window msampled (m.width(), m.height(), m.depth());
-      rfGaussianConv (i.window(), isampled, 5);
-      rfGaussianConv (m.window(), msampled, 5);
-      rfCorrelate(isampled, msampled, _corrParams, res);
-      return res.r() + _tiny;
-    }
-
-  if (corrDefinition () == self_similarity_producer::eShading)
-    {
-      roi_window tmp (i.width(), i.height(), i.depth());
-      roi_window mag (i.width(), i.height(), i.depth());
-      roi_window g (i.width(), i.height(), i.depth());
-      roi_window gg (i.width(), i.height(), i.depth());      
-      rfSetWindowBorder(mag, uint8 (0));
-      rfSetWindowBorder(g, uint8 (0));
-      rfSetWindowBorder(gg, uint8 (0));
-
-      roi_window gwin (g, 1, 1, g.width()-2, g.height()-2);
-      roi_window ggwin (gg, 1, 1, gg.width()-2, gg.height()-2);
-      roi_window mwin (mag, 1, 1, m.width()-2, m.height()-2);
-      rfGaussianConv (i.window(), tmp, 5);
-      rfSobelEdge (tmp, mwin, gwin);
-      rfGaussianConv (m.window(), tmp, 5);
-      rfSobelEdge (tmp, mwin, ggwin);
-      rfCorrelate(g, gg, _corrParams, res);
-      return res.r() + _tiny;
-    }
-
   if (_maskValid)
   {
-    rfCorrelate(i.window(), m.window(), _mask, _corrParams, res, _maskN);
+    rfCorrelate(i, m, _mask, _corrParams, res, _maskN);
   }
   else
     rfCorrelateWindow(i, m, _corrParams, res);
@@ -831,7 +740,7 @@ double self_similarity_producer::relativeCorrelate(roi_window_t<T>& i,
   rcCorr res;
 
   if (_maskValid)
-    rfCorrelate(i.window(), m.window(), _mask, _corrParams, res, _maskN);
+    rfCorrelate(i, m, _mask, _corrParams, res, _maskN);
   else
     rfCorrelateWindow(i, m, _corrParams, res);
 
