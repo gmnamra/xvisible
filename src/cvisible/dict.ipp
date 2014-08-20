@@ -1,6 +1,6 @@
 
-#ifndef qInv_TYPES_DICT_IPP
-#define qInv_TYPES_DICT_IPP
+#ifndef civf_TYPES_DICT_IPP
+#define civf_TYPES_DICT_IPP
 
 #include <util\exception.hpp>
 #include <boost\foreach.hpp>
@@ -8,12 +8,12 @@
 #include <boost\lexical_cast.hpp>
 #include <typeinfo>
 
-namespace qInv{
+namespace civf{
 
     namespace /*anon*/{
         template<typename Key, typename Val>
-        struct key_not_found: qInv::key_error{
-            key_not_found(const Key &key): qInv::key_error(
+        struct key_not_found: civf::key_error{
+            key_not_found(const Key &key): civf::key_error(
                 str(boost::format(
                     "key \"%s\" not found in dict(%s, %s)"
                     ) % boost::lexical_cast<std::string>(key)
@@ -121,4 +121,4 @@ namespace qInv{
 
 } //namespace uhd
 
-#endif /* qINV_TYPES_DICT_IPP */
+#endif /* civf_TYPES_DICT_IPP */

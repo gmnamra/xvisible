@@ -12,7 +12,7 @@
  *
  * - The python built-in exceptions were used as inspiration.
  * - Exceptions inherit from std::exception to provide what().
- * - Exceptions inherit from qInv::exception to provide code().
+ * - Exceptions inherit from civf::exception to provide code().
  *
  * The code() provides an error code which allows the application
  * the option of printing a cryptic error message from the 1990s.
@@ -149,7 +149,7 @@ namespace vf_exception {
      * Use this macro in places that code execution is not supposed to go.
      */
     #define ERROR_THROW_INVALID_CODE_PATH() \
-        throw vf_utils::system_error(qInv_THROW_SITE_INFO("invalid code path"))
+        throw vf_utils::system_error(civf_THROW_SITE_INFO("invalid code path"))
 
     /*!
      * Assert the result of the code evaluation.
@@ -157,7 +157,7 @@ namespace vf_exception {
      * \param code the code that resolved to a boolean
      */
     #define ERROR_ASSERT_THROW(code) if (not (code)) \
-        throw vf_utils::assertion_error(qInv_THROW_SITE_INFO(#code)); \
+        throw vf_utils::assertion_error(civf_THROW_SITE_INFO(#code)); \
     else void(0)
 
 } //namespace

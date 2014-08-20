@@ -31,9 +31,13 @@ using namespace std;
 
 class QtimeCache::qtImpl
 {
- public:
+public:
+    
+    typedef std::vector<float> toc_t;
+    typedef std::shared_ptr<toc_t> toc_t_ref;
+    
     // ctor
-    qtImpl( const std::string fqfn) : mFqfn (fqfn), mValid (false)
+    qtImpl( const std::string fqfn) : mFqfn (fqfn), mValid (false), m_raw (new toc_t)
     {
         std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
     }
@@ -45,28 +49,15 @@ class QtimeCache::qtImpl
         if ( file_exists ( mFqfn ) && file_readable ( mFqfn ) )
         {
             mMovie = cinder::qtime::MovieSurface::create (mFqfn);
-            mValid = mMovie != 0;
+            mValid = mMovie != 0 && get_toc();
             if (mValid)
             {
-                mInfo.mWidth = mMovie->getWidth();
-                mInfo.mHeight = mMovie->getHeight();
-                mInfo.mFps = mMovie->getFramerate();
-                mInfo.mEmbeddedCount = mMovie->getNumFrames ();
-                auto movObj = mMovie->getMovieHandle();
-                mInfo.mTscale = ::GetMovieTimeScale( movObj );
                 mMovie->checkPlayable();
                 mMovie->seekToStart ();
                 mMovie->setLoop (false, false);
-                for (int fn=0; fn<mInfo.mEmbeddedCount; fn++)
-                {
-                    m_raw.push_back(static_cast<int32>(mMovie->getCurrentTime() * mInfo.mTscale));
-                    mMovie->stepForward ();
-                }
-                assert(m_raw.size() == mInfo.mEmbeddedCount);
-                
             }
         }
-
+        
     }
     
     bool isValid () const
@@ -78,8 +69,8 @@ class QtimeCache::qtImpl
     vf_utils::general_movie::info movie_info ()
     {
         std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
-        std::lock_guard<std::mutex> lk(mx);            
-        return mInfo;
+        std::lock_guard<std::mutex> lk(mx);
+        return minfo;
     }
     
     
@@ -98,13 +89,12 @@ class QtimeCache::qtImpl
     }
     
     
-    double get_time_index_map (std::shared_ptr<std::vector<int32> >& ti_map)
+    double get_time_index_map (std::shared_ptr<std::vector<float> >& ti_map)
     {
         std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
-        std::lock_guard<std::mutex> lk(mx);
-        std::shared_ptr<std::vector<int32> >  res(new std::vector<int32> (m_raw));
-        ti_map.swap(res);
-        return mInfo.mTscale;
+        std::unique_lock<std::mutex> lk(mx);
+        ti_map.swap(m_raw);
+        return minfo.mTscale;
     }
     
     bool getSurfaceAndCopy (cached_frame_ref& ptr)
@@ -136,7 +126,7 @@ class QtimeCache::qtImpl
     
     void seekToStart()
     {
-     //   std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
+        //   std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
         std::lock_guard<std::mutex> lk(mx);
         mMovie->seekToStart ();
     }
@@ -166,21 +156,51 @@ class QtimeCache::qtImpl
         std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
         std::lock_guard<std::mutex> lk(mx);
         return mMovie->checkNewFrame ();
-
+        
     }
     
 private:
-    vf_utils::general_movie::info mInfo;
+    vf_utils::general_movie::info minfo;
     mutable std::once_flag mMovie_loaded_flag;
     std::string mFqfn;
     ci::qtime::MovieSurfaceRef    mMovie;
     ci::Surface				mSurface;
     mutable bool                mValid;
     mutable std::mutex          mx;
+    mutable std::mutex          qmx;
+    toc_t_ref m_raw;
     
     
-    std::vector<int32> m_raw;
+    bool get_toc()
+    {
+        std::unique_lock<std::mutex> lk(qmx);
+        
+        minfo.mWidth = mMovie->getWidth();
+        minfo.mHeight = mMovie->getHeight();
+        minfo.mFps = mMovie->getFramerate();
+        minfo.mEmbeddedCount = mMovie->getNumFrames ();
+        auto movObj = mMovie->getMovieHandle();
+        minfo.mTscale = ::GetMovieTimeScale( movObj );
+        
+        TimeValue   curMovieTime = 0;
+        m_raw->resize (0);
+        OSType types[] = { VisualMediaCharacteristic };
+
+        // there's an extra time step at the end of the movie
+        // use frame count to avoid fetching the extra step
+        for (uint32 fc = 0; fc < minfo.mEmbeddedCount; fc++)
+        {
+            m_raw->push_back (curMovieTime / 600.0f);
+            ::GetMovieNextInterestingTime( movObj, nextTimeStep, 1, types, curMovieTime, fixed1, &curMovieTime, NULL );
+        }
+
+
+        return (m_raw->size() == minfo.mEmbeddedCount);
+    }
+    
+    
+    
 };
 
 
-#endif // __VF_UTILS__QTIME__IMPL__
+#endif // __QTIME_VC_IMPL__

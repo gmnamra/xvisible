@@ -264,12 +264,15 @@ QtimeCacheError  QtimeCache::tocLoad()
     _tocItoT.resize(_frameCount);
     rmAssert(_tocTtoI.empty());
     rmAssert(_impl);
-    std::shared_ptr<std::vector<int32> > raws;
+    std::shared_ptr<std::vector<float> > raws;
     double dscale = _impl->get_time_index_map(raws);
     std::vector<rcTimestamp> frametimes (_frameCount);
+    int64 ticks_per_second = vf_utils::civf::instance().get_ticks();
+    
     for (int fn=0; fn<_frameCount; fn++)
     {
-        frametimes[fn] = rcTimestamp::from_seconds(raws->at(fn)/dscale);
+        int64 ftime = ticks_per_second * (raws->at(fn)/dscale);
+        frametimes[fn] = rcTimestamp:: from_tick_type (ftime);
     }
     for (uint32 frameIndex = 0; frameIndex < _frameCount; frameIndex++)
     {

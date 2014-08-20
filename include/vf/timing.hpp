@@ -42,7 +42,7 @@
     * create an instance at the beginning of the function. Example:
     *
     * {
-    *   qInv::ScopeTime t1 ("doit");
+    *   civf::ScopeTime t1 ("doit");
     *   // ... 
     * }
     */
