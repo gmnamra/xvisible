@@ -4,13 +4,14 @@
 
 #include <stdio.h>
 #include <deque>
-#include "rc_types.h"
+#include "vf_types.h"
 #include <boost/shared_ptr.hpp>
 #include <boost/signals2.hpp>
 #include <boost/signals2/slot.hpp>
 #include <typeinfo>
 #include <string>
 #include "signaler.h"
+#include "grabber.h"
 #include "roi_window.h"
 
 using namespace std;
@@ -47,7 +48,7 @@ public:
     int channels_per_plane () const;
     int planes_per_image () const;
     int frames_in_content () const;
-    rcFrameGrabberError last_error () const;
+    grabber_error last_error () const;
     
     
     const std::string& content_file () const;

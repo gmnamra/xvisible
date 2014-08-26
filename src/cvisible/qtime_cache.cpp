@@ -1,8 +1,8 @@
 // Copyright 2003 Reify, Inc.
 
-#include "vf_cinder.hpp"
+#include "vf_qtime_cache_impl.hpp"
 #include <stdio.h>
-#include "rc_types.h"
+#include "vf_types.h"
 
 
 using namespace std;
@@ -138,14 +138,14 @@ QtimeCache*  QtimeCache:: QtimeCacheCtor(const std::string fileName,
                                          uint32 cacheSize,
                                          bool verbose,
                                          bool prefetch,
-                                         uint32 maxMemory,
-                                         rcProgressIndicator* pIndicator)
+                                         uint32 maxMemory)
+
 {
-    return finishSetup(new  QtimeCache(fileName, cacheSize, verbose, prefetch, maxMemory, pIndicator));
+    return finishSetup(new  QtimeCache(fileName, cacheSize, verbose, prefetch, maxMemory));
 }
 
 QtimeCache*
-QtimeCache:: QtimeCacheUTCtor(const vector<rcTimestamp>& frameTimes)
+QtimeCache:: QtimeCacheUTCtor(const vector<time_spec_t>& frameTimes)
 {
     return finishSetup(new  QtimeCache(frameTimes));
 }
@@ -166,11 +166,11 @@ void  QtimeCache:: QtimeCacheDtor( QtimeCache* cacheP)
 
 QtimeCache:: QtimeCache(std::string fileName, uint32 cacheSize,
                         bool verbose, bool prefetch,
-                        uint32 maxMemory, rcProgressIndicator* pIndicator)
+                        uint32 maxMemory)
 : _lastTouchIndex(0), _verbose(verbose), _prefetch (prefetch),
 _isValid(true), _fatalError( QtimeCacheError::OK), _fileName(fileName),  _pendingCtrl(_cacheMutex),
-_cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0),
-_progressIndicator(pIndicator)
+_cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0)
+
 {
 #ifdef VID_TRACE
     _debuggingToken = 0;
@@ -195,7 +195,7 @@ _progressIndicator(pIndicator)
     
     _frameWidth = m_ginfo.mWidth;
     _frameHeight = m_ginfo.mHeight;
-    _frameDepth = rcPixel8;
+    _frameDepth = rpixel8;
     _averageFrameRate = m_ginfo.mFps;
     _frameCount = m_ginfo.mEmbeddedCount;
     _baseTime = 0;
@@ -236,7 +236,7 @@ _progressIndicator(pIndicator)
     for (uint32 i = 0; i < _frameCache.size(); i++)
         _unusedCacheFrames.push_back(&_frameCache[i]);
     
-    rmAssert(_unusedCacheFrames.size() >= _cacheSize);
+    assert (_unusedCacheFrames.size() >= _cacheSize);
     _cacheOverflowLimit = _unusedCacheFrames.size() - _cacheSize;
     
     /* Just about done. If prefetch is enabled, create a prefetch thread
@@ -244,7 +244,7 @@ _progressIndicator(pIndicator)
      */
     if (_prefetch) {
         _prefetchThread = std::shared_ptr< QtimeCachePrefetchUnit> (new  QtimeCachePrefetchUnit(*this));
-        rmAssert(_prefetchThread);
+        assert (_prefetchThread);
         _prefetchThread->start();
     }
 }
@@ -262,21 +262,20 @@ QtimeCacheError  QtimeCache::tocLoad()
         return  QtimeCacheError::OK;
     
     _tocItoT.resize(_frameCount);
-    rmAssert(_tocTtoI.empty());
-    rmAssert(_impl);
+    assert (_tocTtoI.empty());
+    assert (_impl);
     std::shared_ptr<std::vector<float> > raws;
     double dscale = _impl->get_time_index_map(raws);
-    std::vector<rcTimestamp> frametimes (_frameCount);
+    std::vector<time_spec_t> frametimes (_frameCount);
     int64 ticks_per_second = vf_utils::civf::instance().get_ticks();
     
     for (int fn=0; fn<_frameCount; fn++)
     {
-        int64 ftime = ticks_per_second * (raws->at(fn)/dscale);
-        frametimes[fn] = rcTimestamp:: from_tick_type (ftime);
+        frametimes[fn] = time_spec_t (ticks_per_second * (raws->at(fn)/dscale));
     }
     for (uint32 frameIndex = 0; frameIndex < _frameCount; frameIndex++)
     {
-        if (frameIndex != 0) rmAssert(frametimes[frameIndex] > frametimes[frameIndex-1]);
+        if (frameIndex != 0) assert (frametimes[frameIndex] > frametimes[frameIndex-1]);
         _tocItoT[frameIndex] = frametimes[frameIndex];
         _tocTtoI[frametimes[frameIndex]] = frameIndex;
     }
@@ -288,7 +287,7 @@ QtimeCacheError  QtimeCache::tocLoad()
     return  QtimeCacheError::OK;
 }
 
-QtimeCache:: QtimeCache(const vector<rcTimestamp>& frameTimes)
+QtimeCache:: QtimeCache(const vector<time_spec_t>& frameTimes)
 : _lastTouchIndex(0), _verbose(false),
 _isValid(true), _fatalError( QtimeCacheError::OK), _fileName(""),  _pendingCtrl(_cacheMutex),
 _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0)
@@ -296,10 +295,10 @@ _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0)
 #ifdef VID_TRACE
     _debuggingToken = 0;
 #endif
-    rmAssert(frameTimes.size());
+    assert (frameTimes.size());
     
     _frameWidth = _frameHeight = 0;
-    _frameDepth = rcPixel8;
+    _frameDepth = rpixel8;
     _averageFrameRate = 0.0;
     _frameCount = frameTimes.size();
     _baseTime = 0;
@@ -309,7 +308,7 @@ _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0)
     _tocItoT.resize(_frameCount);
     for (uint32 frameIndex = 0; frameIndex < _frameCount; frameIndex++) {
         if (frameIndex != 0)
-            rmAssert(frameTimes[frameIndex] > frameTimes[frameIndex-1]);
+            assert (frameTimes[frameIndex] > frameTimes[frameIndex-1]);
         
         _tocItoT[frameIndex] = frameTimes[frameIndex];
         _tocTtoI[frameTimes[frameIndex]] = frameIndex;
@@ -324,7 +323,7 @@ _cacheID(0), _cacheMisses(0), _cacheHits(0), _prefetchThread(0)
     for (uint32 i = 0; i < _frameCache.size(); i++)
         _unusedCacheFrames.push_back(&_frameCache[i]);
     
-    rmAssert(_unusedCacheFrames.size() >= _cacheSize);
+    assert (_unusedCacheFrames.size() >= _cacheSize);
     _cacheOverflowLimit = _unusedCacheFrames.size() - _cacheSize;
 }
 
@@ -345,7 +344,6 @@ QtimeCache::~ QtimeCache()
         _prefetchThread->prefetch(0);
         _prefetchThread->join(true);
     }
-    _progressIndicator = 0;
 }
 
 QtimeCacheStatus  QtimeCache::getFrame(uint32 frameIndex,
@@ -391,7 +389,7 @@ QtimeCacheStatus  QtimeCache::getFrame(uint32 frameIndex,
     return status;
 }
 
-QtimeCacheStatus  QtimeCache::getFrame(const rcTimestamp& time,
+QtimeCacheStatus  QtimeCache::getFrame(const time_spec_t& time,
                                         frame_ref_t& frameBuf,
                                         QtimeCacheError* error,
                                         bool locked)
@@ -417,9 +415,9 @@ QtimeCacheStatus  QtimeCache::getFrame(const rcTimestamp& time,
         return  QtimeCacheStatus::Error;
     }
     
-    rmAssert(!_tocTtoI.empty());
+    assert (!_tocTtoI.empty());
     
-    map<rcTimestamp, uint32>::iterator frameIndexPtr;
+    map<time_spec_t, uint32>::iterator frameIndexPtr;
     frameIndexPtr = _tocTtoI.find(time);
     
     if (frameIndexPtr == _tocTtoI.end()) {
@@ -487,8 +485,8 @@ QtimeCacheError  QtimeCache::getFatalError() const
 
 // Returns the timestamp in the movie closest to the goal time.
 QtimeCacheStatus
-QtimeCache::closestTimestamp(const rcTimestamp& goalTime,
-                             rcTimestamp& match,
+QtimeCache::closestTimestamp(const time_spec_t& goalTime,
+                             time_spec_t& match,
                              QtimeCacheError* error)
 {
     if (!isValid()) {
@@ -501,11 +499,11 @@ QtimeCache::closestTimestamp(const rcTimestamp& goalTime,
     if (status !=  QtimeCacheError::OK)
         return  QtimeCacheStatus::Error;
     
-    rmAssert(!_tocTtoI.empty());
+    assert (!_tocTtoI.empty());
     
     /* Find timestamp > goal timestamp.
      */
-    map<rcTimestamp, uint32>::iterator it;
+    map<time_spec_t, uint32>::iterator it;
     it = _tocTtoI.upper_bound(goalTime);
     
     if (it == _tocTtoI.end()) {
@@ -519,9 +517,9 @@ QtimeCache::closestTimestamp(const rcTimestamp& goalTime,
         match = it->first;
     }
     else {
-        const rcTimestamp afterGoal = it->first;
+        const time_spec_t afterGoal = it->first;
         it--;
-        const rcTimestamp beforeOrEqualGoal = it->first;
+        const time_spec_t beforeOrEqualGoal = it->first;
         
         //  @note: goalTime.bi_compare (beforeOrEqualGoal, afterGoal, match);
         if ((afterGoal - goalTime) < (goalTime - beforeOrEqualGoal))
@@ -535,8 +533,8 @@ QtimeCache::closestTimestamp(const rcTimestamp& goalTime,
 
 // Returns first timestamp > goalTime.
 QtimeCacheStatus
-QtimeCache::nextTimestamp(const rcTimestamp& goalTime,
-                          rcTimestamp& match,
+QtimeCache::nextTimestamp(const time_spec_t& goalTime,
+                          time_spec_t& match,
                           QtimeCacheError* error)
 {
     if (!isValid()) {
@@ -550,11 +548,11 @@ QtimeCache::nextTimestamp(const rcTimestamp& goalTime,
         return  QtimeCacheStatus::Error;
     }
     
-    rmAssert(!_tocTtoI.empty());
+    assert (!_tocTtoI.empty());
     
     /* Find timestamp > goal timestamp.
      */
-    map<rcTimestamp, uint32>::iterator it;
+    map<time_spec_t, uint32>::iterator it;
     it = _tocTtoI.upper_bound(goalTime);
     
     if (it == _tocTtoI.end()) {
@@ -571,8 +569,8 @@ QtimeCache::nextTimestamp(const rcTimestamp& goalTime,
 
 // Returns timestamp closest to goalTime that is < goalTime
 QtimeCacheStatus
-QtimeCache::prevTimestamp(const rcTimestamp& goalTime,
-                          rcTimestamp& match,
+QtimeCache::prevTimestamp(const time_spec_t& goalTime,
+                          time_spec_t& match,
                           QtimeCacheError* error)
 {
     if (!isValid()) {
@@ -586,11 +584,11 @@ QtimeCache::prevTimestamp(const rcTimestamp& goalTime,
         return  QtimeCacheStatus::Error;
     }
     
-    rmAssert(!_tocTtoI.empty());
+    assert (!_tocTtoI.empty());
     
     /* Find timestamp >= goal timestamp.
      */
-    map<rcTimestamp, uint32>::iterator it;
+    map<time_spec_t, uint32>::iterator it;
     it = _tocTtoI.lower_bound(goalTime);
     
     if (it == _tocTtoI.begin()) {
@@ -608,7 +606,7 @@ QtimeCache::prevTimestamp(const rcTimestamp& goalTime,
 
 // Returns the timestamp of the first frame in the movie.
 QtimeCacheStatus
-QtimeCache::firstTimestamp(rcTimestamp& match,
+QtimeCache::firstTimestamp(time_spec_t& match,
                            QtimeCacheError* error)
 {
     if (!isValid()) {
@@ -622,7 +620,7 @@ QtimeCache::firstTimestamp(rcTimestamp& match,
         return  QtimeCacheStatus::Error;
     }
     
-    rmAssert(!_tocTtoI.empty());
+    assert (!_tocTtoI.empty());
     
     match = _tocTtoI.begin()->first;
     
@@ -631,7 +629,7 @@ QtimeCache::firstTimestamp(rcTimestamp& match,
 
 // Returns the timestamp of the last frame in the movie.
 QtimeCacheStatus
-QtimeCache::lastTimestamp(rcTimestamp& match,
+QtimeCache::lastTimestamp(time_spec_t& match,
                           QtimeCacheError* error)
 {
     if (!isValid()) {
@@ -645,9 +643,9 @@ QtimeCache::lastTimestamp(rcTimestamp& match,
         return  QtimeCacheStatus::Error;
     }
     
-    rmAssert(!_tocTtoI.empty());
+    assert (!_tocTtoI.empty());
     
-    map<rcTimestamp, uint32>::iterator it;
+    map<time_spec_t, uint32>::iterator it;
     it = _tocTtoI.end();
     it--;
     
@@ -659,7 +657,7 @@ QtimeCache::lastTimestamp(rcTimestamp& match,
 // Returns the timestamp for the frame at frameIndex.
 QtimeCacheStatus
 QtimeCache::frameIndexToTimestamp(uint32 frameIndex,
-                                  rcTimestamp& match,
+                                  time_spec_t& match,
                                   QtimeCacheError* error)
 {
     if (!isValid()) {
@@ -688,7 +686,7 @@ QtimeCache::frameIndexToTimestamp(uint32 frameIndex,
 // Returns the frame index for the frame at time timestamp (must be
 // exact match).
 QtimeCacheStatus
-QtimeCache::timestampToFrameIndex(const rcTimestamp& timestamp,
+QtimeCache::timestampToFrameIndex(const time_spec_t& timestamp,
                                   uint32& match,
                                   QtimeCacheError* error)
 {
@@ -703,9 +701,9 @@ QtimeCache::timestampToFrameIndex(const rcTimestamp& timestamp,
         return  QtimeCacheStatus::Error;
     }
     
-    rmAssert(!_tocTtoI.empty());
+    assert (!_tocTtoI.empty());
     
-    map<rcTimestamp, uint32>::iterator it;
+    map<time_spec_t, uint32>::iterator it;
     it = _tocTtoI.find(timestamp);
     
     if (it == _tocTtoI.end()) {
@@ -772,7 +770,7 @@ void  QtimeCache::setError ( QtimeCacheError error)
             break;
             
         case  QtimeCacheError::CacheInvalid:
-            rmAssert(0);
+            assert (0);
             break;
     }
 }
@@ -821,20 +819,20 @@ QtimeCache::internalGetFrame(uint32 frameIndex,
      */
     if (!cacheFrameBufPtr) {
         _pendingCtrl.wait(frameBufPtr.mFrameBuf);
-        rmAssert(frameBufPtr.mFrameBuf != 0);
+        assert (frameBufPtr.mFrameBuf != 0);
         ADD_VID_TRACE(fnInternalGetFrame, false, frameIndex,
                       frameBufPtr.mFrameBuf, dToken);
         return  QtimeCacheStatus::OK;
     }
     
-    rmAssert(cacheFrameBufPtr->refCount() == 1);
+    assert (cacheFrameBufPtr->refCount() == 1);
     
-    rcTimestamp timestamp;
+    time_spec_t timestamp;
     double timeInfo;
     
     {
         std::lock_guard<std::mutex>  lock(_diskMutex);
-        rmAssert(_impl);
+        assert (_impl);
         
         /* Read in the frame from disk.
          */
@@ -851,8 +849,7 @@ QtimeCache::internalGetFrame(uint32 frameIndex,
         }
         _impl->seekToFrame(frameIndex);
         
-        timeInfo = _impl->getCurrentTime ();
-        timestamp = rcTimestamp::from_seconds(timeInfo);
+        timestamp = time_spec_t(_impl->getCurrentTime ());
         
         //  if (fread((*cacheFrameBufPtr)->alignedRawData(), _bytesInFrame, 1,
         //            _movieFile) != 1) {
@@ -872,12 +869,12 @@ QtimeCache::internalGetFrame(uint32 frameIndex,
     
     (*cacheFrameBufPtr)->setTimestamp(timestamp);
     
-    rmAssert(cacheFrameBufPtr->refCount() == 1);
+    assert (cacheFrameBufPtr->refCount() == 1);
     
     QtimeCacheStatus status = cacheInsert(frameIndex, *cacheFrameBufPtr,
                                            dToken);
     
-    rmAssert(frameBufPtr->frameIndex() == frameIndex);
+    assert (frameBufPtr->frameIndex() == frameIndex);
     
     ADD_VID_TRACE(fnInternalGetFrame, false, frameIndex, frameBufPtr.mFrameBuf,
                   dToken);
@@ -892,7 +889,7 @@ QtimeCache::cacheAlloc(uint32 frameIndex,
                        const uint32 dToken)
 {
 #ifndef VID_TRACE
-    rcUNUSED(dToken);
+    UnusedParameter (dToken);
 #endif
     
     std::unique_lock <std::mutex>  lock(_cacheMutex);
@@ -906,7 +903,7 @@ QtimeCache::cacheAlloc(uint32 frameIndex,
     
     if (cachedEntryPtr != _cachedFramesItoB.end()) {
         frame_ref_t* bufPtr = cachedEntryPtr->second;
-        rmAssert((*bufPtr)->frameIndex() == frameIndex);
+        assert ((*bufPtr)->frameIndex() == frameIndex);
         
         /* If frame is in the unlocked map, remove it so no one else
          * tries to grab it.
@@ -922,21 +919,21 @@ QtimeCache::cacheAlloc(uint32 frameIndex,
                 DUMP_VID_TRACE();
             }
 #endif
-            rmAssert(bufPtr->refCount() == 1);
+            assert (bufPtr->refCount() == 1);
             
             int64 lastUseIndex = unlockedPtrItoL->second;
             
             map<int64, uint32>::iterator unlockedPtrLtoI;
             unlockedPtrLtoI = _unlockedFramesLtoI.find(lastUseIndex);
             
-            rmAssert(unlockedPtrLtoI != _unlockedFramesLtoI.end());
-            rmAssert(unlockedPtrLtoI->second == frameIndex);
+            assert (unlockedPtrLtoI != _unlockedFramesLtoI.end());
+            assert (unlockedPtrLtoI->second == frameIndex);
             
             _unlockedFramesItoL.erase(unlockedPtrItoL);
             _unlockedFramesLtoI.erase(unlockedPtrLtoI);
         }
         
-        rmAssert(bufPtr->mCacheCtrl == 0);
+        assert (bufPtr->mCacheCtrl == 0);
         userFrameBuf.setCachedFrame(*bufPtr, _cacheID, frameIndex);
         
         _cacheHits++;
@@ -970,17 +967,17 @@ QtimeCache::cacheAlloc(uint32 frameIndex,
          * a) We haven't reached the cache's overflow limit, or
          * b) The unlocked portion of the cache is empty.
          */
-        rmAssert(!_unusedCacheFrames.empty());
+        assert (!_unusedCacheFrames.empty());
         cacheFrameBufPtr = _unusedCacheFrames.front();
-        rmAssert(cacheFrameBufPtr->refCount() < 2);
-        rmAssert(cacheFrameBufPtr->mCacheCtrl == 0);
+        assert (cacheFrameBufPtr->refCount() < 2);
+        assert (cacheFrameBufPtr->mCacheCtrl == 0);
         _unusedCacheFrames.pop_front();
         if (*cacheFrameBufPtr == 0) {
             *cacheFrameBufPtr =
-            frame_ref_t(new rcFrame(frameWidth(),
+            frame_ref_t(new raw_frame (frameWidth(),
                                     frameHeight(),
                                     frameDepth()));
-            rmAssert(*cacheFrameBufPtr != 0);
+            assert (*cacheFrameBufPtr != 0);
             (*cacheFrameBufPtr)->cacheCtrl(_cacheID);
         }
 #ifdef VID_TRACE
@@ -999,16 +996,16 @@ QtimeCache::cacheAlloc(uint32 frameIndex,
          */
         map<int64, uint32>::iterator unlockedPtrLtoI;
         unlockedPtrLtoI = _unlockedFramesLtoI.begin();
-        rmAssert(unlockedPtrLtoI != _unlockedFramesLtoI.end());
+        assert (unlockedPtrLtoI != _unlockedFramesLtoI.end());
         
         uint32 oldFrameIndex = unlockedPtrLtoI->second;
         
         map<uint32, int64>::iterator unlockedPtrItoL;
         unlockedPtrItoL = _unlockedFramesItoL.find(oldFrameIndex);
         
-        rmAssert(unlockedPtrItoL != _unlockedFramesItoL.end());
-        rmAssert(unlockedPtrItoL->first == unlockedPtrLtoI->second);
-        rmAssert(unlockedPtrItoL->second == unlockedPtrLtoI->first);
+        assert (unlockedPtrItoL != _unlockedFramesItoL.end());
+        assert (unlockedPtrItoL->first == unlockedPtrLtoI->second);
+        assert (unlockedPtrItoL->second == unlockedPtrLtoI->first);
         
         _unlockedFramesItoL.erase(unlockedPtrItoL);
         _unlockedFramesLtoI.erase(unlockedPtrLtoI);
@@ -1017,12 +1014,12 @@ QtimeCache::cacheAlloc(uint32 frameIndex,
          * index.
          */
         cachedEntryPtr = _cachedFramesItoB.find(oldFrameIndex);
-        rmAssert(cachedEntryPtr != _cachedFramesItoB.end());
+        assert (cachedEntryPtr != _cachedFramesItoB.end());
         cacheFrameBufPtr = cachedEntryPtr->second;
         if (!((*cacheFrameBufPtr)->frameIndex() == oldFrameIndex))
             printf("error %d %d\n", (*cacheFrameBufPtr)->frameIndex(),
                    oldFrameIndex);
-        rmAssert((*cacheFrameBufPtr)->frameIndex() == oldFrameIndex);
+        assert ((*cacheFrameBufPtr)->frameIndex() == oldFrameIndex);
         (*cacheFrameBufPtr)->frameIndex(0);
         
         _cachedFramesItoB.erase(cachedEntryPtr);
@@ -1036,19 +1033,19 @@ QtimeCache::cacheAlloc(uint32 frameIndex,
         }
 #endif
         
-        rmAssert(cacheFrameBufPtr->refCount() == 1);
+        assert (cacheFrameBufPtr->refCount() == 1);
     }
     else {
-        rmAssert(0); // Should always be able to find a free frame buffer ptr.
+        assert (0); // Should always be able to find a free frame buffer ptr.
         return  QtimeCacheStatus::Error;
     }
     
     /* Setting cacheFrameBufPtr to non-null and returning the error
      * status acts as a signal that the frame should be read from disk.
      */
-    rmAssert(cacheFrameBufPtr);
-    rmAssert(cacheFrameBufPtr->mCacheCtrl == 0);
-    rmAssert((*cacheFrameBufPtr)->frameIndex() == 0);
+    assert (cacheFrameBufPtr);
+    assert (cacheFrameBufPtr->mCacheCtrl == 0);
+    assert ((*cacheFrameBufPtr)->frameIndex() == 0);
     _cacheMisses++;
     
     /* As final step, create an entry in the pending map to allow all
@@ -1058,7 +1055,7 @@ QtimeCache::cacheAlloc(uint32 frameIndex,
     pair<map<uint32, vcPendingFills>::iterator, bool> ret;
     ret = _pending.insert(pair<uint32, vcPendingFills>(frameIndex,
                                                        vcPendingFills()));
-    rmAssert(ret.second); // Check that insert succeeded
+    assert (ret.second); // Check that insert succeeded
     
     vcPendingFills& pendingBuffers = ret.first->second;
     pendingBuffers.push_back(&userFrameBuf);
@@ -1074,20 +1071,20 @@ QtimeCache::cacheInsert(uint32 frameIndex,
                         const uint32 dToken)
 {
 #ifndef VID_TRACE
-    rcUNUSED(dToken);
+    UnusedParameter (dToken);
 #endif
     
     std::lock_guard<std::mutex>  lock(_cacheMutex);
     ADD_VID_TRACE(fnCacheInsert, true, frameIndex, userFrameBuf.mFrameBuf, dToken);
     
-    rmAssert(cacheFrameBuf.mCacheCtrl == 0);
-    rmAssert(cacheFrameBuf.refCount() == 1);
+    assert (cacheFrameBuf.mCacheCtrl == 0);
+    assert (cacheFrameBuf.refCount() == 1);
     
     /* Frame shouldn't be in cache
      */
-    rmAssert(_cachedFramesItoB.find(frameIndex) == _cachedFramesItoB.end());
+    assert (_cachedFramesItoB.find(frameIndex) == _cachedFramesItoB.end());
     
-    rmAssert(cacheFrameBuf->frameIndex() == 0);
+    assert (cacheFrameBuf->frameIndex() == 0);
     cacheFrameBuf->frameIndex(frameIndex);
     _cachedFramesItoB[frameIndex] = &cacheFrameBuf;
     
@@ -1096,11 +1093,11 @@ QtimeCache::cacheInsert(uint32 frameIndex,
      */
     map<uint32, vcPendingFills>::iterator pendingEntry;
     pendingEntry = _pending.find(frameIndex);
-    rmAssert(pendingEntry != _pending.end());
+    assert (pendingEntry != _pending.end());
     
     vcPendingFills& pendingBuffers = pendingEntry->second;
     uint32 pendingCount = pendingBuffers.size();
-    rmAssert(pendingCount);
+    assert (pendingCount);
     
     for (uint32 i = 0; i < pendingCount; i++)
         (pendingBuffers[i])->setCachedFrame(cacheFrameBuf, _cacheID,
@@ -1111,7 +1108,7 @@ QtimeCache::cacheInsert(uint32 frameIndex,
      */
     _pending.erase(pendingEntry);
     
-    rmAssert(cacheFrameBuf.refCount() == int32(pendingCount + 1));
+    assert (cacheFrameBuf.refCount() == int32(pendingCount + 1));
     
     /* Broadcast signal to waiting threads so they can check and see if
      * their frame buffer is ready.
@@ -1157,9 +1154,9 @@ void  QtimeCache::unlockFrame(uint32 frameIndex)
         return;
     }
     
-    rmAssert((*bufPtr).refCount() == 1);
-    rmAssert((*bufPtr)->frameIndex() == frameIndex);
-    rmAssert((*bufPtr)->cacheCtrl() == _cacheID);
+    assert ((*bufPtr).refCount() == 1);
+    assert ((*bufPtr)->frameIndex() == frameIndex);
+    assert ((*bufPtr)->cacheCtrl() == _cacheID);
     
     /* Check to see if some other thread has locked and unlocked this
      * frame between the time the calling frame buffer decremented the
@@ -1181,8 +1178,8 @@ void  QtimeCache::unlockFrame(uint32 frameIndex)
      * compress last touch values down, but for now I think it is
      * good enough to just use a 64 bit counter.
      */
-    rmAssert(_lastTouchIndex >= 0);
-    rmAssert(_unlockedFramesLtoI.find(_lastTouchIndex) == _unlockedFramesLtoI.end());
+    assert (_lastTouchIndex >= 0);
+    assert (_unlockedFramesLtoI.find(_lastTouchIndex) == _unlockedFramesLtoI.end());
     
     _unlockedFramesLtoI[_lastTouchIndex] = frameIndex;
     _unlockedFramesItoL[frameIndex] = _lastTouchIndex;
@@ -1198,16 +1195,16 @@ void  QtimeCache::unlockFrame(uint32 frameIndex)
          */
         map<int64, uint32>::iterator unlockedPtrLtoI;
         unlockedPtrLtoI = _unlockedFramesLtoI.begin();
-        rmAssert(unlockedPtrLtoI != _unlockedFramesLtoI.end());
+        assert (unlockedPtrLtoI != _unlockedFramesLtoI.end());
         
         uint32 oldFrameIndex = unlockedPtrLtoI->second;
         
         map<uint32, int64>::iterator unlockedPtrItoL;
         unlockedPtrItoL = _unlockedFramesItoL.find(oldFrameIndex);
         
-        rmAssert(unlockedPtrItoL != _unlockedFramesItoL.end());
-        rmAssert(unlockedPtrItoL->first == unlockedPtrLtoI->second);
-        rmAssert(unlockedPtrItoL->second == unlockedPtrLtoI->first);
+        assert (unlockedPtrItoL != _unlockedFramesItoL.end());
+        assert (unlockedPtrItoL->first == unlockedPtrLtoI->second);
+        assert (unlockedPtrItoL->second == unlockedPtrLtoI->first);
         
         _unlockedFramesItoL.erase(unlockedPtrItoL);
         _unlockedFramesLtoI.erase(unlockedPtrLtoI);
@@ -1215,7 +1212,7 @@ void  QtimeCache::unlockFrame(uint32 frameIndex)
         /* Step 2 is to remove it from the cache entirely.
          */
         cachedEntryPtr = _cachedFramesItoB.find(oldFrameIndex);
-        rmAssert(cachedEntryPtr != _cachedFramesItoB.end());
+        assert (cachedEntryPtr != _cachedFramesItoB.end());
         bufPtr = cachedEntryPtr->second;
         _cachedFramesItoB.erase(cachedEntryPtr);
         
@@ -1271,7 +1268,7 @@ QtimeCacheStatus  QtimeCache::cacheLock(uint32 cacheID, uint32 frameIndex,
 QtimeCache:: QtimeCachePrefetchUnit:: QtimeCachePrefetchUnit( QtimeCache& cacheCtrl)
 : _cacheCtrl(cacheCtrl)
 {
-    rmAssert(cacheCtrl.isValid());
+    assert (cacheCtrl.isValid());
 }
 
 QtimeCache:: QtimeCachePrefetchUnit::~ QtimeCachePrefetchUnit()
@@ -1355,7 +1352,7 @@ void  QtimeCache:: QtimeCachePrefetchUnit::prefetch(uint32 frameIndex)
 QtimeCache:: QtimeCachePrefetchUnit:: QtimeCachePrefetchUnit( QtimeCache& cacheCtrl)
 : _cacheCtrl(cacheCtrl), _wait(0)
 {
-    rmAssert(cacheCtrl.isValid());
+    assert (cacheCtrl.isValid());
 }
 
 QtimeCache:: QtimeCachePrefetchUnit::~ QtimeCachePrefetchUnit()

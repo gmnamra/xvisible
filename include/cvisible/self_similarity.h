@@ -11,7 +11,7 @@
 #include <memory>
 
 // util
-#include "rc_types.h"
+#include "vf_types.h"
 
 // visual
 #include "roi_window.h"
@@ -126,7 +126,7 @@ class self_similarity_producer
    *
    */
   self_similarity_producer(rcMatrixGeneration type,
-		rcPixel depth,
+		pixel_ipl_t depth,
 		uint32 matrixSz,
 		uint32 cacheSz,
 		rcCorrelationDefinition cdl = eNorm,
@@ -185,7 +185,7 @@ class self_similarity_producer
    */
   bool update(roi_window nextImage);
   bool update(double& nextData);
-  rcIPair fillImageSize () const;
+  std::pair<int32,int32> fillImageSize () const;
 
   void setMask(const roi_window& mask);
   void clearMask();
@@ -215,7 +215,7 @@ class self_similarity_producer
    * Filtering operation on output signal
    */
   bool filter (vector<double>&);
-  double periodicity (const vector<double>& signal, const vector<double>& absc, rcDPair& freq);
+ // double periodicity (const vector<double>& signal, const vector<double>& absc, rcDPair& freq);
 
   /*
    * Mutual Information Measurement of a Signal
@@ -230,7 +230,7 @@ class self_similarity_producer
   uint32 matrixSz() const { return _matrixSz; }
   rcMatrixGeneration matGenType() const { return _type; }
   uint32 cacheSz() const { return _cacheSz; }
-  rcPixel depth() const { return _depth; }
+  pixel_ipl_t depth() const { return _depth; }
   rcCorrelationDefinition corrDefinition () const { return _cdl; }
 
   friend ostream& operator<< (ostream&, const self_similarity_producer&);
@@ -346,7 +346,7 @@ class self_similarity_producer
     bool filterOp (vector<T>&);
 
   template <class T>
-  double genPeriodicity (const vector<T>& signal, const vector<T>& absc, rcDPair& freq);
+    double genPeriodicity (const vector<T>& signal, const vector<T>& absc, std::pair<double,double>& freq);
 
   /* unity - Initialize self-similarity matrix to have identity
    * value along the identity diagonal.
@@ -365,7 +365,7 @@ class self_similarity_producer
   /* Control information
    */
   const rcMatrixGeneration           _type;
-  const rcPixel                _depth;
+  const pixel_ipl_t                _depth;
   const uint32                     _matrixSz;
   const uint32                     _cacheSz;
   const rcCorrelationDefinition      _cdl;
@@ -405,6 +405,7 @@ class self_similarity_producer
   bool                         _ltOn;        // Do store entropy in call to update
   vector<float>                _ltEntropies; // Store entropy in call to update
 
+#if 0
   class progressNotification
   {
   public:
@@ -448,6 +449,8 @@ class self_similarity_producer
     rcProgressIndicator* _guiUpdate;
     bool _abort;
   };
+#endif
+    
 };
 
 

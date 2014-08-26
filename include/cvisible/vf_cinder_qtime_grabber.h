@@ -10,7 +10,7 @@ using namespace std;
 
 
 
-namespace vf_utils
+namespace vf_older_utils
 {
     
     namespace qtime_support
@@ -53,10 +53,10 @@ namespace vf_utils
             virtual const std::string getInputSourceName();
             
             // Get last error value.
-            virtual rcFrameGrabberError getLastError() const;
+            virtual grabber_error getLastError() const;
             
             // Set last error value
-            void setLastError( rcFrameGrabberError error );
+            void setLastError( grabber_error error );
             
             double frame_duration  () const;
             

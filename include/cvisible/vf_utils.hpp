@@ -6,9 +6,13 @@
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/scoped_thread.hpp>
 #include <boost/math/special_functions.hpp>
-#include "rc_fileutils.h"
-#include "stlplus_lite.hpp"
-#include "rc_filegrabber.h"
+
+#include <boost/utility.hpp>
+#include <boost/thread/once.hpp>
+#include <boost/scoped_ptr.hpp>
+
+//#include "rc_fileutils.h"
+//#include "stlplus_lite.hpp"
 #include <random>
 #include <iterator>
 #include "sshist.hpp"
@@ -17,28 +21,122 @@
 #include <queue>
 #include <fstream>
 #include <mutex>
+#include <string>
 #include <condition_variable>
 
 #include <boost/operators.hpp>
 #include <ctime>
 
-#include "rc_types.h"
 #include <sys/param.h>
 #include <mach-o/dyld.h>
 #include <boost/scoped_ptr.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>
-//#include "Timer.h"
-#include "singleton.hpp"
-#include "rc_exception.h"
 
-//using namespace ci;
+#include "exception.hpp"
+#include "vf_types.h"
+#include <boost/lexical_cast.hpp>
+
 using namespace std;
-
-
+using namespace boost;
+using namespace fs;
 
 namespace vf_utils
 {
 
+    namespace file_system
+    {
+        
+        //! Returns the path separator for the host operating system's file system, \c '\' on Windows and \c '/' on Mac OS
+#if defined( CINDER_MSW )
+        static inline char getPathSeparator() { return '\\'; }
+#else
+        static inline char getPathSeparator() { return '/'; }
+#endif
+        
+        template<typename T>
+        static inline std::string toString( const T &t ) { return boost::lexical_cast<std::string>( t ); }
+        template<typename T>
+        static inline T fromString( const std::string &s ) { return boost::lexical_cast<T>( s ); }
+
+        static std::string getPathDirectory( const std::string &path )
+        {
+            size_t lastSlash = path.rfind( getPathSeparator(), path.length() );
+            if( lastSlash == string::npos ) {
+                return "";
+            }
+            else
+                return path.substr( 0, lastSlash + 1 );
+        }
+        
+        static std::string getPathFileName( const std::string &path )
+        {
+            size_t lastSlash = path.rfind( getPathSeparator(), path.length() );
+            if( lastSlash == string::npos )
+                return path;
+            else
+                return path.substr( lastSlash + 1, string::npos );
+        }
+        
+        static std::string getPathExtension( const std::string &path )
+        {
+            size_t i = path.rfind( '.', path.length() );
+            size_t lastSlash = path.rfind( getPathSeparator(), path.length() );
+            // make sure that we found a dot, and that the dot is after the last directory separator
+            if( i != string::npos &&
+               ( ( lastSlash == string::npos ) || ( i > lastSlash ) ) ) {
+                return path.substr( i+1, path.length() - i );
+            }
+            else
+                return std::string();
+        }
+        
+        static bool ext_is (const std::string &path, const std::string& this_ext)
+        {
+            return this_ext == getPathExtension (path);
+        }
+        
+        static bool ext_is_rfymov (const std::string &path)
+        {
+            static std::string rfymov = "rfymov";
+            return ext_is (path, rfymov);
+        }
+        
+        static bool ext_is_mov (const std::string &path)
+        {
+            static std::string mov = "mov";
+            return ext_is (path, mov);
+        }
+        static bool ext_is_stk (const std::string &path)
+        {
+            static std::string stk = "stk";
+            return ext_is (path, stk);
+        }
+        
+        static bool file_exists (const std::string& path)
+        {
+            fs::path p (path);
+            return exists(p) && is_regular_file (p);
+        }
+        
+        struct recursive_directory_range
+        {
+            typedef recursive_directory_iterator iterator;
+            recursive_directory_range(path p) : p_(p) {}
+            
+            iterator begin() { return recursive_directory_iterator(p_); }
+            iterator end() { return recursive_directory_iterator(); }
+            
+            path p_;
+        };
+        
+        std::string create_filespec (const std::string& path_to, const std::string& filename)
+        {
+            path p (path_to);
+            p /= filename;
+            return p.string();
+        }
+
+    };
 #define HAVE_MICROSEC_CLOCK
     
         class time_spec_t : boost::additive<time_spec_t>, boost::totally_ordered<time_spec_t>
@@ -58,7 +156,7 @@ namespace vf_utils
             return boost::math::iround(this->get_frac_secs()*tick_rate);
         }
             
-            double get_real_secs(void) const
+            double secs(void) const
         {
             return this->_full_secs + this->_frac_secs;
         }
@@ -72,23 +170,27 @@ namespace vf_utils
         {
             return this->_frac_secs;
         }
-            
+
+        // Support totally_ordered
+        friend bool operator<  (time_spec_t const& lhs, time_spec_t const& rhs)
+        {
+            return (
+                    (lhs.get_full_secs() < rhs.get_full_secs()) or ((lhs.get_full_secs() == rhs.get_full_secs()) and
+                                                                (lhs.get_frac_secs() < rhs.get_frac_secs()) ));
+
+        }
+        
+        friend bool operator== (time_spec_t const& t1, time_spec_t const& t2)
+        {
+             return t1.get_full_secs() == t2.get_full_secs() and t1.get_frac_secs() == t2.get_frac_secs();
+        }
+        
         time_spec_t &operator+=(const time_spec_t & rhs);
         
             
         time_spec_t &operator-=(const time_spec_t & rhs);
+
         
-            bool operator==(const time_spec_t & rhs)
-        {
-            return get_full_secs() == rhs.get_full_secs() and get_frac_secs() == rhs.get_frac_secs();
-        }
-        
-            bool operator<(const time_spec_t & rhs)
-        {
-            return (
-                    (get_full_secs() < rhs.get_full_secs()) or ((get_full_secs() == rhs.get_full_secs()) and
-                    (get_frac_secs() < rhs.get_frac_secs()) ));
-        }
 
         
             //private time storage details
@@ -99,13 +201,44 @@ namespace vf_utils
 
     
     
+    template<class T>
+    class singleton : private boost::noncopyable
+    {
+        
+    public:
+        static T& instance()
+        {
+            boost::call_once(init, flag);
+            return *t;
+        }
+        
+        static void init() // never throws
+        {
+            t.reset(new T());
+        }
+        
+    protected:
+        ~singleton() {}
+        singleton() {}
+        
+    private:
+        static boost::scoped_ptr<T> t;
+        static boost::once_flag flag;
+        
+    };
+    
+    
+    template<class T> boost::scoped_ptr<T> singleton<T>::t(0);
+    template<class T> boost::once_flag singleton<T>::flag = BOOST_ONCE_INIT;
+    
+    
     /**
      @brief
      The visible_framework_core class is a singleton used to configure the program basics.
      @remark
      You should only create this singleton once because it destroys the identifiers!
      */
-    class civf : public SingletonLite <civf>
+    class civf : public singleton <civf>
     {
     public:
         
@@ -120,7 +253,7 @@ namespace vf_utils
             
             uint32_t path_len = 1023;
             if (_NSGetExecutablePath(buffer, &path_len))
-                rmExceptionMacro (<< " Could not retrieve executable path" );
+                throw runtime_error (" Could not retrieve executable path" );
             
             _executablePath =  std::string (buffer, strlen (buffer));
             std::cout << "civf_init: " << _executablePath << std::endl;
@@ -175,8 +308,8 @@ namespace vf_utils
         
         int64 ticks_per_second ()
         {
-            return micro_res::to_tick_count(0,0,1,0);
-        }
+            return boost::date_time::micro_res::to_tick_count(0,0,1,0);
+       }
         
         
     private:
@@ -445,7 +578,7 @@ namespace vf_utils
             {
                 std::string ns;
                 for(int i = 0; i < 8; ++i) ns.push_back (_chars[nextInt(_chars.size()-1)]);
-                rmAssert (ns.length() == 8);
+                assert (ns.length() == 8);
                 return ns;
             }
         };
@@ -634,6 +767,9 @@ namespace vf_utils
             std::mutex mutex_;
             std::condition_variable cond_;
         };
+        
+
+
 
     }
 }

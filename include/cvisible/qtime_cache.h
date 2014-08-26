@@ -22,9 +22,8 @@ vcAddTrace((NAME), (ENTER), (FRMI), (FRMP), (TOKEN))
 
 using namespace std;
 
-#include "rc_types.h"
+
 #include "cached_frame_buffer.h"
-#include "rc_timestamp.h"
 #include <atomic>
 #include "vf_utils.hpp"
 
@@ -69,7 +68,7 @@ public:
     
     // Wait for ptr to get set
     //
-    void wait(rcFrame *& ptr)
+    void wait(raw_frame *& ptr)
     {
         std::unique_lock<Mutex>  lock (_mutex);
         while (ptr == 0)
@@ -146,8 +145,8 @@ public:
                                           uint32 cacheSize,
                                           bool verbose = true,
                                           bool prefetch = false,
-                                          uint32 maxMemory = 0,
-                                          rcProgressIndicator* pIndicator = 0 );
+                                          uint32 maxMemory = 0);
+
     
     /*   QtimeCacheDtor - Removes pointer to this cache from the map of
      * active caches, closes the associated file and deletes the cache.
@@ -168,7 +167,7 @@ public:
     
     /* Returns the frame at timestamp time. must be exact match.
      */
-    QtimeCacheStatus getFrame(const rcTimestamp& time,
+    QtimeCacheStatus getFrame(const time_spec_t& time,
                                frame_ref_t& frameBuf,
                                QtimeCacheError* error = 0,
                                bool locked = true);
@@ -177,39 +176,39 @@ public:
      * frame timestamps and frame indices.
      */
     // Returns the timestamp in the movie closest to the goal time.
-    QtimeCacheStatus closestTimestamp(const rcTimestamp& goalTime,
-                                       rcTimestamp& match,
+    QtimeCacheStatus closestTimestamp(const time_spec_t& goalTime,
+                                       time_spec_t& match,
                                        QtimeCacheError* error = 0);
     // Returns first timestamp > goalTime. If no such timestamp can be
     // found, the return value is  QtimeCacheStatus::Error, and
     //  QtimeCacheError::NoSuchFrame is returned in error.
-    QtimeCacheStatus nextTimestamp(const rcTimestamp& goalTime,
-                                    rcTimestamp& match,
+    QtimeCacheStatus nextTimestamp(const time_spec_t& goalTime,
+                                    time_spec_t& match,
                                     QtimeCacheError* error = 0);
     // Returns closest timestamp < goalTime. If no such timestamp can be
     // found, the return value is  QtimeCacheStatus::Error, and
     //  QtimeCacheError::NoSuchFrame is returned in error.
-    QtimeCacheStatus prevTimestamp(const rcTimestamp& goalTime,
-                                    rcTimestamp& match,
+    QtimeCacheStatus prevTimestamp(const time_spec_t& goalTime,
+                                    time_spec_t& match,
                                     QtimeCacheError* error = 0);
     // Returns the timestamp of the first frame in the movie.
-    QtimeCacheStatus firstTimestamp(rcTimestamp& match,
+    QtimeCacheStatus firstTimestamp(time_spec_t& match,
                                      QtimeCacheError* error = 0);
     // Returns the timestamp of the last frame in the movie.
-    QtimeCacheStatus lastTimestamp(rcTimestamp& match,
+    QtimeCacheStatus lastTimestamp(time_spec_t& match,
                                     QtimeCacheError* error = 0);
     // Returns the timestamp for the frame at frameIndex. If no such
     // frameIndex can be found, the return value is
     //  QtimeCacheStatus::Error, and  QtimeCacheError::NoSuchFrame is
     // returned in error.
     QtimeCacheStatus frameIndexToTimestamp(uint32 frameIndex,
-                                            rcTimestamp& match,
+                                            time_spec_t& match,
                                             QtimeCacheError* error = 0);
     // Returns the frame index for the frame at time timestamp (must be
     // exact match). If no such timestamp can be found, the return value
     // is  QtimeCacheStatus::Error, and  QtimeCacheError::NoSuchFrame is
     // returned in error.
-    QtimeCacheStatus timestampToFrameIndex(const rcTimestamp& timestamp,
+    QtimeCacheStatus timestampToFrameIndex(const time_spec_t& timestamp,
                                             uint32& match,
                                             QtimeCacheError* error = 0);
     
@@ -228,7 +227,7 @@ public:
     uint32 frameCount() const { return _frameCount; }
     uint32 frameWidth() const { return _frameWidth; }
     uint32 frameHeight() const { return _frameHeight; }
-    rcPixel frameDepth() const { return _frameDepth; }
+    pixel_ipl_t frameDepth() const { return _frameDepth; }
     
     // Offset from start of file to start of frame pixel data
     off_t frameDataOffset( const uint32& frameIndex ) const;
@@ -252,7 +251,7 @@ public:
      * unlockFrame() and cacheLock() is a wrapper around getFrame(). The
      * main intention behind this is to allow for a well-defined action
      * to occur if cached_frame_ref's persist past this life of the cache
-     * that owns the underlying rcFrame. See the description of
+     * that owns the underlying raw_frame. See the description of
      *   QtimeCacheDtor() for more details.
      */
     static void cachePrefetch(uint32 cacheIndex, uint32 frameIndex);
@@ -264,14 +263,14 @@ public:
     
     
     
-    rcWindow get_window (uint32 frameIndex)
-    {
-        frame_ref_t frameb ( new rcFrame (frameWidth(), frameHeight(), frameDepth()) );
-        QtimeCacheStatus status = getFrame(frameIndex, frameb, 0, false);
-        if(status == QtimeCacheStatus::OK)
-            return rcWindow (static_cast<rcFrameRef>(frameb));
-        else return rcWindow ();
-    }
+//    roi_window get_window (uint32 frameIndex)
+//    {
+//        frame_ref_t frameb ( new raw_frame (frameWidth(), frameHeight(), frameDepth()) );
+//        QtimeCacheStatus status = getFrame(frameIndex, frameb, 0, false);
+//        if(status == QtimeCacheStatus::OK)
+//            return roi_window (frameb);
+//        else return roi_window ();
+//    }
     
 
 private:
@@ -359,8 +358,7 @@ private:
     /* ctor - Opens file and initializes data structures. See
      * description of   QtimeCacheCtor() for more details.
      */
-    QtimeCache(const std::string fileName, uint32 cacheSize, bool verbose, bool prefetch, uint32 maxMemory,
-               rcProgressIndicator* pIndicator);
+    QtimeCache(const std::string fileName, uint32 cacheSize, bool verbose, bool prefetch, uint32 maxMemory);
     
     virtual ~QtimeCache();
     
@@ -375,8 +373,8 @@ private:
      * frames based on their timestamps. Attempts to access these
      * "frames" will fail.
      */
-    static   QtimeCache*   QtimeCacheUTCtor(const vector<rcTimestamp>& frameTimes);
-    QtimeCache(const vector<rcTimestamp>& frameTimes);
+    static   QtimeCache*   QtimeCacheUTCtor(const vector<time_spec_t>& frameTimes);
+    QtimeCache(const vector<time_spec_t>& frameTimes);
     
     void setError( QtimeCacheError error);
     
@@ -433,8 +431,8 @@ private:
     /* Support for bidirectional frame index <==> timestamp
      * mapping. (Table of contents).
      */
-    vector<rcTimestamp>                  _tocItoT;
-    map<rcTimestamp, uint32>           _tocTtoI;
+    vector<time_spec_t>                  _tocItoT;
+    map<time_spec_t, uint32>           _tocTtoI;
     
     /* List of cached frames.
      */
@@ -456,7 +454,7 @@ private:
     uint32                             _frameCount;
     uint32                             _frameWidth;
     uint32                             _frameHeight;
-    rcPixel                         _frameDepth;
+    pixel_ipl_t                              _frameDepth;
     double                               _averageFrameRate;
     int64                              _baseTime;
     
@@ -472,7 +470,7 @@ private:
     
     std::shared_ptr<QtimeCachePrefetchUnit>            _prefetchThread;
     // Progress indicator for sow operations (ie. TOC from frames)
-    rcProgressIndicator*                 _progressIndicator;
+  //  rcProgressIndicator*                 _progressIndicator;
     
     /* General cache management related data and their mutex.
      */
@@ -485,12 +483,12 @@ public:
         
         QtimeCache* register_cache ( QtimeCache* cacheP)
         {
-            rmAssert(cacheP);
+            assert(cacheP);
             std::lock_guard<std::mutex> locky (_cacheMgmtMutex);
             
             ++_nextCacheID;
-            rmAssert(_nextCacheID != 0);
-            rmAssert(_activeCachesPtoI.find(cacheP) == _activeCachesPtoI.end());
+            assert(_nextCacheID != 0);
+            assert(_activeCachesPtoI.find(cacheP) == _activeCachesPtoI.end());
             
             _activeCachesItoP[_nextCacheID] = cacheP;
             _activeCachesPtoI[cacheP] = _nextCacheID;
@@ -512,9 +510,9 @@ public:
             
             map<uint32,  QtimeCache*>::iterator locP = _activeCachesItoP.find(cacheID);
             
-            rmAssert(locP != _activeCachesItoP.end());
-            rmAssert(locI->first == locP->second);
-            rmAssert(locP->first == locI->second);
+            assert(locP != _activeCachesItoP.end());
+            assert(locI->first == locP->second);
+            assert(locP->first == locI->second);
             
             _activeCachesItoP.erase(locP);
             _activeCachesPtoI.erase(locI);

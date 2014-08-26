@@ -2,10 +2,9 @@
 #ifndef _UT_QTCACHE_H_
 #define _UT_QTCACHE_H_
 
-#include "rc_unittest.h"
+#include "basic_ut.hpp"
 #include "qtime_cache.h"
-#include "rc_thread.h"
-#include "rc_atomic.h"
+#include <atomic>
 
 typedef struct qutExpMapResult {
   QtimeCacheError  expError;
@@ -56,7 +55,7 @@ public:
   uint32      _myErrors;
   uint32 _frame_count;
   QtimeCache&  _cache;
-  static rcAtomicValue<int> startTest;
+    static std::atomic<int> startTest;
 };
 
 

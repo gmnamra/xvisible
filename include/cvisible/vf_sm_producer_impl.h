@@ -4,9 +4,8 @@
 
 
 
-#include "vf_sm_producer.h"
-#include "rc_videocache.h"
-#include "rc_fileutils.h"
+
+//#include "rc_fileutils.h"
 #include <iostream>
 #include <algorithm>
 #include <cctype>
@@ -17,9 +16,11 @@
 #include <boost/thread/lock_guard.hpp>
 #include <boost/ref.hpp>
 #include "vf_utils.hpp"
+#include "rpixel.hpp"
 #include "qtime_cache.h"
 #include "roi_window.h"
 #include "cache_grabber.h"
+#include "vf_sm_producer.h"
 using namespace boost;
 
 
@@ -27,7 +28,7 @@ using namespace boost;
 
 SINGLETON_FCN(vf_utils::gen_filename::random_name,get_name_generator);
 
-class sm_producer::spImpl : public rc_signaler
+class sm_producer::spImpl : public base_signaler
 {
 public:
     friend class sm_producer;
@@ -47,9 +48,9 @@ public:
     bool load_content_file (const std::string& movie_fqfn)
     {
         _movieFile = movie_fqfn;
-        rcFrameGrabberError fr;
+        grabber_error fr;
         _frameCount = loadMovie (movie_fqfn, fr);
-        _has_content.store (fr == rcFrameGrabberError::OK);
+        _has_content.store (fr == grabber_error::OK);
         if (m_auto_run) generate_ssm (0,0);
         return has_content ();
     }
@@ -67,15 +68,15 @@ public:
     int last_process_index () { return _analysisLastFrame; }
     int frame_count () { return _frameCount; }
     std::string  getName () const { return m_name; }
-    rcFrameGrabberError last_error () const { return m_last_error; }
+    grabber_error last_error () const { return m_last_error; }
     
     
 private:
-    int loadMovie( const std::string& movieFile, rcFrameGrabberError& error );
+    int loadMovie( const std::string& movieFile, grabber_error& error );
     
     int saveFrames(std::string imageExportDir) const;
     
-    void ipp (const roi_window& tmp, roi_window& image, rcTimestamp& current);
+    void ipp (const roi_window& tmp, roi_window& image, time_spec_t& current);
     
 protected:
     boost::signals2::signal<sm_producer::sig_cb_content_loaded>* signal_content_loaded;
@@ -91,7 +92,7 @@ private:
     double            _physcial_memory_hint;
     int32             _analysisFirstFrame;
     int32             _analysisLastFrame;
-    rcTimestamp       _currentTime, _startTime;
+    time_spec_t       _currentTime, _startTime;
     boost::shared_ptr<images_vector> m_loaded_ref;
     std::string            _imageFileNames;  // image file names separated
     mutable std::string            _movieFile;  //
@@ -101,9 +102,9 @@ private:
     deque<deque<double> >        m_SMatrix;   // Used in eExhaustive and
     deque<double>                m_entropies; // Final entropy signal
     deque<double>                m_means; // Final entropy signal
-    rcPixel                      m_depth;
+    pixel_ipl_t                    m_depth;
     std::string                  m_name;
-    rcFrameGrabberError          m_last_error;
+    grabber_error          m_last_error;
     SharedQtimeCache             m_qtime_cache_ref;
 };
 

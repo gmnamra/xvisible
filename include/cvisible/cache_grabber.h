@@ -75,17 +75,17 @@ class cache_grabber : public simple_grabber
       }
 
       // @todo fix error and status
-      virtual int get_next_frame (cached_frame_ref& frame)
+      virtual grabber_status get_next_frame (cached_frame_ref& frame)
       {
           {
               if (!cache_->isValid())
-                  return eFrameStatusError;
+                  return grabber_status::Error;
               
               if (!_started)
-                  return eFrameStatusError;
+                  return grabber_status::Error;
               
               if (_curFrame  == _last_frame_count)
-                  return eFrameStatusEOF;
+                  return grabber_status::end_of_file;
               
               
               /*
@@ -97,10 +97,10 @@ class cache_grabber : public simple_grabber
               
               if (status != QtimeCacheStatus::OK)
               {
-                  return eFrameStatusError;
+                  return grabber_status::Error;
               }
               
-              return eFrameStatusEOF;
+              return grabber_status::end_of_file;
           }
  
       }

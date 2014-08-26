@@ -81,7 +81,7 @@ public:
   
 private:
   const T* mLut;
-  rcUIPair mRUP;
+  std::pair<uint32,uint32>  mRUP;
 };
 
 
@@ -110,7 +110,7 @@ private:
 	void rowFuncIMCached();
 	
 	rcCorr   mRes;
-	rcUIPair mRUP;
+	std::pair<uint32,uint32>  mRUP;
 	moments_cached mCacheState;
 };
 
@@ -123,7 +123,7 @@ mRUP( winA.rowUpdate () / sizeof (T), winB.rowUpdate () / sizeof (T) )
 {
 	
 	row_func_TwoSource<T>::checkAssigned (winB, winA);
-	rmAssertDebug (winA.size() == winB.size());
+	assert (winA.size() == winB.size());
 	row_func_TwoSource<T>::mWidth = winA.width();
 	row_func_TwoSource<T>::mHeight = winB.height();
 	row_func_TwoSource<T>::mFirst = (T *) winA.rowPointer(0);
@@ -151,7 +151,7 @@ mCacheState( eNone )
 {
   rmUnused (dummy);
   row_func_TwoSource<T>::checkAssigned (srcB, srcA);
-  rmAssertDebug (srcA.size() == srcB.size());
+  assert (srcA.size() == srcB.size());
   row_func_TwoSource<T>::mWidth = srcA.width();
   row_func_TwoSource<T>::mHeight = srcB.height();
   row_func_TwoSource<T>::mFirst = (T *) srcA.rowPointer(0);
@@ -265,8 +265,8 @@ void basic_corr_RowFunc<T>::rowFuncNoneCached ()
   }
   mRes.accumulate (Sim, Sii, Smm, Si, Sm);
 	
-  row_func_TwoSource<T>::mFirst += mRUP.x();
-  row_func_TwoSource<T>::mSecond += mRUP.y();
+  row_func_TwoSource<T>::mFirst += mRUP.first;
+  row_func_TwoSource<T>::mSecond += mRUP.second;
 }
 
 template <class T>
@@ -287,8 +287,8 @@ void basic_corr_RowFunc<T>::rowFuncICached ()
   }
   mRes.accumulateM (Sim, Smm, Sm);
 	
-  row_func_TwoSource<T>::mFirst += mRUP.x();
-  row_func_TwoSource<T>::mSecond += mRUP.y();
+  row_func_TwoSource<T>::mFirst += mRUP.first;
+  row_func_TwoSource<T>::mSecond += mRUP.second;
 }
 
 template <class T>
@@ -309,8 +309,8 @@ void basic_corr_RowFunc<T>::rowFuncMCached ()
   }
   mRes.accumulate (Sim, Sii, Si);
 	
-  row_func_TwoSource<T>::mFirst += mRUP.x();
-  row_func_TwoSource<T>::mSecond += mRUP.y();
+  row_func_TwoSource<T>::mFirst += mRUP.first;
+  row_func_TwoSource<T>::mSecond += mRUP.second;
 }
 
 template <class T>
@@ -329,8 +329,8 @@ void basic_corr_RowFunc<T>::rowFuncIMCached ()
   }
   mRes.accumulate (Sim);
 	
-  row_func_TwoSource<T>::mFirst += mRUP.x();
-  row_func_TwoSource<T>::mSecond += mRUP.y();
+  row_func_TwoSource<T>::mFirst += mRUP.first;
+  row_func_TwoSource<T>::mSecond += mRUP.second;
 }
 
 
@@ -342,7 +342,7 @@ pixel_map<T>::pixel_map (const roi_window& srcA,  const roi_window& srcB,
 mRUP( srcA.rowUpdate () / sizeof (T), srcB.rowUpdate () / sizeof (T) )
 {
   row_func_OneSourceOneDestination <T>::checkAssigned (srcB, srcA);
-  rmAssertDebug (srcA.size() == srcB.size());
+  assert (srcA.size() == srcB.size());
   row_func_OneSourceOneDestination<T>::mWidth = srcA.width();
   row_func_OneSourceOneDestination<T>::mHeight = srcB.height();
   row_func_OneSourceOneDestination<T>::mFirst = (T *) srcA.rowPointer(0);

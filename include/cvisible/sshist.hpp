@@ -2,6 +2,7 @@
 #ifndef _sshist_H_
 #define _sshist_H_
 
+#include "vf_types.h"
 #include <map>
 
 /* sshist - Allows users to create a "bounded" sparse
@@ -26,7 +27,7 @@
 
 template <typename T1, typename T2>
 struct greater_second {
-    typedef pair<T1, T2> type;
+    typedef std::pair<T1, T2> type;
     bool operator ()(type const& a, type const& b) const {
         return a.second > b.second;
     }

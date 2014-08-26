@@ -17,7 +17,7 @@ public:
     };
     
     // Array access operator
-    uint32 operator [] (int index) const { rmAssertDebug( index < mSize ); return mTable[index]; };
+    uint32 operator [] (int index) const { assert( index < mSize ); return mTable[index]; };
     uint32* lut_ptr () { return mTable; }
     
     
@@ -39,31 +39,13 @@ SINGLETON_FCN(sSqrTable<uint8>, square_table);
 template <>
 bool row_func_TwoSource<uint8>::checkAssigned (const roi_window& srcA, const roi_window& srcB) 
 {
-  return (srcA.depth() == rcPixel8 && srcB.depth() == rcPixel8);
+  return (srcA.depth() == rpixel8 && srcB.depth() == rpixel8);
 }
 
 template <>
 bool row_func_TwoSource<uint16>::checkAssigned (const roi_window& srcA, const roi_window& srcB) 
 {
-  return (srcA.depth() == rcPixel8 && srcB.depth() == rcPixel16);
-}
-
-template <>
-bool row_func_TwoSource<uint32>::checkAssigned (const roi_window& srcA, const roi_window& srcB) 
-{
-  return (srcA.depth() == rcPixel8 && srcB.depth() == rcPixel32S);
-}
-
-template <>
-bool row_func_TwoSource<double>::checkAssigned (const roi_window& srcA, const roi_window& srcB) 
-{
-  return (srcA.depth() == rcPixelDouble && srcB.depth() == rcPixelDouble);
-}
-
-template <>
-bool row_func_TwoSource<float>::checkAssigned (const roi_window& srcA, const roi_window& srcB) 
-{
-    return srcA.depth() == rcPixelFloat && srcB.depth() == rcPixelFloat;
+  return (srcA.depth() == rpixel8 && srcB.depth() == rpixel16);
 }
 
 
@@ -71,22 +53,12 @@ bool row_func_TwoSource<float>::checkAssigned (const roi_window& srcA, const roi
 template <>
 bool row_func_OneSourceOneDestination<uint8>::checkAssigned (const roi_window& srcA, const roi_window& srcB) 
 {
-  return (srcA.depth() == rcPixel8 && srcB.depth() == rcPixel8);
+  return (srcA.depth() == rpixel8 && srcB.depth() == rpixel8);
 }
 template <>
 bool row_func_OneSourceOneDestination<uint16>::checkAssigned (const roi_window& srcA, const roi_window& srcB) 
 {
-  return (srcA.depth() == rcPixel8 && srcB.depth() == rcPixel16);
-}
-template <>
-bool row_func_OneSourceOneDestination<uint32>::checkAssigned (const roi_window& srcA, const roi_window& srcB) 
-{
-  return (srcA.depth() == rcPixel8 && srcB.depth() == rcPixel32S);
-}
-template <>
-bool row_func_OneSourceOneDestination<double>::checkAssigned (const roi_window& srcA, const roi_window& srcB) 
-{
-  return (srcA.depth() == rcPixelDouble && srcB.depth() == rcPixelDouble);
+  return (srcA.depth() == rpixel8 && srcB.depth() == rpixel16);
 }
 
 
@@ -114,8 +86,8 @@ inline void basic_corr_RowFunc<uint8>::rowFuncNoneCached ()
 	}
 	mRes.accumulate (Sim, Sii, Smm, Si, Sm);
 	
-	mFirst += mRUP.x();
-	mSecond += mRUP.y();
+	mFirst += mRUP.first;
+	mSecond += mRUP.second;
 }
 template <>
 inline void basic_corr_RowFunc<uint8>::rowFuncICached ()
@@ -136,8 +108,8 @@ inline void basic_corr_RowFunc<uint8>::rowFuncICached ()
 	}
 	mRes.accumulateM (Sim, Smm, Sm);
 	
-	mFirst += mRUP.x();
-	mSecond += mRUP.y();
+	mFirst += mRUP.first;
+	mSecond += mRUP.second;
 }
 template <>
 inline void basic_corr_RowFunc<uint8>::rowFuncMCached ()
@@ -158,8 +130,8 @@ inline void basic_corr_RowFunc<uint8>::rowFuncMCached ()
 	}
 	mRes.accumulate (Sim, Sii, Si);
 	
-	mFirst += mRUP.x();
-	mSecond += mRUP.y();
+	mFirst += mRUP.first;
+	mSecond += mRUP.second;
 }
 template <>
 inline void basic_corr_RowFunc<uint8>::rowFuncIMCached ()
@@ -178,8 +150,8 @@ inline void basic_corr_RowFunc<uint8>::rowFuncIMCached ()
 	}
 	mRes.accumulate (Sim);
 	
-	mFirst += mRUP.x();
-	mSecond += mRUP.y();
+	mFirst += mRUP.first;
+	mSecond += mRUP.second;
 }
 template <>
 inline void basic_corr_RowFunc<uint8>::rowFunc ()
@@ -224,8 +196,8 @@ inline void pixel_map<uint8>::rowFunc ()
 	{
 		*pSecond++ = mLut[*pFirst++];
 	}
-	mFirst += mRUP.x();
-	mSecond += mRUP.y();
+	mFirst += mRUP.first;
+	mSecond += mRUP.second;
 }
 template <>
 inline void pixel_map<uint16>::rowFunc ()
@@ -237,8 +209,8 @@ inline void pixel_map<uint16>::rowFunc ()
 	{
 		*pSecond++ = mLut[*pFirst++];
 	}
-	mFirst += mRUP.x();
-	mSecond += mRUP.y();
+	mFirst += mRUP.first;
+	mSecond += mRUP.second;
 }
 
 // Instantiate : Keep this at the bottom

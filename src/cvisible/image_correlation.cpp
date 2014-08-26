@@ -51,11 +51,11 @@ void rfCorrelate(const uint8* baseA, const uint8* baseB, uint32 rupA, uint32 rup
 
 void rfCorrelate(const roi_window& sourceA, const roi_window& sourceB, const rsCorrParams& params, rcCorr& res)
 {
-	rmAssert (sourceA.depth() == sourceB.depth());
-    int width_bytes = (params.pd == ByteWise) ? sourceA.width() * get_bytes().count (sourceA.depth()) : sourceA.width();
+	assert(sourceA.depth() == sourceB.depth());
+  //  int width_bytes = (params.pd == ByteWise) ? sourceA.width() * get_bytes().count (sourceA.depth()) : sourceA.width();
     rfCorrelate (sourceA.rowPointer(0),sourceB.rowPointer(0),
                  sourceA.rowUpdate(), sourceB.rowUpdate(),
-                 width_bytes, 
+                 sourceA.rowUpdate(),
                  sourceA.height(), 
                  res);
 }
@@ -79,12 +79,12 @@ void rfCorrelate(const roi_window& img, const roi_window& mdl,
 	
     if (maskN < 0) {
         uint32 allOnes = 0xFF;
-        if (img.depth() == rcPixel16)
+        if (img.depth() == rpixel16)
             allOnes = 0xFFFF;
-        else if (img.depth() == rcPixel32S)
+        else if (img.depth() == rpixel32)
             allOnes = 0xFFFFFFFF;
         else
-            rmAssert(img.depth() == rcPixel8);
+            assert(img.depth() == rpixel8);
 		
         maskN = 0;
         for (int32 y = 0; y < mask.height(); y++)
@@ -93,7 +93,7 @@ void rfCorrelate(const roi_window& img, const roi_window& mdl,
 				if (val == allOnes)
 					maskN++;
 				else
-					rmAssert(val == 0);
+					assert(val == 0);
             }
     }
     res.n(maskN);
@@ -114,8 +114,8 @@ void rfCorrelate(const roi_window& sourceA, const roi_window& sourceB, rcCorr& r
 template<>
 void rfCorrelateWindow(roi_window_t<uint8>& sourceA, roi_window_t<uint8>& sourceB, const rsCorrParams& params, rcCorr& res)
 {
-	rmUnused( params );
-	rmAssert (sourceA.depth() == sourceB.depth());
+    UnusedParameter ( params );
+	assert(sourceA.depth() == sourceB.depth());
 	
     basic_corr_RowFunc<uint8> bc( sourceA, sourceB );
     
@@ -138,13 +138,13 @@ void rfCorrelateWindow(roi_window_t<uint8>& sourceA, roi_window_t<uint8>& source
 template <class T>
 void rfCorrelateWindow(roi_window_t<T>& sourceA, roi_window_t<T>& sourceB, const rsCorrParams& params, rcCorr& res)
 {
-	rmAssert (sourceA.depth() == sourceB.depth());
-    rmAssert (params.pd == ByteWise);
+	assert(sourceA.depth() == sourceB.depth());
+    assert(params.pd == ByteWise);
     
     // Bytewise correlation
     basic_corr_RowFunc<uint8> bc( sourceA.rowPointer(0), sourceB.rowPointer(0),
                                  sourceA.rowUpdate(), sourceB.rowUpdate(),
-                                 sourceA.width() * get_bytes().count (sourceA.depth()), 
+                                 sourceA.width() * sourceA.depth(), 
                                  sourceA.height() );
     bc.prolog ();
     bc.areaFunc();

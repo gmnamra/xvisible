@@ -2,11 +2,9 @@
 #ifndef _roiWINDOW_H_
 #define _roiWINDOW_H_
 
-#include "rc_framebuf.h"
+#include "frame.h"
 #include "cached_frame_buffer.h"
-#include "rc_rect.h"
 #include <iomanip>
-#include <Accelerate/Accelerate.h>
 
 #ifdef CINDER_BUILTIN
 #include <cinder/Channel.h>
@@ -16,6 +14,10 @@
 #include <memory>
 #include "cached_frame_buffer.h"
 #include "qtime_cache.h"
+#include "vf_cinder.hpp"
+#include "simple_pair.h"
+#include "exception.hpp"
+
 using namespace std;
 using namespace cv;
 
@@ -71,7 +73,7 @@ public:
       \param span is the span on each side. width & height are 2*span + 1
     */
   roi_window( cached_frame_ref ptr, int32 x, int32 y, int32 width, int32 height );
-  roi_window( cached_frame_ref ptr, const rcIPair& icenter, const rcIPair& span, bool& withIn);
+  roi_window( cached_frame_ref ptr, const std::pair<int32,int32> & icenter, const std::pair<int32,int32> & span, bool& withIn);
   roi_window( cached_frame_ref ptr, const rcRect& cropRect );
   roi_window( cached_frame_ref ptr);
 
@@ -85,8 +87,8 @@ public:
   roi_window( const roi_window& parentWindow, int32 x, int32 y, int32 width, int32 height, bool clip = false );
   roi_window( const roi_window& parentWindow, int32 width, int32 height );
   roi_window( const roi_window& parentWindow, const rcRect& cropRect, bool clip = false );
-  roi_window( const roi_window& parentWindow, const rcIRect& cropRect, int32& isInside );
-  roi_window( const roi_window& parentWindow, const rcIPair& icenter, const rcIPair& span, bool& withIn);
+  roi_window( const roi_window& parentWindow, const rcRect& cropRect, int32& isInside );
+  roi_window( const roi_window& parentWindow, const std::pair<int32,int32> & icenter, const std::pair<int32,int32> & span, bool& withIn);
 
  //! Create a frameBuffer and become a entire window to its frameBuf 
  //! takes up to four arguments
@@ -94,8 +96,8 @@ public:
       \param size is a pair of integers indicating size of the to be created frame buffer
       \param depth is the the pixel depth of the to be created framebuf
     */
-  roi_window (int32 width, int32 height, rcPixel depth  = rcPixel8 );
-  roi_window (const rcIPair& size, rcPixel depth  = rcPixel8 );
+  roi_window (int32 width, int32 height, pixel_ipl_t depth  = rpixel8 );
+  roi_window (const std::pair<int32,int32> & size, pixel_ipl_t depth  = rpixel8 );
 
   // Destructor
   virtual ~roi_window() {  }
@@ -104,7 +106,7 @@ public:
   const cached_frame_ref& frameBuf() const { return mFrameBuf; }
   cached_frame_ref& frameBuf() { return mFrameBuf; }
 
-  rcPixel depth() const { return mFrameBuf->depth(); }
+  pixel_ipl_t depth() const { return mFrameBuf->depth(); }
   uint32 pixelCount() const { return mGeometry.width () * mGeometry.height (); }
   int32 n () const { return mGeometry.width () * mGeometry.height (); }
   bool isGray() const { return mFrameBuf->isGray(); }
@@ -115,25 +117,25 @@ public:
   int32 width() const { return mGeometry.width(); }
   int32 height() const { return mGeometry.height(); }
 
-  const rcIPair& position() const { return mGeometry.origin(); }
-  rcIPair position() { return rcIPair (mGeometry.origin()); }
-  rcIPair size () const { return rcIPair (mGeometry.width(), mGeometry.height()); }
+//  const std::pair<int32,int32> & position() const { return mGeometry.origin(); }
+//  std::pair<int32,int32>  position() { return std::pair<int32,int32>  (mGeometry.origin()); }
+  std::pair<int32,int32>  size () const { return std::pair<int32,int32>  (mGeometry.width(), mGeometry.height()); }
 
   rcRect bound () const { return mGeometry; }
-  rcIRect frame () const { rmAssert (isBound());
-    return rcIRect (0, 0, mFrameBuf->width(), mFrameBuf->height()); }
+  rcRect frame () const { assert (isBound());
+    return rcRect (0, 0, mFrameBuf->width(), mFrameBuf->height()); }
   const rcRect& rectangle () const { return mGeometry; }
 
   // return true if this window contains the other and has the same frame buf
   bool contains (const roi_window& other) const;
 
   // return true if this window contains the rect
-  inline bool contains (const rcIRect& other) const {
+  inline bool contains (const rcRect& other) const {
     return (isBound() && mGeometry.contains (other));
   }
 
   // return true if we can peakOutside with a border
-  bool canPeekOutSide (const rcIPair range) const;
+  bool canPeekOutSide (const std::pair<int32,int32>  range) const;
 
   // return true if pixel addresses in this window contains this pointer (for asserts)
   bool contains (const uint8* ptr) const;
@@ -146,20 +148,10 @@ public:
       \param rhs
       \desc  return if the point is in this window
     */
-  bool isWithin (int32 x, int32 y) const { rcIPair where (x, y); return (mGeometry.contains (where)); }
-  bool isWithin (const rcIPair& where) const { return (mGeometry.contains (where)); }
+  bool isWithin (int32 x, int32 y) const { std::pair<int32,int32>  where (x, y); return (mGeometry.contains (where)); }
+  bool isWithin (const std::pair<int32,int32> & where) const { return (mGeometry.contains (where)); }
   bool isWithin (const rcRect& rect) const { return (mGeometry.contains (rect)); }
 
-//! canTrim / can takes a desired trim tba to all sides
-    /*!
-      \param delta
-      \desc  returns if the window can be trimmed in the framebuf by delta
-    */
-  bool canTrim (int32 delta) const;
-  void maxTrim (rcIPair& tl, rcIPair& br) const;
-  int32 maxTrim () const;
-
- 	
  // Return number of bits and bytes in this pixel
   int32 bits () const;
   int32 bytes () const;
@@ -167,7 +159,7 @@ public:
   // Slow Pixel Address
  // Return pixel value for (x,y)
   uint32 getPixel( int32 x, int32 y ) const;
-  uint32 getPixel(const rcIPair& where) const;
+  uint32 getPixel(const std::pair<int32,int32> & where) const;
 
   // Pointer Access
   // Raw pixel row pointer
@@ -179,13 +171,13 @@ public:
   int32 rowUpdate () const { return mFrameBuf->rowUpdate (); }
   int32 rowPixelUpdate () const { return mFrameBuf->rowPixelUpdate (); }
 
-  inline bool sameTime (const roi_window& other) const
-  {
-    return frameBuf()->timestamp() == other.frameBuf()->timestamp();
-  }
+ // inline bool sameTime (const roi_window& other) const
+ // {
+ //   return frameBuf()->timestamp() == other.frameBuf()->timestamp();
+//  }
 
   // Return (creation) time stamp
-  inline rcTimestamp timestamp() const
+  inline time_spec_t timestamp() const
   { 
     return frameBuf()->timestamp();
   }
@@ -205,7 +197,7 @@ public:
   // and return true
   // Note: this is implemented here to force inlining. Should be moved to .cpp
 
-  bool translate (const rcIPair& delta);
+  bool translate (const std::pair<int32,int32> & delta);
 
  // become an entire window to this framebuf
   void entire ();
@@ -213,11 +205,11 @@ public:
   // Trim/Shrink by a fixed amount in all sides
   roi_window& trim (uint32 delta);
   bool trim (int32 delta);
-  bool trim (rcIPair  delta);
+  bool trim (std::pair<int32,int32>   delta);
 
   // Set pixel value for (x,y). Return new value
   uint32 setPixel( int32 x, int32 y, uint32 value );
-  uint32 setPixel(const rcIPair& where, uint32 value );
+  uint32 setPixel(const std::pair<int32,int32> & where, uint32 value );
     
   // Window copy fct. Copy region can be thought of as the intersection of the two windows with their
   // origins aligned. If mirror is true, rows will be vertically mirrored.
@@ -274,14 +266,14 @@ public:
   */
 
     inline bool sumValid() const          { return mSumValid; }
-    inline double sum() const             { rmAssertDebug( mSumValid ); return mSum; }
-    inline double sumSquares() const      { rmAssertDebug( mSumValid ); return mSumSquares; }
+    inline double sum() const             { assert( mSumValid ); return mSum; }
+    inline double sumSquares() const      { assert( mSumValid ); return mSumSquares; }
 
     //
     // Mutators
     //
     inline void sum( double s )              { mSum = s; mSumValid = true; };
-    inline void sumSquares( double s )       { mSumSquares = s; rmAssertDebug( mSumValid ); };
+    inline void sumSquares( double s )       { mSumSquares = s; assert( mSumValid ); };
     inline void invalidate()                 { mSumValid = false; };
 
     template <class T>
@@ -299,7 +291,7 @@ public:
   //@param w integer 
   //@param h integer
   //@param depth integer
-  void init (int32 w, int32 h, rcPixel depth);
+  void init (int32 w, int32 h, pixel_ipl_t depth);
 
   // window is a helper function
   //@param parentWindow is a roi_window
@@ -360,7 +352,7 @@ public:
     {
         // Verify that depths match
         if ( sizeof(T) != static_cast<int>(w.bytes()) )
-            throw general_exception( "roi_window_t ctor: invalid roi_window depth" );
+            throw vf_exception::assertion_error ( "roi_window_t ctor: invalid roi_window depth" );
     }
       // Warning: these are dangerous casts
     inline const T* rowPelPointer (uint32 y) const          { return (const T*)(rowPointer( y )); }

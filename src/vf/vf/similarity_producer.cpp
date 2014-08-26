@@ -63,7 +63,7 @@ public:
 
 SINGLETON_FCN(random_name,get_name_generator);
 
-class SimilarityProducer::spImpl : public rc_signaler 
+class SimilarityProducer::spImpl : public base_signaler 
 {
 public:
     spImpl () 

@@ -24,8 +24,8 @@ public:
 
   inline double compute ()
     {
-        rmAssertDebug( mSi >= 0.0 );
-        rmAssertDebug( mSm >= 0.0 );
+        assert( mSi >= 0.0 );
+        assert( mSm >= 0.0 );
         
         const double ei = ((mN * mSii) - (mSi * mSi));
         const double em = ((mN * mSmm) - (mSm * mSm));
@@ -50,8 +50,8 @@ public:
 
   inline double relative ()
     {
-        rmAssertDebug( mSi >= 0.0 );
-        rmAssertDebug( mSm >= 0.0 );
+        assert( mSi >= 0.0 );
+        assert( mSm >= 0.0 );
         return std::sqrt (r () );
     }
 

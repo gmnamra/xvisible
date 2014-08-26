@@ -1,6 +1,6 @@
 #include "cached_frame_buffer.h"
 #include <stdio.h>
-#include "rc_types.h"
+#include "vf_types.h"
 #include "qtime_cache.h"
 
 
@@ -24,7 +24,7 @@ cached_frame_ref::cached_frame_ref( const cached_frame_ref& p )
         }
  }
 
-cached_frame_ref::cached_frame_ref( rcFrame* p)
+cached_frame_ref::cached_frame_ref( raw_frame* p)
     : mCacheCtrl ( 0 ), mFrameIndex ( 0 ), mFrameBuf( p )
 {
         if (p) {
@@ -57,7 +57,7 @@ cached_frame_ref& cached_frame_ref::operator= ( const cached_frame_ref& p )
     return *this;
 }
 
-cached_frame_ref& cached_frame_ref::operator= ( rcFrame* p )
+cached_frame_ref& cached_frame_ref::operator= ( raw_frame* p )
 {
     if ( (mFrameBuf == p) && (mFrameBuf || !mCacheCtrl) )
         return *this;
@@ -127,13 +127,13 @@ void cached_frame_ref::prefetch() const
     bool cached_frame_ref::operator!= ( const cached_frame_ref& p ) const {
         return !(this->operator==( p ));
     }
-    bool cached_frame_ref::operator== ( const rcFrame* p ) const {
+    bool cached_frame_ref::operator== ( const raw_frame* p ) const {
         if ( mCacheCtrl )
             return (p && (mCacheCtrl == p->cacheCtrl()) &&
                     (mFrameIndex == p->frameIndex()));
         return ( mFrameBuf == p );
     }
-    bool cached_frame_ref::operator!= ( const rcFrame* p ) const {
+    bool cached_frame_ref::operator!= ( const raw_frame* p ) const {
         return !(this->operator==( p ));
     }
     bool cached_frame_ref::operator!() const {
@@ -141,25 +141,25 @@ void cached_frame_ref::prefetch() const
     }
     
     // Accessors
-    cached_frame_ref::operator rcFrame*() const {
+    cached_frame_ref::operator raw_frame*() const {
         if ( !mFrameBuf && mCacheCtrl ) lock();
             return mFrameBuf;
     }
-    const rcFrame& cached_frame_ref::operator*() const {
+    const raw_frame& cached_frame_ref::operator*() const {
         if ( !mFrameBuf && mCacheCtrl ) lock();
-        rmAssertDebug( mFrameBuf );
+        assert( mFrameBuf );
         return *mFrameBuf;
     }
-    rcFrame& cached_frame_ref::operator*() {
+    raw_frame& cached_frame_ref::operator*() {
         if ( !mFrameBuf && mCacheCtrl ) lock();
-        rmAssertDebug( mFrameBuf );
+        assert( mFrameBuf );
         return *mFrameBuf;
     }
-    const rcFrame* cached_frame_ref::operator->() const {
+    const raw_frame* cached_frame_ref::operator->() const {
         if ( !mFrameBuf && mCacheCtrl ) lock();
         return mFrameBuf;
     }
-    rcFrame* cached_frame_ref::operator->() {
+    raw_frame* cached_frame_ref::operator->() {
         if ( !mFrameBuf && mCacheCtrl ) lock();
         return mFrameBuf;
     }
@@ -190,9 +190,9 @@ void cached_frame_ref::prefetch() const
     void cached_frame_ref::setCachedFrame(cached_frame_ref& p, uint32 cacheID,
                         uint32 frameIndex)
     {
-        rmAssert(p.mFrameBuf);
-        rmAssert(!mFrameBuf);
-        rmAssert(cacheID);
+        assert (p.mFrameBuf);
+        assert (!mFrameBuf);
+        assert (cacheID);
         mFrameBuf = p.mFrameBuf;
         mCacheCtrl = cacheID;
         mFrameIndex = frameIndex;
@@ -205,8 +205,8 @@ void cached_frame_ref::prefetch() const
      */
     void cached_frame_ref::setCachedFrameIndex(uint32 cacheID, uint32 frameIndex)
     {
-        rmAssert(!mFrameBuf);
-        rmAssert(cacheID);
+        assert (!mFrameBuf);
+        assert (cacheID);
         mCacheCtrl = cacheID;
         mFrameIndex = frameIndex;
     }

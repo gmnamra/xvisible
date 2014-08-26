@@ -2,23 +2,9 @@
 #define __QTIME_VC_IMPL__
 
 #include <cinder/Channel.h>
-#include <cinder/Area.h>
-#include <limits>
-#include "cinder/ImageIo.h"
-#include "cinder/Utilities.h"
-#include "cinder/Surface.h"
-#include "cinder/qtime/QuickTime.h"
-#include "cinder/Thread.h"
-#include <boost/algorithm/string.hpp>
-#include <boost/thread/mutex.hpp>
-#include <boost/thread/scoped_thread.hpp>
-#include <boost/math/special_functions.hpp>
-#include "rc_fileutils.h"
-#include <stlplus_lite.hpp>
-#include "qtime_cache.h"
-#include "vf_utils.hpp"
-#include "sshist.hpp"
-
+#include <cinder/Rect.h>
+#include "vf_types.h"
+#include "simple_pair.h"
 #include <fstream>
 #include <mutex>
 #include <memory>
@@ -29,177 +15,86 @@ using namespace std;
 
 
 
-class QtimeCache::qtImpl
+class rcRect : public ci::RectT<float>
 {
 public:
     
-    typedef std::vector<float> toc_t;
-    typedef std::shared_ptr<toc_t> toc_t_ref;
+    rcRect () : ci::RectT<float> () {}
     
-    // ctor
-    qtImpl( const std::string fqfn) : mFqfn (fqfn), mValid (false), m_raw (new toc_t)
-    {
-        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
-    }
+    rcRect( int32 x, int32 y, int32 width, int32 height )
+    : ci::RectT<float> ((float) x, (float)y, (float) width, (float) height) {}
     
-    void load_movie ()
-    {
-        std::lock_guard<std::mutex> lk(mx);
-        
-        if ( file_exists ( mFqfn ) && file_readable ( mFqfn ) )
-        {
-            mMovie = cinder::qtime::MovieSurface::create (mFqfn);
-            mValid = mMovie != 0 && get_toc();
-            if (mValid)
-            {
-                mMovie->checkPlayable();
-                mMovie->seekToStart ();
-                mMovie->setLoop (false, false);
-            }
-        }
-        
-    }
+    rcRect( const ci::RectT<float>& other)
+    : ci::RectT<float> (other) {}
     
-    bool isValid () const
-    {
-        std::lock_guard<std::mutex> lk(mx);
-        return mValid;
-    }
+    // Accessors
+    int32 x()  const { return getX1(); }
+    int32 y()  const { return getY1(); }
     
-    vf_utils::general_movie::info movie_info ()
+    int32 width () const { return getWidth(); }
+    int32 height () const { return getHeight(); }
+    
+    
+    bool contains( const rcRect &rect ) const
     {
-        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
-        std::lock_guard<std::mutex> lk(mx);
-        return minfo;
+        return (rect.x1 >= x1) &&
+        (rect.x2 <= x2) &&
+        (rect.y1 >= y1) &&
+        (rect.y2 <= y2);
     }
     
     
-    const std::ostream& print_to_ (std::ostream& std_stream)
+    bool contains( const std::pair<int32,int32>& pt ) const
     {
-        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
-        
-        std_stream << " -- Embedded Movie Info -- " << std::endl;
-        std_stream << "Dimensions:" << mMovie->getWidth() << " x " << mMovie->getHeight() << std::endl;
-        std_stream << "Duration:  " << mMovie->getDuration() << " seconds" << std::endl;
-        std_stream << "Frames:    " << mMovie->getNumFrames() << std::endl;
-        std_stream << "Framerate: " << mMovie->getFramerate() << std::endl;
-        std_stream << "Alpha channel: " << mMovie->hasAlpha() << std::endl;
-        std_stream << "Has audio: " << mMovie->hasAudio() << " Has visuals: " << mMovie->hasVisuals() << std::endl;
-        return std_stream;
+        return (pt.first >= x1) &&
+        (pt.first <= x2) &&
+        (pt.second >= y1) &&
+        (pt.second <= y2);
     }
     
-    
-    double get_time_index_map (std::shared_ptr<std::vector<float> >& ti_map)
+    rcRect intersect ( const rcRect &rect ) const
     {
-        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
-        std::unique_lock<std::mutex> lk(mx);
-        ti_map.swap(m_raw);
-        return minfo.mTscale;
+        ci::RectT<float> result;
+        result.x1 = std::max(x1, rect.x1);
+        result.y1 = std::max(y1, rect.y1);
+        result.x2 = std::min (x2, rect.x2);
+        result.y2 = std::min(y2, rect.y2);
+        result.canonicalize();
+        return result;
     }
     
-    bool getSurfaceAndCopy (cached_frame_ref& ptr)
+    rcRect operator &= ( const rcRect &rect )
     {
-        std::lock_guard<std::mutex> lk(mx);
-        if (!mMovie) return false;
-        mSurface = mMovie->getSurface ();
-        
-        if (!mSurface) return false;
-        
-        ptr->setIsGray (true);
-        Surface::Iter iter = mSurface.getIter ( mSurface.getBounds() );
-        int rows = 0;
-        while (iter.line () )
-        {
-            uint8_t* pels = ptr->rowPointer (rows++);
-            while ( iter.pixel () ) *pels++ = iter.g ();
-        }
-        return true;
+        x1 = std::max(x1, rect.x1);
+        y1 = std::max(y1, rect.y1);
+        x2 = std::min (x2, rect.x2);
+        y2 = std::min(y2, rect.y2);
+        return *this;
     }
-    
-    void seekToFrame( int frame )
-    {
-        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
-        std::lock_guard<std::mutex> lk(mx);
-        mMovie->seekToFrame (frame);
-        
-    }
-    
-    void seekToStart()
-    {
-        //   std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
-        std::lock_guard<std::mutex> lk(mx);
-        mMovie->seekToStart ();
-    }
-    
-    void seekToEnd()
-    {
-        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
-        std::lock_guard<std::mutex> lk(mx);
-        mMovie->seekToStart ();
-    }
-    
-    bool checkPlayable ()
-    {
-        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
-        std::lock_guard<std::mutex> lk(mx);
-        return mMovie->checkPlayable ();
-    }
-    
-    float getCurrentTime()
-    {
-        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
-        std::lock_guard<std::mutex> lk(mx);
-        return mMovie->getCurrentTime ();
-    }
-    bool checkNewFrame ()
-    {
-        std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
-        std::lock_guard<std::mutex> lk(mx);
-        return mMovie->checkNewFrame ();
-        
-    }
-    
-private:
-    vf_utils::general_movie::info minfo;
-    mutable std::once_flag mMovie_loaded_flag;
-    std::string mFqfn;
-    ci::qtime::MovieSurfaceRef    mMovie;
-    ci::Surface				mSurface;
-    mutable bool                mValid;
-    mutable std::mutex          mx;
-    mutable std::mutex          qmx;
-    toc_t_ref m_raw;
-    
-    
-    bool get_toc()
-    {
-        std::unique_lock<std::mutex> lk(qmx);
-        
-        minfo.mWidth = mMovie->getWidth();
-        minfo.mHeight = mMovie->getHeight();
-        minfo.mFps = mMovie->getFramerate();
-        minfo.mEmbeddedCount = mMovie->getNumFrames ();
-        auto movObj = mMovie->getMovieHandle();
-        minfo.mTscale = ::GetMovieTimeScale( movObj );
-        
-        TimeValue   curMovieTime = 0;
-        m_raw->resize (0);
-        OSType types[] = { VisualMediaCharacteristic };
 
-        // there's an extra time step at the end of the movie
-        // use frame count to avoid fetching the extra step
-        for (uint32 fc = 0; fc < minfo.mEmbeddedCount; fc++)
-        {
-            m_raw->push_back (curMovieTime / 600.0f);
-            ::GetMovieNextInterestingTime( movObj, nextTimeStep, 1, types, curMovieTime, fixed1, &curMovieTime, NULL );
-        }
+    inline rcRect operator& (const rcRect& other) const
+    {
+        return intersect(other);
+    }
+    
+    inline rcRect operator| (const rcRect& other) const
+    {
+        rcRect result( *this );
+        result.include (other);
+        return result;
+    }
+
+    bool operator==(const rcRect & rhs) const
+    {
+        return x1 == rhs.x1 and x2 == rhs.x2 and y1 == rhs.y1 and y2 == rhs.y2;
+    }
+
+    bool operator!=(const rcRect & rhs) const
+    {
+        return ! (rhs == *this);
+    }
 
 
-        return (m_raw->size() == minfo.mEmbeddedCount);
-    }
-    
-    
-    
 };
 
 

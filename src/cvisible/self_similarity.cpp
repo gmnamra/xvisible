@@ -5,7 +5,7 @@
 // analysis
 #include "self_similarity.h"
 #include  "image_correlation.h"
-
+#include "vf_math.h"
 
 
 
@@ -26,14 +26,14 @@ void self_similarity_producer::norm_scale (const std::deque<double>& src, std::d
 static int32 log2max(int32 n);
 
 self_similarity_producer::self_similarity_producer() : _matrixSz (0), _maskValid(false), _cacheSz (0), 
-_type(eExhaustive),_depth (rcPixel8),  _cdl (eNorm),  _notify(NULL), _finished(true),_guiUpdate(NULL), _tiny(1e-10)
+_type(eExhaustive),_depth (rpixel8),  _cdl (eNorm),  _notify(NULL), _finished(true),_guiUpdate(NULL), _tiny(1e-10)
 {
 }
 
 self_similarity_producer::~self_similarity_producer () {}
 
 self_similarity_producer::self_similarity_producer(rcMatrixGeneration type,
-			     rcPixel depth,
+			     pixel_ipl_t depth,
 			     uint32 matrixSz,
 			     uint32 cacheSz,
 			     rcCorrelationDefinition cdl,
@@ -47,12 +47,12 @@ self_similarity_producer::self_similarity_producer(rcMatrixGeneration type,
 {
     _corrParams.pd = ByteWise; // use each byte of a multibyte pixel
   switch (_depth) {
-  case rcPixel8:
-  case rcPixel16:
-  case rcPixel32S:
+  case rpixel8:
+  case rpixel16:
+  case rpixel32:
     break;
   default:
-    rmAssert(0);
+    assert(0);
     break;
   }
 
@@ -64,7 +64,7 @@ self_similarity_producer::self_similarity_producer(rcMatrixGeneration type,
 self_similarity_producer::self_similarity_producer(uint32 matrixSz,
 			     bool notify,
 			     double tiny)
-  : _maskValid(false), _type(eExhaustive), _matrixSz(matrixSz), _depth (rcPixel8),
+  : _maskValid(false), _type(eExhaustive), _matrixSz(matrixSz), _depth (rpixel8),
     _notify(notify), _finished(true),_tiny(tiny), _cacheSz (matrixSz), _cdl (eNorm), _guiUpdate (NULL)
 {
   _log2MSz = log2(_matrixSz);
@@ -72,7 +72,7 @@ self_similarity_producer::self_similarity_producer(uint32 matrixSz,
 
 bool self_similarity_producer::fill(vector<roi_window>& firstImages)
 {
-  rmAssert (_matrixSz);
+  assert(_matrixSz);
 
   vector<roi_window>::iterator start = firstImages.begin();
 
@@ -80,17 +80,17 @@ bool self_similarity_producer::fill(vector<roi_window>& firstImages)
     start += (firstImages.size() - _matrixSz);
 
   switch (_depth) {
-  case rcPixel8:
+  case rpixel8:
     _tw8.resize(0);
     return internalFill(start, firstImages.end(), _tw8);
-  case rcPixel16:
+  case rpixel16:
     _tw16.resize(0);
     return internalFill(start, firstImages.end(), _tw16);
-  case rcPixel32S:
+  case rpixel32:
     _tw32.resize(0);
     return internalFill(start, firstImages.end(), _tw32);
   default:
-    rmAssert(0);
+    assert(0);
     break;
   }
   return false;
@@ -99,7 +99,7 @@ bool self_similarity_producer::fill(vector<roi_window>& firstImages)
 
 bool self_similarity_producer::fill(vector<double>& firstData)
 {
-  rmAssert (_matrixSz);
+  assert(_matrixSz);
 
   vector<double>::iterator start = firstData.begin();
   vector<double>::iterator end = firstData.end();
@@ -113,7 +113,7 @@ bool self_similarity_producer::fill(vector<double>& firstData)
     _seqD.push_back(*start);
   }
 
-  rmAssert (_type == eExhaustive);
+  assert(_type == eExhaustive);
 
   if (_SMatrix.empty()) {
     _SMatrix.resize(_matrixSz);
@@ -121,9 +121,9 @@ bool self_similarity_producer::fill(vector<double>& firstData)
       _SMatrix[i].resize(_matrixSz);
   }
   else {
-    rmAssert(_SMatrix.size() == _matrixSz);
+    assert(_SMatrix.size() == _matrixSz);
     for (uint32 i = 0; i < _matrixSz; i++)
-      rmAssert(_SMatrix[i].size() == _matrixSz);
+      assert(_SMatrix[i].size() == _matrixSz);
   }
 
   /* Initialize identity diagonal of _SMatrix.
@@ -136,7 +136,7 @@ bool self_similarity_producer::fill(vector<double>& firstData)
 
 bool self_similarity_producer::fill(deque<double>& firstData)
 {
-  rmAssert (_matrixSz);
+  assert(_matrixSz);
 
   deque<double>::iterator start = firstData.begin();
   deque<double>::iterator end = firstData.end();
@@ -150,7 +150,7 @@ bool self_similarity_producer::fill(deque<double>& firstData)
     _seqD.push_back(*start);
   }
 
-  rmAssert (_type == eExhaustive);
+  assert(_type == eExhaustive);
 
   if (_SMatrix.empty()) {
     _SMatrix.resize(_matrixSz);
@@ -158,9 +158,9 @@ bool self_similarity_producer::fill(deque<double>& firstData)
       _SMatrix[i].resize(_matrixSz);
   }
   else {
-    rmAssert(_SMatrix.size() == _matrixSz);
+    assert(_SMatrix.size() == _matrixSz);
     for (uint32 i = 0; i < _matrixSz; i++)
-      rmAssert(_SMatrix[i].size() == _matrixSz);
+      assert(_SMatrix[i].size() == _matrixSz);
   }
 
   /* Initialize identity diagonal of _SMatrix.
@@ -173,59 +173,59 @@ bool self_similarity_producer::fill(deque<double>& firstData)
 
 bool self_similarity_producer::fill(deque<roi_window>& firstImages)
 {
-  rmAssert (_matrixSz);
+  assert(_matrixSz);
   deque<roi_window>::iterator start = firstImages.begin();
 
   if (firstImages.size() > _matrixSz)
     start += (firstImages.size() - _matrixSz);
 
   switch (_depth) {
-  case rcPixel8:
+  case rpixel8:
     _tw8.resize(0);
     return internalFill(start, firstImages.end(), _tw8);
-  case rcPixel16:
+  case rpixel16:
     _tw16.resize(0);
     return internalFill(start, firstImages.end(), _tw16);
-  case rcPixel32S:
+  case rpixel32:
     _tw32.resize(0);
     return internalFill(start, firstImages.end(), _tw32);
   default:
-    rmAssert(0);
+    assert(0);
     break;
   }
   return false;
 }
 
-rcIPair self_similarity_producer::fillImageSize() const 
+std::pair<int32,int32> self_similarity_producer::fillImageSize() const 
 {
-  rmAssert (_matrixSz);
+  assert(_matrixSz);
   switch (_depth) {
-  case rcPixel8:
-    return rcIPair (_tw8[0].width(), _tw8[0].height());
-  case rcPixel16:
-    return rcIPair (_tw16[0].width(), _tw16[0].height());
-  case rcPixel32S:
-    return rcIPair (_tw32[0].width(), _tw32[0].height());
+  case rpixel8:
+    return std::pair<int32,int32> (_tw8[0].width(), _tw8[0].height());
+  case rpixel16:
+    return std::pair<int32,int32> (_tw16[0].width(), _tw16[0].height());
+  case rpixel32:
+    return std::pair<int32,int32> (_tw32[0].width(), _tw32[0].height());
   default:
-    rmAssert(0);
+    assert(0);
     break;
   }
 
-  return rcIPair (0,0);
+  return std::pair<int32,int32> (0,0);
 }
 
 bool self_similarity_producer::update(roi_window nextImage)
 {
-  rmAssert (_matrixSz);
+  assert(_matrixSz);
   switch (_depth) {
-  case rcPixel8:
+  case rpixel8:
     return internalUpdate(nextImage, _tw8);
-  case rcPixel16:
+  case rpixel16:
     return internalUpdate(nextImage, _tw16);
-  case rcPixel32S:
+  case rpixel32:
     return internalUpdate(nextImage, _tw32);
   default:
-    rmAssert(0);
+    assert(0);
     break;
   }
 
@@ -234,14 +234,14 @@ bool self_similarity_producer::update(roi_window nextImage)
 
 bool self_similarity_producer::update(double& nextData)
 {
-  rmAssert (_matrixSz);
+  assert(_matrixSz);
   return internalUpdate(nextData, _seqD);
 }
 
 void self_similarity_producer::setMask(const roi_window& mask)
 {
-  rmAssert (_matrixSz);
-  rmAssert(mask.depth() == _depth);
+  assert(_matrixSz);
+  assert(mask.depth() == _depth);
 
   _maskValid = true;
   if ((_mask.width() != mask.width()) ||
@@ -250,12 +250,12 @@ void self_similarity_producer::setMask(const roi_window& mask)
   _mask.copyPixelsFromWindow(mask);
   _maskN = 0;
   uint32 allOnes = 0xFF;
-  if (_depth == rcPixel16)
+  if (_depth == rpixel16)
     allOnes = 0xFFFF;
-  else if (_depth == rcPixel32S)
+  else if (_depth == rpixel32)
     allOnes = 0xFFFFFFFF;
   else
-    rmAssert(_depth == rcPixel8);
+    assert(_depth == rpixel8);
   
   _maskN = 0;
   for (int32 y = 0; y < _mask.height(); y++)
@@ -264,13 +264,13 @@ void self_similarity_producer::setMask(const roi_window& mask)
       if (val == allOnes)
 	_maskN++;
       else
-	rmAssert(val == 0);
+	assert(val == 0);
     }
 }
 
 void self_similarity_producer::clearMask()
 {
-  rmAssert (_matrixSz);
+  assert(_matrixSz);
   _maskValid = false;
   _mask = roi_window();
 }
@@ -278,7 +278,7 @@ void self_similarity_producer::clearMask()
 bool self_similarity_producer::entropies(deque<double>& signal, rcEntropyDefinition definition,
 			      		 rcFilteringOp) const
 {
-  rmAssert (_matrixSz);
+  assert(_matrixSz);
 
   if (definition == eVisualEntropy)
     return entropiesVisualEntropy (signal);
@@ -301,7 +301,7 @@ bool self_similarity_producer::entropies(deque<double>& signal, rcEntropyDefinit
  */
 bool self_similarity_producer::entropiesVisualEntropy(deque<double>& signal) const
 {
-  rmAssert (_matrixSz);
+  assert(_matrixSz);
   if (_finished && !_sums.empty())
     {
       signal = _sums;
@@ -314,7 +314,7 @@ bool self_similarity_producer::entropiesVisualEntropy(deque<double>& signal) con
 bool
 self_similarity_producer::selfSimilarityMatrix(deque<deque<double> >& matrix) const
 {
-  rmAssert (_matrixSz);
+  assert(_matrixSz);
 
   if (_finished && !_entropies.empty() && !_SMatrix.empty()) {
     matrix = _SMatrix;
@@ -326,7 +326,7 @@ self_similarity_producer::selfSimilarityMatrix(deque<deque<double> >& matrix) co
 
 bool self_similarity_producer::sequentialCorrelations (deque<double>& slist) const
 {
-  rmAssert (_matrixSz);
+  assert(_matrixSz);
 
   if (_finished && !_SList.empty()) {
     slist = _SList;
@@ -338,7 +338,7 @@ bool self_similarity_producer::sequentialCorrelations (deque<double>& slist) con
 
 bool self_similarity_producer::longTermCache (bool onOrOff)
 {
-  rmAssert (_matrixSz);
+  assert(_matrixSz);
   _ltEntropies.resize (_matrixSz);
   _ltOn = onOrOff;
   return _ltOn;
@@ -379,9 +379,9 @@ bool self_similarity_producer::internalFill(I start, I end,
       _SMatrix[i].resize(_matrixSz);
   }
   else {
-    rmAssert(_SMatrix.size() == _matrixSz);
+    assert(_SMatrix.size() == _matrixSz);
     for (uint32 i = 0; i < _matrixSz; i++)
-      rmAssert(_SMatrix[i].size() == _matrixSz);
+      assert(_SMatrix[i].size() == _matrixSz);
   }
 
   /* Initialize identity diagonal of _SMatrix.
@@ -403,10 +403,10 @@ bool self_similarity_producer::internalFill(I start, I end,
 
 bool self_similarity_producer::ssMatrixFill(deque<double>& data)
 {
-  rmAssert(_SMatrix.size() == _matrixSz);
+  assert(_SMatrix.size() == _matrixSz);
 
   const int32 dataSz = data.size();
-  rmAssert(dataSz <= (int32)_matrixSz);
+  assert(dataSz <= (int32)_matrixSz);
 
   for (int32 i = 0; i < dataSz; i++)
     {
@@ -423,18 +423,16 @@ bool self_similarity_producer::ssMatrixFill(deque<double>& data)
 template <class T>
 bool self_similarity_producer::ssMatrixFill(deque<roi_window_t<T> >& tWin)
 {
-  rmAssert(_SMatrix.size() == _matrixSz);
+  assert(_SMatrix.size() == _matrixSz);
 
   const int32 tWinSz = tWin.size();
-  rmAssert(tWinSz <= (int32)_matrixSz);
+  assert(tWinSz <= (int32)_matrixSz);
 
   int32 cacheSz = _cacheSz;
   if (cacheSz <= 2)
     cacheSz = tWinSz + 2;
   const int32 cacheBlkSz = cacheSz - 2;
-  progressNotification* progress = 0;
-  if (_notify) progress =
-    new progressNotification(tWinSz*(tWinSz-1)/2, _guiUpdate);
+
 
   /* The following was designed to work well when the number of images
    * that can be stored in memory at any one time is space limited.
@@ -483,16 +481,16 @@ bool self_similarity_producer::ssMatrixFill(deque<roi_window_t<T> >& tWin)
       }
 
       for (int32 k = cacheBegin; k != cacheEnd; k += cacheIncr) {
-	rmAssert((j >= 0) && (j < tWinSz));
-	rmAssert((k >= 0) && (k < tWinSz));
+	assert((j >= 0) && (j < tWinSz));
+	assert((k >= 0) && (k < tWinSz));
 	const double r = correlate(tWin[j], tWin[k]);
 	_SMatrix[j][k] = _SMatrix[k][j] = r;
 	tWin[k].frameBuf().unlock();
-	if (progress && progress->update()) {
-	  tWin[j].frameBuf().unlock();
-	  delete progress;
-	  return false;
-	}
+//	if (progress && progress->update()) {
+//	  tWin[j].frameBuf().unlock();
+//	  delete progress;
+//	  return false;
+//	}
       } // End of: for ( k = cacheBegin; k != cacheEnd; k += cacheIncr)
       tWin[j].frameBuf().unlock();
     } // End of: for (int32 j = i + 1; j < firstUncachedFrame; j++)
@@ -508,22 +506,22 @@ bool self_similarity_producer::ssMatrixFill(deque<roi_window_t<T> >& tWin)
       }
 
       for (int32 k = cacheBegin; k != cacheEnd; k += cacheIncr) {
-	rmAssert((j >= 0) && (j < tWinSz));
-	rmAssert((k >= 0) && (k < tWinSz));
+	assert((j >= 0) && (j < tWinSz));
+	assert((k >= 0) && (k < tWinSz));
 	const double r = correlate(tWin[j], tWin[k]);
 	_SMatrix[j][k] = _SMatrix[k][j] = r;
 	tWin[k].frameBuf().unlock();
-	if (progress && progress->update()) {
-	  tWin[j].frameBuf().unlock();
-	  delete progress;
-	  return false;
-	}
+//	if (progress && progress->update()) {
+//	  tWin[j].frameBuf().unlock();
+//	  delete progress;
+//	  return false;
+//	}
       } // End of: for (k = cacheBegin; k != cacheEnd; k += cacheIncr)
       tWin[j].frameBuf().unlock();
     } // End of: for (int32 j = i + 1; j < firstUncachedFrame; j++)
   }
 
-  if (progress) delete progress;
+
 
   return true;
 }
@@ -535,25 +533,19 @@ bool self_similarity_producer::ssListFill(deque<roi_window_t<T> >& tWin)
   if (tWin.size() < 2)
     return true;
 
-  rmAssert(_SList.size() >= (tWin.size()-1));
-
-  progressNotification* progress = 0;
-  if (_notify) progress =
-    new progressNotification((int32)tWin.size()-1, _guiUpdate);
+  assert(_SList.size() >= (tWin.size()-1));
 
   for (uint32 i = 1; i < tWin.size(); i++) {
     _SList[i-1] = correlate(tWin[i-1], tWin[i]);
     tWin[i-1].frameBuf().unlock();
-    if (progress && progress->update()) {
-      tWin[i].frameBuf().unlock();
-      delete progress;
-      return false;
-    }
+//    if (progress && progress->update()) {
+//      tWin[i].frameBuf().unlock();
+//      delete progress;
+//      return false;
+//    }
   }
 
   tWin[tWin.size()-1].frameBuf().unlock();
-  if (progress) delete progress;
-
   return true;
 }
 
@@ -577,9 +569,9 @@ bool self_similarity_producer::internalUpdate(double& nextImage, deque<double>& 
 	_SMatrix[i].resize(_matrixSz);
     }
 
-    rmAssert(_SMatrix.size() == _matrixSz);
+    assert(_SMatrix.size() == _matrixSz);
     for (uint32 i = 0; i < _matrixSz; i++)
-      rmAssert(_SMatrix[i].size() == _matrixSz);
+      assert(_SMatrix[i].size() == _matrixSz);
   }
 
   tWin.push_back(nextImage);
@@ -609,9 +601,9 @@ bool self_similarity_producer::internalUpdate(roi_window& nextImage,
 	_SMatrix[i].resize(_matrixSz);
     }
 
-    rmAssert(_SMatrix.size() == _matrixSz);
+    assert(_SMatrix.size() == _matrixSz);
     for (uint32 i = 0; i < _matrixSz; i++)
-      rmAssert(_SMatrix[i].size() == _matrixSz);
+      assert(_SMatrix[i].size() == _matrixSz);
   }
 
   tWin.push_back(roi_window_t<T>(nextImage));
@@ -632,7 +624,7 @@ bool self_similarity_producer::internalUpdate(roi_window& nextImage,
 
 void self_similarity_producer::shiftSList()
 {
-  rmAssert(!_SList.empty());
+  assert(!_SList.empty());
   _SList.pop_front();
   _SList.push_back(-1.0);
 }
@@ -640,7 +632,7 @@ void self_similarity_producer::shiftSList()
 void self_similarity_producer::shiftSMatrix()
 {
   if (_SMatrix.size() != _matrixSz)
-    rmExceptionMacro(<<"Similarity Engine Failure");
+    throw vf_exception::assertion_error ("Similarity Engine Failure");
 
   _SMatrix.pop_front();
 
@@ -657,11 +649,11 @@ void self_similarity_producer::shiftSMatrix()
 
 bool self_similarity_producer::ssMatrixUpdate(deque<double>& tWin)
 {
-  rmAssert(_SMatrix.size() == _matrixSz);
-  rmAssert(!tWin.empty());
+  assert(_SMatrix.size() == _matrixSz);
+  assert(!tWin.empty());
 
   const uint32 lastImgIndex = tWin.size() - 1;
-  rmAssert(lastImgIndex < _matrixSz);
+  assert(lastImgIndex < _matrixSz);
 
   _SMatrix[lastImgIndex][lastImgIndex] = 1.0 + _tiny;
 
@@ -677,15 +669,15 @@ bool self_similarity_producer::ssMatrixUpdate(deque<double>& tWin)
 template <class T>
 bool self_similarity_producer::ssMatrixUpdate(deque<roi_window_t<T> >& tWin)
 {
-  rmAssert(_SMatrix.size() == _matrixSz);
-  rmAssert(!tWin.empty());
+  assert(_SMatrix.size() == _matrixSz);
+  assert(!tWin.empty());
 
   const uint32 lastImgIndex = tWin.size() - 1;
-  rmAssert(lastImgIndex < _matrixSz);
+  assert(lastImgIndex < _matrixSz);
 
-  progressNotification* progress = 0;
-  if (_notify) progress =
-    new progressNotification(lastImgIndex, _guiUpdate);
+//  progressNotification* progress = 0;
+//  if (_notify) progress =
+//    new progressNotification(lastImgIndex, _guiUpdate);
 
   _SMatrix[lastImgIndex][lastImgIndex] = 1.0 + _tiny;
 
@@ -693,16 +685,14 @@ bool self_similarity_producer::ssMatrixUpdate(deque<roi_window_t<T> >& tWin)
     _SMatrix[i][lastImgIndex] = _SMatrix[lastImgIndex][i] = 
       correlate(tWin[i], tWin[lastImgIndex]);
     tWin[i].frameBuf().unlock();
-    if (progress && progress->update()) {
-      tWin[lastImgIndex].frameBuf().unlock();
-      delete progress;
-      return false;
-    }
+//    if (progress && progress->update()) {
+//      tWin[lastImgIndex].frameBuf().unlock();
+//      delete progress;
+//      return false;
+//    }
   }
 
   tWin[lastImgIndex].frameBuf().unlock();
-
-  if (progress) delete progress;
 
   return true;
 }
@@ -727,7 +717,7 @@ double self_similarity_producer::correlate(roi_window_t<T>& i,
     return res.relative() + _tiny;
   else
     {
-      rmAssert (1);
+      assert(1);
       return 0;
     }
 }
@@ -749,7 +739,7 @@ double self_similarity_producer::relativeCorrelate(roi_window_t<T>& i,
 
 double self_similarity_producer::distance (double& i, double& m) const
 {
-  return (rmSquare ((i-m)/(i+m)));
+    return ( ((i-m)/(i+m)));
 }
 
 bool self_similarity_producer::genMatrixEntropy(uint32 tWinSz)
@@ -760,20 +750,20 @@ bool self_similarity_producer::genMatrixEntropy(uint32 tWinSz)
   /* Create sums array and initialize all the elements.
    */
 
-  rmAssert(_SMatrix.size() == _matrixSz);
+  assert(_SMatrix.size() == _matrixSz);
 
     if (_sums.empty())
         _sums.resize(_matrixSz);
     else
-        rmAssert(_sums.size() == _matrixSz);
+        assert(_sums.size() == _matrixSz);
 
   if (_entropies.empty())
     _entropies.resize(_matrixSz);
   else
-    rmAssert(_entropies.size() == _matrixSz);
+    assert(_entropies.size() == _matrixSz);
 
   for (uint32 i = 0; i < _matrixSz; i++) {
-    rmAssert(_SMatrix[i].size() == _matrixSz);
+    assert(_SMatrix[i].size() == _matrixSz);
     _sums[i] = _SMatrix[i][i];
     _entropies[i] = 0.0;
   }
@@ -809,7 +799,7 @@ bool self_similarity_producer::genMatrixEntropy(uint32 tWinSz)
 
 void self_similarity_producer::unity ()
 {
-  rmAssert(_SMatrix.size() == _matrixSz);
+  assert(_SMatrix.size() == _matrixSz);
 
   for (uint32 i = 0; i < _matrixSz; i++)
     _SMatrix[i][i] = 1.0 + _tiny;
@@ -989,7 +979,7 @@ void rf1DdistanceHistogram (const vector<double>& signal, vector<double>& dHist)
   int32 n;
 
   n = signal.size();
-  rmAssert (n);
+  assert(n);
   dHist.resize (n);
 
   // Get container value type
@@ -1003,7 +993,7 @@ void rf1DdistanceHistogram (const vector<double>& signal, vector<double>& dHist)
       int32 dj = jp - signal.begin();
       int32 di = ip - signal.begin();
       dj = dj - di;
-      rmAssert (dj >= 0 && dj < n);
+      assert(dj >= 0 && dj < n);
       dHist[dj] += rmSquare (iv - jv);
     }
 

@@ -3,21 +3,20 @@
 
 
 #include <gtest/gtest.h>
-#include <vfi386_d/rc_fileutils.h>
 #include <string>
 #include <fstream>
 #include <streambuf>
 #include <boost/foreach.hpp>
 #include <cstdio>
-#include <vfi386_d/rc_stats.h>
 #include <sstream>
 #include <string>
 #include <iostream>
 #include "vf_utils.hpp"
-#include "sshist.hpp"
+#include "vf_math.h"
 
 using namespace std;
 using namespace vf_utils::csv;
+using namespace vf_utils::file_system;
 
 struct UT_fileutils 
 {
@@ -28,7 +27,7 @@ struct UT_fileutils
     {
         int errs = 0;
         
-        errs += (folder_exists (test_data_path) == false);
+        errs += (is_directory (test_data_path) == false);
         
         std::string pathy ("/Users/arman/boo/foo/test_o_0.rfymov"); // made up name. File does not exist
         std::string rfmovfile ("test_o_0");
@@ -39,35 +38,20 @@ struct UT_fileutils
         std::string dotmovfileext (".mov");
         std::string csvfile ("test.csv");
 
-        std::string sanspath = rfStripPath (pathy);
-
-        errs += (rf_sensitive_case_compare(sanspath, Filename) == true);
-        errs += (rf_insensitive_case_compare(sanspath, filename) == false);
         
-        std::string sansext = rfStripExtension (pathy);
-        
-        errs += (rf_sensitive_case_compare(sansext, Filename) == true);
-        errs += (rf_insensitive_case_compare(sansext, rfmovfile) == false);
-                
-        
-        std::string ext = rfGetExtension (pathy);
-        
-        errs += (rf_sensitive_case_compare(ext, dotfileext) == true);
-        errs += (rf_insensitive_case_compare(ext, fileext) == false) ;
-        
-        errs += (rf_ext_is_rfymov(pathy) == false);
-        errs += (rf_ext_is_rfymov(filename) == false);
-        errs += (rf_ext_is_rfymov(Filename) == false);
+        errs += (ext_is_rfymov(pathy) == false);
+        errs += (ext_is_rfymov(filename) == false);
+        errs += (ext_is_rfymov(Filename) == false);
 
         std::string csv_filename = create_filespec (test_data_path, csvfile);
         errs += (file_exists(csv_filename) == false);
 
         std::ifstream istream (csv_filename.c_str());        
-        csv::rows_type rows = csv::to_rows (istream);
+        vf_utils::csv::rows_type rows = vf_utils::csv::to_rows (istream);
         errs += ((rows.size() == 3310) == false);
         
         std::vector<vector<float> > datas;
-        BOOST_FOREACH(const csv::row_type &row, rows)
+        BOOST_FOREACH(const vf_utils::csv::row_type &row, rows)
         {
             vector<float> data (4);
             if (row.size () != 4) continue;

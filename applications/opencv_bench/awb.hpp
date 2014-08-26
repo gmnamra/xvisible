@@ -26,7 +26,7 @@ namespace anonymous
         
     private:
         vector<Mat> mChannels;
-        Vec3f mLab;
+        cv::Vec3f mLab;
         float mP;
         double mOverP;
         void init_p (uint32 p) { mP = p; mOverP = 1.0f / mP; }

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "vf_sm_producer.h"
+#include "vf_math.h"
 //using namespace ci;
 using namespace std;
 
@@ -26,7 +27,7 @@ struct cb_similarity_producer
             boost::signals2::connection fl_connection = sp->registerCallback(frame_loaded_cb);
             boost::signals2::connection ml_connection = sp->registerCallback(content_loaded_cb);
             
-            rcFrameGrabberError error;
+            int error;
             if (m_auto) sp->set_auto_run_on ();
             
             sp->load_content_file (m_filename);
@@ -51,7 +52,7 @@ struct cb_similarity_producer
     //    std::cout << ++times << " : " << findex << " @ " << timestamp << std::endl;
         frame_indices.push_back (findex);
         frame_times.push_back (timestamp);
-        if (! (equal (timestamp, exected_movie_times[findex], 0.005 )) )
+        if (! (real_equal (timestamp, exected_movie_times[findex], 0.005 )) )
         {
             mlies.push_back (false);
         }

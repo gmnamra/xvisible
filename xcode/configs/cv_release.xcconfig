@@ -80,7 +80,7 @@ SEPARATE_STRIP = YES
 MACOSX_DEPLOYMENT_TARGET = 10.8
 
 
-OTHER_LDFLAGS = -lcinder -laudio2 -framework vfi386 -lboost_thread
+OTHER_LDFLAGS = -lcinder -lboost_thread
 
 LIBRARY_SEARCH_PATHS = $(CINDER_PATH)/lib/$(CONFIGURATION) $(GTEST_PATH)/build/Release $(OPENCV_PATH)/lib $(CINDER_PATH)/lib/macosx
 FRAMEWORK_SEARCH_PATHS = $(GTEST_PATH)/build/Release $(BUILD_DIR)/Frameworks 

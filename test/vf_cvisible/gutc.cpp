@@ -1,28 +1,23 @@
-
-
-
-
 #include <iostream>
 #include <string>
-#include <stlplus_lite.hpp>
+//#include <stlplus_lite.hpp>
 #include <unistd.h>
 #include <gtest/gtest.h>
 #include "ut_file.hpp"
-#include "ut_framebuf.h"
-#include "ut_similarity.h"
-#include "ut_videocache.h"
 #include "ut_sm.hpp"
 #include "cinder/audio2/Source.h"
 #include "cvisible/qtime_cache.h"
 #include "cvisible/vf_utils.hpp"
-#include "cvisible/vf_cinder_qtime_grabber.h"
-#include "vf_cinder_audio2.hpp"
 #include "vf_sm_producer.h"
 #include "ut_qtime.h"
-#include "../applications/opencv_bench/awb.hpp"
+#include "frame.h"
+#include "vf_types.h"
+#include "vf_utils.hpp"
+
+//#include "../applications/opencv_bench/awb.hpp"
 using namespace ci;
 using namespace std;
-
+using namespace vf_utils::file_system;
 
 
 class genv: public testing::Environment
@@ -38,28 +33,48 @@ public:
     
     void SetUp ()
     {
+        m_test_content_path = "";
+        m_test_path = "";
+        m_root_path = "";
+        
         static std::string test_folder_name ("test");
         static std::string test_data_folder_name ("test_data");
         
-        folder_set_current (m_exec_path);
-        do
+        path folder_current_full (m_exec_path);
+        for (auto it : vf_utils::file_system::recursive_directory_range(folder_current_full))
         {
-            folder_set_current (folder_up (folder_current_full ()));
+            if (it.path().stem()  == test_folder_name && is_directory(it.path().stem()) )
+            {
+                m_root_path = it.path().string();
+                m_test_path = it.path().stem().string();
+            }
+            
         }
-        while (! is_folder (folder_append_separator (folder_current_full () ) + test_folder_name ) );
+        typedef vector<path> vec;             // store paths,
+        vec v;                                // so we can sort them later
+        path tp (m_root_path);
+        copy(directory_iterator(tp), directory_iterator(), back_inserter(v));
+                
+        for (vec::const_iterator vit (v.begin()); vit != v.end(); ++vit)
+          {
+            if (*vit == test_data_folder_name)
+            {
+                m_test_content_path = vit->string();
+                break;
+            }
+          }
         
-        m_root_path = folder_current_full ();
-        m_test_path = folder_append_separator (folder_current_full () ) + test_folder_name;
-        m_test_content_path = folder_append_separator ( test_folder () ) + test_data_folder_name;
         
-        fs::path fs_test_content_path (m_test_content_path);
-        fs::directory_iterator itr(fs_test_content_path); fs::directory_iterator end_itr;
+        
+
+        path fs_test_content_path (m_test_content_path);
+        directory_iterator itr(fs_test_content_path); directory_iterator end_itr;
         std::cout << fs_test_content_path.root_path() << std::endl; std::cout << fs_test_content_path.parent_path() << std::endl;
-        while(itr!=end_itr && !fs::is_directory(itr->path())){
+        while(itr!=end_itr && !is_directory(itr->path())){
             std::cout << "-----------------------------------"<< std::endl;
             std::cout << "Path: "<< itr->path()<< std::endl;
             std::cout << "Filename: "<< itr->path().filename()<< std::endl;
-            std::cout << "Is File: "<< fs::is_regular_file(itr->path()) << std::endl; std::cout << "File Size :"<< fs::file_size(itr->path())<< std::endl; std::cout << "-----------------------------------"<< std::endl;
+            std::cout << "Is File: "<< is_regular_file(itr->path()) << std::endl; std::cout << "File Size :"<< file_size(itr->path())<< std::endl; std::cout << "-----------------------------------"<< std::endl;
             itr ++;
         }
     }
@@ -84,12 +99,14 @@ TEST (UT_fileutils, run)
     std::string txtfile ("onecolumn.txt");
     std::string csv_filename = create_filespec (s_gvp->test_data_folder(), txtfile);
     
-    fs::path fpath ( csv_filename );
+    path fpath ( csv_filename );
     
+#ifdef HAS_AUDIO_2
     unique_ptr<SourceFile> sfr =  unique_ptr<SourceFile>( new vf_cinder::VisibleAudioSource (DataSourcePath::create (fpath )) );
     EXPECT_TRUE (sfr->getNumChannels() == 1);
     EXPECT_TRUE (sfr->getNumFrames () == 3296);
-    
+#endif
+        
     std::string matfile ("matrix.txt");
     std::string mat_filename = create_filespec (s_gvp->test_data_folder(), matfile);
     vector<vector<float> > matrix;
@@ -115,12 +132,10 @@ TEST( UT_FrameBuf, run )
     
     // cached_frame_ref
     {
-        // Constructor rcFrameRef( rcFrame* p )
-        cached_frame_ref buf( new rcFrame( 640, 480, rcPixel8 ) );
+        cached_frame_ref buf( new raw_frame ( 640, 480, rpixel8 ) );
         
        EXPECT_TRUE( buf.refCount() == 1 );
         
-        // Constructor rcFrameRef( const rcFrameRef& p )
         cached_frame_ref share1( buf );
         
         EXPECT_TRUE( share1.refCount() == 2 );
@@ -194,7 +209,7 @@ TEST(cinder_qtime_grabber, run)
     
     EXPECT_TRUE (grabber.get() != NULL);
     
-    rcFrameGrabberError error = grabber->getLastError();
+    grabber_error error = grabber->getLastError();
     int i = 0;
     uint8 dummy;
     // Grab everything
@@ -234,7 +249,7 @@ TEST(cinder_qtime_grabber_and_similarity, run)
     
     EXPECT_TRUE (grabber.get() != NULL);
     
-    rcFrameGrabberError error = grabber->getLastError();
+    grabber_error error = grabber->getLastError();
     int i = 0;
     uint8 dummy;
     // Grab everything
@@ -382,7 +397,7 @@ TEST(UT_similarity_producer, run)
 
 int main(int argc, char **argv)
 {
-    std::string installpath = install_path (std::string (argv[0]));
+    std::string installpath = std::string (argv[0]);
     ::testing::Environment* const g_env  = ::testing::AddGlobalTestEnvironment(new     genv (installpath) );
     s_gvp = reinterpret_cast<genv*>(g_env);
 	testing::InitGoogleTest(&argc, argv);

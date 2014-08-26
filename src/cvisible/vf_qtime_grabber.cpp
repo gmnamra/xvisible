@@ -20,12 +20,12 @@ rcFrameGrabberStatus vf_utils::qtime_support::CinderQtimeGrabber::getNextFrame( 
 
 const std::string vf_utils::qtime_support::CinderQtimeGrabber::getInputSourceName() {  return _impl->getInputSourceName (); }
 
-rcFrameGrabberError vf_utils::qtime_support::CinderQtimeGrabber::getLastError() const
+grabber_error vf_utils::qtime_support::CinderQtimeGrabber::getLastError() const
 {
     return _impl->getLastError ();
 }
 
-void vf_utils::qtime_support::CinderQtimeGrabber::setLastError( rcFrameGrabberError error )
+void vf_utils::qtime_support::CinderQtimeGrabber::setLastError( grabber_error error )
 {
     _impl->setLastError (error);
 }

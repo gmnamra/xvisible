@@ -12,6 +12,43 @@
 #include <sstream>
 
 
+// Error type
+enum class grabber_error : int32 {
+    OK = 0,            // No error
+    Unknown,           // Unknown error
+    Internal,          // Internal logic error
+    Init,              // Unspecified init error
+    FileInit,          // File (system) init error
+    FileRead,          // File read error
+    FileClose,         // File close error
+    FileFormat,        // File invalid
+    FileUnsupported,   // File format unsupported
+    FileRevUnsupported,// File revision unsupported
+    SystemResources,   // Inadequate system resources (shared memory,
+    // heap)
+    IPC,               // Error communicating with peer process
+    QuicktimeInit,     // QuickTime init error
+    QuicktimeRead,     // QuickTime read error
+    CameraInit,        // Camera init error
+    CameraCapture,     // Camera error during capture
+    UnsupportedFormat, // Unsupported image format
+    UnsupportedDepth,  // Unsupported image pixel depth
+    NotImplemented,    // This feature not implemented yet
+    FrameNotAvailable, // User specified no waiting and frame isn't
+    // available
+    OutOfMemory,       // Ran out of memory
+    InvalidOptions     // Invalid options specified
+};
+
+// Status type
+enum grabber_status {
+    end_of_file = 0,    // There will be no more frames ever, stop requesting them
+    OK,         // Valid frame
+    NotStarted, // Grabbing process has not yet started
+    NoFrame,    // No frame returned, one may be available later
+    Error       // Fatal error, call getLastError() for details
+};
+
 /** \brief grabber interface for
  */
 class simple_grabber

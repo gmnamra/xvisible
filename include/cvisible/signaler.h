@@ -1,7 +1,7 @@
 #ifndef __IO_GRABBER__
 #define __IO_GRABBER__
 
-#include "rc_exception.h"
+#include "exception.hpp"
 #include <map>
 #include <iostream>
 #include <string>
@@ -10,6 +10,7 @@
 #include <typeinfo>
 #include <vector>
 #include <sstream>
+#include "vf_utils.hpp"
 
 
   /** \brief signaler interface for 
@@ -185,7 +186,7 @@
       std::stringstream sstream;
 
       sstream << "no callback for type:" << typeid (T).name ();
-      throw general_exception (sstream.str () );
+        throw vf_exception::type_error (sstream.str () );
     }
     Signal* signal = dynamic_cast<Signal*> (signals_[typeid (T).name ()]);
     boost::signals2::connection ret = signal->connect (callback);
