@@ -159,7 +159,7 @@ TEST (UT_QtimeCache, run)
     std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
     
     UT_QtimeCache test (qmov);
-    test.set_which ();
+//    test.set_which ();
     EXPECT_EQ(0, test.run () );
 }
 

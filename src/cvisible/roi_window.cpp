@@ -5,6 +5,7 @@
 #include <sys/param.h>
 #include "vf_types.h"
 
+
 #ifdef CINDER_BUILTIN
 #include <cinder/Channel.h>
 #include <cinder/Area.h>
@@ -33,6 +34,7 @@ ci::Channel8u* roi_window::new_channel () const
     
 }
 #endif
+
 
 
 const uint8 *roi_window::rowPointer (int32 y) const

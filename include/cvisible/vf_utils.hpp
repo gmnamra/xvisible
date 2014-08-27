@@ -36,6 +36,12 @@
 #include "vf_types.h"
 #include <boost/lexical_cast.hpp>
 
+#include <memory>
+#include <functional>
+#include <utility>
+
+#include <boost/functional/factory.hpp>
+
 using namespace std;
 using namespace boost;
 using namespace fs;
@@ -136,7 +142,7 @@ namespace vf_utils
             return p.string();
         }
 
-    };
+    }
 #define HAVE_MICROSEC_CLOCK
     
         class time_spec_t : boost::additive<time_spec_t>, boost::totally_ordered<time_spec_t>
@@ -767,10 +773,56 @@ namespace vf_utils
             std::mutex mutex_;
             std::condition_variable cond_;
         };
+
+    }
+    
+    namespace factory
+    {
         
-
-
-
+        
+        struct manufacturable {
+            virtual ~manufacturable() {};
+            virtual void api_method() const = 0;
+        };
+        using manufacturable_ptr = std::shared_ptr<struct manufacturable>;
+        
+        struct factory {
+            virtual ~factory() {}
+            virtual manufacturable_ptr create() const = 0;
+        };
+        using factory_ptr = std::shared_ptr<struct factory>;
+        
+        template <class T, class... Args>
+        struct factory_tpl final: factory
+        {
+            std::function<std::shared_ptr<T>()> impl_;
+            factory_tpl(Args&&... args):
+            impl_(std::bind(boost::factory<std::shared_ptr<T>>(), std::forward<Args>(args)...))
+            {}
+            
+            virtual manufacturable_ptr create() const override { return std::dynamic_pointer_cast<struct manufacturable>(impl_()); }
+        };
+        
+        template <class T, class... Args>
+        factory_ptr make_factory(Args&&... args)
+        {
+            return std::dynamic_pointer_cast<struct factory>(std::make_shared< factory_tpl<T, Args...> >(std::forward<Args>(args)...));
+        }
+        
+        struct concrete_manufacturable final: manufacturable
+        {
+            std::string const domain_;
+            concrete_manufacturable(std::string const& id): domain_(domain_) {}
+            virtual void api_method() const override {}
+        };
+        
+        int test_main()
+        {
+            factory_ptr factory = make_factory<concrete_manufacturable>("demo");
+            manufacturable_ptr object = factory->create();
+            object->api_method();
+            return 0;
+        }
     }
 }
 

@@ -235,11 +235,11 @@ uint32 UT_QtimeCache::run()
     frameBufTest();
     dtorTest();
 
-    if (which < 0)
-    {
-        prefetchThreadTest();
-        threadSafeTest();
-    }
+//    if (which < 0)
+//    {
+//        prefetchThreadTest();
+//        threadSafeTest();
+//    }
     
     
     return mErrors;

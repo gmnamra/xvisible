@@ -18,8 +18,8 @@ class UT_QtimeCache : public rcUnitTest {
   ~UT_QtimeCache();
 
     virtual uint32 run();
-    int get_which () { return which; }
-    void set_which (int wh = 0) { which = wh; }
+ //   int get_which () { return which; }
+ //   void set_which (int wh = 0) { which = wh; }
     
 
  private:
@@ -31,9 +31,9 @@ class UT_QtimeCache : public rcUnitTest {
   void cacheFullTest();
   void frameBufTest();
   void dtorTest();
-  void threadSafeTest();
-    void threadSafe (bool);
-    int which;
+ // void threadSafeTest();
+  //  void threadSafe (bool);
+  //  int which;
 };
 
 // Thread-safe test specific stuff

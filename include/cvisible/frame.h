@@ -27,6 +27,7 @@ using namespace vf_utils;
 // raw_frameRef must be used instead.
 
 
+
 class raw_frame : public intrusive_ptr_base<raw_frame>
 {
     
@@ -47,7 +48,7 @@ public:
     mWidth( width ),  mHeight( height ),  mAlignMod ( alignMod), mPixelDepth( depth ),
     mOwnPixels (true),  mCacheCtrl( 0 ), mFrameIndex( 0 )
     {
-        m_type_ref = pixel_type_registry::instance().get_weaker (depth);
+        m_type_ref = pixel_type_registry::instance().get_shared (depth);
         
         int32 n;
         
@@ -95,6 +96,8 @@ public:
         assert( height > 0 );
         assert( width > 0 );
         assert( rawPixels );
+        
+        m_type_ref = pixel_type_registry::instance().get_shared (pixelDepth);
         
         // Make sure starting addresses are at the correct alignment boundary
         // Start of each row pointer is mAlignMod aligned
@@ -281,8 +284,8 @@ public:
 
     int32 bytes () const
     {
-        assert (m_type_ref.lock());
-        std::shared_ptr<pixel_type_base> sp = m_type_ref.lock();
+        assert (m_type_ref);
+        std::shared_ptr<pixel_type_base> sp = m_type_ref;
         return sp->bytes();
 
     }
@@ -399,7 +402,7 @@ protected:
     uint32        mCacheCtrl;
     uint32        mFrameIndex;
     double          mZvalue; // Z label for this frame coming from a z stack
-    pixel_type_weaker m_type_ref;
+    pixel_type_base_ref m_type_ref;
     
     
 private:

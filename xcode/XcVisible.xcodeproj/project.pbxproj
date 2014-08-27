@@ -21,7 +21,6 @@
 		C209870F196A0C1A005325A2 /* ut_qtime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C209870E196A0C1A005325A2 /* ut_qtime.cpp */; };
 		C20BB3481910577D00884EB2 /* ut_file.hpp in Sources */ = {isa = PBXBuildFile; fileRef = C20BB3471910577D00884EB2 /* ut_file.hpp */; };
 		C20BB351191059BC00884EB2 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20BB350191059BC00884EB2 /* gtest.framework */; };
-		C23E89AD1912869C00AE27A3 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C23E89AC1912869C00AE27A3 /* libboost_system.a */; };
 		C23E89B01912E98D00AE27A3 /* libopencv_core.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C23E89AF1912E98C00AE27A3 /* libopencv_core.dylib */; };
 		C263159A195CC0A800CF71B1 /* qtime_cache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2631598195CC0A800CF71B1 /* qtime_cache.cpp */; };
 		C276524D1915E90A00EA3B55 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB225E190B298700BBC93C /* QuickTime.framework */; };
@@ -46,7 +45,6 @@
 		C2A2BE99193055F9003337D7 /* vfi386.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A2BE98193055F9003337D7 /* vfi386.framework */; };
 		C2BBC46819A5A048001BAA41 /* ut_frame.hpp in Sources */ = {isa = PBXBuildFile; fileRef = C2BBC46719A5A048001BAA41 /* ut_frame.hpp */; };
 		C2BBC46D19ABA9B5001BAA41 /* vf_source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C236E0A319290BCF0035C2F5 /* vf_source.cpp */; };
-		C2D6FA81192D27820099EEED /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D6FA80192D27820099EEED /* libboost_thread.a */; };
 		C2D713EB19171AFC009C503B /* assets in Resources */ = {isa = PBXBuildFile; fileRef = C2D713EA19171AFC009C503B /* assets */; };
 		C2D713EE19171B49009C503B /* Resources.h in Resources */ = {isa = PBXBuildFile; fileRef = C2D713EC19171B49009C503B /* Resources.h */; };
 		C2D713EF19171B49009C503B /* data.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2D713ED19171B49009C503B /* data.txt */; };
@@ -152,6 +150,11 @@
 		C2BBC46C19ABA2A1001BAA41 /* base_signaler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = base_signaler.h; path = ../../include/cvisible/base_signaler.h; sourceTree = "<group>"; };
 		C2BBC46E19ABC636001BAA41 /* timing.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = timing.hpp; path = ../../include/cvisible/timing.hpp; sourceTree = "<group>"; };
 		C2BBC46F19ABC88B001BAA41 /* signaler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = signaler.h; path = ../../include/cvisible/signaler.h; sourceTree = "<group>"; };
+		C2BBC47019AD2AE5001BAA41 /* static.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = static.hpp; path = ../../include/cvisible/static.hpp; sourceTree = "<group>"; };
+		C2BBC47119AD77C2001BAA41 /* ut_qtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ut_qtime.h; path = ../../test/include/ut_qtime.h; sourceTree = "<group>"; };
+		C2BBC47219AD7A2B001BAA41 /* libboost_date_time.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_date_time.a; path = ../usr/local/boost/lib/libboost_date_time.a; sourceTree = "<group>"; };
+		C2BBC47319AD7A2B001BAA41 /* libboost_filesystem.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_filesystem.a; path = ../usr/local/boost/lib/libboost_filesystem.a; sourceTree = "<group>"; };
+		C2BBC47419AD7A2B001BAA41 /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = ../usr/local/boost/lib/libz.a; sourceTree = "<group>"; };
 		C2D6FA80192D27820099EEED /* libboost_thread.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_thread.a; path = ../usr/local/boost/lib/libboost_thread.a; sourceTree = "<group>"; };
 		C2D713EA19171AFC009C503B /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		C2D713EC19171B49009C503B /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Resources.h; sourceTree = "<group>"; };
@@ -193,7 +196,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2D6FA81192D27820099EEED /* libboost_thread.a in Frameworks */,
 				C276525E1915EA1400EA3B55 /* Accelerate.framework in Frameworks */,
 				C276525B1915E9CB00EA3B55 /* CoreVideo.framework in Frameworks */,
 				C27652591915E9AB00EA3B55 /* OpenGL.framework in Frameworks */,
@@ -206,7 +208,6 @@
 				C276524F1915E93300EA3B55 /* CoreFoundation.framework in Frameworks */,
 				C276524D1915E90A00EA3B55 /* QuickTime.framework in Frameworks */,
 				C23E89B01912E98D00AE27A3 /* libopencv_core.dylib in Frameworks */,
-				C23E89AD1912869C00AE27A3 /* libboost_system.a in Frameworks */,
 				C20BB351191059BC00884EB2 /* gtest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +281,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2BBC47219AD7A2B001BAA41 /* libboost_date_time.a */,
+				C2BBC47319AD7A2B001BAA41 /* libboost_filesystem.a */,
+				C2BBC47419AD7A2B001BAA41 /* libz.a */,
 				C2A2BE98193055F9003337D7 /* vfi386.framework */,
 				C2D6FA80192D27820099EEED /* libboost_thread.a */,
 				C276525A1915E9CB00EA3B55 /* CoreVideo.framework */,
@@ -315,6 +319,8 @@
 		C21733FB190B175500A01365 /* cvisible */ = {
 			isa = PBXGroup;
 			children = (
+				C2BBC47119AD77C2001BAA41 /* ut_qtime.h */,
+				C2BBC47019AD2AE5001BAA41 /* static.hpp */,
 				C2BBC46F19ABC88B001BAA41 /* signaler.h */,
 				C2BBC46E19ABC636001BAA41 /* timing.hpp */,
 				C2BBC46C19ABA2A1001BAA41 /* base_signaler.h */,
@@ -654,13 +660,11 @@
 					"$(GTEST_PATH)/build/Release",
 					"$(OPENCV_PATH)/lib",
 					"$(CINDER_PATH)/lib",
+					/Users/arman/gwc/vqt105/visibleqt105/usr/local/boost/lib,
 				);
 				OBJROOT = "$(BUILD_ROOT)/Intermediates";
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = (
-					"-lcinder_d",
-					"-lboost_thread",
-				);
+				OTHER_LDFLAGS = "-lcinder_d ";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.8;
 			};
@@ -706,12 +710,10 @@
 					"$(GTEST_PATH)/build/Release",
 					"$(OPENCV_PATH)/lib",
 					"$(CINDER_PATH)/lib",
+					/Users/arman/gwc/vqt105/visibleqt105/usr/local/boost/lib,
 				);
 				OBJROOT = "$(BUILD_ROOT)/Intermediates";
-				OTHER_LDFLAGS = (
-					"-lcinder",
-					"-lboost_thread",
-				);
+				OTHER_LDFLAGS = "-lcinder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.8;
 			};
