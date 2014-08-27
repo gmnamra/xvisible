@@ -22,7 +22,7 @@
 */
 
 #include "cinder/app/AppBasic.h"
-#include <cvisible/AudioDrawUtils.h>
+#include <AudioDrawUtils.h>
 
 #include "cinder/audio2/Utilities.h"
 

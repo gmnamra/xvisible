@@ -61,12 +61,12 @@ GCC_DYNAMIC_NO_PIC = NO
 // Minimum OS version is 10.7
 MACOSX_DEPLOYMENT_TARGET = 10.8
 
-CINDER_PATH = $(USR_LOCAL)/Cinder
-BOOST_PATH = $(USR_LOCAL)/boost
+CINDER_PATH = $(USR_LOCAL)/cinder_0.8-2.6_mac
+BOOST_PATH = $(CINDER_PATH)/boost
 OPENCV_PATH = $(USR_LOCAL)/OpenCv_2.4_i386
 GTEST_PATH = $(USR_LOCAL)/gtest
 
-BOOST_INCLUDE = $(BOOST_PATH)/include
+BOOST_INCLUDE = $(BOOST_PATH)
 
 // Strictest warning policy
 WARNING_CFLAGS = -Wall -Wendif-labels -Wnewline-eof 
@@ -82,9 +82,9 @@ MACOSX_DEPLOYMENT_TARGET = 10.8
 
 OTHER_LDFLAGS = -lcinder
 
-LIBRARY_SEARCH_PATHS = $(CINDER_PATH)/lib/$(CONFIGURATION) $(GTEST_PATH)/build/Release $(OPENCV_PATH)/lib $(CINDER_PATH)/lib/macosx
+LIBRARY_SEARCH_PATHS =  $(GTEST_PATH)/build/Release $(OPENCV_PATH)/lib $(CINDER_PATH)/lib/macosx
 FRAMEWORK_SEARCH_PATHS = $(GTEST_PATH)/build/Release $(BUILD_DIR)/Frameworks 
-HEADER_SEARCH_PATHS = $(CINDER_PATH)/include $(CINDER_PATH)/ciUI $(BOOST_PATH)/include $(OPENCV_PATH)/include $(SRCROOT)/include $(GTEST_PATH)/include $(SRCROOT)/include/vf $(SRCROOT)/include/cvisible $(TEST_DIR)/include $(RESOURCE_DIR)
+HEADER_SEARCH_PATHS = $(CINDER_PATH)/include $(CINDER_PATH)/ciUI $(BOOST_INCLUDE) $(OPENCV_PATH)/include $(SRCROOT)/include $(GTEST_PATH)/include $(SRCROOT)/include/vf $(SRCROOT)/include/cvisible $(TEST_DIR)/include $(RESOURCE_DIR)
 
 
 GCC_PREPROCESSOR_DEFINITIONS=__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0 

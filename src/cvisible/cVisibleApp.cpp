@@ -8,14 +8,14 @@
 #include "cinder/gl/Texture.h"
 #include "cinder/gl/TextureFont.h"
 #include "cinder/qtime/Quicktime.h"
-#include "cvisible/Resources.h"
+#include "Resources.h"
 #include "ciUI/ciUI.h"
 #include <vector>
 #include <vfi386_d/rc_fileutils.h>
 #include <vfi386_d/rc_stats.h>
 #include <boost/foreach.hpp>
 
-#include "cvisible/AudioDrawUtils.h"
+#include "AudioDrawUtils.h"
 
 #include <sstream>
 #include <fstream>

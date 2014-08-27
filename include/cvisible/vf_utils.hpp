@@ -11,8 +11,6 @@
 #include <boost/thread/once.hpp>
 #include <boost/scoped_ptr.hpp>
 
-//#include "rc_fileutils.h"
-//#include "stlplus_lite.hpp"
 #include <random>
 #include <iterator>
 #include "sshist.hpp"
@@ -124,7 +122,7 @@ namespace vf_utils
             return exists(p) && is_regular_file (p);
         }
         
-        struct recursive_directory_range
+        static struct recursive_directory_range
         {
             typedef recursive_directory_iterator iterator;
             recursive_directory_range(path p) : p_(p) {}
@@ -135,7 +133,7 @@ namespace vf_utils
             path p_;
         };
         
-        std::string create_filespec (const std::string& path_to, const std::string& filename)
+        static std::string create_filespec (const std::string& path_to, const std::string& filename)
         {
             path p (path_to);
             p /= filename;
@@ -816,7 +814,7 @@ namespace vf_utils
             virtual void api_method() const override {}
         };
         
-        int test_main()
+        static int test_main()
         {
             factory_ptr factory = make_factory<concrete_manufacturable>("demo");
             manufacturable_ptr object = factory->create();

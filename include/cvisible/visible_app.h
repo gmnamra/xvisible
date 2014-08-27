@@ -22,15 +22,15 @@
 #include "cinder/audio2/NodeEffect.h"
 #include "cinder/audio2/Scope.h"
 #include "cinder/audio2/Debug.h"
-#include "cvisible/AudioTestGui.h"
-#include "cvisible/AudioDrawUtils.h"
-#include "cvisible/vf_cinder.hpp"
+#include "AudioTestGui.h"
+#include "AudioDrawUtils.h"
+#include "vf_cinder.hpp"
 #endif
 
 #include "assets/Resources.h"
 
 
-#include "cvisible/vf_utils.hpp"
+#include "vf_utils.hpp"
 #include "stl_util.hpp"
 #include "vf_types.h"
 

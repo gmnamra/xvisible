@@ -29,11 +29,11 @@
 #include <boost/bind.hpp>
 #if 0
 #include "cinder/audio2/Buffer.h"
-#include "cvisible/AudioDrawUtils.h"
+#include "AudioDrawUtils.h"
 #endif
 
 
-#include "cvisible/vf_utils.hpp"
+#include "vf_utils.hpp"
 #include "vf_types.h"
 #include "iclip.hpp"
 #include <boost/integer_traits.hpp>

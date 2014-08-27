@@ -5,9 +5,8 @@
 #include <gtest/gtest.h>
 #include "ut_file.hpp"
 #include "ut_sm.hpp"
-#include "cinder/audio2/Source.h"
-#include "cvisible/qtime_cache.h"
-#include "cvisible/vf_utils.hpp"
+#include "qtime_cache.h"
+#include "vf_utils.hpp"
 #include "vf_sm_producer.h"
 #include "ut_qtime.h"
 #include "frame.h"
@@ -97,7 +96,7 @@ TEST (UT_fileutils, run)
     //EXPECT_EQ(0, test.run () );
     
     std::string txtfile ("onecolumn.txt");
-    std::string csv_filename = create_filespec (s_gvp->test_data_folder(), txtfile);
+    std::string csv_filename = vf_utils::file_system::create_filespec  (s_gvp->test_data_folder(), txtfile);
     
     path fpath ( csv_filename );
     
@@ -108,7 +107,7 @@ TEST (UT_fileutils, run)
 #endif
         
     std::string matfile ("matrix.txt");
-    std::string mat_filename = create_filespec (s_gvp->test_data_folder(), matfile);
+    std::string mat_filename = vf_utils::file_system::create_filespec  (s_gvp->test_data_folder(), matfile);
     vector<vector<float> > matrix;
     vf_utils::csv::csv2vectors(mat_filename, matrix, false, false, true);
     EXPECT_TRUE(matrix.size() == 300);
@@ -156,7 +155,7 @@ TEST (UT_QtimeCache, run)
     
     // vf does not support QuickTime natively. The ut expectes and checks for failure
     static std::string qmov_name ("box-move.mov");
-    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
+    std::string qmov = vf_utils::file_system::create_filespec  (s_gvp->test_data_folder (), qmov_name);
     
     UT_QtimeCache test (qmov);
 //    test.set_which ();
@@ -168,8 +167,8 @@ TEST(cb_similarity_producer, run)
 {
     static std::string qmov_name ("box-move.mov");
     static std::string rfymov_name ("box-move.rfymov");
-    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
-    std::string rfymov = create_filespec (s_gvp->test_data_folder (), rfymov_name);
+    std::string qmov = vf_utils::file_system::create_filespec  (s_gvp->test_data_folder (), qmov_name);
+    std::string rfymov = vf_utils::file_system::create_filespec  (s_gvp->test_data_folder (), rfymov_name);
 
     if (0)
     {
@@ -204,7 +203,7 @@ TEST(cinder_qtime_grabber, run)
 {
     // vf does not support QuickTime natively. The ut expectes and checks for failure
     static std::string qmov_name ("box-move.mov");
-    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
+    std::string qmov = vf_utils::file_system::create_filespec  (s_gvp->test_data_folder (), qmov_name);
     boost::shared_ptr<rcFrameGrabber> grabber (reinterpret_cast<rcFrameGrabber*> (new vf_utils::qtime_support::CinderQtimeGrabber( qmov )) );
     
     EXPECT_TRUE (grabber.get() != NULL);
@@ -243,7 +242,7 @@ TEST(cinder_qtime_grabber_and_similarity, run)
 {
  
     static std::string qmov_name ("box-move.mov");
-    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
+    std::string qmov = vf_utils::file_system::create_filespec  (s_gvp->test_data_folder (), qmov_name);
     boost::shared_ptr<rcFrameGrabber> grabber (reinterpret_cast<rcFrameGrabber*> (new vf_utils::qtime_support::CinderQtimeGrabber( qmov )) );
     ((vf_utils::qtime_support::CinderQtimeGrabber*)grabber.get())->print_to_ (std::cout);
     
@@ -312,8 +311,8 @@ TEST(UT_similarity_producer, run)
     // vf does not support QuickTime natively. The ut expectes and checks for failure
     static std::string qmov_name ("box-move.mov");
     static std::string rfymov_name ("box-move.rfymov");
-    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
-    std::string rfymov = create_filespec (s_gvp->test_data_folder (), rfymov_name);
+    std::string qmov = vf_utils::file_system::create_filespec  (s_gvp->test_data_folder (), qmov_name);
+    std::string rfymov = vf_utils::file_system::create_filespec  (s_gvp->test_data_folder (), rfymov_name);
     
 	UT_similarity_producer test (rfymov, qmov);
     EXPECT_EQ(0, test.run());
@@ -325,7 +324,7 @@ TEST (UT_videocache, run)
 {
     
     static std::string rfymov_name ("rev2.rfymov");
-    std::string rfymov = create_filespec (s_gvp->test_data_folder (), rfymov_name);
+    std::string rfymov = vf_utils::file_system::create_filespec  (s_gvp->test_data_folder (), rfymov_name);
     
     UT_VideoCache test (rfymov);
     EXPECT_EQ(0, test.run () );
@@ -347,8 +346,8 @@ TEST (UT_movieconverter, run)
     
     static std::string qmov_name ("box-move.mov");
     static std::string rfymov_name ("box-move.rfymov");
-    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
-    std::string rfymov = create_filespec (s_gvp->test_data_folder (), rfymov_name);
+    std::string qmov = vf_utils::file_system::create_filespec  (s_gvp->test_data_folder (), qmov_name);
+    std::string rfymov = vf_utils::file_system::create_filespec  (s_gvp->test_data_folder (), rfymov_name);
     
     UT_movieconverter test (rfymov.c_str(), qmov.c_str () );
     
@@ -360,7 +359,7 @@ TEST ( UT_ReifyMovieGrabber, run )
 {
     
     static std::string rfymov_name ("rev2.rfymov");
-    std::string rfymov = create_filespec (s_gvp->test_data_folder (), rfymov_name);
+    std::string rfymov = vf_utils::file_system::create_filespec  (s_gvp->test_data_folder (), rfymov_name);
     
     UT_ReifyMovieGrabber test ( rfymov );
     EXPECT_EQ(0, test.run () );
@@ -371,7 +370,7 @@ TEST (UT_videocache, run)
 {
     
     static std::string rfymov_name ("rev2.rfymov");
-    std::string rfymov = create_filespec (s_gvp->test_data_folder (), rfymov_name);
+    std::string rfymov = vf_utils::file_system::create_filespec  (s_gvp->test_data_folder (), rfymov_name);
     
     UT_VideoCache test (rfymov);
     EXPECT_EQ(0, test.run () );
@@ -384,8 +383,8 @@ TEST(UT_similarity_producer, run)
     
     static std::string qmov_name ("box-move.mov");
     static std::string rfymov_name ("box-move.rfymov");
-    std::string qmov = create_filespec (s_gvp->test_data_folder (), qmov_name);
-    std::string rfymov = create_filespec (s_gvp->test_data_folder (), rfymov_name);
+    std::string qmov = vf_utils::file_system::create_filespec  (s_gvp->test_data_folder (), qmov_name);
+    std::string rfymov = vf_utils::file_system::create_filespec  (s_gvp->test_data_folder (), rfymov_name);
     
 	UT_similarity_producer test (rfymov, qmov);
     EXPECT_EQ(0, test.run());

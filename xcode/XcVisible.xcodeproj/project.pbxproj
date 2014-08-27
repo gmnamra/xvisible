@@ -54,6 +54,7 @@
 		C2F100A019745B860070BB7B /* cached_frame_buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F1009F19745B860070BB7B /* cached_frame_buffer.cpp */; };
 		C2F100A2197471A90070BB7B /* cached_frame_buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F1009F19745B860070BB7B /* cached_frame_buffer.cpp */; };
 		C2F100A3197473D10070BB7B /* qtime_cache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2631598195CC0A800CF71B1 /* qtime_cache.cpp */; };
+		C2F86B0119AE7BCE00FA7D3A /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F86B0019AE7BCE00FA7D3A /* libboost_thread.a */; };
 		C2FB26FC1921C943003A48B7 /* cv_debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C2FB26FB1921C943003A48B7 /* cv_debug.xcconfig */; };
 /* End PBXBuildFile section */
 
@@ -170,6 +171,7 @@
 		C2F1009E1974595A0070BB7B /* qtime_cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = qtime_cache.h; path = ../../include/cvisible/qtime_cache.h; sourceTree = "<group>"; };
 		C2F1009F19745B860070BB7B /* cached_frame_buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cached_frame_buffer.cpp; sourceTree = "<group>"; };
 		C2F100A119745B960070BB7B /* cached_frame_buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cached_frame_buffer.h; path = ../../include/cvisible/cached_frame_buffer.h; sourceTree = "<group>"; };
+		C2F86B0019AE7BCE00FA7D3A /* libboost_thread.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_thread.a; path = "../usr/local/cinder_0.8-2.6_mac/lib/macosx/libboost_thread.a"; sourceTree = "<group>"; };
 		C2FB26FB1921C943003A48B7 /* cv_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = cv_debug.xcconfig; path = configs/cv_debug.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F86B0119AE7BCE00FA7D3A /* libboost_thread.a in Frameworks */,
 				C276525E1915EA1400EA3B55 /* Accelerate.framework in Frameworks */,
 				C276525B1915E9CB00EA3B55 /* CoreVideo.framework in Frameworks */,
 				C27652591915E9AB00EA3B55 /* OpenGL.framework in Frameworks */,
@@ -281,6 +284,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2F86B0019AE7BCE00FA7D3A /* libboost_thread.a */,
 				C2BBC47219AD7A2B001BAA41 /* libboost_date_time.a */,
 				C2BBC47319AD7A2B001BAA41 /* libboost_filesystem.a */,
 				C2BBC47419AD7A2B001BAA41 /* libz.a */,
@@ -539,16 +543,12 @@
 					"$(CINDER_PATH)/include",
 					"$(BOOST_PATH)/include",
 					"$(OPENCV_PATH)/include",
-					"$(SRCROOT)/include",
 					"$(GTEST_PATH)/include",
-					"$(SRCROOT)/include/vf",
 					"$(SRCROOT)/include/cvisible",
 					"$(TEST_DIR)/include",
 					"$(RESOURCE_DIR)",
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"$(BOOST_PATH)/lib",
-					"$(CINDER_PATH)/lib/$(CONFIGURATION)",
 					"$(GTEST_PATH)/build/Release",
 					"$(OPENCV_PATH)/lib",
 					"$(CINDER_PATH)/lib/macosx",
@@ -576,16 +576,12 @@
 					"$(CINDER_PATH)/include",
 					"$(BOOST_PATH)/include",
 					"$(OPENCV_PATH)/include",
-					"$(SRCROOT)/include",
 					"$(GTEST_PATH)/include",
-					"$(SRCROOT)/include/vf",
 					"$(SRCROOT)/include/cvisible",
 					"$(TEST_DIR)/include",
 					"$(RESOURCE_DIR)",
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"$(BOOST_PATH)/lib",
-					"$(CINDER_PATH)/lib/$(CONFIGURATION)",
 					"$(GTEST_PATH)/build/Release",
 					"$(OPENCV_PATH)/lib",
 					"$(CINDER_PATH)/lib/macosx",
@@ -646,9 +642,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(CINDER_PATH)/include",
 					"$(CINDER_PATH)/ciUI",
-					"$(BOOST_PATH)/include",
+					"$(BOOST_INCLUDE)",
 					"$(OPENCV_PATH)/include",
-					"$(SRCROOT)/include",
 					"$(GTEST_PATH)/include",
 					"$(SRCROOT)/include/cvisible",
 					"$(TEST_DIR)/include",
@@ -656,11 +651,10 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(BOOST_PATH)/lib",
-					"$(CINDER_PATH)/lib/$(CONFIGURATION)",
 					"$(GTEST_PATH)/build/Release",
 					"$(OPENCV_PATH)/lib",
 					"$(CINDER_PATH)/lib",
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/boost/lib,
+					"$(CINDER_PATH)/lib/macosx",
 				);
 				OBJROOT = "$(BUILD_ROOT)/Intermediates";
 				ONLY_ACTIVE_ARCH = NO;
@@ -696,9 +690,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(CINDER_PATH)/include",
 					"$(CINDER_PATH)/ciUI",
-					"$(BOOST_PATH)/include",
+					"$(BOOST_INCLUDE)",
 					"$(OPENCV_PATH)/include",
-					"$(SRCROOT)/include",
 					"$(GTEST_PATH)/include",
 					"$(SRCROOT)/include/cvisible",
 					"$(TEST_DIR)/include",
@@ -706,11 +699,10 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(BOOST_PATH)/lib",
-					"$(CINDER_PATH)/lib/$(CONFIGURATION)",
 					"$(GTEST_PATH)/build/Release",
 					"$(OPENCV_PATH)/lib",
 					"$(CINDER_PATH)/lib",
-					/Users/arman/gwc/vqt105/visibleqt105/usr/local/boost/lib,
+					"$(CINDER_PATH)/lib/macosx",
 				);
 				OBJROOT = "$(BUILD_ROOT)/Intermediates";
 				OTHER_LDFLAGS = "-lcinder";

@@ -43,7 +43,7 @@ struct UT_fileutils
         errs += (ext_is_rfymov(filename) == false);
         errs += (ext_is_rfymov(Filename) == false);
 
-        std::string csv_filename = create_filespec (test_data_path, csvfile);
+        std::string csv_filename = vf_utils::file_system::create_filespec (test_data_path, csvfile);
         errs += (file_exists(csv_filename) == false);
 
         std::ifstream istream (csv_filename.c_str());        
@@ -75,11 +75,11 @@ struct UT_fileutils
         EXPECT_TRUE (file_is_legacy_visible_output (csv_filename) == 14);
 
         std::string onecol ("onecolumn.txt");
-        std::string onec_filename = create_filespec (test_data_path, onecol);
+        std::string onec_filename = vf_utils::file_system::create_filespec (test_data_path, onecol);
         EXPECT_TRUE (file_is_legacy_visible_output (onec_filename) == -3296);    
         
         std::string matx ("matrix.txt");
-        std::string matx_filename = create_filespec (test_data_path, matx);
+        std::string matx_filename = vf_utils::file_system::create_filespec (test_data_path, matx);
         EXPECT_TRUE (file_is_legacy_visible_output (matx_filename) == -300);    
 
         bool only_visible_format = true;

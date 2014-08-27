@@ -1,9 +1,9 @@
 // Copyright 2002 Reify, Inc.
 
 
-#include "cvisible/roi_window.h"
-#include "cvisible/frame.h"
-#include <cvisible/cached_frame_buffer.h>
+#include "roi_window.h"
+#include "frame.h"
+#include <cached_frame_buffer.h>
 
 
 #include "basic_ut.hpp"
