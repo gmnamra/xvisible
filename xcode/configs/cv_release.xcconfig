@@ -61,7 +61,7 @@ GCC_DYNAMIC_NO_PIC = NO
 // Minimum OS version is 10.7
 MACOSX_DEPLOYMENT_TARGET = 10.8
 
-CINDER_PATH = $(USR_LOCAL)/cinder_0.8-2.6_mac
+CINDER_PATH = $(USR_LOCAL)/cinder/cinder_0.8-2.6_mac
 BOOST_PATH = $(CINDER_PATH)/boost
 OPENCV_PATH = $(USR_LOCAL)/OpenCv_2.4_i386
 GTEST_PATH = $(USR_LOCAL)/gtest

@@ -721,7 +721,7 @@
 				C01FCF4C08A954540054247B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "XcVisible" */ = {
 			isa = XCConfigurationList;
@@ -730,7 +730,7 @@
 				C01FCF5008A954540054247B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C20BB3441910569C00884EB2 /* Build configuration list for PBXNativeTarget "gutc" */ = {
 			isa = XCConfigurationList;
@@ -739,7 +739,7 @@
 				C20BB3461910569C00884EB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

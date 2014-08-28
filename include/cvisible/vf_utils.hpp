@@ -121,18 +121,7 @@ namespace vf_utils
             fs::path p (path);
             return exists(p) && is_regular_file (p);
         }
-        
-        static struct recursive_directory_range
-        {
-            typedef recursive_directory_iterator iterator;
-            recursive_directory_range(path p) : p_(p) {}
             
-            iterator begin() { return recursive_directory_iterator(p_); }
-            iterator end() { return recursive_directory_iterator(); }
-            
-            path p_;
-        };
-        
         static std::string create_filespec (const std::string& path_to, const std::string& filename)
         {
             path p (path_to);

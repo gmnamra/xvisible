@@ -28,9 +28,12 @@ using namespace std;
 class QtimeCache::qtImpl
 {
 public:
-    
-    typedef std::vector<float> toc_t;
+    typedef TimeValue time_count_t;
+    typedef std::vector<time_count_t> toc_t;
     typedef std::shared_ptr<toc_t> toc_t_ref;
+
+    constexpr static double time_count_per_second = 600.0;
+    
     
     // ctor
     qtImpl( const std::string fqfn) : mFqfn (fqfn), mValid (false), m_raw (new toc_t)
@@ -85,7 +88,7 @@ public:
     }
     
     
-    double get_time_index_map (std::shared_ptr<std::vector<float> >& ti_map)
+    double get_time_index_map (toc_t_ref& ti_map)
     {
         std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
         std::unique_lock<std::mutex> lk(mx);
@@ -177,7 +180,7 @@ private:
         auto movObj = mMovie->getMovieHandle();
         minfo.mTscale = ::GetMovieTimeScale( movObj );
         
-        TimeValue   curMovieTime = 0;
+        time_count_t   curMovieTime = 0;
         m_raw->resize (0);
         OSType types[] = { VisualMediaCharacteristic };
 
@@ -185,7 +188,7 @@ private:
         // use frame count to avoid fetching the extra step
         for (uint32 fc = 0; fc < minfo.mEmbeddedCount; fc++)
         {
-            m_raw->push_back (curMovieTime / 600.0f);
+            m_raw->push_back (curMovieTime);
             ::GetMovieNextInterestingTime( movObj, nextTimeStep, 1, types, curMovieTime, fixed1, &curMovieTime, NULL );
         }
 

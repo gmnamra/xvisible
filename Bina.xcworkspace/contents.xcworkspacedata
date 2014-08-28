@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:xcode/vf.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:xcode/XcVisible.xcodeproj">
    </FileRef>
 </Workspace>

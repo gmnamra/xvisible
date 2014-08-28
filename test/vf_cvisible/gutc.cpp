@@ -22,53 +22,47 @@ using namespace vf_utils::file_system;
 class genv: public testing::Environment
 {
 public:
-    genv (std::string exec_path) : m_exec_path (exec_path)
+    genv (const path& exec_path) : m_exec_path (exec_path)
     {
+        m_exec_path = m_exec_path.parent_path();
     }
-    
-    const std::string& root_folder () { return m_root_path; }
-    const std::string& test_folder () { return m_test_path; }
-    const std::string& test_data_folder () { return m_test_content_path; }
+    typedef std::vector<path> path_vec;             // store paths,
+
+    const std::string test_folder_name = "test";
+    const std::string test_data_folder_name = "test_data";
+
+    const path& executable_folder () { return m_exec_path; }
+    const std::string& test_folder () { return m_test_path.string(); }
+    const std::string& test_data_folder () { return m_test_content_path.string(); }
     
     void SetUp ()
     {
         m_test_content_path = "";
         m_test_path = "";
-        m_root_path = "";
         
-        static std::string test_folder_name ("test");
-        static std::string test_data_folder_name ("test_data");
+        path bin_path = executable_folder ();
         
-        path folder_current_full (m_exec_path);
-        for (auto it : vf_utils::file_system::recursive_directory_range(folder_current_full))
+        using namespace boost::filesystem;
+
+        path it(bin_path);
+        path end = m_exec_path.root_path ();
+        
+        while (it != end)
         {
-            if (it.path().stem()  == test_folder_name && is_directory(it.path().stem()) )
+            path_vec testies;
+            if (has_directory(it, test_folder_name, testies ) && has_directory (testies[0], test_data_folder_name, testies) )
             {
-                m_root_path = it.path().string();
-                m_test_path = it.path().stem().string();
-            }
-            
-        }
-        typedef vector<path> vec;             // store paths,
-        vec v;                                // so we can sort them later
-        path tp (m_root_path);
-        copy(directory_iterator(tp), directory_iterator(), back_inserter(v));
-                
-        for (vec::const_iterator vit (v.begin()); vit != v.end(); ++vit)
-          {
-            if (*vit == test_data_folder_name)
-            {
-                m_test_content_path = vit->string();
+                m_test_path = testies[0];
+                m_test_content_path = testies[1];
                 break;
             }
-          }
-        
-        
+            it = it.parent_path ();
+            
+        }
         
 
-        path fs_test_content_path (m_test_content_path);
-        directory_iterator itr(fs_test_content_path); directory_iterator end_itr;
-        std::cout << fs_test_content_path.root_path() << std::endl; std::cout << fs_test_content_path.parent_path() << std::endl;
+        directory_iterator itr(m_test_content_path); directory_iterator end_itr;
+        std::cout << m_test_content_path.root_path() << std::endl; std::cout << m_test_content_path.parent_path() << std::endl;
         while(itr!=end_itr && !is_directory(itr->path())){
             std::cout << "-----------------------------------"<< std::endl;
             std::cout << "Path: "<< itr->path()<< std::endl;
@@ -80,10 +74,56 @@ public:
     
     void TearDown () {}
 private:
-    std::string m_root_path;
-    std::string m_test_content_path;
-    std::string m_test_path;
-    std::string m_exec_path;
+    path m_root_path;
+    path m_test_content_path;
+    path m_test_path;
+    path m_exec_path;
+    bool is_test_root_directory (path& candidate, path_vec& paths)
+    {
+        
+        bool ok = is_directory (candidate) && candidate.filename() == test_folder_name;
+        if (!ok) return ok;
+        paths.push_back (candidate);
+        
+        path_vec v;                                // so we can sort them later
+        path tp (candidate);
+        copy(directory_iterator(tp), directory_iterator(), back_inserter(v));
+        
+        for (path_vec::const_iterator vit (v.begin()); vit != v.end(); ++vit)
+        {
+            if (vit->filename() == test_data_folder_name)
+            {
+                paths.push_back (*vit);
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    bool has_directory (path& candidate, const string& test, path_vec& paths)
+    {
+        std::cout << "name: " << test << std::endl;
+
+        bool ok = is_directory (candidate);
+        if (!ok) return ok;
+        
+        path_vec v;                                // so we can sort them later
+        path tp (candidate);
+        copy(directory_iterator(tp), directory_iterator(), back_inserter(v));
+        
+        for (path_vec::const_iterator vit (v.begin()); vit != v.end(); ++vit)
+        {
+            if (vit->filename().string() == test)
+            {
+                paths.push_back (*vit);
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
 };
 
 genv* s_gvp = 0;
@@ -397,6 +437,7 @@ TEST(UT_similarity_producer, run)
 int main(int argc, char **argv)
 {
     std::string installpath = std::string (argv[0]);
+    path install_path (installpath);
     ::testing::Environment* const g_env  = ::testing::AddGlobalTestEnvironment(new     genv (installpath) );
     s_gvp = reinterpret_cast<genv*>(g_env);
 	testing::InitGoogleTest(&argc, argv);

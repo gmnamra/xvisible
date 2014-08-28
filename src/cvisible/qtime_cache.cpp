@@ -264,18 +264,17 @@ QtimeCacheError  QtimeCache::tocLoad()
     _tocItoT.resize(_frameCount);
     assert (_tocTtoI.empty());
     assert (_impl);
-    std::shared_ptr<std::vector<float> > raws;
+    QtimeCache::qtImpl::toc_t_ref raws;
     double dscale = _impl->get_time_index_map(raws);
     std::vector<time_spec_t> frametimes (_frameCount);
-    int64 ticks_per_second = vf_utils::civf::instance().get_ticks();
     
     for (int fn=0; fn<_frameCount; fn++)
     {
-        frametimes[fn] = time_spec_t (ticks_per_second * (raws->at(fn)/dscale));
+        frametimes[fn] = time_spec_t (raws->at(fn)/dscale);
     }
     for (uint32 frameIndex = 0; frameIndex < _frameCount; frameIndex++)
     {
-        if (frameIndex != 0) assert (frametimes[frameIndex] > frametimes[frameIndex-1]);
+        if (frameIndex != 0) assert (frametimes[frameIndex].secs() > frametimes[frameIndex-1].secs());
         _tocItoT[frameIndex] = frametimes[frameIndex];
         _tocTtoI[frametimes[frameIndex]] = frameIndex;
     }
@@ -678,7 +677,7 @@ QtimeCache::frameIndexToTimestamp(uint32 frameIndex,
         return  QtimeCacheStatus::Error;
     }
     
-    match = _tocItoT[frameIndex];
+    match = _tocItoT.at(frameIndex);
     
     return  QtimeCacheStatus::OK;
 }

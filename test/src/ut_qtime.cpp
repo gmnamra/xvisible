@@ -461,12 +461,12 @@ void UT_QtimeCache::mappingTest()
     /* Test for functions frameIndexToTimestamp() and
      * timestampToFrameIndex().
      */
-    const double eps = 1e-05;  // Needed !!
+    const double eps = 1e-01;  // Needed !!
     for (uint32 i = 0; i < frameCount; i++) {
         status = cacheP->frameIndexToTimestamp(i, actual, &error);
         rcUNITTEST_ASSERT(status == QtimeCacheStatus::OK);
         if (status == QtimeCacheStatus::OK)
-            rcUNITTEST_ASSERT(equal(actual.secs(), times[i], eps));
+            rcUNITTEST_ASSERT(real_equal(actual.secs(), times[i], eps));
         
         uint32 actualIndex;
         status = cacheP->timestampToFrameIndex(actual, actualIndex, &error);
