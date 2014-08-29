@@ -283,6 +283,8 @@ QtimeCacheError  QtimeCache::tocLoad()
         if (_tocTtoI[frametimes[fn]] != fn) return QtimeCacheError::CacheInvalid;
     }
     
+    dump_toc ();
+    
     return  QtimeCacheError::OK;
 }
 

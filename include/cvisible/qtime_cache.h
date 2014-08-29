@@ -469,6 +469,20 @@ private:
     uint32                             _cacheHits;
     
     std::shared_ptr<QtimeCachePrefetchUnit>            _prefetchThread;
+    void dump_toc ()
+    {
+        std::vector<time_spec_t>::const_iterator itr = _tocItoT.begin ();
+        for (int32 i = 0; itr < _tocItoT.end(); itr++, i++)
+        {
+            std::cout << "i2t[ " << i << " ]" << itr->secs() << std::endl;
+        }
+        itr = _tocItoT.begin ();
+        for (int32 i = 0; itr < _tocItoT.end(); itr++, i++)
+        {
+            
+            std::cout << "t2i[ " <<itr->secs() << " ]" << _tocTtoI.at(*itr) << std::endl;
+        }
+    }
     // Progress indicator for sow operations (ie. TOC from frames)
   //  rcProgressIndicator*                 _progressIndicator;
     
