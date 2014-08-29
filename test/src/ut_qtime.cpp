@@ -389,7 +389,7 @@ void utQtimeCacheThread::run()
            void UT_QtimeCache::mappingTest()
     {
         const uint32 frameCount = 56;
-        const uint32 extraCasesCount = 5;
+        const uint32 extraCasesCount = 0;
         const uint32 totalCases = frameCount + extraCasesCount;
         
         QtimeCache* cacheP = QtimeCache::QtimeCacheCtor(fileName, 5, true,
@@ -461,42 +461,45 @@ void utQtimeCacheThread::run()
                 {
                     case QtimeCacheStatus::Error:
                     {
-                        std::cout << i << "  check" << std::endl;
+                        rcUNITTEST_ASSERT (i == 0);
                         rcUNITTEST_ASSERT(error == QtimeCacheError::NoSuchFrame);
+                        std::cout << i << "  check" << std::endl;
                         break;
                     }
                     case  QtimeCacheStatus::OK:
                     {
-                        std::cout << i << "  pass" << std::endl;
-                        rcUNITTEST_ASSERT (i >= 0 && i < cacheP->frameCount());
+                        rcUNITTEST_ASSERT (i > 0 && i < cacheP->frameCount());
                         rcUNITTEST_ASSERT(cacheP->getFatalError() == QtimeCacheError::OK);
+                        std::cout << i << "  pass" << std::endl;
                     }
                 }
             }
         }
         
-#if ISSUE_TBD
         /* Test for function nextTimestamp() */
         {
-            const double next_eps = 1e-04;  // Needed !!
-            
             for (uint32 i = 0; i < totalCases; i++)
             {
                 error = QtimeCacheError::FileInit;
-                status = cacheP->nextTimestamp(time_spec_t::from_seconds (times[i]), actual, &error);
-                std::cout << "[" << i << "]:" << times[i] << "<->" << times[i+1] << " + : " << actual.secs() << " e " << (int) error << " s " << (int) status << std::endl;
-                
-                //        if (status != QtimeCacheStatus::OK)
-                //            rcUNITTEST_ASSERT(error == QtimeCacheError::NoSuchFrame);
-                //      else
-                //      {
-                //
-                //          rcUNITTEST_ASSERT(equal(actual.secs(), times[i+1], next_eps));
-                //      }
+                status = cacheP->nextTimestamp(times[i], actual, &error);
+                switch (status)
+                {
+                    case QtimeCacheStatus::Error:
+                    {
+                        rcUNITTEST_ASSERT (i == 55);
+                        rcUNITTEST_ASSERT(error == QtimeCacheError::NoSuchFrame);
+                        std::cout << i << "  check" << std::endl;
+                        break;
+                    }
+                    case  QtimeCacheStatus::OK:
+                    {
+                        rcUNITTEST_ASSERT (i >= 0 && i < (cacheP->frameCount() - 1) );
+                        rcUNITTEST_ASSERT(cacheP->getFatalError() == QtimeCacheError::OK);
+                        std::cout << i << "  pass" << std::endl;
+                    }
+                }
             }
-            
         }
-#endif
         
         QtimeCache::QtimeCacheDtor(cacheP);
         
