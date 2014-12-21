@@ -38,6 +38,7 @@
 #include "iclip.hpp"
 #include <boost/integer_traits.hpp>
 // use int64_t instead of long long for better portability
+#include <boost/filesystem.hpp>
 #include <boost/cstdint.hpp>
 #include <boost/noncopyable.hpp>
 #include <map>
@@ -47,6 +48,7 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 using namespace boost;
+namespace fs=boost::filesystem;
 
 
 // Namespace collision with OpenCv
@@ -90,7 +92,7 @@ struct Signal_value
 		gl::color( ColorA( 0, 1, 0, 0.7f ) );
 		gl::drawSolidRoundedRect( Rectf( readPos.x - 2, 0, readPos.x + 2, (float)display.getHeight() ), 2 );
 		gl::color( Color( 1.0f, 0.5f, 0.25f ) );
-		gl::drawStringCentered(toString (mFn (mSignalIndex)), readPos);
+		gl::drawStringCentered(to_string (mFn (mSignalIndex)), readPos);
     }
     
     Vec2i mDisplayPos;
@@ -173,14 +175,14 @@ public:
     
 private:
 
-    void internal_setupmat_from_file (const fs::path &);
+    void internal_setupmat_from_file (const path &);
     void internal_setupmat_from_mat (const vf_utils::csv::matf_t &);
     Rectf render_box ();
     params::InterfaceGl         mMatParams;
     
     gl::VboMesh mPointCloud;
     MayaCamUI mCam;
-    fs::path mPath;
+    path mPath;
     std::string mName;
 };
 
@@ -212,7 +214,7 @@ public:
     
 private:
    
-    void loadMovieFile( const fs::path &moviePath );
+    void loadMovieFile( const path &moviePath );
     bool have_movie () { return m_movie_valid; }
     void seek( size_t xPos );
     void clear_movie_params ();
@@ -233,7 +235,7 @@ private:
     Vec2f m_zoom;
     Rectf m_display_rect;
     float mMovieCZoom;
-    fs::path mPath;
+    path mPath;
 	Vec2i		mMousePos;
 
     bool mMouseIsDown;
@@ -272,7 +274,7 @@ private:
   
     static DataSourcePathRef create (const std::string& fqfn)
     {
-        return  DataSourcePath::create (fs::path  (fqfn));
+        return  DataSourcePath::create (path  (fqfn));
     }
     
     void select_column (size_t col) { m_column_select = col; }
@@ -280,7 +282,7 @@ private:
     Rectf render_box ();
     params::InterfaceGl         mClipParams;
     Graph1DRef mGraph1D;
-    fs::path mPath;
+    path mPath;
     std::string mName;
     std::vector<vector<float> > mdat;
     int m_column_select;

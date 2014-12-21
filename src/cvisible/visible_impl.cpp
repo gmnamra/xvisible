@@ -130,7 +130,7 @@ void matContext::setup ()
     if(! mPath.empty() ) internal_setupmat_from_file(mPath);
 }
 
-void matContext::internal_setupmat_from_file (const fs::path & fp)
+void matContext::internal_setupmat_from_file (const path & fp)
 {
     vf_utils::csv::matf_t mat;
     vf_utils::csv::csv2vectors(fp.string(), mat, false, false, true);
@@ -211,7 +211,7 @@ movContext::movContext (const std::string& name_str) : mName (name_str)
 void movContext::setup()
 {
     // Browse for the movie file
-    fs::path moviePath = getOpenFilePath();
+    path moviePath = getOpenFilePath();
     m_valid = false;
     
   	getWindow()->setTitle( moviePath.filename().string() );
@@ -226,7 +226,7 @@ void movContext::setup()
     
     if( ! m_valid ) return;
    {
-        string max = ci::toString( m_movie.getDuration() );
+        string max = to_string( m_movie.getDuration() );
        mMovieParams.addParam( "Position", &mMoviePosition, "min=0.0 max=" + max + " step=0.5" );
         mMovieParams.addParam( "Rate", &mMovieRate, "step=0.01" );
         mMovieParams.addParam( "Play/Pause", &mMoviePlay );
@@ -250,7 +250,7 @@ void movContext::clear_movie_params ()
     mMovieCZoom=1.0f;
 }
 
-void movContext::loadMovieFile( const fs::path &moviePath )
+void movContext::loadMovieFile( const path &moviePath )
 {
 	
 	try {
