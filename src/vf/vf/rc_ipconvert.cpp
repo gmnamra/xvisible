@@ -3,8 +3,28 @@
 #include "rc_ip.h"
 #include "rc_histstats.h"
 #include "rc_imageprocessing.h"
+#include <vImage/vImage_Types.h>
+#include <vImage/Conversion.h>
 
 #define rfHasSIMD false
+
+
+
+static bool rcWindowTovImage(const rcWindow& win, vImage_Buffer& vi)
+{
+    if (!win.isBound()) return false;
+    
+    rmAssert(win.rowUpdate() > 0);
+    
+    // Get the top left pixel. vImage data pointer is a void *
+    const uint8 *pels = win.pelPointer (0,0);
+    vi.data = (void *) pels;
+    vi.width = (uint32) win.width();
+    vi.height = (uint32) win.height ();
+    vi.rowBytes = (uint32) win.rowUpdate ();
+    return true;
+}
+
 
 static void _rfRcWindow32to8(const rcWindow& rgbInput, rcWindow& channelOutput, rcChannelConversion opt);
 
@@ -21,14 +41,14 @@ void rfImageConvert8888ToARGB (vector<rcWindow>& iargb, rcWindow& argb)
   int32 height (argb.height());
   //@todo add if has SIMD 
   vImage_Buffer v[4], vargb;
-  argb.vImage (vargb);
+  rcWindowTovImage(argb,vargb);
 
   for (uint32 i = 0; i < 4; i++)
     {
       rmAssert (iargb[i].isBound());
       rmAssert (width == iargb[i].width());
       rmAssert (height == iargb[i].height());
-      iargb[i].vImage(v[i]);
+        rcWindowTovImage(iargb[i],v[i]);
     }
 
   vImage_Error ve; 
@@ -45,7 +65,7 @@ void rfImageConvertARGBto8888 (rcWindow& argb, vector<rcWindow>& iargb)
   int32 height (argb.height());
   //@todo add if has SIMD 
   vImage_Buffer v[4], vargb;
-  argb.vImage (vargb);
+  rcWindowTovImage(argb,vargb);
 
   // Create 4 images and put them in the vector
   for (uint32 i = 0; i < 4; i++)
@@ -59,7 +79,8 @@ void rfImageConvertARGBto8888 (rcWindow& argb, vector<rcWindow>& iargb)
       rmAssert (iargb[i].isBound());
       rmAssert (width == iargb[i].width());
       rmAssert (height == iargb[i].height());
-      iargb[i].vImage(v[i]);
+        rcWindowTovImage(iargb[i],v[i]);
+      
     }
 
   vImage_Error ve; 
@@ -76,9 +97,9 @@ void rfImageConvert8ToARGB (const rcWindow& byteImage, const rcWindow& alpha, rc
 
   //@todo add if has SIMD 
   vImage_Buffer va, v8, vargb;
-  alpha.vImage (va);
-  byteImage.vImage (v8);
-  argb.vImage (vargb);
+  rcWindowTovImage(alpha, va);
+  rcWindowTovImage(byteImage, v8);
+  rcWindowTovImage(argb, vargb);
 
   vImage_Error ve; 
   ve = vImageConvert_Planar8toARGB8888 (&va, &v8, &v8, &v8, &vargb, kvImageNoFlags);
@@ -102,10 +123,10 @@ void rfImageConvertFloat8 (const rcWindow& floatImage, rcWindow& byteImage,
 
   //@todo add if has SIMD 
   vImage_Buffer vf, v8;
-  floatImage.vImage (vf);
-  byteImage.vImage (v8);
-  
-  vImage_Error ve; 
+  rcWindowTovImage(floatImage, vf);
+  rcWindowTovImage(byteImage, v8);
+    
+  vImage_Error ve;
   ve = vImageConvert_PlanarFtoPlanar8 (&vf, &v8, maxVal, minVal, kvImageNoFlags);
   rmAssert (!ve);
 }
@@ -188,11 +209,11 @@ void rfImageConvert168 (const rcWindow& twobyteImage, rcWindow& byteImage, rcCha
   float maxFloat = h16.max (5);
 
   vImage_Buffer vu16, vf, v8;
-  twobyteImage.vImage (vu16);
+  rcWindowTovImage(twobyteImage,vu16);
   rcWindow f (twobyteImage.width(), twobyteImage.height(), rcPixel32S);
-  f.vImage (vf);
+  rcWindowTovImage(f,vf);
   rcWindow e (twobyteImage.width(), twobyteImage.height(), rcPixel8);
-  e.vImage (v8);
+  rcWindowTovImage(e, v8);
 
   vImage_Error ve;       
   ve = vImageConvert_16UToF (&vu16, &vf, 0.0f, 1.0f, kvImageNoFlags);
@@ -243,8 +264,7 @@ void rfImageConvert32to8(const rcWindow& rgbInput, rcWindow& channelOutput, rcCh
 
     //@todo add hasSIMD 
     vImage_Buffer v32, vr, vg, vb, va;
-
-    rgbInput.vImage (v32);
+    rcWindowTovImage(rgbInput,v32);
     vector<rcWindow> channels(4);
 
     if ( rgbInput.isGray() )
@@ -286,10 +306,10 @@ void rfImageConvert32to8(const rcWindow& rgbInput, rcWindow& channelOutput, rcCh
 	  }
       }
 
-    channels[(int32) rcSelectGreen].vImage (vg);
-    channels[(int32) rcSelectRed].vImage (vr);
-    channels[(int32) rcSelectBlue].vImage (vb);
-    channels[channels.size() - 1].vImage (va);
+    rcWindowTovImage(channels[(int32) rcSelectGreen], vg);
+    rcWindowTovImage(channels[(int32) rcSelectRed],vr);
+    rcWindowTovImage(channels[(int32) rcSelectBlue],vb);
+    rcWindowTovImage(channels[channels.size() - 1],va);
 
     vImage_Error ve;
     ve = vImageConvert_ARGB8888toPlanar8 (&v32, 
@@ -348,11 +368,12 @@ void rfImageConvert8to32(const rcWindow& rgbInput, rcWindow& rgbOutput)
     if (rfHasSIMD ) 
       {
 	vImage_Buffer v8, v32, va;
-	rgbInput.vImage (v8);
-	rgbOutput.vImage (v32);
+	rcWindowTovImage(rgbInput,v8);
+	rcWindowTovImage(rgbOutput,v32);
 	rcWindow f (width, height, rcPixel8);
 	f.setAllPixels (0);
-	f.vImage (va);
+    rcWindowTovImage(f, va);
+
 
 	vImage_Error ve;	
 	ve = vImageConvert_Planar8toARGB8888 (&va, &v8, &v8, &v8, &v32,

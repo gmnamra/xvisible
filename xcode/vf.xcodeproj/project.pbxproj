@@ -31,14 +31,11 @@
 		C24EA9611842FD0D00E88B0A /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0440F212DEC0046570D /* IOKit.framework */; };
 		C24EA9621842FD0D00E88B0A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0480F212DF40046570D /* CoreServices.framework */; };
 		C24EA9631842FD0D00E88B0A /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA04E0F212E170046570D /* QuickTime.framework */; };
-		C24EA9641842FD0D00E88B0A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0530F212E300046570D /* Accelerate.framework */; };
 		C24EA9651842FD0D00E88B0A /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAEE00F42239D003CC197 /* AppKit.framework */; };
 		C24EA9681842FD0D00E88B0A /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAED60F421FE2003CC197 /* Carbon.framework */; };
 		C26F48C818FC75D6006DF78F /* rc_ncs.h in Headers */ = {isa = PBXBuildFile; fileRef = C26F48C718FC75D6006DF78F /* rc_ncs.h */; };
 		C27652261914089400EA3B55 /* rc_level.h in Headers */ = {isa = PBXBuildFile; fileRef = C27652251914089400EA3B55 /* rc_level.h */; };
 		C276522B1915599C00EA3B55 /* rc_seglevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A018F4B9A000BA7E79 /* rc_seglevel.cpp */; };
-		C283D71C1947BC1900AC68BE /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C283D71B1947BC1900AC68BE /* vfi386_d.framework */; };
-		C283D71E1947BC3A00AC68BE /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C283D71D1947BC3A00AC68BE /* gtest.framework */; };
 		C299934418FCAE3D008397D2 /* ut_framebuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA27A0F21357A0046570D /* ut_framebuf.cpp */; };
 		C299934518FDB17F008397D2 /* ut_reifymoviegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA29A0F21357A0046570D /* ut_reifymoviegrabber.cpp */; };
 		C299934718FDBD44008397D2 /* rc_mathmodel.h in Headers */ = {isa = PBXBuildFile; fileRef = C299934618FDBD44008397D2 /* rc_mathmodel.h */; };
@@ -191,7 +188,6 @@
 		C2C2921718F4B9A000BA7E79 /* rc_units.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291AD18F4B9A000BA7E79 /* rc_units.cpp */; };
 		C2C2921818F4B9A000BA7E79 /* rc_videocache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291AE18F4B9A000BA7E79 /* rc_videocache.cpp */; };
 		C2C2921918F4B9A000BA7E79 /* rc_window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291AF18F4B9A000BA7E79 /* rc_window.cpp */; };
-		C2C2921B18F4B9A000BA7E79 /* rc_window2tiff.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291B118F4B9A000BA7E79 /* rc_window2tiff.cpp */; };
 		C2C2921C18F4B9A000BA7E79 /* rc_windowhist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291B218F4B9A000BA7E79 /* rc_windowhist.cpp */; };
 		C2C2921D18F4B9A000BA7E79 /* rf_playback_utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291B318F4B9A000BA7E79 /* rf_playback_utils.cpp */; };
 		C2C2921E18F4B9A000BA7E79 /* svdfit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291B418F4B9A000BA7E79 /* svdfit.cpp */; };
@@ -274,7 +270,6 @@
 		C2C292F318F662D500BA7E79 /* rc_similarity_producer.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C292F218F662D500BA7E79 /* rc_similarity_producer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2C292F818F748EE00BA7E79 /* signaler.h in Headers */ = {isa = PBXBuildFile; fileRef = C2C292F718F748EE00BA7E79 /* signaler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2C292FA18F8570900BA7E79 /* static.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2C292F918F8570900BA7E79 /* static.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2C292FE18F85C4A00BA7E79 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C292FD18F85C4A00BA7E79 /* libboost_system.a */; };
 		C2C2930018F85F5800BA7E79 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C292FF18F85F5800BA7E79 /* QTKit.framework */; };
 		C2C2930E18F8600B00BA7E79 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C2930D18F8600B00BA7E79 /* AudioUnit.framework */; };
 		C2C2931018F8602B00BA7E79 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C2930F18F8602B00BA7E79 /* AudioUnit.framework */; };
@@ -284,14 +279,16 @@
 		C2C2931818F8605F00BA7E79 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C2931718F8605F00BA7E79 /* CoreAudio.framework */; };
 		C2C2931918F8D54800BA7E79 /* ut_videocache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA2A90F21357A0046570D /* ut_videocache.cpp */; };
 		C2C2931B18F8D64400BA7E79 /* timing.hpp in Headers */ = {isa = PBXBuildFile; fileRef = C2C2931A18F8D64400BA7E79 /* timing.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2C2931C18F9F5F600BA7E79 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C292FD18F85C4A00BA7E79 /* libboost_system.a */; };
 		C2C4452718FAFC1C00B1C00B /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CAEEB0F4223E9003CC197 /* GLUT.framework */; };
 		C2C4452818FAFC1C00B1C00B /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CADD70F421E98003CC197 /* AGL.framework */; };
 		C2C4452918FAFC1C00B1C00B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C21CADE00F421EB4003CC197 /* OpenGL.framework */; };
 		C2C4452A18FAFC1C00B1C00B /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0440F212DEC0046570D /* IOKit.framework */; };
 		C2C4452B18FAFC1C00B1C00B /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0480F212DF40046570D /* CoreServices.framework */; };
 		C2C4452C18FAFC1C00B1C00B /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA04E0F212E170046570D /* QuickTime.framework */; };
-		C2C4452D18FAFC1C00B1C00B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26FA0530F212E300046570D /* Accelerate.framework */; };
+		C2C4F9831A50724A00B1B85A /* vImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C4F9821A50724A00B1B85A /* vImage.framework */; };
+		C2C4F9841A50724A00B1B85A /* vImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C4F9821A50724A00B1B85A /* vImage.framework */; };
+		C2C4F9851A50724A00B1B85A /* vImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C4F9821A50724A00B1B85A /* vImage.framework */; };
+		C2C4F9861A507AA400B1B85A /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C292FB18F85BE500BA7E79 /* libboost_system.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -312,7 +309,6 @@
 		C26FA0440F212DEC0046570D /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = ../../../../../../System/Library/Frameworks/IOKit.framework; sourceTree = "<group>"; };
 		C26FA0480F212DF40046570D /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = ../../../../../../System/Library/Frameworks/CoreServices.framework; sourceTree = "<group>"; };
 		C26FA04E0F212E170046570D /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = ../../../../../../System/Library/Frameworks/QuickTime.framework; sourceTree = "<group>"; };
-		C26FA0530F212E300046570D /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = ../../../../../../System/Library/Frameworks/Accelerate.framework; sourceTree = "<group>"; };
 		C26FA22D0F2135640046570D /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = main.h; path = ../test/include/main.h; sourceTree = "<group>"; };
 		C26FA2300F2135640046570D /* ut_affine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ut_affine.h; path = ../test/include/ut_affine.h; sourceTree = "<group>"; };
 		C26FA2310F2135640046570D /* ut_analyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ut_analyzer.h; path = ../test/include/ut_analyzer.h; sourceTree = "<group>"; };
@@ -420,8 +416,6 @@
 		C26FA2AB0F21357A0046570D /* ut_window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_window.cpp; path = ../test/src/ut_window.cpp; sourceTree = SOURCE_ROOT; };
 		C26FA2AC0F21357A0046570D /* ut_windowhist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_windowhist.cpp; path = ../test/src/ut_windowhist.cpp; sourceTree = SOURCE_ROOT; };
 		C27652251914089400EA3B55 /* rc_level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_level.h; sourceTree = "<group>"; };
-		C283D71B1947BC1900AC68BE /* vfi386_d.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386_d.framework; path = ../build/Frameworks/vfi386_d.framework; sourceTree = "<group>"; };
-		C283D71D1947BC3A00AC68BE /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = ../build/Frameworks/gtest.framework; sourceTree = "<group>"; };
 		C297DD3C18A1B5F100F217A5 /* ut_persistence1d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ut_persistence1d.h; path = ../test/include/ut_persistence1d.h; sourceTree = "<group>"; };
 		C299934618FDBD44008397D2 /* rc_mathmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_mathmodel.h; sourceTree = "<group>"; };
 		C2A9A6730F29200900DA781F /* ut_analysis_main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_analysis_main.cpp; path = ../test/src/ut_analysis_main.cpp; sourceTree = SOURCE_ROOT; };
@@ -712,7 +706,6 @@
 		C2C292F718F748EE00BA7E79 /* signaler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = signaler.h; sourceTree = "<group>"; };
 		C2C292F918F8570900BA7E79 /* static.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = static.hpp; sourceTree = "<group>"; };
 		C2C292FB18F85BE500BA7E79 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../usr/local/boost/lib/libboost_system.a; sourceTree = "<group>"; };
-		C2C292FD18F85C4A00BA7E79 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../usr/local/Cinder/lib/macosx/libboost_system.a; sourceTree = "<group>"; };
 		C2C292FF18F85F5800BA7E79 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		C2C2930118F85F8300BA7E79 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		C2C2930318F85F9500BA7E79 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
@@ -727,6 +720,7 @@
 		C2C2931518F8605200BA7E79 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = ../../../../../../System/Library/Frameworks/CoreVideo.framework; sourceTree = "<group>"; };
 		C2C2931718F8605F00BA7E79 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = ../../../../../../System/Library/Frameworks/CoreAudio.framework; sourceTree = "<group>"; };
 		C2C2931A18F8D64400BA7E79 /* timing.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = timing.hpp; sourceTree = "<group>"; };
+		C2C4F9821A50724A00B1B85A /* vImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vImage.framework; path = ../../../../../System/Library/Frameworks/Accelerate.framework/Frameworks/vImage.framework; sourceTree = "<group>"; };
 		C2F6AC140F49E09C00D03C6F /* 01-EF3M0.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "01-EF3M0.tif"; path = "../test/test_data/01-EF3M0.tif"; sourceTree = "<group>"; };
 		C2F6AC150F49E09C00D03C6F /* 10xcalib.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = 10xcalib.tif; path = ../test/test_data/10xcalib.tif; sourceTree = "<group>"; };
 		C2F6AC160F49E09C00D03C6F /* a_movie.mpg */ = {isa = PBXFileReference; lastKnownFileType = video.mpeg; name = a_movie.mpg; path = ../test/test_data/a_movie.mpg; sourceTree = "<group>"; };
@@ -792,6 +786,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2C4F9861A507AA400B1B85A /* libboost_system.a in Frameworks */,
+				C2C4F9831A50724A00B1B85A /* vImage.framework in Frameworks */,
 				C2C2931418F8604800BA7E79 /* AppKit.framework in Frameworks */,
 				C2C4452718FAFC1C00B1C00B /* GLUT.framework in Frameworks */,
 				C2C4452818FAFC1C00B1C00B /* AGL.framework in Frameworks */,
@@ -799,9 +795,7 @@
 				C2C4452A18FAFC1C00B1C00B /* IOKit.framework in Frameworks */,
 				C2C4452B18FAFC1C00B1C00B /* CoreServices.framework in Frameworks */,
 				C2C4452C18FAFC1C00B1C00B /* QuickTime.framework in Frameworks */,
-				C2C4452D18FAFC1C00B1C00B /* Accelerate.framework in Frameworks */,
 				C2C2931818F8605F00BA7E79 /* CoreAudio.framework in Frameworks */,
-				C2C292FE18F85C4A00BA7E79 /* libboost_system.a in Frameworks */,
 				C2C2930018F85F5800BA7E79 /* QTKit.framework in Frameworks */,
 				C2C2931018F8602B00BA7E79 /* AudioUnit.framework in Frameworks */,
 				C2C2931218F8603500BA7E79 /* AudioToolbox.framework in Frameworks */,
@@ -822,7 +816,7 @@
 				C24EA9611842FD0D00E88B0A /* IOKit.framework in Frameworks */,
 				C24EA9621842FD0D00E88B0A /* CoreServices.framework in Frameworks */,
 				C24EA9631842FD0D00E88B0A /* QuickTime.framework in Frameworks */,
-				C24EA9641842FD0D00E88B0A /* Accelerate.framework in Frameworks */,
+				C2C4F9841A50724A00B1B85A /* vImage.framework in Frameworks */,
 				C24EA9651842FD0D00E88B0A /* AppKit.framework in Frameworks */,
 				C24EA9681842FD0D00E88B0A /* Carbon.framework in Frameworks */,
 			);
@@ -832,9 +826,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C283D71E1947BC3A00AC68BE /* gtest.framework in Frameworks */,
-				C283D71C1947BC1900AC68BE /* vfi386_d.framework in Frameworks */,
-				C2C2931C18F9F5F600BA7E79 /* libboost_system.a in Frameworks */,
+				C2C4F9851A50724A00B1B85A /* vImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -855,12 +847,9 @@
 		0867D691FE84028FC02AAC07 /* vf */ = {
 			isa = PBXGroup;
 			children = (
-				C283D71D1947BC3A00AC68BE /* gtest.framework */,
-				C283D71B1947BC1900AC68BE /* vfi386_d.framework */,
 				C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */,
 				C23E89B9191310F800AE27A3 /* vf_release.xcconfig */,
 				C2ADE58A19072CD10083564A /* rc_framegrabber.h */,
-				C2C292FD18F85C4A00BA7E79 /* libboost_system.a */,
 				C2C292FB18F85BE500BA7E79 /* libboost_system.a */,
 				C26FA2ED0F2135830046570D /* test */,
 				C26F9C930F21135D0046570D /* include */,
@@ -1094,6 +1083,7 @@
 		C2C28F6C18F44DB200BA7E79 /* OSX */ = {
 			isa = PBXGroup;
 			children = (
+				C2C4F9821A50724A00B1B85A /* vImage.framework */,
 				C2C2930D18F8600B00BA7E79 /* AudioUnit.framework */,
 				C2C2930B18F85FED00BA7E79 /* CoreGraphics.framework */,
 				C2C2930918F85FDA00BA7E79 /* AudioToolbox.framework */,
@@ -1116,7 +1106,6 @@
 				C26FA0440F212DEC0046570D /* IOKit.framework */,
 				C26FA0480F212DF40046570D /* CoreServices.framework */,
 				C26FA04E0F212E170046570D /* QuickTime.framework */,
-				C26FA0530F212E300046570D /* Accelerate.framework */,
 			);
 			name = OSX;
 			sourceTree = "<group>";
@@ -1834,7 +1823,6 @@
 				C2C2921118F4B9A000BA7E79 /* rc_systeminfo_mac.cpp in Sources */,
 				C2C2926F18F4C1F300BA7E79 /* tif_next.c in Sources */,
 				C2C2921318F4B9A000BA7E79 /* rc_tiff.cpp in Sources */,
-				C2C2921B18F4B9A000BA7E79 /* rc_window2tiff.cpp in Sources */,
 				C2C291C918F4B9A000BA7E79 /* tcp.cpp in Sources */,
 				C2C2921718F4B9A000BA7E79 /* rc_units.cpp in Sources */,
 				C2C291B718F4B9A000BA7E79 /* dprintf.cpp in Sources */,
@@ -1995,6 +1983,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = "";
 				EXPORTED_SYMBOLS_FILE = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Accelerate.framework/Frameworks",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -2008,13 +2000,15 @@
 					"$(GTEST_PATH)/build/Release",
 					"$(OPENCV_PATH)/lib",
 					"$(BOOST_PATH)/lib",
+					/Users/arman/Documents/xvisible/usr/local/boost/lib,
 				);
 				MACH_O_TYPE = mh_dylib;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = vfi386_d;
 				RFY_DLL_EXPORT = "";
+				SDKROOT = macosx10.10;
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -2032,6 +2026,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = "";
 				EXPORTED_SYMBOLS_FILE = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Accelerate.framework/Frameworks",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
@@ -2045,14 +2043,16 @@
 					"$(GTEST_PATH)/build/Release",
 					"$(OPENCV_PATH)/lib",
 					"$(BOOST_PATH)/lib",
+					/Users/arman/Documents/xvisible/usr/local/boost/lib,
 				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				MACH_O_TYPE = mh_dylib;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = vfi386;
 				RFY_DLL_EXPORT = "";
+				SDKROOT = macosx10.10;
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = debugging;
 				WRAPPER_EXTENSION = framework;
@@ -2117,6 +2117,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/frameworks",
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Accelerate.framework/Frameworks",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_VERSION = A;
@@ -2189,6 +2190,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/frameworks",
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Accelerate.framework/Frameworks",
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_VERSION = A;
@@ -2270,6 +2272,10 @@
 			baseConfigurationReference = C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Accelerate.framework/Frameworks",
+				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				KEEP_PRIVATE_EXTERNS = YES;
 				LINKER_DISPLAYS_MANGLED_NAMES = YES;
@@ -2286,6 +2292,10 @@
 			baseConfigurationReference = C23E89B9191310F800AE27A3 /* vf_release.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/Frameworks/Accelerate.framework/Frameworks",
+				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				KEEP_PRIVATE_EXTERNS = YES;
 				LINKER_DISPLAYS_MANGLED_NAMES = YES;

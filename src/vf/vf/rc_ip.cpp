@@ -15,11 +15,30 @@
 #include "rc_ip.h"
 #include "rc_histstats.h"
 #include "rc_mathmodel.h"
-
-
 #include <vector>
+#include <vImage/vImage_Types.h>
+#include <vImage/Conversion.h>
+#include <vImage/Convolution.h>
 
 using namespace std;
+
+
+static bool rcWindowTovImage(const rcWindow& win, vImage_Buffer& vi)
+{
+  if (!win.isBound()) return false;
+
+  rmAssert(win.rowUpdate() > 0);
+
+  // Get the top left pixel. vImage data pointer is a void *
+  const uint8 *pels = win.pelPointer (0,0);
+  vi.data = (void *) pels;
+  vi.width = (uint32) win.width();
+  vi.height = (uint32) win.height ();
+  vi.rowBytes = (uint32) win.rowUpdate ();
+  return true;
+}
+
+
 
 #define rmPrintFloatImage(a){					    \
     for (int32 i__temp = 0; i__temp < (a).height(); i__temp++) {  \
@@ -253,7 +272,7 @@ void rfGaussianConv (const rcWindow& src, rcWindow& dest, int32 kernelSize)
 		if (src.depth() == rcPixel8)
 		{
 			vImage_Buffer vb, vd;
-			src.vImage (vb);	  dest.vImage (vd);
+			rcWindowTovImage (src, vb);	 rcWindowTovImage(dest,vd);
 			vImage_Error ve;
 			ve = vImageConvolve_Planar8(&vb, &vd, NULL,
 				0, 0, sGaussKernel5[0],
@@ -266,13 +285,12 @@ void rfGaussianConv (const rcWindow& src, rcWindow& dest, int32 kernelSize)
 		{
 	// Convert 16 to float
 			vImage_Buffer s16, sf, d16, df;
-			src.vImage (s16);
-			dest.vImage (d16);
+          	rcWindowTovImage (src, s16);	 rcWindowTovImage(dest,d16);
 			rcWindow f (src.width(), dest.height(), rcPixel32S);
-			f.vImage (sf);
+            rcWindowTovImage(f, sf);
 			rcWindow ff (src.width(), dest.height(), rcPixel32S);
-			ff.vImage (df);
-			vImage_Error ve;       
+            rcWindowTovImage(ff,df);
+			vImage_Error ve;
 			ve = vImageConvert_16UToF (&s16, &sf, 0.0f, 1.0f, kvImageNoFlags);
 			rmAssert (!ve);
 			ve = vImageConvolve_PlanarF( &sf, &df, NULL, 
@@ -286,7 +304,7 @@ void rfGaussianConv (const rcWindow& src, rcWindow& dest, int32 kernelSize)
 		else if (src.depth() == rcPixelFloat )
 		{
 			vImage_Buffer vb, vd;
-			src.vImage (vb);	  dest.vImage (vd);
+           	rcWindowTovImage (src, vb);	 rcWindowTovImage(dest,vd);
 			vImage_Error ve;
 			ve = vImageConvolve_PlanarF(&vb, &vd, NULL,
 				0, 0, sGaussFloatKernel5[0],
@@ -298,7 +316,7 @@ void rfGaussianConv (const rcWindow& src, rcWindow& dest, int32 kernelSize)
 		{
 			unsigned char edgeFill[4] = { 0, 0, 0, 0 };
 			vImage_Buffer vb, vd;
-			src.vImage (vb);	  dest.vImage (vd);
+            rcWindowTovImage (src, vb);	 rcWindowTovImage(dest,vd);
 			vImage_Error ve;
 			ve = vImageConvolve_ARGB8888(&vb, &vd, NULL,
 				0, 0, sGaussKernel5[0],
@@ -358,7 +376,7 @@ static void rfGauss3(const rcWindow& src, rcWindow& dest)
      if (src.depth() == rcPixel8)
        {
 	 vImage_Buffer vb, vd;
-	 src.vImage (vb);	  dest.vImage (vd);
+  	rcWindowTovImage (src, vb);	 rcWindowTovImage(dest,vd);
 	 vImage_Error ve;
 	 ve = vImageConvolve_Planar8(&vb, &vd, NULL,
 				     0, 0, sGaussKernel3[0],
@@ -371,13 +389,14 @@ static void rfGauss3(const rcWindow& src, rcWindow& dest)
        {
 	 // Convert 16 to float
 	 vImage_Buffer s16, sf, d16, df;
-	 src.vImage (s16);
-	 dest.vImage (d16);
+    rcWindowTovImage (src, s16);	 rcWindowTovImage(dest,d16);
 	 rcWindow f (src.width(), dest.height(), rcPixel32S);
-	 f.vImage (sf);
-	 rcWindow ff (src.width(), dest.height(), rcPixel32S);
-	 ff.vImage (df);
-	 vImage_Error ve;       
+           
+           rcWindowTovImage(f, sf);
+           rcWindow ff (src.width(), dest.height(), rcPixel32S);
+           rcWindowTovImage(ff,df);
+           
+	 vImage_Error ve;
 	 ve = vImageConvert_16UToF (&s16, &sf, 0.0f, 1.0f, kvImageNoFlags);
 	 rmAssert (!ve);
 	 ve = vImageConvolve_PlanarF( &sf, &df, NULL, 
@@ -391,7 +410,7 @@ static void rfGauss3(const rcWindow& src, rcWindow& dest)
      else if (src.depth() == rcPixelFloat )
        {
 	 vImage_Buffer vb, vd;
-	 src.vImage (vb);	  dest.vImage (vd);
+     rcWindowTovImage (src, vb);	 rcWindowTovImage(dest,vd);
 	 vImage_Error ve;
 	 ve = vImageConvolve_PlanarF(&vb, &vd, NULL,
 				     0, 0, sGaussFloatKernel3[0],
@@ -403,7 +422,7 @@ static void rfGauss3(const rcWindow& src, rcWindow& dest)
        {
 	 unsigned char edgeFill[4] = { 0, 0, 0, 0 };
 	 vImage_Buffer vb, vd;
-	 src.vImage (vb);	  dest.vImage (vd);
+     rcWindowTovImage (src, vb);	 rcWindowTovImage(dest,vd);
 	 vImage_Error ve;
 	 ve = vImageConvolve_ARGB8888(&vb, &vd, NULL,
 				      0, 0, sGaussKernel3[0],
@@ -672,7 +691,8 @@ void rfPixel8Map (const rcWindow& src, rcWindow& dst, const vector<uint8>& lut)
   if (rfHasSIMD )
        {
 	 vImage_Buffer vb, vd;
-	 src.vImage (vb);	  dst.vImage (vd);
+     rcWindowTovImage(src, vb);
+     rcWindowTovImage(dst, vd);
 	 vImage_Error ve;
 	 ve = vImageTableLookUp_Planar8(&vb, &vd, &lut[0],kvImageEdgeExtend);
 	 rmAssert (!ve);

@@ -2,8 +2,29 @@
 #include "rc_window.h"
 #include "rc_math.h"
 #include "rc_ip.h"
+#include <vImage/vImage_Types.h>
+#include <vImage/Conversion.h>
+#include <vImage/Geometry.h>
+#include <vImage/Morphology.h>
 
 static const short sFlatKernel3 [3][3] = {{1,1,1},{1,1,1},{1,1,1}};
+
+
+
+bool rcWindowTovImage(const rcWindow& win, vImage_Buffer& vi)
+{
+    if (!win.isBound()) return false;
+    
+    rmAssert(win.rowUpdate() > 0);
+    
+    // Get the top left pixel. vImage data pointer is a void *
+    const uint8 *pels = win.pelPointer (0,0);
+    vi.data = (void *) pels;
+    vi.width = (uint32) win.width();
+    vi.height = (uint32) win.height ();
+    vi.rowBytes = (uint32) win.rowUpdate ();
+    return true;
+}
 
 void rfPixelMin3By3(const rcWindow& srcImg, rcWindow& dstImg)
 {
@@ -19,12 +40,12 @@ void rfPixelMin3By3(const rcWindow& srcImg, rcWindow& dstImg)
     {
       // Convert 16 to float
       vImage_Buffer s16, sf, d16, df;
-      srcImg.vImage (s16);
-      dstImg.vImage (d16);
+      rcWindowTovImage(srcImg,s16);
+      rcWindowTovImage(dstImg,d16);
       rcWindow f (srcImg.width(), dstImg.height(), rcPixel32S);
-      f.vImage (sf);
+        rcWindowTovImage(f, sf);
       rcWindow ff (srcImg.width(), dstImg.height(), rcPixel32S);
-      ff.vImage (df);
+      rcWindowTovImage(ff,df);
       vImage_Error ve;       
       ve = vImageConvert_16UToF (&s16, &sf, 0.0f, 1.0f, kvImageNoFlags);
       rmAssert (!ve);
@@ -64,15 +85,15 @@ void rfPixelMax3By3(const rcWindow& srcImg, rcWindow& dstImg)
     }
   else   if (srcImg.depth() == rcPixel16)
     {
-      // Convert 16 to float
-      vImage_Buffer s16, sf, d16, df;
-      srcImg.vImage (s16);
-      dstImg.vImage (d16);
-      rcWindow f (srcImg.width(), dstImg.height(), rcPixel32S);
-      f.vImage (sf);
-      rcWindow ff (srcImg.width(), dstImg.height(), rcPixel32S);
-      ff.vImage (df);
-      vImage_Error ve;       
+        // Convert 16 to float
+        vImage_Buffer s16, sf, d16, df;
+        rcWindowTovImage(srcImg,s16);
+        rcWindowTovImage(dstImg,d16);
+        rcWindow f (srcImg.width(), dstImg.height(), rcPixel32S);
+        rcWindowTovImage(f, sf);
+        rcWindow ff (srcImg.width(), dstImg.height(), rcPixel32S);
+        rcWindowTovImage(ff,df);
+      vImage_Error ve;
       ve = vImageConvert_16UToF (&s16, &sf, 0.0f, 1.0f, kvImageNoFlags);
       rmAssert (!ve);
       ve = vImageMax_PlanarF( &sf, &df, NULL, 0, 0, 3, 3, kvImageNoFlags);
@@ -110,8 +131,8 @@ void rfImageVerticalReflect (const rcWindow& src, rcWindow& dst)
 
   rcWindow dWin (dst, delta.x(), delta.y(),src.width(),src.height());
   vImage_Buffer vb, vd;
-  src.vImage (vb);
-  dWin.vImage (vd);
+  rcWindowTovImage(src,vb);
+  rcWindowTovImage(dst,vd);
   vImage_Error ve;
   vImage_Flags vf (0);
 

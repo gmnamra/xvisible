@@ -187,21 +187,6 @@ bool rcWindow::contains(const uint8* ptr) const
     return ((x >= 0) && (x < width()) && (y >= 0) && (y < height()));
 }
 
-bool rcWindow::vImage(vImage_Buffer& vi) const
-{
-  if (!isBound()) return false;
-
-  rmAssert(rowUpdate() > 0);
-
-  // Get the top left pixel. vImage data pointer is a void *
-  const uint8 *pels = pelPointer (0,0);
-  vi.data = (void *) pels;
-  vi.width = (uint32) width();
-  vi.height = (uint32) height ();
-  vi.rowBytes = (uint32) rowUpdate ();
-  return true;
-}
-
 
 
 bool rcWindow::window( const rcWindow& parentWindow, int32 x, int32 y, int32 width, int32 height, bool clip )

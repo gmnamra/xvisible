@@ -117,7 +117,7 @@
 #include "rc_rect.h"
 
 
-#include <Accelerate/Accelerate.h>
+#include <vImage/vImage_Types.h>
 
 class rcAffineRectangle : public rc2Xform
 {
