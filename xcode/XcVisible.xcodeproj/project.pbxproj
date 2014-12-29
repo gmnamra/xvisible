@@ -42,9 +42,21 @@
 		C2A1B0F5199D516700FF6022 /* image_correlation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A1B0F4199D516700FF6022 /* image_correlation.cpp */; };
 		C2A1B0F719A427B000FF6022 /* time_spec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A1B0F619A427B000FF6022 /* time_spec.cpp */; };
 		C2A2BE97193055BF003337D7 /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D6FA80192D27820099EEED /* libboost_thread.a */; };
-		C2A2BE99193055F9003337D7 /* vfi386.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A2BE98193055F9003337D7 /* vfi386.framework */; };
 		C2BBC46819A5A048001BAA41 /* ut_frame.hpp in Sources */ = {isa = PBXBuildFile; fileRef = C2BBC46719A5A048001BAA41 /* ut_frame.hpp */; };
 		C2BBC46D19ABA9B5001BAA41 /* vf_source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C236E0A319290BCF0035C2F5 /* vf_source.cpp */; };
+		C2C41C781A50B73100BBB583 /* vfi386.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2A2BE98193055F9003337D7 /* vfi386.framework */; };
+		C2C41C7A1A50B79000BBB583 /* libopencv_core.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C791A50B79000BBB583 /* libopencv_core.dylib */; };
+		C2C41C7F1A50F8C800BBB583 /* libopencv_gpu.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C7C1A50F8C800BBB583 /* libopencv_gpu.dylib */; };
+		C2C41C801A50F8C800BBB583 /* libopencv_highgui.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C7D1A50F8C800BBB583 /* libopencv_highgui.dylib */; };
+		C2C41C811A50F8C800BBB583 /* libopencv_imgproc.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C7E1A50F8C800BBB583 /* libopencv_imgproc.dylib */; };
+		C2C41C831A50F8DD00BBB583 /* libopencv_objdetect.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C821A50F8DD00BBB583 /* libopencv_objdetect.dylib */; };
+		C2C41C851A50FB5100BBB583 /* libopencv_flann.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C841A50FB5100BBB583 /* libopencv_flann.dylib */; };
+		C2C41C871A50FC3900BBB583 /* libopencv_features2d.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C861A50FC3900BBB583 /* libopencv_features2d.dylib */; };
+		C2C41C891A50FCCB00BBB583 /* libopencv_calib3d.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C881A50FCCB00BBB583 /* libopencv_calib3d.dylib */; };
+		C2C41C8B1A50FD2F00BBB583 /* libopencv_ml.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C8A1A50FD2F00BBB583 /* libopencv_ml.dylib */; };
+		C2C41C8D1A50FDCB00BBB583 /* libopencv_video.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C8C1A50FDCB00BBB583 /* libopencv_video.dylib */; };
+		C2C41C8F1A50FDD700BBB583 /* libopencv_photo.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C8E1A50FDD700BBB583 /* libopencv_photo.dylib */; };
+		C2C41C911A50FDE600BBB583 /* libopencv_legacy.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C901A50FDE600BBB583 /* libopencv_legacy.dylib */; };
 		C2D713EB19171AFC009C503B /* assets in Resources */ = {isa = PBXBuildFile; fileRef = C2D713EA19171AFC009C503B /* assets */; };
 		C2D713EE19171B49009C503B /* Resources.h in Resources */ = {isa = PBXBuildFile; fileRef = C2D713EC19171B49009C503B /* Resources.h */; };
 		C2D713EF19171B49009C503B /* data.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2D713ED19171B49009C503B /* data.txt */; };
@@ -69,6 +81,18 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C2C41C911A50FDE600BBB583 /* libopencv_legacy.dylib in CopyFiles */,
+				C2C41C8F1A50FDD700BBB583 /* libopencv_photo.dylib in CopyFiles */,
+				C2C41C8D1A50FDCB00BBB583 /* libopencv_video.dylib in CopyFiles */,
+				C2C41C8B1A50FD2F00BBB583 /* libopencv_ml.dylib in CopyFiles */,
+				C2C41C891A50FCCB00BBB583 /* libopencv_calib3d.dylib in CopyFiles */,
+				C2C41C871A50FC3900BBB583 /* libopencv_features2d.dylib in CopyFiles */,
+				C2C41C851A50FB5100BBB583 /* libopencv_flann.dylib in CopyFiles */,
+				C2C41C831A50F8DD00BBB583 /* libopencv_objdetect.dylib in CopyFiles */,
+				C2C41C7F1A50F8C800BBB583 /* libopencv_gpu.dylib in CopyFiles */,
+				C2C41C801A50F8C800BBB583 /* libopencv_highgui.dylib in CopyFiles */,
+				C2C41C811A50F8C800BBB583 /* libopencv_imgproc.dylib in CopyFiles */,
+				C2C41C7A1A50B79000BBB583 /* libopencv_core.dylib in CopyFiles */,
 				C2E337BB1A475F5A00A51015 /* vfi386.framework in CopyFiles */,
 				C2E337BC1A475F5A00A51015 /* libboost_thread.a in CopyFiles */,
 			);
@@ -161,6 +185,18 @@
 		C2BBC47219AD7A2B001BAA41 /* libboost_date_time.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_date_time.a; path = "../usr/local/cinder/cinder_0.8-2.6_mac/lib/macosx/libboost_date_time.a"; sourceTree = "<group>"; };
 		C2BBC47319AD7A2B001BAA41 /* libboost_filesystem.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_filesystem.a; path = "../usr/local/cinder/cinder_0.8-2.6_mac/lib/macosx/libboost_filesystem.a"; sourceTree = "<group>"; };
 		C2BBC47419AD7A2B001BAA41 /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = "../usr/local/cinder/cinder_0.8-2.6_mac/lib/macosx/libz.a"; sourceTree = "<group>"; };
+		C2C41C791A50B79000BBB583 /* libopencv_core.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_core.dylib; sourceTree = "<group>"; };
+		C2C41C7C1A50F8C800BBB583 /* libopencv_gpu.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_gpu.dylib; sourceTree = "<group>"; };
+		C2C41C7D1A50F8C800BBB583 /* libopencv_highgui.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_highgui.dylib; sourceTree = "<group>"; };
+		C2C41C7E1A50F8C800BBB583 /* libopencv_imgproc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_imgproc.dylib; sourceTree = "<group>"; };
+		C2C41C821A50F8DD00BBB583 /* libopencv_objdetect.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_objdetect.dylib; sourceTree = "<group>"; };
+		C2C41C841A50FB5100BBB583 /* libopencv_flann.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_flann.dylib; sourceTree = "<group>"; };
+		C2C41C861A50FC3900BBB583 /* libopencv_features2d.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_features2d.dylib; sourceTree = "<group>"; };
+		C2C41C881A50FCCB00BBB583 /* libopencv_calib3d.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_calib3d.dylib; sourceTree = "<group>"; };
+		C2C41C8A1A50FD2F00BBB583 /* libopencv_ml.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_ml.dylib; sourceTree = "<group>"; };
+		C2C41C8C1A50FDCB00BBB583 /* libopencv_video.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_video.dylib; sourceTree = "<group>"; };
+		C2C41C8E1A50FDD700BBB583 /* libopencv_photo.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_photo.dylib; sourceTree = "<group>"; };
+		C2C41C901A50FDE600BBB583 /* libopencv_legacy.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_legacy.dylib; sourceTree = "<group>"; };
 		C2D6FA80192D27820099EEED /* libboost_thread.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_thread.a; path = ../usr/local/boost/lib/libboost_thread.a; sourceTree = "<group>"; };
 		C2D713EA19171AFC009C503B /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		C2D713EC19171B49009C503B /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Resources.h; sourceTree = "<group>"; };
@@ -185,7 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2A2BE99193055F9003337D7 /* vfi386.framework in Frameworks */,
+				C2C41C781A50B73100BBB583 /* vfi386.framework in Frameworks */,
 				C2A2BE97193055BF003337D7 /* libboost_thread.a in Frameworks */,
 				C2DB225F190B298700BBC93C /* QuickTime.framework in Frameworks */,
 				00B784B30FF439BC000DE1D7 /* Accelerate.framework in Frameworks */,
@@ -260,6 +296,18 @@
 		29B97314FDCFA39411CA2CEA /* SamplePlayerTest */ = {
 			isa = PBXGroup;
 			children = (
+				C2C41C901A50FDE600BBB583 /* libopencv_legacy.dylib */,
+				C2C41C8E1A50FDD700BBB583 /* libopencv_photo.dylib */,
+				C2C41C8C1A50FDCB00BBB583 /* libopencv_video.dylib */,
+				C2C41C8A1A50FD2F00BBB583 /* libopencv_ml.dylib */,
+				C2C41C881A50FCCB00BBB583 /* libopencv_calib3d.dylib */,
+				C2C41C861A50FC3900BBB583 /* libopencv_features2d.dylib */,
+				C2C41C841A50FB5100BBB583 /* libopencv_flann.dylib */,
+				C2C41C821A50F8DD00BBB583 /* libopencv_objdetect.dylib */,
+				C2C41C7C1A50F8C800BBB583 /* libopencv_gpu.dylib */,
+				C2C41C7D1A50F8C800BBB583 /* libopencv_highgui.dylib */,
+				C2C41C7E1A50F8C800BBB583 /* libopencv_imgproc.dylib */,
+				C2C41C791A50B79000BBB583 /* libopencv_core.dylib */,
 				C2663DC1192AB062004986A4 /* ut_sm.hpp */,
 				C2BBC46B19A9B5EB001BAA41 /* basic_ut.hpp */,
 				C209870E196A0C1A005325A2 /* ut_qtime.cpp */,
@@ -401,6 +449,7 @@
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				C2A2BE9A19305642003337D7 /* CopyFiles */,
+				C2C41C7B1A50B8F900BBB583 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -495,6 +544,19 @@
 			shellPath = /bin/bash;
 			shellScript = "#!/bin/bash\n\nGUTPATH=${CONFIGURATION_BUILD_DIR}/${PRODUCT_NAME}\necho $GUTPATH\nFRAMEWORK_DIR=@executable_path/../Frameworks\nCURRENT=Versions/Current\n\n# get current rpath for vfi386\nCURNAME=`otool -L $GUTPATH | grep ${VF_NAME/%.framework/} | sed -e 's/([^()]*)//g'`\necho $CURNAME\n# switch to using Frameworks of off build_dir\ninstall_name_tool -change $CURNAME \"${FRAMEWORK_DIR}/$VF_NAME.framework/$CURRENT/$VF_NAME\" $GUTPATH \n\n# get current rpath for gtest\nCURNAME=`otool -L $GUTPATH | grep gtest | sed -e 's/([^()]*)//g'`\necho $CURNAME\n# switch to using Frameworks of off build_dir\ninstall_name_tool -change $CURNAME \"${FRAMEWORK_DIR}/gtest.framework/$CURRENT/gtest\" $GUTPATH\n";
 		};
+		C2C41C7B1A50B8F900BBB583 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = /Users/arman/Documents/xvisible/scripts/fix_frameworks.sh;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -543,6 +605,7 @@
 					"$(inherited)",
 					"$(BUILD_DIR)/Frameworks",
 					/Users/arman/gwc/vqt105/visibleqt105/build/Frameworks,
+					/Users/arman/Documents/xvisible/build/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_VERSION = "";
@@ -580,6 +643,7 @@
 					"$(inherited)",
 					"$(BUILD_DIR)/Frameworks",
 					/Users/arman/gwc/vqt105/visibleqt105/build/Frameworks,
+					/Users/arman/Documents/xvisible/build/Frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_VERSION = "";
