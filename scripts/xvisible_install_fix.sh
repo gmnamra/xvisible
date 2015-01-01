@@ -1,7 +1,4 @@
 echo $BUILD_SCRIPTS_DIR
-dSCRIPT=$BUILD_SCRIPTS_DIR/reset_linked.sh
-eSCRIPT=$BUILD_SCRIPTS_DIR/reset_generator_filled.sh
-echo $dSCRIPT
 
 # better to fetch the old location. For now this is what we do know. 
 OLD_LOC=/usr/local/opencv-2.4.8/build/lib/Release/

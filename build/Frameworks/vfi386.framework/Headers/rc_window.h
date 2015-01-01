@@ -12,7 +12,7 @@
 #include "rc_framebuf.h"
 #include "rc_rect.h"
 #include <iomanip>
-//#include <Accelerate/Accelerate.h>
+
 
 #ifdef CINDER_BUILTIN
 #include <cinder/Channel.h>
@@ -166,7 +166,7 @@ public:
   int32 maxTrim () const;
 
   // vImage representative
-  // bool vImage (vImage_Buffer&) const;
+//  bool vImage (vImage_Buffer&) const;
     //  CGImageRef CGImage() const;
 // Converts a QPixmap to a CGImage.
 //@returns CGImageRef for the new image. (FrameBuf owns the pixels) 
