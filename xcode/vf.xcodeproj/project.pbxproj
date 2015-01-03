@@ -1636,8 +1636,8 @@
 				8D07F2C30486CC7A007CD1D0 /* Frameworks */,
 				C2FDA4321002E38400A36E5F /* set_product */,
 				C27E57B818C652AC00DF8BA1 /* get build number and push */,
-				C273D6AE1A542AE700F61528 /* copy to frameworks */,
 				C2CFCC4C1A55DF520024D805 /* ShellScript */,
+				C273D6AE1A542AE700F61528 /* copy to frameworks */,
 			);
 			buildRules = (
 			);
@@ -1996,6 +1996,7 @@
 			baseConfigurationReference = C23E89B6191310DB00AE27A3 /* vf_debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
 				CINDER_PATH = "$(USR_LOCAL)/Cinder/$(CINDER_VERSION)";
 				CINDER_VERSION = "$(CINDER_VERSION_PATH)";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -2013,6 +2014,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				GENERATE_PKGINFO_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(GTEST_PATH)/include",
+					"$(BOOST_INCLUDE)",
+					"$(OPENCV_PATH)/include",
+					"$(SRCROOT)/include",
+					"$(SRCROOT)/test/include",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/resources/vf/vf-Info.plist";
 				INSTALL_PATH = "";
 				LD_DYLIB_INSTALL_NAME = "";
@@ -2022,10 +2030,10 @@
 					"$(CINDER_PATH)/lib",
 					"$(GTEST_PATH)/build/Release",
 					"$(BOOST_PATH)/lib",
-					/Users/arman/Documents/xvisible/usr/local/OpenCv_2.4_i386/lib/Release,
 				);
 				MACH_O_TYPE = mh_dylib;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = vfi386_d;
@@ -2034,6 +2042,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SYMROOT = "$(BUILD_DIR)";
+				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -2043,6 +2052,7 @@
 			baseConfigurationReference = C23E89B9191310F800AE27A3 /* vf_release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
 				CINDER_PATH = "$(USR_LOCAL)/Cinder/$(CINDER_VERSION)";
 				CINDER_VERSION = "$(CINDER_VERSION_PATH)";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -2071,7 +2081,6 @@
 					"$(CINDER_PATH)/lib",
 					"$(GTEST_PATH)/build/Release",
 					"$(BOOST_PATH)/lib",
-					/Users/arman/Documents/xvisible/usr/local/OpenCv_2.4_i386/lib/Release,
 				);
 				LINKER_DISPLAYS_MANGLED_NAMES = NO;
 				MACH_O_TYPE = mh_dylib;
@@ -2085,6 +2094,7 @@
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = debugging;
 				SYMROOT = "$(BUILD_DIR)";
+				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;

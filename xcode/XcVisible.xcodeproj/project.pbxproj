@@ -22,6 +22,11 @@
 		C20BB3481910577D00884EB2 /* ut_file.hpp in Sources */ = {isa = PBXBuildFile; fileRef = C20BB3471910577D00884EB2 /* ut_file.hpp */; };
 		C20BB351191059BC00884EB2 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20BB350191059BC00884EB2 /* gtest.framework */; };
 		C263159A195CC0A800CF71B1 /* qtime_cache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2631598195CC0A800CF71B1 /* qtime_cache.cpp */; };
+		C26D7E5A1A58011F00951038 /* libboost_date_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BBC47219AD7A2B001BAA41 /* libboost_date_time.a */; };
+		C26D7E5B1A58011F00951038 /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BBC47319AD7A2B001BAA41 /* libboost_filesystem.a */; };
+		C26D7E5C1A58011F00951038 /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F86B0019AE7BCE00FA7D3A /* libboost_thread.a */; };
+		C26D7E5D1A58011F00951038 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BBC47419AD7A2B001BAA41 /* libz.a */; };
+		C26D7E5F1A58012000951038 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C26D7E5E1A58012000951038 /* libboost_system.a */; };
 		C27051D61A54AA3300520830 /* libopencv_legacy.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C901A50FDE600BBB583 /* libopencv_legacy.dylib */; };
 		C27051DB1A54AA3300520830 /* libopencv_features2d.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C861A50FC3900BBB583 /* libopencv_features2d.dylib */; };
 		C27051DC1A54AA3300520830 /* libopencv_flann.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C841A50FB5100BBB583 /* libopencv_flann.dylib */; };
@@ -61,7 +66,6 @@
 		C2A1B0EF199D4DC000FF6022 /* rowfuncs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A1B0EE199D4DC000FF6022 /* rowfuncs.cpp */; };
 		C2A1B0F5199D516700FF6022 /* image_correlation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A1B0F4199D516700FF6022 /* image_correlation.cpp */; };
 		C2A1B0F719A427B000FF6022 /* time_spec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A1B0F619A427B000FF6022 /* time_spec.cpp */; };
-		C2A2BE97193055BF003337D7 /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2D6FA80192D27820099EEED /* libboost_thread.a */; };
 		C2BBC46819A5A048001BAA41 /* ut_frame.hpp in Sources */ = {isa = PBXBuildFile; fileRef = C2BBC46719A5A048001BAA41 /* ut_frame.hpp */; };
 		C2BBC46D19ABA9B5001BAA41 /* vf_source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C236E0A319290BCF0035C2F5 /* vf_source.cpp */; };
 		C2CFCC4D1A55E2EC0024D805 /* libopencv_calib3d.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C41C881A50FCCB00BBB583 /* libopencv_calib3d.dylib */; };
@@ -151,10 +155,10 @@
 		C236E0AB19291A2D0035C2F5 /* vf_cinder_qtime_grabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vf_cinder_qtime_grabber.h; path = ../../include/cvisible/vf_cinder_qtime_grabber.h; sourceTree = "<group>"; };
 		C236E0AC19291C2A0035C2F5 /* vf_qtime_grabber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vf_qtime_grabber.cpp; sourceTree = "<group>"; };
 		C2371C2A192424F8005114B1 /* vf_imagegrabber.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_imagegrabber.hpp; path = ../../include/cvisible/vf_imagegrabber.hpp; sourceTree = "<group>"; };
-		C23E89AC1912869C00AE27A3 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../usr/local/boost/lib/libboost_system.a; sourceTree = "<group>"; };
 		C242F57E192927F9000FEAAB /* vf_image_conversions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_image_conversions.hpp; path = ../../include/cvisible/vf_image_conversions.hpp; sourceTree = "<group>"; };
 		C2631598195CC0A800CF71B1 /* qtime_cache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = qtime_cache.cpp; sourceTree = "<group>"; };
 		C2663DC1192AB062004986A4 /* ut_sm.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ut_sm.hpp; path = ../test/vf_cvisible/ut_sm.hpp; sourceTree = "<group>"; };
+		C26D7E5E1A58012000951038 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = "../usr/local/cinder/cinder_0.8-2.6_mac/lib/macosx/libboost_system.a"; sourceTree = "<group>"; };
 		C273D6AC1A532AB100F61528 /* vfi386.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386.framework; path = ../build/Release/vfi386.framework; sourceTree = "<group>"; };
 		C2765232191568C400EA3B55 /* cv_release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = cv_release.xcconfig; path = configs/cv_release.xcconfig; sourceTree = "<group>"; };
 		C27652431915E25700EA3B55 /* libcinder_d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcinder_d.a; path = "../usr/local/cinder/cinder_0.8-2.6_mac/lib/libcinder_d.a"; sourceTree = "<group>"; };
@@ -216,7 +220,6 @@
 		C2C41C901A50FDE600BBB583 /* libopencv_legacy.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_legacy.dylib; path = ../usr/local/OpenCv_2.4_i386/lib/Release/libopencv_legacy.dylib; sourceTree = "<group>"; };
 		C2CFCC4E1A55E3330024D805 /* libopencv_calib3d.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_calib3d.dylib; sourceTree = "<group>"; };
 		C2CFCC521A55E39B0024D805 /* libopencv_ml.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libopencv_ml.dylib; sourceTree = "<group>"; };
-		C2D6FA80192D27820099EEED /* libboost_thread.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_thread.a; path = ../usr/local/boost/lib/libboost_thread.a; sourceTree = "<group>"; };
 		C2D713EA19171AFC009C503B /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		C2D713EC19171B49009C503B /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Resources.h; sourceTree = "<group>"; };
 		C2D713ED19171B49009C503B /* data.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = data.txt; sourceTree = "<group>"; };
@@ -240,6 +243,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C26D7E5F1A58012000951038 /* libboost_system.a in Frameworks */,
+				C26D7E5A1A58011F00951038 /* libboost_date_time.a in Frameworks */,
+				C26D7E5B1A58011F00951038 /* libboost_filesystem.a in Frameworks */,
+				C26D7E5C1A58011F00951038 /* libboost_thread.a in Frameworks */,
+				C26D7E5D1A58011F00951038 /* libz.a in Frameworks */,
 				C2CFCC571A55E42B0024D805 /* libopencv_photo.dylib in Frameworks */,
 				C2CFCC511A55E37A0024D805 /* libopencv_video.dylib in Frameworks */,
 				C2CFCC501A55E3680024D805 /* libopencv_ml.dylib in Frameworks */,
@@ -253,7 +261,6 @@
 				C273D6B81A54577000F61528 /* libopencv_imgproc.dylib in Frameworks */,
 				C273D6B91A54577000F61528 /* libopencv_core.dylib in Frameworks */,
 				C273D6AD1A532AB100F61528 /* vfi386.framework in Frameworks */,
-				C2A2BE97193055BF003337D7 /* libboost_thread.a in Frameworks */,
 				C2DB225F190B298700BBC93C /* QuickTime.framework in Frameworks */,
 				00B784B30FF439BC000DE1D7 /* Accelerate.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
@@ -358,6 +365,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C26D7E5E1A58012000951038 /* libboost_system.a */,
 				C273D6AC1A532AB100F61528 /* vfi386.framework */,
 				C2C41C901A50FDE600BBB583 /* libopencv_legacy.dylib */,
 				C2C41C8E1A50FDD700BBB583 /* libopencv_photo.dylib */,
@@ -376,7 +384,6 @@
 				C2BBC47319AD7A2B001BAA41 /* libboost_filesystem.a */,
 				C2BBC47419AD7A2B001BAA41 /* libz.a */,
 				C2A2BE98193055F9003337D7 /* vfi386.framework */,
-				C2D6FA80192D27820099EEED /* libboost_thread.a */,
 				C276525A1915E9CB00EA3B55 /* CoreVideo.framework */,
 				C27652581915E9AB00EA3B55 /* OpenGL.framework */,
 				C27652561915E99200EA3B55 /* CoreAudioKit.framework */,
@@ -384,7 +391,6 @@
 				C276524E1915E93300EA3B55 /* CoreFoundation.framework */,
 				C27652461915E85400EA3B55 /* Cocoa.framework */,
 				C27652431915E25700EA3B55 /* libcinder_d.a */,
-				C23E89AC1912869C00AE27A3 /* libboost_system.a */,
 				C20BB350191059BC00884EB2 /* gtest.framework */,
 				C20BB34E1910599400884EB2 /* vfi386_d.framework */,
 				C20BB34A1910593A00884EB2 /* gtest.framework */,
@@ -633,7 +639,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C2FB26FB1921C943003A48B7 /* cv_debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(BUILD_DIR)/Frameworks",
@@ -659,10 +664,12 @@
 					"$(CINDER_PATH)/lib",
 					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib/Debug,
 					/Users/arman/Documents/xvisible/usr/local/OpenCv_2.4_i386/lib/Release,
+					"/Users/arman/Documents/xvisible/usr/local/cinder/cinder_0.8-2.6_mac/lib/macosx",
 				);
 				OTHER_LDFLAGS = "-lcinder_d";
 				PRODUCT_NAME = XcVisible;
 				SDKROOT = macosx10.10;
+				VALID_ARCHS = "i386 x86_64";
 				WARNING_CFLAGS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -672,7 +679,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C2765232191568C400EA3B55 /* cv_release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -699,10 +705,12 @@
 					"$(CINDER_PATH)/lib",
 					/Users/arman/gwc/vqt105/visibleqt105/usr/local/Cinder/lib/Debug,
 					/Users/arman/Documents/xvisible/usr/local/OpenCv_2.4_i386/lib/Release,
+					"/Users/arman/Documents/xvisible/usr/local/cinder/cinder_0.8-2.6_mac/lib/macosx",
 				);
 				OTHER_LDFLAGS = "-lcinder";
 				PRODUCT_NAME = XcVisible;
 				SDKROOT = macosx10.10;
+				VALID_ARCHS = "i386 x86_64";
 				WARNING_CFLAGS = "";
 				WRAPPER_EXTENSION = app;
 			};
