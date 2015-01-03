@@ -1,7 +1,16 @@
 
 #include "ui_contexts.h"
 #include "stl_util.hpp"
+#include "cinder/app/AppBasic.h"
+#include "cinder/gl/gl.h"
+#include "cinder/Timeline.h"
+#include "cinder/Timer.h"
+#include "cinder/Camera.h"
+#include "cinder/qtime/Quicktime.h"
+#include "cinder/params/Params.h"
 
+#include "cinder/ImageIo.h"
+#include "assets/Resources.h"
 
 using namespace vf_utils::csv;
 
@@ -48,6 +57,8 @@ namespace
 #endif
 
   }
+
+
 
 void uContextRegistry::print_out ()
 {

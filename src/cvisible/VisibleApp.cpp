@@ -1,11 +1,98 @@
 
-#include "visible_main.h"
-#include "stl_util.hpp"
-#include "ui_contexts.h"
+
+#include "cinder/app/AppBasic.h"
+#include "cinder/gl/gl.h"
+#include "cinder/Rect.h"
+#include "cinder/qtime/Quicktime.h"
+#include "cinder/params/Params.h"
+#include "assets/Resources.h"
+#include "cinder/Rand.h"
+
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/random_generator.hpp>
 #include <boost/uuid/uuid_io.hpp>
 
+#include "ui_contexts.h"
+#include "stl_util.hpp"
+#include "vf_utils.hpp"
+#include "vf_types.h"
+#include "vf_cinder.hpp"
+#include "iclip.hpp"
+#include <map>
+
+#include <functional>
+
+using namespace ci;
+using namespace ci::app;
+using namespace std;
+using namespace boost;
+
+//class CVisibleApp;
+
+// Namespace collision with OpenCv
+
+//#define Vec2i ci::Vec2i
+//#define Vec2f ci::Vec2f
+//#define Vec3f ci::Vec3f
+
+
+
+
+
+class CVisibleApp : public AppBasic
+{
+public:
+    
+    void prepareSettings( Settings *settings );
+    void setup();
+    void create_matrix_viewer ();
+    void create_clip_viewer ();
+    void create_qmovie_viewer ();
+    
+#if 0
+    void mouseDown( MouseEvent event );
+    void mouseMove( MouseEvent event );
+    void mouseUp( MouseEvent event );
+    void mouseDrag( MouseEvent event );
+    
+    void keyDown( KeyEvent event );
+#endif
+    
+    //void fileDrop( FileDropEvent event );
+    void update();
+    void draw();
+    void close_main();
+    void resize();
+    void window_close ();
+    
+      
+    bool remove_from (const std::string& );
+    
+    params::InterfaceGlRef         mTopParams;
+    
+    Rectf                       mGraphDisplayRect;
+    Rectf                       mMovieDisplayRect;
+    Rectf                       mMenuDisplayRect;
+    Rectf                       mLogDisplayRect;
+    CameraPersp				mCam;
+    
+    //   Signal_value                mSigv;
+    
+    
+    
+    
+};
+
+// The window-specific data for each window
+class WindowData {
+public:
+    WindowData()
+    : mColor( Color( CM_HSV, randFloat(), 0.8f, 0.8f ) ) // a random color
+    {}
+    
+    Color			mColor;
+    list<Vec2f>		mPoints; // the points drawn into this window
+};
 using namespace vf_utils::csv;
 
 
@@ -79,11 +166,12 @@ void CVisibleApp::window_close()
 
 void CVisibleApp::prepareSettings( Settings *settings )
 {
-    settings->setWindowSize( 1200, 576 );
-    settings->setResizable(true);
+    settings->enableHighDensityDisplay();
 }
 
-void CVisibleApp::resize_areas ()
+
+
+void CVisibleApp::resize ()
 {
     const Vec2i& c_ul = getWindowBounds().getUL();
     const Vec2i& c_lr = getWindowBounds().getLR();
@@ -108,10 +196,13 @@ void CVisibleApp::create_qmovie_viewer ()
 
 void CVisibleApp::setup()
 {
-    size_t nw = getNumWindows ();
-    ci_console () << "Initial # of Windows " << nw << std::endl;
-    // Setup the parameters
-	mTopParams = params::InterfaceGl::create( getWindow(), "Select", toPixels( Vec2i( 200, 400 ) ) );
+    // Setup our default camera, looking down the z-axis
+    mCam.lookAt( Vec3f( -20, 0, 0 ), Vec3f::zero() );
+    const ColorA &color = ColorA( 0.3f, 0.3f, 0.3f, 0.4f );
+    
+     // Setup the parameters
+	mTopParams = params::InterfaceGl::create( getWindow(), "Select", toPixels( Vec2i( 200, 400)), color );
+#if 0
     mTopParams->addSeparator();
 	mTopParams->addButton( "Import Quicktime Movie", std::bind( &CVisibleApp::create_qmovie_viewer, this ) );
     mTopParams->addSeparator();
@@ -120,11 +211,12 @@ void CVisibleApp::setup()
    	mTopParams->addButton( "Import Result ", std::bind( &CVisibleApp::create_clip_viewer, this ) );
     getWindowIndex(0)->connectDraw ( &CVisibleApp::draw_main, this);
     getWindowIndex(0)->connectClose( &CVisibleApp::window_close, this);
+#endif
 
 }
 
 
-
+#if 0
 void CVisibleApp::mouseMove( MouseEvent event )
 {
     //            if (! mWaveformPlot.getWaveforms().empty())
@@ -146,17 +238,18 @@ void CVisibleApp::mouseUp( MouseEvent event )
 {
 }
 
+
 void CVisibleApp::keyDown( KeyEvent event )
 {
 //	if( event.getCode() == KeyEvent::KEY_s ) mSamplePlayer->seekToTime( 1.0 );
 }
-
+#endif
 
 void CVisibleApp::update()
 {
     if (mSettings.isResizable() || mSettings.isFullScreen())
     {
-        resize_areas ();
+        resize ();
     }
     
     WindowRef cw = getWindow();
@@ -166,8 +259,13 @@ void CVisibleApp::update()
     
 }
 
-void CVisibleApp::draw_main ()
+void CVisibleApp::draw ()
 {
+    // this pair of lines is the standard way to clear the screen in OpenGL
+    gl::enableDepthRead();
+    gl::enableDepthWrite();
+    gl::clear( Color::gray( 0.1f ) );
+    
     gl::enableAlphaBlending();
     
     gl::clear();
@@ -180,126 +278,6 @@ void CVisibleApp::draw_main ()
 }
 
 
+// This line tells Cinder to actually create the application
+CINDER_APP_BASIC( CVisibleApp, RendererGl )
 
-#if 0
-
-
-// a free function which sets gBackgroundColor to blue
-Color	gBackgroundColor;
-
-void setBackgroundToBlue()
-{
-	//gBackgroundColor = ColorA( 0.4f, 0.4f, 0.9f, 0.8f );
-}
-
-
-auto bufferPlayer = dynamic_pointer_cast<audio2::BufferPlayer>( mSamplePlayer );
-if( bufferPlayer )
-{
-    mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
-    if (mSettings.isResizable() || mSettings.isFullScreen())
-    {
-        // mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
-    }
-    mWaveformPlot.draw();
-}
-
-
-void CVisibleApp::setSourceFile( const DataSourceRef &dataSource )
-{
-    mSourceFile =  unique_ptr<SourceFile>( new vf_cinder::VisibleAudioSource ( dataSource ) );
-	getWindow()->setTitle( dataSource->getFilePath().filename().string() );
-    
-	CI_LOG_V( "SourceFile info: " );
-    console() << "Source File: " << dataSource->getFilePath().filename().string() << endl;
-	console() << "samplerate: " << mSourceFile->getSampleRate() << endl;
-	console() << "channels: " << mSourceFile->getNumChannels() << endl;
-	console() << "native samplerate: " << mSourceFile->getNativeSampleRate() << endl;
-	console() << "native channels: " << mSourceFile->getNativeNumChannels() << endl;
-	console() << "frames: " << mSourceFile->getNumFrames() << endl;
-	console() << "metadata:\n" << mSourceFile->getMetaData() << endl;
-}
-
-void CVisibleApp::setupBufferPlayer()
-{
-	auto bufferPlayer = audio2::master()->makeNode( new audio2::BufferPlayer() );
-    
-    fs::path fp = getOpenFilePath();
-    setSourceFile (vf_cinder::VisibleAudioSource::create ( fp.string() ) );
-    
-	auto loadFn = [bufferPlayer, this]
-    {
-        auto sfb = mSourceFile->loadBuffer();
-		bufferPlayer->setBuffer(sfb);
-        mGraphDisplayRect = getWindowBounds();
-        mGraphDisplayRect.offset (Vec2i (0, mGraphDisplayRect.getHeight() / 4));
-        mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
-		CI_LOG_V( "loaded source buffer, frames: " << bufferPlayer->getBuffer()->getNumFrames() );
-        
-	};
-    
-	auto connectFn = [bufferPlayer, this] {
-		mSamplePlayer = bufferPlayer;
-		mSamplePlayer >> mGain >> mPan >> audio2::master()->getOutput();
-		audio2::master()->printGraph();
-        
-        //	mSamplePlayer->setLoopEnabled( mLoopButton.mEnabled );
-        //	mSamplePlayer->setLoopBeginTime( mLoopBeginSlider.mValueScaled );
-        //	mSamplePlayer->setLoopEndTime( mLoopEndSlider.mValueScaled != 0 ? mLoopEndSlider.mValueScaled : mSamplePlayer->getNumSeconds() );
-	};
-    
-    
-    {
-		loadFn();
-		connectFn();
-	};
-    
-}
-
-
-//@todo Update
-void CVisibleApp::fileDrop( FileDropEvent event )
-{
-	const fs::path &filePath = event.getFile( 0 );
-	CI_LOG_V( "File dropped: " << filePath );
-    
-	setSourceFile( loadFile( filePath ) );
-	mSamplePlayer->seek( 0 );
-    
-	CI_LOG_V( "output samplerate: " << mSourceFile->getSampleRate() );
-    
-	auto bufferPlayer = dynamic_pointer_cast<audio2::BufferPlayer>( mSamplePlayer );
-	if( bufferPlayer )
-    {
-		bufferPlayer->loadBuffer( mSourceFile );
-        mWaveformPlot.load( bufferPlayer->getBuffer(), mGraphDisplayRect);
-	}
-	else
-    {
-		auto filePlayer = dynamic_pointer_cast<audio2::FilePlayer>( mSamplePlayer );
-		CI_ASSERT_MSG( filePlayer, "expected sample player to be either BufferPlayer or FilePlayer" );
-        
-		filePlayer->setSourceFile( mSourceFile );
-	}
-    
-	//mLoopBeginSlider.mMax = mLoopEndSlider.mMax = (float)mSamplePlayer->getNumSeconds();
-    
-	CI_LOG_V( "loaded and set new source buffer, channels: " << mSourceFile->getNumChannels() << ", frames: " << mSourceFile->getNumFrames() );
-	audio2::master()->printGraph();
-}
-
-
-void CVisibleApp::enable_audio_output ()
-{
-	auto ctx = audio2::master();
-	mPan = ctx->makeNode( new audio2::Pan2d() );
-    //	mPan->enableMonoInputMode( false );
-	mGain = ctx->makeNode( new audio2::Gain() );
-	mGain->setValue( 0.6f );
-	mGain >> mPan >> ctx->getOutput();
-	ctx->enable();
-	CI_LOG_V( "context samplerate: " << ctx->getSampleRate() );
-}
-
-
-#endif

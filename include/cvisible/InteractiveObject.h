@@ -1,32 +1,19 @@
 #pragma once
 
-#include "vf_types.h"
+//#include "vf_types.h"
 #include "cinder/Rect.h"
 #include "cinder/Color.h"
 #include "cinder/app/MouseEvent.h"
-#include "cinder/gl/gl.h"
-#include "cinder/app/App.h"
-#include "cinder/Function.h"
-#include "cinder/gl/Texture.h"
-#include "cinder/gl/TextureFont.h"
-#include "cinder/app/App.h"
+
 #include <vector>
-#include <condition_variable>
-#include <mutex>
-#include <thread>
-#include "cinder/gl/Texture.h"
 
 
-// Namespace collision with OpenCv
 
-#define Vec2i ci::Vec2i
-#define Vec2f ci::Vec2f
-#define Vec3f ci::Vec3f
+
 
 using namespace ci;
-using namespace ci::app;
+//using namespace ci::app;
 using namespace std;
-using namespace boost;
 class InteractiveObject;
 
 class InteractiveObjectEvent: public ci::app::Event

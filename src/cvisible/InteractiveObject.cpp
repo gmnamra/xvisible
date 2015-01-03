@@ -1,5 +1,11 @@
 #include "InteractiveObject.h"
 
+#include "cinder/gl/gl.h"
+#include "cinder/app/App.h"
+#include "cinder/Function.h"
+#include "cinder/gl/Texture.h"
+#include "cinder/gl/TextureFont.h"
+
 using namespace ci;
 using namespace ci::app;
 using namespace std;

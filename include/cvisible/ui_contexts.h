@@ -1,25 +1,16 @@
-//
-//  visible_app.h
-//  XcVisible
-//
-//  Created by Arman Garakani on 5/8/14.
-//
-//
+
 
 #ifndef __ui_contexts___h
 #define __ui_contexts___h
 
 #include "cinder/app/AppBasic.h"
-#include "cinder/gl/gl.h"
-#include "cinder/Timeline.h"
-#include "cinder/Timer.h"
-#include "cinder/Camera.h"
-#include "cinder/qtime/Quicktime.h"
-#include "cinder/params/Params.h"
 #include "cinder/gl/Vbo.h"
 #include "cinder/MayaCamUI.h"
-#include "cinder/ImageIo.h"
-#include "assets/Resources.h"
+#include "cinder/gl/gl.h"
+#include "cinder/Rect.h"
+#include "cinder/qtime/Quicktime.h"
+#include "cinder/params/Params.h"
+
 #include <string>
 #include <map>
 #include <memory>
@@ -27,11 +18,6 @@
 
 #include <boost/function.hpp>
 #include <boost/bind.hpp>
-#if 0
-#include "cinder/audio2/Buffer.h"
-#include "AudioDrawUtils.h"
-#endif
-
 
 #include "vf_utils.hpp"
 #include "vf_types.h"
@@ -42,8 +28,12 @@
 #include <boost/cstdint.hpp>
 #include <boost/noncopyable.hpp>
 #include <map>
-#include "visible_app.h"
-#include "InteractiveObject.h"
+
+
+
+
+
+
 using namespace ci;
 using namespace ci::app;
 using namespace std;
@@ -53,53 +43,12 @@ namespace fs=boost::filesystem;
 
 // Namespace collision with OpenCv
 
-#define Vec2i ci::Vec2i
-#define Vec2f ci::Vec2f
-#define Vec3f ci::Vec3f
+//#define Vec2i ci::Vec2i
+//#define Vec2f ci::Vec2f
+//#define Vec3f ci::Vec3f
 
 
 
-// Animating signal marker
-struct Signal_value
-{
-    Signal_value () : mValid (false) {}
-    
-    Signal_value (std::function<float (size_t)> fn)
-    : mFn( fn ), mValid (true) {}
-    
-#if 0
-    void at_event (const Rectf& box, const Vec2i& location, const size_t& pos,  const Waveform& wave)
-    {
-        size_t xScaled = (pos * wave.sections()) / box.getWidth();
-        xScaled *= wave.section_size ();
-        mSignalIndex = math<size_t>::clamp( xScaled, 0, wave.samples () );
-        mDisplayPos = location;
-    }
-    
-#endif
-    void at_event_value (const Rectf& box, const Vec2i& location, const size_t& pos, const size_t& wave)
-    {
-        size_t xScaled = (pos * wave) / box.getWidth();
-        mSignalIndex = math<size_t>::clamp( xScaled, 0, wave );
-        mDisplayPos = location;
-    }
-    
-    void draw(const Rectf& display)
-    {
-        if ( ! mValid ) return;
-        
-        const Vec2i& readPos = mDisplayPos;
-		gl::color( ColorA( 0, 1, 0, 0.7f ) );
-		gl::drawSolidRoundedRect( Rectf( readPos.x - 2, 0, readPos.x + 2, (float)display.getHeight() ), 2 );
-		gl::color( Color( 1.0f, 0.5f, 0.25f ) );
-		gl::drawStringCentered(to_string (mFn (mSignalIndex)), readPos);
-    }
-    
-    Vec2i mDisplayPos;
-    size_t mSignalIndex;
-    std::function<float (size_t)> mFn;
-    bool mValid;
-};
 
 
 class uContext  : private boost::noncopyable
@@ -135,13 +84,14 @@ public:
         viewer_types = clip_viewer+1
     };
     
+    
     template<class T>
     static T* create_context (const std::string& name_str)
     {
         ci::app::WindowRef wref = AppBasic::get()->createWindow( Window::Format().size( 400, 400 ) );
         wref->setUserData(new T(name_str));
         T* nm = wref->getUserData<T> ();
-        wref->connectClose( &CVisibleApp::window_close, dynamic_cast<CVisibleApp*>(AppBasic::get()));
+        //        wref->connectClose( &AppBasic::window_close, AppBasic::get());
         wref->connectDraw(&T::draw, nm);
         wref->connectMouseDown(&T::mouseDown, nm);
         wref->connectMouseUp(&T::mouseUp, nm);

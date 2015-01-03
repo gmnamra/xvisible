@@ -2,8 +2,15 @@
 #ifndef _iclip_H_
 #define _iclip_H_
 
-#include "InteractiveObject.h"
 
+
+#include "cinder/gl/gl.h"
+
+#include "cinder/Function.h"
+#include "cinder/gl/Texture.h"
+#include "cinder/gl/TextureFont.h"
+
+#include "InteractiveObject.h"
 
 class graph1D;
 
