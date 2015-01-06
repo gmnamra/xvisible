@@ -15,10 +15,6 @@
 using namespace vf_utils::csv;
 
 
-template<> matContext* uContext::create_context (const std::string&);
-template<> movContext* uContext::create_context (const std::string&);
-template<> clipContext* uContext::create_context (const std::string&);
-
 namespace
 {
     Rectf render_window_box ()
@@ -59,65 +55,7 @@ namespace
   }
 
 
-
-void uContextRegistry::print_out ()
-{
-    for (auto t = m_registry().begin(); t != m_registry().end(); t++)
-    {
-      //  std::cout << t->first << "        " << ((uContextHolderPtr)t->second)->u_Context() << std::endl;
-    }
-}
-
-uContext * uContextRegistry::uContext(const std::string & name)
-{
-    const Registry::const_iterator it(m_registry().find(name));
-    if (it == m_registry().end())
-        return NULL;
-    return it->second->u_Context();
-}
-
-uContextRegistry::Registry & uContextRegistry::m_registry()
-{
-    static uContextRegistry::Registry registry;
-    return registry;
-}
-
-bool uContextRegistry::instantiate (const std::string & name_str)
-{
-    const Registry::iterator it(m_registry().find(name_str));
-    if (it == m_registry().end())
-        return false;
-  //  if (it->second->create(name_str) == NULL)
-   //     return false;
-    return true;
-}
-
-
-bool uContextRegistry::unregister (const std::string & name)
-{
-    const Registry::iterator it(m_registry().find(name));
-    if (it == m_registry().end())
-        return false;
-    if (it->second == NULL)
-        return false;
-    m_registry().erase (name);
-    const Registry::iterator fit(m_registry().find(name));
-    return fit == m_registry().end();
-}
-
-
-int uContextRegistry::size ()
-{
-    return m_registry().size();
-}
-
 ///////////////  Matrix Viewer ////////////////////
-
-matContext::matContext (const std::string& name_str) : mName (name_str)
-{
-    setup ();
-}
-
 
 void matContext::mouseDrag( MouseEvent event )
 {
@@ -141,7 +79,7 @@ void matContext::setup ()
     if(! mPath.empty() ) internal_setupmat_from_file(mPath);
 }
 
-void matContext::internal_setupmat_from_file (const path & fp)
+void matContext::internal_setupmat_from_file (const boost::filesystem::path & fp)
 {
     vf_utils::csv::matf_t mat;
     vf_utils::csv::csv2vectors(fp.string(), mat, false, false, true);
@@ -214,15 +152,11 @@ bool matContext::is_valid ()
 
 /////////////  movContext Implementation  ////////////////
 
-movContext::movContext (const std::string& name_str) : mName (name_str)
-{
-    setup();
-}
 
 void movContext::setup()
 {
     // Browse for the movie file
-    path moviePath = getOpenFilePath();
+    boost::filesystem::path moviePath = getOpenFilePath();
     m_valid = false;
     
   	getWindow()->setTitle( moviePath.filename().string() );
@@ -261,7 +195,7 @@ void movContext::clear_movie_params ()
     mMovieCZoom=1.0f;
 }
 
-void movContext::loadMovieFile( const path &moviePath )
+void movContext::loadMovieFile( const boost::filesystem::path &moviePath )
 {
 	
 	try {
@@ -408,10 +342,6 @@ void movContext::draw ()
 
 ////////////////// ClipContext  ///////////////////
 
-clipContext::clipContext (const std::string& name_str) : mName (name_str)
-{
-    setup ();
-}
 
 Rectf clipContext::render_box ()
 {

@@ -52,7 +52,7 @@ public:
         if (empty()) return -1.0;
         
         // NN
-        int32 x = floor (tnormed * (buf.size()-1));
+        int32_t x = floor (tnormed * (buf.size()-1));
         if (x >= 0 && x < buf.size())
             return buf[x];
         else

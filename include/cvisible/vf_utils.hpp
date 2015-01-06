@@ -6,7 +6,7 @@
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/scoped_thread.hpp>
 #include <boost/math/special_functions.hpp>
-
+#include <boost/filesystem.hpp>
 #include <boost/utility.hpp>
 #include <boost/thread/once.hpp>
 #include <boost/scoped_ptr.hpp>
@@ -42,7 +42,9 @@
 
 using namespace std;
 using namespace boost;
-using namespace fs;
+namespace fs = boost::filesystem;
+
+
 
 namespace vf_utils
 {
@@ -118,13 +120,13 @@ namespace vf_utils
         
         static bool file_exists (const std::string& path)
         {
-            fs::path p (path);
+            boost::filesystem::path p (path);
             return exists(p) && is_regular_file (p);
         }
             
         static std::string create_filespec (const std::string& path_to, const std::string& filename)
         {
-            path p (path_to);
+            boost::filesystem::path p (path_to);
             p /= filename;
             return p.string();
         }
