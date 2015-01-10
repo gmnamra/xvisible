@@ -13,8 +13,8 @@
 		C20BB3481910577D00884EB2 /* ut_file.hpp in Sources */ = {isa = PBXBuildFile; fileRef = C20BB3471910577D00884EB2 /* ut_file.hpp */; };
 		C20BB351191059BC00884EB2 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20BB350191059BC00884EB2 /* gtest.framework */; };
 		C261F8D11A59819100D8DFCA /* VisibleApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2173400190B175500A01365 /* VisibleApp.cpp */; };
-		C261F8D31A59889600D8DFCA /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C261F8D21A59889600D8DFCA /* libboost_thread.a */; };
 		C263159A195CC0A800CF71B1 /* qtime_cache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2631598195CC0A800CF71B1 /* qtime_cache.cpp */; };
+		C26C24151A61C99B0062D770 /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C261F8D21A59889600D8DFCA /* libboost_thread.a */; };
 		C26D7E681A5810D900951038 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		C26D7E691A5810D900951038 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		C26D7E6A1A5810D900951038 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
@@ -220,7 +220,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C261F8D31A59889600D8DFCA /* libboost_thread.a in Frameworks */,
+				C26C24151A61C99B0062D770 /* libboost_thread.a in Frameworks */,
 				C26D7E7C1A58299600951038 /* libcinder.a in Frameworks */,
 				C26D7E771A58297E00951038 /* libboost_date_time.a in Frameworks */,
 				C26D7E781A58297E00951038 /* libboost_filesystem.a in Frameworks */,
@@ -610,7 +610,7 @@
 					"$(CINDER_PATH)/lib/macosx",
 					"$(CINDER_PATH)/lib",
 					"$(OPENCV_PATH)/lib/Release",
-					/Users/arman/Documents/xvisible/usr/local/boost/lib,
+					/Users/arman/gwc/vqt105/visibleqt105/usr/local/boost/lib,
 				);
 				OTHER_LDFLAGS = "-lcinder_d";
 				PRODUCT_NAME = XcVisible;
@@ -649,7 +649,7 @@
 					"$(CINDER_PATH)/lib/macosx",
 					"$(CINDER_PATH)/lib",
 					"$(OPENCV_PATH)/lib/Release",
-					/Users/arman/Documents/xvisible/usr/local/boost/lib,
+					/Users/arman/gwc/vqt105/visibleqt105/usr/local/boost/lib,
 				);
 				OTHER_LDFLAGS = "-lcinder";
 				PRODUCT_NAME = XcVisible;
