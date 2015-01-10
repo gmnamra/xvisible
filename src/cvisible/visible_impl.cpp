@@ -208,10 +208,10 @@ void movContext::loadMovieFile( const boost::filesystem::path &moviePath )
             ci_console() << "Duration:  " <<m_movie.getDuration() << " seconds" << std::endl;
             ci_console() << "Frames:    " <<m_movie.getNumFrames() << std::endl;
             ci_console() << "Framerate: " <<m_movie.getFramerate() << std::endl;
-            
-            //   m_movie.setLoop( true, false );
-            //   m_movie.play();
             m_fc = m_movie.getNumFrames ();
+            m_movie.setLoop( true, false );
+            m_movie.seekToStart();
+            m_movie.play();
             // assert aspacts are the same
 
             
@@ -313,7 +313,7 @@ void movContext::update ()
         }
     }
     
-    if( m_movie )
+    if( m_valid && m_movie )
     {
         mImage = m_movie.getTexture();
         mImage.setMagFilter(GL_NEAREST_MIPMAP_NEAREST);

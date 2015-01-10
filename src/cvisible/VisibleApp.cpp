@@ -174,6 +174,8 @@ void VisibleApp::setup()
 
 void VisibleApp::mouseMove( MouseEvent event )
 {
+    cinder::app::App::mouseMove(event);
+    
     //            if (! mWaveformPlot.getWaveforms().empty())
     //              mSigv.at_event (mGraphDisplayRect, event.getPos(), event.getX(),mWaveformPlot.getWaveforms()[0]);
 }
@@ -181,16 +183,19 @@ void VisibleApp::mouseMove( MouseEvent event )
 
 void VisibleApp::mouseDrag( MouseEvent event )
 {
+    cinder::app::App::mouseDrag(event);
 }
 
 
 void VisibleApp::mouseDown( MouseEvent event )
 {
+     cinder::app::App::mouseDown(event);
 }
 
 
 void VisibleApp::mouseUp( MouseEvent event )
 {
+    cinder::app::App::mouseUp(event);
 }
 
 
@@ -207,26 +212,19 @@ void VisibleApp::update()
         resize ();
     }
     
-    WindowRef cw = getWindow();
-    
-    if (cw != getWindowIndex(0) && cw->getUserData<uContext>())
-        cw->getUserData<uContext>()->update ();
+    for(int cx = 0; cx < mContexts.size(); cx++)
+        mContexts[cx]->update ();
     
 }
 
 void VisibleApp::draw ()
 {
-    // this pair of lines is the standard way to clear the screen in OpenGL
-    gl::enableDepthRead();
-    gl::enableDepthWrite();
-    gl::clear( Color::gray( 0.1f ) );
-    
-    gl::enableAlphaBlending();
-    
-    gl::clear();
+    gl::clear( Color( 0.3f, 0.3f, 0.3f ) );
     
     gl::setMatricesWindowPersp( getWindowSize() );
 
+    for(int cx = 0; cx < mContexts.size(); cx++)
+        mContexts[cx]->draw ();
     
     mTopParams->draw ();
     

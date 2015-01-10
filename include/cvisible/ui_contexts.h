@@ -143,7 +143,7 @@ public:
         mCbMouseDown = mWindow->getSignalMouseDown().connect( std::bind( &movContext::mouseDown, this, std::placeholders::_1 ) );
         mCbMouseDrag = mWindow->getSignalMouseDrag().connect( std::bind( &movContext::mouseDrag, this, std::placeholders::_1 ) );
         mCbMouseUp = mWindow->getSignalMouseUp().connect( std::bind( &movContext::mouseUp, this, std::placeholders::_1 ) );
-        mCbMouseDrag = mWindow->getSignalMouseMove().connect( std::bind( &movContext::mouseMove, this, std::placeholders::_1 ) );
+        mCbMouseMove = mWindow->getSignalMouseMove().connect( std::bind( &movContext::mouseMove, this, std::placeholders::_1 ) );
         
         mWindow->setTitle (movContext::caption ());
         setup ();
