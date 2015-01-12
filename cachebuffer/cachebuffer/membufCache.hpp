@@ -13,6 +13,7 @@
 #include <ostream>
 #include <vector>
 #include <map>
+#include <assert.h>
 
 using namespace std;
 #define MSG(text) std::cout<< text << std::endl;
@@ -91,38 +92,41 @@ public:
     shared_ptr<ImageBuffer> get(int64_t const& name)
     {
         // Look for available buffers
-        KVCIter it = _available.find(name);
-        // If we have a refurbished available
+        cKVIter it = _available.find(name);
+
+        // If we have a refurbished available:
+        // Find one by name in all and return a new shared_ptr
+        // Erase it from available
         if (it != _available.end())
         {
             cout << "Found " << name << endl;
-            // Try getting a new shared fron this weak observer
-            shared_ptr<ImageBuffer> refurbished = it->second.lock();
-            if (!refurbished) return shared_ptr<ImageBuffer> ();
-            // Erase it from available
+            cKVIter cit = _all.find(name);
+            shared_ptr<ImageBuffer> refurbished = cit->second.lock();
             _available.erase(it);
             return refurbished;
         }
 
+        cout << "Not Found " << name << endl;
+        
         // Get a shared_ptr to the new one and register it with both all map and viaptr
         shared_ptr<Cache> this_cache =shared_from_this();
-        shared_ptr<ImageBuffer> ptr(new ImageBuffer(name),Cache::deleter(this_cache));
-     
-        //add to size -> weak observer map
+        //add to size -> shared_ptr map
         // insert returns iterator for multimap ( allows duplicates )
-        KVIter kv = _all.insert(std::make_pair(name, ptr));
+        shared_ptr<ImageBuffer> ptr(new ImageBuffer(name),Cache::deleter(this_cache));
         
+        KVIter kv = _all.insert(std::make_pair(name, ptr));
+
         //add to pointer to all iterator map
         _viaptr.insert(std::make_pair(ptr.get(), kv));
+        
         return ptr;
     }
     
 private:
     //cache map holding name to object's weak_ptr
-    typedef std::multimap<int64_t, weak_ptr<ImageBuffer> >    KeyValueMap;
-    typedef  KeyValueMap::iterator        KVIter;
-    typedef  KeyValueMap::const_iterator  KVCIter;
-    
+    typedef std::multimap<int64_t, weak_ptr<ImageBuffer> >    KeyWeakValueMap;
+    typedef  KeyWeakValueMap::iterator        KVIter;
+    typedef  KeyWeakValueMap::const_iterator        cKVIter;
     
     
     typedef std::map<ImageBuffer*, KVIter>     BackViaPtr;
@@ -143,13 +147,13 @@ private:
             std::cout << "all" << cache->_all << endl;
             std::cout << "viaptr" << cache->_viaptr << endl;
 
-            //find object iterator in all via ptr
+            //find iterator in all via ptr
             DMIter it = cache->_viaptr.find(v);
-            KVIter vit = it->second;
-            
-            shared_ptr<ImageBuffer> shvit = (it->second)->second.lock();
-            // move it over to available.
-            cache->_available.insert(make_pair(it->second->first, shvit));
+            if (it != cache->_viaptr.end())
+            {
+                // move it over to available.
+                cache->_available.insert(make_pair(it->second->first, it->second->second));
+            }
 
             std::cout << "available" << cache->_available << endl;
             std::cout << "all" << cache->_all << endl;
@@ -161,8 +165,8 @@ private:
     }; // deleter
     
 private:
-    mutable KeyValueMap _available;
-    mutable KeyValueMap _all;
+    mutable KeyWeakValueMap _available;
+    mutable KeyWeakValueMap _all;
     mutable BackViaPtr _viaptr;
 };
 

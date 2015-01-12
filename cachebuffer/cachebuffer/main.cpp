@@ -12,17 +12,11 @@
 int main(int argc, const char * argv[])
 {
     shared_ptr<Cache> cache(new Cache());
-    shared_ptr<ImageBuffer> p0 = cache->get(800*600);
-        {
-            shared_ptr<ImageBuffer> p2 = cache->get(800*600);
-            {
-                shared_ptr<ImageBuffer> p3 = cache->get(1000*1200);
-            }
 
-            
-            shared_ptr<ImageBuffer> p4 = cache->get(480000);
-        }//1
-        //4
-        shared_ptr<ImageBuffer> p1 = cache->get(1000*1200);
-        shared_ptr<ImageBuffer> p2 = cache->get(800*600);
+    {
+       shared_ptr<ImageBuffer> p3 = cache->get(1000*1200);
+    }
+
+    shared_ptr<ImageBuffer> p1 = cache->get(1000*1200);
 }
+
