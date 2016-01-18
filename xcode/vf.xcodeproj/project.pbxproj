@@ -1911,7 +1911,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "\n#!/bin/bash\n\nGUTPATH=${CONFIGURATION_BUILD_DIR}/${PRODUCT_NAME}\necho $GUTPATH\nFRAMEWORK_DIR=@executable_path/../Frameworks\nCURRENT=Versions/Current\n\n# get current rpath for vfi386\nCURNAME=`otool -L $GUTPATH | grep ${VF_NAME/%.framework/} | sed -e 's/([^()]*)//g'`\necho $CURNAME\n# switch to using Frameworks of off build_dir\ninstall_name_tool -change $CURNAME \"${FRAMEWORK_DIR}/$VF_NAME.framework/$CURRENT/$VF_NAME\" $GUTPATH \n\n# get current rpath for gtest\n#CURNAME=`otool -L $GUTPATH | grep gtest | sed -e 's/([^()]*)//g'`\n#echo $CURNAME\n# switch to using Frameworks of off build_dir\n#install_name_tool -change $CURNAME \"${FRAMEWORK_DIR}/gtest.framework/$CURRENT/gtest\" $GUTPATH\n\n\n";
+			shellScript = "\n#!/bin/bash\n\n#note change GVF_NAME to change debug or release version of vf\nGUTPATH=${CONFIGURATION_BUILD_DIR}/${PRODUCT_NAME}\necho $GUTPATH\nFRAMEWORK_DIR=@executable_path/../Frameworks\nCURRENT=Versions/Current\nGVF_NAME=vfi386\n\n# get current rpath for vfi386\nCURNAME=`otool -L $GUTPATH | grep $GVF_NAME | sed -e 's/([^()]*)//g'`\nif [ -n \"$CURNAME\" ]; then\n    echo $GVF_NAME $VF_NAME\n    # switch to using Frameworks of off build_dir\n    install_name_tool -change $CURNAME \"${FRAMEWORK_DIR}/$GVF_NAME.framework/$CURRENT/$GVF_NAME\" $GUTPATH\nfi\n\n\n\n";
 		};
 		C2CFCC4C1A55DF520024D805 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2456,7 +2456,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/build/Frameworks";
 				GCC_C_LANGUAGE_STANDARD = c89;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = "";
@@ -2495,7 +2495,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/build/Frameworks";
 				GCC_C_LANGUAGE_STANDARD = c89;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = "";
