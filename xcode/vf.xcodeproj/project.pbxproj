@@ -34,11 +34,11 @@
 		C27522D31C4B3DDC00FB70DB /* gtest-printers.cc in Sources */ = {isa = PBXBuildFile; fileRef = C27522CA1C4B3DDC00FB70DB /* gtest-printers.cc */; };
 		C27522D51C4B3DDC00FB70DB /* gtest-typed-test.cc in Sources */ = {isa = PBXBuildFile; fileRef = C27522CC1C4B3DDC00FB70DB /* gtest-typed-test.cc */; };
 		C27522D81C4D5D9100FB70DB /* ut_reifymoviegrabber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA29A0F21357A0046570D /* ut_reifymoviegrabber.cpp */; };
+		C27522DA1C4D746600FB70DB /* vfi386.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27522D91C4D746600FB70DB /* vfi386.framework */; };
 		C27652261914089400EA3B55 /* rc_level.h in Headers */ = {isa = PBXBuildFile; fileRef = C27652251914089400EA3B55 /* rc_level.h */; };
 		C276522B1915599C00EA3B55 /* rc_seglevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2C291A018F4B9A000BA7E79 /* rc_seglevel.cpp */; };
 		C299934418FCAE3D008397D2 /* ut_framebuf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C26FA27A0F21357A0046570D /* ut_framebuf.cpp */; };
 		C299934718FDBD44008397D2 /* rc_mathmodel.h in Headers */ = {isa = PBXBuildFile; fileRef = C299934618FDBD44008397D2 /* rc_mathmodel.h */; };
-		C29F39FE1C4936C60001E177 /* vfi386_d.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D07F2C80486CC7A007CD1D0 /* vfi386_d.framework */; };
 		C29F3A021C4939BE0001E177 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29F3A011C4939BE0001E177 /* Accelerate.framework */; };
 		C29F3A421C49959C0001E177 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C292FB18F85BE500BA7E79 /* libboost_system.a */; };
 		C29F3A6D1C49B1430001E177 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C292FB18F85BE500BA7E79 /* libboost_system.a */; };
@@ -475,6 +475,7 @@
 		C27522CC1C4B3DDC00FB70DB /* gtest-typed-test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "gtest-typed-test.cc"; sourceTree = "<group>"; };
 		C27522CD1C4B3DDC00FB70DB /* gtest.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gtest.cc; sourceTree = "<group>"; };
 		C27522CE1C4B3DDC00FB70DB /* gtest_main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gtest_main.cc; sourceTree = "<group>"; };
+		C27522D91C4D746600FB70DB /* vfi386.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = vfi386.framework; path = ../build/Release/vfi386.framework; sourceTree = SOURCE_ROOT; };
 		C27652251914089400EA3B55 /* rc_level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_level.h; sourceTree = "<group>"; };
 		C297DD3C18A1B5F100F217A5 /* ut_persistence1d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ut_persistence1d.h; path = ../test/include/ut_persistence1d.h; sourceTree = "<group>"; };
 		C299934618FDBD44008397D2 /* rc_mathmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc_mathmodel.h; sourceTree = "<group>"; };
@@ -864,13 +865,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C27522DA1C4D746600FB70DB /* vfi386.framework in Frameworks */,
 				C29F3A721C49B1590001E177 /* libboost_date_time.a in Frameworks */,
 				C29F3A731C49B1590001E177 /* libboost_filesystem.a in Frameworks */,
 				C29F3A741C49B1590001E177 /* libboost_thread.a in Frameworks */,
 				C29F3A6D1C49B1430001E177 /* libboost_system.a in Frameworks */,
 				C29F3A6E1C49B1590001E177 /* libz.a in Frameworks */,
 				C29F3A021C4939BE0001E177 /* Accelerate.framework in Frameworks */,
-				C29F39FE1C4936C60001E177 /* vfi386_d.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -891,6 +892,7 @@
 		0867D691FE84028FC02AAC07 /* vf */ = {
 			isa = PBXGroup;
 			children = (
+				C27522D91C4D746600FB70DB /* vfi386.framework */,
 				C29F3A6F1C49B1590001E177 /* libboost_date_time.a */,
 				C29F3A701C49B1590001E177 /* libboost_filesystem.a */,
 				C29F3A711C49B1590001E177 /* libboost_thread.a */,
@@ -1859,7 +1861,7 @@
 		};
 		C273D6AE1A542AE700F61528 /* copy to build / Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -2158,7 +2160,7 @@
 				SCRIPTS_DIR = "$(BUILD_SCRIPTS_DIR)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SYMROOT = "@executable_path/../Frameworks";
+				SYMROOT = "$(SRCROOT)/build";
 				VALID_ARCHS = i386;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -2210,7 +2212,7 @@
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				STRIP_STYLE = debugging;
-				SYMROOT = "@executable_path/../Frameworks";
+				SYMROOT = "$(SRCROOT)/build";
 				VALID_ARCHS = i386;
 				WRAPPER_EXTENSION = framework;
 			};
