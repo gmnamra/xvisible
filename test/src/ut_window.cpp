@@ -72,6 +72,7 @@ UT_Window::run() {
 
     }
 
+#if 0
     // Test vImage accessor
     {
       vImage_Buffer vib;
@@ -84,6 +85,7 @@ UT_Window::run() {
       rcUTCheck (vib.height == (uint32) win.height());
       rcUTCheck (vib.rowBytes == (uint32) win.rowUpdate());
     }
+#endif
     
     // Test translate and trim
     {

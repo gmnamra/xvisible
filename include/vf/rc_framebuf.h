@@ -50,7 +50,7 @@ public:
      */
     
     rcFrame (const char* rawPixels, int32 rawPixelsRowUpdate, int32 width, int32 height, rcPixel pixelDepth, bool isGray);
-    rcFrame ( const cv::Mat& );
+  //  rcFrame ( const cv::Mat& );
     
 #ifdef CINDER_BUILTIN
     rcFrame ( const ci::Channel8u&  );

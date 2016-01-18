@@ -16,7 +16,7 @@
 
 using namespace cv;
 
-#define DEBUG_MEM
+// #define DEBUG_MEM
 
 rcFrame::rcFrame() :
     mRawData( 0 ),
@@ -82,7 +82,7 @@ rcFrame::rcFrame( int32 width, int32 height, rcPixel depth, int32 alignMod) :
 }
 
 
-
+#if 0
 rcFrame::rcFrame ( const cv::Mat & onec )
 : rcFrame ( onec.size().width, onec.size().height, rcPixel8, ROW_ALIGNMENT_MODULUS )
 {
@@ -90,6 +90,7 @@ rcFrame::rcFrame ( const cv::Mat & onec )
     IplImage ipli = onec;
     loadImage (reinterpret_cast<const char*>(ipli.imageData), ipli.widthStep, ipli.width , ipli.height, rcPixel8, true);    
 }
+#endif
 
 
 #ifdef CINDER_BUILTIN
@@ -485,40 +486,5 @@ void rcFrameRef::internalUnlock(bool force, locker_fn locker)
             locker (mCacheCtrl, mFrameIndex);
     }
 }
-
-// Return a RGB color vector from HSI color vector
-uint32 rfHSI2RGB (float H, float S, float I)
-{
- float Htmp;
- float R,B,G;
-     
- if (H == 0.0)
-   R = G = B = I;
- else if (H > 0.0 && H < rk2PI/3. )
-   {
-     Htmp = 1 / sqrt(3.0) * tan(H - rkPI/3.);
-     B = (1.0 - S) * I;
-     G = (1.5 + 1.5*Htmp ) * I - ((0.5 + 1.5*Htmp) * B);
-     R = 3.0 * I - G - B;
-   }
- else if (H >= rk2PI/3. && H < (rk2PI+rk2PI)/3.)
-   {
-     Htmp = 1 / sqrt(3.0) * tan(H - rkPI);
-     R = (1.0 - S) * I;
-     B = (1.5 + 1.5*Htmp ) * I - ((0.5 + 1.5*Htmp) * R);
-     G = 3.0 * I - B - R;
-   }
- else
-   { 
-     Htmp = 1 / sqrt(3.0) * tan(H - (5.0 * rkPI)/3.);
-     G = (1.0 - S) * I;
-     R = (1.5 + 1.5*Htmp ) * I - ((0.5 + 1.5*Htmp) * G);
-     B = 3.0 * I - R - G;
-   }
-
- return rfRgb (uint32 (floor (R * 255)), uint32 (floor (G * 255)), uint32 (floor (B * 255)));
-
-} 
-
 
 

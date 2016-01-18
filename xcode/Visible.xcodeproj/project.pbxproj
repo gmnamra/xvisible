@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -226,26 +226,12 @@
 			remoteGlobalIDString = 8D07F2C80486CC7A007CD1D0;
 			remoteInfo = vf;
 		};
-		C24ED40018D788FA0066AA0E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C245B0D0130F61140065941E /* vf.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C27C02E818D75F3E00FD9FE6;
-			remoteInfo = libvf32_d;
-		};
 		C2728EEC187B9BFC00476945 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C245B0D0130F61140065941E /* vf.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = C24EA96D1842FD0D00E88B0A;
 			remoteInfo = batchconvert;
-		};
-		C2A1E22818A9F97500D76DD7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C245B0D0130F61140065941E /* vf.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C297DD4218A1D7B400F217A5;
-			remoteInfo = persistence1d;
 		};
 		C2B8E9AA187DE11D0060D961 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1077,8 +1063,6 @@
 				C245B0D7130F61140065941E /* vfi386_d.framework */,
 				C2728EED187B9BFC00476945 /* batch_convert.app */,
 				C2B8E9AB187DE11D0060D961 /* gut */,
-				C2A1E22918A9F97500D76DD7 /* persistence1d */,
-				C24ED40118D788FA0066AA0E /* libvf32_d.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1865,7 +1849,7 @@
 			attributes = {
 			};
 			buildConfigurationList = 4FADC24608B4156D00ABE55E /* Build configuration list for PBXProject "Visible" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -1898,25 +1882,11 @@
 			remoteRef = C245B0D6130F61140065941E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C24ED40118D788FA0066AA0E /* libvf32_d.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libvf32_d.a;
-			remoteRef = C24ED40018D788FA0066AA0E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		C2728EED187B9BFC00476945 /* batch_convert.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = batch_convert.app;
 			remoteRef = C2728EEC187B9BFC00476945 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		C2A1E22918A9F97500D76DD7 /* persistence1d */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = persistence1d;
-			remoteRef = C2A1E22818A9F97500D76DD7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		C2B8E9AB187DE11D0060D961 /* gut */ = {
@@ -2166,7 +2136,7 @@
 					"$(BOOST_PATH)/lib",
 					"$(CINDER_PATH)/lib",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				Qt_PATH = "$(SRCROOT)/usr/local/Qt/4.8.3";
@@ -2201,7 +2171,7 @@
 					"$(BOOST_PATH)/lib",
 					"$(CINDER_PATH)/lib",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				Qt_PATH = "$(SRCROOT)/usr/local/Qt/4.8.3";

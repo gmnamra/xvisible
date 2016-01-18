@@ -49,8 +49,8 @@ class rcAffineWindow : public rcWindow {
       _affine = rhs._affine;
       _pixGen = rhs._pixGen;
       _imgGen = rhs._imgGen;
-    	mVa2i = rhs.mVa2i;
-			mVi2a = rhs.mVi2a;
+ //   	mVa2i = rhs.mVa2i;
+//			mVi2a = rhs.mVi2a;
     }
     return *this;
   }
@@ -76,8 +76,8 @@ class rcAffineWindow : public rcWindow {
    * vImage Affine transform requires bottom left origin
    * 
    */
-  vImage_AffineTransform vImageToAffine () const;
-  vImage_AffineTransform vAffineToImage () const;
+ // vImage_AffineTransform vImageToAffine () const;
+ // vImage_AffineTransform vAffineToImage () const;
 
   
   /* Mutators
@@ -121,8 +121,8 @@ class rcAffineWindow : public rcWindow {
   rcAffineRectangle _affine;
   rcGeneratePixel*  _pixGen;
   rcGenerateImage*  _imgGen;
-  vImage_AffineTransform mVa2i;
-  vImage_AffineTransform mVi2a;
+ // vImage_AffineTransform mVa2i;
+ // vImage_AffineTransform mVi2a;
 
   static rcGeneratePixel* _defPixGen;
   static rcGenerateImage* _defImgGen;

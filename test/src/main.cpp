@@ -65,17 +65,6 @@ private:
 static ::testing::Environment* envp = 0;
 
 
-TEST (UT_videocache, run)
-{
-    genv* gvp = reinterpret_cast<genv*>(envp);
-    EXPECT_TRUE (gvp != 0 );
-    static std::string rfymov_name ("rev2.rfymov");
-    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);
-    
-    UT_VideoCache test (rfymov);
-    EXPECT_EQ(0, test.run () );
-}
-
 // System info tests
 TEST ( UT_Systeminfo, run )
 {
@@ -133,11 +122,116 @@ TEST ( UT_Timestamp, run )
 }
 
 
+// Thread tests
+TEST ( UT_Thread, run )
+{
+    UT_Thread test;
+    EXPECT_EQ(0,  test.run());
+}
+
+
+
+// atomicValue template tests
+TEST ( UT_AtomicValue, run )
+{
+    UT_AtomicValue test;
+    EXPECT_EQ(0,  test.run());
+}
+
+
+// ringBuffer tests
+TEST ( UT_RingBuffer, run )
+{
+    UT_RingBuffer test;
+    EXPECT_EQ(0,  test.run());
+}
+
+// bidirectionalRing tests
+TEST ( UT_BidirectionalRing, run )
+{
+    UT_BidirectionalRing test;
+    EXPECT_EQ(0,  test.run());
+}
+
+
+TEST (UT_1dp, run)
+{
+    if (envp != 0)
+    {
+        std::cerr << (reinterpret_cast<genv*> (envp)) ->root_folder () << std::endl;
+    }
+    
+    UT_1dp test;
+    EXPECT_EQ (0, test.run());
+}
+
 
 TEST( UT_FrameBuf, run )
 {
-	UT_FrameBuf test;
-	EXPECT_EQ(0, test.run());
+    UT_FrameBuf test;
+    EXPECT_EQ(0, test.run());
+}
+
+
+TEST( UT_WindowMutator, run )
+{
+    UT_WindowMutator test;
+    EXPECT_EQ (0, test.run() );
+}
+
+
+TEST( UT_Window, run )
+{
+    UT_Window test;
+    EXPECT_EQ(0, test.run());
+}
+
+
+TEST(UT_similarity, run)
+{
+    UT_similarity test;
+    EXPECT_EQ(0, test.run());
+}
+
+
+TEST ( UT_ReifyMovieGrabber, run )
+{
+    genv* gvp = reinterpret_cast<genv*>(envp);
+    EXPECT_TRUE (gvp != 0 );
+    static std::string rfymov_name ("rev2.rfymov");
+    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);
+    
+    UT_ReifyMovieGrabber test ( rfymov );
+    EXPECT_EQ(0, test.run () );
+}
+
+
+
+
+TEST (UT_videocache, run)
+{
+    genv* gvp = reinterpret_cast<genv*>(envp);
+    EXPECT_TRUE (gvp != 0 );
+    static std::string rfymov_name ("rev2.rfymov");
+    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);
+    
+    UT_VideoCache test (rfymov);
+    EXPECT_EQ(0, test.run () );
+}
+
+
+
+TEST(UT_similarity_producer, run)
+{
+    genv* gvp = reinterpret_cast<genv*>(envp);
+    EXPECT_TRUE (gvp != 0 );
+    static std::string qmov_name ("box-move.mov");
+    static std::string rfymov_name ("box-move.rfymov");
+    std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
+    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);
+    
+    UT_similarity_producer test (rfymov, qmov);
+    EXPECT_EQ(0, test.run());
 }
 
 
@@ -159,97 +253,7 @@ TEST (UT_movieconverter, run)
 
 #endif
 
-TEST ( UT_ReifyMovieGrabber, run )
-{
-    genv* gvp = reinterpret_cast<genv*>(envp);
-    EXPECT_TRUE (gvp != 0 );
-    static std::string rfymov_name ("rev2.rfymov");
-    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);    
-    
-    UT_ReifyMovieGrabber test ( rfymov );
-    EXPECT_EQ(0, test.run () );
-}
 
-
-
-
-TEST(UT_similarity_producer, run)
-{
-    genv* gvp = reinterpret_cast<genv*>(envp);
-    EXPECT_TRUE (gvp != 0 );
-    static std::string qmov_name ("box-move.mov");
-    static std::string rfymov_name ("box-move.rfymov");
-    std::string qmov = create_filespec (gvp->test_data_folder (), qmov_name);
-    std::string rfymov = create_filespec (gvp->test_data_folder (), rfymov_name);    
-    
-	UT_similarity_producer test (rfymov, qmov);
-    EXPECT_EQ(0, test.run());
-}
-
-
-TEST (UT_1dp, run)
-{
-     if (envp != 0)
-     {
-         std::cerr << (reinterpret_cast<genv*> (envp)) ->root_folder () << std::endl;
-      }
-    
-    UT_1dp test;
-    EXPECT_EQ (0, test.run());
-}
-
-
-TEST( UT_WindowMutator, run )
-{
-	UT_WindowMutator test;
-	EXPECT_EQ (0, test.run() );
-}
-
-
-TEST( UT_Window, run )
-{
-	UT_Window test;
-	EXPECT_EQ(0, test.run());
-}
-
-                       
-TEST(UT_similarity, run)
-{
-    UT_similarity test;
-    EXPECT_EQ(0, test.run());
-}
-
-
-// Thread tests
-TEST ( UT_Thread, run )
-{
-  UT_Thread test;
-  EXPECT_EQ(0,  test.run());
-}
-
-
-
-// atomicValue template tests
-TEST ( UT_AtomicValue, run )
-{
-  UT_AtomicValue test;
-  EXPECT_EQ(0,  test.run());
-}
-
-
-// ringBuffer tests
-TEST ( UT_RingBuffer, run )
-{
-  UT_RingBuffer test;
-  EXPECT_EQ(0,  test.run());
-}
-
-// bidirectionalRing tests
-TEST ( UT_BidirectionalRing, run )
-{
-  UT_BidirectionalRing test;
-  EXPECT_EQ(0,  test.run());
-}
 	// Pyramid Processing tests
 
 

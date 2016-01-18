@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:xcode/vExplorer.xcodeproj">
+      location = "container:xcode/vf.xcodeproj">
    </FileRef>
 </Workspace>

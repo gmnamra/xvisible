@@ -612,6 +612,7 @@
 					"$(OPENCV_PATH)/lib/Release",
 					/Users/arman/Documents/xvisible/usr/local/boost/lib,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_LDFLAGS = "-lcinder_d";
 				PRODUCT_NAME = XcVisible;
 				SDKROOT = macosx10.10;
@@ -651,6 +652,7 @@
 					"$(OPENCV_PATH)/lib/Release",
 					/Users/arman/Documents/xvisible/usr/local/boost/lib,
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_LDFLAGS = "-lcinder";
 				PRODUCT_NAME = XcVisible;
 				SDKROOT = macosx10.10;
