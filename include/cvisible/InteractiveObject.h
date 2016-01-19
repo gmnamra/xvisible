@@ -4,7 +4,7 @@
 #include "cinder/Rect.h"
 #include "cinder/Color.h"
 #include "cinder/app/MouseEvent.h"
-
+#include "cinder/Function.h"
 #include <vector>
 
 
@@ -60,7 +60,7 @@ public:
     
     void removeListener( ci::CallbackId callId );
 
-    const Vec2f& norm_pos () const { return mNormPos; }
+    const vec2& norm_pos () const { return mNormPos; }
     
     
     ci::Rectf rect;
@@ -69,7 +69,7 @@ public:
 protected:
     bool mPressed, mOver;
     ci::CallbackMgr< void(InteractiveObjectEvent) > mEvents;
-    Vec2f mNormPos;
+    vec2 mNormPos;
     bool update_norm_position ( ci::app::MouseEvent& event  );
 };
 

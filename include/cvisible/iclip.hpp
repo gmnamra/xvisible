@@ -26,7 +26,7 @@ public:
 		TextLayout text; text.clear( cinder::Color::white() ); text.setColor( Color(0.5f, 0.5f, 0.5f) );
 		try { text.setFont( Font( "Futura-CondensedMedium", 18 ) ); } catch( ... ) { text.setFont( Font( "Arial", 18 ) ); }
 		text.addLine( name );
-		mLabelTex = cinder::gl::Texture( text.render( true ) );
+        mLabelTex = cinder::gl::Texture::create(text.render( true ) );
 	}
     
 	void load_vector (const std::vector<float>& buffer)
@@ -39,7 +39,7 @@ public:
             mBuffer.push_back (*reader++);
         }
         
-        mFn = boost::bind (&graph1D::get, _1, _2);
+        mFn = bind (&graph1D::get, std::placeholders::_1, std::placeholders::_2);
         lock.unlock();
         cond_.notify_one ();
     }
@@ -66,23 +66,23 @@ public:
 		cinder::gl::color( ci::Color( 0.4f, 0.4f, 0.4f ) );
         ci::gl::drawStrokedRect( rect );
         ci::gl::color( ci::Color::white() );
-        ci::gl::draw( mLabelTex, rect.getCenter() - mLabelTex.getSize() / 2 );
+        ci::gl::draw( mLabelTex, vec2(rect.getCenter()[0] - mLabelTex->getSize()[0] / 2, rect.getCenter()[1] - mLabelTex->getSize()[1] / 2 ));
         
 		// draw graph
 		gl::color( ColorA( 0.25f, 0.5f, 1.0f, 0.5f ) );
-		glBegin( GL_LINE_STRIP );
+        gl::begin( GL_LINE_STRIP );
 		for( float x = 0; x < rect.getWidth(); x += 0.25f ) {
 			float y = 1.0f - mFn ( this, x / rect.getWidth() );
-            ci::gl::vertex(Vec2f( x, y * rect.getHeight() ) + rect.getUpperLeft() );
+            ci::gl::vertex(vec2( x, y * rect.getHeight() ) + rect.getUpperLeft() );
 		}
-		glEnd();
+        gl::end();
 		
 		// draw animating circle
 		gl::color( Color( 1, 0.5f, 0.25f ) );
 		//gl::drawSolidCircle( rect.getUpperLeft() + mFn ( this, t ) * rect.getSize(), 5.0f );
         glLineWidth(2.f);
         float px = norm_pos().x * rect.getWidth();
-        ci::gl::drawLine (Vec2f(px, 0.f), Vec2f(px, rect.getHeight()));
+        ci::gl::drawLine (vec2(px, 0.f), vec2(px, rect.getHeight()));
         
     }
     
@@ -91,7 +91,7 @@ public:
     
 	
     std::vector<float>                   mBuffer;
-	cinder::gl::Texture						mLabelTex;
+	cinder::gl::TextureRef						mLabelTex;
     std::function<float (const graph1D*, float)> mFn;
     std::condition_variable cond_;
     mutable std::mutex mutex_;

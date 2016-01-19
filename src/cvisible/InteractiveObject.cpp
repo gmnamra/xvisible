@@ -66,8 +66,8 @@ void InteractiveObject::dragged(){
 
 bool InteractiveObject::update_norm_position ( ci::app::MouseEvent& event )
 {
-    const Vec2i mousePos = event.getPos();
-    mNormPos.set(mousePos.x / rect.getWidth (), mousePos.y / rect.getHeight () );
+    const vec2 mousePos = event.getPos();
+    mNormPos = vec2(mousePos.x / rect.getWidth (), mousePos.y / rect.getHeight () );
     return rect.contains( mousePos );
 }
 

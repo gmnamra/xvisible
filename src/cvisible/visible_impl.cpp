@@ -1,7 +1,7 @@
 
 #include "ui_contexts.h"
 #include "stl_util.hpp"
-#include "cinder/app/AppBasic.h"
+#include "cinder/app/App.h"
 #include "cinder/gl/gl.h"
 #include "cinder/Timeline.h"
 #include "cinder/Timer.h"
@@ -19,19 +19,19 @@ namespace
 {
     Rectf render_window_box ()
     {
-        auto pos = AppBasic::get()->getWindow()->getPos ();
-        auto size = AppBasic::get()->getWindow()->getSize ();
+        auto pos = AppBase::get()->getWindow()->getPos ();
+        auto size = AppBase::get()->getWindow()->getSize ();
         return Area (pos, size);
     }
     
     std::ostream& ci_console ()
     {
-        return AppBasic::get()->console();
+        return AppBase::get()->console();
     }
     
     double				ci_getElapsedSeconds()
     {
-        return AppBasic::get()->getElapsedSeconds();
+        return AppBase::get()->getElapsedSeconds();
     }
     
     
@@ -59,13 +59,13 @@ namespace
 
 void matContext::mouseDrag( MouseEvent event )
 {
-    mCam.mouseDrag( event.getPos(), event.isLeft(), event.isMiddle(), event.isRight() );
+    mCamUi.mouseDrag(event);
 }
 
 
 void matContext::mouseDown( MouseEvent event )
 {
-    mCam.mouseDown( event.getPos() );
+    mCamUi.mouseDown(event);
 }
 
 Rectf matContext::render_box ()
@@ -74,6 +74,14 @@ Rectf matContext::render_box ()
 }
 void matContext::setup ()
 {
+    gl::enableAlphaBlending();
+    gl::enableDepthRead();
+    gl::enableDepthWrite();
+    
+    mCamUi = CameraUi( &mCam, getWindow() );
+    mCam.setNearClip( 10 );
+    mCam.setFarClip( 2000 );
+    
     // Browse for a matrix file
     mPath = getOpenFilePath();
     if(! mPath.empty() ) internal_setupmat_from_file(mPath);
@@ -91,13 +99,14 @@ void matContext::internal_setupmat_from_mat (const vf_utils::csv::matf_t & mat)
     m_valid = false;
     size_t dL = mat.size ();
     int numPixels = dL * dL;
-    gl::VboMesh::Layout layout;
-    layout.setDynamicColorsRGB();
-    layout.setDynamicPositions();
-    mPointCloud = gl::VboMesh( numPixels, 0, layout, GL_POINTS );
+
+    mPointCloud = gl::VboMesh::create( numPixels, GL_POINTS, { gl::VboMesh::Layout().usage(GL_STATIC_DRAW).attrib(geom::POSITION, 3).attrib(geom::COLOR, 3) } );
     
+    mPointsBatch = gl::Batch::create( mPointCloud, gl::getStockShader( gl::ShaderDef().color() ) );
     
-    gl::VboMesh::VertexIter vertexIt( mPointCloud );
+    auto vertPosIter = mPointCloud->mapAttrib3f( geom::POSITION );
+    auto vertColorIter = mPointCloud->mapAttrib3f( geom::COLOR );
+    
     size_t my = 0;
     while (my < dL)
     {
@@ -107,35 +116,26 @@ void matContext::internal_setupmat_from_mat (const vf_utils::csv::matf_t & mat)
         while (mx < dL)
         {
             float val = *elm_ptr++;
-            vertexIt.setPosition(static_cast<float>(mx),static_cast<float>(dL - my), val * 100 );
             Color color( val, 0, (1 - val) );
-            vertexIt.setColorRGB( color );
-            ++vertexIt;
+            *vertPosIter++ = vec3(static_cast<float>(mx),static_cast<float>(dL - my), val * 100 );
+            *vertColorIter++ = vec3( color.r, color.g, color.b );
             mx++;
         }
         my++;
     }
-    
-    Vec3f center( (float)dL/2.0f, (float)dL/2.0f, 50.0f );
-    CameraPersp camera( getWindowWidth(), getWindowHeight(), 60.0f );
-    camera.setEyePoint( Vec3f( center.x, center.y, (float)dL ) );
-    camera.setCenterOfInterestPoint( center );
-    mCam.setCurrentCam( camera );
+
+    mCam.lookAt( vec3( dL / 2, 50, dL / 2 ), vec3( 0 ) );
     m_valid = true;
 }
 
 void matContext::draw()
 {
     if (! m_valid ) return;
+    gl::clear();
     
-	gl::clear( Color( 0, 0, 0 ) );
-    gl::setMatrices( mCam.getCamera() );
-    gl::enableDepthRead();
-    gl::enableDepthWrite();
-    
-    if( mPointCloud ){
-        gl::draw( mPointCloud );
-    }
+    gl::setMatrices( mCam );
+    if( mPointsBatch )
+        mPointsBatch->draw();
 }
 
 
@@ -161,7 +161,7 @@ void movContext::setup()
     
   	getWindow()->setTitle( moviePath.filename().string() );
     
-    mMovieParams = params::InterfaceGl( "Movie Controller", Vec2i( 90, 160 ) );
+    mMovieParams = params::InterfaceGl( "Movie Controller", vec2( 90, 160 ) );
     
     if ( ! moviePath.empty () )
     {
@@ -171,7 +171,7 @@ void movContext::setup()
     
     if( ! m_valid ) return;
    {
-        string max = to_string( m_movie.getDuration() );
+        string max = to_string( m_movie->getDuration() );
        mMovieParams.addParam( "Position", &mMoviePosition, "min=0.0 max=" + max + " step=0.5" );
         mMovieParams.addParam( "Rate", &mMovieRate, "step=0.01" );
         mMovieParams.addParam( "Play/Pause", &mMoviePlay );
@@ -199,19 +199,19 @@ void movContext::loadMovieFile( const boost::filesystem::path &moviePath )
 {
 	
 	try {
-		m_movie = qtime::MovieGl( moviePath );
-        m_valid = m_movie.checkPlayable ();
+        m_movie = qtime::MovieGl::create( moviePath );
+        m_valid = m_movie->isPlayable ();
         
         if (m_valid)
         {
-            ci_console() << "Dimensions:" <<m_movie.getWidth() << " x " <<m_movie.getHeight() << std::endl;
-            ci_console() << "Duration:  " <<m_movie.getDuration() << " seconds" << std::endl;
-            ci_console() << "Frames:    " <<m_movie.getNumFrames() << std::endl;
-            ci_console() << "Framerate: " <<m_movie.getFramerate() << std::endl;
-            m_fc = m_movie.getNumFrames ();
-            m_movie.setLoop( true, false );
-            m_movie.seekToStart();
-            m_movie.play();
+            ci_console() << "Dimensions:" <<m_movie->getWidth() << " x " <<m_movie->getHeight() << std::endl;
+            ci_console() << "Duration:  " <<m_movie->getDuration() << " seconds" << std::endl;
+            ci_console() << "Frames:    " <<m_movie->getNumFrames() << std::endl;
+            ci_console() << "Framerate: " <<m_movie->getFramerate() << std::endl;
+            m_fc = m_movie->getNumFrames ();
+            m_movie->setLoop( true, false );
+            m_movie->seekToStart();
+            m_movie->play();
             // assert aspacts are the same
 
             
@@ -228,8 +228,6 @@ void movContext::loadMovieFile( const boost::filesystem::path &moviePath )
 
 void movContext::mouseMove( MouseEvent event )
 {
-    auto dis = mMousePos.distanceSquared(event.getPos());
-    mMouseIsMoving = dis > 0;
     mMousePos = event.getPos();
 }
 
@@ -254,15 +252,15 @@ void movContext::mouseUp( MouseEvent event )
 }
 
 
-Vec2f movContext::texture_to_display_zoom()
+vec2 movContext::texture_to_display_zoom()
 {
-    Rectf textureBounds = mImage.getBounds();
-    return Vec2f(m_display_rect.getWidth() / textureBounds.getWidth(),m_display_rect.getHeight() / textureBounds.getHeight());
+    Rectf textureBounds = mImage->getBounds();
+    return vec2(m_display_rect.getWidth() / textureBounds.getWidth(),m_display_rect.getHeight() / textureBounds.getHeight());
 }
 
 Rectf movContext::render_box ()
 {
-    Rectf textureBounds = mImage.getBounds();
+    Rectf textureBounds = mImage->getBounds();
     return textureBounds.getCenteredFit( getWindowBounds(), true );
 }
 
@@ -289,34 +287,34 @@ void movContext::update ()
         if( mMovieIndexPosition != mPrevMovieIndexPosition )
         {
             mPrevMovieIndexPosition = mMovieIndexPosition;
-            m_movie.seekToFrame(mMovieIndexPosition);
+            m_movie->seekToFrame(mMovieIndexPosition);
         }
         else
         {
-            mMoviePosition = m_movie.getCurrentTime();
+            mMoviePosition = m_movie->getCurrentTime();
             mPrevMoviePosition = mMoviePosition;
         }
         if( mMovieRate != mPrevMovieRate )
         {
             mPrevMovieRate = mMovieRate;
-            m_movie.setRate( mMovieRate );
+            m_movie->setRate( mMovieRate );
         }
         if( mMoviePlay != mPrevMoviePlay )
         {
             mPrevMoviePlay = mMoviePlay;
-            if( mMoviePlay ) m_movie.play();
-            else m_movie.stop();
+            if( mMoviePlay ) m_movie->play();
+            else m_movie->stop();
         }
         if( mMovieLoop != mPrevMovieLoop ){
             mPrevMovieLoop = mMovieLoop;
-            m_movie.setLoop( mMovieLoop );
+            m_movie->setLoop( mMovieLoop );
         }
     }
     
     if( m_valid && m_movie )
     {
-        mImage = m_movie.getTexture();
-        mImage.setMagFilter(GL_NEAREST_MIPMAP_NEAREST);
+        mImage = m_movie->getTexture();
+        mImage->setMagFilter(GL_NEAREST_MIPMAP_NEAREST);
         m_display_rect = render_box();
         m_zoom = texture_to_display_zoom();
         m_display_rect.scaleCentered(mMovieCZoom);
@@ -330,7 +328,7 @@ void movContext::draw ()
     if (m_valid && mImage )
     {
         gl::draw (mImage, m_display_rect);
-        mImage.disable ();
+      //  mImage->disable ();
     }
 
     mMovieParams.draw();
@@ -394,7 +392,7 @@ void clipContext::setup()
     }
     
     
-    mClipParams = params::InterfaceGl (" Clip ", Vec2i( 200, 400) );
+    mClipParams = params::InterfaceGl (" Clip ", vec2( 200, 400) );
     mClipParams.addParam("Column ", &m_column_select, "min=0 max=" + stl_utils::tostr(m_columns)) ;
 
     //        string max = ci::toString( m_movie.getDuration() );

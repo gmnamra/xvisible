@@ -6,6 +6,7 @@
 #include <limits>
 #include "cinder/Surface.h"
 #include "cinder/qtime/QuickTime.h"
+#include "cinder/qtime/QuickTimeUtils.h"
 #include "cinder/Thread.h"
 #include <boost/algorithm/string.hpp>
 #include <boost/thread/mutex.hpp>
@@ -28,7 +29,7 @@ using namespace std;
 class QtimeCache::qtImpl
 {
 public:
-    typedef TimeValue time_count_t;
+    typedef float time_count_t;
     typedef std::vector<time_count_t> toc_t;
     typedef std::shared_ptr<toc_t> toc_t_ref;
 
@@ -51,7 +52,7 @@ public:
             mValid = mMovie != 0 && get_toc();
             if (mValid)
             {
-                mMovie->checkPlayable();
+                mMovie->isPlayable();
                 mMovie->seekToStart ();
                 mMovie->setLoop (false, false);
             }
@@ -101,10 +102,9 @@ public:
         std::lock_guard<std::mutex> lk(mx);
         if (!mMovie) return false;
         mSurface = mMovie->getSurface ();
-        
         if (!mSurface) return false;
         
-        Surface::Iter iter = mSurface.getIter ( mSurface.getBounds() );
+        Surface::Iter iter = mSurface->getIter ( mSurface->getBounds() );
         int rows = 0;
         while (iter.line () )
         {
@@ -140,7 +140,7 @@ public:
     {
         std::call_once (mMovie_loaded_flag, &qtImpl::load_movie, this);
         std::lock_guard<std::mutex> lk(mx);
-        return mMovie->checkPlayable ();
+        return mMovie->isPlayable ();
     }
     
     float getCurrentTime()
@@ -162,7 +162,7 @@ private:
     mutable std::once_flag mMovie_loaded_flag;
     std::string mFqfn;
     ci::qtime::MovieSurfaceRef    mMovie;
-    ci::Surface				mSurface;
+    ci::SurfaceRef				mSurface;
     mutable bool                mValid;
     mutable std::mutex          mx;
     mutable std::mutex          qmx;
@@ -177,19 +177,16 @@ private:
         minfo.mHeight = mMovie->getHeight();
         minfo.mFps = mMovie->getFramerate();
         minfo.mEmbeddedCount = mMovie->getNumFrames ();
-        auto movObj = mMovie->getMovieHandle();
-        minfo.mTscale = ::GetMovieTimeScale( movObj );
-        
-        time_count_t   curMovieTime = 0;
+
+        float curMovieTime = 0.0f;
         m_raw->resize (0);
-        OSType types[] = { VisualMediaCharacteristic };
 
         // there's an extra time step at the end of the movie
         // use frame count to avoid fetching the extra step
         for (uint32 fc = 0; fc < minfo.mEmbeddedCount; fc++)
         {
             m_raw->push_back (curMovieTime);
-            ::GetMovieNextInterestingTime( movObj, nextTimeStep, 1, types, curMovieTime, fixed1, &curMovieTime, NULL );
+            mMovie->seekToFrame (fc);
         }
 
 

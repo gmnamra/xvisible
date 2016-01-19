@@ -5,10 +5,10 @@
 
 #include "cinder/app/App.h"
 #include "cinder/gl/Vbo.h"
-#include "cinder/MayaCamUI.h"
 #include "cinder/gl/gl.h"
 #include "cinder/Rect.h"
-#include "cinder/qtime/Quicktime.h"
+#include "cinder/qtime/QuicktimeGl.h"
+#include "cinder/CameraUi.h"
 #include "cinder/params/Params.h"
 #include "iclip.hpp"
 #include "vf_utils.hpp"
@@ -54,7 +54,7 @@ class uContext
 public:
     uContext (ci::app::WindowRef window) : mWindow (window)
     {
-       mRect = Rectf( Vec2f( -40, -40 ), Vec2f( 40, 40 ) );
+       mRect = Rectf( vec2( -40, -40 ), vec2( 40, 40 ) );
        mRect.offset( window->getCenter() );
        mSelected = false;
     }
@@ -93,8 +93,8 @@ public:
     ci::Rectf		mRect;
     bool			mSelected;
     ci::app::WindowRef				mWindow;
-    ci::signals::scoped_connection	mCbMouseDown, mCbMouseDrag;
-    ci::signals::scoped_connection	mCbMouseMove, mCbMouseUp;
+    ci::signals::ScopedConnection	mCbMouseDown, mCbMouseDrag;
+    ci::signals::ScopedConnection	mCbMouseMove, mCbMouseUp;
 };
 
 
@@ -128,8 +128,13 @@ private:
     Rectf render_box ();
     params::InterfaceGl         mMatParams;
     
-    gl::VboMesh mPointCloud;
-    MayaCamUI mCam;
+    gl::VboMeshRef mPointCloud;
+    gl::BatchRef	mPointsBatch;
+
+    
+    CameraPersp		mCam;
+    CameraUi		mCamUi;
+    
     boost::filesystem::path mPath;
     std::string mName;
 };
@@ -177,10 +182,10 @@ private:
     void seek( size_t xPos );
     void clear_movie_params ();
     Rectf render_box ();
-    Vec2f texture_to_display_zoom ();
+    vec2 texture_to_display_zoom ();
     
-    gl::Texture mImage;
-    ci::qtime::MovieGl m_movie;
+    gl::TextureRef mImage;
+    ci::qtime::MovieGlRef m_movie;
     bool m_movie_valid;
     size_t m_fc;
     std::string mName;
@@ -190,11 +195,11 @@ private:
     float mMovieRate, mPrevMovieRate;
     bool mMoviePlay, mPrevMoviePlay;
     bool mMovieLoop, mPrevMovieLoop;
-    Vec2f m_zoom;
+    vec2 m_zoom;
     Rectf m_display_rect;
     float mMovieCZoom;
     boost::filesystem::path mPath;
-	Vec2i		mMousePos;
+	vec2		mMousePos;
 
     bool mMouseIsDown;
     bool mMouseIsMoving;
