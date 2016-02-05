@@ -7,12 +7,12 @@
 	<key>CFBundleExecutable</key>
 	<string>vf</string>
 	<key>CFBundleIdentifier</key>
-	<string>FMWK</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
 	<string>rfym</string>
 	<key>CFBundleVersion</key>
-	<string>ceeef87</string>
+	<string>ce7498a</string>
 </dict>
 </plist>
