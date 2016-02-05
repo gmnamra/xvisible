@@ -15,6 +15,9 @@
 #include "rc_rect.h"
 #include <vector>
 
+// keep struct packing same as 32 bit version. 
+#pragma pack(4)
+
 //#include "rc_dcam_capture.h>
 
 // Notice: this movie file format is defined to be big-endian.
@@ -555,5 +558,8 @@ ostream& operator << ( ostream& os, const rcMovieFileOrgExt& e );
 ostream& operator << ( ostream& os, const rcMovieFileConvExt& e );
 ostream& operator << ( ostream& os, const rcMovieFileCamExt& e );
 ostream& operator << ( ostream& os, const rcMovieFileExpExt& e );
+
+
+#pragma options align=reset
 
 #endif // _rcMOVIEFILEFORMAT_H_

@@ -11,46 +11,10 @@
 		C209870F196A0C1A005325A2 /* ut_qtime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C209870E196A0C1A005325A2 /* ut_qtime.cpp */; };
 		C20BB3481910577D00884EB2 /* ut_file.hpp in Sources */ = {isa = PBXBuildFile; fileRef = C20BB3471910577D00884EB2 /* ut_file.hpp */; };
 		C20BB351191059BC00884EB2 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C20BB350191059BC00884EB2 /* gtest.framework */; };
-		C261F8D11A59819100D8DFCA /* VisibleApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2173400190B175500A01365 /* VisibleApp.cpp */; };
-		C261F8D31A59889600D8DFCA /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C261F8D21A59889600D8DFCA /* libboost_thread.a */; };
 		C263159A195CC0A800CF71B1 /* qtime_cache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2631598195CC0A800CF71B1 /* qtime_cache.cpp */; };
-		C26D7E681A5810D900951038 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
-		C26D7E691A5810D900951038 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
-		C26D7E6A1A5810D900951038 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
-		C26D7E6B1A5810D900951038 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
-		C26D7E6C1A5810D900951038 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
-		C26D7E6D1A5810D900951038 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
-		C26D7E6E1A5810D900951038 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		C26D7E701A5810EB00951038 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26D7E6F1A5810EB00951038 /* Carbon.framework */; };
-		C26D7E721A58183E00951038 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26D7E711A58183E00951038 /* Accelerate.framework */; };
-		C26D7E741A58184A00951038 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26D7E731A58184A00951038 /* QuickTime.framework */; };
-		C26D7E761A5818D900951038 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C26D7E751A5818D900951038 /* CoreData.framework */; };
-		C26D7E771A58297E00951038 /* libboost_date_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BBC47219AD7A2B001BAA41 /* libboost_date_time.a */; };
-		C26D7E781A58297E00951038 /* libboost_filesystem.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BBC47319AD7A2B001BAA41 /* libboost_filesystem.a */; };
-		C26D7E791A58297E00951038 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C26D7E5E1A58012000951038 /* libboost_system.a */; };
-		C26D7E7B1A58297E00951038 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BBC47419AD7A2B001BAA41 /* libz.a */; };
-		C26D7E7C1A58299600951038 /* libcinder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C26D7E611A580D3900951038 /* libcinder.a */; };
-		C27051D61A54AA3300520830 /* libopencv_legacy.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C901A50FDE600BBB583 /* libopencv_legacy.dylib */; };
-		C27051DB1A54AA3300520830 /* libopencv_features2d.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C861A50FC3900BBB583 /* libopencv_features2d.dylib */; };
-		C27051DC1A54AA3300520830 /* libopencv_flann.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C841A50FB5100BBB583 /* libopencv_flann.dylib */; };
-		C27051DD1A54AA3300520830 /* libopencv_objdetect.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C821A50F8DD00BBB583 /* libopencv_objdetect.dylib */; };
-		C27051DE1A54AA3300520830 /* libopencv_gpu.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C7C1A50F8C800BBB583 /* libopencv_gpu.dylib */; };
-		C27051DF1A54AA3300520830 /* libopencv_highgui.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C7D1A50F8C800BBB583 /* libopencv_highgui.dylib */; };
-		C27051E01A54AA3300520830 /* libopencv_imgproc.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C7E1A50F8C800BBB583 /* libopencv_imgproc.dylib */; };
-		C27051E11A54AA3300520830 /* libopencv_core.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C791A50B79000BBB583 /* libopencv_core.dylib */; };
-		C273D6B31A54577000F61528 /* libopencv_features2d.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C41C861A50FC3900BBB583 /* libopencv_features2d.dylib */; };
-		C273D6B41A54577000F61528 /* libopencv_flann.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C41C841A50FB5100BBB583 /* libopencv_flann.dylib */; };
-		C273D6B51A54577000F61528 /* libopencv_objdetect.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C41C821A50F8DD00BBB583 /* libopencv_objdetect.dylib */; };
-		C273D6B61A54577000F61528 /* libopencv_gpu.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C41C7C1A50F8C800BBB583 /* libopencv_gpu.dylib */; };
-		C273D6B71A54577000F61528 /* libopencv_highgui.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C41C7D1A50F8C800BBB583 /* libopencv_highgui.dylib */; };
-		C273D6B81A54577000F61528 /* libopencv_imgproc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C41C7E1A50F8C800BBB583 /* libopencv_imgproc.dylib */; };
-		C273D6B91A54577000F61528 /* libopencv_core.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C41C791A50B79000BBB583 /* libopencv_core.dylib */; };
-		C273D6BF1A54598400F61528 /* libopencv_legacy.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C41C901A50FDE600BBB583 /* libopencv_legacy.dylib */; };
-		C27522DB1C4DDA5700FB70DB /* InteractiveObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2E0EEB3194245F3003394C7 /* InteractiveObject.cpp */; };
 		C27652531915E97000EA3B55 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		C27652541915E97000EA3B55 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		C27652551915E99100EA3B55 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
-		C283D71819460C6B00AC68BE /* visible_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C283D71719460C6B00AC68BE /* visible_impl.cpp */; };
 		C2A1B0E4199BD60500FF6022 /* roi_window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A1B0E3199BD60500FF6022 /* roi_window.cpp */; };
 		C2A1B0E9199C3CE000FF6022 /* exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A1B0E8199C3CE000FF6022 /* exception.cpp */; };
 		C2A1B0EC199C62AF00FF6022 /* self_similarity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A1B0EB199C62AF00FF6022 /* self_similarity.cpp */; };
@@ -59,50 +23,9 @@
 		C2A1B0F719A427B000FF6022 /* time_spec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A1B0F619A427B000FF6022 /* time_spec.cpp */; };
 		C2BBC46819A5A048001BAA41 /* ut_frame.hpp in Sources */ = {isa = PBXBuildFile; fileRef = C2BBC46719A5A048001BAA41 /* ut_frame.hpp */; };
 		C2BBC46D19ABA9B5001BAA41 /* vf_source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C236E0A319290BCF0035C2F5 /* vf_source.cpp */; };
-		C2CFCC4D1A55E2EC0024D805 /* libopencv_calib3d.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C41C881A50FCCB00BBB583 /* libopencv_calib3d.dylib */; };
-		C2CFCC501A55E3680024D805 /* libopencv_ml.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C41C8A1A50FD2F00BBB583 /* libopencv_ml.dylib */; };
-		C2CFCC511A55E37A0024D805 /* libopencv_video.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C41C8C1A50FDCB00BBB583 /* libopencv_video.dylib */; };
-		C2CFCC541A55E4020024D805 /* libopencv_calib3d.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C881A50FCCB00BBB583 /* libopencv_calib3d.dylib */; };
-		C2CFCC551A55E4060024D805 /* libopencv_ml.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C8A1A50FD2F00BBB583 /* libopencv_ml.dylib */; };
-		C2CFCC561A55E40A0024D805 /* libopencv_video.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C8C1A50FDCB00BBB583 /* libopencv_video.dylib */; };
-		C2CFCC571A55E42B0024D805 /* libopencv_photo.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C2C41C8E1A50FDD700BBB583 /* libopencv_photo.dylib */; };
-		C2CFCC581A55E4300024D805 /* libopencv_photo.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2C41C8E1A50FDD700BBB583 /* libopencv_photo.dylib */; };
 		C2D713EB19171AFC009C503B /* assets in Resources */ = {isa = PBXBuildFile; fileRef = C2D713EA19171AFC009C503B /* assets */; };
-		C2D713EE19171B49009C503B /* Resources.h in Resources */ = {isa = PBXBuildFile; fileRef = C2D713EC19171B49009C503B /* Resources.h */; };
-		C2D713EF19171B49009C503B /* data.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2D713ED19171B49009C503B /* data.txt */; };
-		C2E337BA1A475ED700A51015 /* time_spec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2A1B0F619A427B000FF6022 /* time_spec.cpp */; };
-		C2E337BB1A475F5A00A51015 /* vfi386.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2A2BE98193055F9003337D7 /* vfi386.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		C2F100A019745B860070BB7B /* cached_frame_buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F1009F19745B860070BB7B /* cached_frame_buffer.cpp */; };
 		C2F100A2197471A90070BB7B /* cached_frame_buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2F1009F19745B860070BB7B /* cached_frame_buffer.cpp */; };
-		C2F100A3197473D10070BB7B /* qtime_cache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2631598195CC0A800CF71B1 /* qtime_cache.cpp */; };
-		C2F86B0119AE7BCE00FA7D3A /* libboost_thread.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F86B0019AE7BCE00FA7D3A /* libboost_thread.a */; };
-		C2FB26FC1921C943003A48B7 /* cv_debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C2FB26FB1921C943003A48B7 /* cv_debug.xcconfig */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		C2A2BE9A19305642003337D7 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				C2CFCC581A55E4300024D805 /* libopencv_photo.dylib in CopyFiles */,
-				C2CFCC561A55E40A0024D805 /* libopencv_video.dylib in CopyFiles */,
-				C2CFCC551A55E4060024D805 /* libopencv_ml.dylib in CopyFiles */,
-				C2CFCC541A55E4020024D805 /* libopencv_calib3d.dylib in CopyFiles */,
-				C27051D61A54AA3300520830 /* libopencv_legacy.dylib in CopyFiles */,
-				C27051DB1A54AA3300520830 /* libopencv_features2d.dylib in CopyFiles */,
-				C27051DC1A54AA3300520830 /* libopencv_flann.dylib in CopyFiles */,
-				C27051DD1A54AA3300520830 /* libopencv_objdetect.dylib in CopyFiles */,
-				C27051DE1A54AA3300520830 /* libopencv_gpu.dylib in CopyFiles */,
-				C27051DF1A54AA3300520830 /* libopencv_highgui.dylib in CopyFiles */,
-				C27051E01A54AA3300520830 /* libopencv_imgproc.dylib in CopyFiles */,
-				C27051E11A54AA3300520830 /* libopencv_core.dylib in CopyFiles */,
-				C2E337BB1A475F5A00A51015 /* vfi386.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0091D8F80E81B9330029341E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
@@ -115,7 +38,6 @@
 		459C1BCAC77D495892F10286 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
-		8D1107320486CEB800E47090 /* XcVisible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XcVisible.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C20986A0195D159E005325A2 /* vf_cinder_audio2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = vf_cinder_audio2.hpp; path = ../../include/cvisible/vf_cinder_audio2.hpp; sourceTree = "<group>"; };
 		C20986A9196357CB005325A2 /* gutc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gutc.cpp; path = ../../test/vf_cvisible/gutc.cpp; sourceTree = "<group>"; };
 		C209870E196A0C1A005325A2 /* ut_qtime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ut_qtime.cpp; path = ../test/src/ut_qtime.cpp; sourceTree = "<group>"; };
@@ -215,47 +137,10 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8D11072E0486CEB800E47090 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C261F8D31A59889600D8DFCA /* libboost_thread.a in Frameworks */,
-				C26D7E7C1A58299600951038 /* libcinder.a in Frameworks */,
-				C26D7E771A58297E00951038 /* libboost_date_time.a in Frameworks */,
-				C26D7E781A58297E00951038 /* libboost_filesystem.a in Frameworks */,
-				C26D7E791A58297E00951038 /* libboost_system.a in Frameworks */,
-				C26D7E7B1A58297E00951038 /* libz.a in Frameworks */,
-				C26D7E761A5818D900951038 /* CoreData.framework in Frameworks */,
-				C26D7E741A58184A00951038 /* QuickTime.framework in Frameworks */,
-				C26D7E721A58183E00951038 /* Accelerate.framework in Frameworks */,
-				C26D7E701A5810EB00951038 /* Carbon.framework in Frameworks */,
-				C26D7E681A5810D900951038 /* AudioToolbox.framework in Frameworks */,
-				C26D7E691A5810D900951038 /* AudioUnit.framework in Frameworks */,
-				C26D7E6A1A5810D900951038 /* CoreAudio.framework in Frameworks */,
-				C26D7E6B1A5810D900951038 /* QTKit.framework in Frameworks */,
-				C26D7E6C1A5810D900951038 /* CoreVideo.framework in Frameworks */,
-				C26D7E6D1A5810D900951038 /* OpenGL.framework in Frameworks */,
-				C26D7E6E1A5810D900951038 /* Cocoa.framework in Frameworks */,
-				C2CFCC571A55E42B0024D805 /* libopencv_photo.dylib in Frameworks */,
-				C2CFCC511A55E37A0024D805 /* libopencv_video.dylib in Frameworks */,
-				C2CFCC501A55E3680024D805 /* libopencv_ml.dylib in Frameworks */,
-				C2CFCC4D1A55E2EC0024D805 /* libopencv_calib3d.dylib in Frameworks */,
-				C273D6BF1A54598400F61528 /* libopencv_legacy.dylib in Frameworks */,
-				C273D6B31A54577000F61528 /* libopencv_features2d.dylib in Frameworks */,
-				C273D6B41A54577000F61528 /* libopencv_flann.dylib in Frameworks */,
-				C273D6B51A54577000F61528 /* libopencv_objdetect.dylib in Frameworks */,
-				C273D6B61A54577000F61528 /* libopencv_gpu.dylib in Frameworks */,
-				C273D6B71A54577000F61528 /* libopencv_highgui.dylib in Frameworks */,
-				C273D6B81A54577000F61528 /* libopencv_imgproc.dylib in Frameworks */,
-				C273D6B91A54577000F61528 /* libopencv_core.dylib in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C20BB33B1910569C00884EB2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2F86B0119AE7BCE00FA7D3A /* libboost_thread.a in Frameworks */,
 				C27652551915E99100EA3B55 /* CoreAudio.framework in Frameworks */,
 				C27652531915E97000EA3B55 /* AudioToolbox.framework in Frameworks */,
 				C27652541915E97000EA3B55 /* AudioUnit.framework in Frameworks */,
@@ -309,7 +194,6 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* XcVisible.app */,
 				C20BB33E1910569C00884EB2 /* gutc */,
 			);
 			name = Products;
@@ -441,26 +325,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1107260486CEB800E47090 /* XcVisible */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "XcVisible" */;
-			buildPhases = (
-				8D1107290486CEB800E47090 /* Resources */,
-				8D11072C0486CEB800E47090 /* Sources */,
-				8D11072E0486CEB800E47090 /* Frameworks */,
-				C2A2BE9A19305642003337D7 /* CopyFiles */,
-				C273D6BE1A54589900F61528 /* fix install names */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = XcVisible;
-			productInstallPath = "$(HOME)/Applications";
-			productName = SamplePlayerTest;
-			productReference = 8D1107320486CEB800E47090 /* XcVisible.app */;
-			productType = "com.apple.product-type.application";
-		};
 		C20BB33D1910569C00884EB2 /* gutc */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C20BB3441910569C00884EB2 /* Build configuration list for PBXNativeTarget "gutc" */;
@@ -500,23 +364,12 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* XcVisible */,
 				C20BB33D1910569C00884EB2 /* gutc */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8D1107290486CEB800E47090 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C2D713EE19171B49009C503B /* Resources.h in Resources */,
-				C2D713EF19171B49009C503B /* data.txt in Resources */,
-				C2FB26FC1921C943003A48B7 /* cv_debug.xcconfig in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C2D713E719171AD8009C503B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -527,37 +380,7 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		C273D6BE1A54589900F61528 /* fix install names */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "fix install names";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "$BUILD_SCRIPTS_DIR/xvisible_install_fix.sh\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		8D11072C0486CEB800E47090 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C2F100A3197473D10070BB7B /* qtime_cache.cpp in Sources */,
-				C283D71819460C6B00AC68BE /* visible_impl.cpp in Sources */,
-				C261F8D11A59819100D8DFCA /* VisibleApp.cpp in Sources */,
-				C27522DB1C4DDA5700FB70DB /* InteractiveObject.cpp in Sources */,
-				C2E337BA1A475ED700A51015 /* time_spec.cpp in Sources */,
-				C2F100A019745B860070BB7B /* cached_frame_buffer.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C20BB33A1910569C00884EB2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -581,92 +404,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		C01FCF4B08A954540054247B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2FB26FB1921C943003A48B7 /* cv_debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(BUILD_DIR)/Frameworks",
-					"$(PROJECT_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = CVisible_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = "";
-				GCC_VERSION = "";
-				HEADER_SEARCH_PATHS = (
-					"$(CINDER_PATH)/include",
-					"$(BOOST_PATH)",
-					"$(OPENCV_PATH)/include",
-					"$(GTEST_PATH)/include",
-					"$(SRCROOT)/include/cvisible",
-					"$(TEST_DIR)/include",
-					"$(RESOURCE_DIR)",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(CINDER_PATH)/lib/macosx",
-					"$(CINDER_PATH)/lib",
-					"$(OPENCV_PATH)/lib/Release",
-					/Users/arman/Documents/xvisible/usr/local/boost/lib,
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				OPENCV_PATH = "$(USR_LOCAL)/OpenCv_2.4_i386";
-				OTHER_LDFLAGS = "-lcinder_d";
-				PRODUCT_NAME = XcVisible;
-				SDKROOT = macosx;
-				VALID_ARCHS = "i386 x86_64";
-				WARNING_CFLAGS = "";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		C01FCF4C08A954540054247B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2765232191568C400EA3B55 /* cv_release.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(BUILD_DIR)/Frameworks",
-					"$(PROJECT_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = CVisible_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = "";
-				GCC_VERSION = "";
-				HEADER_SEARCH_PATHS = (
-					"$(CINDER_PATH)/include",
-					"$(BOOST_PATH)",
-					"$(OPENCV_PATH)/include",
-					"$(GTEST_PATH)/include",
-					"$(SRCROOT)/include/cvisible",
-					"$(TEST_DIR)/include",
-					"$(RESOURCE_DIR)",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(CINDER_PATH)/lib/macosx",
-					"$(CINDER_PATH)/lib",
-					"$(OPENCV_PATH)/lib/Release",
-					/Users/arman/Documents/xvisible/usr/local/boost/lib,
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				OPENCV_PATH = "$(USR_LOCAL)/OpenCv_2.4_i386";
-				OTHER_LDFLAGS = "-lcinder";
-				PRODUCT_NAME = XcVisible;
-				SDKROOT = macosx;
-				VALID_ARCHS = "i386 x86_64";
-				WARNING_CFLAGS = "";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACH_O_TYPE = mh_execute;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OBJROOT = "$(SYMROOT)/Intermediates";
 				SDKROOT = macosx;
 				VF_NAME = vfi386_d;
@@ -678,6 +421,7 @@
 			buildSettings = {
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACH_O_TYPE = mh_execute;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OBJROOT = "$(SYMROOT)/Intermediates";
 				SDKROOT = macosx;
 				VF_NAME = vfi386;
@@ -783,15 +527,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "XcVisible" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C01FCF4B08A954540054247B /* Debug */,
-				C01FCF4C08A954540054247B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "XcVisible" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

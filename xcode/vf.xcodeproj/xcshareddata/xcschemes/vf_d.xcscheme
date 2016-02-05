@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C2A39C160F339AD100845D59"
-               BuildableName = "Doxygen"
-               BlueprintName = "Doxygen"
+               BlueprintIdentifier = "8D07F2BC0486CC7A007CD1D0"
+               BuildableName = "vfi386.framework"
+               BlueprintName = "vf"
                ReferencedContainer = "container:vf.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C2A39C160F339AD100845D59"
-            BuildableName = "Doxygen"
-            BlueprintName = "Doxygen"
+            BlueprintIdentifier = "8D07F2BC0486CC7A007CD1D0"
+            BuildableName = "vfi386.framework"
+            BlueprintName = "vf"
             ReferencedContainer = "container:vf.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,6 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "8D07F2BC0486CC7A007CD1D0"
+            BuildableName = "vfi386.framework"
+            BlueprintName = "vf"
+            ReferencedContainer = "container:vf.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

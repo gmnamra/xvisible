@@ -65,8 +65,7 @@ ALWAYS_SEARCH_USER_PATHS = NO
 // Turn on position dependent code for most cases (overridden where appropriate)
 GCC_DYNAMIC_NO_PIC = NO
 
-// Minimum OS version is 10.7
-MACOSX_DEPLOYMENT_TARGET = 10.8
+MACOSX_DEPLOYMENT_TARGET = 10.10
 
 CINDER_VERSION_PATH = cinder_0.9
 CINDER_PATH = $(USR_LOCAL)/Cinder/$(CINDER_VERSION_PATH)
@@ -83,9 +82,6 @@ WARNING_CFLAGS = -Wall -Wendif-labels -Wnewline-eof
 // http://lists.apple.com/archives/Xcode-users/2006/Feb/msg00050.html
 //SEPARATE_STRIP = YES
 
-
-// Minimum OS version is 10.7
-MACOSX_DEPLOYMENT_TARGET = 10.8
 OTHER_LDFLAGS = -lcinder_d 
 
 LIBRARY_SEARCH_PATHS = $(GTEST_PATH)/build/Release $(OPENCV_PATH)/lib $(CINDER_PATH)/lib/macosx

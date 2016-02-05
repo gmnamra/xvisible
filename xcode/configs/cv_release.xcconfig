@@ -78,10 +78,6 @@ WARNING_CFLAGS = -Wall -Wendif-labels -Wnewline-eof
 SEPARATE_STRIP = YES
 
 
-// Minimum OS version is 10.7
-MACOSX_DEPLOYMENT_TARGET = 10.8
-
-
 OTHER_LDFLAGS = -lcinder
 
 LIBRARY_SEARCH_PATHS =  $(GTEST_PATH)/build/Release $(OPENCV_PATH)/lib $(CINDER_PATH)/lib/macosx
