@@ -328,7 +328,7 @@ void rcThread::run( void )
 int rcThread::join(bool seppuku)
 {
     int ret = 0;
-    int retVal;
+    intptr_t retVal;
     if (_threadId) {
       if (seppuku)
 	_runnable->requestSeppuku();
