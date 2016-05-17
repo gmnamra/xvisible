@@ -7,7 +7,8 @@
 //
 
 #include <iostream>
-#include "membufCache.hpp"
+#include "core/membufCache.hpp"
+#include "core/FrameBufferManager.hpp"
 
 int main(int argc, const char * argv[])
 {
